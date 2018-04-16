@@ -1,16 +1,12 @@
 
-    // import * as ninjas from './de/mayflower/ninjas/ninjas';
-
-    import * as BABYLON from 'babylonjs';
+    import * as bz from './de/mayflower/bz';
 
     /*******************************************************************************************************************
     *   Being invoked when the page is loaded completely.
     *******************************************************************************************************************/
     window.onload = function()
     {
-        alert( "Test" );
-        
-        let s:BABYLON.AnaglyphFreeCamera;
+        bz.Mfg.main();
     };
 
     /*******************************************************************************************************************
