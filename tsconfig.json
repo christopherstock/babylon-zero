@@ -10,8 +10,16 @@
         "strictNullChecks":     false,          /* Enable strict null checks. */
         "downlevelIteration":   true,           /* Required for 'for of' loops. */
         "jsx":                  "react",        /* Detect jsx files as React View Components. */
-        "typeRoots": [                          /* List of folders to include type definitions from. */
+        "typeRoots": [
+                          /* List of folders to include type definitions from. */
+/*
             "node_modules/@types"
+*/
+        ],
+        "types":[
+/*
+            "babylonjs"
+*/
         ]
     },
 
