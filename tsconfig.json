@@ -1,21 +1,21 @@
 {
     "compilerOptions": {
-        "target":               "es5",          /* Specify ECMAScript target version: 'ES3', 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
-        "module":               "commonjs",     /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
-        "outDir":               "./bin/",       /* Redirect output structure to the directory. */
+        "target":               "es5",          /* ECMAScript target version: 'ES3', 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+        "module":               "commonjs",     /* Module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
+        "outDir":               "./bin/",       /* Output directory for transpiled JS files. */
         "declaration":          true,           /* Generate corresponding '.d.ts' files. */
         "sourceMap":            true,           /* Generate corresponding '.map' files. */
         "strict":               true,           /* Enable all strict type-checking options. */
-        "noImplicitAny":        false,          /* Raise error on expressions and declarations with an implied 'any' type. */
+        "noImplicitAny":        false,          /* Raise errors on expressions and declarations with an implied 'any' type. */
         "strictNullChecks":     false,          /* Enable strict null checks. */
-        "downlevelIteration":   true,           /* Used for for of loops. */
+        "downlevelIteration":   true,           /* Required for 'for of' loops. */
         "jsx":                  "react",        /* Detect jsx files as React View Components. */
-        "typeRoots": [
+        "typeRoots": [                          /* List of folders to include type definitions from. */
             "node_modules/@types"
-        ]                                       /* List of folders to include type definitions from. */
+        ]
     },
 
-    "include": [
+    "include": [                                /* TypeScript sources to include. */
         "src/**/*"
     ]
 }

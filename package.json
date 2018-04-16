@@ -10,28 +10,18 @@
     "bugs": "https://github.com/christopherstock/babylon-zero/issues",
     "scripts": {
         "start": "npm run build:dev",
-
         "build:dev": "webpack --watch",
         "build:production": "webpack --optimize-minimize --watch",
-
         "generate:typedoc": "typedoc --out doc\\ --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src"
     },
     "devDependencies": {
-        "@types/fpsmeter": "^0.3.29",
-        "@types/moment": "^2.13.0",
-        "@types/webpack": "^3.8.3",
-        "awesome-typescript-loader": "^3.4.1",
-        "css-loader": "^0.28.9",
-        "fpsmeter": "^0.3.1",
-        "less": "2.7.2",
-        "less-loader": "^4.0.5",
-        "source-map-loader": "^0.2.3",
-        "style-loader": "^0.19.1",
-        "typedoc": "^0.9.0",
-        "typescript": "^2.6.2",
-        "webpack": "^3.10.0"
+        "@types/webpack": "^3.8.11",
+        "awesome-typescript-loader": "^3.5.0",
+        "typedoc": "^0.11.1",
+        "typescript": "^2.8.1",
+        "webpack": "^4.5.0"
     },
     "dependencies": {
-        "moment": "^2.20.1"
+        "moment": "^2.22.1"
     }
 }
