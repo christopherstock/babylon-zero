@@ -1,10 +1,13 @@
 
-    export * from './base/Mfg';
+    export * from './util/LibDebug';
+    export * from './util/LibVersion';
+
     export * from './base/MfgDebug';
-    export * from './base/MfgInit';
+    export * from './base/MfgVersion';
     export * from './base/MfgSettings';
     export * from './base/MfgSettingsDebug';
-    export * from './base/MfgVersion';
+    export * from './base/MfgInit';
+    export * from './base/Mfg';
 
     export * from './g3d/MfgMaterial';
     export * from './g3d/MfgScene';
@@ -28,6 +31,3 @@
     export * from './ui/MfgUI';
 
     export * from './ui/MfgUI';
-
-    export * from './util/LibDebug';
-    export * from './util/LibVersion';

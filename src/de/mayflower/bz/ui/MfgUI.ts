@@ -1,6 +1,4 @@
 
-    import * as bz from '..';
-
     /*****************************************************************************
     *   Offers general ui functionality.
     *
@@ -10,8 +8,8 @@
     export class MfgUI
     {
         /** The RGB statement representing the color 'dark grey'. */
-        public      static  COLOR_DARK_GREY                         :BABYLON.Color3    = new BABYLON.Color3( 0.33, 0.33, 0.33 );
+        public      static  COLOR_DARK_GREY                         :BABYLON.Color4    = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
 
         /** The RGB statement representing the color 'mayflower orange'. */
-        public      static  COLOR_ORANGE_MAYFLOWER                  :BABYLON.Color3    = new BABYLON.Color3( 0.92, 0.45, 0.01 );
+        public      static  COLOR_ORANGE_MAYFLOWER                  :BABYLON.Color4    = new BABYLON.Color4( 0.92, 0.45, 0.01, 1.0 );
     }

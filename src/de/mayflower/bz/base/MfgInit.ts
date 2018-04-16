@@ -32,11 +32,14 @@
         {
             bz.MfgDebug.init.log( "Acclaiming and setting title." );
 
-            //acclaim debug console
-            bz.MfgDebug.acclaim.log( bz.MfgSettings.TITLE );
-
-            //set document title
+            //acclaim and set document title
+            bz.MfgDebug.major.log( bz.MfgSettings.TITLE );
             document.title = bz.MfgSettings.TITLE;
+
+
+
+
+if ( 1 == 1 ) return;
 
             //reference canvas element and fps counter div
             MfgInit.canvas = <HTMLCanvasElement>document.getElementById( "renderCanvas" );

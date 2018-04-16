@@ -1,5 +1,6 @@
 
     import * as bz from '..';
+    import {MfgDebugSettings} from "..";
 
     /*****************************************************************************
     *   Represents a debug group whose logging can be enabled or disabled.
@@ -30,7 +31,7 @@
         *****************************************************************************/
         public log( msg:string ):void
         {
-            if ( this.debugEnabled )
+            if ( MfgDebugSettings.DEBUG_MODE && this.debugEnabled )
             {
                 console.log( '[' + bz.MfgStringFormat.getDateTimeString() + '] ' + msg );
             }

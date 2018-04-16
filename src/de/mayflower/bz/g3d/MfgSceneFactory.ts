@@ -29,11 +29,16 @@
             var box:BABYLON.Mesh = BABYLON.Mesh.CreateBox
             (
                 id,
+                width,
+
+                // TODO different side sizes
+/*
                 {
                     width:  width,
                     height: height,
                     depth:  depth,
                 },
+*/
                 scene
             );
 
@@ -88,15 +93,22 @@
             ground.receiveShadows   = true;
 
             ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
-            ground.setPhysicsState
-            (
-                BABYLON.PhysicsEngine.BoxImpostor,
-                {
-                    mass:        0,
-                    friction:    0.5,
-                    restitution: 0.7
-                }
-            );
+
+            if ( false )
+            {
+                // TODO physics link
+/*
+                ground.setPhysicsLinkWith
+                (
+                    BABYLON.PhysicsEngine.BoxImpostor,
+                    {
+                        mass:        0,
+                        friction:    0.5,
+                        restitution: 0.7
+                    }
+                );
+*/
+            }
 
             return ground;
         }

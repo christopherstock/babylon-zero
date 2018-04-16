@@ -9,9 +9,6 @@
     *****************************************************************************/
     export class MfgSettings
     {
-        /** Determines the app's operation mode. */
-        public      static      MODE                                        :number             = bz.MfgDebugSettings.MODE_DEBUG;
-
         /** The application's internal name. */
         public      static      TITLE                                       :string             = "Babylon.js primer, (c) 2016 Mayflower GmbH, v. [" + bz.MfgVersion.CURRENT_VERSION.getVersionDescriptor() + "]";
 

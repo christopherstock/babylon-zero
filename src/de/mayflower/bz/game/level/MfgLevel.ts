@@ -9,7 +9,7 @@
     *****************************************************************************/
     export class MfgLevel
     {
-        constructor( cameraStartup:BABYLON.Vector3, cameraTarget:BABYLON.Vector3, clearColor:BABYLON.Color3 )
+        constructor( cameraStartup:BABYLON.Vector3, cameraTarget:BABYLON.Vector3, clearColor:BABYLON.Color4 )
         {
             bz.MfgCamera.init( cameraStartup, cameraTarget );
 

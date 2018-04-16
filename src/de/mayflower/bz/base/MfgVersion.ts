@@ -13,5 +13,5 @@
         private     static      V_0_0_1                 :bz.LibVersion          = new bz.LibVersion( "0.0.1", "BASE",  "12.02.2016 00:07:34",      "" );
 
         /** The project's current version. */
-        public      static      CURRENT_VERSION         :bz.LibVersion          = bz.MfgVersion.V_0_0_1;
+        public      static      CURRENT_VERSION         :bz.LibVersion          = MfgVersion.V_0_0_1;
     }

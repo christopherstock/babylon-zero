@@ -125,8 +125,10 @@
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
 
+                // TODO fix physics
+/*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
-
+*/
                 y += 4;
             }
 
@@ -141,7 +143,10 @@
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
 
+                // TODO fix physics
+/*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
+*/
             }
 
             for (index = 0; index < 10; index++)
@@ -162,7 +167,10 @@
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
+            // TODO fix physics
+/*
             box0.setPhysicsState(   BABYLON.PhysicsEngine.BoxImpostor, { mass: 2, friction: 0.4, restitution: 0.3 } );
+*/
         }
 
         /*****************************************************************************
@@ -183,6 +191,8 @@
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
 
+                // TODO fix physics
+/*
             bz.MfgScene.scene.createCompoundImpostor(
                 [
                     { mesh: part0, impostor: BABYLON.PhysicsEngine.BoxImpostor },
@@ -192,6 +202,7 @@
                     mass: 2, friction: 0.4, restitution: 0.3
                 }
             );
+*/
         }
 
         /*****************************************************************************
@@ -209,9 +220,11 @@
             glassPane2.scaling          = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
             glassPane2.checkCollisions  = true;
 
+                // TODO fix physics
+/*
             glassPane1.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
             glassPane2.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
-
+*/
             glassPane1.material = bz.MfgMaterial.materialGlass;
             glassPane2.material = bz.MfgMaterial.materialGlass;
 
@@ -285,6 +298,14 @@
         *****************************************************************************/
         private importMesh()
         {
+            if ( true )
+            {
+                bz.MfgInit.onInitCompleted();
+                return;
+            }
+
+            // TODO fix import!
+/*
             // The first parameter can be used to specify which mesh to import. Here we import all meshes
             BABYLON.SceneLoader.ImportMesh
             (
@@ -292,7 +313,7 @@
                 bz.MfgSettings.PATH_3DS,
                 "rabbit.babylon",
                 bz.MfgScene.scene,
-                function (newMeshes:Array<BABYLON.Mesh>)
+                function( newMeshes:Array<BABYLON.Mesh> )
                 {
                     var rabbit:BABYLON.Mesh = newMeshes[ 0 ];
 
@@ -306,5 +327,6 @@
                     bz.MfgInit.onInitCompleted();
                 }
             );
+*/
         }
     }
