@@ -15,9 +15,14 @@
         "generate:typedoc": "typedoc --out doc\\ --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src"
     },
     "devDependencies": {
+        "@types/node": "^9.6.5",
         "@types/webpack": "^4.1.3",
         "awesome-typescript-loader": "^5.0.0-1",
+        "css-loader": "^0.28.11",
+        "less": "^3.0.1",
+        "less-loader": "^4.1.0",
         "source-map-loader": "^0.2.3",
+        "style-loader": "^0.20.3",
         "typedoc": "^0.11.1",
         "typescript": "^2.8.1",
         "webpack": "^4.5.0",

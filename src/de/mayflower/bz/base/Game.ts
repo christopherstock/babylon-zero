@@ -25,10 +25,6 @@
         *****************************************************************************/
         public static init()
         {
-
-
-
-
             bz.Debug.init.log( "Creating game canvas" );
             Game.canvas = new bz.CanvasSystem();
             Game.canvas.updateDimensions();
@@ -36,9 +32,6 @@
             //init Babylon.js engine
             bz.Debug.init.log( "Initializing the BABYLON engine." );
             Game.engine = new BABYLON.Engine( Game.canvas.getCanvas(), true );
-
-
-
 
             //add resize event listener
             window.addEventListener(
@@ -63,15 +56,9 @@
             bz.Debug.init.log( "Init the sprite manager" );
             bz.MfgSprite.init();
 
-
-
-
             //setup physics
             bz.Debug.init.log( "Setup all physics" );
             bz.MfgScene.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
-
-
-
 
             //setup the level
             bz.Debug.init.log( "Setup the level" );
