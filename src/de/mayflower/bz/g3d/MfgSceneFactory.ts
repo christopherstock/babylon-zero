@@ -51,20 +51,23 @@
             box.receiveShadows  = false;
 
 
-            // TODO physics link
 
-            //ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
-/*
-            ground.setPhysicsState
-            (
-                BABYLON.PhysicsEngine.BoxImpostor,
+
+
+            box.physicsImpostor = new BABYLON.PhysicsImpostor(
+                box,
+                BABYLON.PhysicsImpostor.BoxImpostor,
                 {
                     mass:        0,
                     friction:    0.5,
                     restitution: 0.7
-                }
+                },
+                scene
             );
-*/
+
+            // TODO rotate ?
+            // ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
+
             return box;
         }
 
@@ -93,21 +96,21 @@
 
             ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
 
-            if ( false )
-            {
-                // TODO physics link
-/*
-                ground.setPhysicsLinkWith
-                (
-                    BABYLON.PhysicsEngine.BoxImpostor,
-                    {
-                        mass:        0,
-                        friction:    0.5,
-                        restitution: 0.7
-                    }
-                );
-*/
-            }
+
+
+
+
+            ground.physicsImpostor = new BABYLON.PhysicsImpostor(
+                ground,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                {
+                    mass:        0,
+                    friction:    0.5,
+                    restitution: 0.7
+                },
+                scene
+            );
+
 
             return ground;
         }

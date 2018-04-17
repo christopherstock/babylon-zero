@@ -6,6 +6,7 @@
     *
     *   TODO ASAP   Fix physics!
     *   TODO ASAP   Move primal ninja classes!
+    *   TODO ASAP   Copy structure from ninjas project.
     *   TODO ASAP   Enable fullscreen.
     *   TODO ASAP   Create single game instance and engine class/instance.
     *   TODO ASAP   Unify docblocks!

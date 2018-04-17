@@ -31,10 +31,7 @@
 
             bz.Debug.init.log( "Creating game canvas" );
             Game.canvas = new bz.CanvasSystem();
-
-
-
-
+            Game.canvas.updateDimensions();
 
             //init Babylon.js engine
             bz.Debug.init.log( "Initializing the BABYLON engine." );

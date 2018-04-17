@@ -125,7 +125,19 @@
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
 
-                // TODO fix physics
+
+
+
+                sphere.physicsImpostor = new BABYLON.PhysicsImpostor(
+                    sphere,
+                    BABYLON.PhysicsImpostor.SphereImpostor,
+                    {
+                        mass:        1.0,
+                        friction:    0.0,
+                        restitution: 0.0
+                    },
+                    bz.MfgScene.scene
+                );
 /*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
 */
@@ -143,16 +155,28 @@
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
 
-                // TODO fix physics
+
+
+                sphere.physicsImpostor = new BABYLON.PhysicsImpostor(
+                    sphere,
+                    BABYLON.PhysicsImpostor.SphereImpostor,
+                    {
+                        mass:        1.0,
+                        friction:    0.0,
+                        restitution: 0.0
+                    },
+                    bz.MfgScene.scene
+                );
 /*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
 */
             }
-
+/*
             for (index = 0; index < 10; index++)
             {
                 spheres[index].setPhysicsLinkWith(spheres[index + 1], new BABYLON.Vector3(0, 0.5, 0), new BABYLON.Vector3(0, -0.5, 0));
             }
+*/
         }
 
         /*****************************************************************************
@@ -167,7 +191,19 @@
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
-            // TODO fix physics
+
+
+
+            box0.physicsImpostor = new BABYLON.PhysicsImpostor(
+                box0,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                {
+                    mass:        2.0,
+                    friction:    0.4,
+                    restitution: 0.3
+                },
+                bz.MfgScene.scene
+            );
 /*
             box0.setPhysicsState(   BABYLON.PhysicsEngine.BoxImpostor, { mass: 2, friction: 0.4, restitution: 0.3 } );
 */
@@ -220,7 +256,30 @@
             glassPane2.scaling          = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
             glassPane2.checkCollisions  = true;
 
-                // TODO fix physics
+
+            glassPane1.physicsImpostor = new BABYLON.PhysicsImpostor(
+                glassPane1,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                {
+                    mass:        2.0,
+                    friction:    0.4,
+                    restitution: 0.3
+                },
+                bz.MfgScene.scene
+            );
+
+            glassPane2.physicsImpostor = new BABYLON.PhysicsImpostor(
+                glassPane2,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                {
+                    mass:        2.0,
+                    friction:    0.4,
+                    restitution: 0.3
+                },
+                bz.MfgScene.scene
+            );
+
+
 /*
             glassPane1.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
             glassPane2.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
@@ -304,7 +363,7 @@
                 return;
             }
 
-            // TODO fix import!
+            // TODO fix importer!
 /*
             // The first parameter can be used to specify which mesh to import. Here we import all meshes
             BABYLON.SceneLoader.ImportMesh
