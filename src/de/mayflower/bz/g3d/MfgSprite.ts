@@ -16,6 +16,6 @@
         *****************************************************************************/
         public static init()
         {
-            MfgSprite.spriteManager = new BABYLON.SpriteManager( "treesManager", bz.MfgSettings.PATH_IMAGE_TEXTURE + "tree.png", 100, 357, bz.MfgScene.scene );
+            MfgSprite.spriteManager = new BABYLON.SpriteManager( "treesManager", bz.SettingEngine.PATH_IMAGE_TEXTURE + "tree.png", 100, 357, bz.MfgScene.scene );
         }
     }

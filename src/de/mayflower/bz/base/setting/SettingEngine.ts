@@ -1,21 +1,26 @@
 
-    import * as bz from '..';
+    import * as bz from '../..';
 
     /*****************************************************************************
-    *   Specifies all adjustments and balancings for the application.
+    *   Specifies all settings for the engine.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgSettings
+    export class SettingEngine
     {
         /** The application's internal name. */
-        public      static      TITLE                                       :string             = "Babylon.js primer, (c) 2016 Mayflower GmbH, v. [" + bz.MfgVersion.CURRENT_VERSION.getVersionDescriptor() + "]";
+        public  static  readonly    TITLE                                   :string             = "Babylon.js primer, (c) 2016 Mayflower GmbH, v. [" + bz.Version.CURRENT_VERSION.getVersionDescriptor() + "]";
+
+        /** The minimum canvas2D width. */
+        public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;
+        /** The minimum canvas2D height. */
+        public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
         /** The desired canvas3D width. */
-        public      static      CANVAS_WIDTH                                :number             = 800;
+//      public      static      CANVAS_WIDTH                                :number             = 800;
         /** The desired canvas3D height. */
-        public      static      CANVAS_HEIGHT                               :number             = 600;
+//      public      static      CANVAS_HEIGHT                               :number             = 600;
 
         /** The scene's gravity. */
         public      static      GRAVITY                                     :number             = 0.0;      //-0.01;
@@ -31,13 +36,6 @@
         public      static      PLAYER_SIZE_XZ                              :number             = 1.0;
         /** The player's y dimension (height). */
         public      static      PLAYER_SIZE_Y                               :number             = 2.0;
-
-
-
-
-
-
-
 
         /** The player's speed in world coordinate per tick. */
         public      static      PLAYER_SPEED_MOVE                           :number             = 10;

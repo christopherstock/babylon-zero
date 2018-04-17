@@ -1,18 +1,19 @@
 
-    export * from './util/LibDebug';
-    export * from './util/LibVersion';
+    export * from './base/Debug';
+    export * from './base/Version';
+    export * from './base/Game';
+    export * from './base/Main';
 
-    export * from './base/MfgDebug';
-    export * from './base/MfgVersion';
-    export * from './base/MfgSettings';
-    export * from './base/MfgSettingsDebug';
-    export * from './base/MfgInit';
-    export * from './base/Mfg';
+    export * from './base/setting/SettingDebug';
+    export * from './base/setting/SettingEngine';
+    export * from './base/setting/SettingGame';
 
     export * from './g3d/MfgMaterial';
     export * from './g3d/MfgScene';
     export * from './g3d/MfgSceneFactory';
     export * from './g3d/MfgSprite';
+
+    export * from './game/engine/CanvasSystem';
 
     export * from './game/level/MfgLevel';
     export * from './game/level/MfgLevelBunny';
@@ -27,7 +28,4 @@
     export * from './math/MfgMath';
 
     export * from './ui/MfgString';
-    export * from './ui/MfgStringFormat';
-    export * from './ui/MfgUI';
-
     export * from './ui/MfgUI';

@@ -17,7 +17,7 @@
         public static createScene()
         {
             //create scene
-            MfgScene.scene            = new BABYLON.Scene( bz.MfgInit.engine );
+            MfgScene.scene = new BABYLON.Scene( bz.Game.engine );
         }
 
         /*****************************************************************************
@@ -25,19 +25,19 @@
         *****************************************************************************/
         public static initSceneCompleted()
         {
-            bz.MfgDebug.init.log( "> Init scene completed" );
+            bz.Debug.init.log( "> Init scene completed" );
 
-            bz.MfgInit.canvas.style.opacity = "1";
+            bz.Game.canvas.style.opacity = "1";
 
             //NOW hide the loading UI!
-            bz.MfgInit.engine.hideLoadingUI();
+            bz.Game.engine.hideLoadingUI();
 
             //assign controls
-            MfgScene.scene.activeCamera.attachControl( bz.MfgInit.canvas );
+            MfgScene.scene.activeCamera.attachControl( bz.Game.canvas );
             MfgScene.scene.onPointerDown = bz.MfgPointer.assignPointerDown;
 
             //launch render loop ?? required ??
-            bz.MfgDebug.init.log( "Starting the render loop." );
-            bz.MfgInit.engine.runRenderLoop( bz.MfgGame.render );
+            bz.Debug.init.log( "Starting the render loop." );
+            bz.Game.engine.runRenderLoop( bz.MfgGame.render );
         }
     }

@@ -8,7 +8,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgInit
+    export class Game
     {
         /*****************************************************************************
         *   The WebGL canvas context.
@@ -30,58 +30,51 @@
         *****************************************************************************/
         public static init()
         {
-            bz.MfgDebug.init.log( "Acclaiming and setting title." );
-
-            //acclaim and set document title
-            bz.MfgDebug.major.log( bz.MfgSettings.TITLE );
-            document.title = bz.MfgSettings.TITLE;
-
-
 
 
 if ( 1 == 1 ) return;
 
             //reference canvas element and fps counter div
-            MfgInit.canvas = <HTMLCanvasElement>document.getElementById( "renderCanvas" );
-            MfgInit.divFps = <HTMLDivElement>   document.getElementById( "fps"          );
+            Game.canvas = <HTMLCanvasElement>document.getElementById( "renderCanvas" );
+            Game.divFps = <HTMLDivElement>   document.getElementById( "fps"          );
 
             //setup canvas size
-            MfgInit.canvas.width  = bz.MfgSettings.CANVAS_WIDTH;
-            MfgInit.canvas.height = bz.MfgSettings.CANVAS_HEIGHT;
+            Game.canvas.width  = bz.SettingEngine.CANVAS_MIN_WIDTH;
+            Game.canvas.height = bz.SettingEngine.CANVAS_MIN_HEIGHT;
 
             //init Babylon.js engine
-            bz.MfgDebug.init.log( "Initializing the BABYLON engine." );
-            MfgInit.engine = new BABYLON.Engine( MfgInit.canvas, true );
+            bz.Debug.init.log( "Initializing the BABYLON engine." );
+            Game.engine = new BABYLON.Engine( Game.canvas, true );
 
             //add resize event listener
             window.addEventListener(
                 "resize",
                 function () {
-                    MfgInit.engine.resize();
+                    Game.engine.resize();
                 }
             );
 
-            bz.MfgDebug.init.log( "Displaying the loading UI" );
-            bz.MfgInit.engine.displayLoadingUI();
+            bz.Debug.init.log( "Displaying the loading UI" );
+            bz.Game.engine.displayLoadingUI();
 
             //create the scene
-            bz.MfgDebug.init.log( "Creating the Scene" );
+            bz.Debug.init.log( "Creating the Scene" );
             bz.MfgScene.createScene();
 
             //init materials
-            bz.MfgDebug.init.log( "Init all materials" );
+            bz.Debug.init.log( "Init all materials" );
             bz.MfgMaterial.initMaterials( bz.MfgScene.scene );
 
             //init sprite manager
-            bz.MfgDebug.init.log( "Init the sprite manager" );
+            bz.Debug.init.log( "Init the sprite manager" );
             bz.MfgSprite.init();
 
             //setup physics
-            bz.MfgDebug.init.log( "Setup all physics" );
+            bz.Debug.init.log( "Setup all physics" );
             bz.MfgScene.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
 
             //setup the level
-            bz.MfgDebug.init.log( "Setup the level" );
+            bz.Debug.init.log( "Setup the level" );
             bz.MfgGame.currentLevel = new bz.MfgLevelBunny();
         }
 
@@ -90,7 +83,7 @@ if ( 1 == 1 ) return;
         *****************************************************************************/
         public static onInitCompleted()
         {
-            bz.MfgDebug.init.log( "> onInitCompleted" );
+            bz.Debug.init.log( "> onInitCompleted" );
 
             bz.MfgScene.scene.executeWhenReady
             (

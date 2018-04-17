@@ -26,7 +26,7 @@
             this.setupLights();
             this.setupGround();
 
-            bz.MfgInit.onInitCompleted();
+            bz.Game.onInitCompleted();
         }
 
         /*****************************************************************************

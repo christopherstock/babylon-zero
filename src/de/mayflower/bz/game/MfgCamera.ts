@@ -29,9 +29,9 @@
             //Set the ellipsoid around the camera (e.g. your player's size)
             MfgCamera.camera.ellipsoid = new BABYLON.Vector3
             (
-                bz.MfgSettings.PLAYER_SIZE_XZ,
-                bz.MfgSettings.PLAYER_SIZE_Y,
-                bz.MfgSettings.PLAYER_SIZE_XZ
+                bz.SettingEngine.PLAYER_SIZE_XZ,
+                bz.SettingEngine.PLAYER_SIZE_Y,
+                bz.SettingEngine.PLAYER_SIZE_XZ
             );
         }
     }
