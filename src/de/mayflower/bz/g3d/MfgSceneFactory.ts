@@ -29,17 +29,15 @@
             var box:BABYLON.Mesh = BABYLON.Mesh.CreateBox
             (
                 id,
-                width,
-
-                // TODO different side sizes
-/*
-                {
-                    width:  width,
-                    height: height,
-                    depth:  depth,
-                },
-*/
+                1.0,
                 scene
+            );
+
+            box.scaling = new BABYLON.Vector3
+            (
+                width,
+                height,
+                depth
             );
 
             box.position        = position;
@@ -53,6 +51,7 @@
             box.receiveShadows  = false;
 
 
+            // TODO physics link
 
             //ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
 /*

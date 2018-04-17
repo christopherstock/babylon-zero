@@ -28,8 +28,9 @@
             bz.Debug.init.log( "> Init scene completed" );
 
 
-            // TODO ??
-            bz.Game.canvas.getCanvas().style.opacity = "1";
+
+
+            // bz.Game.canvas.getCanvas().style.opacity = "1";
 
 
 

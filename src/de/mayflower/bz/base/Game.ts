@@ -27,16 +27,13 @@
         {
 
 
+
+
             bz.Debug.init.log( "Creating game canvas" );
             Game.canvas = new bz.CanvasSystem();
 
 
 
-            //setup canvas size
-/*
-            Game.canvas.width  = bz.SettingEngine.CANVAS_MIN_WIDTH;
-            Game.canvas.height = bz.SettingEngine.CANVAS_MIN_HEIGHT;
-*/
 
 
             //init Babylon.js engine
@@ -71,9 +68,11 @@
 
 
 
+
             //setup physics
             bz.Debug.init.log( "Setup all physics" );
             bz.MfgScene.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+
 
 
 

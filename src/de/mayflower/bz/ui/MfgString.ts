@@ -36,8 +36,6 @@
         /*****************************************************************************
         *   Returns a formatted timestamp of the current system date and time.
         *
-        *   TODO prune!
-        *
         *   @return A formatted timestamp of the current system date and time.
         *****************************************************************************/
         public static getDateTimeString():string

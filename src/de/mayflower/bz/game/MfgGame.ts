@@ -16,11 +16,6 @@
         *****************************************************************************/
         public static render()
         {
-            //assign FPS info
-            // TODO FPS output!
-/*
-            bz.MfgInit.divFps.innerHTML = bz.MfgInit.engine.getFps().toFixed() + " fps";
-*/
             //render the scene if existent
             if ( bz.MfgScene.scene )
             {
