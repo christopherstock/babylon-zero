@@ -27,13 +27,17 @@
         {
             bz.Debug.init.log( "> Init scene completed" );
 
-            bz.Game.canvas.style.opacity = "1";
+
+            // TODO ??
+            bz.Game.canvas.getCanvas().style.opacity = "1";
+
+
 
             //NOW hide the loading UI!
             bz.Game.engine.hideLoadingUI();
 
             //assign controls
-            MfgScene.scene.activeCamera.attachControl( bz.Game.canvas );
+            MfgScene.scene.activeCamera.attachControl( bz.Game.canvas.getCanvas() );
             MfgScene.scene.onPointerDown = bz.MfgPointer.assignPointerDown;
 
             //launch render loop ?? required ??

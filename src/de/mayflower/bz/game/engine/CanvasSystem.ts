@@ -12,7 +12,7 @@
         /** The canvas element. */
         private     canvas                  :HTMLCanvasElement              = null;
         /** The canvas rendering context. */
-        private     canvasContext           :CanvasRenderingContext2D       = null;
+        private     canvasContext           :WebGLRenderingContext          = null;
         /** The current width of the canvas. */
         private     canvasWidth             :number                         = 0;
         /** The current height of the canvas. */
@@ -26,8 +26,8 @@
             // create
             this.canvas = document.createElement( "canvas" );
 
-            // reference 2d rendering context
-            this.canvasContext = this.canvas.getContext( "2d" );
+            // reference 3d rendering context
+            this.canvasContext = this.canvas.getContext( "webgl" );
 
             // append to body
             document.body.appendChild( this.canvas );
@@ -88,8 +88,10 @@
         *
         *   @return The canvas 2d rendering context.
         ***************************************************************************************************************/
+/*
         public getCanvasContext() : CanvasRenderingContext2D
         {
             return this.canvasContext;
         }
+*/
     }

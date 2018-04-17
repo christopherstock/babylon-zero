@@ -13,12 +13,7 @@
         /*****************************************************************************
         *   The WebGL canvas context.
         *****************************************************************************/
-        public          static      canvas          :HTMLCanvasElement          = null;
-
-        /*****************************************************************************
-        *   The DIV containing the FPS information.
-        *****************************************************************************/
-        public          static      divFps          :HTMLDivElement             = null;
+        public          static      canvas          :bz.CanvasSystem            = null;
 
         /*****************************************************************************
         *   The WebGL canvas context.
@@ -32,19 +27,24 @@
         {
 
 
-if ( 1 == 1 ) return;
+            bz.Debug.init.log( "Creating game canvas" );
+            Game.canvas = new bz.CanvasSystem();
 
-            //reference canvas element and fps counter div
-            Game.canvas = <HTMLCanvasElement>document.getElementById( "renderCanvas" );
-            Game.divFps = <HTMLDivElement>   document.getElementById( "fps"          );
+
 
             //setup canvas size
+/*
             Game.canvas.width  = bz.SettingEngine.CANVAS_MIN_WIDTH;
             Game.canvas.height = bz.SettingEngine.CANVAS_MIN_HEIGHT;
+*/
+
 
             //init Babylon.js engine
             bz.Debug.init.log( "Initializing the BABYLON engine." );
-            Game.engine = new BABYLON.Engine( Game.canvas, true );
+            Game.engine = new BABYLON.Engine( Game.canvas.getCanvas(), true );
+
+
+
 
             //add resize event listener
             window.addEventListener(
@@ -69,9 +69,13 @@ if ( 1 == 1 ) return;
             bz.Debug.init.log( "Init the sprite manager" );
             bz.MfgSprite.init();
 
+
+
             //setup physics
             bz.Debug.init.log( "Setup all physics" );
             bz.MfgScene.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+
+
 
             //setup the level
             bz.Debug.init.log( "Setup the level" );
