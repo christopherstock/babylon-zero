@@ -10,10 +10,9 @@
     *   TODO ASAP   Replace var keyword everywhere!
     *   TODO ASAP   Pick primal utility classes from coding ninjas!
     *   TODO ASAP   Create simple test level.
-    *   TODO ASAP   Remove webpack 4 deprecation warning.
     *   TODO ASAP   Install babylon.JS extensions (see webpack output).
     *   TODO ASAP   Create abstract level system.
-    *   TODO ASAP   Fix webpack errors 'TypeError: Cannot read property '_tsInstances' in 'awesome-typescript-loader'.
+    *   TODO ASAP
     *   TODO ASAP   Remove all legacy Mfg classes!
     *
     *   @author     Christopher Stock
@@ -33,7 +32,7 @@
             bz.Debug.major.log( bz.SettingEngine.TITLE );
             bz.Debug.major.log();
 
-            // TODO non-static!
+            // TODO non-static
             bz.Game.init();
         }
     }
