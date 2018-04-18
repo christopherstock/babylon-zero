@@ -6,13 +6,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix physics!
     *   TODO Move primal ninja classes!
     *   TODO Copy structure from ninjas project.
-    *   TODO Enable fullscreen.
     *   TODO Create single game instance and engine class/instance.
     *   TODO Unify docblocks!
-    *   TODO Add resize handler for canvas resizing!
     *   TODO Solve ortho drawing!
     *   TODO Prune MfgString.getDateTimeString !
     *   TODO Replace var keyword everywhere!

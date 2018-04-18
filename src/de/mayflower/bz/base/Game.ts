@@ -29,17 +29,22 @@
             Game.canvas = new bz.CanvasSystem();
             Game.canvas.updateDimensions();
 
-            //init Babylon.js engine
-            bz.Debug.init.log( "Initializing the BABYLON engine." );
+
+
+            bz.Debug.init.log( "Initializing the babylon.JS engine." );
             Game.engine = new BABYLON.Engine( Game.canvas.getCanvas(), true );
+
+
 
             //add resize event listener
             window.addEventListener(
                 "resize",
                 function () {
+                    Game.canvas.updateDimensions();
                     Game.engine.resize();
                 }
             );
+
 
             bz.Debug.init.log( "Displaying the loading UI" );
             bz.Game.engine.displayLoadingUI();
