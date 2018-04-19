@@ -2,12 +2,12 @@
     import * as bz from '..';
     import * as BABYLON from 'babylonjs';
 
-    /*****************************************************************************
+    /*******************************************************************************************************************
     *   Specifies the game material.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
-    *****************************************************************************/
+    *******************************************************************************************************************/
     export class Material
     {
         public          static              materialTest1           :BABYLON.StandardMaterial           = null;
@@ -18,9 +18,9 @@
         public          static              materialGrass           :BABYLON.StandardMaterial           = null;
         public          static              materialGlass           :BABYLON.StandardMaterial           = null;
 
-        /*****************************************************************************
+        /***************************************************************************************************************
         *   Inits all materials being used in the game.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public static initMaterials( scene:BABYLON.Scene )
         {
             Material.materialTest1 = new BABYLON.StandardMaterial( "test", scene );

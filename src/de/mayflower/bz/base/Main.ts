@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Unify docblocks!
     *   TODO Create single game instance and engine class/instance.
     *
     *   TODO Solve ortho drawing!
