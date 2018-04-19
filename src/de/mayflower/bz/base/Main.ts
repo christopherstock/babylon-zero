@@ -6,10 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Replace var keyword everywhere!
-    *   TODO Pick primal utility classes from coding ninjas!
-    *   TODO Copy structure from ninjas project.
-    *
     *   TODO Unify docblocks!
     *   TODO Create single game instance and engine class/instance.
     *

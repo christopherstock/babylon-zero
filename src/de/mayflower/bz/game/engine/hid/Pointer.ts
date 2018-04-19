@@ -12,7 +12,7 @@
         public static assignPointerDown(evt, pickResult)
         {
             if ( pickResult.hit ) {
-                var dir = pickResult.pickedPoint.subtract( bz.Scene.scene.activeCamera.position );
+                let dir = pickResult.pickedPoint.subtract( bz.Scene.scene.activeCamera.position );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse(dir.scale(10), pickResult.pickedPoint);
             }

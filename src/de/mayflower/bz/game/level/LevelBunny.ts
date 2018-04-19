@@ -116,10 +116,10 @@
         *****************************************************************************/
         private setupSpheres():void
         {
-            var y = 0;
-            for (var index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
+            let y = 0;
+            for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
-                var sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, bz.Scene.scene );
+                let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, bz.Scene.scene );
                 sphere.material = bz.Material.materialMFLogo;
                 sphere.position = new BABYLON.Vector3( Math.random() * 20 - 10, y, Math.random() * 10 - 5 );
 
@@ -145,10 +145,10 @@
             }
 
             // Add 10 linked spheres
-            var spheres = [];
-            for (index = 0; index < 10; index++)
+            let spheres = [];
+            for ( let index = 0; index < 10; index++ )
             {
-                sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, bz.Scene.scene);
+                let sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, bz.Scene.scene);
                 spheres.push(sphere);
                 sphere.material = bz.Material.materialAmiga;
                 sphere.position = new BABYLON.Vector3(Math.random() * 20 - 10, y, Math.random() * 10 - 5);
@@ -185,7 +185,7 @@
         private setupBox0()
         {
             // Box
-            var box0             = BABYLON.Mesh.CreateBox("Box0", 3, bz.Scene.scene);
+            let box0             = BABYLON.Mesh.CreateBox("Box0", 3, bz.Scene.scene);
             box0.position        = new BABYLON.Vector3(3, 30, 0);
             box0.material        = bz.Material.materialWood;
 
@@ -215,11 +215,11 @@
         private setupCompound()
         {
             // Compound
-            var part0 = BABYLON.Mesh.CreateBox("part0", 3, bz.Scene.scene);
+            let part0 = BABYLON.Mesh.CreateBox("part0", 3, bz.Scene.scene);
             part0.position = new BABYLON.Vector3(3, 30, 0);
             part0.material = bz.Material.materialWood;
 
-            var part1 = BABYLON.Mesh.CreateBox("part1", 3, bz.Scene.scene);
+            let part1 = BABYLON.Mesh.CreateBox("part1", 3, bz.Scene.scene);
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
             part1.material = bz.Material.materialWood;
@@ -246,12 +246,12 @@
         *****************************************************************************/
         private setupGlassPanes()
         {
-            var glassPane1              = BABYLON.Mesh.CreateBox( "border0", 1.0, bz.Scene.scene );
+            let glassPane1              = BABYLON.Mesh.CreateBox( "border0", 1.0, bz.Scene.scene );
             glassPane1.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0  );
             glassPane1.scaling          = new BABYLON.Vector3( 1.0,   20.0, 50.0 );
             glassPane1.checkCollisions  = true;
 
-            var glassPane2              = BABYLON.Mesh.CreateBox( "border2", 1.0, bz.Scene.scene );
+            let glassPane2              = BABYLON.Mesh.CreateBox( "border2", 1.0, bz.Scene.scene );
             glassPane2.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0 );
             glassPane2.scaling          = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
             glassPane2.checkCollisions  = true;
@@ -296,7 +296,7 @@
         *****************************************************************************/
         private setupCollidableBox()
         {
-            var solidBox = BABYLON.Mesh.CreateBox("box1", 1.0, bz.Scene.scene);
+            let solidBox = BABYLON.Mesh.CreateBox("box1", 1.0, bz.Scene.scene);
             solidBox.scaling         = new BABYLON.Vector3( 3.0,  3.0,  3.0   );
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
             solidBox.checkCollisions = true;
@@ -310,8 +310,8 @@
         private setupSkybox()
         {
             // Skybox
-            var skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, bz.Scene.scene);
-            var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", bz.Scene.scene);
+            let skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, bz.Scene.scene);
+            let skyboxMaterial = new BABYLON.StandardMaterial("skyBox", bz.Scene.scene);
             //skybox.position.z -= 200.0;
             skyboxMaterial.backFaceCulling = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "skybox", bz.Scene.scene);
@@ -327,27 +327,27 @@
         *****************************************************************************/
         private setupSprites()
         {
-            var tree1        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree1        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree1.position   = new BABYLON.Vector3( 45.0, 5.0, -35.0 );
             tree1.size       = 20.0;
 
-            var tree2        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree2        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree2.position   = new BABYLON.Vector3( 45.0, 5.0, -20.0 );
             tree2.size       = 20.0;
 
-            var tree3        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree3        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree3.position   = new BABYLON.Vector3( 45.0, 5.0, -5.0 );
             tree3.size       = 20.0;
 
-            var tree4        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree4        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree4.position   = new BABYLON.Vector3( 45.0, 5.0, 10.0 );
             tree4.size       = 20.0;
 
-            var tree5        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree5        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree5.position   = new BABYLON.Vector3( 45.0, 5.0, 25.0 );
             tree5.size       = 20.0;
 
-            var tree6        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree6        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree6.position   = new BABYLON.Vector3( 45.0, 5.0, 40.0 );
             tree6.size       = 20.0;
         }
@@ -374,7 +374,7 @@
                 bz.Scene.scene,
                 function( newMeshes:Array<BABYLON.Mesh> )
                 {
-                    var rabbit:BABYLON.Mesh = newMeshes[ 0 ];
+                    let rabbit:BABYLON.Mesh = newMeshes[ 0 ];
 
                     //transform the rabbit
                     rabbit.position.y -= 4.0;

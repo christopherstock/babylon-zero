@@ -26,7 +26,7 @@
         )
         :BABYLON.Mesh
         {
-            var box:BABYLON.Mesh = BABYLON.Mesh.CreateBox
+            let box:BABYLON.Mesh = BABYLON.Mesh.CreateBox
             (
                 id,
                 1.0,
@@ -86,7 +86,7 @@
         )
         :BABYLON.Mesh
         {
-            var ground:BABYLON.Mesh = BABYLON.Mesh.CreateBox( id, 1, scene );
+            let ground:BABYLON.Mesh = BABYLON.Mesh.CreateBox( id, 1, scene );
 
             ground.position         = position;
             ground.scaling          = scaling;

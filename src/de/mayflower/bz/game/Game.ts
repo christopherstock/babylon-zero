@@ -99,7 +99,7 @@
                 //handle streams
                 if ( bz.Scene.scene.useDelayedTextureLoading )
                 {
-                    var waiting = bz.Scene.scene.getWaitingItemsCount();
+                    let waiting = bz.Scene.scene.getWaitingItemsCount();
                     if ( waiting > 0 )
                     {
                         console.log( "Streaming items... " + waiting + " remaining");
