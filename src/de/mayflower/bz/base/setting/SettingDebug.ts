@@ -13,5 +13,5 @@
         public      static      DEBUG_MODE                                  :boolean            = true;
 
         /** Disables all sounds. */
-        public      static      DEBUG_DISABLE_SOUNDS                        :boolean            = true;
+        public      static      DISABLE_SOUND                               :boolean            = true;
     }

@@ -16,6 +16,8 @@
         public      static      init                :Debug              = new Debug( true  );
         /** Debugs setup and changes of the canvas size. */
         public      static      canvas              :Debug              = new Debug( true  );
+        /** Debugs sound system. */
+        public      static      sound               :Debug              = new Debug( true  );
 
         /** The flag that enables or disables logging for this debug group. */
         private                 debugEnabled        :boolean            = false;
