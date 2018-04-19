@@ -20,9 +20,9 @@
     export * from './game/level/MfgLevelFirstPerson';
 
     export * from './game/MfgCamera';
-    export * from './game/MfgGame';
 
     export * from './hid/MfgKey';
+    export * from './hid/MfgKeyCodes';
     export * from './hid/MfgPointer';
 
     export * from './math/MfgMath';

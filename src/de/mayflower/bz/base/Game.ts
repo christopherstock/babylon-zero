@@ -15,6 +15,8 @@
         *****************************************************************************/
         public          static      canvas          :bz.CanvasSystem            = null;
 
+        public          static      currentLevel    :bz.MfgLevel                = null;
+
         /*****************************************************************************
         *   The WebGL canvas context.
         *****************************************************************************/
@@ -67,7 +69,7 @@
 
             //setup the level
             bz.Debug.init.log( "Setup the level" );
-            bz.MfgGame.currentLevel = new bz.MfgLevelBunny();
+            bz.Game.currentLevel = new bz.MfgLevelBunny();
         }
 
         /*****************************************************************************
@@ -81,5 +83,28 @@
             (
                 bz.MfgScene.initSceneCompleted
             );
+        }
+
+        /*****************************************************************************
+        *   The render loop. This method is being invoked each tick.
+        *****************************************************************************/
+        public static render()
+        {
+            //render the scene if existent
+            if ( bz.MfgScene.scene )
+            {
+                //render the scene
+                bz.MfgScene.scene.render();
+
+                //handle streams
+                if ( bz.MfgScene.scene.useDelayedTextureLoading )
+                {
+                    var waiting = bz.MfgScene.scene.getWaitingItemsCount();
+                    if ( waiting > 0 )
+                    {
+                        console.log( "Streaming items... " + waiting + " remaining");
+                    }
+                }
+            }
         }
     }

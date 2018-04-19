@@ -43,6 +43,6 @@
 
             //launch render loop ?? required ??
             bz.Debug.init.log( "Starting the render loop." );
-            bz.Game.engine.runRenderLoop( bz.MfgGame.render );
+            bz.Game.engine.runRenderLoop( bz.Game.render );
         }
     }
