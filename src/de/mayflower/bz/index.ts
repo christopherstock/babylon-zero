@@ -7,29 +7,25 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
-    export * from './g3d/MfgMaterial';
-    export * from './g3d/MfgScene';
-    export * from './g3d/MfgSceneFactory';
-    export * from './g3d/MfgSprite';
+    export * from './g3d/Material';
+    export * from './g3d/Scene';
+    export * from './g3d/SceneFactory';
+    export * from './g3d/Sprite';
 
     export * from './game/Game';
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
 
-    export * from './game/level/MfgLevel';
-    export * from './game/level/MfgLevelBunny';
-    export * from './game/level/MfgLevelFirstPerson';
+    export * from './game/level/Level';
+    export * from './game/level/LevelBunny';
+    export * from './game/level/LevelFirstPerson';
 
-    export * from './game/MfgCamera';
+    export * from './game/Camera';
 
-    export * from './game/engine/hid/MfgKey';
-    export * from './game/engine/hid/MfgKeyCodes';
-    export * from './game/engine/hid/MfgPointer';
+    export * from './game/engine/hid/KeyCodes';
+    export * from './game/engine/hid/Pointer';
 
-    export * from './math/MfgMath';
-
-    export * from './ui/MfgString';
-    export * from './ui/MfgUI';
+    export * from './ui/UI';
 
     export * from './util/IO';
     export * from './util/MathUtil';

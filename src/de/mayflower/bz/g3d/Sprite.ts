@@ -7,7 +7,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgSprite
+    export class Sprite
     {
         public          static                  spriteManager           :BABYLON.SpriteManager      = null;
 
@@ -16,6 +16,6 @@
         *****************************************************************************/
         public static init()
         {
-            MfgSprite.spriteManager = new BABYLON.SpriteManager( "treesManager", bz.SettingEngine.PATH_IMAGE_TEXTURE + "tree.png", 100, 357, bz.MfgScene.scene );
+            Sprite.spriteManager = new BABYLON.SpriteManager( "treesManager", bz.SettingEngine.PATH_IMAGE_TEXTURE + "tree.png", 100, 357, bz.Scene.scene );
         }
     }

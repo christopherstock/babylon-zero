@@ -5,7 +5,7 @@
     *   @author     Christopher Stock
     *   @version    1.0.0
     *******************************************************************************************************************/
-    export class MfgKeyCodes
+    export class KeyCodes
     {
         /** The keycode that represents the 'ARROW LEFT' key. */
         public      static  KEY_LEFT            :number                         = 37;

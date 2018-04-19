@@ -7,7 +7,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgLevelFirstPerson extends bz.MfgLevel
+    export class LevelFirstPerson extends bz.Level
     {
         private                                 light1                  :BABYLON.DirectionalLight   = null;
 
@@ -20,7 +20,7 @@
             (
                 new BABYLON.Vector3( -10.0, 10.0, -10.0 ),
                 new BABYLON.Vector3( 0,     0,    0     ),
-                bz.MfgUI.COLOR_DARK_GREY
+                bz.UI.COLOR_DARK_GREY
             );
 
             this.setupLights();
@@ -35,7 +35,7 @@
         private setupLights()
         {
             //setup lights
-            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.0, -1.0, 0.0 ), bz.MfgScene.scene );
+            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.0, -1.0, 0.0 ), bz.Scene.scene );
             this.light1.intensity = 1.0;
             this.light1.position  = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
         }
@@ -45,7 +45,7 @@
         *****************************************************************************/
         private setupGround():void
         {
-            bz.MfgSceneFactory.createBox
+            bz.SceneFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
@@ -54,8 +54,8 @@
                 10.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
-                bz.MfgMaterial.materialTest1,
-                bz.MfgScene.scene
+                bz.Material.materialTest1,
+                bz.Scene.scene
             );
         }
     }

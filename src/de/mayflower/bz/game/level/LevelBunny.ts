@@ -8,7 +8,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgLevelBunny extends bz.MfgLevel
+    export class LevelBunny extends bz.Level
     {
         private         static                  SPHERES_TO_SPAWN        :number                     = 250;
 
@@ -27,7 +27,7 @@
             (
                 new BABYLON.Vector3( -80.0, 40.0, -80.0 ),
                 new BABYLON.Vector3( 0,     0,    0     ),
-                bz.MfgUI.COLOR_ORANGE_MAYFLOWER
+                bz.UI.COLOR_ORANGE_MAYFLOWER
             );
 
             this.setupLights();
@@ -49,16 +49,16 @@
         private setupLights()
         {
             //setup lights
-            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.2, -1, 0 ), bz.MfgScene.scene );
+            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.2, -1, 0 ), bz.Scene.scene );
             this.light1.intensity = 1.0;
             this.light1.position  = new BABYLON.Vector3( 0, 80, 0 );
 
-            this.light2           = new BABYLON.PointLight( "omni01", new BABYLON.Vector3( -10.0, 0.0, -10.0 ), bz.MfgScene.scene );
+            this.light2           = new BABYLON.PointLight( "omni01", new BABYLON.Vector3( -10.0, 0.0, -10.0 ), bz.Scene.scene );
             this.light2.intensity = 1.0;
             this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.0, 0.0 );
             this.light2.specular  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
 
-            this.light3           = new BABYLON.PointLight( "spot01", new BABYLON.Vector3( 10.0,  0.0, 10.0  ), bz.MfgScene.scene );
+            this.light3           = new BABYLON.PointLight( "spot01", new BABYLON.Vector3( 10.0,  0.0, 10.0  ), bz.Scene.scene );
             this.light3.intensity = 1.0;
             this.light3.diffuse   = new BABYLON.Color3( 0.0, 0.0, 1.0 );
             this.light3.specular  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
@@ -80,34 +80,34 @@
         *****************************************************************************/
         private setupGround():void
         {
-            bz.MfgSceneFactory.createOldBox(
+            bz.SceneFactory.createOldBox(
                 "Ground1",
                 new BABYLON.Vector3( 0.0,   -4.4, 1.0   ),
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
-                bz.MfgMaterial.materialGrass,
-                bz.MfgScene.scene
+                bz.Material.materialGrass,
+                bz.Scene.scene
             );
 
-            bz.MfgSceneFactory.createOldBox(
+            bz.SceneFactory.createOldBox(
                 "Ground2",
                 new BABYLON.Vector3( 0.0,   -26.0, -93.5 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 -0.45,
-                bz.MfgMaterial.materialGrass,
-                bz.MfgScene.scene
+                bz.Material.materialGrass,
+                bz.Scene.scene
             );
 
-            bz.MfgSceneFactory.createOldBox(
+            bz.SceneFactory.createOldBox(
                 "Ground3",
                 new BABYLON.Vector3( 0.0,   -48.0, -185.0 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 0.0,
-                bz.MfgMaterial.materialGrass,
-                bz.MfgScene.scene
+                bz.Material.materialGrass,
+                bz.Scene.scene
             );
         }
 
@@ -117,10 +117,10 @@
         private setupSpheres():void
         {
             var y = 0;
-            for ( var index = 0; index < MfgLevelBunny.SPHERES_TO_SPAWN; index++ )
+            for (var index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
-                var sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, bz.MfgScene.scene );
-                sphere.material = bz.MfgMaterial.materialMFLogo;
+                var sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, bz.Scene.scene );
+                sphere.material = bz.Material.materialMFLogo;
                 sphere.position = new BABYLON.Vector3( Math.random() * 20 - 10, y, Math.random() * 10 - 5 );
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -136,7 +136,7 @@
                         friction:    0.0,
                         restitution: 0.0
                     },
-                    bz.MfgScene.scene
+                    bz.Scene.scene
                 );
 /*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
@@ -148,9 +148,9 @@
             var spheres = [];
             for (index = 0; index < 10; index++)
             {
-                sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, bz.MfgScene.scene);
+                sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, bz.Scene.scene);
                 spheres.push(sphere);
-                sphere.material = bz.MfgMaterial.materialAmiga;
+                sphere.material = bz.Material.materialAmiga;
                 sphere.position = new BABYLON.Vector3(Math.random() * 20 - 10, y, Math.random() * 10 - 5);
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -165,7 +165,7 @@
                         friction:    0.0,
                         restitution: 0.0
                     },
-                    bz.MfgScene.scene
+                    bz.Scene.scene
                 );
 /*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
@@ -185,9 +185,9 @@
         private setupBox0()
         {
             // Box
-            var box0             = BABYLON.Mesh.CreateBox("Box0", 3, bz.MfgScene.scene);
+            var box0             = BABYLON.Mesh.CreateBox("Box0", 3, bz.Scene.scene);
             box0.position        = new BABYLON.Vector3(3, 30, 0);
-            box0.material        = bz.MfgMaterial.materialWood;
+            box0.material        = bz.Material.materialWood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
@@ -202,7 +202,7 @@
                     friction:    0.4,
                     restitution: 0.3
                 },
-                bz.MfgScene.scene
+                bz.Scene.scene
             );
 /*
             box0.setPhysicsState(   BABYLON.PhysicsEngine.BoxImpostor, { mass: 2, friction: 0.4, restitution: 0.3 } );
@@ -215,21 +215,21 @@
         private setupCompound()
         {
             // Compound
-            var part0 = BABYLON.Mesh.CreateBox("part0", 3, bz.MfgScene.scene);
+            var part0 = BABYLON.Mesh.CreateBox("part0", 3, bz.Scene.scene);
             part0.position = new BABYLON.Vector3(3, 30, 0);
-            part0.material = bz.MfgMaterial.materialWood;
+            part0.material = bz.Material.materialWood;
 
-            var part1 = BABYLON.Mesh.CreateBox("part1", 3, bz.MfgScene.scene);
+            var part1 = BABYLON.Mesh.CreateBox("part1", 3, bz.Scene.scene);
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
-            part1.material = bz.MfgMaterial.materialWood;
+            part1.material = bz.Material.materialWood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
 
                 // TODO fix physics
 /*
-            bz.MfgScene.scene.createCompoundImpostor(
+            bz.Scene.scene.createCompoundImpostor(
                 [
                     { mesh: part0, impostor: BABYLON.PhysicsEngine.BoxImpostor },
                     { mesh: part1, impostor: BABYLON.PhysicsEngine.BoxImpostor },
@@ -246,12 +246,12 @@
         *****************************************************************************/
         private setupGlassPanes()
         {
-            var glassPane1              = BABYLON.Mesh.CreateBox( "border0", 1.0, bz.MfgScene.scene );
+            var glassPane1              = BABYLON.Mesh.CreateBox( "border0", 1.0, bz.Scene.scene );
             glassPane1.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0  );
             glassPane1.scaling          = new BABYLON.Vector3( 1.0,   20.0, 50.0 );
             glassPane1.checkCollisions  = true;
 
-            var glassPane2              = BABYLON.Mesh.CreateBox( "border2", 1.0, bz.MfgScene.scene );
+            var glassPane2              = BABYLON.Mesh.CreateBox( "border2", 1.0, bz.Scene.scene );
             glassPane2.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0 );
             glassPane2.scaling          = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
             glassPane2.checkCollisions  = true;
@@ -265,7 +265,7 @@
                     friction:    0.4,
                     restitution: 0.3
                 },
-                bz.MfgScene.scene
+                bz.Scene.scene
             );
 
             glassPane2.physicsImpostor = new BABYLON.PhysicsImpostor(
@@ -276,7 +276,7 @@
                     friction:    0.4,
                     restitution: 0.3
                 },
-                bz.MfgScene.scene
+                bz.Scene.scene
             );
 
 
@@ -284,11 +284,11 @@
             glassPane1.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
             glassPane2.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
 */
-            glassPane1.material = bz.MfgMaterial.materialGlass;
-            glassPane2.material = bz.MfgMaterial.materialGlass;
+            glassPane1.material = bz.Material.materialGlass;
+            glassPane2.material = bz.Material.materialGlass;
 
-            //MfgScene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
-            //MfgScene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
+            //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
+            //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
         }
 
         /*****************************************************************************
@@ -296,12 +296,12 @@
         *****************************************************************************/
         private setupCollidableBox()
         {
-            var solidBox = BABYLON.Mesh.CreateBox("box1", 1.0, bz.MfgScene.scene);
+            var solidBox = BABYLON.Mesh.CreateBox("box1", 1.0, bz.Scene.scene);
             solidBox.scaling         = new BABYLON.Vector3( 3.0,  3.0,  3.0   );
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
             solidBox.checkCollisions = true;
 
-            solidBox.material = bz.MfgMaterial.materialAmiga;
+            solidBox.material = bz.Material.materialAmiga;
         }
 
         /*****************************************************************************
@@ -310,11 +310,11 @@
         private setupSkybox()
         {
             // Skybox
-            var skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, bz.MfgScene.scene);
-            var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", bz.MfgScene.scene);
+            var skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, bz.Scene.scene);
+            var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", bz.Scene.scene);
             //skybox.position.z -= 200.0;
             skyboxMaterial.backFaceCulling = false;
-            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "skybox", bz.MfgScene.scene);
+            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "skybox", bz.Scene.scene);
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
             skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
             skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
@@ -327,27 +327,27 @@
         *****************************************************************************/
         private setupSprites()
         {
-            var tree1        = new BABYLON.Sprite( "tree1", bz.MfgSprite.spriteManager );
+            var tree1        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree1.position   = new BABYLON.Vector3( 45.0, 5.0, -35.0 );
             tree1.size       = 20.0;
 
-            var tree2        = new BABYLON.Sprite( "tree1", bz.MfgSprite.spriteManager );
+            var tree2        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree2.position   = new BABYLON.Vector3( 45.0, 5.0, -20.0 );
             tree2.size       = 20.0;
 
-            var tree3        = new BABYLON.Sprite( "tree1", bz.MfgSprite.spriteManager );
+            var tree3        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree3.position   = new BABYLON.Vector3( 45.0, 5.0, -5.0 );
             tree3.size       = 20.0;
 
-            var tree4        = new BABYLON.Sprite( "tree1", bz.MfgSprite.spriteManager );
+            var tree4        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree4.position   = new BABYLON.Vector3( 45.0, 5.0, 10.0 );
             tree4.size       = 20.0;
 
-            var tree5        = new BABYLON.Sprite( "tree1", bz.MfgSprite.spriteManager );
+            var tree5        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree5.position   = new BABYLON.Vector3( 45.0, 5.0, 25.0 );
             tree5.size       = 20.0;
 
-            var tree6        = new BABYLON.Sprite( "tree1", bz.MfgSprite.spriteManager );
+            var tree6        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
             tree6.position   = new BABYLON.Vector3( 45.0, 5.0, 40.0 );
             tree6.size       = 20.0;
         }
@@ -369,9 +369,9 @@
             BABYLON.SceneLoader.ImportMesh
             (
                 "",
-                bz.MfgSettings.PATH_3DS,
+                bz.Settings.PATH_3DS,
                 "rabbit.babylon",
-                bz.MfgScene.scene,
+                bz.Scene.scene,
                 function( newMeshes:Array<BABYLON.Mesh> )
                 {
                     var rabbit:BABYLON.Mesh = newMeshes[ 0 ];
@@ -383,7 +383,7 @@
 
                     //rabbit.checkCollisions = true;
 
-                    bz.MfgInit.onInitCompleted();
+                    bz.Init.onInitCompleted();
                 }
             );
 */

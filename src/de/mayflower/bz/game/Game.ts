@@ -15,7 +15,7 @@
         *****************************************************************************/
         public          static      canvas          :bz.CanvasSystem            = null;
 
-        public          static      currentLevel    :bz.MfgLevel                = null;
+        public          static      currentLevel    :bz.Level                   = null;
 
         /*****************************************************************************
         *   The WebGL canvas context.
@@ -53,23 +53,23 @@
 
             //create the scene
             bz.Debug.init.log( "Creating the Scene" );
-            bz.MfgScene.createScene();
+            bz.Scene.createScene();
 
             //init materials
             bz.Debug.init.log( "Init all materials" );
-            bz.MfgMaterial.initMaterials( bz.MfgScene.scene );
+            bz.Material.initMaterials( bz.Scene.scene );
 
             //init sprite manager
             bz.Debug.init.log( "Init the sprite manager" );
-            bz.MfgSprite.init();
+            bz.Sprite.init();
 
             //setup physics
             bz.Debug.init.log( "Setup all physics" );
-            bz.MfgScene.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+            bz.Scene.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
 
             //setup the level
             bz.Debug.init.log( "Setup the level" );
-            bz.Game.currentLevel = new bz.MfgLevelBunny();
+            bz.Game.currentLevel = new bz.LevelBunny();
         }
 
         /*****************************************************************************
@@ -79,9 +79,9 @@
         {
             bz.Debug.init.log( "> onInitCompleted" );
 
-            bz.MfgScene.scene.executeWhenReady
+            bz.Scene.scene.executeWhenReady
             (
-                bz.MfgScene.initSceneCompleted
+                bz.Scene.initSceneCompleted
             );
         }
 
@@ -91,15 +91,15 @@
         public static render()
         {
             //render the scene if existent
-            if ( bz.MfgScene.scene )
+            if ( bz.Scene.scene )
             {
                 //render the scene
-                bz.MfgScene.scene.render();
+                bz.Scene.scene.render();
 
                 //handle streams
-                if ( bz.MfgScene.scene.useDelayedTextureLoading )
+                if ( bz.Scene.scene.useDelayedTextureLoading )
                 {
-                    var waiting = bz.MfgScene.scene.getWaitingItemsCount();
+                    var waiting = bz.Scene.scene.getWaitingItemsCount();
                     if ( waiting > 0 )
                     {
                         console.log( "Streaming items... " + waiting + " remaining");

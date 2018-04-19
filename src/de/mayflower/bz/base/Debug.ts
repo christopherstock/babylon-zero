@@ -42,7 +42,7 @@
         {
             if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
             {
-                console.log( '[' + bz.MfgString.getDateTimeString() + '] ' + msg );
+                console.log( '[' + bz.String.getDateTimeString() + '] ' + msg );
             }
         }
     }

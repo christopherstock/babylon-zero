@@ -6,18 +6,18 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Copy structure from ninjas project.
-    *   TODO Create single game instance and engine class/instance.
-    *   TODO Unify docblocks!
-    *   TODO Solve ortho drawing!
-    *   TODO Prune MfgString.getDateTimeString !
     *   TODO Replace var keyword everywhere!
     *   TODO Pick primal utility classes from coding ninjas!
+    *   TODO Copy structure from ninjas project.
+    *
+    *   TODO Unify docblocks!
+    *   TODO Create single game instance and engine class/instance.
+    *
+    *   TODO Solve ortho drawing!
     *   TODO Create simple test level.
     *   TODO Install babylon.JS extensions (see webpack output).
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create abstract level system.
-    *   TODO Remove all legacy Mfg classes!
     *
     *   @author     Christopher Stock
     *   @version    0.0.1

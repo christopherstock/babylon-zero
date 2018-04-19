@@ -7,7 +7,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgCamera
+    export class Camera
     {
         public              static      camera              :BABYLON.FreeCamera             = null;
 
@@ -19,15 +19,15 @@
         *****************************************************************************/
         public static init( startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
         {
-            MfgCamera.camera = new BABYLON.FreeCamera( "Camera", startupPosition, bz.MfgScene.scene );
+            Camera.camera = new BABYLON.FreeCamera( "Camera", startupPosition, bz.Scene.scene );
 
-            MfgCamera.camera.setTarget( startupTarget );
+            Camera.camera.setTarget( startupTarget );
 
-            MfgCamera.camera.checkCollisions = true;
-            MfgCamera.camera.applyGravity    = true;
+            Camera.camera.checkCollisions = true;
+            Camera.camera.applyGravity    = true;
 
             //Set the ellipsoid around the camera (e.g. your player's size)
-            MfgCamera.camera.ellipsoid = new BABYLON.Vector3
+            Camera.camera.ellipsoid = new BABYLON.Vector3
             (
                 bz.SettingGame.PLAYER_SIZE_XZ,
                 bz.SettingGame.PLAYER_SIZE_Y,

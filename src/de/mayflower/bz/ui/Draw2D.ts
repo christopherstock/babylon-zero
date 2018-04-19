@@ -5,7 +5,7 @@
     *   @author     Christopher Stock
     *   @version    1.0.0
     *******************************************************************************************************************/
-    export class Drawing2D
+    export class Draw2D
     {
         /***************************************************************************************************************
         *   Strokes a line with the specified points color and size.
@@ -72,7 +72,7 @@
         ***************************************************************************************************************/
         public static drawImage( ctx:CanvasRenderingContext2D, img:HTMLImageElement, x:number, y:number )
         {
-            Drawing2D.drawImageScaledClipped( ctx, img, 0, 0, img.width, img.height, x, y, img.width, img.height );
+            Draw2D.drawImageScaledClipped( ctx, img, 0, 0, img.width, img.height, x, y, img.width, img.height );
         }
 
         /***************************************************************************************************************

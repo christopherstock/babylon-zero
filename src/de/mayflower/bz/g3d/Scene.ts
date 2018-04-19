@@ -7,7 +7,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgScene
+    export class Scene
     {
         public          static                  scene                   :BABYLON.Scene              = null;
 
@@ -17,7 +17,7 @@
         public static createScene()
         {
             //create scene
-            MfgScene.scene = new BABYLON.Scene( bz.Game.engine );
+            Scene.scene = new BABYLON.Scene( bz.Game.engine );
         }
 
         /*****************************************************************************
@@ -38,8 +38,8 @@
             bz.Game.engine.hideLoadingUI();
 
             //assign controls
-            MfgScene.scene.activeCamera.attachControl( bz.Game.canvas.getCanvas() );
-            MfgScene.scene.onPointerDown = bz.MfgPointer.assignPointerDown;
+            Scene.scene.activeCamera.attachControl( bz.Game.canvas.getCanvas() );
+            Scene.scene.onPointerDown = bz.Pointer.assignPointerDown;
 
             //launch render loop ?? required ??
             bz.Debug.init.log( "Starting the render loop." );

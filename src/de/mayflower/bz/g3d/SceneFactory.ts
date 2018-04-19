@@ -7,7 +7,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *****************************************************************************/
-    export class MfgSceneFactory
+    export class SceneFactory
     {
         /*****************************************************************************
         *   Creates a box.
