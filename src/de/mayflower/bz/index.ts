@@ -7,14 +7,14 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
-    export * from './g3d/Material';
-    export * from './g3d/Scene';
-    export * from './g3d/SceneFactory';
-    export * from './g3d/Sprite';
+    export * from './g3d/MeshFactory';
 
     export * from './game/Game';
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
+    export * from './game/engine/Material';
+    export * from './game/engine/Scene';
+    export * from './game/engine/Sprite';
 
     export * from './game/level/Level';
     export * from './game/level/LevelBunny';

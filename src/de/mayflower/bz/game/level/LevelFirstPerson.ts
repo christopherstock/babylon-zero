@@ -45,7 +45,7 @@
         ***************************************************************************************************************/
         private setupGround():void
         {
-            bz.SceneFactory.createBox
+            bz.MeshFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),

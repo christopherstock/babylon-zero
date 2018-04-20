@@ -1,5 +1,5 @@
 
-    import * as bz from '..';
+    import * as bz from '../..';
 
     /*******************************************************************************************************************
     *   Specifies the game scene.
@@ -12,10 +12,14 @@
         /** The current babylon.JS scene. TODO private! */
         public                      babylonScene                :BABYLON.Scene              = null;
 
+        /***************************************************************************************************************
+        *   Inits the babylon.JS scene.
+        ***************************************************************************************************************/
         public init() : void
         {
             this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
 
             this.babylonScene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+            // this.babylonScene.enablePhysics( null, new BABYLON.CannonJSPlugin() );
         }
     }

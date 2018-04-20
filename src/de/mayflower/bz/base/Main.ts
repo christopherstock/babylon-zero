@@ -7,7 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Fix object importer in LevelBunny!
-    *   TODO Move primal game engine components to class GameEngine.
     *   TODO Wrap babylon.JS instances to engine component classes!
     *   TODO fix bunny importer!
     *   TODO Solve ortho drawing!

@@ -80,7 +80,7 @@
         ***************************************************************************************************************/
         private setupGround():void
         {
-            bz.SceneFactory.createOldBox(
+            bz.MeshFactory.createOldBox(
                 "Ground1",
                 new BABYLON.Vector3( 0.0,   -4.4, 1.0   ),
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
@@ -90,7 +90,7 @@
                 bz.Main.game.engine.scene.babylonScene
             );
 
-            bz.SceneFactory.createOldBox(
+            bz.MeshFactory.createOldBox(
                 "Ground2",
                 new BABYLON.Vector3( 0.0,   -26.0, -93.5 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
@@ -100,7 +100,7 @@
                 bz.Main.game.engine.scene.babylonScene
             );
 
-            bz.SceneFactory.createOldBox(
+            bz.MeshFactory.createOldBox(
                 "Ground3",
                 new BABYLON.Vector3( 0.0,   -48.0, -185.0 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
