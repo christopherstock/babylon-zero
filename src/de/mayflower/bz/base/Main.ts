@@ -6,11 +6,15 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create single game instance and engine class/instance.
+    *   TODO Create single game instance and engine class/instance and group systems to engine instance.
+    *
+    *   TODO outsource/wrap scene to own Scene class!
+    *   TODO Fix object importer in LevelBunny!
     *   TODO Move primal game engine components to class GameEngine.
     *   TODO Wrap babylon.JS instances to engine component classes!
     *   TODO fix bunny importer!
     *   TODO Solve ortho drawing!
+    *   TODO Solve shadows.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create simple test level.
     *   TODO Create abstract level system.

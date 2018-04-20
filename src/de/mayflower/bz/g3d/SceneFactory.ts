@@ -50,10 +50,6 @@
             box.material        = material;
             box.receiveShadows  = false;
 
-
-
-
-
             box.physicsImpostor = new BABYLON.PhysicsImpostor(
                 box,
                 BABYLON.PhysicsImpostor.BoxImpostor,
@@ -65,8 +61,7 @@
                 scene
             );
 
-            // TODO rotate ?
-            // ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
+            box.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
 
             return box;
         }
@@ -96,10 +91,6 @@
 
             ground.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
 
-
-
-
-
             ground.physicsImpostor = new BABYLON.PhysicsImpostor(
                 ground,
                 BABYLON.PhysicsImpostor.BoxImpostor,
@@ -110,7 +101,6 @@
                 },
                 scene
             );
-
 
             return ground;
         }

@@ -36,7 +36,7 @@
             this.setupCollidableBox();
             this.setupSpheres();
             this.setupBox0();
-            this.setupCompound();
+            // this.setupCompound();
             this.setupGlassPanes();
             this.setupSkybox();
             this.setupSprites();
@@ -125,9 +125,6 @@
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
 
-
-
-
                 sphere.physicsImpostor = new BABYLON.PhysicsImpostor(
                     sphere,
                     BABYLON.PhysicsImpostor.SphereImpostor,
@@ -138,9 +135,7 @@
                     },
                     bz.Main.game.scene
                 );
-/*
-                sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
-*/
+
                 y += 4;
             }
 
@@ -155,8 +150,6 @@
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
 
-
-
                 sphere.physicsImpostor = new BABYLON.PhysicsImpostor(
                     sphere,
                     BABYLON.PhysicsImpostor.SphereImpostor,
@@ -167,9 +160,6 @@
                     },
                     bz.Main.game.scene
                 );
-/*
-                sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
-*/
             }
 /*
             for (index = 0; index < 10; index++)
@@ -191,9 +181,6 @@
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
-
-
-
             box0.physicsImpostor = new BABYLON.PhysicsImpostor(
                 box0,
                 BABYLON.PhysicsImpostor.BoxImpostor,
@@ -211,6 +198,8 @@
 
         /***************************************************************************************************************
         *   Sets up the compound for the scene.
+        *
+        *   @deprecated Unused and not ready.
         ***************************************************************************************************************/
         private setupCompound()
         {
@@ -226,8 +215,6 @@
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
-
-                // TODO fix physics
 /*
             bz.Main.game.scene.createCompoundImpostor(
                 [
@@ -261,9 +248,9 @@
                 glassPane1,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 {
-                    mass:        2.0,
-                    friction:    0.4,
-                    restitution: 0.3
+                    mass:        0.0,
+                    friction:    0.0,
+                    restitution: 0.0
                 },
                 bz.Main.game.scene
             );
@@ -272,18 +259,13 @@
                 glassPane2,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 {
-                    mass:        2.0,
-                    friction:    0.4,
-                    restitution: 0.3
+                    mass:        0.0,
+                    friction:    0.0,
+                    restitution: 0.0
                 },
                 bz.Main.game.scene
             );
 
-
-/*
-            glassPane1.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
-            glassPane2.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
-*/
             glassPane1.material = bz.Main.game.material.materialGlass;
             glassPane2.material = bz.Main.game.material.materialGlass;
 
@@ -363,7 +345,6 @@
                 return;
             }
 
-            // TODO fix importer!
 /*
             // The first parameter can be used to specify which mesh to import. Here we import all meshes
             BABYLON.SceneLoader.ImportMesh
