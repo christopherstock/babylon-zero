@@ -335,7 +335,10 @@
                 (
                     "",
                     bz.SettingEngine.PATH_MESH,
+
                     "rabbit.babylon",
+                    //"test.obj",
+
                     bz.Main.game.engine.scene.getScene(),
                     ( newMeshes:Array<BABYLON.AbstractMesh> ) =>
                     {

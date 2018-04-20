@@ -6,9 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Review FPS project.
-    *   TODO Review babylon.JS tutorials.
-    *
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Fix skybox and link to camera!
@@ -17,6 +14,9 @@
     *   TODO Create simple test level.
     *   TODO Improve abstract level system and make it more generic.
     *   TODO Create main menu where player can reset camera etc.
+    *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
+    *
+    *   TODO Review babylon.JS tutorials.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1

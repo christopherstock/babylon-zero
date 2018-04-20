@@ -10,13 +10,9 @@
     export class CanvasSystem
     {
         /** The canvas element. */
-        private     canvas                  :HTMLCanvasElement              = null;
+        private         readonly    canvas                  :HTMLCanvasElement              = null;
         /** The canvas rendering context. */
-        private     canvasContext           :WebGLRenderingContext          = null;
-        /** The current width of the canvas. */
-        private     canvasWidth             :number                         = 0;
-        /** The current height of the canvas. */
-        private     canvasHeight            :number                         = 0;
+        private         readonly    canvasContext           :WebGLRenderingContext          = null;
 
         /***************************************************************************************************************
         *   Constructs a new canvas system.
@@ -39,18 +35,18 @@
         public updateDimensions() : void
         {
             // get inner window dimensions
-            this.canvasWidth  = window.innerWidth;
-            this.canvasHeight = window.innerHeight;
+            let canvasWidth:number  = window.innerWidth;
+            let canvasHeight:number = window.innerHeight;
 
             // clip to minimum canvas dimensions
-            if ( this.canvasWidth  < bz.SettingEngine.CANVAS_MIN_WIDTH  ) this.canvasWidth  = bz.SettingEngine.CANVAS_MIN_WIDTH;
-            if ( this.canvasHeight < bz.SettingEngine.CANVAS_MIN_HEIGHT ) this.canvasHeight = bz.SettingEngine.CANVAS_MIN_HEIGHT;
+            if ( canvasWidth  < bz.SettingEngine.CANVAS_MIN_WIDTH  ) canvasWidth  = bz.SettingEngine.CANVAS_MIN_WIDTH;
+            if ( canvasHeight < bz.SettingEngine.CANVAS_MIN_HEIGHT ) canvasHeight = bz.SettingEngine.CANVAS_MIN_HEIGHT;
 
             // assign new dimensions to canvas
-            this.canvas.width  = this.canvasWidth;
-            this.canvas.height = this.canvasHeight;
+            this.canvas.width  = canvasWidth;
+            this.canvas.height = canvasHeight;
 
-            bz.Debug.canvas.log( "Updated canvas dimensions to [" + this.canvasWidth + "x" + this.canvasHeight + "] " );
+            bz.Debug.canvas.log( "Updated canvas dimensions to [" + canvasWidth + "x" + canvasHeight + "] " );
         }
 
         /***************************************************************************************************************
@@ -60,7 +56,7 @@
         ***************************************************************************************************************/
         public getWidth() : number
         {
-            return this.canvasWidth;
+            return this.canvas.width;
         }
 
         /***************************************************************************************************************
@@ -70,7 +66,7 @@
         ***************************************************************************************************************/
         public getHeight() : number
         {
-            return this.canvasHeight;
+            return this.canvas.height;
         }
 
         /***************************************************************************************************************
@@ -86,12 +82,10 @@
         /***************************************************************************************************************
         *   Returns the current canvas rendering context.
         *
-        *   @return The canvas 2d rendering context.
+        *   @return The webGL rendering context.
         ***************************************************************************************************************/
-/*
-        public getCanvasContext() : CanvasRenderingContext2D
+        public getCanvasContext() : WebGLRenderingContext
         {
             return this.canvasContext;
         }
-*/
     }

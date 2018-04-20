@@ -47,7 +47,6 @@
                 }
             );
 
-
             // create pointer system
             this.pointer = new bz.Pointer();
 
