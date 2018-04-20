@@ -7,6 +7,8 @@
     *******************************************************************************************************************/
     export class UI
     {
+        public      static  COLOR_TRANSPARENT                       :BABYLON.Color4    = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
+
         /** The RGB statement representing the color 'dark grey'. */
         public      static  COLOR_DARK_GREY                         :BABYLON.Color4    = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
 

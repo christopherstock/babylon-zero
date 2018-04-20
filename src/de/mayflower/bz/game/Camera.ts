@@ -28,8 +28,6 @@
             this.camera.checkCollisions = true;
             this.camera.applyGravity    = true;
 
-console.log( ">>> scene gravity [" + bz.Main.game.engine.scene.getScene().gravity + "]" );
-
             //Set the ellipsoid around the camera (the size of the player in our case)
             this.camera.ellipsoid = new BABYLON.Vector3
             (

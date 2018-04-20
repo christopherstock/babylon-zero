@@ -11,13 +11,13 @@
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows.
     *
-    *   TODO Create simple test level.
+    *   TODO Create simple test level with increased performance!
     *   TODO Improve abstract level system and make it more generic.
     *   TODO Create main menu where player can reset camera etc.
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
     *   TODO try this.camera.lockedTarget.
     *
-    *   TODO Review babylon.JS tutorials.
+    *   TODO Review babylon.JS tutorials, features and playground.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1

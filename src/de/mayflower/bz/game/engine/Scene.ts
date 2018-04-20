@@ -23,17 +23,18 @@
             // set physics engine
             this.babylonScene.enablePhysics
             (
-                new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 ),
+/*
+                null,
                 new BABYLON.OimoJSPlugin()
+*/
             );
 
-            // this.babylonScene.enablePhysics( null, new BABYLON.CannonJSPlugin() );
-
-            // set gravity
+            // enable collisions
             this.babylonScene.collisionsEnabled = true;
-
-//            this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
-
+/*
+            // gravity for camera won't work if enabled!
+            this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+*/
             // set clear color
             this.babylonScene.clearColor = bz.UI.COLOR_ORANGE_MAYFLOWER;
         }
