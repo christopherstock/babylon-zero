@@ -2,18 +2,26 @@
     import * as bz from '../..';
 
     /*******************************************************************************************************************
-    *   Handles different level sets.
+    *   Represents a custom level set.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
     *******************************************************************************************************************/
     export class Level
     {
+        /*******************************************************************************************************************
+        *   Handles different level sets.
+        *
+        *   @author     Christopher Stock
+        *   @version    0.0.1
+        *******************************************************************************************************************/
         constructor( cameraStartup:BABYLON.Vector3, cameraTarget:BABYLON.Vector3, clearColor:BABYLON.Color4 )
         {
-            bz.Main.game.camera.init( cameraStartup, cameraTarget );
+            // TODO fix this weak design!
 
-            bz.Main.game.scene.clearColor = clearColor;
-            bz.Main.game.scene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+            bz.Main.game.engine.camera.init( cameraStartup, cameraTarget );
+
+            bz.Main.game.engine.scene.clearColor = clearColor;
+            bz.Main.game.engine.scene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
         }
     }

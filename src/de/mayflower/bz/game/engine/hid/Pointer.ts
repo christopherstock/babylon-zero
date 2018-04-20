@@ -11,8 +11,9 @@
     {
         public assignPointerDown( evt, pickResult )
         {
-            if ( pickResult.hit ) {
-                let dir = pickResult.pickedPoint.subtract( bz.Main.game.scene.activeCamera.position );
+            if ( pickResult.hit )
+            {
+                let dir = pickResult.pickedPoint.subtract( bz.Main.game.engine.scene.activeCamera.position );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse(dir.scale(10), pickResult.pickedPoint);
             }
