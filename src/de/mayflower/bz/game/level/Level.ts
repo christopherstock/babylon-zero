@@ -21,7 +21,7 @@
 
             bz.Main.game.engine.camera.init( cameraStartup, cameraTarget );
 
-            bz.Main.game.engine.scene.clearColor = clearColor;
-            bz.Main.game.engine.scene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+            bz.Main.game.engine.scene.babylonScene.clearColor = clearColor;
+            bz.Main.game.engine.scene.babylonScene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
         }
     }

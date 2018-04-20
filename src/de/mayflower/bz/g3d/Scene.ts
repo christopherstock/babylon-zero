@@ -9,4 +9,13 @@
     *******************************************************************************************************************/
     export class Scene
     {
+        /** The current babylon.JS scene. TODO private! */
+        public                      babylonScene                :BABYLON.Scene              = null;
+
+        public init() : void
+        {
+            this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
+
+            this.babylonScene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+        }
     }

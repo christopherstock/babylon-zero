@@ -9,32 +9,32 @@
     *******************************************************************************************************************/
     export class GameEngine
     {
-        /** The WebGL canvas context. */
+        /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem            = null;
-        /** The babylon.JS engine. */
-        public                      babylonEngine               :BABYLON.Engine             = null;
-
-        /** The current babylon.JS scene. */
-        public                      scene                       :BABYLON.Scene              = null;
         /** The material system. */
         public                      material                    :bz.Material                = null;
-        /** The sprite manager. */
-        public                      spriteManager               :BABYLON.SpriteManager      = null;
-        /** The camera manager. */
+        /** The camera system. */
         public                      camera                      :bz.Camera                  = null;
         /** The pointer system. */
         public                      pointer                     :bz.Pointer                 = null;
+        /** The scene system. */
+        public                      scene                       :bz.Scene                   = null;
+        /** The sprite system. */
+        public                      sprite                      :bz.Sprite                  = null;
+
+        /** The babylon.JS engine. */
+        public                      babylonEngine               :BABYLON.Engine             = null;
 
         /***************************************************************************************************************
         *   Inits all components for the game engine.
         ***************************************************************************************************************/
         public init()
         {
-            bz.Debug.init.log( "Initializing canvas" );
+            bz.Debug.init.log( "Init canvas" );
             this.canvas = new bz.CanvasSystem();
             this.canvas.updateDimensions();
 
-            bz.Debug.init.log( "Initializing babylon.JS engine." );
+            bz.Debug.init.log( "Init babylon.JS engine." );
             this.babylonEngine = new BABYLON.Engine( this.canvas.getCanvas(), true );
             this.babylonEngine.displayLoadingUI();
 
@@ -55,20 +55,18 @@
            this.camera = new bz.Camera();
 
             //create the scene
-            bz.Debug.init.log( "Creating the Scene" );
-            this.scene = new BABYLON.Scene( this.babylonEngine );
+            bz.Debug.init.log( "Init scene" );
+            this.scene = new bz.Scene();
+            this.scene.init();
 
             //init materials
-            bz.Debug.init.log( "Init all materials" );
+            bz.Debug.init.log( "Init materials" );
             this.material = new bz.Material();
-            this.material.initMaterials( this.scene );
+            this.material.initMaterials( this.scene.babylonScene );
 
-            //init sprite manager
-            bz.Debug.init.log( "Init the sprite manager" );
-            this.spriteManager = new BABYLON.SpriteManager( "treesManager", bz.SettingEngine.PATH_IMAGE_TEXTURE + "tree.png", 100, 357, bz.Main.game.engine.scene );
-
-            //setup physics
-            bz.Debug.init.log( "Setup all physics" );
-            this.scene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+            //init sprites
+            bz.Debug.init.log( "Init sprites" );
+            this.sprite = new bz.Sprite();
+            this.sprite.init();
         }
     }

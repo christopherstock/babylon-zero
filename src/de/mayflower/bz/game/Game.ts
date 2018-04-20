@@ -36,7 +36,7 @@
         {
             bz.Debug.init.log( "> onInitCompleted" );
 
-            this.engine.scene.executeWhenReady
+            this.engine.scene.babylonScene.executeWhenReady
             (
                 this.initSceneCompleted
             );
@@ -55,8 +55,8 @@
 
             // assign controls to camera
             bz.Debug.init.log( "Assign controls to camera" );
-            this.engine.scene.activeCamera.attachControl( this.engine.canvas.getCanvas() );
-            this.engine.scene.onPointerDown = this.engine.pointer.assignPointerDown;
+            this.engine.scene.babylonScene.activeCamera.attachControl( this.engine.canvas.getCanvas() );
+            this.engine.scene.babylonScene.onPointerDown = this.engine.pointer.assignPointerDown;
 
             //launch render loop ?? required ??
             bz.Debug.init.log( "Starting the render loop." );
@@ -64,27 +64,22 @@
         };
 
         /***************************************************************************************************************
-        *   The render loop. This method is being invoked each tick.
+        *   The render loop being invoked each game tick.
         ***************************************************************************************************************/
         public render=()=>
         {
-            // TODO this check is obsolete!
-
-            //render the scene if existent
-            if ( this.engine.scene )
+            //render scene
+            this.engine.scene.babylonScene.render();
+/*
+            //handle streams
+            if ( this.engine.scene.useDelayedTextureLoading )
             {
-                //render the scene
-                this.engine.scene.render();
-
-                //handle streams
-                if ( this.engine.scene.useDelayedTextureLoading )
+                let waiting = this.engine.scene.getWaitingItemsCount();
+                if ( waiting > 0 )
                 {
-                    let waiting = this.engine.scene.getWaitingItemsCount();
-                    if ( waiting > 0 )
-                    {
-                        console.log( "Streaming items... " + waiting + " remaining");
-                    }
+                    console.log( "Streaming items... " + waiting + " remaining");
                 }
             }
+*/
         }
     }
