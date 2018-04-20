@@ -19,7 +19,7 @@
         public  static  readonly    PLAYER_SPEED_CENTER_VIEW_AIM                :number             = 5.0;
 
         /** The scene's gravity. */
-        public  static  readonly    GRAVITY                                     :number             = -0.01;
+        public  static  readonly    GRAVITY                                     :number             = -0.1;
 
         /** The player's x and z dimension (radius). */
         public  static  readonly    PLAYER_SIZE_XZ                              :number             = 1.0;

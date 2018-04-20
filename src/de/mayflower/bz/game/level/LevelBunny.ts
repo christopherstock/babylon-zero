@@ -10,7 +10,7 @@
     *******************************************************************************************************************/
     export class LevelBunny extends bz.Level
     {
-        private     static              SPHERES_TO_SPAWN            :number                         = 250;
+        private     static              SPHERES_TO_SPAWN            :number                         = 15; // 250
 
         private                         light1                      :BABYLON.DirectionalLight       = null;
         private                         light2                      :BABYLON.PointLight             = null;
@@ -25,7 +25,7 @@
         {
             super
             (
-                new BABYLON.Vector3( -80.0, 40.0, -80.0 ),
+                new BABYLON.Vector3( -25.0, 40.0, -80.0 ),
                 new BABYLON.Vector3( 0,     0,    0     )
             );
 
@@ -322,7 +322,7 @@
         ***************************************************************************************************************/
         private importMesh()
         {
-            let skipMeshImport:boolean = false;
+            let skipMeshImport:boolean = true;
 
             if ( skipMeshImport )
             {

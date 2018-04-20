@@ -21,14 +21,21 @@
             this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
 
             // set physics engine
-            this.babylonScene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
+            this.babylonScene.enablePhysics
+            (
+                new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 ),
+                new BABYLON.OimoJSPlugin()
+            );
+
             // this.babylonScene.enablePhysics( null, new BABYLON.CannonJSPlugin() );
 
             // set gravity
-            bz.Main.game.engine.scene.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+            this.babylonScene.collisionsEnabled = true;
+
+//            this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
 
             // set clear color
-            bz.Main.game.engine.scene.babylonScene.clearColor = bz.UI.COLOR_ORANGE_MAYFLOWER;
+            this.babylonScene.clearColor = bz.UI.COLOR_ORANGE_MAYFLOWER;
         }
 
         /***************************************************************************************************************
@@ -46,7 +53,6 @@
         ***************************************************************************************************************/
         public assignControls() : void
         {
-            this.babylonScene.activeCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
             this.babylonScene.onPointerDown = bz.Main.game.engine.pointer.assignPointerDown;
         }
 

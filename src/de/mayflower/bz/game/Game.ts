@@ -70,5 +70,8 @@
         {
             //render scene
             this.engine.scene.renderScene();
+
+
+
         }
     }

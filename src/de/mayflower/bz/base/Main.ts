@@ -15,6 +15,7 @@
     *   TODO Improve abstract level system and make it more generic.
     *   TODO Create main menu where player can reset camera etc.
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
+    *   TODO try this.camera.lockedTarget.
     *
     *   TODO Review babylon.JS tutorials.
     *
