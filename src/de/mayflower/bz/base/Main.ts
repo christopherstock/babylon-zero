@@ -7,11 +7,12 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Create single game instance and engine class/instance.
-    *
+    *   TODO Move primal game engine components to class GameEngine.
+    *   TODO Wrap babylon.JS instances to engine component classes!
+    *   TODO fix bunny importer!
     *   TODO Solve ortho drawing!
-    *   TODO Create simple test level.
-    *   TODO Install babylon.JS extensions (see webpack output).
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Create simple test level.
     *   TODO Create abstract level system.
     *
     *   @author     Christopher Stock
@@ -35,6 +36,7 @@
             bz.Debug.major.log();
 
             // TODO non-static
-            bz.Game.init();
+            Main.game = new bz.Game();
+            Main.game.init();
         }
     }

@@ -10,17 +10,17 @@
     export class Debug
     {
         /** Major debug messages. */
-        public      static      major               :Debug              = new Debug( true  );
+        public      static      readonly    major               :Debug              = new Debug( true  );
 
         /** Debugs initialization process. */
-        public      static      init                :Debug              = new Debug( true  );
+        public      static      readonly    init                :Debug              = new Debug( true  );
         /** Debugs setup and changes of the canvas size. */
-        public      static      canvas              :Debug              = new Debug( true  );
+        public      static      readonly    canvas              :Debug              = new Debug( true  );
         /** Debugs sound system. */
-        public      static      sound               :Debug              = new Debug( true  );
+        public      static      readonly    sound               :Debug              = new Debug( true  );
 
         /** The flag that enables or disables logging for this debug group. */
-        private                 debugEnabled        :boolean            = false;
+        private                 readonly    debugEnabled        :boolean            = false;
 
         /***************************************************************************************************************
         *   Constructs a new debug group.

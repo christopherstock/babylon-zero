@@ -10,53 +10,53 @@
     *******************************************************************************************************************/
     export class Material
     {
-        public          static              materialTest1           :BABYLON.StandardMaterial           = null;
-        public          static              materialMFLogo          :BABYLON.StandardMaterial           = null;
-        public          static              materialAmiga           :BABYLON.StandardMaterial           = null;
-        public          static              materialGround          :BABYLON.StandardMaterial           = null;
-        public          static              materialWood            :BABYLON.StandardMaterial           = null;
-        public          static              materialGrass           :BABYLON.StandardMaterial           = null;
-        public          static              materialGlass           :BABYLON.StandardMaterial           = null;
+        public              materialTest1           :BABYLON.StandardMaterial           = null;
+        public              materialMFLogo          :BABYLON.StandardMaterial           = null;
+        public              materialAmiga           :BABYLON.StandardMaterial           = null;
+        public              materialGround          :BABYLON.StandardMaterial           = null;
+        public              materialWood            :BABYLON.StandardMaterial           = null;
+        public              materialGrass           :BABYLON.StandardMaterial           = null;
+        public              materialGlass           :BABYLON.StandardMaterial           = null;
 
         /***************************************************************************************************************
         *   Inits all materials being used in the game.
         ***************************************************************************************************************/
-        public static initMaterials( scene:BABYLON.Scene )
+        public initMaterials( scene:BABYLON.Scene )
         {
-            Material.materialTest1 = new BABYLON.StandardMaterial( "test", scene );
-            Material.materialTest1.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "test1.jpg", scene );
-            Material.materialTest1.emissiveColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-            Material.materialTest1.diffuseTexture.wrapU = 1;
-            Material.materialTest1.diffuseTexture.wrapV = 1;
+            this.materialTest1 = new BABYLON.StandardMaterial( "test", scene );
+            this.materialTest1.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "test1.jpg", scene );
+            this.materialTest1.emissiveColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+            this.materialTest1.diffuseTexture.wrapU = 1;
+            this.materialTest1.diffuseTexture.wrapV = 1;
 
-            Material.materialMFLogo = new BABYLON.StandardMaterial( "amiga", scene );
-            Material.materialMFLogo.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "mfLogo.jpg", scene );
-            Material.materialMFLogo.emissiveColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
-            Material.materialMFLogo.diffuseTexture.wrapU = 5;
-            Material.materialMFLogo.diffuseTexture.wrapV = 5;
+            this.materialMFLogo = new BABYLON.StandardMaterial( "amiga", scene );
+            this.materialMFLogo.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "mfLogo.jpg", scene );
+            this.materialMFLogo.emissiveColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+            this.materialMFLogo.diffuseTexture.wrapU = 5;
+            this.materialMFLogo.diffuseTexture.wrapV = 5;
 
-            Material.materialAmiga = new BABYLON.StandardMaterial( "amiga", scene );
-            Material.materialAmiga.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "mosaic.jpg", scene );
-            Material.materialAmiga.emissiveColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+            this.materialAmiga = new BABYLON.StandardMaterial( "amiga", scene );
+            this.materialAmiga.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "mosaic.jpg", scene );
+            this.materialAmiga.emissiveColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
 
-            Material.materialGround = new BABYLON.StandardMaterial( "groundMat", scene );
-            Material.materialGround.diffuseColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
-            Material.materialGround.emissiveColor = new BABYLON.Color3( 0.2, 0.2, 0.2 );
-            Material.materialGround.backFaceCulling = false;
+            this.materialGround = new BABYLON.StandardMaterial( "groundMat", scene );
+            this.materialGround.diffuseColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+            this.materialGround.emissiveColor = new BABYLON.Color3( 0.2, 0.2, 0.2 );
+            this.materialGround.backFaceCulling = false;
 
-            Material.materialWood = new BABYLON.StandardMaterial( "wood", bz.Scene.scene );
-            Material.materialWood.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "wood.jpg", scene );
-            Material.materialWood.emissiveColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+            this.materialWood = new BABYLON.StandardMaterial( "wood", scene );
+            this.materialWood.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "wood.jpg", scene );
+            this.materialWood.emissiveColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
 
-            Material.materialGrass = new BABYLON.StandardMaterial( "grass", scene );
-            Material.materialGrass.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "grass.jpg", scene );
-            Material.materialGrass.diffuseTexture.wrapU = 5.0;      //Repeat 5 times on the Vertical Axes
-            Material.materialGrass.diffuseTexture.wrapV = 5.0;      //Repeat 5 times on the Horizontal Axes
-            Material.materialGrass.backFaceCulling = false;          //Always show the front and the back of an element
+            this.materialGrass = new BABYLON.StandardMaterial( "grass", scene );
+            this.materialGrass.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "grass.jpg", scene );
+            this.materialGrass.diffuseTexture.wrapU = 5.0;      //Repeat 5 times on the Vertical Axes
+            this.materialGrass.diffuseTexture.wrapV = 5.0;      //Repeat 5 times on the Horizontal Axes
+            this.materialGrass.backFaceCulling = false;          //Always show the front and the back of an element
 
-            Material.materialGlass = new BABYLON.StandardMaterial( "glass", scene );
-            Material.materialGlass.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "glass.jpg", scene );
-          //Material.materialGlass.diffuseColor   = new BABYLON.Color3( 1, 0, 0 ); //Red
-            Material.materialGlass.alpha = 0.5;
+            this.materialGlass = new BABYLON.StandardMaterial( "glass", scene );
+            this.materialGlass.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "glass.jpg", scene );
+          //this.materialGlass.diffuseColor   = new BABYLON.Color3( 1, 0, 0 ); //Red
+            this.materialGlass.alpha = 0.5;
         }
     }

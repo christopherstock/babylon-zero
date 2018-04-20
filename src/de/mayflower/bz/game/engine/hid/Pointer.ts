@@ -9,10 +9,10 @@
     *******************************************************************************************************************/
     export class Pointer
     {
-        public static assignPointerDown(evt, pickResult)
+        public assignPointerDown( evt, pickResult )
         {
             if ( pickResult.hit ) {
-                let dir = pickResult.pickedPoint.subtract( bz.Scene.scene.activeCamera.position );
+                let dir = pickResult.pickedPoint.subtract( bz.Main.game.scene.activeCamera.position );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse(dir.scale(10), pickResult.pickedPoint);
             }

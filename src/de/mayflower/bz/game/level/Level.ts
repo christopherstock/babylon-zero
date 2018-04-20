@@ -11,9 +11,9 @@
     {
         constructor( cameraStartup:BABYLON.Vector3, cameraTarget:BABYLON.Vector3, clearColor:BABYLON.Color4 )
         {
-            bz.Camera.init( cameraStartup, cameraTarget );
+            bz.Main.game.camera.init( cameraStartup, cameraTarget );
 
-            bz.Scene.scene.clearColor = clearColor;
-            bz.Scene.scene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+            bz.Main.game.scene.clearColor = clearColor;
+            bz.Main.game.scene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
         }
     }

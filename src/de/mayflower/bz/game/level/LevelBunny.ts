@@ -49,16 +49,16 @@
         private setupLights()
         {
             //setup lights
-            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.2, -1, 0 ), bz.Scene.scene );
+            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.2, -1, 0 ), bz.Main.game.scene );
             this.light1.intensity = 1.0;
             this.light1.position  = new BABYLON.Vector3( 0, 80, 0 );
 
-            this.light2           = new BABYLON.PointLight( "omni01", new BABYLON.Vector3( -10.0, 0.0, -10.0 ), bz.Scene.scene );
+            this.light2           = new BABYLON.PointLight( "omni01", new BABYLON.Vector3( -10.0, 0.0, -10.0 ), bz.Main.game.scene );
             this.light2.intensity = 1.0;
             this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.0, 0.0 );
             this.light2.specular  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
 
-            this.light3           = new BABYLON.PointLight( "spot01", new BABYLON.Vector3( 10.0,  0.0, 10.0  ), bz.Scene.scene );
+            this.light3           = new BABYLON.PointLight( "spot01", new BABYLON.Vector3( 10.0,  0.0, 10.0  ), bz.Main.game.scene );
             this.light3.intensity = 1.0;
             this.light3.diffuse   = new BABYLON.Color3( 0.0, 0.0, 1.0 );
             this.light3.specular  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
@@ -86,8 +86,8 @@
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
-                bz.Material.materialGrass,
-                bz.Scene.scene
+                bz.Main.game.material.materialGrass,
+                bz.Main.game.scene
             );
 
             bz.SceneFactory.createOldBox(
@@ -96,8 +96,8 @@
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 -0.45,
-                bz.Material.materialGrass,
-                bz.Scene.scene
+                bz.Main.game.material.materialGrass,
+                bz.Main.game.scene
             );
 
             bz.SceneFactory.createOldBox(
@@ -106,8 +106,8 @@
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 0.0,
-                bz.Material.materialGrass,
-                bz.Scene.scene
+                bz.Main.game.material.materialGrass,
+                bz.Main.game.scene
             );
         }
 
@@ -119,8 +119,8 @@
             let y = 0;
             for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
-                let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, bz.Scene.scene );
-                sphere.material = bz.Material.materialMFLogo;
+                let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, bz.Main.game.scene );
+                sphere.material = bz.Main.game.material.materialMFLogo;
                 sphere.position = new BABYLON.Vector3( Math.random() * 20 - 10, y, Math.random() * 10 - 5 );
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -136,7 +136,7 @@
                         friction:    0.0,
                         restitution: 0.0
                     },
-                    bz.Scene.scene
+                    bz.Main.game.scene
                 );
 /*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
@@ -148,9 +148,9 @@
             let spheres = [];
             for ( let index = 0; index < 10; index++ )
             {
-                let sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, bz.Scene.scene);
+                let sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, bz.Main.game.scene);
                 spheres.push(sphere);
-                sphere.material = bz.Material.materialAmiga;
+                sphere.material = bz.Main.game.material.materialAmiga;
                 sphere.position = new BABYLON.Vector3(Math.random() * 20 - 10, y, Math.random() * 10 - 5);
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -165,7 +165,7 @@
                         friction:    0.0,
                         restitution: 0.0
                     },
-                    bz.Scene.scene
+                    bz.Main.game.scene
                 );
 /*
                 sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1, friction: 0.0, restitution: 0.0 });
@@ -185,9 +185,9 @@
         private setupBox0()
         {
             // Box
-            let box0             = BABYLON.Mesh.CreateBox("Box0", 3, bz.Scene.scene);
+            let box0             = BABYLON.Mesh.CreateBox("Box0", 3, bz.Main.game.scene);
             box0.position        = new BABYLON.Vector3(3, 30, 0);
-            box0.material        = bz.Material.materialWood;
+            box0.material        = bz.Main.game.material.materialWood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
@@ -202,7 +202,7 @@
                     friction:    0.4,
                     restitution: 0.3
                 },
-                bz.Scene.scene
+                bz.Main.game.scene
             );
 /*
             box0.setPhysicsState(   BABYLON.PhysicsEngine.BoxImpostor, { mass: 2, friction: 0.4, restitution: 0.3 } );
@@ -215,21 +215,21 @@
         private setupCompound()
         {
             // Compound
-            let part0 = BABYLON.Mesh.CreateBox("part0", 3, bz.Scene.scene);
+            let part0 = BABYLON.Mesh.CreateBox("part0", 3, bz.Main.game.scene);
             part0.position = new BABYLON.Vector3(3, 30, 0);
-            part0.material = bz.Material.materialWood;
+            part0.material = bz.Main.game.material.materialWood;
 
-            let part1 = BABYLON.Mesh.CreateBox("part1", 3, bz.Scene.scene);
+            let part1 = BABYLON.Mesh.CreateBox("part1", 3, bz.Main.game.scene);
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
-            part1.material = bz.Material.materialWood;
+            part1.material = bz.Main.game.material.materialWood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
 
                 // TODO fix physics
 /*
-            bz.Scene.scene.createCompoundImpostor(
+            bz.Main.game.scene.createCompoundImpostor(
                 [
                     { mesh: part0, impostor: BABYLON.PhysicsEngine.BoxImpostor },
                     { mesh: part1, impostor: BABYLON.PhysicsEngine.BoxImpostor },
@@ -246,12 +246,12 @@
         ***************************************************************************************************************/
         private setupGlassPanes()
         {
-            let glassPane1              = BABYLON.Mesh.CreateBox( "border0", 1.0, bz.Scene.scene );
+            let glassPane1              = BABYLON.Mesh.CreateBox( "border0", 1.0, bz.Main.game.scene );
             glassPane1.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0  );
             glassPane1.scaling          = new BABYLON.Vector3( 1.0,   20.0, 50.0 );
             glassPane1.checkCollisions  = true;
 
-            let glassPane2              = BABYLON.Mesh.CreateBox( "border2", 1.0, bz.Scene.scene );
+            let glassPane2              = BABYLON.Mesh.CreateBox( "border2", 1.0, bz.Main.game.scene );
             glassPane2.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0 );
             glassPane2.scaling          = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
             glassPane2.checkCollisions  = true;
@@ -265,7 +265,7 @@
                     friction:    0.4,
                     restitution: 0.3
                 },
-                bz.Scene.scene
+                bz.Main.game.scene
             );
 
             glassPane2.physicsImpostor = new BABYLON.PhysicsImpostor(
@@ -276,7 +276,7 @@
                     friction:    0.4,
                     restitution: 0.3
                 },
-                bz.Scene.scene
+                bz.Main.game.scene
             );
 
 
@@ -284,8 +284,8 @@
             glassPane1.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
             glassPane2.setPhysicsState( BABYLON.PhysicsEngine.BoxImpostor, { mass: 0, friction: 0.0, restitution: 0.0 } );
 */
-            glassPane1.material = bz.Material.materialGlass;
-            glassPane2.material = bz.Material.materialGlass;
+            glassPane1.material = bz.Main.game.material.materialGlass;
+            glassPane2.material = bz.Main.game.material.materialGlass;
 
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
@@ -296,12 +296,12 @@
         ***************************************************************************************************************/
         private setupCollidableBox()
         {
-            let solidBox = BABYLON.Mesh.CreateBox("box1", 1.0, bz.Scene.scene);
+            let solidBox = BABYLON.Mesh.CreateBox("box1", 1.0, bz.Main.game.scene);
             solidBox.scaling         = new BABYLON.Vector3( 3.0,  3.0,  3.0   );
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
             solidBox.checkCollisions = true;
 
-            solidBox.material = bz.Material.materialAmiga;
+            solidBox.material = bz.Main.game.material.materialAmiga;
         }
 
         /***************************************************************************************************************
@@ -310,11 +310,11 @@
         private setupSkybox()
         {
             // Skybox
-            let skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, bz.Scene.scene);
-            let skyboxMaterial = new BABYLON.StandardMaterial("skyBox", bz.Scene.scene);
+            let skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, bz.Main.game.scene);
+            let skyboxMaterial = new BABYLON.StandardMaterial("skyBox", bz.Main.game.scene);
             //skybox.position.z -= 200.0;
             skyboxMaterial.backFaceCulling = false;
-            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "skybox", bz.Scene.scene);
+            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "skybox", bz.Main.game.scene);
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
             skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
             skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
@@ -327,27 +327,27 @@
         ***************************************************************************************************************/
         private setupSprites()
         {
-            let tree1        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree1        = new BABYLON.Sprite( "tree1", bz.Main.game.spriteManager );
             tree1.position   = new BABYLON.Vector3( 45.0, 5.0, -35.0 );
             tree1.size       = 20.0;
 
-            let tree2        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree2        = new BABYLON.Sprite( "tree1", bz.Main.game.spriteManager );
             tree2.position   = new BABYLON.Vector3( 45.0, 5.0, -20.0 );
             tree2.size       = 20.0;
 
-            let tree3        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree3        = new BABYLON.Sprite( "tree1", bz.Main.game.spriteManager );
             tree3.position   = new BABYLON.Vector3( 45.0, 5.0, -5.0 );
             tree3.size       = 20.0;
 
-            let tree4        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree4        = new BABYLON.Sprite( "tree1", bz.Main.game.spriteManager );
             tree4.position   = new BABYLON.Vector3( 45.0, 5.0, 10.0 );
             tree4.size       = 20.0;
 
-            let tree5        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree5        = new BABYLON.Sprite( "tree1", bz.Main.game.spriteManager );
             tree5.position   = new BABYLON.Vector3( 45.0, 5.0, 25.0 );
             tree5.size       = 20.0;
 
-            let tree6        = new BABYLON.Sprite( "tree1", bz.Sprite.spriteManager );
+            let tree6        = new BABYLON.Sprite( "tree1", bz.Main.game.spriteManager );
             tree6.position   = new BABYLON.Vector3( 45.0, 5.0, 40.0 );
             tree6.size       = 20.0;
         }
@@ -359,7 +359,7 @@
         {
             if ( true )
             {
-                bz.Game.onInitCompleted();
+                bz.Main.game.onInitCompleted();
                 return;
             }
 
@@ -371,7 +371,7 @@
                 "",
                 bz.Settings.PATH_3DS,
                 "rabbit.babylon",
-                bz.Scene.scene,
+                bz.Main.game.scene,
                 function( newMeshes:Array<BABYLON.Mesh> )
                 {
                     let rabbit:BABYLON.Mesh = newMeshes[ 0 ];

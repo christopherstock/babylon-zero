@@ -26,7 +26,7 @@
             this.setupLights();
             this.setupGround();
 
-            bz.Game.onInitCompleted();
+            bz.Main.game.onInitCompleted();
         }
 
         /***************************************************************************************************************
@@ -35,7 +35,7 @@
         private setupLights()
         {
             //setup lights
-            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.0, -1.0, 0.0 ), bz.Scene.scene );
+            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.0, -1.0, 0.0 ), bz.Main.game.scene );
             this.light1.intensity = 1.0;
             this.light1.position  = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
         }
@@ -54,8 +54,8 @@
                 10.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
-                bz.Material.materialTest1,
-                bz.Scene.scene
+                bz.Main.game.material.materialTest1,
+                bz.Main.game.scene
             );
         }
     }
