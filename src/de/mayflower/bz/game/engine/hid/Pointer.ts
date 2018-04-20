@@ -13,9 +13,12 @@
         {
             if ( pickResult.hit )
             {
-                let dir = pickResult.pickedPoint.subtract( bz.Main.game.engine.scene.babylonScene.activeCamera.position );
+                let dir = pickResult.pickedPoint.subtract
+                (
+                    bz.Main.game.engine.scene.getScene().activeCamera.position
+                );
                 dir.normalize();
-                pickResult.pickedMesh.applyImpulse(dir.scale(10), pickResult.pickedPoint);
+                pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
             }
         }
     }

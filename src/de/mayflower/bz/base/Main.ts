@@ -8,6 +8,7 @@
     *
     *   TODO Fix object importer in LevelBunny!
     *   TODO Wrap babylon.JS instances to engine component classes!
+    *   TODO Create main menu where player can reset camera etc.
     *   TODO fix bunny importer!
     *   TODO Solve ortho drawing!
     *   TODO Fix skybox and link to camera!

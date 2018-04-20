@@ -62,7 +62,7 @@
             //init materials
             bz.Debug.init.log( "Init materials" );
             this.material = new bz.Material();
-            this.material.initMaterials( this.scene.babylonScene );
+            this.material.initMaterials( this.scene.getScene() );
 
             //init sprites
             bz.Debug.init.log( "Init sprites" );

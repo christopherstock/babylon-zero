@@ -9,19 +9,29 @@
     *******************************************************************************************************************/
     export class Level
     {
+        /** Camera position on level reset. */
+        private         readonly            cameraStartupPosition   :BABYLON.Vector3                    = null;
+
+        /** Camera target on level reset. */
+        private         readonly            cameraStartupTarget     :BABYLON.Vector3                    = null;
+
         /*******************************************************************************************************************
-        *   Handles different level sets.
-        *
-        *   @author     Christopher Stock
-        *   @version    0.0.1
+        *   Creates a new custom level.
         *******************************************************************************************************************/
-        constructor( cameraStartup:BABYLON.Vector3, cameraTarget:BABYLON.Vector3, clearColor:BABYLON.Color4 )
+        constructor( cameraStartupPosition:BABYLON.Vector3, cameraStartupTarget:BABYLON.Vector3 )
         {
-            // TODO fix this weak design!
+            this.cameraStartupPosition = cameraStartupPosition;
+            this.cameraStartupTarget   = cameraStartupTarget;
+        }
 
-            bz.Main.game.engine.camera.init( cameraStartup, cameraTarget );
+        /*******************************************************************************************************************
+        *   Resets this level.
+        *******************************************************************************************************************/
+        public reset() : void
+        {
+            // reset camera to startup position
+            bz.Main.game.engine.camera.init( this.cameraStartupPosition, this.cameraStartupTarget );
 
-            bz.Main.game.engine.scene.babylonScene.clearColor = clearColor;
-            bz.Main.game.engine.scene.babylonScene.gravity    = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+
         }
     }

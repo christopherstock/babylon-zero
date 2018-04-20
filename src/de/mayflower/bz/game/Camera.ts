@@ -20,7 +20,7 @@
         ***************************************************************************************************************/
         public init( startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
         {
-            this.camera = new BABYLON.FreeCamera( "Camera", startupPosition, bz.Main.game.engine.scene.babylonScene );
+            this.camera = new BABYLON.FreeCamera( "Camera", startupPosition, bz.Main.game.engine.scene.getScene() );
 
             this.camera.setTarget( startupTarget );
 

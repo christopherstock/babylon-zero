@@ -27,6 +27,7 @@
             //setup the level
             bz.Debug.init.log( "Init custom level" );
             this.level = new bz.LevelBunny();
+            this.level.reset();
         }
 
         /***************************************************************************************************************
@@ -34,9 +35,9 @@
         ***************************************************************************************************************/
         public onInitLevelCompleted=()=>
         {
-            bz.Debug.init.log( "> onInitCompleted" );
+            bz.Debug.init.log( "onInitLevelCompleted being invoked" );
 
-            this.engine.scene.babylonScene.executeWhenReady
+            this.engine.scene.getScene().executeWhenReady
             (
                 this.initSceneCompleted
             );
@@ -55,8 +56,7 @@
 
             // assign controls to camera
             bz.Debug.init.log( "Assign controls to camera" );
-            this.engine.scene.babylonScene.activeCamera.attachControl( this.engine.canvas.getCanvas() );
-            this.engine.scene.babylonScene.onPointerDown = this.engine.pointer.assignPointerDown;
+            this.engine.scene.assignControls();
 
             //launch render loop ?? required ??
             bz.Debug.init.log( "Starting the render loop." );
@@ -69,17 +69,6 @@
         public render=()=>
         {
             //render scene
-            this.engine.scene.babylonScene.render();
-/*
-            //handle streams
-            if ( this.engine.scene.useDelayedTextureLoading )
-            {
-                let waiting = this.engine.scene.getWaitingItemsCount();
-                if ( waiting > 0 )
-                {
-                    console.log( "Streaming items... " + waiting + " remaining");
-                }
-            }
-*/
+            this.engine.scene.renderScene();
         }
     }

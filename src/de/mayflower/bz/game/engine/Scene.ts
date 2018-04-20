@@ -9,17 +9,52 @@
     *******************************************************************************************************************/
     export class Scene
     {
-        /** The current babylon.JS scene. TODO private! */
-        public                      babylonScene                :BABYLON.Scene              = null;
+        /** The current babylon.JS scene. */
+        private                     babylonScene                :BABYLON.Scene              = null;
 
         /***************************************************************************************************************
         *   Inits the babylon.JS scene.
         ***************************************************************************************************************/
         public init() : void
         {
+            // create babylon.JS scene
             this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
 
+            // set physics engine
             this.babylonScene.enablePhysics( null, new BABYLON.OimoJSPlugin() );
             // this.babylonScene.enablePhysics( null, new BABYLON.CannonJSPlugin() );
+
+            // set gravity
+            bz.Main.game.engine.scene.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
+
+            // set clear color
+            bz.Main.game.engine.scene.babylonScene.clearColor = bz.UI.COLOR_ORANGE_MAYFLOWER;
+        }
+
+        /***************************************************************************************************************
+        *   Delivers a reference to the babylon.JS scene.
+        *
+        *   @return The babylon.JS scene.
+        ***************************************************************************************************************/
+        public getScene() : BABYLON.Scene
+        {
+            return this.babylonScene;
+        }
+
+        /***************************************************************************************************************
+        *   Assigns controls to the scene.
+        ***************************************************************************************************************/
+        public assignControls() : void
+        {
+            this.babylonScene.activeCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+            this.babylonScene.onPointerDown = bz.Main.game.engine.pointer.assignPointerDown;
+        }
+
+        /***************************************************************************************************************
+        *   Renders the babylon.JS scene.
+        ***************************************************************************************************************/
+        public renderScene() : void
+        {
+            this.babylonScene.render();
         }
     }
