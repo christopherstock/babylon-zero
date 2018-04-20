@@ -10,13 +10,13 @@
     *******************************************************************************************************************/
     export class LevelBunny extends bz.Level
     {
-        private         static                  SPHERES_TO_SPAWN        :number                     = 250;
+        private     static              SPHERES_TO_SPAWN            :number                         = 250;
 
-        private                                 light1                  :BABYLON.DirectionalLight   = null;
-        private                                 light2                  :BABYLON.PointLight         = null;
-        private                                 light3                  :BABYLON.PointLight         = null;
+        private                         light1                      :BABYLON.DirectionalLight       = null;
+        private                         light2                      :BABYLON.PointLight             = null;
+        private                         light3                      :BABYLON.PointLight             = null;
 
-        private                                 shadowGenerator1        :BABYLON.ShadowGenerator    = null;
+        private                         shadowGenerator1            :BABYLON.ShadowGenerator        = null;
 
         /***************************************************************************************************************
         *   Sets up the 'bunny' level.
@@ -322,34 +322,35 @@
         ***************************************************************************************************************/
         private importMesh()
         {
-            if ( true )
+            let skipMeshImport:boolean = false;
+
+            if ( skipMeshImport )
             {
                 bz.Main.game.onInitLevelCompleted();
-                return;
             }
+            else
+            {
+                // The first parameter can be used to specify which mesh to import. Here we import all meshes
+                BABYLON.SceneLoader.ImportMesh
+                (
+                    "",
+                    bz.SettingEngine.PATH_MESH,
+                    "rabbit.babylon",
+                    bz.Main.game.engine.scene.getScene(),
+                    ( newMeshes:Array<BABYLON.AbstractMesh> ) =>
+                    {
+                        let rabbit:BABYLON.AbstractMesh = newMeshes[ 0 ];
 
-/*
-            // The first parameter can be used to specify which mesh to import. Here we import all meshes
-            BABYLON.SceneLoader.ImportMesh
-            (
-                "",
-                bz.Settings.PATH_3DS,
-                "rabbit.babylon",
-                bz.Main.game.scene,
-                function( newMeshes:Array<BABYLON.Mesh> )
-                {
-                    let rabbit:BABYLON.Mesh = newMeshes[ 0 ];
+                        //transform the rabbit
+                        rabbit.position.y -= 4.0;
+                        rabbit.position.z += 60.0;
+                        rabbit.rotate( new BABYLON.Vector3( 0.0, 1.0, 0.0 ), 135.0, BABYLON.Space.LOCAL );
 
-                    //transform the rabbit
-                    rabbit.position.y -= 4.0;
-                    rabbit.position.z += 60.0;
-                    rabbit.rotate( new BABYLON.Vector3( 0.0, 1.0, 0.0 ), 135.0, BABYLON.Space.LOCAL );
+                        //rabbit.checkCollisions = true;
 
-                    //rabbit.checkCollisions = true;
-
-                    bz.Init.onInitCompleted();
-                }
-            );
-*/
+                        bz.Main.game.onInitLevelCompleted();
+                    }
+                );
+            }
         }
     }

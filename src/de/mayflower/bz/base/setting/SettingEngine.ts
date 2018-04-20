@@ -22,5 +22,5 @@
         /** The relative path from index.html where all sounds the app makes use of reside. */
         public  static  readonly    PATH_SOUND                              :string             = "res/sound/";
         /** The relative path from index.html where all 3d model files the app makes use of reside. */
-        public  static  readonly    PATH_3DS                                :string             = "res/3ds/";
+        public  static  readonly    PATH_MESH                               :string             = "res/mesh/";
     }

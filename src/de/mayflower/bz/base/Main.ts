@@ -6,16 +6,17 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix object importer in LevelBunny!
-    *   TODO Wrap babylon.JS instances to engine component classes!
-    *   TODO Create main menu where player can reset camera etc.
-    *   TODO fix bunny importer!
+    *   TODO Review FPS project.
+    *   TODO Review babylon.JS tutorials.
+    *
     *   TODO Solve ortho drawing!
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows.
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *
     *   TODO Create simple test level.
-    *   TODO Create abstract level system.
+    *   TODO Improve abstract level system and make it more generic.
+    *   TODO Create main menu where player can reset camera etc.
     *
     *   @author     Christopher Stock
     *   @version    0.0.1
