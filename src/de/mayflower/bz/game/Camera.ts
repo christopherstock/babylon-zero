@@ -10,7 +10,7 @@
     export class Camera
     {
         /** The instance of the babylon.JS camera. */
-        public                          camera              :BABYLON.FreeCamera             = null;
+        public                          camera                  :BABYLON.FreeCamera                     = null;
 
         /***************************************************************************************************************
         *   Sets up the scene camera.
@@ -18,7 +18,7 @@
         *   @param  startupPosition     The camera startup position.
         *   @param  startupTarget       The camera startup target.
         ***************************************************************************************************************/
-        public init( startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
+        constructor( startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
         {
             // Change camera controls
             this.camera = new BABYLON.FreeCamera( "Camera", startupPosition, bz.Main.game.engine.scene.getScene() );

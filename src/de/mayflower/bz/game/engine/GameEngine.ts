@@ -13,8 +13,6 @@
         public                      canvas                      :bz.CanvasSystem            = null;
         /** The material system. */
         public                      material                    :bz.Material                = null;
-        /** The camera system. */
-        public                      camera                      :bz.Camera                  = null;
         /** The pointer system. */
         public                      pointer                     :bz.Pointer                 = null;
         /** The scene system. */
@@ -49,9 +47,6 @@
 
             // create pointer system
             this.pointer = new bz.Pointer();
-
-            // create camera system
-           this.camera = new bz.Camera();
 
             //create the scene
             bz.Debug.init.log( "Init scene" );
