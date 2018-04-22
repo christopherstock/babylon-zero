@@ -24,7 +24,8 @@
             this.babylonScene.enablePhysics
             (
 /*
-                null,
+                // gravity for physics will stop any gravity for all scene objects ??
+                new BABYLON.Vector3( 0, -5.0, 0 ),
                 new BABYLON.OimoJSPlugin()
 */
             );

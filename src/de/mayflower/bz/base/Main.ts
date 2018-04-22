@@ -7,6 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Solve ortho drawing!
+    *   TODO Enable controls for specific object, not for camera!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows.

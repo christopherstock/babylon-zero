@@ -39,11 +39,14 @@
 
             this.camera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
 
-            this.camera.keysUp.push(90);
-            this.camera.keysDown.push(83);
-            this.camera.keysLeft.push(81);
-            this.camera.keysRight.push(68);
+            this.camera.keysUp.push(    bz.KeyCodes.KEY_UP    );
+            this.camera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
+            this.camera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
+            this.camera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
 
+
+
+            // bz.Main.game.engine.scene.getScene().activeCamera = ..
 
 
             // this.camera.lockedTarget = .. !
