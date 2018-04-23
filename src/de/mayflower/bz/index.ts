@@ -7,7 +7,8 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
-    export * from './g3d/MeshFactory';
+    export * from './g3d/FactoryMaterial';
+    export * from './g3d/FactoryMesh';
 
     export * from './game/Game';
 

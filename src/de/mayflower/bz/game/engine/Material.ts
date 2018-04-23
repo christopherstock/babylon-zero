@@ -63,30 +63,10 @@
 
 
             // colors
-
-            this.solidGrey = new BABYLON.StandardMaterial( "groundMat", scene );
-            this.solidGrey.diffuseColor = new BABYLON.Color3( 0.5, 0.5, 0.5 );
-            this.solidGrey.emissiveColor = new BABYLON.Color3( 0.2, 0.2, 0.2 );
-            this.solidGrey.backFaceCulling = false;
-
-            this.solidBlack = new BABYLON.StandardMaterial( "solidBlack", scene );
-            this.solidBlack .diffuseColor  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-            this.solidBlack .emissiveColor = new BABYLON.Color3( 0.2, 0.2, 0.2 );
-            this.solidBlack .backFaceCulling = false;
-
-            this.solidRed = new BABYLON.StandardMaterial( "solidBlack", scene );
-            this.solidRed.diffuseColor  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
-            this.solidRed.emissiveColor = new BABYLON.Color3( 1.0, 0.0, 0.0 );
-            this.solidRed.backFaceCulling = false;
-
-            this.solidGreen = new BABYLON.StandardMaterial( "solidBlack", scene );
-            this.solidGreen.diffuseColor  = new BABYLON.Color3( 0.0, 1.0, 0.0 );
-            this.solidGreen.emissiveColor = new BABYLON.Color3( 0.0, 1.0, 0.0 );
-            this.solidGreen.backFaceCulling = false;
-
-            this.solidBlue = new BABYLON.StandardMaterial( "solidBlack", scene );
-            this.solidBlue.diffuseColor  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
-            this.solidBlue.emissiveColor = new BABYLON.Color3( 0.0, 0.0, 1.0 );
-            this.solidBlue.backFaceCulling = false;
+            this.solidGrey  = bz.FactoryMaterial.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ) );
+            this.solidBlack = bz.FactoryMaterial.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
+            this.solidRed   = bz.FactoryMaterial.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );
+            this.solidGreen = bz.FactoryMaterial.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ) );
+            this.solidBlue  = bz.FactoryMaterial.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ) );
         }
     }

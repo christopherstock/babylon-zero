@@ -83,7 +83,7 @@
         ***************************************************************************************************************/
         private setupGround():void
         {
-            bz.MeshFactory.createBoxDeprecated(
+            bz.FactoryMesh.createBoxDeprecated(
                 "Ground1",
                 new BABYLON.Vector3( 0.0,   -4.4, 1.0   ),
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
@@ -93,7 +93,7 @@
                 this.scene
             );
 
-            bz.MeshFactory.createBoxDeprecated(
+            bz.FactoryMesh.createBoxDeprecated(
                 "Ground2",
                 new BABYLON.Vector3( 0.0,   -26.0, -93.5 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
@@ -103,7 +103,7 @@
                 this.scene
             );
 
-            bz.MeshFactory.createBoxDeprecated(
+            bz.FactoryMesh.createBoxDeprecated(
                 "Ground3",
                 new BABYLON.Vector3( 0.0,   -48.0, -185.0 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),

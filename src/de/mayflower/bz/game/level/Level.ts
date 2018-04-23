@@ -60,7 +60,7 @@
         {
             // origin
 
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
@@ -73,7 +73,7 @@
 
             // x test
 
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
@@ -83,7 +83,7 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene
             );
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
@@ -96,7 +96,7 @@
 
             // y test
 
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
@@ -106,7 +106,7 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene
             );
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
@@ -119,7 +119,7 @@
 
             // z test
 
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
@@ -129,7 +129,7 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene
             );
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 10.0   ),

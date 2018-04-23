@@ -48,7 +48,7 @@
         ***************************************************************************************************************/
         private setupBoxes() : void
         {
-            bz.MeshFactory.createBox
+            bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( -50.0,   -10.0, -50.0    ),
