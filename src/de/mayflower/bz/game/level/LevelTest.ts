@@ -27,6 +27,7 @@
 
             // this.setupLights();
             this.setupBoxes();
+            this.createTestAxisPoints();
 
             bz.Main.game.onInitLevelCompleted();
         }
@@ -55,22 +56,6 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureTest1,
-                this.scene
-            );
-
-
-
-
-            // center world coordinate
-
-            bz.MeshFactory.createBox
-            (
-                "Ground1",
-                new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
-                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
-                0.0,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.Main.game.engine.material.solidBlack,
                 this.scene
             );
         }

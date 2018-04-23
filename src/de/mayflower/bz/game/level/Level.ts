@@ -49,9 +49,95 @@
 
 
 
+        }
 
+        /***************************************************************************************************************
+        *   Sets up the axis orientation test points.
+        *
+        *   X Y and Z axes are aligned by LEFT HAND RULE.
+        ***************************************************************************************************************/
+        protected createTestAxisPoints() : void
+        {
+            // origin
 
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
+                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidBlack,
+                this.scene
+            );
 
+            // x test
 
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
+                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidRed,
+                this.scene
+            );
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
+                new BABYLON.Vector3( 2.5,  0.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidRed,
+                this.scene
+            );
+
+            // y test
+
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
+                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidGreen,
+                this.scene
+            );
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
+                new BABYLON.Vector3( 0.5, 2.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidGreen,
+                this.scene
+            );
+
+            // z test
+
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
+                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidBlue,
+                this.scene
+            );
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
+                new BABYLON.Vector3( 0.5, 0.5, 2.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidBlue,
+                this.scene
+            );
         }
     }

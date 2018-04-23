@@ -18,6 +18,9 @@
         public              textureGlass            :BABYLON.StandardMaterial           = null;
 
         public              solidBlack              :BABYLON.StandardMaterial           = null;
+        public              solidRed                :BABYLON.StandardMaterial           = null;
+        public              solidGreen              :BABYLON.StandardMaterial           = null;
+        public              solidBlue               :BABYLON.StandardMaterial           = null;
         public              solidGrey               :BABYLON.StandardMaterial           = null;
 
         /***************************************************************************************************************
@@ -70,5 +73,20 @@
             this.solidBlack .diffuseColor  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
             this.solidBlack .emissiveColor = new BABYLON.Color3( 0.2, 0.2, 0.2 );
             this.solidBlack .backFaceCulling = false;
+
+            this.solidRed = new BABYLON.StandardMaterial( "solidBlack", scene );
+            this.solidRed.diffuseColor  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
+            this.solidRed.emissiveColor = new BABYLON.Color3( 1.0, 0.0, 0.0 );
+            this.solidRed.backFaceCulling = false;
+
+            this.solidGreen = new BABYLON.StandardMaterial( "solidBlack", scene );
+            this.solidGreen.diffuseColor  = new BABYLON.Color3( 0.0, 1.0, 0.0 );
+            this.solidGreen.emissiveColor = new BABYLON.Color3( 0.0, 1.0, 0.0 );
+            this.solidGreen.backFaceCulling = false;
+
+            this.solidBlue = new BABYLON.StandardMaterial( "solidBlack", scene );
+            this.solidBlue.diffuseColor  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+            this.solidBlue.emissiveColor = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+            this.solidBlue.backFaceCulling = false;
         }
     }
