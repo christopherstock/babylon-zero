@@ -12,6 +12,7 @@
     *   TODO Increase performance in chrome?
     *   TODO Create material system with unified parameters!
     *   TODO Improve Sprite System handling.
+    *   TODO specify explicit gravity?
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows.
     *

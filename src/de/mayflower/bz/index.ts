@@ -23,7 +23,7 @@
 
     export * from './game/level/Level';
     export * from './game/level/LevelBunny';
-    export * from './game/level/LevelFirstPerson';
+    export * from './game/level/LevelTest';
 
     export * from './util/IO';
     export * from './util/MathUtil';

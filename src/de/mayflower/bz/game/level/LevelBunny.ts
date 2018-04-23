@@ -89,7 +89,7 @@
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
-                bz.Main.game.engine.material.materialGrass,
+                bz.Main.game.engine.material.textureGrass,
                 this.scene
             );
 
@@ -99,7 +99,7 @@
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 -0.45,
-                bz.Main.game.engine.material.materialGrass,
+                bz.Main.game.engine.material.textureGrass,
                 this.scene
             );
 
@@ -109,7 +109,7 @@
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 0.0,
-                bz.Main.game.engine.material.materialGrass,
+                bz.Main.game.engine.material.textureGrass,
                 this.scene
             );
         }
@@ -123,7 +123,7 @@
             for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
                 let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, this.scene );
-                sphere.material = bz.Main.game.engine.material.materialMFLogo;
+                sphere.material = bz.Main.game.engine.material.textureMfLogo;
                 sphere.position = new BABYLON.Vector3( Math.random() * 20 - 10, y, Math.random() * 10 - 5 );
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -148,7 +148,7 @@
             {
                 let sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, this.scene);
                 spheres.push(sphere);
-                sphere.material = bz.Main.game.engine.material.materialAmiga;
+                sphere.material = bz.Main.game.engine.material.textureAmiga;
                 sphere.position = new BABYLON.Vector3(Math.random() * 20 - 10, y, Math.random() * 10 - 5);
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -180,7 +180,7 @@
             // Box
             let box0             = BABYLON.Mesh.CreateBox( "Box0", 3, this.scene );
             box0.position        = new BABYLON.Vector3(3, 30, 0);
-            box0.material        = bz.Main.game.engine.material.materialWood;
+            box0.material        = bz.Main.game.engine.material.texturewood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
@@ -209,12 +209,12 @@
             // Compound
             let part0 = BABYLON.Mesh.CreateBox( "part0", 3, this.scene );
             part0.position = new BABYLON.Vector3(3, 30, 0);
-            part0.material = bz.Main.game.engine.material.materialWood;
+            part0.material = bz.Main.game.engine.material.texturewood;
 
             let part1 = BABYLON.Mesh.CreateBox( "part1", 3, this.scene );
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
-            part1.material = bz.Main.game.engine.material.materialWood;
+            part1.material = bz.Main.game.engine.material.texturewood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
@@ -269,8 +269,8 @@
                 this.scene
             );
 
-            glassPane1.material = bz.Main.game.engine.material.materialGlass;
-            glassPane2.material = bz.Main.game.engine.material.materialGlass;
+            glassPane1.material = bz.Main.game.engine.material.textureGlass;
+            glassPane2.material = bz.Main.game.engine.material.textureGlass;
 
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
@@ -286,7 +286,7 @@
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
             solidBox.checkCollisions = true;
 
-            solidBox.material = bz.Main.game.engine.material.materialAmiga;
+            solidBox.material = bz.Main.game.engine.material.textureAmiga;
         }
 
         /***************************************************************************************************************

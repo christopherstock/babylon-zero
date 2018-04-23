@@ -7,7 +7,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *******************************************************************************************************************/
-    export class LevelFirstPerson extends bz.Level
+    export class LevelTest extends bz.Level
     {
         private                                 light1                  :BABYLON.DirectionalLight   = null;
 
@@ -21,12 +21,12 @@
             super
             (
                 scene,
-                new BABYLON.Vector3( -10.0, 10.0, -10.0 ),
-                new BABYLON.Vector3( 0,     0,    0     )
+                new BABYLON.Vector3( 10.0, -8.0, 10.0 ),
+                new BABYLON.Vector3( 0.0,  0.0,   0.0  )
             );
 
-            this.setupLights();
-            this.setupGround();
+            // this.setupLights();
+            this.setupBoxes();
 
             bz.Main.game.onInitLevelCompleted();
         }
@@ -45,18 +45,32 @@
         /***************************************************************************************************************
         *   Sets up the ground for the scene.
         ***************************************************************************************************************/
-        private setupGround():void
+        private setupBoxes() : void
         {
             bz.MeshFactory.createBox
             (
                 "Ground1",
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                10.0,
-                0.5,
-                10.0,
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                new BABYLON.Vector3( -50.0,   -10.0, -50.0    ),
+                new BABYLON.Vector3( 200.0,   0.5,   1000.0   ),
                 0.0,
-                bz.Main.game.engine.material.materialTest1,
+                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                bz.Main.game.engine.material.textureTest1,
+                this.scene
+            );
+
+
+
+
+            // center world coordinate
+
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
+                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                0.0,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidBlack,
                 this.scene
             );
         }

@@ -19,6 +19,8 @@
         public                      scene                       :bz.Scene                   = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                  = null;
+        /** The current level instance. */
+        public                      level                       :bz.Level                   = null;
 
         /** The babylon.JS engine. */
         public                      babylonEngine               :BABYLON.Engine             = null;
@@ -32,11 +34,12 @@
             this.canvas = new bz.CanvasSystem();
             this.canvas.updateDimensions();
 
+            // init babylon.JS engine
             bz.Debug.init.log( "Init babylon.JS engine." );
             this.babylonEngine = new BABYLON.Engine( this.canvas.getCanvas(), true );
             this.babylonEngine.displayLoadingUI();
 
-            //add resize event listener
+            // add resize event listener
             window.addEventListener(
                 "resize",
                 function () {
@@ -48,19 +51,24 @@
             // create pointer system
             this.pointer = new bz.Pointer();
 
-            //create the scene
+            // create the scene
             bz.Debug.init.log( "Init scene" );
             this.scene = new bz.Scene();
             this.scene.init();
 
-            //init materials
+            // init materials
             bz.Debug.init.log( "Init materials" );
             this.material = new bz.Material();
-            this.material.initMaterials( this.scene.getScene() );
+            this.material.init( this.scene.getScene() );
 
-            //init sprites
+            // init sprites
             bz.Debug.init.log( "Init sprites" );
             this.sprite = new bz.Sprite();
             this.sprite.init();
+
+            // init level
+            bz.Debug.init.log( "Init custom level" );
+            this.level = new bz.LevelTest( this.scene.getScene() );
+            this.level.reset();
         }
     }

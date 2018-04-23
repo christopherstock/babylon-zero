@@ -16,11 +16,9 @@
         (
             id              :string,
             position        :BABYLON.Vector3,
-            width           :number,
-            height          :number,
-            depth           :number,
-            rotationAxis    :BABYLON.Vector3,
+            size            :BABYLON.Vector3,
             rotationAmount  :number,
+            rotationAxis    :BABYLON.Vector3,
             material        :BABYLON.Material,
             scene           :BABYLON.Scene
         )
@@ -32,25 +30,19 @@
                 1.0,
                 scene
             );
+            box.position = position;
+            box.scaling  = size;
 
-            box.scaling = new BABYLON.Vector3
-            (
-                width,
-                height,
-                depth
-            );
-
-            box.position        = position;
-
-            box.position.x += width  / 2;
-            box.position.y += height / 2;
-            box.position.z += depth  / 2;
+            box.position.x += size.x / 2;
+            box.position.y += size.y / 2;
+            box.position.z += size.z  / 2;
 
             box.checkCollisions = true;
             box.material        = material;
             box.receiveShadows  = false;
 
-            box.physicsImpostor = new BABYLON.PhysicsImpostor(
+            box.physicsImpostor = new BABYLON.PhysicsImpostor
+            (
                 box,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 {
@@ -68,6 +60,8 @@
 
         /***************************************************************************************************************
         *   Creates a box the OLD style.
+        *
+        *   @deprecated Use createBox instead!
         ***************************************************************************************************************/
         public static createBoxDeprecated
         (
