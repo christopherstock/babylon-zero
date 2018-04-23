@@ -13,11 +13,14 @@
 
         /***************************************************************************************************************
         *   Sets up the 'bunny' level.
+        *
+        *   @param scene The babylon.JS scene reference.
         ***************************************************************************************************************/
-        constructor()
+        constructor( scene:BABYLON.Scene )
         {
             super
             (
+                scene,
                 new BABYLON.Vector3( -10.0, 10.0, -10.0 ),
                 new BABYLON.Vector3( 0,     0,    0     )
             );
@@ -34,7 +37,7 @@
         private setupLights()
         {
             //setup lights
-            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.0, -1.0, 0.0 ), bz.Main.game.engine.scene.getScene() );
+            this.light1           = new BABYLON.DirectionalLight( "dir01", new BABYLON.Vector3( 0.0, -1.0, 0.0 ), this.scene );
             this.light1.intensity = 1.0;
             this.light1.position  = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
         }
@@ -54,7 +57,7 @@
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
                 bz.Main.game.engine.material.materialTest1,
-                bz.Main.game.engine.scene.getScene()
+                this.scene
             );
         }
     }

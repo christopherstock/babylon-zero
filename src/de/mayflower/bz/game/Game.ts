@@ -26,12 +26,14 @@
 
             //setup the level
             bz.Debug.init.log( "Init custom level" );
-            this.level = new bz.LevelBunny();
+            this.level = new bz.LevelBunny( this.engine.scene.getScene() );
             this.level.reset();
         }
 
         /***************************************************************************************************************
         *   Being invoked when the level is completely initialized.
+        *
+        *   TODO move to class Level!
         ***************************************************************************************************************/
         public onInitLevelCompleted=()=>
         {

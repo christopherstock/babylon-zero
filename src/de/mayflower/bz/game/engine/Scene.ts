@@ -37,7 +37,7 @@
             this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
 */
             // set clear color
-            this.babylonScene.clearColor = bz.UI.COLOR_ORANGE_MAYFLOWER;
+            this.babylonScene.clearColor = bz.SettingGame.COLOR_ORANGE_MAYFLOWER;
         }
 
         /***************************************************************************************************************

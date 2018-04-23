@@ -1,5 +1,5 @@
 
-    import * as bz from '..';
+    import * as bz from '../..';
 
     /*******************************************************************************************************************
     *   Specifies the camera control.
@@ -15,13 +15,14 @@
         /***************************************************************************************************************
         *   Sets up the scene camera.
         *
+        *   @param  scene               The babylon.JS scene.
         *   @param  startupPosition     The camera startup position.
         *   @param  startupTarget       The camera startup target.
         ***************************************************************************************************************/
-        constructor( startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
+        constructor( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
         {
             // Change camera controls
-            this.camera = new BABYLON.FreeCamera( "Camera", startupPosition, bz.Main.game.engine.scene.getScene() );
+            this.camera = new BABYLON.FreeCamera( "Camera", startupPosition, scene );
 
             this.camera.setTarget( startupTarget );
 

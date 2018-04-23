@@ -16,6 +16,15 @@
         /** The keycode that represents the 'ARROW DOWN' key. */
         public  static  readonly    KEY_DOWN            :number                         = 40;
 
+        /** The keycode that represents the 'ENTER' key. */
+        public  static  readonly    KEY_ENTER           :number                         = 13;
+        /** The keycode that represents the 'ESCAPE' key. */
+        public  static  readonly    KEY_ESCAPE          :number                         = 27;
+        /** The keycode that represents the 'SPACE' key. */
+        public  static  readonly    KEY_SPACE           :number                         = 32;
+        /** The keycode that represents the 'CONTROL' key. */
+        public  static  readonly    KEY_CTRL            :number                         = 17;
+
         /** The keycode that represents the '1' key. */
         public  static  readonly    KEY_1               :number                         = 49;
         /** The keycode that represents the '1' key. */
@@ -26,13 +35,4 @@
         public  static  readonly    KEY_4               :number                         = 52;
         /** The keycode that represents the '1' key. */
         public  static  readonly    KEY_5               :number                         = 53;
-
-        /** The keycode that represents the 'ENTER' key. */
-        public  static  readonly    KEY_ENTER           :number                         = 13;
-        /** The keycode that represents the 'ESCAPE' key. */
-        public  static  readonly    KEY_ESCAPE          :number                         = 27;
-        /** The keycode that represents the 'SPACE' key. */
-        public  static  readonly    KEY_SPACE           :number                         = 32;
-        /** The keycode that represents the 'CONTROL' key. */
-        public  static  readonly    KEY_CTRL            :number                         = 17;
     }

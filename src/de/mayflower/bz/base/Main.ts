@@ -9,6 +9,9 @@
     *   TODO Solve ortho drawing!
     *   TODO Enable controls for specific object, not for camera!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Increase performance in chrome?
+    *   TODO Create material system with unified parameters!
+    *   TODO Improve Sprite System handling.
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows.
     *
@@ -31,7 +34,7 @@
         /***************************************************************************************************************
         *   This method is invoked when the application starts.
         ***************************************************************************************************************/
-        public static main():void
+        public static main() : void
         {
             // set webpage title
             document.title = bz.SettingEngine.TITLE;

@@ -69,15 +69,15 @@
         /***************************************************************************************************************
         *   Creates a box the OLD style.
         ***************************************************************************************************************/
-        public static createOldBox
+        public static createBoxDeprecated
         (
-            id              :string,
-            position        :BABYLON.Vector3,
-            scaling         :BABYLON.Vector3,
-            rotationAxis    :BABYLON.Vector3,
-            rotationAmount  :number,
-            material        :BABYLON.Material,
-            scene           :BABYLON.Scene
+            id             :string,
+            position       :BABYLON.Vector3,
+            scaling        :BABYLON.Vector3,
+            rotationAxis   :BABYLON.Vector3,
+            rotationAmount :number,
+            material       :BABYLON.Material,
+            scene          :BABYLON.Scene
         )
         :BABYLON.Mesh
         {

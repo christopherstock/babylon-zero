@@ -1,4 +1,6 @@
 
+    import * as BABYLON from 'babylonjs';
+
     /*******************************************************************************************************************
     *   Specifies all adjustments and balancings for the game.
     *
@@ -25,4 +27,10 @@
         public  static  readonly    PLAYER_SIZE_XZ                              :number             = 1.0;
         /** The player's y dimension (height). */
         public  static  readonly    PLAYER_SIZE_Y                               :number             = 2.0;
+
+        public  static  readonly    COLOR_TRANSPARENT                           :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
+        /** The RGB statement representing the color 'dark grey'. */
+        public  static  readonly    COLOR_DARK_GREY                             :BABYLON.Color4     = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
+        /** The RGB statement representing the color 'mayflower orange'. */
+        public  static  readonly    COLOR_ORANGE_MAYFLOWER                      :BABYLON.Color4     = new BABYLON.Color4( 0.92, 0.45, 0.01, 1.0 );
     }
