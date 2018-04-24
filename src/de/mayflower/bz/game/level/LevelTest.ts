@@ -55,7 +55,7 @@
                 new BABYLON.Vector3( 200.0,   0.5,   1000.0   ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                bz.Main.game.engine.material.textureTest1,
+                bz.Main.game.engine.material.textureTest,
                 this.scene
             );
         }

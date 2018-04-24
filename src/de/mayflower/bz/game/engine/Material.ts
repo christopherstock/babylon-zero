@@ -10,7 +10,7 @@
     *******************************************************************************************************************/
     export class Material
     {
-        public              textureTest1            :BABYLON.StandardMaterial           = null;
+        public              textureTest             :BABYLON.StandardMaterial           = null;
         public              textureMfLogo           :BABYLON.StandardMaterial           = null;
         public              textureAmiga            :BABYLON.StandardMaterial           = null;
         public              texturewood             :BABYLON.StandardMaterial           = null;
@@ -29,12 +29,10 @@
         public init( scene:BABYLON.Scene )
         {
             // textures
+            this.textureTest = bz.FactoryMaterial.createTexture( "test.jpg", 1.0, 1.0 );
 
-            this.textureTest1 = new BABYLON.StandardMaterial( "test", scene );
-            this.textureTest1.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "test1.jpg", scene );
-            this.textureTest1.emissiveColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-            this.textureTest1.diffuseTexture.wrapU = 1;
-            this.textureTest1.diffuseTexture.wrapV = 1;
+
+
 
             this.textureMfLogo = new BABYLON.StandardMaterial( "amiga", scene );
             this.textureMfLogo.diffuseTexture = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "mfLogo.jpg", scene );
