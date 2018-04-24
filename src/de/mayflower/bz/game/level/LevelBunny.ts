@@ -38,7 +38,7 @@
             this.setupCollidableBox();
             this.setupSpheres();
             this.setupBox0();
-            // this.setupCompound();
+            //this.setupCompound();
             this.setupGlassPanes();
             this.setupSkybox();
             this.setupSprites();
@@ -180,7 +180,7 @@
             // Box
             let box0             = BABYLON.Mesh.CreateBox( "Box0", 3, this.scene );
             box0.position        = new BABYLON.Vector3(3, 30, 0);
-            box0.material        = bz.Main.game.engine.material.texturewood;
+            box0.material        = bz.Main.game.engine.material.textureWood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
@@ -209,12 +209,12 @@
             // Compound
             let part0 = BABYLON.Mesh.CreateBox( "part0", 3, this.scene );
             part0.position = new BABYLON.Vector3(3, 30, 0);
-            part0.material = bz.Main.game.engine.material.texturewood;
+            part0.material = bz.Main.game.engine.material.textureWood;
 
             let part1 = BABYLON.Mesh.CreateBox( "part1", 3, this.scene );
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
-            part1.material = bz.Main.game.engine.material.texturewood;
+            part1.material = bz.Main.game.engine.material.textureWood;
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );

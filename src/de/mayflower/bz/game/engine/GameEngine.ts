@@ -68,7 +68,7 @@
 
             // init level
             bz.Debug.init.log( "Init custom level" );
-            this.level = new bz.LevelTest( this.scene.getScene() );
+            this.level = new bz.LevelBunny( this.scene.getScene() );
             this.level.reset();
         }
     }

@@ -8,12 +8,12 @@
     *
     *   TODO Solve ortho drawing!
     *   TODO Improve performance in chrome? Try webGL 1.0??
-    *   TODO Enable controls for specific object, not for camera!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
     *   TODO Remove createBoxDeprecated and fix LevelBunny!
     *   TODO Adjust different player width and height
     *   TODO Create material system with unified parameters!
+    *   TODO Enable controls for specific object, not for camera!
     *   TODO Improve Sprite System handling.
     *   TODO specify explicit gravity?
     *   TODO Fix skybox and link to camera!
