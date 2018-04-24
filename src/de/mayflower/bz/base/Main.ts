@@ -7,6 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Solve ortho drawing!
+    *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Enable controls for specific object, not for camera!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
@@ -16,8 +17,7 @@
     *   TODO Improve Sprite System handling.
     *   TODO specify explicit gravity?
     *   TODO Fix skybox and link to camera!
-    *   TODO Solve shadows.
-    *
+    *   TODO Solve shadows?
     *   TODO Create simple test level with increased performance!
     *   TODO Improve abstract level system and make it more generic.
     *   TODO Create main menu where player can reset camera etc.

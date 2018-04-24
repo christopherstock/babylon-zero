@@ -21,7 +21,7 @@
             super
             (
                 scene,
-                new BABYLON.Vector3( 10.0, -8.0, 10.0 ),
+                new BABYLON.Vector3( 10.0, 1.0, 10.0 ),
                 new BABYLON.Vector3( 0.0,  0.0,   0.0  )
             );
 
@@ -51,8 +51,8 @@
             bz.FactoryMesh.createBox
             (
                 "Ground1",
-                new BABYLON.Vector3( -50.0,   -10.0, -50.0    ),
-                new BABYLON.Vector3( 200.0,   0.5,   1000.0   ),
+                new BABYLON.Vector3( 0.0,   -0.5, 0.0   ),
+                new BABYLON.Vector3( 100.0, 0.5,  500.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureTest,
