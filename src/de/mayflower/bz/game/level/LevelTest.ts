@@ -21,7 +21,7 @@
             super
             (
                 scene,
-                new BABYLON.Vector3( 10.0, 1.0, 10.0 ),
+                new BABYLON.Vector3( 10.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 10.0 ),
                 new BABYLON.Vector3( 0.0,  0.0,   0.0  )
             );
 
@@ -48,6 +48,7 @@
         ***************************************************************************************************************/
         private setupBoxes() : void
         {
+            // test ground
             bz.FactoryMesh.createBox
             (
                 "Ground1",
