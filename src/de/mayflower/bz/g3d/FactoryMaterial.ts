@@ -58,7 +58,7 @@
 
             if ( emissiveColor != null )
             {
-                textureMaterial.emissiveColor        = emissiveColor;
+                textureMaterial.emissiveColor   = emissiveColor;
             }
 
             return textureMaterial;

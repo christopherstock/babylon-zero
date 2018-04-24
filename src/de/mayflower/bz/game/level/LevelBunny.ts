@@ -83,32 +83,32 @@
         ***************************************************************************************************************/
         private setupGround():void
         {
-            bz.FactoryMesh.createBoxDeprecated(
+            bz.FactoryMesh.createBox(
                 "Ground1",
-                new BABYLON.Vector3( 0.0,   -4.4, 1.0   ),
+                new BABYLON.Vector3( -50.0,   -4.4, -49.0   ),
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
+                0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                0.0,
                 bz.Main.game.engine.material.textureGrass,
                 this.scene
             );
 
-            bz.FactoryMesh.createBoxDeprecated(
+            bz.FactoryMesh.createBox(
                 "Ground2",
-                new BABYLON.Vector3( 0.0,   -26.0, -93.5 ),
+                new BABYLON.Vector3( -50.0,   -26.0, -143.5 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
-                new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 -0.45,
+                new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 bz.Main.game.engine.material.textureGrass,
                 this.scene
             );
 
-            bz.FactoryMesh.createBoxDeprecated(
+            bz.FactoryMesh.createBox(
                 "Ground3",
-                new BABYLON.Vector3( 0.0,   -48.0, -185.0 ),
+                new BABYLON.Vector3( -50.0,   -48.0, -235.0 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
-                new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 0.0,
+                new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 bz.Main.game.engine.material.textureGrass,
                 this.scene
             );

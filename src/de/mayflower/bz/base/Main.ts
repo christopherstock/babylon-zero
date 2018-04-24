@@ -6,16 +6,18 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Adjust different player width and height for camera so it fits.
+    *
     *   TODO Solve ortho drawing!
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
     *   TODO Remove createBoxDeprecated and fix LevelBunny!
-    *   TODO Adjust different player width and height
     *   TODO Create material system with unified parameters!
     *   TODO Enable controls for specific object, not for camera!
     *   TODO Improve Sprite System handling.
     *   TODO specify explicit gravity?
+    *   TODO Enable jumping.
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows?
     *   TODO Create simple test level with increased performance!
