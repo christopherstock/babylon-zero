@@ -21,7 +21,7 @@
             super
             (
                 scene,
-                new BABYLON.Vector3( 10.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 10.0 ),
+                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
                 new BABYLON.Vector3( 0.0,  0.0,   0.0  )
             );
 
@@ -48,7 +48,7 @@
         ***************************************************************************************************************/
         private setupBoxes() : void
         {
-            // test ground
+            // test static ground
             bz.FactoryMesh.createBox
             (
                 "Ground1",
@@ -57,7 +57,22 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureTest,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
+
+            // test movable crate
+            bz.FactoryMesh.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
+                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                0.0,
+                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                bz.Main.game.engine.material.textureWood,
+                this.scene,
+                bz.Static.NO
+            );
+
         }
     }

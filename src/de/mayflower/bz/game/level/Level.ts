@@ -68,7 +68,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlack,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
 
             // x test
@@ -81,7 +82,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
             bz.FactoryMesh.createBox
             (
@@ -91,7 +93,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
 
             // y test
@@ -104,7 +107,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidGreen,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
             bz.FactoryMesh.createBox
             (
@@ -114,7 +118,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidGreen,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
 
             // z test
@@ -127,7 +132,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlue,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
             bz.FactoryMesh.createBox
             (
@@ -137,7 +143,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlue,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
         }
     }

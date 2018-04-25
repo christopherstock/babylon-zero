@@ -67,14 +67,14 @@
         {
             let textureMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( "name", bz.Main.game.engine.scene.getScene() );
 
-            textureMaterial.diffuseTexture       = new BABYLON.Texture( bz.SettingEngine.PATH_IMAGE_TEXTURE + fileName, bz.Main.game.engine.scene.getScene() );
-/*
-            textureMaterial.diffuseTexture.wrapU = wrapU;
-            textureMaterial.diffuseTexture.wrapV = wrapV;
-*/
+            textureMaterial.diffuseTexture       = new BABYLON.Texture
+            (
+                bz.SettingEngine.PATH_IMAGE_TEXTURE + fileName,
+                bz.Main.game.engine.scene.getScene()
+            );
 
-            textureMaterial.diffuseTexture.wrapU = 1; // WRAP_ADDRESSMODE
-            textureMaterial.diffuseTexture.wrapV = 1; // WRAP_ADDRESSMODE
+            textureMaterial.diffuseTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            textureMaterial.diffuseTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
             ( textureMaterial.diffuseTexture as any ).uScale = repeatU;

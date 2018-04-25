@@ -90,7 +90,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureGrass,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
 
             bz.FactoryMesh.createBox(
@@ -100,7 +101,8 @@
                 -0.45,
                 new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 bz.Main.game.engine.material.textureGrass,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
 
             bz.FactoryMesh.createBox(
@@ -110,7 +112,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 bz.Main.game.engine.material.textureGrass,
-                this.scene
+                this.scene,
+                bz.Static.YES
             );
         }
 
