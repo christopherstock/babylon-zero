@@ -6,7 +6,8 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix texture UV
+    *   TODO Fix texture UV according to box dimensions.
+    *   TODO Solve different texture scalings for different meshes?
     *   TODO Try textures with alpha! (for an easy tree etc.) via texture.hasAlpha = true
     *   TODO Fix player/camrera controls (turn, duck)
     *   TODO Solve move with collisions ..

@@ -19,7 +19,7 @@
             size            :BABYLON.Vector3,
             rotationAmount  :number,
             rotationAxis    :BABYLON.Vector3,
-            material        :BABYLON.Material,
+            material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene
         )
         :BABYLON.Mesh
@@ -35,7 +35,13 @@
 
             box.position.x += size.x / 2;
             box.position.y += size.y / 2;
-            box.position.z += size.z  / 2;
+            box.position.z += size.z / 2;
+
+            if ( material.diffuseTexture != null )
+            {
+                ( material.diffuseTexture as any ).uScale = size.z;
+                ( material.diffuseTexture as any ).vScale = size.x;
+            }
 
             box.checkCollisions = true;
             box.material        = material;
