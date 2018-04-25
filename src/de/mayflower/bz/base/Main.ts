@@ -21,6 +21,8 @@
     *   TODO move onInitLevelCompleted to class Level and also scene to class level!
     *   TODO specify explicit gravity?
     *   TODO Enable jumping.
+    *   TODO Improve mesh system.
+    *   TODO Solve lights. Create lights system.
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows?
     *   TODO Create simple test level with increased performance!
@@ -28,6 +30,7 @@
     *   TODO Create main menu where player can reset camera etc.
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
     *   TODO try this.camera.lockedTarget.
+    *   TODO try dynamic textures ( video in texture in front of screen .. )
     *
     *   TODO Review babylon.JS tutorials, features and playground.
     *
@@ -44,15 +47,20 @@
         ***************************************************************************************************************/
         public static main() : void
         {
-            // set webpage title
-            document.title = bz.SettingEngine.TITLE;
+            bz.HTML.setTitle( bz.SettingEngine.TITLE );
 
-            // acclaim debug console
-            bz.Debug.major.log( bz.SettingEngine.TITLE );
-            bz.Debug.major.log();
+            Main.acclaim();
 
-            // init game
             Main.game = new bz.Game();
             Main.game.init();
+        }
+
+        /***************************************************************************************************************
+        *   Acclaims the debug console.
+        ***************************************************************************************************************/
+        private static acclaim() : void
+        {
+            bz.Debug.major.log( bz.SettingEngine.TITLE );
+            bz.Debug.major.log();
         }
     }
