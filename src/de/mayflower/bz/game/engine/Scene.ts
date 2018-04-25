@@ -20,6 +20,9 @@
             // create babylon.JS scene
             this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
 
+            // set ambient color ( defaults to black .. no effect ? )
+            this.babylonScene.ambientColor = bz.SettingGame.COLOR_WHITE;
+
             // set physics engine
             this.babylonScene.enablePhysics
             (

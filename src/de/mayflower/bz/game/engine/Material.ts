@@ -29,7 +29,9 @@
         public init( scene:BABYLON.Scene )
         {
             // textures
-            this.textureTest   = bz.FactoryMaterial.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
+
+            this.textureTest   = bz.FactoryMaterial.createTexture( "test.jpg",   500.0, 100.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
+
             this.textureMfLogo = bz.FactoryMaterial.createTexture( "mfLogo.jpg", 5.0, 5.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
             this.textureAmiga  = bz.FactoryMaterial.createTexture( "amiga.jpg",  1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
             this.textureWood   = bz.FactoryMaterial.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
