@@ -6,6 +6,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Fix texture UV
+    *   TODO Fix player/camrera controls (turn, duck)
+    *   TODO Solve move with collisions ..
+    *
     *   TODO Solve ortho drawing!
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"

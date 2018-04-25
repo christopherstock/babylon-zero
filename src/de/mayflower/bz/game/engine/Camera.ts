@@ -36,8 +36,11 @@
                 bz.SettingGame.PLAYER_SIZE_Y,
                 bz.SettingGame.PLAYER_SIZE_XZ
             );
+            this.camera.ellipsoidOffset = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
 
 
+
+            // attach debug controls ..
             this.camera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
 
             this.camera.keysUp.push(    bz.KeyCodes.KEY_UP    );
@@ -45,10 +48,7 @@
             this.camera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
             this.camera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
 
-
-
             // bz.Main.game.engine.scene.getScene().activeCamera = ..
-
 
             // this.camera.lockedTarget = .. !
         }
