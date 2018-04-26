@@ -7,11 +7,11 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *******************************************************************************************************************/
-    export enum Static
+    export enum Physics
     {
-        YES,
-        NO,
-        NO_IMPOSTOR,
+        STATIC,
+        MOVABLE,
+        SENSOR,
     }
 
     /*******************************************************************************************************************
@@ -34,7 +34,7 @@
             rotationAxis :BABYLON.Vector3,
             material     :BABYLON.StandardMaterial,
             scene        :BABYLON.Scene,
-            isStatic     :Static
+            isStatic     :Physics
         )
         : BABYLON.Mesh
         {
@@ -47,7 +47,7 @@
 
             box.scaling  = size;
 
-            return FactoryMesh.decorate
+            return FactoryMesh.decorateMesh
             (
                 box,
                 size,
@@ -73,7 +73,7 @@
             rotationAxis :BABYLON.Vector3,
             material     :BABYLON.StandardMaterial,
             scene        :BABYLON.Scene,
-            isStatic     :Static
+            isStatic     :Physics
         )
         : BABYLON.Mesh
         {
@@ -97,7 +97,7 @@
 
             plane.scaling = size;
 
-            return FactoryMesh.decorate
+            return FactoryMesh.decorateMesh
             (
                 plane,
                 size,
@@ -112,7 +112,7 @@
         /***************************************************************************************************************
         *   Adds general mesh properties.
         ***************************************************************************************************************/
-        private static decorate
+        private static decorateMesh
         (
             mesh         :BABYLON.Mesh,
             size         :BABYLON.Vector3,
@@ -120,7 +120,7 @@
             rotationAxis :BABYLON.Vector3,
             material     :BABYLON.StandardMaterial,
             scene        :BABYLON.Scene,
-            isStatic     :Static
+            isStatic     :Physics
         )
         {
             mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
@@ -134,12 +134,13 @@
             mesh.material        = material;
 
             mesh.receiveShadows  = false;
-            mesh.checkCollisions = true;
 
             switch ( isStatic )
             {
-                case Static.YES:
+                case Physics.STATIC:
                 {
+                    mesh.checkCollisions = true;
+
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -154,8 +155,10 @@
                     break;
                 }
 
-                case Static.NO:
+                case Physics.MOVABLE:
                 {
+                    mesh.checkCollisions = true;
+
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -170,8 +173,10 @@
                     break;
                 }
 
-                case Static.NO_IMPOSTOR:
+                case Physics.SENSOR:
                 {
+                    mesh.checkCollisions = false;
+
                     break;
                 }
             }

@@ -10,6 +10,7 @@
     *   TODO Make textures with same texture map but different scales.
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
+    *   TODO Realize player as moving box instead of direct camera / player/camera movement: ? http://www.pixelcodr.com/tutos/physics/physics.html
     *   TODO Fix texture UV according to box dimensions.
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Solve different texture scalings for different meshes?

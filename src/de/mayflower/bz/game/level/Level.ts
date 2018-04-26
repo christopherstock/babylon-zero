@@ -69,7 +69,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
 
             // x test
@@ -83,7 +83,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
             bz.FactoryMesh.createBox
             (
@@ -94,7 +94,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
 
             // y test
@@ -108,7 +108,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
             bz.FactoryMesh.createBox
             (
@@ -119,7 +119,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
 
             // z test
@@ -133,7 +133,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
             bz.FactoryMesh.createBox
             (
@@ -144,7 +144,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Static.NO_IMPOSTOR
+                bz.Physics.SENSOR
             );
         }
     }

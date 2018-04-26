@@ -52,13 +52,13 @@
             bz.FactoryMesh.createBox
             (
                 "Ground1",
-                new BABYLON.Vector3( 0.0,   -0.5, 0.0   ),
-                new BABYLON.Vector3( 100.0, 0.5,   500.0 ),
+                new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
+                new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureTest,
                 this.scene,
-                bz.Static.YES
+                bz.Physics.STATIC
             );
 
             // test movable crate
@@ -71,7 +71,7 @@
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureWood,
                 this.scene,
-                bz.Static.NO
+                bz.Physics.MOVABLE
             );
 
         }
