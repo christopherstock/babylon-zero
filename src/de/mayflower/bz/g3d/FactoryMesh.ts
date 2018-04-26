@@ -38,68 +38,26 @@
         )
         : BABYLON.Mesh
         {
-            let box:BABYLON.Mesh = BABYLON.Mesh.CreateBox( id, 1.0, scene );
-
-            box.position = position;
-            box.position.x += size.x / 2;
-            box.position.y += size.y / 2;
-            box.position.z += size.z / 2;
-
-            box.scaling  = size;
-
-            return FactoryMesh.decorateMesh
-            (
-                box,
-                size,
-                rotationRad,
-                rotationAxis,
-                material,
-                scene,
-                isStatic
-            );
-        }
-
-        /***************************************************************************************************************
-        *   Creates a plane.
-        *
-        *   @deprecated inoperative positioning and size setting!
-        ***************************************************************************************************************/
-        public static createPlane
-        (
-            id           :string,
-            position     :BABYLON.Vector3,
-            size         :BABYLON.Vector3,
-            rotationRad  :number,
-            rotationAxis :BABYLON.Vector3,
-            material     :BABYLON.StandardMaterial,
-            scene        :BABYLON.Scene,
-            isStatic     :Physics
-        )
-        : BABYLON.Mesh
-        {
-            let plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
+            let box:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
             (
                 id,
                 {
-                    width:           size.x,
-                    height:          size.z,
-                    sideOrientation: BABYLON.Mesh.DOUBLESIDE,
+                    width:  size.x,
+                    height: size.y,
+                    depth:  size.z,
                 },
                 scene
             );
 
-            plane.position = position;
-/*
-            plane.position.x += 1000.0;
-            plane.position.y += size.y / 2;
-            plane.position.z += size.z / 2;
-*/
-
-            plane.scaling = size;
+            box.position = new BABYLON.Vector3(
+                box.position.x += size.x / 2,
+                box.position.y += size.y / 2,
+                box.position.z += size.z / 2,
+            );
 
             return FactoryMesh.decorateMesh
             (
-                plane,
+                box,
                 size,
                 rotationRad,
                 rotationAxis,
