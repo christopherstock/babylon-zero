@@ -53,7 +53,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0,   -0.5, 0.0   ),
-                new BABYLON.Vector3( 100.0, 0.5,  500.0 ),
+                new BABYLON.Vector3( 100.0, 0.5,   500.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Main.game.engine.material.textureTest,

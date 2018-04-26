@@ -8,12 +8,12 @@
     export class MathUtil
     {
         /***************************************************************************************************************
-        *   Converts angles to radians.
+        *   Converts an angle from degrees to radians.
         *
-        *   @param  angle   The angle in degrees.
-        *   @return         The specified angle in radians.
+        *   @param  angle The angle in degrees.
+        *   @return       The angle in radians.
         ***************************************************************************************************************/
-        public static angleToRad( angle:number ):number
+        public static degreesToRad(angle:number ):number
         {
             return ( angle * Math.PI / 180.0 );
         }

@@ -11,6 +11,7 @@
     {
         YES,
         NO,
+        NO_IMPOSTOR,
     }
 
     /*******************************************************************************************************************
@@ -26,50 +27,122 @@
         ***************************************************************************************************************/
         public static createBox
         (
-            id              :string,
-            position        :BABYLON.Vector3,
-            size            :BABYLON.Vector3,
-            rotationAmount  :number,
-            rotationAxis    :BABYLON.Vector3,
-            material        :BABYLON.StandardMaterial,
-            scene           :BABYLON.Scene,
-            isStatic        :Static
+            id           :string,
+            position     :BABYLON.Vector3,
+            size         :BABYLON.Vector3,
+            rotationRad  :number,
+            rotationAxis :BABYLON.Vector3,
+            material     :BABYLON.StandardMaterial,
+            scene        :BABYLON.Scene,
+            isStatic     :Static
         )
-        :BABYLON.Mesh
+        : BABYLON.Mesh
         {
-            let box:BABYLON.Mesh = BABYLON.Mesh.CreateBox
-            (
-                id,
-                1.0,
-                scene
-            );
-            box.position = position;
-            box.scaling  = size;
+            let box:BABYLON.Mesh = BABYLON.Mesh.CreateBox( id, 1.0, scene );
 
+            box.position = position;
             box.position.x += size.x / 2;
             box.position.y += size.y / 2;
             box.position.z += size.z / 2;
 
-            box.rotate( rotationAxis, rotationAmount, BABYLON.Space.WORLD );
+            box.scaling  = size;
 
+            return FactoryMesh.decorate
+            (
+                box,
+                size,
+                rotationRad,
+                rotationAxis,
+                material,
+                scene,
+                isStatic
+            );
+        }
+
+        /***************************************************************************************************************
+        *   Creates a plane.
+        *
+        *   @deprecated inoperative positioning and size setting!
+        ***************************************************************************************************************/
+        public static createPlane
+        (
+            id           :string,
+            position     :BABYLON.Vector3,
+            size         :BABYLON.Vector3,
+            rotationRad  :number,
+            rotationAxis :BABYLON.Vector3,
+            material     :BABYLON.StandardMaterial,
+            scene        :BABYLON.Scene,
+            isStatic     :Static
+        )
+        : BABYLON.Mesh
+        {
+            let plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
+            (
+                id,
+                {
+                    width:           size.x,
+                    height:          size.z,
+                    sideOrientation: BABYLON.Mesh.DOUBLESIDE,
+                },
+                scene
+            );
+
+            plane.position = position;
+/*
+            plane.position.x += 1000.0;
+            plane.position.y += size.y / 2;
+            plane.position.z += size.z / 2;
+*/
+
+            plane.scaling = size;
+
+            return FactoryMesh.decorate
+            (
+                plane,
+                size,
+                rotationRad,
+                rotationAxis,
+                material,
+                scene,
+                isStatic
+            );
+        }
+
+        /***************************************************************************************************************
+        *   Adds general mesh properties.
+        ***************************************************************************************************************/
+        private static decorate
+        (
+            mesh         :BABYLON.Mesh,
+            size         :BABYLON.Vector3,
+            rotationRad  :number,
+            rotationAxis :BABYLON.Vector3,
+            material     :BABYLON.StandardMaterial,
+            scene        :BABYLON.Scene,
+            isStatic     :Static
+        )
+        {
+            mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
+
+            // specify material
             if ( material.diffuseTexture != null )
             {
                 ( material.diffuseTexture as any ).uScale = size.z;
                 ( material.diffuseTexture as any ).vScale = size.x;
             }
+            mesh.material        = material;
 
-            box.material        = material;
-            box.receiveShadows  = false;
-
-            box.checkCollisions = true;
+            mesh.receiveShadows  = false;
+            mesh.checkCollisions = true;
 
             switch ( isStatic )
             {
                 case Static.YES:
                 {
-                    box.physicsImpostor = new BABYLON.PhysicsImpostor
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
-                        box,
+                        mesh,
                         BABYLON.PhysicsImpostor.BoxImpostor,
                         {
                             mass:        0.0,
@@ -83,9 +156,9 @@
 
                 case Static.NO:
                 {
-                    box.physicsImpostor = new BABYLON.PhysicsImpostor
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
-                        box,
+                        mesh,
                         BABYLON.PhysicsImpostor.BoxImpostor,
                         {
                             mass:        1.0,
@@ -96,8 +169,13 @@
                     );
                     break;
                 }
+
+                case Static.NO_IMPOSTOR:
+                {
+                    break;
+                }
             }
 
-            return box;
+            return mesh;
         }
     }

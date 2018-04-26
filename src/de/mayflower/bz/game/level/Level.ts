@@ -64,12 +64,12 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
-                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
 
             // x test
@@ -78,23 +78,23 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
-                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
             bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
-                new BABYLON.Vector3( 2.5,  0.5, 0.5   ),
+                new BABYLON.Vector3( 2.5,  0.25, 0.25   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
 
             // y test
@@ -103,23 +103,23 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
-                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
             bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
-                new BABYLON.Vector3( 0.5, 2.5, 0.5   ),
+                new BABYLON.Vector3( 0.25, 2.5, 0.25   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
 
             // z test
@@ -128,23 +128,23 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
-                new BABYLON.Vector3( 0.5, 0.5, 0.5   ),
+                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
             bz.FactoryMesh.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
-                new BABYLON.Vector3( 0.5, 0.5, 2.5   ),
+                new BABYLON.Vector3( 0.25, 0.25, 2.5   ),
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Static.YES
+                bz.Static.NO_IMPOSTOR
             );
         }
     }

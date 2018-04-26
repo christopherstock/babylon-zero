@@ -6,9 +6,8 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve planes.
+    *   TODO Try BABYLON.MeshBuilder instead of BABYLON.Mesh?
     *   TODO Make textures with same texture map but different scales.
-    *   TODO make mesh collidable and non-collidable
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
     *   TODO Fix texture UV according to box dimensions.
