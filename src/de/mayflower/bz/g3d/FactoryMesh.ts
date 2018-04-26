@@ -50,9 +50,9 @@
             );
 
             box.position = new BABYLON.Vector3(
-                box.position.x += size.x / 2,
-                box.position.y += size.y / 2,
-                box.position.z += size.z / 2,
+                position.x + ( size.x / 2 ),
+                position.y + ( size.y / 2 ),
+                position.z + ( size.z / 2 ),
             );
 
             return FactoryMesh.decorateMesh
