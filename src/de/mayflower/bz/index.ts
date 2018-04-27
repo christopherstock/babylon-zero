@@ -7,14 +7,15 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
-    export * from './g3d/FactoryMesh';
+    export * from './g3d/MeshFactory';
+    export * from './g3d/Texture';
 
     export * from './game/Game';
 
     export * from './game/engine/Camera';
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
-    export * from './game/engine/Material';
+    export * from './game/engine/MaterialSystem';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
 

@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Make textures with same texture map but different scales (into box creator).
     *   TODO Fix texture UV according to box dimensions.
     *   TODO Solve different texture scalings for different meshes?
     *   TODO Try textures with alpha! (for an easy tree etc.) via texture.hasAlpha = true

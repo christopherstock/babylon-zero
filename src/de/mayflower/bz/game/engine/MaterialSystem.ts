@@ -8,15 +8,8 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *******************************************************************************************************************/
-    export class Material
+    export class MaterialSystem
     {
-        public              textureTest             :BABYLON.StandardMaterial           = null;
-        public              textureMfLogo           :BABYLON.StandardMaterial           = null;
-        public              textureAmiga            :BABYLON.StandardMaterial           = null;
-        public              textureWood             :BABYLON.StandardMaterial           = null;
-        public              textureGrass            :BABYLON.StandardMaterial           = null;
-        public              textureGlass            :BABYLON.StandardMaterial           = null;
-
         public              solidBlack              :BABYLON.StandardMaterial           = null;
         public              solidRed                :BABYLON.StandardMaterial           = null;
         public              solidGreen              :BABYLON.StandardMaterial           = null;
@@ -29,19 +22,12 @@
         ***************************************************************************************************************/
         public init()
         {
-            this.textureTest   = Material.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-            this.textureMfLogo = Material.createTexture( "mfLogo.jpg", 5.0, 5.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-            this.textureAmiga  = Material.createTexture( "amiga.jpg",  1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-            this.textureWood   = Material.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-            this.textureGrass  = Material.createTexture( "grass.jpg",  5.0, 5.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-            this.textureGlass  = Material.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
-
-            this.solidBlack    = Material.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
-            this.solidRed      = Material.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );
-            this.solidGreen    = Material.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ) );
-            this.solidBlue     = Material.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ) );
-            this.solidGrey     = Material.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ) );
-            this.solidWhite    = Material.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
+            this.solidBlack    = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
+            this.solidRed      = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );
+            this.solidGreen    = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ) );
+            this.solidBlue     = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ) );
+            this.solidGrey     = MaterialSystem.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ) );
+            this.solidWhite    = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
         }
 
         /***************************************************************************************************************
@@ -54,7 +40,7 @@
         *   @param backFaceCulling Specifies if both sides of this texture shall be textured.
         *   @param emissiveColor   The color this texture emits.
         ***************************************************************************************************************/
-        private static createTexture
+        public static createTexture
         (
             fileName        :string,
             repeatU         :number,

@@ -1,6 +1,7 @@
 
     import * as bz from '../..';
     import * as BABYLON from 'babylonjs';
+    import {MaterialSystem} from "../engine/MaterialSystem";
 
     /*******************************************************************************************************************
     *   Specifies the 'bunny' level.
@@ -83,35 +84,38 @@
         ***************************************************************************************************************/
         private setupGround():void
         {
-            bz.FactoryMesh.createBox(
+            bz.MeshFactory.createBox(
                 "Ground1",
                 new BABYLON.Vector3( -50.0,   -4.4, -49.0   ),
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                bz.Main.game.engine.material.textureGrass,
+                bz.Texture.GRASS,
+                null,
                 this.scene,
                 bz.Physics.STATIC
             );
 
-            bz.FactoryMesh.createBox(
+            bz.MeshFactory.createBox(
                 "Ground2",
                 new BABYLON.Vector3( -50.0,   -26.0, -143.5 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 -0.45,
                 new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
-                bz.Main.game.engine.material.textureGrass,
+                bz.Texture.GRASS,
+                null,
                 this.scene,
                 bz.Physics.STATIC
             );
 
-            bz.FactoryMesh.createBox(
+            bz.MeshFactory.createBox(
                 "Ground3",
                 new BABYLON.Vector3( -50.0,   -48.0, -235.0 ),
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
-                bz.Main.game.engine.material.textureGrass,
+                bz.Texture.GRASS,
+                null,
                 this.scene,
                 bz.Physics.STATIC
             );
@@ -126,7 +130,7 @@
             for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
                 let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, this.scene );
-                sphere.material = bz.Main.game.engine.material.textureMfLogo;
+                sphere.material = MaterialSystem.createTexture( "mfLogo.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
                 sphere.position = new BABYLON.Vector3( Math.random() * 20 - 10, y, Math.random() * 10 - 5 );
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -151,7 +155,7 @@
             {
                 let sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, this.scene);
                 spheres.push(sphere);
-                sphere.material = bz.Main.game.engine.material.textureAmiga;
+                sphere.material = MaterialSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );;
                 sphere.position = new BABYLON.Vector3(Math.random() * 20 - 10, y, Math.random() * 10 - 5);
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -183,7 +187,7 @@
             // Box
             let box0             = BABYLON.Mesh.CreateBox( "Box0", 3, this.scene );
             box0.position        = new BABYLON.Vector3(3, 30, 0);
-            box0.material        = bz.Main.game.engine.material.textureWood;
+            box0.material        = MaterialSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );;
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
@@ -212,12 +216,12 @@
             // Compound
             let part0 = BABYLON.Mesh.CreateBox( "part0", 3, this.scene );
             part0.position = new BABYLON.Vector3(3, 30, 0);
-            part0.material = bz.Main.game.engine.material.textureWood;
+            part0.material = MaterialSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
 
             let part1 = BABYLON.Mesh.CreateBox( "part1", 3, this.scene );
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
-            part1.material = bz.Main.game.engine.material.textureWood;
+            part1.material = MaterialSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
@@ -272,8 +276,8 @@
                 this.scene
             );
 
-            glassPane1.material = bz.Main.game.engine.material.textureGlass;
-            glassPane2.material = bz.Main.game.engine.material.textureGlass;
+            glassPane1.material = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
+            glassPane2.material = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
 
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
@@ -289,7 +293,7 @@
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
             solidBox.checkCollisions = true;
 
-            solidBox.material = bz.Main.game.engine.material.textureAmiga;
+            solidBox.material = MaterialSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
         }
 
         /***************************************************************************************************************

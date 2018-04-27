@@ -12,7 +12,7 @@
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem            = null;
         /** The material system. */
-        public                      material                    :bz.Material                = null;
+        public                      material                    :bz.MaterialSystem                = null;
         /** The pointer system. */
         public                      pointer                     :bz.Pointer                 = null;
         /** The scene system. */
@@ -58,7 +58,7 @@
 
             // init materials
             bz.Debug.init.log( "Init materials" );
-            this.material = new bz.Material();
+            this.material = new bz.MaterialSystem();
             this.material.init();
 
             // init sprites

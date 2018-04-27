@@ -1,5 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
+    import * as bz from "../index";
 
     /*******************************************************************************************************************
     *   Specifies if a mesh is static so it will never move.
@@ -20,7 +21,7 @@
     *   @author     Christopher Stock
     *   @version    0.0.1
     *******************************************************************************************************************/
-    export class FactoryMesh
+    export class MeshFactory
     {
         /***************************************************************************************************************
         *   Creates a box.
@@ -32,7 +33,8 @@
             size         :BABYLON.Vector3,
             rotationRad  :number,
             rotationAxis :BABYLON.Vector3,
-            material     :BABYLON.StandardMaterial,
+            texture      :bz.Texture,
+            color        :BABYLON.StandardMaterial,
             scene        :BABYLON.Scene,
             isStatic     :Physics
         )
@@ -55,7 +57,31 @@
                 position.z + ( size.z / 2 ),
             );
 
-            return FactoryMesh.decorateMesh
+            let material:BABYLON.StandardMaterial = null;
+
+            if ( texture != null )
+            {
+                material = bz.MaterialSystem.createTexture
+                (
+                    texture.toString(),
+                    size.x,
+                    size.z,
+                    1.0,
+                    false,
+                    bz.SettingGame.COLOR_WHITE
+                );
+
+/*
+                this.textureTest   = MaterialSystem.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
+                this.textureGlass  = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
+*/
+            }
+            else if ( color != null )
+            {
+                material = color;
+            }
+
+            return MeshFactory.decorateMesh
             (
                 box,
                 size,

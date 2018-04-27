@@ -49,40 +49,43 @@
         private setupBoxes() : void
         {
             // static ground
-            bz.FactoryMesh.createBox
+            bz.MeshFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
                 new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                bz.Main.game.engine.material.textureTest,
+                bz.Texture.TEST,
+                null,
                 this.scene,
                 bz.Physics.STATIC
             );
 
             // movable crate - small
-            bz.FactoryMesh.createBox
+            bz.MeshFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
                 new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                bz.Main.game.engine.material.textureWood,
+                bz.Texture.WOOD,
+                null,
                 this.scene,
                 bz.Physics.MOVABLE
             );
 
             // movable crate - big
-            bz.FactoryMesh.createBox
+            bz.MeshFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 7.0   ),
                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
-                bz.Main.game.engine.material.textureWood,
+                bz.Texture.WOOD,
+                null,
                 this.scene,
                 bz.Physics.MOVABLE
             );
