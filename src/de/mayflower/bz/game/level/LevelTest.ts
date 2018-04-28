@@ -57,6 +57,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.TEST,
+                false,
                 null,
                 this.scene,
                 bz.Physics.STATIC
@@ -71,6 +72,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.WOOD,
+                false,
                 null,
                 this.scene,
                 bz.Physics.MOVABLE
@@ -85,10 +87,43 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.WOOD,
+                false,
                 null,
                 this.scene,
                 bz.Physics.MOVABLE
             );
+
+            // tree - face 1
+            bz.MeshFactory.createBox
+            (
+                "Tree1",
+                new BABYLON.Vector3( 15.0,  0.0, 10.0   ),
+                new BABYLON.Vector3( 2.0, 2.0, 0.001 ),
+                0.0,
+                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                bz.Texture.TREE,
+                true,
+                null,
+                this.scene,
+                bz.Physics.STATIC
+            );
+
+            // tree - face 1
+            bz.MeshFactory.createBox
+            (
+                "Tree1",
+                new BABYLON.Vector3( 10.0,  0.0001, 15.0   ),
+                new BABYLON.Vector3( 2.0, 0.001, 2.0 ),
+                0.0,
+                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                bz.Texture.TREE,
+                true,
+                null,
+                this.scene,
+                bz.Physics.STATIC
+            );
+
+
 
 
         }

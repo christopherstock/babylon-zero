@@ -6,9 +6,7 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix texture UV according to box dimensions.
-    *   TODO Solve different texture scalings for different meshes?
-    *   TODO Try textures with alpha! (for an easy tree etc.) via texture.hasAlpha = true
+    *   TODO Try to solve planes again! (for trees etc.)
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
     *   TODO Calculate mass for boxes according to their density. Create density value!
@@ -18,6 +16,7 @@
     *   TODO Solve move with collisions ..
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Solve ortho drawing!
+    *   TODO enable player movement with collisions.
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
@@ -38,7 +37,6 @@
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
     *   TODO try this.camera.lockedTarget.
     *   TODO try dynamic textures ( video in texture in front of screen .. )
-    *
     *   TODO Review babylon.JS tutorials, features and playground.
     *
     *   @author     Christopher Stock

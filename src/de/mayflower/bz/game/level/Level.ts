@@ -68,6 +68,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
                 bz.Physics.SENSOR
@@ -83,6 +84,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR
@@ -95,6 +97,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR
@@ -110,6 +113,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR
@@ -122,6 +126,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR
@@ -137,6 +142,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR
@@ -149,6 +155,7 @@
                 0.0,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
+                false,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR

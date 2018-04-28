@@ -13,4 +13,5 @@
         WOOD            = "wood.jpg",
         GRASS           = "grass.jpg",
         GLASS           = "glass.jpg",
+        TREE            = "tree.png",
     }

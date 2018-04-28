@@ -28,15 +28,16 @@
         ***************************************************************************************************************/
         public static createBox
         (
-            id           :string,
-            position     :BABYLON.Vector3,
-            size         :BABYLON.Vector3,
-            rotationRad  :number,
-            rotationAxis :BABYLON.Vector3,
-            texture      :bz.Texture,
-            color        :BABYLON.StandardMaterial,
-            scene        :BABYLON.Scene,
-            isStatic     :Physics
+            id              :string,
+            position        :BABYLON.Vector3,
+            size            :BABYLON.Vector3,
+            rotationRad     :number,
+            rotationAxis    :BABYLON.Vector3,
+            texture         :bz.Texture,
+            textureHasAlpha :boolean,
+            color           :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+            isStatic        :Physics
         )
         : BABYLON.Mesh
         {
@@ -67,10 +68,10 @@
                     size.x,
                     size.z,
                     1.0,
-                    false,
-                    bz.SettingGame.COLOR_WHITE
+                    true,
+                    bz.SettingGame.COLOR_WHITE,
+                    textureHasAlpha
                 );
-
 /*
                 this.textureTest   = MaterialSystem.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
                 this.textureGlass  = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
@@ -98,13 +99,13 @@
         ***************************************************************************************************************/
         private static decorateMesh
         (
-            mesh         :BABYLON.Mesh,
-            size         :BABYLON.Vector3,
-            rotationRad  :number,
-            rotationAxis :BABYLON.Vector3,
-            material     :BABYLON.StandardMaterial,
-            scene        :BABYLON.Scene,
-            isStatic     :Physics
+            mesh            :BABYLON.Mesh,
+            size            :BABYLON.Vector3,
+            rotationRad     :number,
+            rotationAxis    :BABYLON.Vector3,
+            material        :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+            isStatic        :Physics
         )
         {
             mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );

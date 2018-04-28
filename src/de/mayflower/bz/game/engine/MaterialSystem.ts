@@ -39,6 +39,7 @@
         *   @param alpha           Opacity for this texture.
         *   @param backFaceCulling Specifies if both sides of this texture shall be textured.
         *   @param emissiveColor   The color this texture emits.
+        *   @param textureHasAlpha Specifies alpha acceptance in texture image.
         ***************************************************************************************************************/
         public static createTexture
         (
@@ -47,7 +48,8 @@
             repeatV         :number,
             alpha           :number,
             backFaceCulling :boolean,
-            emissiveColor   :BABYLON.Color3
+            emissiveColor   :BABYLON.Color3,
+            textureHasAlpha :boolean
         )
         : BABYLON.StandardMaterial
         {
@@ -65,6 +67,8 @@
             // working around poor typings for scaling ..
             ( textureMaterial.diffuseTexture as any ).uScale = repeatU;
             ( textureMaterial.diffuseTexture as any ).vScale = repeatV;
+
+            textureMaterial.diffuseTexture.hasAlpha = textureHasAlpha;
 
             textureMaterial.alpha                = alpha;
             textureMaterial.backFaceCulling      = backFaceCulling;
