@@ -57,7 +57,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.TEST,
-                false,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
                 bz.Physics.STATIC
@@ -72,7 +73,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.WOOD,
-                false,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
                 bz.Physics.MOVABLE
@@ -87,28 +89,44 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.WOOD,
-                false,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
                 bz.Physics.MOVABLE
             );
 
-            // tree - face 1
+            // tree - standing (crossed)
             bz.MeshFactory.createBox
             (
                 "Tree1",
-                new BABYLON.Vector3( 15.0,  0.0, 10.0   ),
-                new BABYLON.Vector3( 2.0, 2.0, 0.001 ),
+                new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
+                new BABYLON.Vector3( 2.0,  2.0, 0.001  ),
                 0.0,
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                 bz.Texture.TREE,
-                true,
+                bz.TextureHasAlpha.YES,
+                bz.TextureUV.ALL_TO_ONE,
+                null,
+                this.scene,
+                bz.Physics.STATIC
+            );
+            bz.MeshFactory.createBox
+            (
+                "Tree1",
+                new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
+                new BABYLON.Vector3( 2.0,  2.0, 0.001  ),
+                bz.MathUtil.degreesToRad( 90.0 ),
+                new BABYLON.Vector3( 0.0,  1.0, 0.0   ),
+                bz.Texture.TREE,
+                bz.TextureHasAlpha.YES,
+                bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
                 bz.Physics.STATIC
             );
 
-            // tree - face 1
+            // tree - lying
             bz.MeshFactory.createBox
             (
                 "Tree1",
@@ -117,7 +135,8 @@
                 0.0,
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.TREE,
-                true,
+                bz.TextureHasAlpha.YES,
+                bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
                 bz.Physics.STATIC

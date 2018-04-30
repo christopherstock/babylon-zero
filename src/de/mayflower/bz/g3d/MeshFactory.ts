@@ -16,6 +16,30 @@
     }
 
     /*******************************************************************************************************************
+    *   Specifies if a texture has an alpha value.
+    *
+    *   @author     Christopher Stock
+    *   @version    0.0.1
+    *******************************************************************************************************************/
+    export enum TextureHasAlpha
+    {
+        YES,
+        NO,
+    }
+
+    /*******************************************************************************************************************
+    *   Specifies the UV handling of the applied texture.
+    *
+    *   @author     Christopher Stock
+    *   @version    0.0.1
+    *******************************************************************************************************************/
+    export enum TextureUV
+    {
+        ACCORDING_TO_SIZE,
+        ALL_TO_ONE,
+    }
+
+    /*******************************************************************************************************************
     *   Constructs 3D meshes.
     *
     *   @author     Christopher Stock
@@ -34,7 +58,8 @@
             rotationRad     :number,
             rotationAxis    :BABYLON.Vector3,
             texture         :bz.Texture,
-            textureHasAlpha :boolean,
+            textureHasAlpha :bz.TextureHasAlpha,
+            textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             isStatic        :Physics
@@ -48,6 +73,8 @@
                     width:  size.x,
                     height: size.y,
                     depth:  size.z,
+
+                    // faceUVs, backUVs .. ?
                 },
                 scene
             );
@@ -62,11 +89,14 @@
 
             if ( texture != null )
             {
+                let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? size.x : 1.0 );
+                let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? size.z : 1.0 );
+
                 material = bz.MaterialSystem.createTexture
                 (
                     texture.toString(),
-                    size.x,
-                    size.z,
+                    textureU,
+                    textureV,
                     1.0,
                     true,
                     bz.SettingGame.COLOR_WHITE,
@@ -109,13 +139,14 @@
         )
         {
             mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
-
+/*
             // specify material
             if ( material.diffuseTexture != null )
             {
                 ( material.diffuseTexture as any ).uScale = size.z;
                 ( material.diffuseTexture as any ).vScale = size.x;
             }
+*/
             mesh.material        = material;
 
             mesh.receiveShadows  = false;
