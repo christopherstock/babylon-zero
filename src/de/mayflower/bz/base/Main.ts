@@ -9,6 +9,7 @@
     *   TODO Default to degree instead of radians.
     *   TODO Try to solve planes again! (for trees etc.)
     *   TODO Refactor MeshFactory!
+    *   TODO Set rotation point for meshes.
     *
     *   TODO Remove @author and @version tags!
     *

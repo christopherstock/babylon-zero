@@ -218,8 +218,7 @@
             isStatic     :Physics
         )
         {
-            // TODO outsource rotation to separate method! Create constants for rotationAxis!
-            mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
+            MeshFactory.rotateMesh( mesh, rotationAxis, rotationRad );
 
             mesh.material       = material;
             mesh.receiveShadows = false;
@@ -271,5 +270,10 @@
             }
 
             return mesh;
+        }
+
+        private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationRad:number )
+        {
+            mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
         }
     }
