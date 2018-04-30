@@ -6,12 +6,12 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Default to degree instead of radians.
-    *   TODO Try to solve planes again! (for trees etc.)
-    *   TODO Refactor MeshFactory!
     *   TODO Set rotation point for meshes.
     *
-    *   TODO Remove @author and @version tags!
+    *   TODO Try to solve planes again! (for trees etc.)
+    *   TODO Refactor MeshFactory!
+    *
+    *   TODO Remove all @author and @version tags!
     *
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)

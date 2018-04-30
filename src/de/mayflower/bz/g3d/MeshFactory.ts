@@ -59,7 +59,7 @@
             id              :string,
             position        :BABYLON.Vector3,
             size            :BABYLON.Vector3,
-            rotationRad     :number,
+            rotationDegrees :number,
             rotationAxis    :BABYLON.Vector3,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
@@ -121,7 +121,7 @@
             return MeshFactory.decorateMesh
             (
                 box,
-                rotationRad,
+                rotationDegrees,
                 rotationAxis,
                 material,
                 scene,
@@ -210,15 +210,15 @@
         ***************************************************************************************************************/
         private static decorateMesh
         (
-            mesh         :BABYLON.Mesh,
-            rotationRad  :number,
-            rotationAxis :BABYLON.Vector3,
-            material     :BABYLON.StandardMaterial,
-            scene        :BABYLON.Scene,
-            isStatic     :Physics
+            mesh            :BABYLON.Mesh,
+            rotationDegrees :number,
+            rotationAxis    :BABYLON.Vector3,
+            material        :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+            isStatic        :Physics
         )
         {
-            MeshFactory.rotateMesh( mesh, rotationAxis, rotationRad );
+            MeshFactory.rotateMesh( mesh, rotationAxis, rotationDegrees );
 
             mesh.material       = material;
             mesh.receiveShadows = false;
@@ -272,8 +272,9 @@
             return mesh;
         }
 
-        private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationRad:number )
+        private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
-            mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
+            let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
+            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.WORLD );
         }
     }
