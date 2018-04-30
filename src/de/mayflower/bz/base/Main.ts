@@ -6,11 +6,14 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Default to degree instead of radians.
     *   TODO Try to solve planes again! (for trees etc.)
+    *   TODO Refactor MeshFactory!
+    *
+    *   TODO Remove @author and @version tags!
     *
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
-    *   TODO Remove @author and @version tags!
     *   TODO Calculate mass for boxes according to their density. Create density value!
     *   TODO Soilved upside down tree textures!
     *   TODO Create 3d gun as 2nd scene in front?
@@ -21,6 +24,7 @@
     *   TODO Solve player falling into infinity.
     *   TODO rotationRad to rotationAngle everywhere !!
     *   TODO Solve ortho drawing!
+    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO enable player movement with collisions.
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"

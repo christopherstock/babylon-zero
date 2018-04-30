@@ -142,6 +142,22 @@
                 bz.Physics.STATIC
             );
 
+            // plane - lying
+            bz.MeshFactory.createPlane
+            (
+                "Tree1",
+                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
+                2.0,
+                4.0,
+                bz.MathUtil.degreesToRad( 45.0 ),
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                bz.Texture.AMIGA,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ALL_TO_ONE,
+                null,
+                this.scene,
+                bz.Physics.STATIC
+            );
 
 
 

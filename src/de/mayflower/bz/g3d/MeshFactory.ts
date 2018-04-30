@@ -1,6 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz from "../index";
+    import * as bz from "..";
 
     /*******************************************************************************************************************
     *   Specifies if a mesh is static so it will never move.
@@ -47,6 +47,10 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
+        public      static  readonly    ROTATION_AXIS_X         :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
+        public      static  readonly    ROTATION_AXIS_Y         :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
+        public      static  readonly    ROTATION_AXIS_Z         :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
+
         /***************************************************************************************************************
         *   Creates a box.
         ***************************************************************************************************************/
@@ -92,13 +96,15 @@
                 let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? size.x : 1.0 );
                 let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? size.z : 1.0 );
 
+                let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+
                 material = bz.MaterialSystem.createTexture
                 (
                     texture.toString(),
                     textureU,
                     textureV,
                     1.0,
-                    true,
+                    backfaceCulling,
                     bz.SettingGame.COLOR_WHITE,
                     textureHasAlpha
                 );
@@ -115,7 +121,82 @@
             return MeshFactory.decorateMesh
             (
                 box,
-                size,
+                rotationRad,
+                rotationAxis,
+                material,
+                scene,
+                isStatic
+            );
+        }
+
+        /***************************************************************************************************************
+        *   Creates a plane.
+        ***************************************************************************************************************/
+        public static createPlane
+        (
+            id              :string,
+            position        :BABYLON.Vector3,
+            width           :number,
+            height          :number,
+            rotationRad     :number,
+            rotationAxis    :BABYLON.Vector3,
+            texture         :bz.Texture,
+            textureHasAlpha :bz.TextureHasAlpha,
+            textureUV       :bz.TextureUV,
+            color           :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+            isStatic        :Physics
+        )
+        : BABYLON.Mesh
+        {
+            let plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
+            (
+                id,
+                {
+                    width:  width,
+                    height: height,
+                },
+                scene
+            );
+
+            plane.position = new BABYLON.Vector3(
+                position.x + ( width  / 2 ),
+                position.y + ( height / 2 ),
+                position.z,
+            );
+
+            let material:BABYLON.StandardMaterial = null;
+
+            if ( texture != null )
+            {
+                let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? width  : 1.0 );
+                let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? height : 1.0 );
+
+                let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+
+                material = bz.MaterialSystem.createTexture
+                (
+                    texture.toString(),
+                    textureU,
+                    textureV,
+                    1.0,
+                    backfaceCulling,
+                    bz.SettingGame.COLOR_WHITE,
+                    textureHasAlpha
+                );
+/*
+                this.textureTest   = MaterialSystem.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
+                this.textureGlass  = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
+*/
+            }
+            else if ( color != null )
+            {
+                material = color;
+            }
+
+            return MeshFactory.decorateMesh
+            (
+                plane,
                 rotationRad,
                 rotationAxis,
                 material,
@@ -129,27 +210,19 @@
         ***************************************************************************************************************/
         private static decorateMesh
         (
-            mesh            :BABYLON.Mesh,
-            size            :BABYLON.Vector3,
-            rotationRad     :number,
-            rotationAxis    :BABYLON.Vector3,
-            material        :BABYLON.StandardMaterial,
-            scene           :BABYLON.Scene,
-            isStatic        :Physics
+            mesh         :BABYLON.Mesh,
+            rotationRad  :number,
+            rotationAxis :BABYLON.Vector3,
+            material     :BABYLON.StandardMaterial,
+            scene        :BABYLON.Scene,
+            isStatic     :Physics
         )
         {
+            // TODO outsource rotation to separate method! Create constants for rotationAxis!
             mesh.rotate( rotationAxis, rotationRad, BABYLON.Space.WORLD );
-/*
-            // specify material
-            if ( material.diffuseTexture != null )
-            {
-                ( material.diffuseTexture as any ).uScale = size.z;
-                ( material.diffuseTexture as any ).vScale = size.x;
-            }
-*/
-            mesh.material        = material;
 
-            mesh.receiveShadows  = false;
+            mesh.material       = material;
+            mesh.receiveShadows = false;
 
             switch ( isStatic )
             {
