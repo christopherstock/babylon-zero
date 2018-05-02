@@ -47,7 +47,7 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
-        private     static  readonly    USE_ROTATION_PIVOT_MATRIX_BOX   :boolean                = false;
+        private     static  readonly    USE_ROTATION_PIVOT_MATRIX_BOX   :boolean                = true;
         private     static  readonly    USE_ROTATION_PIVOT_MATRIX_PLANE :boolean                = true;
 
         public      static  readonly    ROTATION_AXIS_X                 :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
@@ -86,16 +86,18 @@
                 scene
             );
 
-            if ( !MeshFactory.USE_ROTATION_PIVOT_MATRIX_BOX )
+            if ( MeshFactory.USE_ROTATION_PIVOT_MATRIX_BOX && rotationDegrees != 0.0 )
+            {
+                box.position = position;
+                box.setPivotMatrix( BABYLON.Matrix.Translation( ( size.x / 2 ), ( size.y / 2 ), ( size.z / 2 ) ), false );
+            }
+            else
             {
                 box.position = new BABYLON.Vector3(
                     position.x + ( size.x / 2 ),
                     position.y + ( size.y / 2 ),
                     position.z + ( size.z / 2 ),
                 );
-            } else {
-                box.position = position;
-                box.setPivotMatrix( BABYLON.Matrix.Translation( ( size.x / 2 ), ( size.y / 2 ), ( size.z / 2 ) ), false );
             }
 
             let material:BABYLON.StandardMaterial = null;
@@ -143,7 +145,7 @@
             position        :BABYLON.Vector3,
             width           :number,
             height          :number,
-            rotationRad     :number,
+            rotationDegrees :number,
             rotationAxis    :BABYLON.Vector3,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
@@ -164,7 +166,7 @@
                 scene
             );
 
-            if ( MeshFactory.USE_ROTATION_PIVOT_MATRIX_PLANE )
+            if ( MeshFactory.USE_ROTATION_PIVOT_MATRIX_PLANE && rotationDegrees != 0.0 )
             {
                 plane.position = position;
                 plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
@@ -210,7 +212,7 @@
             return MeshFactory.decorateMesh
             (
                 plane,
-                rotationRad,
+                rotationDegrees,
                 rotationAxis,
                 material,
                 scene,

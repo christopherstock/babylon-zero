@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve free rotations with correct physics for boxes and meshes.
     *   TODO Try to solve planes again! (for trees etc.)
     *   TODO Refactor MeshFactory!
     *   TODO Remove all @author and @version tags!
@@ -24,6 +23,7 @@
     *   TODO Solve move with collisions ..
     *   TODO Solve player falling into infinity.
     *   TODO rotationRad to rotationAngle everywhere !!
+    *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Solve ortho drawing!
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO enable player movement with collisions.

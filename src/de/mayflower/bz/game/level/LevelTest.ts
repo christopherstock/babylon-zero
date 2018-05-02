@@ -63,15 +63,32 @@
                 this.scene,
                 bz.Physics.STATIC
             );
-
+/*
+            // static ground (inoperative though rotated)
+            bz.MeshFactory.createPlane
+            (
+                "Ground1",
+                new BABYLON.Vector3( 40.0, -0.001, 0.0  ),
+                40.0,
+                40.0,
+                90.0,
+                bz.MeshFactory.ROTATION_AXIS_X,
+                bz.Texture.AMIGA,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.STATIC
+            );
+*/
             // movable crate - small
             bz.MeshFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
                 new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
-                0.0,
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                45.0,
+                bz.MeshFactory.ROTATION_AXIS_Y,
                 bz.Texture.WOOD,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
