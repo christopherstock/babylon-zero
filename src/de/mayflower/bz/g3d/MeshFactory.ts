@@ -62,8 +62,8 @@
             id              :string,
             position        :BABYLON.Vector3,
             size            :BABYLON.Vector3,
-            rotationDegrees :number,
             rotationAxis    :BABYLON.Vector3,
+            rotationDegrees :number,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -145,8 +145,8 @@
             position        :BABYLON.Vector3,
             width           :number,
             height          :number,
-            rotationDegrees :number,
             rotationAxis    :BABYLON.Vector3,
+            rotationDegrees :number,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -187,7 +187,8 @@
                 let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? width  : 1.0 );
                 let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? height : 1.0 );
 
-                let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+                // let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+                let backfaceCulling:boolean = false;
 
                 material = bz.MaterialSystem.createTexture
                 (

@@ -54,8 +54,8 @@
                 "Ground1",
                 new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
                 new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
+                bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 bz.Texture.TEST,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
@@ -64,7 +64,7 @@
                 bz.Physics.STATIC
             );
 /*
-            // static ground (inoperative though rotated)
+            // static ground ( inoperative camera collisions when rotated ... )
             bz.MeshFactory.createPlane
             (
                 "Ground1",
@@ -87,8 +87,8 @@
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
                 new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
-                45.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
+                45.0,
                 bz.Texture.WOOD,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
@@ -103,8 +103,8 @@
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 7.0   ),
                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
-                0.0,
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                30.0,
                 bz.Texture.WOOD,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
@@ -114,13 +114,14 @@
             );
 
             // tree - standing (crossed)
-            bz.MeshFactory.createBox
+            bz.MeshFactory.createPlane
             (
                 "Tree1",
                 new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
-                new BABYLON.Vector3( 2.0,  2.0, 0.001  ),
+                3.0,
+                7.0,
+                bz.MeshFactory.ROTATION_AXIS_X,
                 0.0,
-                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                 bz.Texture.TREE,
                 bz.TextureHasAlpha.YES,
                 bz.TextureUV.ALL_TO_ONE,
@@ -128,29 +129,14 @@
                 this.scene,
                 bz.Physics.STATIC
             );
-            bz.MeshFactory.createBox
+            bz.MeshFactory.createPlane
             (
                 "Tree1",
-                new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
-                new BABYLON.Vector3( 2.0,  2.0, 0.001  ),
-                90.0,
-                new BABYLON.Vector3( 0.0,  1.0, 0.0   ),
-                bz.Texture.TREE,
-                bz.TextureHasAlpha.YES,
-                bz.TextureUV.ALL_TO_ONE,
-                null,
-                this.scene,
-                bz.Physics.STATIC
-            );
-
-            // tree - lying
-            bz.MeshFactory.createBox
-            (
-                "Tree1",
-                new BABYLON.Vector3( 10.0,  0.0001, 15.0   ),
-                new BABYLON.Vector3( 2.0, 0.001, 2.0 ),
-                0.0,
-                new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
+                new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
+                3.0,
+                7.0,
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                270.0,
                 bz.Texture.TREE,
                 bz.TextureHasAlpha.YES,
                 bz.TextureUV.ALL_TO_ONE,
@@ -166,8 +152,8 @@
                 new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                 2.0,
                 4.0,
-                45.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
+                45.0,
                 bz.Texture.AMIGA,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ALL_TO_ONE,
@@ -183,8 +169,8 @@
                 new BABYLON.Vector3( 6.0, 0.0, 10.0 ),
                 7.0,
                 7.0,
-                45.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
+                45.0,
                 bz.Texture.AMIGA,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ALL_TO_ONE,
@@ -193,15 +179,14 @@
                 bz.Physics.STATIC
             );
 
-/*
             // movable quader - rectangle
             bz.MeshFactory.createBox
             (
                 "Ground1",
                 new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
                 new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
-                45.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
+                45.0,
                 bz.Texture.GLASS,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
@@ -209,7 +194,7 @@
                 this.scene,
                 bz.Physics.MOVABLE
             );
-*/
+
 
 
         }

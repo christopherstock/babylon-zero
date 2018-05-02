@@ -6,12 +6,12 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try to solve planes again! (for trees etc.)
-    *   TODO Refactor MeshFactory!
+    *   TODO Solve move with collisions!
+    *   TODO Refactor MeshFactory! Group equal operations!
+    *   TODO Unify plane and mesh creation methods!
     *   TODO Remove all @author and @version tags!
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
-    *   TODO Unify plane and mesh creation metopds!
-    *   TODO Add sphere creators!
+    *   TODO Add sphere creator!
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
     *   TODO Calculate mass for boxes according to their density. Create density value!
@@ -20,7 +20,6 @@
     *   TODO Realize player as moving box instead of direct camera / player/camera movement: ? http://www.pixelcodr.com/tutos/physics/physics.html
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Fix player/camrera controls (turn, duck)
-    *   TODO Solve move with collisions ..
     *   TODO Solve player falling into infinity.
     *   TODO rotationRad to rotationAngle everywhere !!
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
