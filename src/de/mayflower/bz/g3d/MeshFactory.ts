@@ -47,9 +47,11 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
-        public      static  readonly    ROTATION_AXIS_X         :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
-        public      static  readonly    ROTATION_AXIS_Y         :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
-        public      static  readonly    ROTATION_AXIS_Z         :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
+        private     static  readonly    USE_ROTATION_PIVOT_MATRIX   :boolean                = false;
+
+        public      static  readonly    ROTATION_AXIS_X             :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
+        public      static  readonly    ROTATION_AXIS_Y             :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
+        public      static  readonly    ROTATION_AXIS_Z             :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
 
         /***************************************************************************************************************
         *   Creates a box.
@@ -83,7 +85,7 @@
                 scene
             );
 
-            if (true)
+            if ( !MeshFactory.USE_ROTATION_PIVOT_MATRIX )
             {
                 box.position = new BABYLON.Vector3(
                     position.x + ( size.x / 2 ),
@@ -161,12 +163,12 @@
                 scene
             );
 
-            if (true)
+            if ( !MeshFactory.USE_ROTATION_PIVOT_MATRIX )
             {
                 plane.position = new BABYLON.Vector3(
-                    position.x - width  / 2 ,
-                    position.y,
-                    position.z - height / 2
+                    position.x + ( width  / 2 ),
+                    position.y + ( height / 2 ),
+                    position.z
                 );
             }
             else
@@ -228,8 +230,6 @@
             isStatic        :Physics
         )
         {
-            MeshFactory.rotateMesh( mesh, rotationAxis, rotationDegrees );
-
             mesh.material       = material;
             mesh.receiveShadows = false;
 
@@ -279,12 +279,15 @@
                 }
             }
 
+            MeshFactory.rotateMesh( mesh, rotationAxis, rotationDegrees );
+
             return mesh;
         }
 
         private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
             let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
-            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.WORLD );
+            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
+
         }
     }

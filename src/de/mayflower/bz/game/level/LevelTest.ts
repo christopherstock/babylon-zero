@@ -145,8 +145,8 @@
             // plane - amiga, 1/2
             bz.MeshFactory.createPlane
             (
-                "Tree1",
-                new BABYLON.Vector3( 1.0,  0.0, 2.0   ),
+                "Amiga1",
+                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                 2.0,
                 4.0,
                 45.0,
@@ -162,10 +162,10 @@
             // plane - amiga 7/7
             bz.MeshFactory.createPlane
             (
-                "Tree1",
-                new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
-                8.0,
-                8.0,
+                "Amiga2",
+                new BABYLON.Vector3( 6.0, 0.0, 10.0 ),
+                7.0,
+                7.0,
                 45.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 bz.Texture.AMIGA,
@@ -175,6 +175,7 @@
                 this.scene,
                 bz.Physics.STATIC
             );
+
 /*
             // movable quader - rectangle
             bz.MeshFactory.createBox
