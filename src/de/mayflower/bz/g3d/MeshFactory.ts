@@ -88,7 +88,9 @@
                 position.y + ( size.y / 2 ),
                 position.z + ( size.z / 2 ),
             );
-
+/*
+            box.setPivotPoint( position );
+*/
             let material:BABYLON.StandardMaterial = null;
 
             if ( texture != null )
@@ -159,11 +161,8 @@
                 scene
             );
 
-            plane.position = new BABYLON.Vector3(
-                position.x + ( width  / 2 ),
-                position.y + ( height / 2 ),
-                position.z,
-            );
+            plane.position = position;
+            plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
 
             let material:BABYLON.StandardMaterial = null;
 
@@ -274,7 +273,8 @@
 
         private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
+        //if (true ) return;
             let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
-            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.WORLD );
+            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
         }
     }

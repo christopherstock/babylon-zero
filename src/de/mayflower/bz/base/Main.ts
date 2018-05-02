@@ -6,13 +6,9 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Set rotation point for meshes.
-    *
     *   TODO Try to solve planes again! (for trees etc.)
     *   TODO Refactor MeshFactory!
-    *
     *   TODO Remove all @author and @version tags!
-    *
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
     *   TODO Calculate mass for boxes according to their density. Create density value!

@@ -21,7 +21,7 @@
             super
             (
                 scene,
-                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
+                new BABYLON.Vector3( 6.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 6.0 ),
                 new BABYLON.Vector3( 0.0,  0.0,   0.0  )
             );
 
@@ -146,7 +146,7 @@
             bz.MeshFactory.createPlane
             (
                 "Tree1",
-                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
+                new BABYLON.Vector3( 1.0,  0.0, 2.0   ),
                 2.0,
                 4.0,
                 45.0,
