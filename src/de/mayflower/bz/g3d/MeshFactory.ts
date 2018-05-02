@@ -47,11 +47,12 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
-        private     static  readonly    USE_ROTATION_PIVOT_MATRIX   :boolean                = false;
+        private     static  readonly    USE_ROTATION_PIVOT_MATRIX_BOX   :boolean                = false;
+        private     static  readonly    USE_ROTATION_PIVOT_MATRIX_PLANE :boolean                = true;
 
-        public      static  readonly    ROTATION_AXIS_X             :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
-        public      static  readonly    ROTATION_AXIS_Y             :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
-        public      static  readonly    ROTATION_AXIS_Z             :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
+        public      static  readonly    ROTATION_AXIS_X                 :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
+        public      static  readonly    ROTATION_AXIS_Y                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
+        public      static  readonly    ROTATION_AXIS_Z                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
 
         /***************************************************************************************************************
         *   Creates a box.
@@ -85,7 +86,7 @@
                 scene
             );
 
-            if ( !MeshFactory.USE_ROTATION_PIVOT_MATRIX )
+            if ( !MeshFactory.USE_ROTATION_PIVOT_MATRIX_BOX )
             {
                 box.position = new BABYLON.Vector3(
                     position.x + ( size.x / 2 ),
@@ -163,18 +164,18 @@
                 scene
             );
 
-            if ( !MeshFactory.USE_ROTATION_PIVOT_MATRIX )
+            if ( MeshFactory.USE_ROTATION_PIVOT_MATRIX_PLANE )
+            {
+                plane.position = position;
+                plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
+            }
+            else
             {
                 plane.position = new BABYLON.Vector3(
                     position.x + ( width  / 2 ),
                     position.y + ( height / 2 ),
                     position.z
                 );
-            }
-            else
-            {
-                plane.position = position;
-                plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
             }
 
             let material:BABYLON.StandardMaterial = null;
