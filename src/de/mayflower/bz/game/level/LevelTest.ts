@@ -9,7 +9,7 @@
     *******************************************************************************************************************/
     export class LevelTest extends bz.Level
     {
-        private                                 light1                  :BABYLON.DirectionalLight   = null;
+        private                             light1                          :BABYLON.DirectionalLight   = null;
 
         /***************************************************************************************************************
         *   Sets up the 'bunny' level.
@@ -21,7 +21,7 @@
             super
             (
                 scene,
-                new BABYLON.Vector3( 6.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 6.0 ),
+                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
                 new BABYLON.Vector3( 0.0,  0.0,   0.0  )
             );
 
@@ -142,7 +142,7 @@
                 bz.Physics.STATIC
             );
 
-            // plane - lying
+            // plane - amiga, 1/2
             bz.MeshFactory.createPlane
             (
                 "Tree1",
@@ -159,6 +159,39 @@
                 bz.Physics.STATIC
             );
 
+            // plane - amiga 7/7
+            bz.MeshFactory.createPlane
+            (
+                "Tree1",
+                new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
+                8.0,
+                8.0,
+                45.0,
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                bz.Texture.AMIGA,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ALL_TO_ONE,
+                null,
+                this.scene,
+                bz.Physics.STATIC
+            );
+/*
+            // movable quader - rectangle
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
+                new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
+                45.0,
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                bz.Texture.GLASS,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.MOVABLE
+            );
+*/
 
 
         }

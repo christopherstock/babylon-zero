@@ -6,9 +6,13 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Solve free rotations with correct physics for boxes and meshes.
     *   TODO Try to solve planes again! (for trees etc.)
     *   TODO Refactor MeshFactory!
     *   TODO Remove all @author and @version tags!
+    *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
+    *   TODO Unify plane and mesh creation metopds!
+    *   TODO Add sphere creators!
     *   TODO make param for mesh physics attributes.
     *   TODO make game objects (static wall, non-static movable etc.)
     *   TODO Calculate mass for boxes according to their density. Create density value!
@@ -34,6 +38,7 @@
     *   TODO move onInitLevelCompleted to class Level and also scene to class level!
     *   TODO specify explicit gravity?
     *   TODO Enable jumping!
+    *   TODO Add creators for more mesh primitives!
     *   TODO Improve mesh system.
     *   TODO Fix skybox and link to camera!
     *   TODO Solve shadows?

@@ -83,14 +83,18 @@
                 scene
             );
 
-            box.position = new BABYLON.Vector3(
-                position.x + ( size.x / 2 ),
-                position.y + ( size.y / 2 ),
-                position.z + ( size.z / 2 ),
-            );
-/*
-            box.setPivotPoint( position );
-*/
+            if (true)
+            {
+                box.position = new BABYLON.Vector3(
+                    position.x + ( size.x / 2 ),
+                    position.y + ( size.y / 2 ),
+                    position.z + ( size.z / 2 ),
+                );
+            } else {
+                box.position = position;
+                box.setPivotMatrix( BABYLON.Matrix.Translation( ( size.x / 2 ), ( size.y / 2 ), ( size.z / 2 ) ), false );
+            }
+
             let material:BABYLON.StandardMaterial = null;
 
             if ( texture != null )
@@ -110,10 +114,6 @@
                     bz.SettingGame.COLOR_WHITE,
                     textureHasAlpha
                 );
-/*
-                this.textureTest   = MaterialSystem.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-                this.textureGlass  = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
-*/
             }
             else if ( color != null )
             {
@@ -161,8 +161,19 @@
                 scene
             );
 
-            plane.position = position;
-            plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
+            if (true)
+            {
+                plane.position = new BABYLON.Vector3(
+                    position.x - width  / 2 ,
+                    position.y,
+                    position.z - height / 2
+                );
+            }
+            else
+            {
+                plane.position = position;
+                plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
+            }
 
             let material:BABYLON.StandardMaterial = null;
 
@@ -273,8 +284,7 @@
 
         private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
-        //if (true ) return;
             let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
-            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
+            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.WORLD );
         }
     }
