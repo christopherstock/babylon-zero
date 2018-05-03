@@ -6,8 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Remove all @author and @version tags!
-    *
     *   TODO Solve move with collisions!
     *   TODO Refactor MeshFactory! Group equal operations!
     *   TODO Unify plane and mesh creation methods!
@@ -49,9 +47,6 @@
     *   TODO try this.camera.lockedTarget.
     *   TODO try dynamic textures ( video in texture in front of screen .. )
     *   TODO Review babylon.JS tutorials, features and playground.
-    *
-    *   @author     Christopher Stock
-    *   @version    0.0.1
     *******************************************************************************************************************/
     export class Main
     {

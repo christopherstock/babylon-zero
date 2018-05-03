@@ -1,9 +1,6 @@
 
     /*******************************************************************************************************************
     *   Contains the project history with all current and completed version information.
-    *
-    *   @author     Christopher Stock
-    *   @version    1.0.0
     *******************************************************************************************************************/
     export class Version
     {

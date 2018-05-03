@@ -3,9 +3,6 @@
 
     /*******************************************************************************************************************
     *   Specifies the 'first person' level.
-    *
-    *   @author     Christopher Stock
-    *   @version    0.0.1
     *******************************************************************************************************************/
     export class LevelTest extends bz.Level
     {
@@ -205,19 +202,6 @@
         private createPlayer() : void
         {
             // static ground
-            this.player = bz.MeshFactory.createBox
-            (
-                "Grass",
-                new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
-                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
-                bz.MeshFactory.ROTATION_AXIS_Y,
-                0.0,
-                bz.Texture.GRASS,
-                bz.TextureHasAlpha.NO,
-                bz.TextureUV.ACCORDING_TO_SIZE,
-                null,
-                this.scene,
-                bz.Physics.MOVABLE
-            );
+            this.player = new bz.Player();
         }
     }

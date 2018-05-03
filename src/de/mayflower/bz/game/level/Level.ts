@@ -3,16 +3,13 @@
 
     /*******************************************************************************************************************
     *   Represents a custom level set.
-    *
-    *   @author     Christopher Stock
-    *   @version    0.0.1
     *******************************************************************************************************************/
     export class Level
     {
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
-        /** The player mesh. */
-        protected                           player                  :BABYLON.Mesh                       = null;
+        /** The player instance. */
+        protected                           player                  :bz.Player                          = null;
 
         /** Camera position on level reset. */
         private         readonly            cameraStartupPosition   :BABYLON.Vector3                    = null;
@@ -54,35 +51,9 @@
         *******************************************************************************************************************/
         public render()
         {
-            this.handlePlayerKeys();
+            this.player.handlePlayerKeys();
 
-
-        }
-
-        /*******************************************************************************************************************
-        *   Handles all keys for the player.
-        *******************************************************************************************************************/
-        public handlePlayerKeys()
-        {
-            let SPEED:number = 1.0;
-
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
-            {
-                this.player.applyImpulse( new BABYLON.Vector3( -SPEED, 0.0, 0.0 ), this.player.position );
-            }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
-            {
-                this.player.applyImpulse( new BABYLON.Vector3( SPEED, 0.0, 0.0 ), this.player.position );
-            }
-
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
-            {
-                this.player.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, -SPEED ), this.player.position );
-            }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
-            {
-                this.player.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, SPEED ), this.player.position );
-            }
+            this.player.render();
         }
 
         /***************************************************************************************************************
