@@ -6,7 +6,7 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Prevent player rotation and z changes via collisions.
+    *   TODO Enable player rotation Y and movements into all directions!
     *   TODO Refactor MeshFactory! Group equal operations: Unify plane and mesh creation methods!
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!
