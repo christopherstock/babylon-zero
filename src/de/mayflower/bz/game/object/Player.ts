@@ -93,14 +93,15 @@
         public render()
         {
             // suppress linear and angular velocity?
+/*
             this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
             this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+*/
 
-            // control rotation!
-            this.mesh.rotation = BABYLON.Vector3.Zero();
-
-            // TODO Completely suppress rotation ?
-
+            // explicitly set Y rotation
+            let angle = bz.MathUtil.degreesToRad( 0.0 );
+            let quaternion = BABYLON.Quaternion.RotationAxis( bz.MeshFactory.ROTATION_AXIS_Y, angle );
+            this.mesh.rotationQuaternion = quaternion;
 
 
 

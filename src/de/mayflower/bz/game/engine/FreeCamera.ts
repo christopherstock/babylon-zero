@@ -7,7 +7,7 @@
     export class Camera
     {
         /** The instance of the babylon.JS camera. */
-        public                          camera                  :BABYLON.FreeCamera                     = null;
+        public                  freeCamera                  :BABYLON.FreeCamera                     = null;
 
         /***************************************************************************************************************
         *   Sets up the scene camera.
@@ -19,37 +19,36 @@
         constructor( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
         {
             // Change camera controls
-            this.camera = new BABYLON.FreeCamera( "Camera", startupPosition, scene );
+            this.freeCamera = new BABYLON.FreeCamera( "Camera", startupPosition, scene );
 
-            this.camera.setTarget( startupTarget );
+            this.freeCamera.setTarget( startupTarget );
 
-            this.camera.checkCollisions = true;
-            this.camera.applyGravity    = true;
+            this.freeCamera.checkCollisions = true;
+            this.freeCamera.applyGravity    = true;
 
             //Set the ellipsoid around the camera (the size of the player in our case)
-            this.camera.ellipsoid = new BABYLON.Vector3
+            this.freeCamera.ellipsoid = new BABYLON.Vector3
             (
                 bz.SettingGame.PLAYER_SIZE_XZ,
                 bz.SettingGame.PLAYER_SIZE_Y,
                 bz.SettingGame.PLAYER_SIZE_XZ
             );
-            this.camera.ellipsoidOffset = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+            this.freeCamera.ellipsoidOffset = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
 
 
 
             // attach debug controls ..
-            this.camera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+            this.freeCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
 
-            this.camera.keysUp.push(    bz.KeyCodes.KEY_UP    );
-            this.camera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
-            this.camera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
-            this.camera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
+            this.freeCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );
+            this.freeCamera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
+            this.freeCamera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
+            this.freeCamera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
 
 
 
 
             // bz.Main.game.engine.scene.getScene().activeCamera = ..
-
             // this.camera.lockedTarget = .. !
         }
     }

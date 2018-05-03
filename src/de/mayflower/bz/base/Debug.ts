@@ -16,7 +16,7 @@
         /** Debugs sound system. */
         public      static      readonly    sound               :Debug              = new Debug( true  );
         /** Debugs key system. */
-        public      static      readonly    key                 :Debug              = new Debug( true  );
+        public      static      readonly    key                 :Debug              = new Debug( false  );
 
         /** The flag that enables or disables logging for this debug group. */
         private                 readonly    debugEnabled        :boolean            = false;

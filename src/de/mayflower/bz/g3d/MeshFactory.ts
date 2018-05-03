@@ -276,7 +276,7 @@
             return mesh;
         }
 
-        private static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
+        public static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
             let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
             mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
