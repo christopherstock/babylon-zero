@@ -20,11 +20,14 @@
     export * from './game/engine/Sprite';
 
     export * from './game/engine/hid/KeyCodes';
-    export * from './game/engine/hid/Pointer';
+    export * from './game/engine/hid/KeySystem';
+    export * from './game/engine/hid/PointerSystem';
 
     export * from './game/level/Level';
     export * from './game/level/LevelBunny';
     export * from './game/level/LevelTest';
+
+    export * from './game/object/Player';
 
     export * from './util/HTML';
     export * from './util/IO';

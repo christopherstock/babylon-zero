@@ -18,6 +18,8 @@
         public      static      readonly    canvas              :Debug              = new Debug( true  );
         /** Debugs sound system. */
         public      static      readonly    sound               :Debug              = new Debug( true  );
+        /** Debugs key system. */
+        public      static      readonly    key                 :Debug              = new Debug( true  );
 
         /** The flag that enables or disables logging for this debug group. */
         private                 readonly    debugEnabled        :boolean            = false;

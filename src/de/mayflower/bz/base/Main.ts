@@ -6,10 +6,11 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Remove all @author and @version tags!
+    *
     *   TODO Solve move with collisions!
     *   TODO Refactor MeshFactory! Group equal operations!
     *   TODO Unify plane and mesh creation methods!
-    *   TODO Remove all @author and @version tags!
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!
     *   TODO make param for mesh physics attributes.

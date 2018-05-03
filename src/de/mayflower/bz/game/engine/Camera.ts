@@ -48,6 +48,9 @@
             this.camera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
             this.camera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
 
+
+
+
             // bz.Main.game.engine.scene.getScene().activeCamera = ..
 
             // this.camera.lockedTarget = .. !

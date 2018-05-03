@@ -28,6 +28,7 @@
             // this.setupLights();
             this.setupBoxes();
             this.createTestAxisPoints();
+            this.createPlayer();
 
             bz.Main.game.onInitLevelCompleted();
         }
@@ -196,6 +197,27 @@
             );
 
 
+        }
 
+        /***************************************************************************************************************
+        *   Sets up the player for the scene.
+        ***************************************************************************************************************/
+        private createPlayer() : void
+        {
+            // static ground
+            this.player = bz.MeshFactory.createBox
+            (
+                "Grass",
+                new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
+                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                0.0,
+                bz.Texture.GRASS,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.MOVABLE
+            );
         }
     }

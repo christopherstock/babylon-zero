@@ -60,10 +60,10 @@
         ***************************************************************************************************************/
         public render=()=>
         {
-            //render scene
+            // render level
+            this.engine.level.render();
+
+            // render babylon.JS scene
             this.engine.scene.renderScene();
-
-
-
         }
     }

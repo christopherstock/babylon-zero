@@ -12,15 +12,17 @@
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem            = null;
         /** The material system. */
-        public                      material                    :bz.MaterialSystem                = null;
-        /** The pointer system. */
-        public                      pointer                     :bz.Pointer                 = null;
+        public                      material                    :bz.MaterialSystem          = null;
         /** The scene system. */
         public                      scene                       :bz.Scene                   = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                  = null;
         /** The current level instance. */
         public                      level                       :bz.Level                   = null;
+        /** The key system. */
+        public                      keySystem                   :bz.KeySystem               = null;
+        /** The pointer system. */
+        public                      pointerSystem               :bz.PointerSystem           = null;
 
         /** The babylon.JS engine. */
         public                      babylonEngine               :BABYLON.Engine             = null;
@@ -48,8 +50,9 @@
                 }
             );
 
-            // create pointer system
-            this.pointer = new bz.Pointer();
+            // create key and pointer system
+            this.keySystem     = new bz.KeySystem();
+            this.pointerSystem = new bz.PointerSystem();
 
             // create the scene
             bz.Debug.init.log( "Init scene" );

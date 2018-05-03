@@ -58,7 +58,7 @@
         ***************************************************************************************************************/
         public assignControls() : void
         {
-            this.babylonScene.onPointerDown = bz.Main.game.engine.pointer.assignPointerDown;
+            this.babylonScene.onPointerDown = bz.Main.game.engine.pointerSystem.assignPointerDown;
         }
 
         /***************************************************************************************************************

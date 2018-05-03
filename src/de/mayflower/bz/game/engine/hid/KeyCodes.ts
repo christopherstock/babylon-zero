@@ -16,6 +16,15 @@
         /** The keycode that represents the 'ARROW DOWN' key. */
         public  static  readonly    KEY_DOWN            :number                         = 40;
 
+        /** The keycode that represents the 'W' key. */
+        public  static  readonly    KEY_W               :number                         = 87;
+        /** The keycode that represents the 'A' key. */
+        public  static  readonly    KEY_A               :number                         = 65;
+        /** The keycode that represents the 'S' key. */
+        public  static  readonly    KEY_S               :number                         = 83;
+        /** The keycode that represents the 'D' key. */
+        public  static  readonly    KEY_D               :number                         = 68;
+
         /** The keycode that represents the 'ENTER' key. */
         public  static  readonly    KEY_ENTER           :number                         = 13;
         /** The keycode that represents the 'ESCAPE' key. */
