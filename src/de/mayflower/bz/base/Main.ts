@@ -10,17 +10,15 @@
     *   TODO Refactor MeshFactory! Group equal operations: Unify plane and mesh creation methods!
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!
-    *   TODO make param for mesh's physics attributes!
-    *   TODO Auto-Calc mass.
-    *   TODO make game objects (static wall, non-static movable etc.)
+    *   TODO make param for mesh's physics attributes (increase player mass!)!
+    *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
+    *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Let camera follow the player.
-    *   TODO Calculate mass for boxes according to their density. Create density value!
-    *   TODO Soilved upside down tree textures!
     *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Realize player as moving box instead of direct camera / player/camera movement: ? http://www.pixelcodr.com/tutos/physics/physics.html
+    *   TODO Create follower camera: Realize player as moving box instead of direct camera / player/camera movement.
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
-    *   TODO Fix player/camrera controls (turn, duck)
-    *   TODO Solve player falling into infinity.
+    *   TODO Add player/camrera controls (turn, duck)
+    *   TODO Solve player falling into infinity (camera stops at .. ?)
     *   TODO rotationRad to rotationAngle everywhere !!
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Solve ortho drawing!
@@ -37,9 +35,11 @@
     *   TODO move onInitLevelCompleted to class Level and also scene to class level!
     *   TODO specify explicit gravity?
     *   TODO Enable jumping!
+    *   TODO Try fog or smoke?
     *   TODO Add creators for more mesh primitives!
     *   TODO Improve mesh system.
     *   TODO Fix skybox and link to camera!
+    *   TODO Enable wearpon zoom.
     *   TODO Solve shadows?
     *   TODO Create simple test level with increased performance!
     *   TODO Improve abstract level system and make it more generic.

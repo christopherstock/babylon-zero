@@ -18,7 +18,7 @@
             (
                 "Grass",
                 new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
-                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,
                 bz.Texture.GRASS,
@@ -92,18 +92,12 @@
         *******************************************************************************************************************/
         public render()
         {
-            // suppress linear and angular velocity?
+            // explicitly set Y rotation
+            bz.MeshFactory.setRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, 10.0 );
 /*
+            // suppress linear and angular velocity
             this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
             this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
 */
-
-            // explicitly set Y rotation
-            let angle = bz.MathUtil.degreesToRad( 0.0 );
-            let quaternion = BABYLON.Quaternion.RotationAxis( bz.MeshFactory.ROTATION_AXIS_Y, angle );
-            this.mesh.rotationQuaternion = quaternion;
-
-
-
         }
     }

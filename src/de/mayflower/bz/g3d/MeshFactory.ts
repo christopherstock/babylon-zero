@@ -280,6 +280,14 @@
         {
             let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
             mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
+        }
 
+        public static setRotation( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
+        {
+            mesh.rotationQuaternion = BABYLON.Quaternion.RotationAxis
+            (
+                rotationAxis,
+                bz.MathUtil.degreesToRad( rotationDegrees )
+            );
         }
     }
