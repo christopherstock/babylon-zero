@@ -4,7 +4,7 @@
     /*******************************************************************************************************************
     *   Specifies all scene cameras.
     *******************************************************************************************************************/
-    export class Camera
+    export class CameraSystem
     {
         /** The instance of the babylon.JS camera used for debug purposes. */
         public                  debugCamera                     :BABYLON.FreeCamera                     = null;
@@ -63,5 +63,26 @@
 
             // bz.Main.game.engine.scene.getScene().activeCamera = ..
             // this.camera.lockedTarget = .. !
+
+
+
+
+            var camera = new BABYLON.FollowCamera("FollowCamera", new BABYLON.Vector3(0,0,0), scene);
+            camera.heightOffset = 8; //how high up from the object to place the camera
+            camera.radius = 30; // how far from the object to follow
+            camera.rotationOffset = 180; //rotate around the object (if it's imported strangely or you want to follow from the front)
+            //camera.setTarget( myMeshObject ); //any mesh or object with a "position" Vector3        scene.activeCamera = camera; //set the active camera
+
+
+
+        }
+
+        public lockToPlayer( mesh:BABYLON.Mesh )
+        {
+            this.debugCamera.lockedTarget = mesh;
+
+
+
+
         }
     }

@@ -10,7 +10,7 @@
         protected                           rotY                    :number                             = 270.0;
 
         /** The player mesh. */
-        protected                           mesh                    :BABYLON.Mesh                       = null;
+        public                              mesh                    :BABYLON.Mesh                       = null;
 
         /** Current move delta X. */
         protected                           moveDeltaX              :number                             = 0.0;

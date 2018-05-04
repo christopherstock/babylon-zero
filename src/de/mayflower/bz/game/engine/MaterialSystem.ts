@@ -43,7 +43,7 @@
                 let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeU : 1.0 );
                 let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeV : 1.0 );
 
-                let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+                let backfaceCulling:boolean = false; // ( textureHasAlpha == bz.TextureHasAlpha.YES );
 
                 return bz.MaterialSystem.createTexture
                 (
