@@ -122,7 +122,7 @@
                 this.rotationDeltaY = 0.0;
             }
 
-            // apply rotation Y to player mesh
-            bz.MeshFactory.setAbsoluteRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
+            // assign all rotations to player mesh
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, 0.0, this.rotY, 0.0 );
         }
     }
