@@ -62,9 +62,6 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
-        private     static  readonly    USE_ROTATION_PIVOT_MATRIX_BOX   :boolean                = true;
-        private     static  readonly    USE_ROTATION_PIVOT_MATRIX_PLANE :boolean                = true;
-
         public      static  readonly    ROTATION_AXIS_X                 :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
         public      static  readonly    ROTATION_AXIS_Y                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
         public      static  readonly    ROTATION_AXIS_Z                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
@@ -102,19 +99,7 @@
                 scene
             );
 
-            if ( MeshFactory.USE_ROTATION_PIVOT_MATRIX_BOX && rotationDegrees != 0.0 )
-            {
-                box.position = position;
-                box.setPivotMatrix( BABYLON.Matrix.Translation( ( size.x / 2 ), ( size.y / 2 ), ( size.z / 2 ) ), false );
-            }
-            else
-            {
-                box.position = new BABYLON.Vector3(
-                    position.x + ( size.x / 2 ),
-                    position.y + ( size.y / 2 ),
-                    position.z + ( size.z / 2 ),
-                );
-            }
+            MeshFactory.setPositionAndPivot( box, position, rotationDegrees, size.x, size.y, size.z );
 
             let material:BABYLON.StandardMaterial = null;
 
@@ -184,19 +169,7 @@
                 scene
             );
 
-            if ( MeshFactory.USE_ROTATION_PIVOT_MATRIX_PLANE && rotationDegrees != 0.0 )
-            {
-                plane.position = position;
-                plane.setPivotMatrix( BABYLON.Matrix.Translation( ( width / 2 ), ( height / 2 ), 0.0 ), false );
-            }
-            else
-            {
-                plane.position = new BABYLON.Vector3(
-                    position.x + ( width  / 2 ),
-                    position.y + ( height / 2 ),
-                    position.z
-                );
-            }
+            MeshFactory.setPositionAndPivot( plane, position, rotationDegrees, width, height, 0.0 );
 
             let material:BABYLON.StandardMaterial = null;
 
@@ -306,12 +279,48 @@
             mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
         }
 
-        public static setRotation( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
+        public static setAbsoluteRotation( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
             mesh.rotationQuaternion = BABYLON.Quaternion.RotationAxis
             (
                 rotationAxis,
                 bz.MathUtil.degreesToRad( rotationDegrees )
             );
+        }
+
+        public static setPositionAndPivot
+        (
+            mesh            :BABYLON.Mesh,
+            position        :BABYLON.Vector3,
+            rotationDegrees :number,
+            width           :number,
+            height          :number,
+            depth           :number
+        )
+        {
+            // if ( true || rotationDegrees != 0.0 )
+            {
+                mesh.position = position;
+                mesh.setPivotMatrix
+                (
+                    BABYLON.Matrix.Translation
+                    (
+                        ( width  / 2 ),
+                        ( height / 2 ),
+                        ( depth  / 2 )
+                    ),
+                    false
+                );
+            }
+/*
+            else
+            {
+                mesh.position = new BABYLON.Vector3(
+                    position.x + ( width  / 2 ),
+                    position.y + ( height / 2 ),
+                    position.z + ( depth  / 2 ),
+                );
+            }
+*/
         }
     }

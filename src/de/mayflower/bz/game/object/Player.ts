@@ -96,7 +96,7 @@
         public render()
         {
             // explicitly set Y rotation
-            bz.MeshFactory.setRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
+            bz.MeshFactory.setAbsoluteRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
 /*
             // suppress linear velocity
             this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
