@@ -41,54 +41,33 @@
         {
             let SPEED_MOVING:number            = 0.5;
             let SPEED_TURNING:number           = 2.5;
-            let IMPULSE_BASED_MOVEMENT:boolean = false;
 
             // TODO Move via sin/cos calculations
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
-                if ( IMPULSE_BASED_MOVEMENT )
-                {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ), this.mesh.position );
-                }
-                else
-                {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ) );
-                }
+/*
+                this.mesh.moveWithCollisions( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ) );
+*/
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
             {
-                if ( IMPULSE_BASED_MOVEMENT )
-                {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( SPEED_MOVING, 0.0, 0.0 ), this.mesh.position );
-                }
-                else
-                {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( SPEED_MOVING, 0.0, 0.0 ) );
-                }
+/*
+                this.mesh.moveWithCollisions( new BABYLON.Vector3( SPEED_MOVING, 0.0, 0.0 ) );
+*/
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
             {
-                if ( IMPULSE_BASED_MOVEMENT )
-                {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, -SPEED_MOVING ), this.mesh.position );
-                }
-                else
-                {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, -SPEED_MOVING ) );
-                }
+/*
+                this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, -SPEED_MOVING ) );
+*/
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
             {
-                if ( IMPULSE_BASED_MOVEMENT )
-                {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, SPEED_MOVING ), this.mesh.position );
-                }
-                else
-                {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, SPEED_MOVING ) );
-                }
+/*
+                this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, SPEED_MOVING ) );
+*/
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
@@ -108,9 +87,6 @@
         {
             // explicitly set Y rotation
             bz.MeshFactory.setRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
-
-
-
 /*
             // suppress linear velocity
             this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );

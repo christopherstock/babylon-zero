@@ -7,12 +7,13 @@
         /***************************************************************************************************************
         *   Converts an angle from degrees to radians.
         *
-        *   @param  angle The angle in degrees.
-        *   @return       The angle in radians.
+        *   @param angleDegrees The angle in degrees.
+        *
+        *   @return The angle in radians.
         ***************************************************************************************************************/
-        public static degreesToRad(angle:number ):number
+        public static degreesToRad( angleDegrees:number ):number
         {
-            return ( angle * Math.PI / 180.0 );
+            return ( angleDegrees * Math.PI / 180.0 );
         }
 
         /***************************************************************************************************************
@@ -20,7 +21,8 @@
         *
         *   @param min
         *   @param max
-        *   @return {number}
+        *
+        *   @return A random integer.
         ***************************************************************************************************************/
         public static getRandomInt( min:number, max:number )
         {
@@ -40,5 +42,29 @@
             while ( angleDegrees < 0.0   ) angleDegrees += 360.0;
 
             return angleDegrees;
+        }
+
+        /*****************************************************************************
+        *   Delivers the sine value of the given angle in degrees.
+        *
+        *   @param angleDegrees An angle in degrees to get the sine for.
+        *
+        *   @return The sine value for the specified angle.
+        *****************************************************************************/
+        public static sinDegrees( angleDegrees:number ):number
+        {
+            return Math.sin( MathUtil.degreesToRad( angleDegrees ) );
+        }
+
+        /*****************************************************************************
+        *   Delivers the cosine value of the given angle in degrees.
+        *
+        *   @param angleDegrees An angle to get the cosine for.
+        *
+        *   @return The cosine value for the specified angle.
+        *****************************************************************************/
+        public static cosDegrees( angleDegrees:number ):number
+        {
+            return Math.cos( MathUtil.degreesToRad( angleDegrees ) );
         }
     }
