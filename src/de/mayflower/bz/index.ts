@@ -12,7 +12,7 @@
 
     export * from './game/Game';
 
-    export * from './game/engine/FreeCamera';
+    export * from './game/engine/Camera';
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
     export * from './game/engine/MaterialSystem';
