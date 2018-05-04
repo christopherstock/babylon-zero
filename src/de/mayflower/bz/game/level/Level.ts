@@ -69,6 +69,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,
@@ -87,6 +88,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,
@@ -102,6 +104,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 2.5,  0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,
@@ -120,6 +123,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,
@@ -135,6 +139,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 2.5, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,
@@ -153,6 +158,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,
@@ -168,6 +174,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 2.5   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 0.0,

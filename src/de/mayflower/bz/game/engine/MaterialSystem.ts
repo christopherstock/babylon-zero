@@ -27,6 +27,43 @@
             this.solidWhite    = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
         }
 
+        public static createMaterial
+        (
+            texture         :bz.Texture,
+            textureHasAlpha :bz.TextureHasAlpha,
+            textureUV       :bz.TextureUV,
+            sizeU           :number,
+            sizeV           :number,
+            color           :BABYLON.StandardMaterial
+        )
+        : BABYLON.StandardMaterial
+        {
+            if ( texture != null )
+            {
+                let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeU : 1.0 );
+                let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeV : 1.0 );
+
+                let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+
+                return bz.MaterialSystem.createTexture
+                (
+                    texture.toString(),
+                    textureU,
+                    textureV,
+                    1.0,
+                    backfaceCulling,
+                    bz.SettingGame.COLOR_WHITE,
+                    textureHasAlpha
+                );
+            }
+            else if ( color != null )
+            {
+                return color;
+            }
+
+            return null;
+        }
+
         /***************************************************************************************************************
         *   Creates a textured material.
         *
@@ -85,7 +122,7 @@
         *
         *   @param color The solid and emissive color for this material.
         ***************************************************************************************************************/
-        private static createSolid( color:BABYLON.Color3 ) : BABYLON.StandardMaterial
+        public static createSolid( color:BABYLON.Color3 ) : BABYLON.StandardMaterial
         {
             let solidMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( "name", bz.Main.game.engine.scene.getScene() );
 

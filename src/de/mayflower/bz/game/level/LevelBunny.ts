@@ -83,6 +83,7 @@
             bz.MeshFactory.createBox(
                 "Ground1",
                 new BABYLON.Vector3( -50.0,   -4.4, -49.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
                 new BABYLON.Vector3( 0.0,   0.0,  0.0   ),
                 0.0,
@@ -98,6 +99,7 @@
             bz.MeshFactory.createBox(
                 "Ground2",
                 new BABYLON.Vector3( -50.0,   -26.0, -143.5 ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 1.0,   0.0, 0.0 ),
                 -0.45,
@@ -113,6 +115,7 @@
             bz.MeshFactory.createBox(
                 "Ground3",
                 new BABYLON.Vector3( -50.0,   -48.0, -235.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
                 new BABYLON.Vector3( 0.0,   0.0,   0.0    ),
                 0.0,
@@ -135,7 +138,16 @@
             for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
                 let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, this.scene );
-                sphere.material = bz.MaterialSystem.createTexture( "mfLogo.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
+                sphere.material = bz.MaterialSystem.createTexture
+                (
+                    "mfLogo.jpg",
+                    1.0,
+                    1.0,
+                    1.0,
+                    false,
+                    bz.SettingGame.COLOR_WHITE,
+                    bz.TextureHasAlpha.NO
+                );
                 sphere.position = new BABYLON.Vector3( Math.random() * 20 - 10, y, Math.random() * 10 - 5 );
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );

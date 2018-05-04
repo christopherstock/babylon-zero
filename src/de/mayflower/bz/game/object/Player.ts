@@ -21,6 +21,7 @@
             (
                 "Grass",
                 new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
+                bz.PivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,
@@ -67,14 +68,14 @@
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
             {
-                deltaX = SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                deltaZ = SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                deltaX = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                deltaZ =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
 
                 this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
             {
-                deltaX = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                deltaX =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
                 deltaZ = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
 
                 this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );

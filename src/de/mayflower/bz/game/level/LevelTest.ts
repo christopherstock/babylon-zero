@@ -51,6 +51,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,
@@ -85,6 +86,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 45.0,
@@ -102,6 +104,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 10.0,  0.0, 7.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 30.0,
@@ -119,6 +122,7 @@
             (
                 "Tree1",
                 new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 3.0,
                 7.0,
                 bz.MeshFactory.ROTATION_AXIS_X,
@@ -135,6 +139,7 @@
             (
                 "Tree1",
                 new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 3.0,
                 7.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
@@ -153,6 +158,7 @@
             (
                 "Amiga1",
                 new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 2.0,
                 4.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
@@ -171,6 +177,7 @@
             (
                 "Amiga2",
                 new BABYLON.Vector3( 6.0, 0.0, 10.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 7.0,
                 7.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
@@ -189,6 +196,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 45.0,

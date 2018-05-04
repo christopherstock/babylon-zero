@@ -58,6 +58,15 @@
     }
 
     /*******************************************************************************************************************
+    *   Specifies all valid anchors for a mesh.
+    *******************************************************************************************************************/
+    export enum PivotAnchor
+    {
+        LOWEST_XYZ,
+        CENTER_XYZ,
+    }
+
+    /*******************************************************************************************************************
     *   Constructs 3D meshes.
     *******************************************************************************************************************/
     export class MeshFactory
@@ -73,6 +82,7 @@
         (
             id              :string,
             position        :BABYLON.Vector3,
+            pivotAnchor     :bz.PivotAnchor,
             size            :BABYLON.Vector3,
             rotationAxis    :BABYLON.Vector3,
             rotationDegrees :number,
@@ -99,32 +109,8 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( box, position, rotationDegrees, size.x, size.y, size.z );
-
-            let material:BABYLON.StandardMaterial = null;
-
-            if ( texture != null )
-            {
-                let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? size.x : 1.0 );
-                let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? size.z : 1.0 );
-
-                let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
-
-                material = bz.MaterialSystem.createTexture
-                (
-                    texture.toString(),
-                    textureU,
-                    textureV,
-                    1.0,
-                    backfaceCulling,
-                    bz.SettingGame.COLOR_WHITE,
-                    textureHasAlpha
-                );
-            }
-            else if ( color != null )
-            {
-                material = color;
-            }
+            MeshFactory.setPositionAndPivot( box, position, pivotAnchor, rotationDegrees, size.x, size.y, size.z );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, size.x, size.z, color );
 
             return MeshFactory.decorateMesh
             (
@@ -145,6 +131,7 @@
         (
             id              :string,
             position        :BABYLON.Vector3,
+            pivotAnchor     :bz.PivotAnchor,
             width           :number,
             height          :number,
             rotationAxis    :BABYLON.Vector3,
@@ -169,37 +156,8 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( plane, position, rotationDegrees, width, height, 0.0 );
-
-            let material:BABYLON.StandardMaterial = null;
-
-            if ( texture != null )
-            {
-                let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? width  : 1.0 );
-                let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? height : 1.0 );
-
-                // let backfaceCulling:boolean = ( textureHasAlpha == bz.TextureHasAlpha.YES );
-                let backfaceCulling:boolean = false;
-
-                material = bz.MaterialSystem.createTexture
-                (
-                    texture.toString(),
-                    textureU,
-                    textureV,
-                    1.0,
-                    backfaceCulling,
-                    bz.SettingGame.COLOR_WHITE,
-                    textureHasAlpha
-                );
-/*
-                this.textureTest   = MaterialSystem.createTexture( "test.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE );
-                this.textureGlass  = MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null                       );
-*/
-            }
-            else if ( color != null )
-            {
-                material = color;
-            }
+            MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, rotationDegrees, width, height, 0.0 );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, width, height, color );
 
             return MeshFactory.decorateMesh
             (
@@ -292,35 +250,56 @@
         (
             mesh            :BABYLON.Mesh,
             position        :BABYLON.Vector3,
+            pivotAnchor     :bz.PivotAnchor,
             rotationDegrees :number,
             width           :number,
             height          :number,
-            depth           :number
+            depth           :number,
         )
         {
-            // if ( true || rotationDegrees != 0.0 )
+            switch ( pivotAnchor )
             {
-                mesh.position = position;
-                mesh.setPivotMatrix
-                (
-                    BABYLON.Matrix.Translation
+                case bz.PivotAnchor.LOWEST_XYZ:
+                {
+                    mesh.position = position;
+                    mesh.setPivotMatrix
                     (
-                        ( width  / 2 ),
-                        ( height / 2 ),
-                        ( depth  / 2 )
-                    ),
-                    false
-                );
-            }
+                        BABYLON.Matrix.Translation
+                        (
+                            ( width  / 2 ),
+                            ( height / 2 ),
+                            ( depth  / 2 )
+                        ),
+                        false
+                    );
+                    break;
+                }
+
+                case bz.PivotAnchor.CENTER_XYZ:
+                {
+                    // TODO try alternate method!
 /*
-            else
-            {
-                mesh.position = new BABYLON.Vector3(
-                    position.x + ( width  / 2 ),
-                    position.y + ( height / 2 ),
-                    position.z + ( depth  / 2 ),
-                );
-            }
+                    mesh.position = position;
+                    mesh.setPivotMatrix
+                    (
+                        BABYLON.Matrix.Translation
+                        (
+                            ( width  / 2 ),
+                            ( height / 2 ),
+                            ( depth  / 2 )
+                        ),
+                        false
+                    );
 */
+
+                    mesh.position = new BABYLON.Vector3(
+                        position.x + ( width  / 2 ),
+                        position.y + ( height / 2 ),
+                        position.z + ( depth  / 2 )
+                    );
+
+                    break;
+                }
+            }
         }
     }
