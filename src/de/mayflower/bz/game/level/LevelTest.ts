@@ -216,6 +216,6 @@
         private createPlayer() : void
         {
             // static ground
-            this.player = new bz.Player();
+            this.player = new bz.Player( 270.0 );
         }
     }

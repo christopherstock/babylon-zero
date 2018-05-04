@@ -64,6 +64,7 @@
     {
         LOWEST_XYZ,
         CENTER_XYZ,
+        CENTER_XZ_LOWEST_Y,
     }
 
     /*******************************************************************************************************************
@@ -277,27 +278,41 @@
 
                 case bz.PivotAnchor.CENTER_XYZ:
                 {
-                    // TODO try alternate method!
-/*
                     mesh.position = position;
                     mesh.setPivotMatrix
                     (
                         BABYLON.Matrix.Translation
                         (
-                            ( width  / 2 ),
-                            ( height / 2 ),
-                            ( depth  / 2 )
+                            0.0,
+                            0.0,
+                            0.0
                         ),
                         false
                     );
-*/
-
+ /*
+                    // equals
                     mesh.position = new BABYLON.Vector3(
                         position.x + ( width  / 2 ),
                         position.y + ( height / 2 ),
                         position.z + ( depth  / 2 )
                     );
+*/
+                    break;
+                }
 
+                case bz.PivotAnchor.CENTER_XZ_LOWEST_Y:
+                {
+                    mesh.position = position;
+                    mesh.setPivotMatrix
+                    (
+                        BABYLON.Matrix.Translation
+                        (
+                            0.0,
+                            ( height / 2 ),
+                            0.0
+                        ),
+                        false
+                    );
                     break;
                 }
             }

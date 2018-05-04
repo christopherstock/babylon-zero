@@ -6,22 +6,26 @@
     *******************************************************************************************************************/
     export class Player
     {
+        /** The player's current rotation on axis Y. */
+        protected                           rotY                    :number                             = 270.0;
+
         /** The player mesh. */
         protected                           mesh                    :BABYLON.Mesh                       = null;
 
-        /** The player rotation in Y axis. TODO move initial value to constructor. */
-        protected                           rotY                    :number                             = 270.0;
-
         /*******************************************************************************************************************
         *   Creates a new player instance.
+        *
+        *   @param rotY Initial rotation Y.
         *******************************************************************************************************************/
-        public constructor()
+        public constructor( rotY:number )
         {
+            this.rotY = rotY;
+
             this.mesh = bz.MeshFactory.createBox
             (
                 "Grass",
                 new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
-                bz.PivotAnchor.CENTER_XYZ,
+                bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,

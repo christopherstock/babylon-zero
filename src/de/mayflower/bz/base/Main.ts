@@ -6,10 +6,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Refactor MeshFactory! Group equal operations: Unify plane and mesh creation methods!
     *   TODO try this.camera.lockedTarget.
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!
+    *   TODO Try impulse based movement once again for the player.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)
