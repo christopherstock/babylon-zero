@@ -7,6 +7,8 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO try this.camera.lockedTarget.
+    *
+    *   TODO Apply combines rotations X Y and Z to player / mesh? Player quaterniton > axis rotation .rotation ?
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!
     *   TODO Try impulse based movement once again for the player.

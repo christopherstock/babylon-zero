@@ -12,6 +12,13 @@
         /** The player mesh. */
         protected                           mesh                    :BABYLON.Mesh                       = null;
 
+        /** Current move delta X. */
+        protected                           moveDeltaX              :number                             = 0.0;
+        /** Current move delta Z. */
+        protected                           moveDeltaZ              :number                             = 0.0;
+        /** Current rotation delta Y. */
+        protected                           rotationDeltaY          :number                             = 0.0;
+
         /*******************************************************************************************************************
         *   Creates a new player instance.
         *
@@ -47,51 +54,35 @@
             let SPEED_MOVING:number  = 0.5;
             let SPEED_TURNING:number = 2.5;
 
-            let deltaX:number        = 0.0;
-            let deltaZ:number        = 0.0;
-
-            // TODO Move via sin/cos calculations
-
-            // TODO refactor to methods movePlayer and rotatePlayer
-
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
-                // TODO refactor: extract moveWithCollisions to separate method and invoke directly!
-                deltaX =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-                deltaZ =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-
-                this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+                this.moveDeltaX =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
             }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
+            else if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
             {
-                deltaX = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-                deltaZ = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-
-                this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+                this.moveDeltaX = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
             {
-                deltaX = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                deltaZ =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-
-                this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+                this.moveDeltaX = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
             }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
+            else if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
             {
-                deltaX =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                deltaZ = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-
-                this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+                this.moveDeltaX =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
-                this.rotY = bz.MathUtil.normalizeAngle( this.rotY - SPEED_TURNING );
+                this.rotationDeltaY = -SPEED_TURNING;
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_E ) )
             {
-                this.rotY = bz.MathUtil.normalizeAngle( this.rotY + SPEED_TURNING );
+                this.rotationDeltaY = SPEED_TURNING;
             }
         }
 
@@ -100,15 +91,38 @@
         *******************************************************************************************************************/
         public render()
         {
-            // explicitly set Y rotation
-            bz.MeshFactory.setAbsoluteRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
-/*
+            this.movePlayer();
+            this.rotatePlayer();
+
             // suppress linear velocity
-            this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
-*/
-/*
+            // this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+
             // suppress angular velocity
-            this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
-*/
+            // this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+        }
+
+        private movePlayer()
+        {
+            if ( this.moveDeltaX != 0.0 || this.moveDeltaZ != 0.0 )
+            {
+                this.mesh.moveWithCollisions( new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ ) );
+
+                this.moveDeltaX = 0.0;
+                this.moveDeltaZ = 0.0;
+            }
+        }
+
+        private rotatePlayer()
+        {
+            if ( this.rotationDeltaY != 0.0 )
+            {
+                // assign new rotation Y
+                this.rotY = bz.MathUtil.normalizeAngle( this.rotY + this.rotationDeltaY );
+
+                this.rotationDeltaY = 0.0;
+            }
+
+            // apply rotation Y to player mesh
+            bz.MeshFactory.setAbsoluteRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
         }
     }
