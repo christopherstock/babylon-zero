@@ -9,6 +9,9 @@
         /** The player mesh. */
         protected                           mesh                    :BABYLON.Mesh                       = null;
 
+        /** The player rotation in Y axis. */
+        protected                           rotY                    :number                             = 0.0;
+
         /*******************************************************************************************************************
         *   Creates a new player instance.
         *******************************************************************************************************************/
@@ -26,7 +29,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 bz.Main.game.engine.scene.getScene(),
-                bz.Physics.MOVABLE
+                bz.Physics.MOVABLE,
+                bz.Physicals.PLAYER
             );
         }
 
@@ -35,7 +39,8 @@
         *******************************************************************************************************************/
         public handlePlayerKeys()
         {
-            let SPEED:number                   = 0.5;
+            let SPEED_MOVING:number            = 0.5;
+            let SPEED_TURNING:number           = 2.5;
             let IMPULSE_BASED_MOVEMENT:boolean = false;
 
             // TODO Move via sin/cos calculations
@@ -44,22 +49,22 @@
             {
                 if ( IMPULSE_BASED_MOVEMENT )
                 {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( -SPEED, 0.0, 0.0 ), this.mesh.position );
+                    this.mesh.applyImpulse( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ), this.mesh.position );
                 }
                 else
                 {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( -SPEED, 0.0, 0.0 ) );
+                    this.mesh.moveWithCollisions( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ) );
                 }
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
             {
                 if ( IMPULSE_BASED_MOVEMENT )
                 {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( SPEED, 0.0, 0.0 ), this.mesh.position );
+                    this.mesh.applyImpulse( new BABYLON.Vector3( SPEED_MOVING, 0.0, 0.0 ), this.mesh.position );
                 }
                 else
                 {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( SPEED, 0.0, 0.0 ) );
+                    this.mesh.moveWithCollisions( new BABYLON.Vector3( SPEED_MOVING, 0.0, 0.0 ) );
                 }
             }
 
@@ -67,23 +72,32 @@
             {
                 if ( IMPULSE_BASED_MOVEMENT )
                 {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, -SPEED ), this.mesh.position );
+                    this.mesh.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, -SPEED_MOVING ), this.mesh.position );
                 }
                 else
                 {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, -SPEED ) );
+                    this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, -SPEED_MOVING ) );
                 }
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
             {
                 if ( IMPULSE_BASED_MOVEMENT )
                 {
-                    this.mesh.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, SPEED ), this.mesh.position );
+                    this.mesh.applyImpulse( new BABYLON.Vector3( 0.0, 0.0, SPEED_MOVING ), this.mesh.position );
                 }
                 else
                 {
-                    this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, SPEED ) );
+                    this.mesh.moveWithCollisions( new BABYLON.Vector3( 0.0, 0.0, SPEED_MOVING ) );
                 }
+            }
+
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
+            {
+                this.rotY = bz.MathUtil.normalizeAngle( this.rotY - SPEED_TURNING );
+            }
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_E ) )
+            {
+                this.rotY = bz.MathUtil.normalizeAngle( this.rotY + SPEED_TURNING );
             }
         }
 
@@ -93,10 +107,16 @@
         public render()
         {
             // explicitly set Y rotation
-            bz.MeshFactory.setRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, 10.0 );
+            bz.MeshFactory.setRotation( this.mesh, bz.MeshFactory.ROTATION_AXIS_Y, this.rotY );
+
+
+
 /*
-            // suppress linear and angular velocity
+            // suppress linear velocity
             this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+*/
+/*
+            // suppress angular velocity
             this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
 */
         }

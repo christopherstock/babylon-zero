@@ -22,6 +22,11 @@
         /** The keycode that represents the 'D' key. */
         public  static  readonly    KEY_D               :number                         = 68;
 
+        /** The keycode that represents the 'Q' key. */
+        public  static  readonly    KEY_Q               :number                         = 81;
+        /** The keycode that represents the 'E' key. */
+        public  static  readonly    KEY_E               :number                         = 69;
+
         /** The keycode that represents the 'ENTER' key. */
         public  static  readonly    KEY_ENTER           :number                         = 13;
         /** The keycode that represents the 'ESCAPE' key. */

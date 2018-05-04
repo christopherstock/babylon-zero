@@ -31,6 +31,33 @@
     }
 
     /*******************************************************************************************************************
+    *   Specifies possible physical attributes for meshes.
+    *******************************************************************************************************************/
+    export class Physicals
+    {
+        public      static  readonly        PLAYER                  :BABYLON.PhysicsImpostorParameters  =
+        {
+            mass:        2.0,
+            friction:    5.0,
+            restitution: 5.0
+        };
+
+        public      static  readonly        MOVABLE                 :BABYLON.PhysicsImpostorParameters  =
+        {
+            mass:        1.0,
+            friction:    0.75,
+            restitution: 0.0
+        };
+
+        public      static  readonly        STATIC                  :BABYLON.PhysicsImpostorParameters  =
+        {
+            mass:        0.0,
+            friction:    0.75,          // 0.0 = ice, 1.0 = concrete
+            restitution: 0.0
+        };
+    }
+
+    /*******************************************************************************************************************
     *   Constructs 3D meshes.
     *******************************************************************************************************************/
     export class MeshFactory
@@ -57,7 +84,8 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics
+            isStatic        :Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters
         )
         : BABYLON.Mesh
         {
@@ -120,7 +148,8 @@
                 rotationAxis,
                 material,
                 scene,
-                isStatic
+                isStatic,
+                physicals
             );
         }
 
@@ -140,7 +169,8 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics
+            isStatic        :Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters
         )
         : BABYLON.Mesh
         {
@@ -205,7 +235,8 @@
                 rotationAxis,
                 material,
                 scene,
-                isStatic
+                isStatic,
+                physicals
             );
         }
 
@@ -219,7 +250,8 @@
             rotationAxis    :BABYLON.Vector3,
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics
+            isStatic        :Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters
         )
         {
             mesh.material       = material;
@@ -235,11 +267,7 @@
                     (
                         mesh,
                         BABYLON.PhysicsImpostor.BoxImpostor,
-                        {
-                            mass:        0.0,
-                            friction:    0.75,          // 0.0 = ice, 1.0 = concrete
-                            restitution: 0.0
-                        },
+                        Physicals.STATIC,
                         scene
                     );
                     break;
@@ -253,11 +281,7 @@
                     (
                         mesh,
                         BABYLON.PhysicsImpostor.BoxImpostor,
-                        {
-                            mass:        1.0,
-                            friction:    0.75,
-                            restitution: 0.0
-                        },
+                        physicals,
                         scene
                     );
                     break;

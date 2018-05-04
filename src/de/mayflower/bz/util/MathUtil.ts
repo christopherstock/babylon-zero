@@ -26,4 +26,19 @@
         {
             return Math.floor( ( Math.random() * ( max + 1 - min ) ) + min );
         }
+
+        /***************************************************************************************************************
+        *   Normalizes any angle to => 0.0 and < 360.0 degrees.
+        *
+        *   @param angleDegrees The angle to normalize.
+        *
+        *   @return The normalized angle.
+        ***************************************************************************************************************/
+        public static normalizeAngle( angleDegrees:number )
+        {
+            while ( angleDegrees > 360.0 ) angleDegrees -= 360.0;
+            while ( angleDegrees < 0.0   ) angleDegrees += 360.0;
+
+            return angleDegrees;
+        }
     }

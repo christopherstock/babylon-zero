@@ -77,7 +77,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
 
             // x test
@@ -94,7 +95,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
             bz.MeshFactory.createBox
             (
@@ -108,7 +110,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
 
             // y test
@@ -125,7 +128,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
             bz.MeshFactory.createBox
             (
@@ -139,7 +143,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
 
             // z test
@@ -156,7 +161,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
             bz.MeshFactory.createBox
             (
@@ -170,7 +176,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Physics.SENSOR
+                bz.Physics.SENSOR,
+                bz.Physicals.MOVABLE
             );
         }
     }

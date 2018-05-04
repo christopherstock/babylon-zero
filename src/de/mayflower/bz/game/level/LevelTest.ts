@@ -59,7 +59,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
 /*
             // static ground ( inoperative camera collisions when rotated ... )
@@ -92,7 +93,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE
+                bz.Physics.MOVABLE,
+                bz.Physicals.MOVABLE
             );
 
             // movable crate - big
@@ -108,7 +110,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE
+                bz.Physics.MOVABLE,
+                bz.Physicals.MOVABLE
             );
 
             // tree - standing (crossed)
@@ -125,7 +128,8 @@
                 bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
             bz.MeshFactory.createPlane
             (
@@ -140,7 +144,8 @@
                 bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
 
             // plane - amiga, 1/2
@@ -157,7 +162,8 @@
                 bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
 
             // plane - amiga 7/7
@@ -174,7 +180,8 @@
                 bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
 
             // movable quader - rectangle
@@ -190,10 +197,9 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE
+                bz.Physics.MOVABLE,
+                bz.Physicals.MOVABLE
             );
-
-
         }
 
         /***************************************************************************************************************

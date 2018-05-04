@@ -19,7 +19,7 @@
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Add player/camrera controls (turn, duck)
     *   TODO Solve player falling into infinity (camera stops at .. ?)
-    *   TODO rotationRad to rotationAngle everywhere !!
+    *   TODO Enrich and correct all documentation.
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Solve ortho drawing!
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/

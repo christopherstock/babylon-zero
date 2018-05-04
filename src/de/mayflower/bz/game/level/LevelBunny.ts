@@ -91,7 +91,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
 
             bz.MeshFactory.createBox(
@@ -105,7 +106,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
 
             bz.MeshFactory.createBox(
@@ -119,7 +121,8 @@
                 bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC
+                bz.Physics.STATIC,
+                bz.Physicals.MOVABLE
             );
         }
 
