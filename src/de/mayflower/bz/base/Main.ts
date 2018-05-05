@@ -7,17 +7,18 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO try this.camera.lockedTarget.
+    *   TODO Let camera follow the player.
+    *   TODO Create follower camera: Realize player as moving box instead of direct camera / player/camera movement.
+    *
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!
     *   TODO Try impulse based movement once again for the player.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)
-    *   TODO Let camera follow the player.
     *   TODO Specify, how deep the player rect may sink into colliding objects.
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
-    *   TODO Create follower camera: Realize player as moving box instead of direct camera / player/camera movement.
     *   TODO Try fog or smoke?
     *   TODO Enable jumping!
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
