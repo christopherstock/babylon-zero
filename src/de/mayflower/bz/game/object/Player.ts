@@ -103,6 +103,15 @@
                     bz.CameraType.STATIONARY_TARGET_CAMERA
                 );
             }
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_3 );
+                bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
+                (
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.CameraType.FOLLOW_CAMERA
+                );
+            }
 
 
         }

@@ -8,6 +8,7 @@
     {
         FREE_DEBUG_CAMERA,
         STATIONARY_TARGET_CAMERA,
+        FOLLOW_CAMERA,
     }
 
     /*******************************************************************************************************************
@@ -23,13 +24,16 @@
         /** The startup position for the stationary target camera. */
         public                  stationaryTargetCameraPosition      :BABYLON.Vector3                        = null;
 
+        /** The follow babylon.JS camera. */
+        public                  followCamera                        :BABYLON.FollowCamera                   = null;
+
         /***************************************************************************************************************
         *   Sets up the scene camera.
         *
-        *   @param  scene                           The babylon.JS scene.
-        *   @param  startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
-        *   @param  startupPositionStationaryCamera The camera startup position for the stationary camera.
-        *   @param  startupTarget                   The camera startup target.
+        *   @param scene                           The babylon.JS scene.
+        *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
+        *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
+        *   @param startupTarget                   The camera startup target.
         ***************************************************************************************************************/
         constructor
         (
@@ -41,7 +45,7 @@
         {
             this.createFreeDebugCamera(        scene, startupPositionFreeDebugCamera, startupTarget );
             this.createStationaryTargetCamera( scene, startupPositionStationaryCamera );
-
+            this.createFollowCamera(           scene, startupPositionFreeDebugCamera );
 
 
         }
@@ -53,18 +57,21 @@
                 case CameraType.FREE_DEBUG_CAMERA:
                 {
                     scene.activeCamera = this.freeDebugCamera;
-
                     this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
-
                     break;
                 }
 
                 case CameraType.STATIONARY_TARGET_CAMERA:
                 {
                     scene.activeCamera = this.stationaryTargetCamera;
-
                     this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    break;
+                }
 
+                case CameraType.FOLLOW_CAMERA:
+                {
+                    scene.activeCamera = this.followCamera;
+                    this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
                     break;
                 }
             }
@@ -73,9 +80,9 @@
         /***************************************************************************************************************
         *   Creates a free and non-colliding debug camera.
         *
-        *   @param  scene               The babylon.JS scene.
-        *   @param  startupPosition     The camera startup position.
-        *   @param  startupTarget       The camera startup target.
+        *   @param scene           The babylon.JS scene.
+        *   @param startupPosition The camera startup position.
+        *   @param startupTarget   The camera startup target.
         ***************************************************************************************************************/
         private createFreeDebugCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 ) : void
         {
@@ -106,8 +113,8 @@
         /***************************************************************************************************************
         *   Creates a stationary and targeted camera.
         *
-        *   @param  scene               The babylon.JS scene.
-        *   @param  startupPosition     The camera startup position.
+        *   @param scene           The babylon.JS scene.
+        *   @param startupPosition The camera startup position.
         ***************************************************************************************************************/
         private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
         {
@@ -115,28 +122,28 @@
             this.stationaryTargetCameraPosition = startupPosition;
         }
 
+        /***************************************************************************************************************
+        *   Creates a following camera.
+        *
+        *   @param scene           The babylon.JS scene.
+        *   @param startupPosition The camera startup position.
+        ***************************************************************************************************************/
+        private createFollowCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
+        {
+            this.followCamera = new BABYLON.FollowCamera( "followCamera", startupPosition, scene );
 
+            this.followCamera.heightOffset = 8; //how high up from the object to place the camera
+            this.followCamera.radius = 30; // how far from the object to follow
+            this.followCamera.rotationOffset = 180; //rotate around the object (if it's imported strangely or you want to follow from the front)
+        }
 
-
-
-        // bz.Main.game.engine.scene.getScene().activeCamera = ..
-        // this.camera.lockedTarget = .. !
-
-
-
-/*
-            var camera = new BABYLON.FollowCamera("FollowCamera", new BABYLON.Vector3(0,0,0), scene);
-            camera.heightOffset = 8; //how high up from the object to place the camera
-            camera.radius = 30; // how far from the object to follow
-            camera.rotationOffset = 180; //rotate around the object (if it's imported strangely or you want to follow from the front)
-            //camera.setTarget( myMeshObject ); //any mesh or object with a "position" Vector3        scene.activeCamera = camera; //set the active camera
-*/
         public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh )
         {
             this.stationaryTargetCamera.lockedTarget = mesh;
+        }
 
-
-
-
+        public lockFollowCameraTo( mesh:BABYLON.Mesh )
+        {
+            this.followCamera.lockedTarget = mesh;
         }
     }

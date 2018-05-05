@@ -6,8 +6,8 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Let camera follow the player.
     *   TODO Create follower camera: Realize player as moving box instead of direct camera / player/camera movement.
+    *   TODO Create 1st person camera in the center of the player rect!
     *
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Add sphere creator!

@@ -37,6 +37,8 @@
         *******************************************************************************************************************/
         public reset() : void
         {
+            // all about the camera system .. TODO refactor to resetCamera()!
+
             this.cameraSystem = new bz.CameraSystem
             (
                 this.scene,
@@ -47,6 +49,9 @@
 
             // lock statinary target camera to player
             this.cameraSystem.lockStationaryTargetCameraTo( this.player.mesh );
+
+            // lock follow camera to player
+            this.cameraSystem.lockFollowCameraTo( this.player.mesh );
 
             // set active scene camera
             this.cameraSystem.setActiveSceneCamera( this.scene, bz.CameraType.FREE_DEBUG_CAMERA );
