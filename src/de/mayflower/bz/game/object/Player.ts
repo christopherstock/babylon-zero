@@ -85,6 +85,26 @@
                 this.rotationDeltaY = SPEED_TURNING;
             }
 
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
+                bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
+                (
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.CameraType.FREE_DEBUG_CAMERA
+                );
+            }
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
+                bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
+                (
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.CameraType.STATIONARY_TARGET_CAMERA
+                );
+            }
+
+
         }
 
         /*******************************************************************************************************************
@@ -100,6 +120,8 @@
 
             // suppress angular velocity
             // this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+
+            // console.log( ">>> ", bz.Main.game.engine.level.cameraSystem.stationaryTargetCamera.position );
         }
 
         private movePlayer()

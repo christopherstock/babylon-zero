@@ -17,20 +17,30 @@
     {
         /** The free controllable babylon.JS camera. */
         private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
+
         /** The stationary and targeted babylon.JS camera. */
-        private                 stationaryTargetCamera              :BABYLON.TargetCamera                   = null;
+        public                  stationaryTargetCamera              :BABYLON.TargetCamera                   = null;
+        /** The startup position for the stationary target camera. */
+        public                  stationaryTargetCameraPosition      :BABYLON.Vector3                        = null;
 
         /***************************************************************************************************************
         *   Sets up the scene camera.
         *
-        *   @param  scene               The babylon.JS scene.
-        *   @param  startupPosition     The camera startup position.
-        *   @param  startupTarget       The camera startup target.
+        *   @param  scene                           The babylon.JS scene.
+        *   @param  startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
+        *   @param  startupPositionStationaryCamera The camera startup position for the stationary camera.
+        *   @param  startupTarget                   The camera startup target.
         ***************************************************************************************************************/
-        constructor( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 )
+        constructor
+        (
+            scene                           :BABYLON.Scene,
+            startupPositionFreeDebugCamera  :BABYLON.Vector3,
+            startupPositionStationaryCamera :BABYLON.Vector3,
+            startupTarget                   :BABYLON.Vector3
+        )
         {
-            this.createFreeDebugCamera(        scene, startupPosition, startupTarget );
-            this.createStationaryTargetCamera( scene, startupPosition, startupTarget );
+            this.createFreeDebugCamera(        scene, startupPositionFreeDebugCamera, startupTarget );
+            this.createStationaryTargetCamera( scene, startupPositionStationaryCamera );
 
 
 
@@ -43,12 +53,18 @@
                 case CameraType.FREE_DEBUG_CAMERA:
                 {
                     scene.activeCamera = this.freeDebugCamera;
+
+                    this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+
                     break;
                 }
 
                 case CameraType.STATIONARY_TARGET_CAMERA:
                 {
                     scene.activeCamera = this.stationaryTargetCamera;
+
+                    this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+
                     break;
                 }
             }
@@ -81,9 +97,6 @@
             );
             this.freeDebugCamera.ellipsoidOffset = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
 
-            // attach debug controls
-            this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
-
             this.freeDebugCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );
             this.freeDebugCamera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
             this.freeDebugCamera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
@@ -95,14 +108,11 @@
         *
         *   @param  scene               The babylon.JS scene.
         *   @param  startupPosition     The camera startup position.
-        *   @param  startupTarget       The camera startup target.
         ***************************************************************************************************************/
-        private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 ) : void
+        private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
         {
-            this.stationaryTargetCamera = new BABYLON.TargetCamera( "stationaryCamera", startupPosition, scene );
-
-            // set startup direction
-            this.stationaryTargetCamera.setTarget( startupTarget );
+            this.stationaryTargetCamera         = new BABYLON.TargetCamera( "stationaryCamera", startupPosition, scene );
+            this.stationaryTargetCameraPosition = startupPosition;
         }
 
 

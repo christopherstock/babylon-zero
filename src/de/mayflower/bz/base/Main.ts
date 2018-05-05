@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO try this.camera.lockedTarget.
     *   TODO Let camera follow the player.
     *   TODO Create follower camera: Realize player as moving box instead of direct camera / player/camera movement.
     *
@@ -43,6 +42,7 @@
     *   TODO Solve shadows?
     *   TODO Create simple test level with increased performance!
     *   TODO Improve abstract level system and make it more generic.
+    *   TODO Try PostProcess (camera.setPostProcess ?)
     *   TODO Create main menu where player can reset level etc.
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
     *   TODO try dynamic textures ( video in texture in front of screen .. )

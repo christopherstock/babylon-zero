@@ -16,7 +16,7 @@
         /** Camera target on level reset. */
         private         readonly            cameraStartupTarget     :BABYLON.Vector3                    = null;
         /** The camera system. */
-        private                             cameraSystem            :bz.CameraSystem                    = null;
+        public                              cameraSystem            :bz.CameraSystem                    = null;
 
         /*******************************************************************************************************************
         *   Creates a new custom level.
@@ -41,6 +41,7 @@
             (
                 this.scene,
                 this.cameraStartupPosition,
+                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
                 this.cameraStartupTarget
             );
 
