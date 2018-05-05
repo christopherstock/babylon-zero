@@ -16,7 +16,7 @@
         /** Camera target on level reset. */
         private         readonly            cameraStartupTarget     :BABYLON.Vector3                    = null;
         /** The camera system. */
-        private                             cameraSystem            :bz.CameraSystem                          = null;
+        private                             cameraSystem            :bz.CameraSystem                    = null;
 
         /*******************************************************************************************************************
         *   Creates a new custom level.
@@ -48,9 +48,7 @@
             this.cameraSystem.lockStationaryTargetCameraTo( this.player.mesh );
 
             // set active scene camera
-            this.scene.activeCamera = this.cameraSystem.stationaryTargetCamera;
-
-
+            this.cameraSystem.setActiveSceneCamera( this.scene, bz.CameraType.FREE_DEBUG_CAMERA );
 
 
         }

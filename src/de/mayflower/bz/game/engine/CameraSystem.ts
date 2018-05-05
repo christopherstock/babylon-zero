@@ -2,14 +2,23 @@
     import * as bz from '../..';
 
     /*******************************************************************************************************************
+    *   All supplied camera types the app supports.
+    *******************************************************************************************************************/
+    export enum CameraType
+    {
+        FREE_DEBUG_CAMERA,
+        STATIONARY_TARGET_CAMERA,
+    }
+
+    /*******************************************************************************************************************
     *   Specifies all scene cameras.
     *******************************************************************************************************************/
     export class CameraSystem
     {
         /** The free controllable babylon.JS camera. */
-        public                  freeDebugCamera                     :BABYLON.FreeCamera                     = null;
+        private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
-        public                  stationaryTargetCamera              :BABYLON.TargetCamera                   = null;
+        private                 stationaryTargetCamera              :BABYLON.TargetCamera                   = null;
 
         /***************************************************************************************************************
         *   Sets up the scene camera.
@@ -27,6 +36,24 @@
 
         }
 
+        public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType )
+        {
+            switch ( camera )
+            {
+                case CameraType.FREE_DEBUG_CAMERA:
+                {
+                    scene.activeCamera = this.freeDebugCamera;
+                    break;
+                }
+
+                case CameraType.STATIONARY_TARGET_CAMERA:
+                {
+                    scene.activeCamera = this.stationaryTargetCamera;
+                    break;
+                }
+            }
+        }
+
         /***************************************************************************************************************
         *   Creates a free and non-colliding debug camera.
         *
@@ -38,11 +65,10 @@
         {
             this.freeDebugCamera = new BABYLON.FreeCamera( "freeCamera", startupPosition, scene );
 
+            // set startup direction
             this.freeDebugCamera.setTarget( startupTarget );
-/*
-            this.debugCamera.checkCollisions = true;
-            this.debugCamera.applyGravity    = true;
-*/
+
+            // disable collisions and gravity
             this.freeDebugCamera.checkCollisions = false;
             this.freeDebugCamera.applyGravity    = false;
 
@@ -73,9 +99,9 @@
         ***************************************************************************************************************/
         private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 ) : void
         {
-            // Change camera controls
             this.stationaryTargetCamera = new BABYLON.TargetCamera( "stationaryCamera", startupPosition, scene );
 
+            // set startup direction
             this.stationaryTargetCamera.setTarget( startupTarget );
         }
 

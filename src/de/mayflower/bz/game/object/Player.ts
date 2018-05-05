@@ -56,24 +56,24 @@
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
-                this.moveDeltaX =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX +=  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ +=  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
             }
-            else if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
             {
-                this.moveDeltaX = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX -= SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ -= SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
             {
-                this.moveDeltaX = -SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ =  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX -= SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ += SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
             }
-            else if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
             {
-                this.moveDeltaX =  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ = -SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX += SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ -= SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
@@ -84,6 +84,7 @@
             {
                 this.rotationDeltaY = SPEED_TURNING;
             }
+
         }
 
         /*******************************************************************************************************************

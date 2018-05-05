@@ -38,12 +38,12 @@
 
         /** The keycode that represents the '1' key. */
         public  static  readonly    KEY_1               :number                         = 49;
-        /** The keycode that represents the '1' key. */
+        /** The keycode that represents the '2' key. */
         public  static  readonly    KEY_2               :number                         = 50;
-        /** The keycode that represents the '1' key. */
+        /** The keycode that represents the '3' key. */
         public  static  readonly    KEY_3               :number                         = 51;
-        /** The keycode that represents the '1' key. */
+        /** The keycode that represents the '4' key. */
         public  static  readonly    KEY_4               :number                         = 52;
-        /** The keycode that represents the '1' key. */
+        /** The keycode that represents the '5' key. */
         public  static  readonly    KEY_5               :number                         = 53;
     }
