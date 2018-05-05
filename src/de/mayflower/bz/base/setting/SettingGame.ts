@@ -1,4 +1,5 @@
 
+    import * as bz from '../..';
     import * as BABYLON from 'babylonjs';
 
     /*******************************************************************************************************************
@@ -19,6 +20,9 @@
 
         /** The scene's gravity. */
         public  static  readonly    GRAVITY                                     :number             = -0.1;
+
+        /** The startup camera type. */
+        public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FOLLOW_CAMERA;
 
         /** The player's x and z dimension (radius). */
         public  static  readonly    PLAYER_SIZE_XZ                              :number             = 1.0;

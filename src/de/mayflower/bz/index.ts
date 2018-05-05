@@ -3,6 +3,8 @@
     export * from './base/Version';
     export * from './base/Main';
 
+    export * from './game/engine/CameraSystem';
+
     export * from './base/setting/SettingDebug';
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
@@ -12,7 +14,6 @@
 
     export * from './game/Game';
 
-    export * from './game/engine/CameraSystem';
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
     export * from './game/engine/MaterialSystem';

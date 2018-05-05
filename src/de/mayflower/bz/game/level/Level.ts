@@ -54,7 +54,7 @@
             this.cameraSystem.lockFollowCameraTo( this.player.mesh );
 
             // set active scene camera
-            this.cameraSystem.setActiveSceneCamera( this.scene, bz.CameraType.FREE_DEBUG_CAMERA );
+            this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
 
 
         }

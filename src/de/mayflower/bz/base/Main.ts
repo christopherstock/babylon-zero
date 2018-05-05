@@ -6,12 +6,12 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create follower camera: Realize player as moving box instead of direct camera / player/camera movement.
     *   TODO Create 1st person camera in the center of the player rect!
-    *
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
+    *   TODO Constants for player walking and strafing speed
     *   TODO Add sphere creator!
     *   TODO Try impulse based movement once again for the player.
+    *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)

@@ -132,9 +132,11 @@
         {
             this.followCamera = new BABYLON.FollowCamera( "followCamera", startupPosition, scene );
 
-            this.followCamera.heightOffset = 8; //how high up from the object to place the camera
-            this.followCamera.radius = 30; // how far from the object to follow
-            this.followCamera.rotationOffset = 180; //rotate around the object (if it's imported strangely or you want to follow from the front)
+            this.followCamera.heightOffset       = 6;     // camera height offset
+            this.followCamera.radius             = 15;    // how far from the object to follow
+            this.followCamera.rotationOffset     = 180;   // offset rotation (for front following etc.)
+            this.followCamera.cameraAcceleration = 0.075; // camera acceleration after target change. defaults to 0.05
+            this.followCamera.maxCameraSpeed     = 10.0;  // max camera moving speed. defaults to 20.
         }
 
         public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh )
