@@ -1,12 +1,13 @@
 
     import * as bz from '../../..';
+    import * as BABYLON from 'babylonjs';
 
     /*******************************************************************************************************************
     *   Pointer controls.
     *******************************************************************************************************************/
     export class PointerSystem
     {
-        public assignPointerDown( evt, pickResult )
+        public assignPointerDown( evt, pickResult:BABYLON.PickingInfo )
         {
             if ( pickResult.hit )
             {

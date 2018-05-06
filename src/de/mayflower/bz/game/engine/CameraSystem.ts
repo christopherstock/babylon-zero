@@ -6,9 +6,10 @@
     *******************************************************************************************************************/
     export enum CameraType
     {
-        FREE_DEBUG_CAMERA,
-        STATIONARY_TARGET_CAMERA,
-        FOLLOW_CAMERA,
+        FREE_DEBUG,
+        STATIONARY,
+        FOLLOW,
+        FIRST_PERSON,
     }
 
     /*******************************************************************************************************************
@@ -18,14 +19,12 @@
     {
         /** The free controllable babylon.JS camera. */
         private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
-
         /** The stationary and targeted babylon.JS camera. */
-        public                  stationaryTargetCamera              :BABYLON.TargetCamera                   = null;
-        /** The startup position for the stationary target camera. */
-        public                  stationaryTargetCameraPosition      :BABYLON.Vector3                        = null;
-
+        private                 stationaryCamera                    :BABYLON.TargetCamera                   = null;
         /** The follow babylon.JS camera. */
-        public                  followCamera                        :BABYLON.FollowCamera                   = null;
+        private                 followCamera                        :BABYLON.FollowCamera                   = null;
+        /** The first person babylon.JS camera. */
+        private                 firstPersonCamera                   :BABYLON.FreeCamera                     = null;
 
         /***************************************************************************************************************
         *   Sets up the scene camera.
@@ -44,34 +43,46 @@
         )
         {
             this.createFreeDebugCamera(        scene, startupPositionFreeDebugCamera, startupTarget );
-            this.createStationaryTargetCamera( scene, startupPositionStationaryCamera );
-            this.createFollowCamera(           scene, startupPositionFreeDebugCamera );
-
-
+            this.createStationaryTargetCamera( scene, startupPositionStationaryCamera               );
+            this.createFollowCamera(           scene, startupPositionFreeDebugCamera                );
+            this.createFirstPersonCamera(      scene                                                );
         }
 
         public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType )
         {
             switch ( camera )
             {
-                case CameraType.FREE_DEBUG_CAMERA:
+                case CameraType.FREE_DEBUG:
                 {
                     scene.activeCamera = this.freeDebugCamera;
+
+                    // TODO to setFreeDebugCameraEnabled(true) ..
                     this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    bz.Main.game.engine.level.player.setVisible( true );
                     break;
                 }
 
-                case CameraType.STATIONARY_TARGET_CAMERA:
+                case CameraType.STATIONARY:
                 {
-                    scene.activeCamera = this.stationaryTargetCamera;
+                    scene.activeCamera = this.stationaryCamera;
                     this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    bz.Main.game.engine.level.player.setVisible( true );
                     break;
                 }
 
-                case CameraType.FOLLOW_CAMERA:
+                case CameraType.FOLLOW:
                 {
                     scene.activeCamera = this.followCamera;
                     this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    bz.Main.game.engine.level.player.setVisible( true );
+                    break;
+                }
+
+                case CameraType.FIRST_PERSON:
+                {
+                    scene.activeCamera = this.firstPersonCamera;
+                    this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    bz.Main.game.engine.level.player.setVisible( false );
                     break;
                 }
             }
@@ -118,8 +129,7 @@
         ***************************************************************************************************************/
         private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
         {
-            this.stationaryTargetCamera         = new BABYLON.TargetCamera( "stationaryCamera", startupPosition, scene );
-            this.stationaryTargetCameraPosition = startupPosition;
+            this.stationaryCamera = new BABYLON.TargetCamera( "stationaryCamera", startupPosition, scene );
         }
 
         /***************************************************************************************************************
@@ -139,13 +149,28 @@
             this.followCamera.maxCameraSpeed     = 10.0;  // max camera moving speed. defaults to 20.
         }
 
+        /***************************************************************************************************************
+        *   Creates the first person camera.
+        *
+        *   @param scene           The babylon.JS scene.
+        ***************************************************************************************************************/
+        private createFirstPersonCamera( scene:BABYLON.Scene ) : void
+        {
+            this.firstPersonCamera = new BABYLON.FreeCamera( "firstPersonCamera", new BABYLON.Vector3( 0.0, 0.0, 0.0 ), scene );
+        }
+
         public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh )
         {
-            this.stationaryTargetCamera.lockedTarget = mesh;
+            this.stationaryCamera.lockedTarget = mesh;
         }
 
         public lockFollowCameraTo( mesh:BABYLON.Mesh )
         {
             this.followCamera.lockedTarget = mesh;
+        }
+
+        public setFirstPersonCameraInside( mesh:BABYLON.Mesh )
+        {
+            this.firstPersonCamera.parent = mesh;
         }
     }

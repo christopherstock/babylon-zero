@@ -6,17 +6,16 @@
     *******************************************************************************************************************/
     export class Level
     {
+        /** The camera system. */
+        public                              cameraSystem            :bz.CameraSystem                    = null;
+        /** The player instance. */
+        public                              player                  :bz.Player                          = null;
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
-        /** The player instance. */
-        protected                           player                  :bz.Player                          = null;
-
         /** Camera position on level reset. */
         private         readonly            cameraStartupPosition   :BABYLON.Vector3                    = null;
         /** Camera target on level reset. */
         private         readonly            cameraStartupTarget     :BABYLON.Vector3                    = null;
-        /** The camera system. */
-        public                              cameraSystem            :bz.CameraSystem                    = null;
 
         /*******************************************************************************************************************
         *   Creates a new custom level.
@@ -49,14 +48,13 @@
 
             // lock statinary target camera to player
             this.cameraSystem.lockStationaryTargetCameraTo( this.player.mesh );
-
             // lock follow camera to player
-            this.cameraSystem.lockFollowCameraTo( this.player.mesh );
+            this.cameraSystem.lockFollowCameraTo(           this.player.mesh );
+            // lock first person camera to player
+            this.cameraSystem.setFirstPersonCameraInside(   this.player.mesh );
 
             // set active scene camera
             this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
-
-
         }
 
         /*******************************************************************************************************************

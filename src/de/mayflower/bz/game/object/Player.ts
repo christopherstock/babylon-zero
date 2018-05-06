@@ -30,9 +30,9 @@
 
             this.mesh = bz.MeshFactory.createBox
             (
-                "Grass",
-                new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
-                bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
+                "playerMaterial",
+                new BABYLON.Vector3( 15.0, 1.0, 15.0  ),
+                bz.PivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,
@@ -91,7 +91,7 @@
                 bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
                 (
                     bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.FREE_DEBUG_CAMERA
+                    bz.CameraType.FREE_DEBUG
                 );
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
@@ -100,7 +100,7 @@
                 bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
                 (
                     bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.STATIONARY_TARGET_CAMERA
+                    bz.CameraType.STATIONARY
                 );
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
@@ -109,11 +109,18 @@
                 bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
                 (
                     bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.FOLLOW_CAMERA
+                    bz.CameraType.FOLLOW
                 );
             }
-
-
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
+                bz.Main.game.engine.level.cameraSystem.setActiveSceneCamera
+                (
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.CameraType.FIRST_PERSON
+                );
+            }
         }
 
         /*******************************************************************************************************************
@@ -156,5 +163,20 @@
 
             // assign all rotations to player mesh
             bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, 0.0, this.rotY, 0.0 );
+        }
+
+        // TODO to class bz.Mesh!
+        public setVisible( visible:boolean )
+        {
+            if ( visible )
+            {
+                this.mesh.material.alpha = 1.0;
+                this.mesh.isPickable = true;
+            }
+            else
+            {
+                this.mesh.material.alpha = 0.0;
+                this.mesh.isPickable = false;
+            }
         }
     }

@@ -6,19 +6,18 @@
     *******************************************************************************************************************/
     export class Debug
     {
-        /** Major debug messages. */
-        public      static      readonly    major               :Debug              = new Debug( true  );
-
+        /** Debugs startup process. */
+        public      static      readonly    acclaim             :Debug              = new Debug( true  );
         /** Debugs initialization process. */
         public      static      readonly    init                :Debug              = new Debug( true  );
-        /** Debugs setup and changes of the canvas size. */
+        /** Debugs canvas setup and resizing. */
         public      static      readonly    canvas              :Debug              = new Debug( true  );
         /** Debugs sound system. */
         public      static      readonly    sound               :Debug              = new Debug( true  );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false  );
 
-        /** The flag that enables or disables logging for this debug group. */
+        /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;
 
         /***************************************************************************************************************

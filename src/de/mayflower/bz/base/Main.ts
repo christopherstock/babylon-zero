@@ -6,11 +6,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create 1st person camera in the center of the player rect!
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
     *   TODO Constants for player walking and strafing speed
     *   TODO Add sphere creator!
-    *   TODO Try impulse based movement once again for the player.
+    *   TODO Try impulse based movement once again for the player?
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
@@ -27,6 +26,8 @@
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Solve ortho drawing!
+    *   TOOD Try GUI via babylon-gui.
+    *   TODO Create debug console on-screen.
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
@@ -38,7 +39,9 @@
     *   TODO Add creators for more mesh primitives!
     *   TODO Improve mesh system.
     *   TODO Fix skybox and link to camera!
-    *   TODO Enable wearpon zoom.
+    *   TODO Enable wearpon zoom. (view angle / camera solution?)
+    *   TODO Collisions via shooting..
+    *   TODO Bullet holes.
     *   TODO Solve shadows?
     *   TODO Create simple test level with increased performance!
     *   TODO Improve abstract level system and make it more generic.
@@ -71,7 +74,7 @@
         ***************************************************************************************************************/
         private static acclaim() : void
         {
-            bz.Debug.major.log( bz.SettingEngine.TITLE );
-            bz.Debug.major.log();
+            bz.Debug.acclaim.log( bz.SettingEngine.TITLE );
+            bz.Debug.acclaim.log();
         }
     }
