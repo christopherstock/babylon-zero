@@ -27,6 +27,11 @@
         /** The keycode that represents the 'E' key. */
         public  static  readonly    KEY_E               :number                         = 69;
 
+        /** The keycode that represents the 'F' key. */
+        public  static  readonly    KEY_F               :number                         = 70;
+        /** The keycode that represents the 'R' key. */
+        public  static  readonly    KEY_R               :number                         = 82;
+
         /** The keycode that represents the 'ENTER' key. */
         public  static  readonly    KEY_ENTER           :number                         = 13;
         /** The keycode that represents the 'ESCAPE' key. */

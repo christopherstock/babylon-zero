@@ -8,6 +8,8 @@
     {
         /** The player's current rotation on axis Y. */
         protected                           rotY                    :number                             = 270.0;
+        /** The player's current rotation on axis Z. */
+        protected                           rotZ                    :number                             = 0.0;
 
         /** The player mesh. */
         public                              mesh                    :BABYLON.Mesh                       = null;
@@ -18,6 +20,8 @@
         protected                           moveDeltaZ              :number                             = 0.0;
         /** Current rotation delta Y. */
         protected                           rotationDeltaY          :number                             = 0.0;
+        /** Current rotation delta Z. */
+        protected                           rotationDeltaZ          :number                             = 0.0;
 
         /*******************************************************************************************************************
         *   Creates a new player instance.
@@ -51,8 +55,10 @@
         *******************************************************************************************************************/
         public handlePlayerKeys()
         {
+            // TODO outsource!
             let SPEED_MOVING:number  = 0.5;
             let SPEED_TURNING:number = 2.5;
+            let SPEED_LOOKING_UP_DOWN:number = 2.0;
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
@@ -83,6 +89,15 @@
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_E ) )
             {
                 this.rotationDeltaY = SPEED_TURNING;
+            }
+
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_R ) )
+            {
+                this.rotationDeltaZ = -SPEED_LOOKING_UP_DOWN;
+            }
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F ) )
+            {
+                this.rotationDeltaZ = SPEED_LOOKING_UP_DOWN;
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
@@ -129,7 +144,7 @@
         public render()
         {
             this.movePlayer();
-            this.rotatePlayer();
+            this.rotatePlayerXYZ();
 
             // suppress linear velocity
             // this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
@@ -151,7 +166,7 @@
             }
         }
 
-        private rotatePlayer()
+        private rotatePlayerXYZ()
         {
             if ( this.rotationDeltaY != 0.0 )
             {
@@ -161,8 +176,16 @@
                 this.rotationDeltaY = 0.0;
             }
 
+            if ( this.rotationDeltaZ != 0.0 )
+            {
+                // assign new rotation Z
+                this.rotZ = bz.MathUtil.normalizeAngle( this.rotZ + this.rotationDeltaZ );
+
+                this.rotationDeltaZ = 0.0;
+            }
+
             // assign all rotations to player mesh
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, 0.0, this.rotY, 0.0 );
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, this.rotZ, this.rotY, 0.0 );
         }
 
         // TODO to class bz.Mesh!
