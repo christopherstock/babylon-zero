@@ -10,20 +10,21 @@
     *   TODO Clip player rotZ.
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
-    *   TODO Add sphere creator!
     *   TODO Enable player look rotZ bouncing back to 0.
-    *   TODO Turn player from cube to sphere?
     *   TODO Try impulse based movement once again for the player?
     *   TODO Create (invisible) cylinder bounding box for player?
     *   TODO Smooth camera animation on active camera change?
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
+    *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
+    *   TODO MeshFactory enums to separate file MeshProps.
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
     *   TODO Try fog or smoke?
+    *   TODO Try to solve player smooth sliding on any walls!
     *   TODO Enable jumping!
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Add player/camrera controls (turn, duck)

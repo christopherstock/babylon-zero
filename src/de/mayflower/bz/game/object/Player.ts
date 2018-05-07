@@ -41,7 +41,7 @@
                     "playerBody",
                     new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
                     bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                    2.0,
+                    4.0,
                     4.0,
                     bz.MeshFactory.ROTATION_AXIS_Y,
                     0.0,
@@ -58,12 +58,12 @@
 
             this.head = new bz.Mesh
             (
-                bz.MeshFactory.createBox
+                bz.MeshFactory.createSphere
                 (
                     "playerHead",
                     new BABYLON.Vector3( 0.0, 2.0, 0.0  ),
-                    bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                    new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                    bz.PivotAnchor.CENTER_XYZ,
+                    1.0,
                     bz.MeshFactory.ROTATION_AXIS_Y,
                     0.0,
                     bz.Texture.GRASS,
@@ -205,6 +205,7 @@
         public setVisible( visible:boolean )
         {
             this.head.setVisible( visible );
+            this.body.setVisible( visible );
         }
 
         private movePlayer()

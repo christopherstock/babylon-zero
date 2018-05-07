@@ -178,6 +178,52 @@
         }
 
         /***************************************************************************************************************
+        *   Creates a sphere.
+        ***************************************************************************************************************/
+        public static createSphere
+        (
+            id              :string,
+            position        :BABYLON.Vector3,
+            pivotAnchor     :bz.PivotAnchor,
+            diameter        :number,
+            rotationAxis    :BABYLON.Vector3,
+            rotationDegrees :number,
+            texture         :bz.Texture,
+            textureHasAlpha :bz.TextureHasAlpha,
+            textureUV       :bz.TextureUV,
+            color           :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+            isStatic        :Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters,
+            materialAlpha   :number
+        )
+        : BABYLON.Mesh
+        {
+            let sphere:BABYLON.Mesh = BABYLON.MeshBuilder.CreateSphere
+            (
+                id,
+                {
+                    diameter: diameter,
+                },
+                scene
+            );
+
+            MeshFactory.setPositionAndPivot( sphere, position, pivotAnchor, rotationDegrees, diameter, diameter, diameter );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, diameter, diameter, color, materialAlpha );
+
+            return MeshFactory.decorateMesh
+            (
+                sphere,
+                rotationDegrees,
+                rotationAxis,
+                material,
+                scene,
+                isStatic,
+                physicals
+            );
+        }
+
+        /***************************************************************************************************************
         *   Creates a plane.
         ***************************************************************************************************************/
         public static createPlane
