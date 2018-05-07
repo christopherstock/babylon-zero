@@ -247,16 +247,6 @@
             );
         }
 
-        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
-        {
-            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( rotY ),
-                bz.MathUtil.degreesToRad( rotX ),
-                bz.MathUtil.degreesToRad( rotZ )
-            );
-        }
-
         public static setPositionAndPivot
         (
             mesh            :BABYLON.Mesh,

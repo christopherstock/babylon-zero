@@ -58,7 +58,7 @@
 
                     // TODO to setFreeDebugCameraEnabled(true) ..
                     this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
-                    bz.Main.game.engine.level.player.setVisible( true );
+                    bz.Main.game.engine.level.player.head.setVisible( true );
                     break;
                 }
 
@@ -66,7 +66,7 @@
                 {
                     scene.activeCamera = this.stationaryCamera;
                     this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
-                    bz.Main.game.engine.level.player.setVisible( true );
+                    bz.Main.game.engine.level.player.head.setVisible( true );
                     break;
                 }
 
@@ -74,7 +74,7 @@
                 {
                     scene.activeCamera = this.followCamera;
                     this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
-                    bz.Main.game.engine.level.player.setVisible( true );
+                    bz.Main.game.engine.level.player.head.setVisible( true );
                     break;
                 }
 
@@ -82,7 +82,7 @@
                 {
                     scene.activeCamera = this.firstPersonCamera;
                     this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
-                    bz.Main.game.engine.level.player.setVisible( false );
+                    bz.Main.game.engine.level.player.head.setVisible( false );
                     break;
                 }
             }

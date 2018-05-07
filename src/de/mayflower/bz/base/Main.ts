@@ -7,9 +7,9 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Enable opacity for all textures (glass). this.textureTest = MaterialSystem.createTexture( "test.jpg", 1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE ); this.textureGlass = MaterialSystem.createTexture( "glass.jpg", 1.0, 1.0, 0.5, true, null );
+    *   TODO Put body under player's head and set is as parent.
     *   TODO Constants for player walking and strafing speed
     *   TODO Clip player rotZ.
-    *   TODO Put body under player's head.
     *   TODO Turn player from cube to sphere?
     *   TODO Add sphere creator!
     *   TODO Try impulse based movement once again for the player?

@@ -11,8 +11,8 @@
         /** The player's current rotation on axis Z. */
         protected                           rotZ                    :number                             = 0.0;
 
-        /** The player mesh. */
-        public                              mesh                    :BABYLON.Mesh                       = null;
+        /** The head mesh. */
+        public                              head                    :bz.Mesh                            = null;
 
         /** Current move delta X. */
         protected                           moveDeltaX              :number                             = 0.0;
@@ -32,21 +32,24 @@
         {
             this.rotY = rotY;
 
-            this.mesh = bz.MeshFactory.createBox
+            this.head = new bz.Mesh
             (
-                "playerMaterial",
-                new BABYLON.Vector3( 15.0, 1.0, 15.0  ),
-                bz.PivotAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
-                bz.MeshFactory.ROTATION_AXIS_Y,
-                0.0,
-                bz.Texture.GRASS,
-                bz.TextureHasAlpha.NO,
-                bz.TextureUV.ACCORDING_TO_SIZE,
-                null,
-                bz.Main.game.engine.scene.getScene(),
-                bz.Physics.MOVABLE,
-                bz.Physicals.PLAYER
+                bz.MeshFactory.createBox
+                (
+                    "playerMaterial",
+                    new BABYLON.Vector3( 15.0, 1.0, 15.0  ),
+                    bz.PivotAnchor.CENTER_XYZ,
+                    new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                    bz.MeshFactory.ROTATION_AXIS_Y,
+                    0.0,
+                    bz.Texture.GRASS,
+                    bz.TextureHasAlpha.NO,
+                    bz.TextureUV.ACCORDING_TO_SIZE,
+                    null,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physics.MOVABLE,
+                    bz.Physicals.PLAYER
+                )
             );
         }
 
@@ -159,7 +162,7 @@
         {
             if ( this.moveDeltaX != 0.0 || this.moveDeltaZ != 0.0 )
             {
-                this.mesh.moveWithCollisions( new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ ) );
+                this.head.mesh.moveWithCollisions( new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ ) );
 
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;
@@ -185,21 +188,6 @@
             }
 
             // assign all rotations to player mesh
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, this.rotZ, this.rotY, 0.0 );
-        }
-
-        // TODO to class bz.Mesh!
-        public setVisible( visible:boolean )
-        {
-            if ( visible )
-            {
-                this.mesh.material.alpha = 1.0;
-                this.mesh.isPickable = true;
-            }
-            else
-            {
-                this.mesh.material.alpha = 0.0;
-                this.mesh.isPickable = false;
-            }
+            this.head.setAbsoluteRotationXYZ( this.rotZ, this.rotY, 0.0 );
         }
     }

@@ -9,6 +9,7 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
+    export * from './g3d/Mesh';
     export * from './g3d/MeshFactory';
     export * from './g3d/Texture';
 
