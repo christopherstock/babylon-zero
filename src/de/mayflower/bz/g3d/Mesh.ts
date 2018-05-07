@@ -42,6 +42,8 @@
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
         {
             this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+
+            // this.mesh.applyImpulse( new BABYLON.Vector3( 1000 * deltaX, 0.0, 1000 * deltaZ ), this.mesh.position );
         }
 
         public getMesh() : BABYLON.Mesh

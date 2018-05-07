@@ -6,9 +6,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Put body under player's head and set is as parent.
     *   TODO Enable player looking up and down (30 degrees etc.)
+    *   TODO Create cylinder bounding box for player?
     *   TODO Clip player rotZ.
+    *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
     *   TODO Add sphere creator!
     *   TODO Turn player from cube to sphere?
@@ -18,7 +19,6 @@
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)
-    *   TODO Specify, how deep the player rect may sink into colliding objects.
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
@@ -33,6 +33,7 @@
     *   TODO Solve ortho drawing!
     *   TOOD Try GUI via babylon-gui.
     *   TODO Create debug console on-screen.
+    *   TODO Try fur.
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?

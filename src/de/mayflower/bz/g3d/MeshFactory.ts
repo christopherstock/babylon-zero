@@ -45,11 +45,12 @@
     *******************************************************************************************************************/
     export class Physicals
     {
+        /** The player has very special physical attributes with the primal goal to keep the user entertained. */
         public      static  readonly        PLAYER                  :BABYLON.PhysicsImpostorParameters  =
         {
-            mass:        2.0,
-            friction:    5.0,
-            restitution: 5.0
+            mass:        100.0,
+            friction:    100.0,
+            restitution: 0.0
         };
 
         public      static  readonly        LIGHT_WOOD              :BABYLON.PhysicsImpostorParameters  =

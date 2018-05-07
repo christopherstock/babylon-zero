@@ -14,9 +14,9 @@
         public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FREE_DEBUG;
 
         /** The player's moving speed in world coordinate per tick. */
-        public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.5;
+        public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.25;
         /** The player's straving speed in world coordinate per tick. */
-        public  static  readonly    PLAYER_SPEED_STRAVE                         :number             = 0.25;
+        public  static  readonly    PLAYER_SPEED_STRAVE                         :number             = 0.35;
         /** The player's turning speed in degrees per tick. */
         public  static  readonly    PLAYER_SPEED_TURN                           :number             = 2.5;
         /** The player's looking up/down speed in degrees per tick. */

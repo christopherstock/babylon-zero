@@ -189,13 +189,18 @@
 */
             // make body stiff ..
 
-            //this.body.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+            // this.body.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
             // this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
         }
 
-        public getCameraTargetMesh() : BABYLON.Mesh
+        public getFirstPersonCameraTargetMesh() : BABYLON.Mesh
         {
             return this.head.getMesh();
+        }
+
+        public getThirdPersonCameraTargetMesh() : BABYLON.Mesh
+        {
+            return this.body.getMesh();
         }
 
         public setVisible( visible:boolean )
