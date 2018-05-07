@@ -16,8 +16,6 @@
         /** The body mesh. */
         private                             body                    :bz.Mesh                            = null;
 
-
-
         /** Current move delta X. */
         protected                           moveDeltaX              :number                             = 0.0;
         /** Current move delta Z. */
@@ -38,12 +36,13 @@
 
             this.body = new bz.Mesh
             (
-                bz.MeshFactory.createBox
+                bz.MeshFactory.createCylinder
                 (
                     "playerBody",
                     new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
                     bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                    new BABYLON.Vector3( 2.0, 4.0, 2.0 ),
+                    2.0,
+                    4.0,
                     bz.MeshFactory.ROTATION_AXIS_Y,
                     0.0,
                     bz.Texture.WOOD,
@@ -64,7 +63,7 @@
                     "playerHead",
                     new BABYLON.Vector3( 0.0, 2.0, 0.0  ),
                     bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                    new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                    new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                     bz.MeshFactory.ROTATION_AXIS_Y,
                     0.0,
                     bz.Texture.GRASS,

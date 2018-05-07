@@ -128,6 +128,56 @@
         }
 
         /***************************************************************************************************************
+        *   Creates a cylinder.
+        ***************************************************************************************************************/
+        public static createCylinder
+        (
+            id              :string,
+            position        :BABYLON.Vector3,
+            pivotAnchor     :bz.PivotAnchor,
+            diameter        :number,
+            height          :number,
+            rotationAxis    :BABYLON.Vector3,
+            rotationDegrees :number,
+            texture         :bz.Texture,
+            textureHasAlpha :bz.TextureHasAlpha,
+            textureUV       :bz.TextureUV,
+            color           :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+            isStatic        :Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters,
+            materialAlpha   :number
+        )
+        : BABYLON.Mesh
+        {
+            let cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
+            (
+                id,
+                {
+                    diameter: diameter,
+                    height:   height,
+
+                    // faceUVs, backUVs .. ?
+                },
+                scene
+            );
+
+            MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, rotationDegrees, diameter, height, diameter );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, diameter, height, color, materialAlpha );
+
+            return MeshFactory.decorateMesh
+            (
+                cylinder,
+                rotationDegrees,
+                rotationAxis,
+                material,
+                scene,
+                isStatic,
+                physicals
+            );
+        }
+
+        /***************************************************************************************************************
         *   Creates a plane.
         ***************************************************************************************************************/
         public static createPlane

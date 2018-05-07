@@ -7,13 +7,14 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Enable player looking up and down (30 degrees etc.)
-    *   TODO Create cylinder bounding box for player?
     *   TODO Clip player rotZ.
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
     *   TODO Add sphere creator!
+    *   TODO Enable player look rotZ bouncing back to 0.
     *   TODO Turn player from cube to sphere?
     *   TODO Try impulse based movement once again for the player?
+    *   TODO Create (invisible) cylinder bounding box for player?
     *   TODO Smooth camera animation on active camera change?
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
