@@ -45,6 +45,7 @@
     *******************************************************************************************************************/
     export class Physicals
     {
+        // TODO Rename: human?
         public      static  readonly        PLAYER                  :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        2.0,
@@ -52,6 +53,7 @@
             restitution: 5.0
         };
 
+        // TODO Rename: wood?
         public      static  readonly        MOVABLE                 :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        1.0,
@@ -93,7 +95,8 @@
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             isStatic        :Physics,
-            physicals       :BABYLON.PhysicsImpostorParameters
+            physicals       :BABYLON.PhysicsImpostorParameters,
+            materialAlpha   :number
         )
         : BABYLON.Mesh
         {
@@ -111,7 +114,7 @@
             );
 
             MeshFactory.setPositionAndPivot( box, position, pivotAnchor, rotationDegrees, size.x, size.y, size.z );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, size.x, size.z, color );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, size.x, size.z, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (
@@ -143,7 +146,8 @@
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             isStatic        :Physics,
-            physicals       :BABYLON.PhysicsImpostorParameters
+            physicals       :BABYLON.PhysicsImpostorParameters,
+            materialAlpha   :number
         )
         : BABYLON.Mesh
         {
@@ -158,7 +162,7 @@
             );
 
             MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, rotationDegrees, width, height, 0.0 );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, width, height, color );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, width, height, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (

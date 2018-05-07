@@ -34,7 +34,8 @@
             textureUV       :bz.TextureUV,
             sizeU           :number,
             sizeV           :number,
-            color           :BABYLON.StandardMaterial
+            color           :BABYLON.StandardMaterial,
+            materialAlpha   :number
         )
         : BABYLON.StandardMaterial
         {
@@ -43,15 +44,13 @@
                 let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeU : 1.0 );
                 let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeV : 1.0 );
 
-                let backfaceCulling:boolean = false; // ( textureHasAlpha == bz.TextureHasAlpha.YES );
-
                 return bz.MaterialSystem.createTexture
                 (
                     texture.toString(),
                     textureU,
                     textureV,
-                    1.0,
-                    backfaceCulling,
+                    materialAlpha,
+                    false,
                     bz.SettingGame.COLOR_WHITE,
                     textureHasAlpha
                 );
@@ -68,10 +67,10 @@
         *   Creates a textured material.
         *
         *   @param fileName        The filename of the image to load for this material.
-        *   @param repeatU          The amount for U repeating this texture.
-        *   @param repeatV          The amount for V repeating this texture.
-        *   @param alpha           Opacity for this texture.
-        *   @param backFaceCulling Specifies if both sides of this texture shall be textured.
+        *   @param repeatU         The amount for U repeating this texture.
+        *   @param repeatV         The amount for V repeating this texture.
+        *   @param alpha           Alpha for this texture.
+        *   @param backFaceCulling Specifies if the drawing for the backside of this texture shall be omitted.
         *   @param emissiveColor   The color this texture emits.
         *   @param textureHasAlpha Specifies alpha occurance in texture image.
         ***************************************************************************************************************/

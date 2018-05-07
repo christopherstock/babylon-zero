@@ -90,7 +90,8 @@
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // x test
@@ -109,7 +110,8 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
             bz.MeshFactory.createBox
             (
@@ -125,7 +127,8 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // y test
@@ -144,7 +147,8 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
             bz.MeshFactory.createBox
             (
@@ -160,7 +164,8 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // z test
@@ -179,7 +184,8 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
             bz.MeshFactory.createBox
             (
@@ -195,7 +201,8 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
         }
     }

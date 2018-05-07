@@ -14,6 +14,8 @@
         /** The head mesh. */
         public                              head                    :bz.Mesh                            = null;
 
+
+
         /** Current move delta X. */
         protected                           moveDeltaX              :number                             = 0.0;
         /** Current move delta Z. */
@@ -23,11 +25,11 @@
         /** Current rotation delta Z. */
         protected                           rotationDeltaZ          :number                             = 0.0;
 
-        /*******************************************************************************************************************
+        /***************************************************************************************************************
         *   Creates a new player instance.
         *
         *   @param rotY Initial rotation Y.
-        *******************************************************************************************************************/
+        ***************************************************************************************************************/
         public constructor( rotY:number )
         {
             this.rotY = rotY;
@@ -48,14 +50,15 @@
                     null,
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physics.MOVABLE,
-                    bz.Physicals.PLAYER
+                    bz.Physicals.PLAYER,
+                    1.0
                 )
             );
         }
 
-        /*******************************************************************************************************************
+        /***************************************************************************************************************
         *   Handles all keys for the player.
-        *******************************************************************************************************************/
+        ***************************************************************************************************************/
         public handlePlayerKeys()
         {
             // TODO outsource!
@@ -141,21 +144,19 @@
             }
         }
 
-        /*******************************************************************************************************************
+        /***************************************************************************************************************
         *   Renders the player for one tick of the game loop.
-        *******************************************************************************************************************/
+        ***************************************************************************************************************/
         public render()
         {
             this.movePlayer();
             this.rotatePlayerXYZ();
-
+/*
             // suppress linear velocity
-            // this.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
-
+            this.head.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
             // suppress angular velocity
-            // this.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
-
-            // console.log( ">>> ", bz.Main.game.engine.level.cameraSystem.stationaryTargetCamera.position );
+            this.head.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+*/
         }
 
         private movePlayer()
@@ -173,21 +174,17 @@
         {
             if ( this.rotationDeltaY != 0.0 )
             {
-                // assign new rotation Y
                 this.rotY = bz.MathUtil.normalizeAngle( this.rotY + this.rotationDeltaY );
-
                 this.rotationDeltaY = 0.0;
             }
 
             if ( this.rotationDeltaZ != 0.0 )
             {
-                // assign new rotation Z
                 this.rotZ = bz.MathUtil.normalizeAngle( this.rotZ + this.rotationDeltaZ );
-
                 this.rotationDeltaZ = 0.0;
             }
 
-            // assign all rotations to player mesh
+            // assign all rotations to mesh
             this.head.setAbsoluteRotationXYZ( this.rotZ, this.rotY, 0.0 );
         }
     }

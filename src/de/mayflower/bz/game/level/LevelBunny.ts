@@ -93,7 +93,8 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             bz.MeshFactory.createBox(
@@ -109,7 +110,8 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             bz.MeshFactory.createBox(
@@ -125,7 +127,8 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
         }
 

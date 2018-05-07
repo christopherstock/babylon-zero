@@ -61,7 +61,8 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 /*
             // static ground ( inoperative camera collisions when rotated ... )
@@ -96,7 +97,8 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // movable crate - big
@@ -114,7 +116,8 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // tree - standing (crossed)
@@ -133,7 +136,8 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
             bz.MeshFactory.createPlane
             (
@@ -150,7 +154,8 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // plane - amiga, 1/2
@@ -165,11 +170,12 @@
                 45.0,
                 bz.Texture.AMIGA,
                 bz.TextureHasAlpha.NO,
-                bz.TextureUV.ALL_TO_ONE,
+                bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
             // plane - amiga 7/7
@@ -184,14 +190,15 @@
                 45.0,
                 bz.Texture.AMIGA,
                 bz.TextureHasAlpha.NO,
-                bz.TextureUV.ALL_TO_ONE,
+                bz.TextureUV.ACCORDING_TO_SIZE,
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                1.0
             );
 
-            // movable quader - rectangle
+            // movable glass quader
             bz.MeshFactory.createBox
             (
                 "Ground1",
@@ -206,7 +213,27 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.MOVABLE
+                bz.Physicals.MOVABLE,
+                0.5
+            );
+
+            // movable glass pane
+            bz.MeshFactory.createPlane
+            (
+                "Ground1",
+                new BABYLON.Vector3( 2.0,  0.0, 15.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                2.0, 3.0,
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                135.0,
+                bz.Texture.GLASS,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.STATIC,
+                bz.Physicals.STATIC,
+                0.5
             );
         }
 
