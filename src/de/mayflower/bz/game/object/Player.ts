@@ -12,7 +12,7 @@
         protected                           rotZ                    :number                             = 0.0;
 
         /** The head mesh. */
-        public                              head                    :bz.Mesh                            = null;
+        private                             head                    :bz.Mesh                            = null;
 
 
 
@@ -152,6 +152,16 @@
             // suppress angular velocity
             this.head.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
 */
+        }
+
+        public getCameraMesh() : BABYLON.Mesh
+        {
+            return this.head.mesh;
+        }
+
+        public setVisible( visible:boolean )
+        {
+            this.head.setVisible( visible );
         }
 
         private movePlayer()
