@@ -36,25 +36,7 @@
         *******************************************************************************************************************/
         public reset() : void
         {
-            // all about the camera system .. TODO refactor to resetCamera()!
-
-            this.cameraSystem = new bz.CameraSystem
-            (
-                this.scene,
-                this.cameraStartupPosition,
-                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
-                this.cameraStartupTarget
-            );
-
-            // lock statinary target camera to player
-            this.cameraSystem.lockStationaryTargetCameraTo( this.player.head.mesh );
-            // lock follow camera to player
-            this.cameraSystem.lockFollowCameraTo(           this.player.head.mesh );
-            // lock first person camera to player
-            this.cameraSystem.setFirstPersonCameraInside(   this.player.head.mesh );
-
-            // set active scene camera
-            this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
+            this.resetCameraSystem();
         }
 
         /*******************************************************************************************************************
@@ -90,7 +72,7 @@
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -110,7 +92,7 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -127,7 +109,7 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -147,7 +129,7 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -164,7 +146,7 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -184,7 +166,7 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -201,8 +183,29 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
+        }
+
+        private resetCameraSystem()
+        {
+            this.cameraSystem = new bz.CameraSystem
+            (
+                this.scene,
+                this.cameraStartupPosition,
+                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
+                this.cameraStartupTarget
+            );
+
+            // lock statinary target camera to player
+            this.cameraSystem.lockStationaryTargetCameraTo( this.player.head.mesh );
+            // lock follow camera to player
+            this.cameraSystem.lockFollowCameraTo(           this.player.head.mesh );
+            // lock first person camera to player
+            this.cameraSystem.setFirstPersonCameraInside(   this.player.head.mesh );
+
+            // set active scene camera
+            this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
         }
     }

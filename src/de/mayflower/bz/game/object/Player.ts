@@ -61,49 +61,44 @@
         ***************************************************************************************************************/
         public handlePlayerKeys()
         {
-            // TODO outsource!
-            let SPEED_MOVING:number  = 0.5;
-            let SPEED_TURNING:number = 2.5;
-            let SPEED_LOOKING_UP_DOWN:number = 2.0;
-
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
-                this.moveDeltaX +=  SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ +=  SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
             {
-                this.moveDeltaX -= SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ -= SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
             {
-                this.moveDeltaX -= SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ += SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
             {
-                this.moveDeltaX += SPEED_MOVING * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ -= SPEED_MOVING * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
-                this.rotationDeltaY = -SPEED_TURNING;
+                this.rotationDeltaY = -bz.SettingGame.PLAYER_SPEED_TURN;
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_E ) )
             {
-                this.rotationDeltaY = SPEED_TURNING;
+                this.rotationDeltaY = bz.SettingGame.PLAYER_SPEED_TURN;
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_R ) )
             {
-                this.rotationDeltaZ = -SPEED_LOOKING_UP_DOWN;
+                this.rotationDeltaZ = -bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F ) )
             {
-                this.rotationDeltaZ = SPEED_LOOKING_UP_DOWN;
+                this.rotationDeltaZ = bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )

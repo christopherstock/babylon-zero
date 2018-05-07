@@ -55,9 +55,7 @@
                 case CameraType.FREE_DEBUG:
                 {
                     scene.activeCamera = this.freeDebugCamera;
-
-                    // TODO to setFreeDebugCameraEnabled(true) ..
-                    this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    this.setControlsForFreeDebugCameraEnabled( true );
                     bz.Main.game.engine.level.player.head.setVisible( true );
                     break;
                 }
@@ -65,7 +63,7 @@
                 case CameraType.STATIONARY:
                 {
                     scene.activeCamera = this.stationaryCamera;
-                    this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    this.setControlsForFreeDebugCameraEnabled( false );
                     bz.Main.game.engine.level.player.head.setVisible( true );
                     break;
                 }
@@ -73,7 +71,7 @@
                 case CameraType.FOLLOW:
                 {
                     scene.activeCamera = this.followCamera;
-                    this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    this.setControlsForFreeDebugCameraEnabled( false );
                     bz.Main.game.engine.level.player.head.setVisible( true );
                     break;
                 }
@@ -81,7 +79,7 @@
                 case CameraType.FIRST_PERSON:
                 {
                     scene.activeCamera = this.firstPersonCamera;
-                    this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                    this.setControlsForFreeDebugCameraEnabled( false );
                     bz.Main.game.engine.level.player.head.setVisible( false );
                     break;
                 }
@@ -172,5 +170,17 @@
         public setFirstPersonCameraInside( mesh:BABYLON.Mesh )
         {
             this.firstPersonCamera.parent = mesh;
+        }
+
+        private setControlsForFreeDebugCameraEnabled( enable:boolean )
+        {
+            if ( enable )
+            {
+                this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+            }
+            else
+            {
+                this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+            }
         }
     }

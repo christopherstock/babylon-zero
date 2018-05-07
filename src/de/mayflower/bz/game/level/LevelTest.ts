@@ -61,7 +61,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 /*
@@ -97,7 +97,7 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -116,7 +116,7 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -136,7 +136,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createPlane
@@ -154,7 +154,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -174,7 +174,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -194,7 +194,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 1.0
             );
 
@@ -213,7 +213,7 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.MOVABLE,
+                bz.Physicals.LIGHT_WOOD,
                 0.5
             );
 

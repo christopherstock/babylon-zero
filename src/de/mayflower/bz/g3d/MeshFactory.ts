@@ -45,7 +45,6 @@
     *******************************************************************************************************************/
     export class Physicals
     {
-        // TODO Rename: human?
         public      static  readonly        PLAYER                  :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        2.0,
@@ -53,8 +52,7 @@
             restitution: 5.0
         };
 
-        // TODO Rename: wood?
-        public      static  readonly        MOVABLE                 :BABYLON.PhysicsImpostorParameters  =
+        public      static  readonly        LIGHT_WOOD              :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        1.0,
             friction:    0.75,
