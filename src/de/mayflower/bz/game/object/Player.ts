@@ -13,6 +13,8 @@
 
         /** The head mesh. */
         private                             head                    :bz.Mesh                            = null;
+        /** The body mesh. */
+        private                             body                    :bz.Mesh                            = null;
 
 
 
@@ -34,17 +36,17 @@
         {
             this.rotY = rotY;
 
-            this.head = new bz.Mesh
+            this.body = new bz.Mesh
             (
                 bz.MeshFactory.createBox
                 (
-                    "playerMaterial",
-                    new BABYLON.Vector3( 15.0, 1.0, 15.0  ),
-                    bz.PivotAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                    "playerBody",
+                    new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
+                    bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
+                    new BABYLON.Vector3( 2.0, 4.0, 2.0 ),
                     bz.MeshFactory.ROTATION_AXIS_Y,
                     0.0,
-                    bz.Texture.GRASS,
+                    bz.Texture.WOOD,
                     bz.TextureHasAlpha.NO,
                     bz.TextureUV.ACCORDING_TO_SIZE,
                     null,
@@ -54,6 +56,39 @@
                     1.0
                 )
             );
+
+            this.head = new bz.Mesh
+            (
+                bz.MeshFactory.createBox
+                (
+                    "playerHead",
+                    new BABYLON.Vector3( 0.0, 2.0, 0.0  ),
+                    bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
+                    new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                    bz.MeshFactory.ROTATION_AXIS_Y,
+                    0.0,
+                    bz.Texture.GRASS,
+                    bz.TextureHasAlpha.NO,
+                    bz.TextureUV.ACCORDING_TO_SIZE,
+                    null,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physics.SENSOR,
+                    bz.Physicals.PLAYER,
+                    1.0
+                )
+            );
+
+            // stick head to body
+            this.head.getMesh().parent = this.body.getMesh();
+/*
+            // physical link
+            this.body.getMesh().setPhysicsLinkWith
+            (
+                this.head.getMesh(),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 1.5, 0.0 ),
+            );
+*/
         }
 
         /***************************************************************************************************************
@@ -152,6 +187,10 @@
             // suppress angular velocity
             this.head.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
 */
+            // make body stiff ..
+
+            //this.body.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+            // this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
         }
 
         public getCameraTargetMesh() : BABYLON.Mesh
@@ -168,7 +207,8 @@
         {
             if ( this.moveDeltaX != 0.0 || this.moveDeltaZ != 0.0 )
             {
-                this.head.moveWithCollisions( this.moveDeltaX, 0.0, this.moveDeltaZ );
+                // assign movement to body
+                this.body.moveWithCollisions( this.moveDeltaX, 0.0, this.moveDeltaZ );
 
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;
@@ -189,7 +229,8 @@
                 this.rotationDeltaZ = 0.0;
             }
 
-            // assign all rotations to mesh
-            this.head.setAbsoluteRotationXYZ( this.rotZ, this.rotY, 0.0 );
+            this.body.setAbsoluteRotationXYZ( 0.0, this.rotY, 0.0 );
+
+            this.head.setAbsoluteRotationXYZ( this.rotZ, 0.0, 0.0 );
         }
     }

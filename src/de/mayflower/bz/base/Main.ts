@@ -20,6 +20,7 @@
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Specify, how deep the player rect may sink into colliding objects.
     *   TODO Create 3d gun as 2nd scene in front?
+    *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
     *   TODO Try fog or smoke?
     *   TODO Enable jumping!

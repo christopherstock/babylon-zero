@@ -11,7 +11,7 @@
         public  static  readonly    GRAVITY                                     :number             = -0.1;
 
         /** The startup camera type. */
-        public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FIRST_PERSON;
+        public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FREE_DEBUG;
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.5;
