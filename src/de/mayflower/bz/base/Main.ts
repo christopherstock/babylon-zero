@@ -7,13 +7,13 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Put body under player's head and set is as parent.
-    *   TODO Constants for player walking and strafing speed
-    *   TODO Clip player rotZ.
-    *   TODO Supply rotations for all axis in mesh creators.
-    *   TODO Turn player from cube to sphere?
-    *   TODO Add sphere creator!
-    *   TODO Try impulse based movement once again for the player?
     *   TODO Enable player looking up and down (30 degrees etc.)
+    *   TODO Clip player rotZ.
+    *   TODO Supply rotations for all axis in mesh creators via Quaternons?
+    *   TODO Add sphere creator!
+    *   TODO Turn player from cube to sphere?
+    *   TODO Try impulse based movement once again for the player?
+    *   TODO Smooth camera animation on active camera change?
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!

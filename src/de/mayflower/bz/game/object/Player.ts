@@ -154,9 +154,9 @@
 */
         }
 
-        public getCameraMesh() : BABYLON.Mesh
+        public getCameraTargetMesh() : BABYLON.Mesh
         {
-            return this.head.mesh;
+            return this.head.getMesh();
         }
 
         public setVisible( visible:boolean )
@@ -168,7 +168,7 @@
         {
             if ( this.moveDeltaX != 0.0 || this.moveDeltaZ != 0.0 )
             {
-                this.head.mesh.moveWithCollisions( new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ ) );
+                this.head.moveWithCollisions( this.moveDeltaX, 0.0, this.moveDeltaZ );
 
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;

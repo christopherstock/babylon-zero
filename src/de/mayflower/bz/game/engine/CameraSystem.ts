@@ -70,6 +70,13 @@
 
                 case CameraType.FOLLOW:
                 {
+/*
+                    if ( scene.activeCamera )
+                    {
+                        this.followCamera.position = scene.activeCamera.position;
+//                        this.followCamera.setTarget( scene.activeCamera.getLeftTarget() );
+                    }
+*/
                     scene.activeCamera = this.followCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
                     bz.Main.game.engine.level.player.setVisible( true );

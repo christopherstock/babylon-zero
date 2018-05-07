@@ -199,11 +199,11 @@
             );
 
             // lock statinary target camera to player
-            this.cameraSystem.lockStationaryTargetCameraTo( this.player.getCameraMesh() );
+            this.cameraSystem.lockStationaryTargetCameraTo( this.player.getCameraTargetMesh() );
             // lock follow camera to player
-            this.cameraSystem.lockFollowCameraTo(           this.player.getCameraMesh() );
+            this.cameraSystem.lockFollowCameraTo(           this.player.getCameraTargetMesh() );
             // lock first person camera to player
-            this.cameraSystem.setFirstPersonCameraInside(   this.player.getCameraMesh() );
+            this.cameraSystem.setFirstPersonCameraInside(   this.player.getCameraTargetMesh() );
 
             // set active scene camera
             this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );

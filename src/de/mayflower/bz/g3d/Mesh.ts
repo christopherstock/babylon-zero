@@ -8,7 +8,7 @@
     export class Mesh
     {
         /** The babylon.JS mesh. */
-        public                              mesh                    :BABYLON.Mesh                       = null;
+        private         readonly                mesh                    :BABYLON.Mesh                       = null;
 
         public constructor( mesh:BABYLON.Mesh )
         {
@@ -37,5 +37,15 @@
                 bz.MathUtil.degreesToRad( rotX ),
                 bz.MathUtil.degreesToRad( rotZ )
             );
+        }
+
+        public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
+        {
+            this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+        }
+
+        public getMesh() : BABYLON.Mesh
+        {
+            return this.mesh;
         }
     }
