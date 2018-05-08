@@ -6,8 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable player looking up and down (30 degrees etc.)
-    *   TODO Clip player rotZ.
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
     *   TODO Enable player look rotZ bouncing back to 0.
@@ -24,6 +22,7 @@
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
     *   TODO Try fog or smoke?
+    *   TODO Assign player size from settings constants.
     *   TODO Try to solve player smooth sliding on any walls!
     *   TODO Enable jumping!
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.

@@ -25,7 +25,7 @@
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
         /** The player's speed for rapidly centering the up/down view aim in degrees per tick. */
-        public  static  readonly    PLAYER_SPEED_CENTER_VIEW_AIM                :number             = 5.0;
+        public  static  readonly    PLAYER_SPEED_CENTER_LOOK_UP_DOWN            :number             = 2.5;
 
         /** The player's x and z dimension (radius). */
         public  static  readonly    PLAYER_SIZE_XZ                              :number             = 1.0;

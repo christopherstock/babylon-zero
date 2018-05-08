@@ -25,6 +25,9 @@
         /** Current rotation delta Z. */
         protected                           rotationDeltaZ          :number                             = 0.0;
 
+        /** Flags if rotZ view centering should occur. */
+        private                             centerRotZ              :boolean                            = false;
+
         /***************************************************************************************************************
         *   Creates a new player instance.
         *
@@ -180,6 +183,7 @@
         {
             this.movePlayer();
             this.rotatePlayerXYZ();
+            this.checkCenteringRotZ();
 /*
             // suppress linear velocity
             this.head.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
@@ -217,6 +221,9 @@
 
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;
+
+                // demand rotZ centering
+                this.centerRotZ = true;
             }
         }
 
@@ -230,12 +237,43 @@
 
             if ( this.rotationDeltaZ != 0.0 )
             {
-                this.rotZ = bz.MathUtil.normalizeAngle( this.rotZ + this.rotationDeltaZ );
+                this.rotZ += this.rotationDeltaZ;
+
+                if ( this.rotZ > bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN )
+                {
+                    this.rotZ = bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN;
+                }
+                else if ( this.rotZ < -bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN )
+                {
+                    this.rotZ = -bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN;
+                }
+
                 this.rotationDeltaZ = 0.0;
+
+                this.centerRotZ = false;
             }
 
+            // rotate all meshes
             this.body.setAbsoluteRotationXYZ( 0.0, this.rotY, 0.0 );
-
             this.head.setAbsoluteRotationXYZ( this.rotZ, 0.0, 0.0 );
+        }
+
+        private checkCenteringRotZ()
+        {
+            if ( this.centerRotZ )
+            {
+                if ( this.rotZ > 0.0 )
+                {
+                    this.rotZ -= bz.SettingGame.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
+
+                    if ( this.rotZ < 0.0 ) this.rotZ = 0.0;
+                }
+                else if ( this.rotZ < 0.0 )
+                {
+                    this.rotZ += bz.SettingGame.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
+
+                    if ( this.rotZ > 0.0 ) this.rotZ = 0.0;
+                }
+            }
         }
     }
