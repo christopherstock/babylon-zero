@@ -17,6 +17,7 @@
     *   TODO MeshFactory enums to separate file MeshProps.
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)
+    *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
