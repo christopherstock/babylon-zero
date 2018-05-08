@@ -10,16 +10,20 @@
         /** The babylon.JS mesh. */
         private         readonly                mesh                    :BABYLON.Mesh                       = null;
 
-        public constructor( mesh:BABYLON.Mesh )
+        /** The initial alpha value. */
+        private                                 alpha                   :number                             = 0.0;
+
+        public constructor( mesh:BABYLON.Mesh, alpha:number )
         {
-            this.mesh = mesh;
+            this.mesh  = mesh;
+            this.alpha = alpha;
         }
 
         public setVisible( visible:boolean )
         {
             if ( visible )
             {
-                this.mesh.material.alpha = 1.0;
+                this.mesh.material.alpha = this.alpha;
                 this.mesh.isPickable = true;
             }
             else

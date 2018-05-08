@@ -8,10 +8,9 @@
     *
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
-    *   TODO Enable player look rotZ bouncing back to 0.
-    *   TODO Try impulse based movement once again for the player?
     *   TODO Create (invisible) cylinder bounding box for player?
     *   TODO Smooth camera animation on active camera change?
+    *   TODO Solve shaking on colliding and walking against walls!
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
@@ -33,6 +32,7 @@
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Solve ortho drawing!
     *   TOOD Try GUI via babylon-gui.
+    *   TODO Try to create a realistic scene.
     *   TODO Create debug console on-screen.
     *   TODO Try fur.
     *   TODO Improve performance in chrome? Try webGL 1.0??

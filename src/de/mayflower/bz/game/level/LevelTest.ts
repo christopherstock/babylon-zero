@@ -182,12 +182,12 @@
             bz.MeshFactory.createPlane
             (
                 "Amiga2",
-                new BABYLON.Vector3( 6.0, 0.0, 10.0 ),
+                new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 7.0,
                 7.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
-                45.0,
+                -45.0,
                 bz.Texture.AMIGA,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
@@ -243,6 +243,6 @@
         private createPlayer() : void
         {
             // static ground
-            this.player = new bz.Player( 270.0 );
+            this.player = new bz.Player( 135.0 );
         }
     }

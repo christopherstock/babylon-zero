@@ -48,15 +48,16 @@
                     4.0,
                     bz.MeshFactory.ROTATION_AXIS_Y,
                     0.0,
-                    bz.Texture.WOOD,
+                    bz.Texture.GLASS,
                     bz.TextureHasAlpha.NO,
                     bz.TextureUV.ACCORDING_TO_SIZE,
                     null,
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physics.MOVABLE,
                     bz.Physicals.PLAYER,
-                    1.0
-                )
+                    0.25
+                ),
+                0.25
             );
 
             this.head = new bz.Mesh
@@ -64,7 +65,7 @@
                 bz.MeshFactory.createSphere
                 (
                     "playerHead",
-                    new BABYLON.Vector3( 0.0, 2.0, 0.0  ),
+                    new BABYLON.Vector3( 0.0, 1.5, 0.0  ),
                     bz.PivotAnchor.CENTER_XYZ,
                     1.0,
                     bz.MeshFactory.ROTATION_AXIS_Y,
@@ -77,7 +78,8 @@
                     bz.Physics.SENSOR,
                     bz.Physicals.PLAYER,
                     1.0
-                )
+                ),
+                1.0
             );
 
             // stick head to body
