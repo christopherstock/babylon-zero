@@ -33,7 +33,7 @@
             // enable collisions
             this.babylonScene.collisionsEnabled = true;
 /*
-            // gravity for camera won't work if enabled!
+            // gravity for camera won't work if enabled! ( THIS is ONLY for the camera!! )
             this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
 */
             // set clear color

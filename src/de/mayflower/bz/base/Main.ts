@@ -6,22 +6,22 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Solve shaking on colliding and walking against walls!
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
-    *   TODO Create (invisible) cylinder bounding box for player?
-    *   TODO Smooth camera animation on active camera change?
-    *   TODO Solve shaking on colliding and walking against walls!
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
     *   TODO MeshFactory enums to separate file MeshProps.
-    *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
     *   TODO Try fog or smoke?
+    *   TODO Fix skybox and link to player!
+    *   TODO Smooth camera animation on active camera change?
+    *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *   TODO Assign player size from settings constants.
     *   TODO Try to solve player smooth sliding on any walls!
     *   TODO Enable jumping!
@@ -36,6 +36,7 @@
     *   TODO Try to create a realistic scene.
     *   TODO Create debug console on-screen.
     *   TODO Try fur.
+    *   TODO Enable bottom or up view lock for some meters of walking ..
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
@@ -46,7 +47,6 @@
     *   TODO specify explicit gravity for physics engine and scene?
     *   TODO Add creators for more mesh primitives!
     *   TODO Improve mesh system.
-    *   TODO Fix skybox and link to camera!
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Collisions via shooting..
     *   TODO Bullet holes.

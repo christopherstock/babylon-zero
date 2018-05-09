@@ -84,6 +84,10 @@
 
             // stick head to body
             this.head.getMesh().parent = this.body.getMesh();
+
+
+            // this.head.getMesh().parent = this.body.getMesh();
+
 /*
             // physical link
             this.body.getMesh().setPhysicsLinkWith
@@ -192,10 +196,20 @@
             // suppress angular velocity
             this.head.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
 */
-            // make body stiff ..
+            // make body stiff .. ?
 
-            // this.body.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
-            // this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+
+            // this.body.getMesh().physicsImpostor.physicsBody.sink = 0.0;
+
+
+/*
+            this.head.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+            this.head.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+*/
+/*
+            this.body.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+            this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+*/
         }
 
         public getFirstPersonCameraTargetMesh() : BABYLON.Mesh
