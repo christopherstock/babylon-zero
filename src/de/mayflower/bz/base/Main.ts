@@ -6,8 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve shaking on colliding and walking against walls!
-    *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!)
     *   TODO Supply rotations for all axis in mesh creators via Quaternons?
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
@@ -15,6 +13,7 @@
     *   TODO MeshFactory enums to separate file MeshProps.
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
+    *   TODO Solve shaking on colliding and walking against walls!
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
@@ -25,6 +24,7 @@
     *   TODO Assign player size from settings constants.
     *   TODO Try to solve player smooth sliding on any walls!
     *   TODO Enable jumping!
+    *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!) ?
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Add player/camrera controls (turn, duck)
     *   TODO Solve player falling into infinity (camera stops at .. ?)
@@ -36,7 +36,6 @@
     *   TODO Try to create a realistic scene.
     *   TODO Create debug console on-screen.
     *   TODO Try fur.
-    *   TODO Enable bottom or up view lock for some meters of walking ..
     *   TODO Improve performance in chrome? Try webGL 1.0??
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?

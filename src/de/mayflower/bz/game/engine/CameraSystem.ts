@@ -108,8 +108,8 @@
             this.freeDebugCamera.setTarget( startupTarget );
 
             // disable collisions and gravity
-            this.freeDebugCamera.checkCollisions = false;
-            this.freeDebugCamera.applyGravity    = false;
+            this.freeDebugCamera.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+            this.freeDebugCamera.applyGravity    = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
 
             //Set the ellipsoid around the camera (the size of the player in our case)
             this.freeDebugCamera.ellipsoid = new BABYLON.Vector3

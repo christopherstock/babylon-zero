@@ -47,9 +47,8 @@
         {
             this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
 
-            // this.mesh.veloc
-
-            // this.mesh.applyImpulse( new BABYLON.Vector3( 1000 * deltaX, 0.0, 1000 * deltaZ ), this.mesh.position );
+            // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( 5000 * deltaX, 0.0, 5000 * deltaZ ), this.mesh.position );
+            // this.mesh.applyImpulse( new BABYLON.Vector3( 5000 * deltaX, 0.0, 5000 * deltaZ ), this.mesh.position );
         }
 
         public getMesh() : BABYLON.Mesh

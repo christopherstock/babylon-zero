@@ -25,7 +25,7 @@
         /** Current rotation delta Z. */
         protected                           rotationDeltaZ          :number                             = 0.0;
 
-        /** Flags if rotZ view centering should occur. */
+        /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;
 
         /***************************************************************************************************************
@@ -232,14 +232,17 @@
         {
             if ( this.moveDeltaX != 0.0 || this.moveDeltaZ != 0.0 )
             {
-                // assign movement to body
                 this.body.moveWithCollisions( this.moveDeltaX, 0.0, this.moveDeltaZ );
 
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;
 
-                // demand rotZ centering
+                // demand rotZ centering TODO refactor to separate method?
                 this.centerRotZ = true;
+            }
+            else
+            {
+                this.centerRotZ = false;
             }
         }
 
@@ -265,8 +268,6 @@
                 }
 
                 this.rotationDeltaZ = 0.0;
-
-                this.centerRotZ = false;
             }
 
             // rotate all meshes
@@ -282,13 +283,19 @@
                 {
                     this.rotZ -= bz.SettingGame.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
 
-                    if ( this.rotZ < 0.0 ) this.rotZ = 0.0;
+                    if ( this.rotZ <= 0.0 )
+                    {
+                        this.rotZ = 0.0;
+                    }
                 }
                 else if ( this.rotZ < 0.0 )
                 {
                     this.rotZ += bz.SettingGame.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
 
-                    if ( this.rotZ > 0.0 ) this.rotZ = 0.0;
+                    if ( this.rotZ >= 0.0 )
+                    {
+                        this.rotZ = 0.0;
+                    }
                 }
             }
         }

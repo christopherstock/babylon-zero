@@ -35,6 +35,7 @@
     *******************************************************************************************************************/
     export enum PivotAnchor
     {
+        DEBUG_NONE,
         LOWEST_XYZ,
         CENTER_XYZ,
         CENTER_XZ_LOWEST_Y,
@@ -388,14 +389,6 @@
                         ),
                         false
                     );
- /*
-                    // equals
-                    mesh.position = new BABYLON.Vector3(
-                        position.x + ( width  / 2 ),
-                        position.y + ( height / 2 ),
-                        position.z + ( depth  / 2 )
-                    );
-*/
                     break;
                 }
 
@@ -411,6 +404,16 @@
                             0.0
                         ),
                         false
+                    );
+                    break;
+                }
+
+                case bz.PivotAnchor.DEBUG_NONE:
+                {
+                    mesh.position = new BABYLON.Vector3(
+                        position.x + ( width  / 2 ),
+                        position.y + ( height / 2 ),
+                        position.z + ( depth  / 2 )
                     );
                     break;
                 }

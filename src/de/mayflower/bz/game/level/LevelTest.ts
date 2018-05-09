@@ -51,7 +51,7 @@
             (
                 "Ground1",
                 new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.PivotAnchor.DEBUG_NONE,
                 new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 0.0,
@@ -158,7 +158,7 @@
                 1.0
             );
 
-            // plane - amiga, 1/2
+            // plane - amiga, 1
             bz.MeshFactory.createPlane
             (
                 "Amiga1",
@@ -178,7 +178,7 @@
                 1.0
             );
 
-            // plane - amiga 7/7
+            // plane - amiga 2
             bz.MeshFactory.createPlane
             (
                 "Amiga2",
@@ -188,6 +188,26 @@
                 7.0,
                 bz.MeshFactory.ROTATION_AXIS_Y,
                 -45.0,
+                bz.Texture.AMIGA,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.STATIC,
+                bz.Physicals.LIGHT_WOOD,
+                1.0
+            );
+
+            // plane - amiga 3
+            bz.MeshFactory.createPlane
+            (
+                "Amiga3",
+                new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                7.0,
+                7.0,
+                bz.MeshFactory.ROTATION_AXIS_Y,
+                -90.0,
                 bz.Texture.AMIGA,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
