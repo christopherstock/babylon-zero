@@ -74,10 +74,11 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
+/*
         public      static  readonly    ROTATION_AXIS_X                 :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
         public      static  readonly    ROTATION_AXIS_Y                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
         public      static  readonly    ROTATION_AXIS_Z                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
-
+*/
         /***************************************************************************************************************
         *   Creates a box.
         ***************************************************************************************************************/
@@ -87,8 +88,7 @@
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
             size            :BABYLON.Vector3,
-            rotationAxis    :BABYLON.Vector3,
-            rotationDegrees :number,
+            rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -113,14 +113,13 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( box, position, pivotAnchor, rotationDegrees, size.x, size.y, size.z );
+            MeshFactory.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
             let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, size.x, size.z, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (
                 box,
-                rotationDegrees,
-                rotationAxis,
+                rotation,
                 material,
                 scene,
                 isStatic,
@@ -138,8 +137,7 @@
             pivotAnchor     :bz.PivotAnchor,
             diameter        :number,
             height          :number,
-            rotationAxis    :BABYLON.Vector3,
-            rotationDegrees :number,
+            rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -163,14 +161,13 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, rotationDegrees, diameter, height, diameter );
+            MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
             let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, diameter, height, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (
                 cylinder,
-                rotationDegrees,
-                rotationAxis,
+                rotation,
                 material,
                 scene,
                 isStatic,
@@ -187,8 +184,7 @@
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
             diameter        :number,
-            rotationAxis    :BABYLON.Vector3,
-            rotationDegrees :number,
+            rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -209,14 +205,13 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( sphere, position, pivotAnchor, rotationDegrees, diameter, diameter, diameter );
+            MeshFactory.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
             let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, diameter, diameter, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (
                 sphere,
-                rotationDegrees,
-                rotationAxis,
+                rotation,
                 material,
                 scene,
                 isStatic,
@@ -234,8 +229,7 @@
             pivotAnchor     :bz.PivotAnchor,
             width           :number,
             height          :number,
-            rotationAxis    :BABYLON.Vector3,
-            rotationDegrees :number,
+            rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -257,14 +251,13 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, rotationDegrees, width, height, 0.0 );
+            MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
             let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, width, height, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (
                 plane,
-                rotationDegrees,
-                rotationAxis,
+                rotation,
                 material,
                 scene,
                 isStatic,
@@ -278,8 +271,7 @@
         private static decorateMesh
         (
             mesh            :BABYLON.Mesh,
-            rotationDegrees :number,
-            rotationAxis    :BABYLON.Vector3,
+            rotation        :BABYLON.Vector3,
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             isStatic        :Physics,
@@ -327,11 +319,11 @@
                 }
             }
 
-            MeshFactory.rotateMesh( mesh, rotationAxis, rotationDegrees );
+            MeshFactory.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
 
             return mesh;
         }
-
+/*
         public static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
         {
             let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
@@ -346,13 +338,22 @@
                 bz.MathUtil.degreesToRad( rotationDegrees )
             );
         }
+*/
+        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
+        {
+            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
+            (
+                bz.MathUtil.degreesToRad( rotY ),
+                bz.MathUtil.degreesToRad( rotX ),
+                bz.MathUtil.degreesToRad( rotZ )
+            );
+        }
 
         public static setPositionAndPivot
         (
             mesh            :BABYLON.Mesh,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
-            rotationDegrees :number,
             width           :number,
             height          :number,
             depth           :number,

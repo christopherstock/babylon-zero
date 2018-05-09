@@ -35,12 +35,7 @@
 
         public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number )
         {
-            this.mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( rotY ),
-                bz.MathUtil.degreesToRad( rotX ),
-                bz.MathUtil.degreesToRad( rotZ )
-            );
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, rotX, rotY, rotZ );
         }
 
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
