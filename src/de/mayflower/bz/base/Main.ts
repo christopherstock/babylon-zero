@@ -6,6 +6,9 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Check oimo examples ? (human.js .. bones etc.)
+    *
+    *   TODO Find a way to control sink amount for colliding meshes??
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?

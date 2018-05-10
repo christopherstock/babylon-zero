@@ -14,7 +14,7 @@
         public                      scene                       :bz.Scene                   = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                  = null;
-        /** The current level instance. */
+        /** The current level instance. TODO to Game? */
         public                      level                       :bz.Level                   = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem               = null;

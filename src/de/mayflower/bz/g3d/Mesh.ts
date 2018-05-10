@@ -41,9 +41,12 @@
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
         {
             this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
-
-            // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( 5000 * deltaX, 0.0, 5000 * deltaZ ), this.mesh.position );
-            // this.mesh.applyImpulse( new BABYLON.Vector3( 5000 * deltaX, 0.0, 5000 * deltaZ ), this.mesh.position );
+/*
+            this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
+            bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
+            this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
+            this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
+*/
         }
 
         public getMesh() : BABYLON.Mesh

@@ -20,7 +20,7 @@
             // set ambient color ( defaults to black .. no effect ? )
             this.babylonScene.ambientColor = bz.SettingGame.COLOR_WHITE;
 
-            // set physics engine
+            // enable physics engine
             this.babylonScene.enablePhysics
             (
 /*
@@ -29,9 +29,6 @@
                 new BABYLON.OimoJSPlugin()
 */
             );
-
-            // enable collisions
-            this.babylonScene.collisionsEnabled = true;
 /*
             // gravity for camera won't work if enabled! ( THIS is ONLY for the camera!! )
             this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );

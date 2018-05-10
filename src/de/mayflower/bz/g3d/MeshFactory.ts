@@ -285,8 +285,6 @@
             {
                 case Physics.STATIC:
                 {
-                    mesh.checkCollisions = true;
-
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -299,8 +297,6 @@
 
                 case Physics.MOVABLE:
                 {
-                    mesh.checkCollisions = true;
-
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -313,8 +309,7 @@
 
                 case Physics.SENSOR:
                 {
-                    mesh.checkCollisions = false;
-
+                    // do not set a physics impostor
                     break;
                 }
             }
