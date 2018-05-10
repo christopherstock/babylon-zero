@@ -12,23 +12,15 @@
         public                              player                  :bz.Player                          = null;
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
-        /** Camera position on level reset. */
-        private         readonly            cameraStartupPosition   :BABYLON.Vector3                    = null;
-        /** Camera target on level reset. */
-        private         readonly            cameraStartupTarget     :BABYLON.Vector3                    = null;
 
         /*******************************************************************************************************************
         *   Creates a new custom level.
         *
-        *   @param scene                 The babylon.JS scene reference.
-        *   @param cameraStartupPosition Initial camera position.
-        *   @param cameraStartupTarget   Initial camera target.
+        *   @param scene The babylon.JS scene reference.
         *******************************************************************************************************************/
-        constructor( scene:BABYLON.Scene, cameraStartupPosition:BABYLON.Vector3, cameraStartupTarget:BABYLON.Vector3 )
+        constructor( scene:BABYLON.Scene )
         {
-            this.scene                 = scene;
-            this.cameraStartupPosition = cameraStartupPosition;
-            this.cameraStartupTarget   = cameraStartupTarget;
+            this.scene = scene;
         }
 
         /*******************************************************************************************************************
@@ -47,6 +39,14 @@
             this.player.handlePlayerKeys();
 
             this.player.render();
+        }
+
+        /***************************************************************************************************************
+        *   Sets up the player for the scene.
+        ***************************************************************************************************************/
+        protected createPlayer() : void
+        {
+            this.player = new bz.Player( 135.0 );
         }
 
         /***************************************************************************************************************
@@ -186,9 +186,9 @@
             this.cameraSystem = new bz.CameraSystem
             (
                 this.scene,
-                this.cameraStartupPosition,
-                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
-                this.cameraStartupTarget
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 0.0,  0.0, 0.0  )
             );
 
             // lock statinary target camera to player

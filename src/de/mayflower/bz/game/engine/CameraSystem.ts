@@ -109,12 +109,7 @@
             this.freeDebugCamera.applyGravity    = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
 
             //Set the ellipsoid around the camera (the size of the player in our case)
-            this.freeDebugCamera.ellipsoid = new BABYLON.Vector3
-            (
-                bz.SettingGame.PLAYER_SIZE_XZ,
-                bz.SettingGame.PLAYER_SIZE_Y,
-                bz.SettingGame.PLAYER_SIZE_XZ
-            );
+            this.freeDebugCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
             this.freeDebugCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
 
             this.freeDebugCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );

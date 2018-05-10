@@ -7,6 +7,8 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Assign player size from settings constants.
+    *   TODO Assign player head and body size from settings constants.
+    *
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *
@@ -20,6 +22,7 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Add creators for more mesh primitives!
     *   TODO Check Perfect Dark and Goldeneye sound board.
+    *   TODO Draw line primitives?
     *
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
     *   TODO Create debug console on-screen.

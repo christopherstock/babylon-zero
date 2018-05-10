@@ -15,12 +15,7 @@
         ***************************************************************************************************************/
         constructor( scene:BABYLON.Scene )
         {
-            super
-            (
-                scene,
-                new BABYLON.Vector3( 20.0, 2 * bz.SettingGame.PLAYER_SIZE_Y, 20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0,   0.0  )
-            );
+            super( scene );
 
             // this.setupLights();
             this.setupBoxes();
@@ -245,14 +240,5 @@
                 bz.PhysicProps.STATIC,
                 0.5
             );
-        }
-
-        /***************************************************************************************************************
-        *   Sets up the player for the scene.
-        ***************************************************************************************************************/
-        private createPlayer() : void
-        {
-            // static ground
-            this.player = new bz.Player( 135.0 );
         }
     }

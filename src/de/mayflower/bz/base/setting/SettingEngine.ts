@@ -1,5 +1,6 @@
 
     import * as bz from '../..';
+    import * as BABYLON from 'babylonjs';
 
     /*******************************************************************************************************************
     *   Specifies all settings for the engine.
@@ -26,4 +27,7 @@
         public  static  readonly    CAMERA_FOLLOW_ROTATION_OFFSET           :number             = 180.0;
         public  static  readonly    CAMERA_FOLLOW_ACCELERATION_SPEED        :number             = 0.075;
         public  static  readonly    CAMERA_FOLLOW_MAX_SPEED                 :number             = 10.0;
+
+        public  static  readonly    CAMERA_FREE_ELLIPSOID                   :BABYLON.Vector3    = new BABYLON.Vector3( 2.0, 2.0, 2.0 );
+
     }

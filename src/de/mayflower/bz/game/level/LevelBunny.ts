@@ -22,12 +22,9 @@
         ***************************************************************************************************************/
         constructor( scene:BABYLON.Scene )
         {
-            super
-            (
-                scene,
-                new BABYLON.Vector3( -25.0, 40.0, -80.0 ),
-                new BABYLON.Vector3( 0,     0,    0     )
-            );
+            super( scene );
+
+            this.createPlayer();
 
             this.setupLights();
             this.setupShadows();
@@ -101,7 +98,7 @@
                 new BABYLON.Vector3( -50.0,   -26.0, -143.5 ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
-                new BABYLON.Vector3( -0.45,   0.0, 0.0 ),
+                new BABYLON.Vector3( -45.0,   0.0, 0.0 ),
                 bz.Texture.GRASS,
                 bz.TextureHasAlpha.NO,
                 bz.TextureUV.ACCORDING_TO_SIZE,
