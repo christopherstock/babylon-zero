@@ -17,6 +17,8 @@
     *******************************************************************************************************************/
     export class CameraSystem
     {
+        public                  activeCamera                        :CameraType                             = null;
+
         /** The free controllable babylon.JS camera. */
         private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
@@ -50,6 +52,8 @@
 
         public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType )
         {
+            this.activeCamera = camera;
+
             switch ( camera )
             {
                 case CameraType.FREE_DEBUG:

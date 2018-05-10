@@ -11,10 +11,18 @@
         {
             if ( pickResult.hit )
             {
-                let dir = pickResult.pickedPoint.subtract
-                (
-                    bz.Main.game.engine.scene.getScene().activeCamera.position
-                );
+                let src:BABYLON.Vector3 = null;
+
+                if ( bz.Main.game.engine.level.cameraSystem.activeCamera == bz.CameraType.FIRST_PERSON )
+                {
+                    src = bz.Main.game.engine.level.player.getThirdPersonCameraTargetMesh().position;
+                }
+                else
+                {
+                    src = bz.Main.game.engine.scene.getScene().activeCamera.position;
+                }
+
+                let dir = pickResult.pickedPoint.subtract( src );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
 
