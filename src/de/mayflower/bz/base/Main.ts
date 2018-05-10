@@ -6,22 +6,24 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
-    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
-    *   TODO Add camera constants to settings.
-    *   TODO make param for mesh's physics attributes (increase player mass!)!
-    *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
     *   TODO Assign player size from settings constants.
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
-    *   TODO Create 3d gun as 2nd scene in front?
+    *
+    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
+    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
+    *
+    *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
     *   TODO Collisions via shooting.
     *   TODO Bullet holes.
-    *   TODO Solve shadows?
+    *
+    *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Add creators for more mesh primitives!
     *   TODO Check Perfect Dark and Goldeneye sound board.
+    *
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
     *   TODO Create debug console on-screen.
+    *   TODO Solve shadows?
     *   TOOD Try GUI via babylon-gui.
     *   TODO Try fog or smoke?
     *   TODO Create simple test level with increased performance!

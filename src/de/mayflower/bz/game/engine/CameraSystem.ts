@@ -74,13 +74,6 @@
 
                 case CameraType.FOLLOW:
                 {
-/*
-                    if ( scene.activeCamera )
-                    {
-                        this.followCamera.position = scene.activeCamera.position;
-//                        this.followCamera.setTarget( scene.activeCamera.getLeftTarget() );
-                    }
-*/
                     scene.activeCamera = this.followCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
                     bz.Main.game.engine.level.player.setVisible( true );
@@ -122,7 +115,7 @@
                 bz.SettingGame.PLAYER_SIZE_Y,
                 bz.SettingGame.PLAYER_SIZE_XZ
             );
-            this.freeDebugCamera.ellipsoidOffset = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+            this.freeDebugCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
 
             this.freeDebugCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );
             this.freeDebugCamera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
@@ -151,11 +144,11 @@
         {
             this.followCamera = new BABYLON.FollowCamera( "followCamera", startupPosition, scene );
 
-            this.followCamera.heightOffset       = 6;     // camera height offset
-            this.followCamera.radius             = 15;    // how far from the object to follow
-            this.followCamera.rotationOffset     = 180;   // offset rotation (for front following etc.)
-            this.followCamera.cameraAcceleration = 0.075; // camera acceleration after target change. defaults to 0.05
-            this.followCamera.maxCameraSpeed     = 10.0;  // max camera moving speed. defaults to 20.
+            this.followCamera.heightOffset       = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;      // camera height offset
+            this.followCamera.radius             = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_RADIUS;      // how far from the object to follow
+            this.followCamera.rotationOffset     = bz.SettingEngine.CAMERA_FOLLOW_ROTATION_OFFSET;    // offset rotation (for front following etc.)
+            this.followCamera.cameraAcceleration = bz.SettingEngine.CAMERA_FOLLOW_ACCELERATION_SPEED; // camera acceleration after target change. defaults to 0.05
+            this.followCamera.maxCameraSpeed     = bz.SettingEngine.CAMERA_FOLLOW_MAX_SPEED;          // max camera moving speed. defaults to 20.
         }
 
         /***************************************************************************************************************
