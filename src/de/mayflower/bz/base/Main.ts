@@ -7,8 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Check oimo examples ? (human.js .. bones etc.)
-    *
-    *   TODO Find a way to control sink amount for colliding meshes??
+    *   <TODO Find a way to control sink amount for colliding meshes??
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
@@ -50,7 +49,6 @@
     *   TODO Solve lights. Create lights system.
     *   TODO Improve Sprite System handling.
     *   TODO move onInitLevelCompleted to class Level and also scene to class level?
-    *   TODO specify explicit gravity for physics engine and scene?
     *   TODO Try fur.
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Improve abstract level system and make it more generic.

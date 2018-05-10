@@ -8,7 +8,7 @@
     export class SettingGame
     {
         /** The scene's gravity. */
-        public  static  readonly    GRAVITY                                     :number             = -0.1;
+        public  static  readonly    GRAVITY                                     :number             = -10.0;
 
         /** The startup camera type. */
         public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FREE_DEBUG;

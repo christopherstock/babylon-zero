@@ -23,16 +23,10 @@
             // enable physics engine
             this.babylonScene.enablePhysics
             (
-/*
-                // gravity for physics will stop any gravity for all scene objects ??
-                new BABYLON.Vector3( 0, -5.0, 0 ),
-                new BABYLON.OimoJSPlugin()
-*/
+                new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 ),
+                new BABYLON.CannonJSPlugin()
             );
-/*
-            // gravity for camera won't work if enabled! ( THIS is ONLY for the camera!! )
-            this.babylonScene.gravity = new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 );
-*/
+
             // set clear color
             this.babylonScene.clearColor = bz.SettingGame.COLOR_ORANGE_MAYFLOWER;
         }
