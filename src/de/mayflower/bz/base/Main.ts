@@ -6,12 +6,11 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Check oimo examples ? (human.js .. bones etc.)
-    *   <TODO Find a way to control sink amount for colliding meshes??
+    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
+    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Add camera constants to settings.
     *   TODO make param for mesh's physics attributes (increase player mass!)!
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
-    *   TODO MeshFactory enums to separate file MeshProps.
     *   TODO Assign player size from settings constants.
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?

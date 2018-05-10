@@ -3,82 +3,10 @@
     import * as bz from "..";
 
     /*******************************************************************************************************************
-    *   Specifies if a mesh is static so it will never move.
-    *******************************************************************************************************************/
-    export enum Physics
-    {
-        STATIC,
-        MOVABLE,
-        SENSOR,
-    }
-
-    /*******************************************************************************************************************
-    *   Specifies if a texture has an alpha value.
-    *******************************************************************************************************************/
-    export enum TextureHasAlpha
-    {
-        YES,
-        NO,
-    }
-
-    /*******************************************************************************************************************
-    *   Specifies the UV handling of the applied texture.
-    *******************************************************************************************************************/
-    export enum TextureUV
-    {
-        ACCORDING_TO_SIZE,
-        ALL_TO_ONE,
-    }
-
-    /*******************************************************************************************************************
-    *   Specifies all valid anchors for a mesh.
-    *******************************************************************************************************************/
-    export enum PivotAnchor
-    {
-        DEBUG_NONE,
-        LOWEST_XYZ,
-        CENTER_XYZ,
-        CENTER_XZ_LOWEST_Y,
-    }
-
-    /*******************************************************************************************************************
-    *   Specifies possible physical attributes for meshes.
-    *******************************************************************************************************************/
-    export class Physicals
-    {
-        /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public      static  readonly        PLAYER                  :BABYLON.PhysicsImpostorParameters  =
-        {
-            mass:        100.0,
-            friction:    100.0,
-            restitution: 0.0
-        };
-
-        public      static  readonly        LIGHT_WOOD              :BABYLON.PhysicsImpostorParameters  =
-        {
-            mass:        1.0,
-            friction:    0.75,
-            restitution: 0.0
-        };
-
-        public      static  readonly        STATIC                  :BABYLON.PhysicsImpostorParameters  =
-        {
-            mass:        0.0,
-            friction:    0.75,          // 0.0 = ice, 1.0 = concrete
-            restitution: 0.0
-        };
-    }
-
-    /*******************************************************************************************************************
-    *   Constructs 3D meshes.
+    *   Constructs meshes.
     *******************************************************************************************************************/
     export class MeshFactory
     {
-/*
-        public      static  readonly    ROTATION_AXIS_X                 :BABYLON.Vector3        = new BABYLON.Vector3( 1.0, 0.0, 0.0 );
-        public      static  readonly    ROTATION_AXIS_Y                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 1.0, 0.0 );
-        public      static  readonly    ROTATION_AXIS_Z                 :BABYLON.Vector3        = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
-*/
         /***************************************************************************************************************
         *   Creates a box.
         ***************************************************************************************************************/
@@ -94,7 +22,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics,
+            isStatic        :bz.Physics,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -143,7 +71,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics,
+            isStatic        :bz.Physics,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -190,7 +118,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics,
+            isStatic        :bz.Physics,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -235,7 +163,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics,
+            isStatic        :bz.Physics,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -274,7 +202,7 @@
             rotation        :BABYLON.Vector3,
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :Physics,
+            isStatic        :bz.Physics,
             physicals       :BABYLON.PhysicsImpostorParameters
         )
         {
@@ -283,19 +211,19 @@
 
             switch ( isStatic )
             {
-                case Physics.STATIC:
+                case bz.Physics.STATIC:
                 {
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
                         BABYLON.PhysicsImpostor.BoxImpostor,
-                        Physicals.STATIC,
+                        bz.PhysicProps.STATIC,
                         scene
                     );
                     break;
                 }
 
-                case Physics.MOVABLE:
+                case bz.Physics.MOVABLE:
                 {
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
@@ -307,7 +235,7 @@
                     break;
                 }
 
-                case Physics.SENSOR:
+                case bz.Physics.SENSOR:
                 {
                     // do not set a physics impostor
                     break;

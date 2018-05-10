@@ -60,7 +60,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 /*
@@ -95,7 +95,7 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -113,7 +113,7 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -132,7 +132,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createPlane
@@ -149,7 +149,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -168,7 +168,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -187,7 +187,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -206,7 +206,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -224,7 +224,7 @@
                 null,
                 this.scene,
                 bz.Physics.MOVABLE,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 0.5
             );
 
@@ -242,7 +242,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.STATIC,
+                bz.PhysicProps.STATIC,
                 0.5
             );
         }

@@ -71,7 +71,7 @@
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -90,7 +90,7 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -106,7 +106,7 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -125,7 +125,7 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -141,7 +141,7 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -160,7 +160,7 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -176,7 +176,7 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physics.SENSOR,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
         }

@@ -92,7 +92,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -108,7 +108,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
 
@@ -124,7 +124,7 @@
                 null,
                 this.scene,
                 bz.Physics.STATIC,
-                bz.Physicals.LIGHT_WOOD,
+                bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
         }

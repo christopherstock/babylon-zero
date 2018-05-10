@@ -24,7 +24,7 @@
             this.babylonScene.enablePhysics
             (
                 new BABYLON.Vector3( 0, bz.SettingGame.GRAVITY, 0 ),
-                new BABYLON.CannonJSPlugin( true, 25 )
+                new BABYLON.CannonJSPlugin( true, 30 )
             );
 
             // set clear color

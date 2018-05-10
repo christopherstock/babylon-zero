@@ -53,7 +53,7 @@
                     null,
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physics.MOVABLE,
-                    bz.Physicals.PLAYER,
+                    bz.PhysicProps.PLAYER,
                     0.25
                 ),
                 0.25
@@ -74,7 +74,7 @@
                     null,
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physics.SENSOR,
-                    bz.Physicals.PLAYER,
+                    bz.PhysicProps.PLAYER,
                     1.0
                 ),
                 1.0

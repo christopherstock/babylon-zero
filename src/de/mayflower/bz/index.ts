@@ -11,6 +11,7 @@
 
     export * from './g3d/Mesh';
     export * from './g3d/MeshFactory';
+    export * from './g3d/MeshProps';
     export * from './g3d/Texture';
 
     export * from './game/Game';
