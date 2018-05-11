@@ -84,6 +84,12 @@
             this.head.getMesh().parent = this.body.getMesh();
 
 
+
+
+
+
+
+
             // this.head.getMesh().parent = this.body.getMesh();
 
 /*
@@ -188,26 +194,27 @@
             this.movePlayer();
             this.rotatePlayerXYZ();
             this.checkCenteringRotZ();
-/*
-            // suppress linear velocity
-            this.head.mesh.physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
+
+
+
+
+            // filter linear velocity Y
+            let playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity()
+            this.body.getMesh().physicsImpostor.setLinearVelocity
+            (
+                new BABYLON.Vector3
+                (
+                    0.0,
+
+                    // allow falling but not jumping ..?
+                    ( playerVelocity.y < 0.0 ? playerVelocity.y : 0.0 ),
+
+                    0.0,
+                )
+            );
+
             // suppress angular velocity
-            this.head.mesh.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
-*/
-            // make body stiff .. ?
-
-
-            // this.body.getMesh().physicsImpostor.physicsBody.sink = 0.0;
-
-
-/*
-            this.head.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
-            this.head.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
-*/
-/*
-            this.body.getMesh().physicsImpostor.setLinearVelocity(  BABYLON.Vector3.Zero() );
             this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
-*/
         }
 
         public getFirstPersonCameraTargetMesh() : BABYLON.Mesh

@@ -48,15 +48,14 @@
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
         public      static  readonly        PLAYER                  :BABYLON.PhysicsImpostorParameters  =
         {
-            mass:        1.0,
-            friction:    5.0,
-            restitution: 1.0,
-
+            mass:        2.5,
+            friction:    0.0,
+            restitution: 0.0,
         };
 
         public      static  readonly        LIGHT_WOOD              :BABYLON.PhysicsImpostorParameters  =
         {
-            mass:        1.0,
+            mass:        0.5,
             friction:    0.75,
             restitution: 0.0
         };
@@ -64,7 +63,7 @@
         public      static  readonly        STATIC                  :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        0.0,
-            friction:    0.75,
+            friction:    1.0,
             restitution: 0.0
         };
     }

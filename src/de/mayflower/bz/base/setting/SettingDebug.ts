@@ -12,4 +12,7 @@
 
         /** Enabled collisions for the free debug camera. */
         public      static      ENABLE_COLLISIONS_FOR_DEBUG_CAMERA          :boolean            = false;
+
+        /** Show the bounding boxes for all meshes. */
+        public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = false;
     }

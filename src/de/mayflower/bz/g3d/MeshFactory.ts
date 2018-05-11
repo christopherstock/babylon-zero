@@ -51,7 +51,8 @@
                 material,
                 scene,
                 isStatic,
-                physicals
+                physicals,
+                BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
 
@@ -99,7 +100,8 @@
                 material,
                 scene,
                 isStatic,
-                physicals
+                physicals,
+                BABYLON.PhysicsImpostor.CylinderImpostor
             );
         }
 
@@ -143,7 +145,8 @@
                 material,
                 scene,
                 isStatic,
-                physicals
+                physicals,
+                BABYLON.PhysicsImpostor.SphereImpostor
             );
         }
 
@@ -189,7 +192,8 @@
                 material,
                 scene,
                 isStatic,
-                physicals
+                physicals,
+                BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
 
@@ -203,7 +207,8 @@
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             isStatic        :bz.Physics,
-            physicals       :BABYLON.PhysicsImpostorParameters
+            physicals       :BABYLON.PhysicsImpostorParameters,
+            physicsImpostor :number
         )
         {
             mesh.material       = material;
@@ -218,10 +223,13 @@
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
-                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        physicsImpostor,
                         bz.PhysicProps.STATIC,
                         scene
                     );
+
+                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+
                     break;
                 }
 
@@ -232,10 +240,13 @@
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
-                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        physicsImpostor,
                         physicals,
                         scene
                     );
+
+                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+
                     break;
                 }
 
