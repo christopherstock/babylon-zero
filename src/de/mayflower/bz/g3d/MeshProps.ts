@@ -56,7 +56,7 @@
         public      static  readonly        LIGHT_WOOD              :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        0.5,
-            friction:    0.75,
+            friction:    1.0,
             restitution: 0.0
         };
 
