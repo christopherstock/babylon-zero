@@ -29,6 +29,9 @@
 
             // set clear color
             this.babylonScene.clearColor = bz.SettingGame.COLOR_ORANGE_MAYFLOWER;
+
+            // enable debug collisions for free debug camera
+            this.babylonScene.collisionsEnabled = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
         }
 
         /***************************************************************************************************************

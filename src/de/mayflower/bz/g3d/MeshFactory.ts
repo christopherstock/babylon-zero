@@ -213,6 +213,8 @@
             {
                 case bz.Physics.STATIC:
                 {
+                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -225,6 +227,8 @@
 
                 case bz.Physics.MOVABLE:
                 {
+                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
