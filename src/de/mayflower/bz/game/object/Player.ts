@@ -195,26 +195,7 @@
             this.rotatePlayerXYZ();
             this.checkCenteringRotZ();
 
-
-
-
-            // filter linear velocity Y
-            let playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity()
-            this.body.getMesh().physicsImpostor.setLinearVelocity
-            (
-                new BABYLON.Vector3
-                (
-                    0.0,
-
-                    // allow falling but not jumping ..?
-                    ( playerVelocity.y < 0.0 ? playerVelocity.y : 0.0 ),
-
-                    0.0,
-                )
-            );
-
-            // suppress angular velocity
-            this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+            this.manipulateVelocities();
         }
 
         public getFirstPersonCameraTargetMesh() : BABYLON.Mesh
@@ -303,5 +284,26 @@
                     }
                 }
             }
+        }
+
+        private manipulateVelocities()
+        {
+            // filter linear velocity Y
+            let playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity();
+            this.body.getMesh().physicsImpostor.setLinearVelocity
+            (
+                new BABYLON.Vector3
+                (
+                    0.0,
+
+                    // allow falling but not jumping ..?
+                    ( playerVelocity.y < 0.0 ? playerVelocity.y : 0.0 ),
+
+                    0.0,
+                )
+            );
+
+            // suppress angular velocity
+            this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
         }
     }

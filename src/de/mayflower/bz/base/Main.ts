@@ -6,6 +6,8 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Create skybox and link to player! (skybox.infiniteDistance = true;)
+    *
     *   TODO Assign player size from settings constants.
     *   TODO Assign player head and body size from settings constants.
     *
@@ -30,7 +32,6 @@
     *   TODO Try fog or smoke?
     *   TODO Try to create a realistic scene.
     *
-    *   TODO Create skybox and link to player! (skybox.infiniteDistance = true;)
     *   TODO Smooth camera animation on active camera change?
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *
