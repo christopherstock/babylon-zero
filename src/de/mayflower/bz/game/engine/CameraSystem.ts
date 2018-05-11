@@ -17,6 +17,7 @@
     *******************************************************************************************************************/
     export class CameraSystem
     {
+        // TODO private!
         public                  activeCamera                        :CameraType                             = null;
 
         /** The free controllable babylon.JS camera. */
@@ -139,11 +140,11 @@
         {
             this.followCamera = new BABYLON.FollowCamera( "followCamera", startupPosition, scene );
 
-            this.followCamera.heightOffset       = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;      // camera height offset
-            this.followCamera.radius             = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_RADIUS;      // how far from the object to follow
-            this.followCamera.rotationOffset     = bz.SettingEngine.CAMERA_FOLLOW_ROTATION_OFFSET;    // offset rotation (for front following etc.)
-            this.followCamera.cameraAcceleration = bz.SettingEngine.CAMERA_FOLLOW_ACCELERATION_SPEED; // camera acceleration after target change. defaults to 0.05
-            this.followCamera.maxCameraSpeed     = bz.SettingEngine.CAMERA_FOLLOW_MAX_SPEED;          // max camera moving speed. defaults to 20.
+            this.followCamera.heightOffset       = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;
+            this.followCamera.radius             = bz.SettingEngine.CAMERA_FOLLOW_RADIUS;
+            this.followCamera.rotationOffset     = bz.SettingEngine.CAMERA_FOLLOW_ROTATION_OFFSET;
+            this.followCamera.cameraAcceleration = bz.SettingEngine.CAMERA_FOLLOW_ACCELERATION_SPEED;
+            this.followCamera.maxCameraSpeed     = bz.SettingEngine.CAMERA_FOLLOW_MAX_SPEED;
         }
 
         /***************************************************************************************************************

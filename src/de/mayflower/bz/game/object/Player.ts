@@ -73,7 +73,7 @@
                     bz.TextureUV.ACCORDING_TO_SIZE,
                     null,
                     bz.Main.game.engine.scene.getScene(),
-                    bz.Physics.SENSOR,
+                    bz.Physics.NONE,
                     bz.PhysicProps.PLAYER,
                     1.0
                 ),

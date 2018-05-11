@@ -239,7 +239,7 @@
                     break;
                 }
 
-                case bz.Physics.SENSOR:
+                case bz.Physics.NONE:
                 {
                     // do not set a physics impostor
                     break;

@@ -33,7 +33,7 @@
     *   TODO Solve shaking on colliding and walking against walls!
     *   TODO Try to solve player smooth sliding on any walls!
     *
-    *   TODO Create skybox and link to player!
+    *   TODO Create skybox and link to player! (skybox.infiniteDistance = true;)
     *   TODO Smooth camera animation on active camera change?
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *

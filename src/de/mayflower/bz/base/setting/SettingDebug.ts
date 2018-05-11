@@ -11,5 +11,5 @@
         public      static      DISABLE_SOUND                               :boolean            = true;
 
         /** Enabled collisions for the free debug camera. */
-        public      static      ENABLE_COLLISIONS_FOR_DEBUG_CAMERA          :boolean            = true;
+        public      static      ENABLE_COLLISIONS_FOR_DEBUG_CAMERA          :boolean            = false;
     }
