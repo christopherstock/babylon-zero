@@ -6,7 +6,10 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Draw line primitives?
     *   TODO Improve world axis (lines and sphere) and create debug switch.
+    *   TODO Add creators for more mesh primitives! (triangles?)
+    *   TODO Solve correct tiling for boxes? (faceUVs, backUVs [s. skybox]).
     *
     *   TODO Assign player size from settings constants.
     *   TODO Assign player head and body size from settings constants.
@@ -14,54 +17,58 @@
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *
-    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
-    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
-    *
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
-    *   TODO Collisions via shooting.
-    *   TODO Bullet holes.
+    *
+    *   TODO Check collisions via shooting.
+    *   TODO Create shooting.
+    *   TODO Create Bullet holes.
     *
     *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Add creators for more mesh primitives! (triangles?)
-    *   TODO Draw line primitives?
     *
-    *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
-    *   TODO Create debug console on-screen.
-    *   TODO Solve shadows?
     *   TOOD Try GUI via babylon-gui.
-    *   TODO Try fog or smoke?
+    *   TODO Solve ortho drawing!
+    *   TODO Create debug console on-screen.
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *
+    *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
+    *
     *   TODO Try to create a realistic scene.
+    *   TODO Solve lights. Create lights system.
+    *   TODO Solve shadows?
+    *   TODO Try fog or smoke?
     *
     *   TODO Smooth camera animation on active camera change?
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
     *
-    *   TODO Solve player falling into infinity (camera stops at .. ?)
-    *   TODO Enrich and correct all documentation.
+    *   TODO Enrich and correct all documentation blocks.
     *
+    *   TODO Try 3dsmax 2018/2019 with babylon plugin?
+    *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
+    *
+    *   TODO Improve mesh system.
+    *
+    *   TODO Enable jumping?
+    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
+    *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
+    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
+    *   TODO Add player/camrera controls (turn, duck)
     *   TODO Check Perfect Dark and Goldeneye sound board.
-    *   TODO Enable jumping!
+    *
+    *   TODO Improve Sprite System handling (asset loading etc.).
+    *
+    *   TODO Try PostProcess (camera.setPostProcess ?)
+    *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
+    *
+    *   TODO Enable wearpon zoom. (view angle / camera solution?)
+    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!) ?
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
-    *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
-    *   TODO Add player/camrera controls (turn, duck)
-    *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
-    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
-    *   TODO Improve mesh system.
-    *   TODO Solve ortho drawing!
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Increase performance in chrome?
     *   TODO Create material system with unified parameters!
-    *   TODO Solve lights. Create lights system.
-    *   TODO Improve Sprite System handling.
     *   TODO move onInitLevelCompleted to class Level and also scene to class level?
     *   TODO Try fur.
-    *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Improve abstract level system and make it more generic.
-    *   TODO Try PostProcess (camera.setPostProcess ?)
     *   TODO Create main menu where player can reset level etc.
-    *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
-    *   TODO Try 3dsmax 2018/2019 with babylon plugin?
-    *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
     *   TODO Review babylon.JS tutorials, features and playground.
     *******************************************************************************************************************/
     export class Main
