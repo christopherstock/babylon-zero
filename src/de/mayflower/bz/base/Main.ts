@@ -20,8 +20,7 @@
     *   TODO Bullet holes.
     *
     *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Add creators for more mesh primitives!
-    *   TODO Check Perfect Dark and Goldeneye sound board.
+    *   TODO Add creators for more mesh primitives! (triangles?)
     *   TODO Draw line primitives?
     *
     *   TODO Solve correct tiling for boxes (faceUVs, backUVs).
@@ -29,20 +28,24 @@
     *   TODO Solve shadows?
     *   TOOD Try GUI via babylon-gui.
     *   TODO Try fog or smoke?
-    *   TODO Create simple test level with increased performance!
     *   TODO Try to create a realistic scene.
-    *   TODO Fix skybox and link to player!
-    *   TODO Smooth camera animation on active camera change?
-    *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
+    *
     *   TODO Solve shaking on colliding and walking against walls!
     *   TODO Try to solve player smooth sliding on any walls!
+    *
+    *   TODO Create skybox and link to player!
+    *   TODO Smooth camera animation on active camera change?
+    *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
+    *
+    *   TODO Solve player falling into infinity (camera stops at .. ?)
+    *   TODO Enrich and correct all documentation.
+    *
+    *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Enable jumping!
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!) ?
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Add player/camrera controls (turn, duck)
-    *   TODO Solve player falling into infinity (camera stops at .. ?)
-    *   TODO Enrich and correct all documentation.
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Improve mesh system.

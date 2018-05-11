@@ -58,6 +58,25 @@
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
+
+            // static elevated ground
+            bz.MeshFactory.createBox
+            (
+                "Ground2",
+                new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
+                bz.Texture.GRASS,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.STATIC,
+                bz.PhysicProps.LIGHT_WOOD,
+                1.0
+            );
+
 /*
             // static ground ( inoperative camera collisions when rotated ... )
             bz.MeshFactory.createPlane
