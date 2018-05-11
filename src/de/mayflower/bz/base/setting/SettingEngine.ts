@@ -15,8 +15,10 @@
         /** The minimum canvas2D height. */
         public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
-        /** The relative path from index.html where all images the app makes use of reside. */
+        /** The relative path from index.html where all texture images reside. */
         public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = "res/image/texture/";
+        /** The relative path from index.html where all skybox images reside. */
+        public  static  readonly    PATH_IMAGE_SKYBOX                       :string             = "res/image/skybox/";
         /** The relative path from index.html where all sounds the app makes use of reside. */
         public  static  readonly    PATH_SOUND                              :string             = "res/sound/";
         /** The relative path from index.html where all 3d model files the app makes use of reside. */

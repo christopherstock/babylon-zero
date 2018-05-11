@@ -297,7 +297,7 @@
                     0.0,
 
                     // allow falling but not jumping ..?
-                    ( playerVelocity.y < 0.0 ? playerVelocity.y : 0.0 ),
+                    ( playerVelocity.y < 0.0 ? playerVelocity.y * 0.95 : 0.0 ),
 
                     0.0,
                 )

@@ -6,7 +6,7 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create skybox and link to player! (skybox.infiniteDistance = true;)
+    *   TODO Improve world axis (lines and sphere) and create debug switch.
     *
     *   TODO Assign player size from settings constants.
     *   TODO Assign player head and body size from settings constants.
