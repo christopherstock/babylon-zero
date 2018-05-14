@@ -161,10 +161,13 @@
             width           :number,
             height          :number,
             rotation        :BABYLON.Vector3,
+
+            // bundle texture props
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
+
             scene           :BABYLON.Scene,
             isStatic        :bz.Physics,
             physicals       :BABYLON.PhysicsImpostorParameters,
@@ -198,7 +201,62 @@
         }
 
         /***************************************************************************************************************
+        *   Creates a line.
+        ***************************************************************************************************************/
+        public static createLine
+        (
+            id              :string,
+            start           :BABYLON.Vector3,
+            end             :BABYLON.Vector3,
+            pivotAnchor     :bz.PivotAnchor,
+            rotation        :BABYLON.Vector3,
+
+            color           :BABYLON.Color4,
+            scene           :BABYLON.Scene,
+
+            // TODO bundle?
+            isStatic        :bz.Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters
+        )
+        : BABYLON.Mesh
+        {
+            let line:BABYLON.Mesh = BABYLON.MeshBuilder.CreateLines
+            (
+                id,
+                {
+                    points:
+                    [
+                        start,
+                        end,
+                    ],
+                    colors:
+                    [
+                        color,
+                        color,
+                    ],
+                    useVertexAlpha: true
+                },
+                scene
+            );
+
+            MeshFactory.setPositionAndPivot( line, BABYLON.Vector3.Zero(), pivotAnchor, 0.0, 0.0, 0.0 );
+
+            return MeshFactory.decorateMesh
+            (
+                line,
+                rotation,
+                null,
+                scene,
+                isStatic,
+                physicals,
+                BABYLON.PhysicsImpostor.BoxImpostor
+            );
+        }
+
+        /***************************************************************************************************************
         *   Adds general mesh properties.
+        *
+        *   TODO To decorator class Mesh!
         ***************************************************************************************************************/
         private static decorateMesh
         (
@@ -257,37 +315,12 @@
                 }
             }
 
-            MeshFactory.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
+            bz.Mesh.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
 
             return mesh;
         }
-/*
-        public static rotateMesh( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
-        {
-            let rotationRadians:number = bz.MathUtil.degreesToRad( rotationDegrees );
-            mesh.rotate( rotationAxis, rotationRadians, BABYLON.Space.LOCAL );
-        }
 
-        public static setAbsoluteRotation( mesh:BABYLON.Mesh, rotationAxis:BABYLON.Vector3, rotationDegrees:number )
-        {
-            mesh.rotationQuaternion = BABYLON.Quaternion.RotationAxis
-            (
-                rotationAxis,
-                bz.MathUtil.degreesToRad( rotationDegrees )
-            );
-        }
-*/
-        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
-        {
-            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( rotY ),
-                bz.MathUtil.degreesToRad( rotX ),
-                bz.MathUtil.degreesToRad( rotZ )
-            );
-        }
-
-        public static setPositionAndPivot
+        private static setPositionAndPivot
         (
             mesh            :BABYLON.Mesh,
             position        :BABYLON.Vector3,

@@ -19,7 +19,7 @@
 
             // this.setupLights();
             this.setupBoxes();
-            this.createTestAxisPoints();
+
             this.createPlayer();
 
             this.setupSkybox();

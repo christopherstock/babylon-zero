@@ -32,12 +32,18 @@
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
 
-        /** The RGB color 'white'. */
+        /** The RGB color 'white' with full opacity. */
         public  static  readonly    COLOR_WHITE                                 :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 1.0 );
         /** The RGBA color 'transparent'. */
         public  static  readonly    COLOR_TRANSPARENT                           :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
-        /** The RGBA color 'dark grey'. */
-        public  static  readonly    COLOR_DARK_GREY                             :BABYLON.Color4     = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
-        /** The RGBA color 'mayflower orange'. */
-        public  static  readonly    COLOR_ORANGE_MAYFLOWER                      :BABYLON.Color4     = new BABYLON.Color4( 0.92, 0.45, 0.01, 1.0 );
+        /** The RGBA color 'dark grey' with full opacity. */
+        public  static  readonly    COLOR_DARK_GREY_OPAQUE                      :BABYLON.Color4     = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
+        /** The RGBA color 'mayflower orange' with full opacity. */
+        public  static  readonly    COLOR_ORANGE_MAYFLOWER_OPAQUE               :BABYLON.Color4     = new BABYLON.Color4( 0.92, 0.45, 0.01, 1.0 );
+        /** The RGBA color 'red' with full opacity. */
+        public  static  readonly    COLOR_RED_OPAQUE                            :BABYLON.Color4     = new BABYLON.Color4( 1.0, 0.0, 0.0, 1.0 );
+        /** The RGBA color 'green' with full opacity. */
+        public  static  readonly    COLOR_GREEN_OPAQUE                          :BABYLON.Color4     = new BABYLON.Color4( 0.0, 1.0, 0.0, 1.0 );
+        /** The RGBA color 'blue' with full opacity. */
+        public  static  readonly    COLOR_BLUE_OPAQUE                           :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 1.0, 1.0 );
     }

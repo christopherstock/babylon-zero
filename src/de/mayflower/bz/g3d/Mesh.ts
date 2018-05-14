@@ -11,7 +11,7 @@
         private         readonly                mesh                    :BABYLON.Mesh                       = null;
 
         /** The initial alpha value. */
-        private                                 alpha                   :number                             = 0.0;
+        private         readonly                alpha                   :number                             = 0.0;
 
         public constructor( mesh:BABYLON.Mesh, alpha:number )
         {
@@ -35,7 +35,17 @@
 
         public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number )
         {
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.mesh, rotX, rotY, rotZ );
+            bz.Mesh.setAbsoluteRotationXYZ( this.mesh, rotX, rotY, rotZ );
+        }
+
+        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
+        {
+            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
+            (
+                bz.MathUtil.degreesToRad( rotY ),
+                bz.MathUtil.degreesToRad( rotX ),
+                bz.MathUtil.degreesToRad( rotZ )
+            );
         }
 
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )

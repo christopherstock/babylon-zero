@@ -21,6 +21,11 @@
         constructor( scene:BABYLON.Scene )
         {
             this.scene = scene;
+
+            if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
+            {
+                this.createTestAxis();
+            }
         }
 
         /*******************************************************************************************************************
@@ -52,12 +57,11 @@
         /***************************************************************************************************************
         *   Sets up the axis orientation test points.
         *
-        *   X Y and Z axes are aligned by LEFT HAND RULE.
+        *   X Y and Z axes are aligned by the LEFT HAND RULE.
         ***************************************************************************************************************/
         protected createTestAxisPoints() : void
         {
             // origin
-
             bz.MeshFactory.createBox
             (
                 "Ground1",
@@ -76,7 +80,6 @@
             );
 
             // x test
-
             bz.MeshFactory.createBox
             (
                 "Ground1",
@@ -111,7 +114,6 @@
             );
 
             // y test
-
             bz.MeshFactory.createBox
             (
                 "Ground1",
@@ -146,7 +148,6 @@
             );
 
             // z test
-
             bz.MeshFactory.createBox
             (
                 "Ground1",
@@ -178,6 +179,54 @@
                 bz.Physics.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
+            );
+        }
+
+        /***************************************************************************************************************
+        *   Sets up the coordinate axis lines.
+        *
+        *   X Y and Z axes are aligned by the LEFT HAND RULE.
+        ***************************************************************************************************************/
+        protected createTestAxis() : void
+        {
+            // axis x
+            bz.MeshFactory.createLine
+            (
+                "axisX",
+                new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
+                new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.SettingGame.COLOR_RED_OPAQUE,
+                this.scene,
+                bz.Physics.NONE,
+                bz.PhysicProps.STATIC
+            );
+            // axis y
+            bz.MeshFactory.createLine
+            (
+                "axisY",
+                new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
+                new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.SettingGame.COLOR_GREEN_OPAQUE,
+                this.scene,
+                bz.Physics.NONE,
+                bz.PhysicProps.STATIC
+            );
+            // axis z
+            bz.MeshFactory.createLine
+            (
+                "axisZ",
+                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.SettingGame.COLOR_BLUE_OPAQUE,
+                this.scene,
+                bz.Physics.NONE,
+                bz.PhysicProps.STATIC
             );
         }
 

@@ -6,8 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Draw line primitives?
-    *   TODO Improve world axis (lines and sphere) and create debug switch.
     *   TODO Add creators for more mesh primitives! (triangles?)
     *   TODO Solve correct tiling for boxes? (faceUVs, backUVs [s. skybox]).
     *
