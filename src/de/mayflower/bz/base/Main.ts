@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Add creators for more mesh primitives! (triangles?)
     *   TODO Solve correct tiling for boxes? (faceUVs, backUVs [s. skybox]).
     *
     *   TODO Assign player size from settings constants.
@@ -14,6 +13,7 @@
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
+    *   TODO Create class for compound object creation ("createTree").
     *
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters? Check usage, handling and reasons for ids in lib code!
     *

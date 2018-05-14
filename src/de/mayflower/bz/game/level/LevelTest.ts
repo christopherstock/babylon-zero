@@ -169,6 +169,24 @@
                 1.0
             );
 
+            // movable crate - different UVs for all sides
+            bz.MeshFactory.createBox
+            (
+                "Ground1",
+                new BABYLON.Vector3( 12.0,  0.0, 24.0   ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 1.0, 2.0, 3.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Texture.TEST,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.ACCORDING_TO_SIZE,
+                null,
+                this.scene,
+                bz.Physics.MOVABLE,
+                bz.PhysicProps.LIGHT_WOOD,
+                1.0
+            );
+
             // plane - amiga, 1
             bz.MeshFactory.createPlane
             (
