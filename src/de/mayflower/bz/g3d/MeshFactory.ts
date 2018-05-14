@@ -254,6 +254,60 @@
         }
 
         /***************************************************************************************************************
+        *   Creates a polygon.
+        ***************************************************************************************************************/
+        public static createPolygon
+        (
+            id              :string,
+
+            points          :BABYLON.Vector3[],
+
+            pivotAnchor     :bz.PivotAnchor,
+            rotation        :BABYLON.Vector3,
+
+            color           :BABYLON.StandardMaterial,
+            scene           :BABYLON.Scene,
+
+            // TODO bundle?
+            isStatic        :bz.Physics,
+            physicals       :BABYLON.PhysicsImpostorParameters
+        )
+        : BABYLON.Mesh
+        {
+            let triangle:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
+            (
+                id,
+                {
+                    shape: points,
+/*
+                    faceColors:
+                    [
+                        color,
+                        color,
+                        color,
+                    ],
+*/
+                    depth: 0.001,
+                },
+                scene
+            );
+
+            MeshFactory.setPositionAndPivot( triangle, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), pivotAnchor, 0.0, 0.0, 0.0 );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( null, null, null, 0.0, 0.0, color, 1.0 );
+
+            return MeshFactory.decorateMesh
+            (
+                triangle,
+                rotation,
+                material,
+                scene,
+                isStatic,
+                physicals,
+                BABYLON.PhysicsImpostor.BoxImpostor
+            );
+        }
+
+        /***************************************************************************************************************
         *   Adds general mesh properties.
         *
         *   TODO To decorator class Mesh!
@@ -315,7 +369,10 @@
                 }
             }
 
-            bz.Mesh.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
+            if ( rotation != null )
+            {
+                bz.Mesh.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
+            }
 
             return mesh;
         }

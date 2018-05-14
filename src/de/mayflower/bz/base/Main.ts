@@ -15,7 +15,7 @@
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *
-    *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters?
+    *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters? Check usage, handling and reasons for ids in lib code!
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.

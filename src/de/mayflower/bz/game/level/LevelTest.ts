@@ -261,6 +261,23 @@
                 bz.PhysicProps.STATIC,
                 0.5
             );
+
+            // triangle
+            bz.MeshFactory.createPolygon
+            (
+                "Triangle1",
+                [
+                    new BABYLON.Vector3( 0.0,  0.0,  13.0    ),
+                    new BABYLON.Vector3( 10.0, 0.0,  13.0    ),
+                    new BABYLON.Vector3( 10.0, 0.0,  0.0     ),
+                ],
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
+                bz.Main.game.engine.material.solidRed,
+                this.scene,
+                bz.Physics.STATIC,
+                bz.PhysicProps.STATIC
+            );
         }
 
         /***************************************************************************************************************
@@ -268,7 +285,7 @@
         ***************************************************************************************************************/
         private setupSkybox()
         {
-            // TODO Refactor to Level and to MeshFactory
+            // TODO Refactor to parent class Level and to MeshFactory
             let skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, this.scene);
             let skyboxMaterial = new BABYLON.StandardMaterial( "skyBox", this.scene );
 

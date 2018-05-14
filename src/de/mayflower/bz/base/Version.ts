@@ -5,17 +5,19 @@
     export class Version
     {
         /** The project's version v.0.0.1. */
-        private     static  readonly    V_0_0_1                 :Version            = new Version( "0.0.1", "BABYLON ZERO", "17.04.2018, 09:42:16 GMT+1" );
+        private     static  readonly    V_0_0_1                 :Version            = new Version( "0.0.1", "BABYLON ZERO",        "17.04.2018, 09:42:16 GMT+1" );
+        /** The project's version v.0.0.2. */
+        private     static  readonly    V_0_0_2                 :Version            = new Version( "0.0.1", "BABYLON.JS TAKE OFF", "18.05.2018, 07:10:41 GMT+1" );
 
         /** The project's current version. */
         public      static  readonly    CURRENT_VERSION         :Version            = Version.V_0_0_1;
 
         /** This version's specifier. */
-        private                         version                 :string             = null;
+        private             readonly    version                 :string             = null;
         /** This version's internal codename. */
-        private                         codename                :string             = null;
+        private             readonly    codename                :string             = null;
         /** This version's completion date. */
-        private                         date                    :string             = null;
+        private             readonly    date                    :string             = null;
 
         /***************************************************************************************************************
         *   Creates a project version.

@@ -8,7 +8,7 @@
     export class SettingEngine
     {
         /** The application's internal name. */
-        public  static  readonly    TITLE                                   :string             = "Babylon.js joyride, (c) 2018 Mayflower GmbH, v. [" + bz.Version.CURRENT_VERSION.getVersionDescriptor() + "]";
+        public  static  readonly    TITLE                                   :string             = "Babylon.js take off, (c) 2018 Mayflower GmbH, v. [" + bz.Version.CURRENT_VERSION.getVersionDescriptor() + "]";
 
         /** The minimum canvas2D width. */
         public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;
