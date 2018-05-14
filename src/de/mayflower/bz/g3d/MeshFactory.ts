@@ -36,13 +36,23 @@
                     height: size.y,
                     depth:  size.z,
 
-                    // faceUVs, backUVs .. ?
+                    faceUV:
+                    [
+                        new BABYLON.Vector4( 0.0,    0.0, -size.x, -size.y ),
+                        new BABYLON.Vector4( 0.0,    0.0, size.x,  size.y  ),
+
+                        new BABYLON.Vector4( 0.0,    0.0, -size.y, -size.z ),
+                        new BABYLON.Vector4( 0.0,    0.0, size.y,  size.z  ),
+
+                        new BABYLON.Vector4( 0.0,    0.0, -size.z, -size.x ),
+                        new BABYLON.Vector4( 0.0,    0.0, size.z,  size.x  ),
+                    ]
                 },
                 scene
             );
 
             MeshFactory.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, size.x, size.z, color, materialAlpha );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, null, size.x, size.z, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (

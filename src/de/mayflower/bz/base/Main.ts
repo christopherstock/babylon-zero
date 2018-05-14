@@ -6,10 +6,11 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve correct tiling for boxes? (faceUVs, backUVs [s. skybox]).
+    *   TODO Master option faceUV and according tileUV parameter for all mesh creators!
     *
     *   TODO Assign player size from settings constants.
     *   TODO Assign player head and body size from settings constants.
+    *   TODO Solve rotating texture UVs?
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?

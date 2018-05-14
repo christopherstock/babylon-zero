@@ -41,8 +41,20 @@
         {
             if ( texture != null )
             {
-                let textureU:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeU : 1.0 );
-                let textureV:number = ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE ? sizeV : 1.0 );
+                let textureU:number = -1;
+                let textureV:number = -1;
+
+                // TODO add _IGNORE
+                if ( textureUV == bz.TextureUV.ACCORDING_TO_SIZE )
+                {
+                    textureU = sizeU;
+                    textureV = sizeV;
+                }
+                else if ( textureUV == bz.TextureUV.ALL_TO_ONE )
+                {
+                    textureU = 1.0;
+                    textureV = 1.0;
+                }
 
                 return bz.MaterialSystem.createTexture
                 (
@@ -98,8 +110,14 @@
             textureMaterial.diffuseTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
-            ( textureMaterial.diffuseTexture as any ).uScale = repeatU;
-            ( textureMaterial.diffuseTexture as any ).vScale = repeatV;
+            if ( repeatU != -1 )
+            {
+                ( textureMaterial.diffuseTexture as any ).uScale = repeatU;
+            }
+            if ( repeatV != -1 )
+            {
+                ( textureMaterial.diffuseTexture as any ).vScale = repeatV;
+            }
 
             textureMaterial.diffuseTexture.hasAlpha = ( textureHasAlpha == bz.TextureHasAlpha.YES );
 
