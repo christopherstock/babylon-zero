@@ -13,10 +13,12 @@
         /** The startup camera type. */
         public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FREE_DEBUG;
 
-        /** The player's x and z dimension (radius). */
-        public  static  readonly    PLAYER_SIZE_XZ                              :number             = 2.0;
-        /** The player's y dimension (height). */
-        public  static  readonly    PLAYER_SIZE_Y                               :number             = 2.0;
+        /** The player's radius on the XoZ axis. */
+        public  static  readonly    PLAYER_RADIUS_XZ                            :number             = 2.0;
+        /** The player's height on the Y axis. */
+        public  static  readonly    PLAYER_HEIGHT_Y                             :number             = 4.0;
+        /** The player's head radius on all axis. */
+        public  static  readonly    PLAYER_HEAD_RADIUS                          :number             = 0.5;
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.25;

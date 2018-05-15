@@ -44,8 +44,8 @@
                     "playerBody",
                     new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
                     bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                    4.0,
-                    4.0,
+                    ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
+                    bz.SettingGame.PLAYER_HEIGHT_Y,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     bz.Texture.GLASS,
                     bz.TextureHasAlpha.NO,
@@ -64,9 +64,14 @@
                 bz.MeshFactory.createSphere
                 (
                     "playerHead",
-                    new BABYLON.Vector3( 0.0, 1.5, 0.0  ),
+                    new BABYLON.Vector3
+                    (
+                        0.0,
+                        ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                        0.0
+                    ),
                     bz.PivotAnchor.CENTER_XYZ,
-                    1.0,
+                    ( 2 * bz.SettingGame.PLAYER_HEAD_RADIUS ),
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     bz.Texture.GRASS,
                     bz.TextureHasAlpha.NO,

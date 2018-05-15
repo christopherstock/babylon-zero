@@ -6,11 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve rotating texture UVs?
-    *
-    *   TODO Assign player size from settings constants.
-    *   TODO Assign player head and body size from settings constants.
-    *
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create class for compound object creation ("createTree").
@@ -30,6 +25,7 @@
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
+    *   TODO Rotating texture UVs for certain box sides?
     *
     *   TODO Try to create a realistic scene.
     *   TODO Solve lights. Create lights system.

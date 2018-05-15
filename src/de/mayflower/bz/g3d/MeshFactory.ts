@@ -195,9 +195,6 @@
                 id,
                 {
                     diameter: diameter,
-
-                    // TODO faceUV
-
                 },
                 scene
             );
