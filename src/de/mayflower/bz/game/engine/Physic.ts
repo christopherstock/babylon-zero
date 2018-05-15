@@ -38,16 +38,29 @@
             friction:    1.0,
             restitution: 0.0
         };
+
+        public static createFromMass() : BABYLON.PhysicsImpostorParameters
+        {
+            // ..
+
+            return null;
+        }
     }
 
     /*******************************************************************************************************************
     *   Specifies the sprite system.
     *******************************************************************************************************************/
-    export class Physics
+    export class Physic
     {
         /** The general physics state. */
-        private                     state                           :bz.PhysicState                     = null;
+        public                      state                           :bz.PhysicState                     = null;
 
         /** The general physics state. */
-        private                     params                          :BABYLON.PhysicsImpostorParameters  = null;
+        public                      params                          :BABYLON.PhysicsImpostorParameters  = null;
+
+        constructor( state:bz.PhysicState, params:BABYLON.PhysicsImpostorParameters )
+        {
+            this.state  = state;
+            this.params = params;
+        }
     }

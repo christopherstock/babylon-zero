@@ -88,8 +88,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.PhysicState.STATIC,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.STATIC, null ),
                 1.0
             );
 
@@ -104,8 +103,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.PhysicState.STATIC,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.STATIC, null ),
                 1.0
             );
 
@@ -120,8 +118,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.PhysicState.STATIC,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.STATIC, null ),
                 1.0
             );
         }

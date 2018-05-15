@@ -19,7 +19,7 @@
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
     export * from './game/engine/MaterialSystem';
-    export * from './game/engine/Physics';
+    export * from './game/engine/Physic';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
     export * from './game/engine/TextureSystem';

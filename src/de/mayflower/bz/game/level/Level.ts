@@ -74,8 +74,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
 
@@ -92,8 +91,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
             bz.MeshFactory.createBox
@@ -108,8 +106,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
 
@@ -126,8 +123,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
             bz.MeshFactory.createBox
@@ -142,8 +138,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
 
@@ -160,8 +155,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
             bz.MeshFactory.createBox
@@ -176,8 +170,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.LIGHT_WOOD,
+                new bz.Physic( bz.PhysicState.NONE, null ),
                 1.0
             );
         }
@@ -199,8 +192,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_RED_OPAQUE,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.STATIC
+                new bz.Physic( bz.PhysicState.NONE, null ),
             );
             // axis y
             bz.MeshFactory.createLine
@@ -212,8 +204,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_GREEN_OPAQUE,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.STATIC
+                new bz.Physic( bz.PhysicState.NONE, null ),
             );
             // axis z
             bz.MeshFactory.createLine
@@ -225,8 +216,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_BLUE_OPAQUE,
                 this.scene,
-                bz.PhysicState.NONE,
-                bz.PhysicProps.STATIC
+                new bz.Physic( bz.PhysicState.NONE, null ),
             );
         }
 

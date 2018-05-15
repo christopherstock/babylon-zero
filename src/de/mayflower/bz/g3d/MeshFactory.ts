@@ -33,8 +33,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters,
+            physic          :bz.Physic,
             materialAlpha   :number
         )
         : BABYLON.Mesh
@@ -98,8 +97,7 @@
                 rotation,
                 material,
                 scene,
-                isStatic,
-                physicals,
+                physic,
                 BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
@@ -120,8 +118,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters,
+            physic          :bz.Physic,
             materialAlpha   :number
         )
         : BABYLON.Mesh
@@ -174,8 +171,7 @@
                 rotation,
                 material,
                 scene,
-                isStatic,
-                physicals,
+                physic,
                 BABYLON.PhysicsImpostor.CylinderImpostor
             );
         }
@@ -195,8 +191,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters,
+            physic          :bz.Physic,
             materialAlpha   :number
         )
         : BABYLON.Mesh
@@ -219,8 +214,7 @@
                 rotation,
                 material,
                 scene,
-                isStatic,
-                physicals,
+                physic,
                 BABYLON.PhysicsImpostor.SphereImpostor
             );
         }
@@ -244,8 +238,7 @@
             color           :BABYLON.StandardMaterial,
 
             scene           :BABYLON.Scene,
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters,
+            physic          :bz.Physic,
             materialAlpha   :number
         )
         : BABYLON.Mesh
@@ -269,8 +262,7 @@
                 rotation,
                 material,
                 scene,
-                isStatic,
-                physicals,
+                physic,
                 BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
@@ -289,9 +281,7 @@
             color           :BABYLON.Color4,
             scene           :BABYLON.Scene,
 
-            // TODO bundle?
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters
+            physic          :bz.Physic,
         )
         : BABYLON.Mesh
         {
@@ -322,8 +312,7 @@
                 rotation,
                 null,
                 scene,
-                isStatic,
-                physicals,
+                physic,
                 BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
@@ -343,9 +332,7 @@
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
 
-            // TODO bundle?
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters
+            physic          :bz.Physic,
         )
         : BABYLON.Mesh
         {
@@ -376,8 +363,7 @@
                 rotation,
                 material,
                 scene,
-                isStatic,
-                physicals,
+                physic,
                 BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
@@ -393,15 +379,14 @@
             rotation        :BABYLON.Vector3,
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.PhysicState,
-            physicals       :BABYLON.PhysicsImpostorParameters,
+            physic          :bz.Physic,
             physicsImpostor :number
         )
         {
             mesh.material       = material;
             mesh.receiveShadows = false;
 
-            switch ( isStatic )
+            switch ( physic.state )
             {
                 case bz.PhysicState.STATIC:
                 {
@@ -428,7 +413,7 @@
                     (
                         mesh,
                         physicsImpostor,
-                        physicals,
+                        physic.params,
                         scene
                     );
 
