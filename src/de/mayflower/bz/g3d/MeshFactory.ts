@@ -28,6 +28,43 @@
         )
         : BABYLON.Mesh
         {
+            let faceUV = [];
+
+            switch ( textureUV )
+            {
+                case bz.TextureUV.ALL_TO_ONE:
+                {
+                    faceUV =
+                    [
+                        new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
+                        new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
+
+                        new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
+                        new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
+
+                        new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
+                        new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
+                    ];
+                    break;
+                }
+
+                case bz.TextureUV.TILED_BY_SIZE:
+                {
+                    faceUV =
+                    [
+                        new BABYLON.Vector4( 0.0, 0.0, -size.x, -size.y ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.x,  size.y  ),
+
+                        new BABYLON.Vector4( 0.0, 0.0, -size.y, -size.z ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.y,  size.z  ),
+
+                        new BABYLON.Vector4( 0.0, 0.0, -size.z, -size.x ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.z,  size.x  ),
+                    ];
+                    break;
+                }
+            }
+
             let box:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
             (
                 id,
@@ -36,17 +73,7 @@
                     height: size.y,
                     depth:  size.z,
 
-                    faceUV:
-                    [
-                        new BABYLON.Vector4( 0.0,    0.0, -size.x, -size.y ),
-                        new BABYLON.Vector4( 0.0,    0.0, size.x,  size.y  ),
-
-                        new BABYLON.Vector4( 0.0,    0.0, -size.y, -size.z ),
-                        new BABYLON.Vector4( 0.0,    0.0, size.y,  size.z  ),
-
-                        new BABYLON.Vector4( 0.0,    0.0, -size.z, -size.x ),
-                        new BABYLON.Vector4( 0.0,    0.0, size.z,  size.x  ),
-                    ]
+                    faceUV: faceUV,
                 },
                 scene
             );
@@ -88,6 +115,8 @@
         )
         : BABYLON.Mesh
         {
+
+
             let cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
             (
                 id,
@@ -95,7 +124,10 @@
                     diameter: diameter,
                     height:   height,
 
-                    // faceUVs, backUVs .. ?
+
+                    // TODO faceUV
+
+
                 },
                 scene
             );
@@ -141,6 +173,9 @@
                 id,
                 {
                     diameter: diameter,
+
+                    // TODO faceUV
+
                 },
                 scene
             );
@@ -191,6 +226,9 @@
                 {
                     width:  width,
                     height: height,
+
+                    // TODO faceUV
+
                 },
                 scene
             );

@@ -7,16 +7,17 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Master option faceUV and according tileUV parameter for all mesh creators!
+    *   TODO Solve rotating texture UVs?
     *
     *   TODO Assign player size from settings constants.
     *   TODO Assign player head and body size from settings constants.
-    *   TODO Solve rotating texture UVs?
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create class for compound object creation ("createTree").
     *
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters? Check usage, handling and reasons for ids in lib code!
+    *   TODO Create collections for all meshes in Level.
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
