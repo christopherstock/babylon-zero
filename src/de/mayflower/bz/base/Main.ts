@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Master option faceUV and according tileUV parameter for all mesh creators!
     *   TODO Solve rotating texture UVs?
     *
     *   TODO Assign player size from settings constants.

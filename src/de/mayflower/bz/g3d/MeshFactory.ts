@@ -248,9 +248,6 @@
                 {
                     width:  width,
                     height: height,
-
-                    // TODO faceUV
-
                 },
                 scene
             );
