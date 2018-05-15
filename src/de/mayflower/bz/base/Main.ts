@@ -6,12 +6,15 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO make game objects (static wall, non-static movable, player etc.)
-    *   TODO Create (different?) characters from primitives or mesh objects?
-    *   TODO Create class for compound object creation ("createTree").
+    *   TODO Solve refactoring TODOs.
+    *   TODO Enrich and correct all documentation blocks.
     *
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters? Check usage, handling and reasons for ids in lib code!
     *   TODO Create collections for all meshes in Level.
+    *
+    *   TODO make game objects (static wall, non-static movable, player etc.)
+    *   TODO Create (different?) characters from primitives or mesh objects?
+    *   TODO Create class for compound object creation ("createTree").
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
@@ -34,8 +37,6 @@
     *
     *   TODO Smooth camera animation on active camera change?
     *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
-    *
-    *   TODO Enrich and correct all documentation blocks.
     *
     *   TODO Try 3dsmax 2018/2019 with babylon plugin?
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
