@@ -17,8 +17,7 @@
     *******************************************************************************************************************/
     export class CameraSystem
     {
-        // TODO private!
-        public                  activeCamera                        :CameraType                             = null;
+        private                 activeCamera                        :CameraType                             = null;
 
         /** The free controllable babylon.JS camera. */
         private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
@@ -61,7 +60,7 @@
                 {
                     scene.activeCamera = this.freeDebugCamera;
                     this.setControlsForFreeDebugCameraEnabled( true );
-                    bz.Main.game.engine.level.player.setVisible( true );
+                    bz.Main.game.level.player.setVisible( true );
                     break;
                 }
 
@@ -69,7 +68,7 @@
                 {
                     scene.activeCamera = this.stationaryCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.engine.level.player.setVisible( true );
+                    bz.Main.game.level.player.setVisible( true );
                     break;
                 }
 
@@ -77,7 +76,7 @@
                 {
                     scene.activeCamera = this.followCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.engine.level.player.setVisible( true );
+                    bz.Main.game.level.player.setVisible( true );
                     break;
                 }
 
@@ -85,7 +84,7 @@
                 {
                     scene.activeCamera = this.firstPersonCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.engine.level.player.setVisible( false );
+                    bz.Main.game.level.player.setVisible( false );
                     break;
                 }
             }
@@ -170,6 +169,11 @@
         public setFirstPersonCameraInside( mesh:BABYLON.Mesh )
         {
             this.firstPersonCamera.parent = mesh;
+        }
+
+        public isFirstPersonCameraActive() : boolean
+        {
+            return ( this.activeCamera == bz.CameraType.FIRST_PERSON );
         }
 
         private setControlsForFreeDebugCameraEnabled( enable:boolean )

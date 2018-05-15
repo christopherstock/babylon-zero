@@ -9,6 +9,9 @@
         /** The game engine. */
         public                      engine                      :bz.GameEngine              = null;
 
+        /** The current level instance. */
+        public                      level                       :bz.Level                   = null;
+
         /***************************************************************************************************************
         *   Inits the game from scratch.
         ***************************************************************************************************************/
@@ -17,6 +20,10 @@
             bz.Debug.init.log( "Init game engine" );
             this.engine = new bz.GameEngine();
             this.engine.init();
+
+            bz.Debug.init.log( "Init custom level" );
+            this.level = new bz.LevelTest( this.engine.scene.getScene() );
+            this.level.reset();
         }
 
         /***************************************************************************************************************
@@ -58,7 +65,7 @@
         public render=()=>
         {
             // render level
-            this.engine.level.render();
+            this.level.render();
 
             // render babylon.JS scene
             this.engine.scene.renderScene();

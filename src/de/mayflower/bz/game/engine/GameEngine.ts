@@ -14,8 +14,6 @@
         public                      scene                       :bz.Scene                   = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                  = null;
-        /** The current level instance. TODO to Game? */
-        public                      level                       :bz.Level                   = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem               = null;
         /** The pointer system. */
@@ -65,10 +63,5 @@
             bz.Debug.init.log( "Init sprites" );
             this.sprite = new bz.Sprite();
             this.sprite.init();
-
-            // init level
-            bz.Debug.init.log( "Init custom level" );
-            this.level = new bz.LevelTest( this.scene.getScene() );
-            this.level.reset();
         }
     }

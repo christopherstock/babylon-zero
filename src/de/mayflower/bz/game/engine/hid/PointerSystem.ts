@@ -13,9 +13,9 @@
             {
                 let src:BABYLON.Vector3 = null;
 
-                if ( bz.Main.game.engine.level.cameraSystem.activeCamera == bz.CameraType.FIRST_PERSON )
+                if ( bz.Main.game.level.cameraSystem.isFirstPersonCameraActive() )
                 {
-                    src = bz.Main.game.engine.level.player.getThirdPersonCameraTargetMesh().position;
+                    src = bz.Main.game.level.player.getThirdPersonCameraTargetMesh().position;
                 }
                 else
                 {
