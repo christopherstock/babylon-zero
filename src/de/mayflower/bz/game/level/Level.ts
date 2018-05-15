@@ -74,7 +74,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -92,7 +92,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -108,7 +108,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -126,7 +126,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -142,7 +142,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -160,7 +160,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -176,7 +176,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -199,7 +199,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_RED_OPAQUE,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.STATIC
             );
             // axis y
@@ -212,7 +212,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_GREEN_OPAQUE,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.STATIC
             );
             // axis z
@@ -225,7 +225,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_BLUE_OPAQUE,
                 this.scene,
-                bz.Physics.NONE,
+                bz.PhysicState.NONE,
                 bz.PhysicProps.STATIC
             );
         }

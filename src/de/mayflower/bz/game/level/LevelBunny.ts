@@ -88,7 +88,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -104,7 +104,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -120,7 +120,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -135,7 +135,7 @@
             for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
                 let sphere = BABYLON.Mesh.CreateSphere( "Sphere0", 16, 3, this.scene );
-                sphere.material = bz.MaterialSystem.createTexture
+                sphere.material = bz.TextureSystem.createTexture
                 (
                     "mfLogo.jpg",
                     1.0,
@@ -169,7 +169,7 @@
             {
                 let sphere = BABYLON.Mesh.CreateSphere("Sphere0", 16, 1, this.scene);
                 spheres.push(sphere);
-                sphere.material = bz.MaterialSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
+                sphere.material = bz.TextureSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
                 sphere.position = new BABYLON.Vector3(Math.random() * 20 - 10, y, Math.random() * 10 - 5);
 
                 this.shadowGenerator1.getShadowMap().renderList.push( sphere );
@@ -201,7 +201,7 @@
             // Box
             let box0             = BABYLON.Mesh.CreateBox( "Box0", 3, this.scene );
             box0.position        = new BABYLON.Vector3(3, 30, 0);
-            box0.material        = bz.MaterialSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
+            box0.material        = bz.TextureSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
 
             this.shadowGenerator1.getShadowMap().renderList.push( box0 );
 
@@ -230,12 +230,12 @@
             // Compound
             let part0 = BABYLON.Mesh.CreateBox( "part0", 3, this.scene );
             part0.position = new BABYLON.Vector3(3, 30, 0);
-            part0.material = bz.MaterialSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
+            part0.material = bz.TextureSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
 
             let part1 = BABYLON.Mesh.CreateBox( "part1", 3, this.scene );
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
-            part1.material = bz.MaterialSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
+            part1.material = bz.TextureSystem.createTexture( "wood.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
 
             this.shadowGenerator1.getShadowMap().renderList.push( part0 );
             this.shadowGenerator1.getShadowMap().renderList.push( part1 );
@@ -290,8 +290,8 @@
                 this.scene
             );
 
-            glassPane1.material = bz.MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null, bz.TextureHasAlpha.NO );
-            glassPane2.material = bz.MaterialSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null, bz.TextureHasAlpha.NO );
+            glassPane1.material = bz.TextureSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null, bz.TextureHasAlpha.NO );
+            glassPane2.material = bz.TextureSystem.createTexture( "glass.jpg",  1.0, 1.0, 0.5, true,  null, bz.TextureHasAlpha.NO );
 
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
             //Scene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
@@ -307,7 +307,7 @@
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
             solidBox.checkCollisions = true;
 
-            solidBox.material = bz.MaterialSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
+            solidBox.material = bz.TextureSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
         }
 
         /***************************************************************************************************************

@@ -52,7 +52,7 @@
                     bz.TextureUV.TILED_BY_SIZE,
                     null,
                     bz.Main.game.engine.scene.getScene(),
-                    bz.Physics.MOVABLE,
+                    bz.PhysicState.MOVABLE,
                     bz.PhysicProps.PLAYER,
                     0.25 // is ignored! use lower value!
                 ),
@@ -78,7 +78,7 @@
                     bz.TextureUV.TILED_BY_SIZE,
                     null,
                     bz.Main.game.engine.scene.getScene(),
-                    bz.Physics.NONE,
+                    bz.PhysicState.NONE,
                     bz.PhysicProps.PLAYER,
                     1.0
                 ),

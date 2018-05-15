@@ -3,6 +3,17 @@
     import * as bz from "..";
 
     /*******************************************************************************************************************
+    *   Specifies all valid anchors for a mesh.
+    *******************************************************************************************************************/
+    export enum PivotAnchor
+    {
+        DEBUG_NONE,
+        LOWEST_XYZ,
+        CENTER_XYZ,
+        CENTER_XZ_LOWEST_Y,
+    }
+
+    /*******************************************************************************************************************
     *   Constructs meshes.
     *******************************************************************************************************************/
     export class MeshFactory
@@ -22,7 +33,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -109,7 +120,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -184,7 +195,7 @@
             textureUV       :bz.TextureUV,
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -233,7 +244,7 @@
             color           :BABYLON.StandardMaterial,
 
             scene           :BABYLON.Scene,
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters,
             materialAlpha   :number
         )
@@ -279,7 +290,7 @@
             scene           :BABYLON.Scene,
 
             // TODO bundle?
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters
         )
         : BABYLON.Mesh
@@ -333,7 +344,7 @@
             scene           :BABYLON.Scene,
 
             // TODO bundle?
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters
         )
         : BABYLON.Mesh
@@ -382,7 +393,7 @@
             rotation        :BABYLON.Vector3,
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
-            isStatic        :bz.Physics,
+            isStatic        :bz.PhysicState,
             physicals       :BABYLON.PhysicsImpostorParameters,
             physicsImpostor :number
         )
@@ -392,7 +403,7 @@
 
             switch ( isStatic )
             {
-                case bz.Physics.STATIC:
+                case bz.PhysicState.STATIC:
                 {
                     mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
 
@@ -409,7 +420,7 @@
                     break;
                 }
 
-                case bz.Physics.MOVABLE:
+                case bz.PhysicState.MOVABLE:
                 {
                     mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
 
@@ -426,7 +437,7 @@
                     break;
                 }
 
-                case bz.Physics.NONE:
+                case bz.PhysicState.NONE:
                 {
                     // do not set a physics impostor
                     break;

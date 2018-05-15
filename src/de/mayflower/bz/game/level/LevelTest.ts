@@ -56,7 +56,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -74,7 +74,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -110,7 +110,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE,
+                bz.PhysicState.MOVABLE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -128,7 +128,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE,
+                bz.PhysicState.MOVABLE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -147,7 +147,7 @@
                 bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -164,7 +164,7 @@
                 bz.TextureUV.ALL_TO_ONE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -182,7 +182,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE,
+                bz.PhysicState.MOVABLE,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -201,7 +201,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -220,7 +220,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -239,7 +239,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.LIGHT_WOOD,
                 1.0
             );
@@ -257,7 +257,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.MOVABLE,
+                bz.PhysicState.MOVABLE,
                 bz.PhysicProps.LIGHT_WOOD,
                 0.5
             );
@@ -275,7 +275,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.STATIC,
                 0.5
             );
@@ -293,7 +293,7 @@
                 new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                bz.Physics.STATIC,
+                bz.PhysicState.STATIC,
                 bz.PhysicProps.STATIC
             );
         }
