@@ -28,7 +28,7 @@
         )
         : BABYLON.Mesh
         {
-            let faceUV = [];
+            let faceUV:BABYLON.Vector4[] = [];
 
             switch ( textureUV )
             {
@@ -115,7 +115,32 @@
         )
         : BABYLON.Mesh
         {
+            let faceUV:BABYLON.Vector4[] = [];
 
+            switch ( textureUV )
+            {
+                case bz.TextureUV.ALL_TO_ONE:
+                {
+                    faceUV =
+                    [
+                        new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0 ),
+                        new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0  ),
+                        new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0 ),
+                    ];
+                    break;
+                }
+
+                case bz.TextureUV.TILED_BY_SIZE:
+                {
+                    faceUV =
+                    [
+                        new BABYLON.Vector4( 0.0, 0.0, -diameter,               diameter ),
+                        new BABYLON.Vector4( 0.0, 0.0, -( diameter * Math.PI ), height   ),
+                        new BABYLON.Vector4( 0.0, 0.0, diameter,                diameter ),
+                    ];
+                    break;
+                }
+            }
 
             let cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
             (
@@ -124,16 +149,13 @@
                     diameter: diameter,
                     height:   height,
 
-
-                    // TODO faceUV
-
-
+                    faceUV:   faceUV,
                 },
                 scene
             );
 
             MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, diameter, height, color, materialAlpha );
+            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, null, diameter, height, color, materialAlpha );
 
             return MeshFactory.decorateMesh
             (

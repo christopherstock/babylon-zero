@@ -54,7 +54,7 @@
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physics.MOVABLE,
                     bz.PhysicProps.PLAYER,
-                    0.25
+                    0.25 // is ignored! use lower value!
                 ),
                 0.25
             );
