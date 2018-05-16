@@ -7,14 +7,14 @@
     export class SoundSystem
     {
         /** All sound file names to load. */
-        private         fileNames                       :Array<string>                  = null;
+        private             readonly    fileNames                       :Array<string>                  = null;
         /** The method to invoke when all sounds are loaded. */
-        private         onLoadComplete                  :Function                       = null;
+        private             readonly    onLoadComplete                  :Function                       = null;
 
         /** The number of currently loaded sounds. */
-        private         loadedSoundCount                :number                         = 0;
+        private                         loadedSoundCount                :number                         = 0;
         /** All loaded sound objects. */
-        private         sounds                          :Array<HTMLAudioElement>        = [];
+        private                         sounds                          :Array<HTMLAudioElement>        = [];
 
         /***************************************************************************************************************
         *   Preloads all images into memory.
