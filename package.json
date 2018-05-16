@@ -12,7 +12,8 @@
         "start": "npm run build:dev",
         "build:dev": "webpack --watch",
         "build:production": "webpack --optimize-minimize --watch",
-        "generate:typedoc": "typedoc --out doc\\ --listInvalidSymbolLinks --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src"
+        "generate:typedoc": "typedoc --out doc\\ --listInvalidSymbolLinks --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src",
+        "tslint": "tslint --project ./tsconfig.json --config ./tslint.json \"src/**/*.{ts,tsx}\""
     },
     "devDependencies": {
         "@types/node": "^9.6.5",
@@ -23,6 +24,7 @@
         "less-loader": "^4.1.0",
         "source-map-loader": "^0.2.3",
         "style-loader": "^0.20.3",
+        "tslint": "^5.10.0",
         "typedoc": "^0.11.1",
         "typescript": "^2.8.1",
         "webpack": "^4.5.0",

@@ -6,6 +6,7 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Enrich linter improvements.
     *   TODO Enrich and correct all documentation blocks. Generate TypeScriptDoc.
     *
     *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters? Check usage, handling and reasons for ids in lib code!
