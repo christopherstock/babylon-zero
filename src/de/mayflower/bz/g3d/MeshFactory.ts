@@ -393,8 +393,6 @@
 
         /***************************************************************************************************************
         *   Adds general mesh properties.
-        *
-        *   TODO To decorator class Mesh!
         ***************************************************************************************************************/
         private static decorateMesh
         (
@@ -405,52 +403,12 @@
             physic          :bz.Physic,
             physicsImpostor :number
         )
+        : BABYLON.Mesh
         {
             mesh.material       = material;
             mesh.receiveShadows = false;
 
-            switch ( physic.state )
-            {
-                case bz.PhysicState.STATIC:
-                {
-                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-
-                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        mesh,
-                        physicsImpostor,
-                        bz.PhysicProps.STATIC,
-                        scene
-                    );
-
-                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-
-                    break;
-                }
-
-                case bz.PhysicState.MOVABLE:
-                {
-                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-
-                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        mesh,
-                        physicsImpostor,
-                        physic.params,
-                        scene
-                    );
-
-                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-
-                    break;
-                }
-
-                case bz.PhysicState.NONE:
-                {
-                    // do not set a physics impostor
-                    break;
-                }
-            }
+            bz.Mesh.setPhysic( mesh, physic, physicsImpostor, scene );
 
             if ( rotation != null )
             {

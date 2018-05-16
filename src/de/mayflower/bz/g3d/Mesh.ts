@@ -38,16 +38,6 @@
             bz.Mesh.setAbsoluteRotationXYZ( this.mesh, rotX, rotY, rotZ );
         }
 
-        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
-        {
-            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( rotY ),
-                bz.MathUtil.degreesToRad( rotX ),
-                bz.MathUtil.degreesToRad( rotZ )
-            );
-        }
-
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
         {
             this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
@@ -62,5 +52,61 @@
         public getMesh() : BABYLON.Mesh
         {
             return this.mesh;
+        }
+
+        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
+        {
+            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
+            (
+                bz.MathUtil.degreesToRad( rotY ),
+                bz.MathUtil.degreesToRad( rotX ),
+                bz.MathUtil.degreesToRad( rotZ )
+            );
+        }
+
+        public static setPhysic( mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene )
+        {
+            switch ( physic.state )
+            {
+                case bz.PhysicState.STATIC:
+                {
+                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        mesh,
+                        impostor,
+                        bz.PhysicProps.STATIC,
+                        scene
+                    );
+
+                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+
+                    break;
+                }
+
+                case bz.PhysicState.MOVABLE:
+                {
+                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        mesh,
+                        impostor,
+                        physic.params,
+                        scene
+                    );
+
+                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+
+                    break;
+                }
+
+                case bz.PhysicState.NONE:
+                {
+                    // no collisions or impostor
+                    break;
+                }
+            }
         }
     }

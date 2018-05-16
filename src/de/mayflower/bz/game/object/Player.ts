@@ -2,7 +2,7 @@
     import * as bz from '../..';
 
     /*******************************************************************************************************************
-    *   Represents a custom level set.
+    *   Represents the character being controlled by the user.
     *******************************************************************************************************************/
     export class Player
     {
@@ -226,7 +226,7 @@
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;
 
-                // demand rotZ centering TODO refactor to separate method?
+                // demand rotZ centering
                 this.centerRotZ = true;
             }
             else
