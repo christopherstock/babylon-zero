@@ -368,6 +368,29 @@
             );
         }
 
+        public static createSkyBox( cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
+        {
+            let skyboxMaterial = new BABYLON.StandardMaterial( "skyBox", scene );
+
+            skyboxMaterial.backFaceCulling = false;
+            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
+            (
+                bz.SettingEngine.PATH_IMAGE_SKYBOX + cubeTextureName,
+                scene
+            );
+            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+            skyboxMaterial.diffuseColor  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
+            skyboxMaterial.specularColor = new BABYLON.Color3( 0.0, 0.0, 0.0 );
+            skyboxMaterial.alpha = 1.0;
+            // skyboxMaterial.disableLighting = true;
+
+            let skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox( "skyBox", 1000.0, scene );
+            skybox.infiniteDistance = true;
+            skybox.material         = skyboxMaterial;
+
+            return skybox;
+        }
+
         /***************************************************************************************************************
         *   Adds general mesh properties.
         *

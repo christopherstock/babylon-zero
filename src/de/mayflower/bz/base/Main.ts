@@ -26,6 +26,7 @@
     *   TODO Solve ortho drawing!
     *   TODO Create debug console on-screen.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Minor jitter bug improvements on colliding walls?
     *
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Rotating texture UVs for certain box sides?

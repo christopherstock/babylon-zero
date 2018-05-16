@@ -284,33 +284,4 @@
                 new bz.Physic( bz.PhysicState.STATIC, null )
             );
         }
-
-        /***************************************************************************************************************
-        *   Sets up the skybox.
-        ***************************************************************************************************************/
-        private setupSkybox()
-        {
-            // TODO Refactor to parent class Level and to MeshFactory
-            let skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, this.scene);
-            let skyboxMaterial = new BABYLON.StandardMaterial( "skyBox", this.scene );
-
-            //skybox.position.z -= 200.0;
-            skyboxMaterial.backFaceCulling = false;
-            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
-            (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + "bluesky",
-                this.scene
-            );
-            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            skyboxMaterial.diffuseColor  = new BABYLON.Color3(0, 0, 0);
-            skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-
-            //skyboxMaterial.disableLighting = true;
-
-            skybox.infiniteDistance = true;
-
-            skybox.material = skyboxMaterial;
-
-            skybox.material.alpha = 1.5;
-        }
     }

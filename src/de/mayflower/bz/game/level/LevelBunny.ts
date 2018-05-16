@@ -34,7 +34,6 @@
             this.setupBox0();
             //this.setupCompound();
             this.setupGlassPanes();
-            this.setupSkybox();
             this.setupSprites();
             this.importMesh();
         }
@@ -305,24 +304,6 @@
             solidBox.checkCollisions = true;
 
             solidBox.material = bz.TextureSystem.createTexture( "amiga.jpg",   1.0, 1.0, 1.0, false, bz.SettingGame.COLOR_WHITE, bz.TextureHasAlpha.NO );
-        }
-
-        /***************************************************************************************************************
-        *   Sets up the skybox.
-        ***************************************************************************************************************/
-        private setupSkybox()
-        {
-            // Skybox
-            let skybox = BABYLON.Mesh.CreateBox("skyBox", 500.0, this.scene);
-            let skyboxMaterial = new BABYLON.StandardMaterial( "skyBox", this.scene );
-            //skybox.position.z -= 200.0;
-            skyboxMaterial.backFaceCulling = false;
-            skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture( bz.SettingEngine.PATH_IMAGE_TEXTURE + "skybox", this.scene );
-            skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-            skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-            //skyboxMaterial.disableLighting = true;
-            skybox.material = skyboxMaterial;
         }
 
         /***************************************************************************************************************

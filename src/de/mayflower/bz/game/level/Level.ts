@@ -13,6 +13,8 @@
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
 
+        protected                           skybox                  :BABYLON.Mesh                       = null;
+
         /*******************************************************************************************************************
         *   Creates a new custom level.
         *
@@ -218,6 +220,14 @@
                 this.scene,
                 new bz.Physic( bz.PhysicState.NONE, null ),
             );
+        }
+
+        /***************************************************************************************************************
+        *   Sets up the skybox.
+        ***************************************************************************************************************/
+        protected setupSkybox()
+        {
+            this.skybox = bz.MeshFactory.createSkyBox( "bluesky", this.scene );
         }
 
         private resetCameraSystem()

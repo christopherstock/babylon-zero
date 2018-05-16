@@ -44,7 +44,6 @@
                 let textureU:number = -1;
                 let textureV:number = -1;
 
-                // TODO add _IGNORE
                 if ( textureUV == bz.TextureUV.TILED_BY_SIZE )
                 {
                     textureU = sizeU;
