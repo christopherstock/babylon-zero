@@ -30,7 +30,7 @@
         *
         *   @param visible The visibility to set.
         ***************************************************************************************************************/
-        public setVisible( visible:boolean )
+        public setVisible( visible:boolean ) : void
         {
             if ( visible )
             {
@@ -51,7 +51,7 @@
         *   @param rotY The y axis rotation (yaw).
         *   @param rotZ The z axis rotation (roll).
         ***************************************************************************************************************/
-        public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number )
+        public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number ) : void
         {
             bz.Mesh.setAbsoluteRotationXYZ( this.mesh, rotX, rotY, rotZ );
         }
@@ -63,7 +63,7 @@
         *   @param deltaY The y axis delta to move.
         *   @param deltaZ The z axis delta to move.
         ***************************************************************************************************************/
-        public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
+        public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number ) : void
         {
             this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, deltaY, deltaZ ) );
 
@@ -92,7 +92,7 @@
         *   @param rotY The y axis rotation (yaw).
         *   @param rotZ The z axis rotation (roll).
         ***************************************************************************************************************/
-        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
+        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number ) : void
         {
             mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
             (
@@ -110,7 +110,7 @@
         *   @param impostor The kind of physics impostor to set.
         *   @param scene    The babylon.JS scene that manages this impostor.
         ***************************************************************************************************************/
-        public static setPhysic( mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene )
+        public static setPhysic( mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene ) : void
         {
             switch ( physic.state )
             {

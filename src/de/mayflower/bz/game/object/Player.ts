@@ -99,7 +99,7 @@
         /***************************************************************************************************************
         *   Handles all keys for the player.
         ***************************************************************************************************************/
-        public handlePlayerKeys()
+        public handlePlayerKeys() : void
         {
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
@@ -182,7 +182,7 @@
         /***************************************************************************************************************
         *   Renders the player for one tick of the game loop.
         ***************************************************************************************************************/
-        public render()
+        public render() : void
         {
             this.movePlayer();
             this.rotatePlayerXYZ();
@@ -201,13 +201,13 @@
             return this.body.getMesh();
         }
 
-        public setVisible( visible:boolean )
+        public setVisible( visible:boolean ) : void
         {
             this.head.setVisible( visible );
             this.body.setVisible( visible );
         }
 
-        private movePlayer()
+        private movePlayer() : void
         {
             if ( this.moveDeltaX !== 0.0 || this.moveDeltaZ !== 0.0 )
             {
@@ -225,7 +225,7 @@
             }
         }
 
-        private rotatePlayerXYZ()
+        private rotatePlayerXYZ() : void
         {
             if ( this.rotationDeltaY !== 0.0 )
             {
@@ -254,7 +254,7 @@
             this.head.setAbsoluteRotationXYZ( this.rotZ, 0.0, 0.0 );
         }
 
-        private checkCenteringRotZ()
+        private checkCenteringRotZ() : void
         {
             if ( this.centerRotZ )
             {
@@ -279,7 +279,7 @@
             }
         }
 
-        private manipulateVelocities()
+        private manipulateVelocities() : void
         {
             // filter linear velocity Y
             const playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity();

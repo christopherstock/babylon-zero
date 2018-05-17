@@ -34,7 +34,7 @@
         ***************************************************************************************************************/
         public createTreeSprite( position:BABYLON.Vector3, size:number ) : BABYLON.Sprite
         {
-            const ret = new BABYLON.Sprite( 'tree1', bz.Main.game.engine.sprite.factoryTreeSprite );
+            const ret:BABYLON.Sprite = new BABYLON.Sprite( 'tree1', bz.Main.game.engine.sprite.factoryTreeSprite );
 
             ret.position = position;
             ret.size     = size;

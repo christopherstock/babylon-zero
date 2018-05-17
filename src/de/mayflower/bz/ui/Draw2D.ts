@@ -14,7 +14,16 @@
         *   @param  y2  The end point's y.
         *   @param  col A stroke color.
         ***************************************************************************************************************/
-        public static strokeLine( ctx:CanvasRenderingContext2D, x1:number, y1:number, x2:number, y2:number, col:string )
+        public static strokeLine
+        (
+            ctx :CanvasRenderingContext2D,
+            x1  :number,
+            y1  :number,
+            x2  :number,
+            y2  :number,
+            col :string
+        )
+        : void
         {
             ctx.strokeStyle = col;
             ctx.lineWidth   = 1.0;
@@ -44,6 +53,7 @@
             height :number,
             col    :string
         )
+        : void
         {
             ctx.strokeStyle = col;
             ctx.lineWidth   = 1.0;
@@ -70,6 +80,7 @@
             height :number,
             col    :string
         )
+        : void
         {
             ctx.fillStyle = col;
             ctx.fillRect( x, y, width, height );
@@ -83,7 +94,7 @@
         *   @param  x           Drawing position x.
         *   @param  y           Drawing position y.
         ***************************************************************************************************************/
-        public static drawImage( ctx:CanvasRenderingContext2D, img:HTMLImageElement, x:number, y:number )
+        public static drawImage( ctx:CanvasRenderingContext2D, img:HTMLImageElement, x:number, y:number ) : void
         {
             Draw2D.drawImageScaledClipped( ctx, img, 0, 0, img.width, img.height, x, y, img.width, img.height );
         }
@@ -105,17 +116,18 @@
         ***************************************************************************************************************/
         public static drawImageScaledClipped
         (
-            ctx         :CanvasRenderingContext2D,
-            img         :HTMLImageElement,
-            srcX        :number,
-            srcY        :number,
-            srcWidth    :number,
-            srcHeight   :number,
-            destX       :number,
-            destY       :number,
-            destWidth   :number,
-            destHeight  :number
+            ctx        :CanvasRenderingContext2D,
+            img        :HTMLImageElement,
+            srcX       :number,
+            srcY       :number,
+            srcWidth   :number,
+            srcHeight  :number,
+            destX      :number,
+            destY      :number,
+            destWidth  :number,
+            destHeight :number
         )
+        : void
         {
             ctx.drawImage( img, srcX, srcY, srcWidth, srcHeight, destX, destY, destWidth, destHeight );
         }

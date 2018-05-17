@@ -41,7 +41,7 @@
         /***************************************************************************************************************
         *   Sets up all lights.
         ***************************************************************************************************************/
-        private setupLights()
+        private setupLights() : void
         {
             // setup lights
             this.light1 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( 0.2, -1, 0 ), this.scene );
@@ -62,7 +62,7 @@
         /***************************************************************************************************************
         *   Sets up all shadows.
         ***************************************************************************************************************/
-        private setupShadows()
+        private setupShadows() : void
         {
             // setup shadows
             this.shadowGenerator1                         = new BABYLON.ShadowGenerator( 2048, this.light1 );
@@ -74,7 +74,7 @@
         /***************************************************************************************************************
         *   Sets up the ground for the scene.
         ***************************************************************************************************************/
-        private setupGround():void
+        private setupGround() : void
         {
             bz.MeshFactory.createBox(
                 'Ground1',
@@ -125,12 +125,12 @@
         /***************************************************************************************************************
         *   Sets up the spheres for the scene.
         ***************************************************************************************************************/
-        private setupSpheres():void
+        private setupSpheres() : void
         {
-            let y = 0;
-            for ( let index = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
+            let y:number = 0;
+            for ( let index:number = 0; index < LevelBunny.SPHERES_TO_SPAWN; index++ )
             {
-                const sphere = BABYLON.Mesh.CreateSphere( 'Sphere0', 16, 3, this.scene );
+                const sphere:BABYLON.Mesh = BABYLON.Mesh.CreateSphere( 'Sphere0', 16, 3, this.scene );
                 sphere.material = bz.TextureSystem.createTexture
                 (
                     'mfLogo.jpg',
@@ -160,11 +160,11 @@
             }
 
             // Add 10 linked spheres
-            const spheres = [];
-            for ( let index = 0; index < 10; index++ )
+            // const spheres:BABYLON.Mesh[] = [];
+            for ( let index:number = 0; index < 10; index++ )
             {
-                const sphere = BABYLON.Mesh.CreateSphere( 'Sphere0', 16, 1, this.scene );
-                spheres.push( sphere );
+                const sphere:BABYLON.Mesh = BABYLON.Mesh.CreateSphere( 'Sphere0', 16, 1, this.scene );
+                // spheres.push( sphere );
                 sphere.material = bz.TextureSystem.createTexture
                 (
                     'amiga.jpg',
@@ -206,12 +206,12 @@
         /***************************************************************************************************************
         *   Sets up the box0 for the scene.
         ***************************************************************************************************************/
-        private setupBox0()
+        private setupBox0() : void
         {
             // Box
-            const box0    = BABYLON.Mesh.CreateBox( 'Box0', 3, this.scene );
-            box0.position = new BABYLON.Vector3(3, 30, 0);
-            box0.material = bz.TextureSystem.createTexture
+            const box0:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'Box0', 3, this.scene );
+            box0.position           = new BABYLON.Vector3(3, 30, 0);
+            box0.material           = bz.TextureSystem.createTexture
             (
                 'wood.jpg',
                 1.0,
@@ -244,10 +244,10 @@
         *
         *   @deprecated Unused and not ready.
         ***************************************************************************************************************/
-        private setupCompound()
+        private setupCompound() : void
         {
             // Compound
-            const part0 = BABYLON.Mesh.CreateBox( 'part0', 3, this.scene );
+            const part0:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'part0', 3, this.scene );
             part0.position = new BABYLON.Vector3(3, 30, 0);
             part0.material = bz.TextureSystem.createTexture
             (
@@ -260,7 +260,7 @@
                 bz.TextureHasAlpha.NO
             );
 
-            const part1 = BABYLON.Mesh.CreateBox( 'part1', 3, this.scene );
+            const part1:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'part1', 3, this.scene );
             part1.parent = part0; // We need a hierarchy for compound objects
             part1.position = new BABYLON.Vector3(0, 3, 0);
             part1.material = bz.TextureSystem.createTexture
@@ -292,17 +292,17 @@
         /***************************************************************************************************************
         *   Sets up the borders for the scene.
         ***************************************************************************************************************/
-        private setupGlassPanes()
+        private setupGlassPanes() : void
         {
-            const glassPane1            = BABYLON.Mesh.CreateBox( 'border0', 1.0, this.scene );
-            glassPane1.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0  );
-            glassPane1.scaling          = new BABYLON.Vector3( 1.0,   20.0, 50.0 );
-            glassPane1.checkCollisions  = true;
+            const glassPane1:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'border0', 1.0, this.scene );
+            glassPane1.position           = new BABYLON.Vector3( 0.0,   5.0,  0.0  );
+            glassPane1.scaling            = new BABYLON.Vector3( 1.0,   20.0, 50.0 );
+            glassPane1.checkCollisions    = true;
 
-            const glassPane2            = BABYLON.Mesh.CreateBox( 'border2', 1.0, this.scene );
-            glassPane2.position         = new BABYLON.Vector3( 0.0,   5.0,  0.0 );
-            glassPane2.scaling          = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
-            glassPane2.checkCollisions  = true;
+            const glassPane2:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'border2', 1.0, this.scene );
+            glassPane2.position           = new BABYLON.Vector3( 0.0,   5.0,  0.0 );
+            glassPane2.scaling            = new BABYLON.Vector3( 50.0,  20.0, 1.0 );
+            glassPane2.checkCollisions    = true;
 
             glassPane1.physicsImpostor = new BABYLON.PhysicsImpostor(
                 glassPane1,
@@ -354,9 +354,9 @@
         /***************************************************************************************************************
         *   Sets up a collidable box.
         ***************************************************************************************************************/
-        private setupCollidableBox()
+        private setupCollidableBox() : void
         {
-            const solidBox = BABYLON.Mesh.CreateBox( 'box1', 1.0, this.scene );
+            const solidBox:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'box1', 1.0, this.scene );
 
             solidBox.scaling         = new BABYLON.Vector3( 3.0,  3.0,  3.0   );
             solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
@@ -377,7 +377,7 @@
         /***************************************************************************************************************
         *   Sets up all sprites.
         ***************************************************************************************************************/
-        private setupSprites()
+        private setupSprites() : void
         {
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -35.0 ), 20.0 );
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -20.0 ), 20.0 );
@@ -390,7 +390,7 @@
         /***************************************************************************************************************
         *   Imports a mesh in the .babylon format.
         ***************************************************************************************************************/
-        private importMesh()
+        private importMesh() : void
         {
             const skipMeshImport:boolean = true;
 

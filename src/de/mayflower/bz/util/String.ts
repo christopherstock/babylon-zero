@@ -1,5 +1,5 @@
 
-    const moment = require('moment');
+    const moment:any = require('moment');
 
     /*******************************************************************************************************************
     *   Offers static string functionality.

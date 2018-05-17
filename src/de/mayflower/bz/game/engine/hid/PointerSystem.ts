@@ -7,7 +7,7 @@
     *******************************************************************************************************************/
     export class PointerSystem
     {
-        public assignPointerDown( evt, pickResult:BABYLON.PickingInfo )
+        public assignPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             if ( pickResult.hit )
             {
@@ -22,7 +22,7 @@
                     src = bz.Main.game.engine.scene.getScene().activeCamera.position;
                 }
 
-                const dir = pickResult.pickedPoint.subtract( src );
+                const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
 

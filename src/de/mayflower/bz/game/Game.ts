@@ -15,7 +15,7 @@
         /***************************************************************************************************************
         *   Inits the game from scratch.
         ***************************************************************************************************************/
-        public init()
+        public init() : void
         {
             bz.Debug.init.log( 'Init game engine' );
             this.engine = new bz.GameEngine();
@@ -29,7 +29,7 @@
         /***************************************************************************************************************
         *   Being invoked when the level is completely initialized.
         ***************************************************************************************************************/
-        public onInitLevelCompleted=()=>
+        public onInitLevelCompleted=() : void =>
         {
             bz.Debug.init.log( 'onInitLevelCompleted being invoked' );
 
@@ -42,7 +42,7 @@
         /***************************************************************************************************************
         *   Being invoked when the scene is set up.
         ***************************************************************************************************************/
-        public initSceneCompleted=()=>
+        public initSceneCompleted=() : void =>
         {
             bz.Debug.init.log( 'System callback: Scene initialization completed' );
 
@@ -62,7 +62,7 @@
         /***************************************************************************************************************
         *   The render loop being invoked each game tick.
         ***************************************************************************************************************/
-        public render=()=>
+        public render=() : void =>
         {
             // render level
             this.level.render();

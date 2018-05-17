@@ -517,7 +517,7 @@
         ***************************************************************************************************************/
         public static createSkyBox( cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
-            const skyboxMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
+            const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
 
             skyboxMaterial.backFaceCulling = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
@@ -584,13 +584,14 @@
         ***************************************************************************************************************/
         private static setPositionAndPivot
         (
-            mesh            :BABYLON.Mesh,
-            position        :BABYLON.Vector3,
-            pivotAnchor     :bz.PivotAnchor,
-            width           :number,
-            height          :number,
-            depth           :number,
+            mesh        :BABYLON.Mesh,
+            position    :BABYLON.Vector3,
+            pivotAnchor :bz.PivotAnchor,
+            width       :number,
+            height      :number,
+            depth       :number,
         )
+        : void
         {
             switch ( pivotAnchor )
             {

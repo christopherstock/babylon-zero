@@ -11,7 +11,7 @@
         *
         *   @return The angle in radians.
         ***************************************************************************************************************/
-        public static degreesToRad( angleDegrees:number ):number
+        public static degreesToRad( angleDegrees:number ) : number
         {
             return ( angleDegrees * Math.PI / 180.0 );
         }
@@ -24,7 +24,7 @@
         *
         *   @return A random integer.
         ***************************************************************************************************************/
-        public static getRandomInt( min:number, max:number )
+        public static getRandomInt( min:number, max:number ) : number
         {
             return Math.floor( ( Math.random() * ( max + 1 - min ) ) + min );
         }
@@ -36,7 +36,7 @@
         *
         *   @return The normalized angle.
         ***************************************************************************************************************/
-        public static normalizeAngle( angleDegrees:number )
+        public static normalizeAngle( angleDegrees:number ) : number
         {
             while ( angleDegrees > 360.0 ) angleDegrees -= 360.0;
             while ( angleDegrees < 0.0   ) angleDegrees += 360.0;
@@ -51,7 +51,7 @@
         *
         *   @return The sine value for the specified angle.
         *****************************************************************************/
-        public static sinDegrees( angleDegrees:number ):number
+        public static sinDegrees( angleDegrees:number ) : number
         {
             return Math.sin( MathUtil.degreesToRad( angleDegrees ) );
         }
@@ -63,7 +63,7 @@
         *
         *   @return The cosine value for the specified angle.
         *****************************************************************************/
-        public static cosDegrees( angleDegrees:number ):number
+        public static cosDegrees( angleDegrees:number ) : number
         {
             return Math.cos( MathUtil.degreesToRad( angleDegrees ) );
         }

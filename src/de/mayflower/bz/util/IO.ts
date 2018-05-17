@@ -18,14 +18,14 @@
             canvas.width  = original.width;
             canvas.height = original.height;
 
-            const context = canvas.getContext( '2d' );
+            const context:CanvasRenderingContext2D = canvas.getContext( '2d' );
             context.scale( -1, 1 );
             context.drawImage( original, -original.width, 0 );
 
             const target:HTMLImageElement = new Image();
             target.crossOrigin = 'anonymous';
             target.src = canvas.toDataURL();
-            target.onload = ( event:Event ) => { onLoadCallack(); };
+            target.onload = ( event:Event ) : void => { onLoadCallack(); };
 
             return target;
         }

@@ -25,7 +25,7 @@
         *
         *   TODO remove prepared solid color textures!
         ***************************************************************************************************************/
-        public init()
+        public init() : void
         {
             this.solidBlack = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
             this.solidRed   = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );

@@ -41,7 +41,7 @@
         /***************************************************************************************************************
         *   Renders all level concernings for one tick of the game loop.
         ***************************************************************************************************************/
-        public render()
+        public render() : void
         {
             this.player.handlePlayerKeys();
 
@@ -225,12 +225,12 @@
         /***************************************************************************************************************
         *   Sets up the skybox.
         ***************************************************************************************************************/
-        protected setupSkybox()
+        protected setupSkybox() : void
         {
             this.skybox = bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
         }
 
-        private resetCameraSystem()
+        private resetCameraSystem() : void
         {
             this.cameraSystem = new bz.CameraSystem
             (

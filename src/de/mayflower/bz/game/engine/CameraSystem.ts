@@ -50,7 +50,7 @@
             this.createFirstPersonCamera(      scene                                                );
         }
 
-        public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType )
+        public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType ) : void
         {
             this.activeCamera = camera;
 
@@ -91,17 +91,17 @@
             }
         }
 
-        public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh )
+        public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh ) : void
         {
             this.stationaryCamera.lockedTarget = mesh;
         }
 
-        public lockFollowCameraTo( mesh:BABYLON.Mesh )
+        public lockFollowCameraTo( mesh:BABYLON.Mesh ) : void
         {
             this.followCamera.lockedTarget = mesh;
         }
 
-        public setFirstPersonCameraInside( mesh:BABYLON.Mesh )
+        public setFirstPersonCameraInside( mesh:BABYLON.Mesh ) : void
         {
             this.firstPersonCamera.parent = mesh;
         }
@@ -188,7 +188,7 @@
             );
         }
 
-        private setControlsForFreeDebugCameraEnabled( enable:boolean )
+        private setControlsForFreeDebugCameraEnabled( enable:boolean ) : void
         {
             if ( enable )
             {

@@ -28,7 +28,7 @@
         *
         *   @param event The system's propagated key event.
         ***************************************************************************************************************/
-        public onKeyDown=( event:Event )=>
+        public onKeyDown=( event:Event ) : void  =>
         {
             const keyCode:number = ( event as KeyboardEvent ).which; // TODO use 'code' instead?
 
@@ -44,7 +44,7 @@
         *
         *   @param event The system's propagated key event.
         ***************************************************************************************************************/
-        public onKeyUp=( event:Event )=>
+        public onKeyUp=( event:Event ) : void =>
         {
             const keyCode:number = ( event as KeyboardEvent ).which; // TODO use 'code' instead?
 
@@ -62,7 +62,7 @@
         *   @return         <code>true</code> if this key is currently pressed.
         *                   Otherwise <code>false</code>.
         ***************************************************************************************************************/
-        public isPressed( keyCode:number ):boolean
+        public isPressed( keyCode:number ) : boolean
         {
             return this.keysPressed[ keyCode ];
         }
@@ -72,7 +72,7 @@
         *
         *   @param keyCode The keyCode of the key to mark as 'needs key release'.
         ***************************************************************************************************************/
-        public setNeedsRelease( keyCode:number )
+        public setNeedsRelease( keyCode:number ) : void
         {
             this.keysNeedRelease[ keyCode ] = true;
             this.keysPressed[     keyCode ] = false;
@@ -81,7 +81,7 @@
         /***************************************************************************************************************
         *   Flags all keys as released.
         ***************************************************************************************************************/
-        public releaseAllKeys()
+        public releaseAllKeys() : void
         {
             this.keysPressed = [];
         }
