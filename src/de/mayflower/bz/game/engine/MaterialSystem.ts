@@ -7,11 +7,17 @@
     *******************************************************************************************************************/
     export class MaterialSystem
     {
+        /** The pre-creatred solid color material 'black'. */
         public              solidBlack              :BABYLON.StandardMaterial           = null;
+        /** The pre-creatred solid color material 'red'. */
         public              solidRed                :BABYLON.StandardMaterial           = null;
+        /** The pre-creatred solid color material 'green'. */
         public              solidGreen              :BABYLON.StandardMaterial           = null;
+        /** The pre-creatred solid color material 'blue'. */
         public              solidBlue               :BABYLON.StandardMaterial           = null;
+        /** The pre-creatred solid color material 'grey'. */
         public              solidGrey               :BABYLON.StandardMaterial           = null;
+        /** The pre-creatred solid color material 'white'. */
         public              solidWhite              :BABYLON.StandardMaterial           = null;
 
         /***************************************************************************************************************
@@ -29,6 +35,19 @@
             this.solidWhite = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
         }
 
+        /***************************************************************************************************************
+        *   Creates a material from the given texture or color.
+        *
+        *   TODO split to createTexture and createMaterial
+        *
+        *   @param texture         The desired texture.
+        *   @param textureHasAlpha Specified if the texture image contains alpha information.
+        *   @param textureUV       The UV strategy for the specified texture.
+        *   @param sizeU           The texture U size for the texture.
+        *   @param sizeV           The texture V size for the texture.
+        *   @param color           The desired solid color to apply.
+        *   @param materialAlpha   The opacity for the applied texture.
+        ***************************************************************************************************************/
         public static createMaterial
         (
             texture         :bz.Texture,

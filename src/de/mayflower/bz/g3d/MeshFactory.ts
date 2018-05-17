@@ -19,7 +19,22 @@
     export class MeshFactory
     {
         /***************************************************************************************************************
-        *   Creates a box.
+        *   Creates a box mesh.
+        *
+        *   @param id              The internal babylon.JS mesh identifier.
+        *   @param position        Where to place this mesh.
+        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param size            The dimensions of this mesh for all axis.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param texture         The texture to apply.
+        *   @param textureHasAlpha Specifies if the texture has alpha information.
+        *   @param textureUV       The UV strategy for the given texture.
+        *   @param color           The solid color to apply.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *   @param materialAlpha   The opacity for this mesh.
+        *
+        *   @return The created mesh.
         ***************************************************************************************************************/
         public static createBox
         (
@@ -28,9 +43,12 @@
             pivotAnchor     :bz.PivotAnchor,
             size            :BABYLON.Vector3,
             rotation        :BABYLON.Vector3,
+
+            // TODO bundle!
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
+
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
@@ -112,7 +130,23 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a cylinder.
+        *   Creates a cylinder mesh.
+        *
+        *   @param id              The internal babylon.JS mesh identifier.
+        *   @param position        Where to place this mesh.
+        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param diameter        The diameter of the cylinder.
+        *   @param height          The height of the cylinder.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param texture         The texture to apply.
+        *   @param textureHasAlpha Specifies if the texture has alpha information.
+        *   @param textureUV       The UV strategy for the given texture.
+        *   @param color           The solid color to apply.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *   @param materialAlpha   The opacity for this mesh.
+        *
+        *   @return The created mesh.
         ***************************************************************************************************************/
         public static createCylinder
         (
@@ -196,6 +230,21 @@
 
         /***************************************************************************************************************
         *   Creates a sphere.
+        *
+        *   @param id              The internal babylon.JS mesh identifier.
+        *   @param position        Where to place this mesh.
+        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param diameter        The diameter of the sphere.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param texture         The texture to apply.
+        *   @param textureHasAlpha Specifies if the texture has alpha information.
+        *   @param textureUV       The UV strategy for the given texture.
+        *   @param color           The solid color to apply.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *   @param materialAlpha   The opacity for this mesh.
+        *
+        *   @return The created mesh.
         ***************************************************************************************************************/
         public static createSphere
         (
@@ -247,7 +296,23 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a plane.
+        *   Creates a plane mesh.
+        *
+        *   @param id              The internal babylon.JS mesh identifier.
+        *   @param position        Where to place this mesh.
+        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param width           Width  of the plane.
+        *   @param height          Height of the plane.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param texture         The texture to apply.
+        *   @param textureHasAlpha Specifies if the texture has alpha information.
+        *   @param textureUV       The UV strategy for the given texture.
+        *   @param color           The solid color to apply.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *   @param materialAlpha   The opacity for this mesh.
+        *
+        *   @return The created mesh.
         ***************************************************************************************************************/
         public static createPlane
         (
@@ -304,7 +369,18 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a line.
+        *   Creates a line mesh.
+        *
+        *   @param id              The internal babylon.JS mesh identifier.
+        *   @param start           Start point of the line mesh.
+        *   @param end             End point of the line mesh.
+        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param color           The solid color to apply.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *
+        *   @return The created mesh.
         ***************************************************************************************************************/
         public static createLine
         (
@@ -354,7 +430,17 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a polygon.
+        *   Creates a polygon mesh.
+        *
+        *   @param id              The internal babylon.JS mesh identifier.
+        *   @param points          All corner points for this polygon to create.
+        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param color           The solid color to apply.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *
+        *   @return The created mesh.
         ***************************************************************************************************************/
         public static createPolygon
         (
@@ -421,6 +507,14 @@
             );
         }
 
+        /***************************************************************************************************************
+        *   Creates a skybox mesh.
+        *
+        *   @param cubeTextureName The name of the folder that contains the skybox.
+        *   @param scene           The scene where this mesh will be applied.
+        *
+        *   @return The created mesh.
+        ***************************************************************************************************************/
         public static createSkyBox( cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
             const skyboxMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
@@ -446,6 +540,13 @@
 
         /***************************************************************************************************************
         *   Adds general mesh properties.
+        *
+        *   @param mesh            The mesh to decorate.
+        *   @param rotation        The initial rotation for all axis.
+        *   @param material        The material to apply on this mesh.
+        *   @param scene           The scene where this mesh will be applied.
+        *   @param physic          The physical attributes to apply for this mesh.
+        *   @param physicsImpostor The kind of physic impostor to apply to this mesh.
         ***************************************************************************************************************/
         private static decorateMesh
         (
@@ -471,6 +572,16 @@
             return mesh;
         }
 
+        /***************************************************************************************************************
+        *   Sets the position and pivot to the specified mesh.
+        *
+        *   @param mesh        The mesh to apply position and pivot to.
+        *   @param position    Where to place this mesh.
+        *   @param pivotAnchor The anchor point of this mesh.
+        *   @param width       The dimension x of this mesh.
+        *   @param height      The dimension y of this mesh.
+        *   @param depth       The dimension z of this mesh.
+        ***************************************************************************************************************/
         private static setPositionAndPivot
         (
             mesh            :BABYLON.Mesh,

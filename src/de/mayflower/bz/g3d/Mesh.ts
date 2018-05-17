@@ -13,12 +13,23 @@
         /** The initial alpha value. */
         private         readonly                alpha                   :number                             = 0.0;
 
+        /***************************************************************************************************************
+        *   Creates a new mesh.
+        *
+        *   @param mesh  The native babylon.JS mesh.
+        *   @param alpha The alpha value for the mesh to apply.
+        ***************************************************************************************************************/
         public constructor( mesh:BABYLON.Mesh, alpha:number )
         {
             this.mesh  = mesh;
             this.alpha = alpha;
         }
 
+        /***************************************************************************************************************
+        *   Sets the visibility of this mesh.
+        *
+        *   @param visible The visibility to set.
+        ***************************************************************************************************************/
         public setVisible( visible:boolean )
         {
             if ( visible )
@@ -33,14 +44,28 @@
             }
         }
 
+        /***************************************************************************************************************
+        *   Specifies the absolute rotation of this mesh for all axis.
+        *
+        *   @param rotX The x axis rotation (pitch)
+        *   @param rotY The y axis rotation (yaw).
+        *   @param rotZ The z axis rotation (roll).
+        ***************************************************************************************************************/
         public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number )
         {
             bz.Mesh.setAbsoluteRotationXYZ( this.mesh, rotX, rotY, rotZ );
         }
 
+        /***************************************************************************************************************
+        *   Translates the mesh by the specified delta while collisions are handled by the physics engine.
+        *
+        *   @param deltaX The x axis delta to move.
+        *   @param deltaY The y axis delta to move.
+        *   @param deltaZ The z axis delta to move.
+        ***************************************************************************************************************/
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
         {
-            this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+            this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, deltaY, deltaZ ) );
 
             // tslint:disable:max-line-length
             // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
@@ -49,11 +74,24 @@
             // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
         }
 
+        /***************************************************************************************************************
+        *   Returns the native babylon.JS mesh.
+        *
+        *   @return The babylon.JS mesh.
+        ***************************************************************************************************************/
         public getMesh() : BABYLON.Mesh
         {
             return this.mesh;
         }
 
+        /***************************************************************************************************************
+        *   Specifies the absolute rotation of the specified mesh for all axis.
+        *
+        *   @param mesh The mesh to set the rotation for.
+        *   @param rotX The x axis rotation (pitch)
+        *   @param rotY The y axis rotation (yaw).
+        *   @param rotZ The z axis rotation (roll).
+        ***************************************************************************************************************/
         public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number )
         {
             mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
@@ -64,6 +102,14 @@
             );
         }
 
+        /***************************************************************************************************************
+        *   Applies the specified physical behaviour to the given mesh.
+        *
+        *   @param mesh     The native babylon.JS mesh to set the physical behaviour for.
+        *   @param physic   The physical behaviour to set.
+        *   @param impostor The kind of physics impostor to set.
+        *   @param scene    The babylon.JS scene that manages this impostor.
+        ***************************************************************************************************************/
         public static setPhysic( mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene )
         {
             switch ( physic.state )

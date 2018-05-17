@@ -5,7 +5,13 @@
     "rules": {
         "arrow-parens": false,
         "ban-comma-operator": true,
-        "completed-docs": true,
+        "completed-docs": [
+            true,
+            "classes",
+            "functions",
+            "methods",
+            "properties"
+        ],
         "curly": false,
         "import-spacing": false,
         "indent": [ true, "spaces" ],

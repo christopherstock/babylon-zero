@@ -36,7 +36,7 @@
         *
         *   @param msg The message to log to the default console.
         ***************************************************************************************************************/
-        public log( msg:string = '' ):void
+        public log( msg:string = '' ) : void
         {
             if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
             {

@@ -36,6 +36,6 @@
         /** Max camera moving speed. defaults to 20. */
         public  static  readonly    CAMERA_FOLLOW_MAX_SPEED                 :number             = 10.0;
 
+        /** The ellipsoid for the free debug camera (only when collisions are active). */
         public  static  readonly    CAMERA_FREE_ELLIPSOID                   :BABYLON.Vector3    = new BABYLON.Vector3( 2.0, 2.0, 2.0 );
-
     }

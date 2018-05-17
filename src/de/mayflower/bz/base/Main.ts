@@ -6,7 +6,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Perform linter improvements.
     *   TODO Enrich and correct all documentation blocks. Generate TypeScriptDoc.
     *
     *   TODO Change key system which to code (string).

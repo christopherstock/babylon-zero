@@ -24,6 +24,14 @@
             );
         }
 
+        /***************************************************************************************************************
+        *   Creates a new 'tree' sprite.
+        *
+        *   @param position The vector to place the sprite.
+        *   @param size     The size of the sprite.
+        *
+        *   @return A created 'tree' sprite.
+        ***************************************************************************************************************/
         public createTreeSprite( position:BABYLON.Vector3, size:number ) : BABYLON.Sprite
         {
             const ret = new BABYLON.Sprite( 'tree1', bz.Main.game.engine.sprite.factoryTreeSprite );
