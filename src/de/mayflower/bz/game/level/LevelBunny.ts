@@ -5,6 +5,7 @@
     /*******************************************************************************************************************
     *   Specifies the 'bunny' level.
     *******************************************************************************************************************/
+    // tslint:disable:max-line-length
     export class LevelBunny extends bz.Level
     {
         private     static              SPHERES_TO_SPAWN            :number                         = 15; // 250

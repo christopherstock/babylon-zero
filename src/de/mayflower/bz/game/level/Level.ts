@@ -12,7 +12,7 @@
         public                              player                  :bz.Player                          = null;
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
-
+        /** The skybox that surrounds the whole level. */
         protected                           skybox                  :BABYLON.Mesh                       = null;
 
         /***************************************************************************************************************
@@ -230,6 +230,9 @@
             this.skybox = bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
         }
 
+        /***************************************************************************************************************
+        *   Resets the camera system and all cameras to their initial positions.
+        ***************************************************************************************************************/
         private resetCameraSystem() : void
         {
             this.cameraSystem = new bz.CameraSystem

@@ -191,22 +191,42 @@
             this.manipulateVelocities();
         }
 
+        /***************************************************************************************************************
+        *   Returns the player's target mesh for the first person camera.
+        *
+        *   @return The player's head mesh.
+        *           This is the right mesh to set the first person camera into.
+        ***************************************************************************************************************/
         public getFirstPersonCameraTargetMesh() : BABYLON.Mesh
         {
             return this.head.getMesh();
         }
 
+        /***************************************************************************************************************
+        *   Returns the player's target mesh for the third person camera.
+        *
+        *   @return The player's body mesh.
+        *           This is the right mesh to set as a target for the third person camera.
+        ***************************************************************************************************************/
         public getThirdPersonCameraTargetMesh() : BABYLON.Mesh
         {
             return this.body.getMesh();
         }
 
+        /***************************************************************************************************************
+        *   Sets visibility for all meshes the player consists of.
+        *
+        *   @param visible The new visibility for the player.
+        ***************************************************************************************************************/
         public setVisible( visible:boolean ) : void
         {
             this.head.setVisible( visible );
             this.body.setVisible( visible );
         }
 
+        /***************************************************************************************************************
+        *   Moves all player's meshes by the current move deltas.
+        ***************************************************************************************************************/
         private movePlayer() : void
         {
             if ( this.moveDeltaX !== 0.0 || this.moveDeltaZ !== 0.0 )
@@ -225,6 +245,9 @@
             }
         }
 
+        /***************************************************************************************************************
+        *   Applies the current rotations for all axis to the according player body parts.
+        ***************************************************************************************************************/
         private rotatePlayerXYZ() : void
         {
             if ( this.rotationDeltaY !== 0.0 )
@@ -254,6 +277,9 @@
             this.head.setAbsoluteRotationXYZ( this.rotZ, 0.0, 0.0 );
         }
 
+        /***************************************************************************************************************
+        *   Checks if the player's rotation on the Z axis should be centered to zero.
+        ***************************************************************************************************************/
         private checkCenteringRotZ() : void
         {
             if ( this.centerRotZ )
@@ -279,6 +305,9 @@
             }
         }
 
+        /***************************************************************************************************************
+        *   Overrides the player's linear and angular velocities for improved player controls and user experience.
+        ***************************************************************************************************************/
         private manipulateVelocities() : void
         {
             // filter linear velocity Y

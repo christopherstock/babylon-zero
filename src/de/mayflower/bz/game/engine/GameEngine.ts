@@ -23,7 +23,7 @@
         public                      babylonEngine               :BABYLON.Engine             = null;
 
         /***************************************************************************************************************
-        *   Inits all components for the game engine.
+        *   Inits all components of the game engine.
         ***************************************************************************************************************/
         public init() : void
         {

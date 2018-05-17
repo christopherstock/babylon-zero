@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export class Sprite
     {
-        /** The sprite manager for trees ... */
+        /** The sprite manager for trees ... will be refactored soon! */
         private                     factoryTreeSprite               :BABYLON.SpriteManager      = null;
 
         /***************************************************************************************************************
