@@ -24,7 +24,7 @@
         }
 
         /***************************************************************************************************************
-        *   This method is always invoked by the system if a key is pressed.
+        *   Being invoked by the system when a key is pressed.
         *
         *   @param event The system's propagated key event.
         ***************************************************************************************************************/
@@ -40,7 +40,7 @@
         };
 
         /***************************************************************************************************************
-        *   This method is always invoked by the system if a key is released.
+        *   Being invoked by the system when a key is released.
         *
         *   @param event The system's propagated key event.
         ***************************************************************************************************************/
@@ -79,7 +79,8 @@
         }
 
         /***************************************************************************************************************
-        *   Flags all keys as released.
+        *   Flags all keys as released, forcing the user to press certain keys again.
+        *   Handy to invoke when the game screen loses the focus.
         ***************************************************************************************************************/
         public releaseAllKeys() : void
         {

@@ -2,7 +2,7 @@
     import * as BABYLON from 'babylonjs';
 
     /*******************************************************************************************************************
-    *   Specifies possible physical attributes for meshes.
+    *   Specifies the physical behaviour of a body.
     *******************************************************************************************************************/
     export class PhysicProps
     {
@@ -14,6 +14,7 @@
             restitution: 0.0,
         };
 
+        /** Props for light wood. */
         public      static  readonly        LIGHT_WOOD              :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        0.5,
@@ -21,6 +22,7 @@
             restitution: 0.0
         };
 
+        /** Physical properties for a non-moving and collidable body. */
         public      static  readonly        STATIC                  :BABYLON.PhysicsImpostorParameters  =
         {
             mass:        0.0,

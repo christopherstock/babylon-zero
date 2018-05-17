@@ -6,18 +6,23 @@
     *******************************************************************************************************************/
     export enum CameraType
     {
+        /** A free controllable debug camera. */
         FREE_DEBUG,
+        /** A stationary level camera. */
         STATIONARY,
+        /** A camera that follows the player's body. */
         FOLLOW,
+        /** The first person camera being fixed in the player's head mesh. */
         FIRST_PERSON,
     }
 
     /*******************************************************************************************************************
-    *   Specifies all scene cameras.
+    *   Manages all scene cameras.
     *******************************************************************************************************************/
     export class CameraSystem
     {
-        private                 activeCamera                        :CameraType                             = null;
+        /** The currently active scene camera type. */
+        private                 activeCameraType                    :CameraType                             = null;
 
         /** The free controllable babylon.JS camera. */
         private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
@@ -29,30 +34,36 @@
         private                 firstPersonCamera                   :BABYLON.FreeCamera                     = null;
 
         /***************************************************************************************************************
-        *   Sets up the scene camera.
+        *   Sets up all scene cameras.
         *
         *   @param scene                           The babylon.JS scene.
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
-        *   @param startupTarget                   The camera startup target.
+        *   @param startupTargetFreeDebugCamera    The camera startup target for the free debug camera.
         ***************************************************************************************************************/
         constructor
         (
             scene                           :BABYLON.Scene,
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
-            startupTarget                   :BABYLON.Vector3
+            startupTargetFreeDebugCamera    :BABYLON.Vector3
         )
         {
-            this.createFreeDebugCamera(        scene, startupPositionFreeDebugCamera, startupTarget );
-            this.createStationaryTargetCamera( scene, startupPositionStationaryCamera               );
-            this.createFollowCamera(           scene, startupPositionFreeDebugCamera                );
-            this.createFirstPersonCamera(      scene                                                );
+            this.createFreeDebugCamera(        scene, startupPositionFreeDebugCamera, startupTargetFreeDebugCamera );
+            this.createStationaryTargetCamera( scene, startupPositionStationaryCamera                              );
+            this.createFollowCamera(           scene, startupPositionFreeDebugCamera                               );
+            this.createFirstPersonCamera(      scene                                                               );
         }
 
+        /***************************************************************************************************************
+        *   Sets the specified camera as the scene's active camera.
+        *
+        *   @param scene  The babylon.JS scene to set the active camera for.
+        *   @param camera The type of camera to set as the scene's active camera.
+        ***************************************************************************************************************/
         public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType ) : void
         {
-            this.activeCamera = camera;
+            this.activeCameraType = camera;
 
             switch ( camera )
             {
@@ -91,28 +102,48 @@
             }
         }
 
+        /***************************************************************************************************************
+        *   Locks the stationary camera to the specified target.
+        *
+        *   @param mesh The mesh to lock the stationary camera to.
+        ***************************************************************************************************************/
         public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh ) : void
         {
             this.stationaryCamera.lockedTarget = mesh;
         }
 
+        /***************************************************************************************************************
+        *   Locks the follow camera to the specified target.
+        *
+        *   @param mesh The mesh to lock the follow camera to.
+        ***************************************************************************************************************/
         public lockFollowCameraTo( mesh:BABYLON.Mesh ) : void
         {
             this.followCamera.lockedTarget = mesh;
         }
 
+        /***************************************************************************************************************
+        *   Locks the first person camera inside the specified target.
+        *
+        *   @param mesh The mesh to lock the first person camera to.
+        ***************************************************************************************************************/
         public setFirstPersonCameraInside( mesh:BABYLON.Mesh ) : void
         {
             this.firstPersonCamera.parent = mesh;
         }
 
+        /***************************************************************************************************************
+        *   Checks if the first person camera is currently active.
+        *
+        *   @return <code>true</code> if the first person camera is currently active.
+        ***************************************************************************************************************/
         public isFirstPersonCameraActive() : boolean
         {
-            return ( this.activeCamera === bz.CameraType.FIRST_PERSON );
+            return ( this.activeCameraType === bz.CameraType.FIRST_PERSON );
         }
 
         /***************************************************************************************************************
-        *   Creates a free and non-colliding debug camera.
+        *   Creates the free debug camera.
         *
         *   @param scene           The babylon.JS scene.
         *   @param startupPosition The camera startup position.
@@ -146,7 +177,7 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a stationary and targeted camera.
+        *   Creates the stationary camera.
         *
         *   @param scene           The babylon.JS scene.
         *   @param startupPosition The camera startup position.
@@ -157,7 +188,7 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a following camera.
+        *   Creates the follow camera.
         *
         *   @param scene           The babylon.JS scene.
         *   @param startupPosition The camera startup position.
@@ -176,7 +207,7 @@
         /***************************************************************************************************************
         *   Creates the first person camera.
         *
-        *   @param scene           The babylon.JS scene.
+        *   @param scene The babylon.JS scene.
         ***************************************************************************************************************/
         private createFirstPersonCamera( scene:BABYLON.Scene ) : void
         {
@@ -188,6 +219,11 @@
             );
         }
 
+        /***************************************************************************************************************
+        *   Enables or disables the debug controls for the free debug camera.
+        *
+        *   @param enable Whether to enable the debug controls or not.
+        ***************************************************************************************************************/
         private setControlsForFreeDebugCameraEnabled( enable:boolean ) : void
         {
             if ( enable )

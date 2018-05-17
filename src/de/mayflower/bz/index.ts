@@ -29,7 +29,6 @@
 
     export * from './game/engine/physic/Physic';
     export * from './game/engine/physic/PhysicProps';
-    export * from './game/engine/physic/PhysicState';
 
     export * from './game/level/Level';
     export * from './game/level/LevelBunny';

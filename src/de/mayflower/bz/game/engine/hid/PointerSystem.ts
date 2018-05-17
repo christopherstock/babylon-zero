@@ -3,10 +3,16 @@
     import * as BABYLON from 'babylonjs';
 
     /*******************************************************************************************************************
-    *   Pointer controls.
+    *   The pointer system that manages all pointer operations.
     *******************************************************************************************************************/
     export class PointerSystem
     {
+        /***************************************************************************************************************
+        *   Being invoked when the pointer is down.
+        *
+        *   @param evt        The pointer event being propagated by the system.
+        *   @param pickResult More information about the location of the 3D space where the pointer is down.
+        ***************************************************************************************************************/
         public assignPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             if ( pickResult.hit )
@@ -25,8 +31,6 @@
                 const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
-
-                // this.mesh.applyImpulse( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ), this.mesh.position );
             }
         }
     }
