@@ -35,7 +35,15 @@
         *   @param  height     The desired height.
         *   @param  col        A stroke color.
         ***************************************************************************************************************/
-        public static strokeRect( ctx:CanvasRenderingContext2D, x:number, y:number, width:number, height:number, col:string )
+        public static strokeRect
+        (
+            ctx    :CanvasRenderingContext2D,
+            x      :number,
+            y      :number,
+            width  :number,
+            height :number,
+            col    :string
+        )
         {
             ctx.strokeStyle = col;
             ctx.lineWidth   = 1.0;
@@ -53,7 +61,15 @@
         *   @param  height  The desired height.
         *   @param  col     A fill color.
         ***************************************************************************************************************/
-        public static fillRect( ctx:CanvasRenderingContext2D, x:number, y:number, width:number, height:number, col:string )
+        public static fillRect
+        (
+            ctx    :CanvasRenderingContext2D,
+            x      :number,
+            y      :number,
+            width  :number,
+            height :number,
+            col    :string
+        )
         {
             ctx.fillStyle = col;
             ctx.fillRect( x, y, width, height );

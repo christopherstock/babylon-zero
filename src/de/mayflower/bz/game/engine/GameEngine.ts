@@ -27,19 +27,19 @@
         ***************************************************************************************************************/
         public init()
         {
-            bz.Debug.init.log( "Init canvas" );
+            bz.Debug.init.log( 'Init canvas' );
             this.canvas = new bz.CanvasSystem();
             this.canvas.updateDimensions();
 
             // init babylon.JS engine
-            bz.Debug.init.log( "Init babylon.JS engine." );
+            bz.Debug.init.log( 'Init babylon.JS engine.' );
             this.babylonEngine = new BABYLON.Engine( this.canvas.getCanvas(), true );
             this.babylonEngine.displayLoadingUI();
 
             // add resize event listener
             window.addEventListener(
-                "resize",
-                function () {
+                'resize',
+                () : void => {
                     bz.Main.game.engine.canvas.updateDimensions();
                     bz.Main.game.engine.babylonEngine.resize();
                 }
@@ -50,17 +50,17 @@
             this.pointerSystem = new bz.PointerSystem();
 
             // create the scene
-            bz.Debug.init.log( "Init scene" );
+            bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
             this.scene.init();
 
             // init materials
-            bz.Debug.init.log( "Init materials" );
+            bz.Debug.init.log( 'Init materials' );
             this.material = new bz.MaterialSystem();
             this.material.init();
 
             // init sprites
-            bz.Debug.init.log( "Init sprites" );
+            bz.Debug.init.log( 'Init sprites' );
             this.sprite = new bz.Sprite();
             this.sprite.init();
         }

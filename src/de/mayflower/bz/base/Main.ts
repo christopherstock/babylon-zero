@@ -6,10 +6,12 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enrich linter improvements.
+    *   TODO Perform linter improvements.
     *   TODO Enrich and correct all documentation blocks. Generate TypeScriptDoc.
     *
-    *   TODO Remove all ids for meshes, textures and materials? Use Auto-Counters? Check usage, handling and reasons for ids in lib code!
+    *   TODO Change key system which to code (string).
+    *
+    *   TODO Remove all ids for meshes, textures and materials? (Auto-Counters?) Check reasons for ids in lib code!
     *   TODO Create collections for all meshes in Level.
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)
@@ -25,6 +27,7 @@
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
     *   TODO Create debug console on-screen.
+    *   TODO Improved triangle / polygon drawing by xyz vertices?
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Minor jitter bug improvements on colliding walls?
     *
@@ -37,7 +40,7 @@
     *   TODO Try fog or smoke?
     *
     *   TODO Smooth camera animation on active camera change?
-    *   TODO Auto-Calc mass according to mesh volume: Calculate mass for boxes according to their density. Create density value!
+    *   TODO Auto-Calc mass according to density and volume: Create density value!
     *
     *   TODO Try 3dsmax 2018/2019 with babylon plugin?
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )

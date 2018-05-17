@@ -16,15 +16,17 @@
 
         /***************************************************************************************************************
         *   Inits all materials being used in the game.
+        *
+        *   TODO remove prepared solid color textures!
         ***************************************************************************************************************/
         public init()
         {
-            this.solidBlack    = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
-            this.solidRed      = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );
-            this.solidGreen    = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ) );
-            this.solidBlue     = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ) );
-            this.solidGrey     = MaterialSystem.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ) );
-            this.solidWhite    = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
+            this.solidBlack = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
+            this.solidRed   = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );
+            this.solidGreen = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ) );
+            this.solidBlue  = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ) );
+            this.solidGrey  = MaterialSystem.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ) );
+            this.solidWhite = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
         }
 
         public static createMaterial
@@ -44,12 +46,12 @@
                 let textureU:number = -1;
                 let textureV:number = -1;
 
-                if ( textureUV == bz.TextureUV.TILED_BY_SIZE )
+                if ( textureUV === bz.TextureUV.TILED_BY_SIZE )
                 {
                     textureU = sizeU;
                     textureV = sizeV;
                 }
-                else if ( textureUV == bz.TextureUV.ALL_TO_ONE )
+                else if ( textureUV === bz.TextureUV.ALL_TO_ONE )
                 {
                     textureU = 1.0;
                     textureV = 1.0;
@@ -81,7 +83,11 @@
         ***************************************************************************************************************/
         public static createSolid( color:BABYLON.Color3 ) : BABYLON.StandardMaterial
         {
-            let solidMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( "name", bz.Main.game.engine.scene.getScene() );
+            const solidMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
+            (
+                'name',
+                bz.Main.game.engine.scene.getScene()
+            );
 
             solidMaterial.diffuseColor    = color;
             solidMaterial.emissiveColor   = color;

@@ -2,6 +2,7 @@
     /*******************************************************************************************************************
     *   Specifies all debug adjustments for the application.
     *******************************************************************************************************************/
+    // tslint:disable:max-line-length
     export class SettingDebug
     {
         /** Specifies debug mode. */

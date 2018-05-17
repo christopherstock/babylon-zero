@@ -15,11 +15,11 @@
 
         protected                           skybox                  :BABYLON.Mesh                       = null;
 
-        /*******************************************************************************************************************
+        /***************************************************************************************************************
         *   Creates a new custom level.
         *
         *   @param scene The babylon.JS scene reference.
-        *******************************************************************************************************************/
+        ***************************************************************************************************************/
         constructor( scene:BABYLON.Scene )
         {
             this.scene = scene;
@@ -30,17 +30,17 @@
             }
         }
 
-        /*******************************************************************************************************************
+        /***************************************************************************************************************
         *   Resets this level.
-        *******************************************************************************************************************/
+        ***************************************************************************************************************/
         public reset() : void
         {
             this.resetCameraSystem();
         }
 
-        /*******************************************************************************************************************
+        /***************************************************************************************************************
         *   Renders all level concernings for one tick of the game loop.
-        *******************************************************************************************************************/
+        ***************************************************************************************************************/
         public render()
         {
             this.player.handlePlayerKeys();
@@ -66,7 +66,7 @@
             // origin
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -83,7 +83,7 @@
             // x test
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -98,7 +98,7 @@
             );
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 2.5,  0.25, 0.25   ),
@@ -115,7 +115,7 @@
             // y test
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -130,7 +130,7 @@
             );
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 2.5, 0.25   ),
@@ -147,7 +147,7 @@
             // z test
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -162,7 +162,7 @@
             );
             bz.MeshFactory.createBox
             (
-                "Ground1",
+                'Ground1',
                 new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 2.5   ),
@@ -187,7 +187,7 @@
             // axis x
             bz.MeshFactory.createLine
             (
-                "axisX",
+                'axisX',
                 new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                 new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
@@ -199,7 +199,7 @@
             // axis y
             bz.MeshFactory.createLine
             (
-                "axisY",
+                'axisY',
                 new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                 new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
@@ -211,7 +211,7 @@
             // axis z
             bz.MeshFactory.createLine
             (
-                "axisZ",
+                'axisZ',
                 new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                 new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
                 bz.PivotAnchor.LOWEST_XYZ,
@@ -227,7 +227,7 @@
         ***************************************************************************************************************/
         protected setupSkybox()
         {
-            this.skybox = bz.MeshFactory.createSkyBox( "bluesky", this.scene );
+            this.skybox = bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
         }
 
         private resetCameraSystem()

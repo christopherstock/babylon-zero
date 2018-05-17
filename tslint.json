@@ -4,14 +4,17 @@
     ],
     "rules": {
         "arrow-parens": false,
+        "new-parens": true,
+        "space-before-function-paren": false,
         "interface-name": [ true, "never-prefix" ],
         "member-access": false,
+        "member-ordering": [ true, { "order": "instance-sandwich" } ],
+        "no-empty": false,
         "no-empty-interface": true,
-        "no-var-requires": true,
+        "no-var-requires": false,
         "object-literal-key-quotes": false,
         "object-literal-sort-keys": false,
-        "ordered-imports": true,
-        "new-parens": true,
+        "ordered-imports": false,
         "prefer-conditional-expression": false,
         "quotemark": [ true, "single", "jsx-double" ],
         "no-arg": true,
@@ -20,17 +23,11 @@
         "no-consecutive-blank-lines": [true],
         "no-console": true,
         "ban-comma-operator": true,
-        "curly": true,
+        "curly": false,
         "no-var-keyword": true,
-        "switch-default": true,
+        "switch-default": false,
         "indent": [ true, "spaces" ],
-        "trailing-comma": [
-            true,
-            {
-                "multiline": "always",
-                "singleline": "never"
-            }
-        ],
+        "trailing-comma": [ false ],
         "completed-docs": true,
         "typedef-whitespace": true,
         "no-irregular-whitespace": false,
@@ -38,15 +35,14 @@
         "whitespace": [
             true,
             "check-branch",
-            "check-operator",
             "check-module",
             "check-separator",
             "check-preblock"
         ],
         "one-line": false,
-        "max-line-length": [
-            true,
-            120
-        ]
+        "max-line-length": [ true, 120 ],
+        "semicolon": [ false ],
+        "import-spacing": false,
+        "object-literal-shorthand": false
     }
 }

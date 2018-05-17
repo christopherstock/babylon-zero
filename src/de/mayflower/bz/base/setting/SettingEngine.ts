@@ -5,10 +5,11 @@
     /*******************************************************************************************************************
     *   Specifies all settings for the engine.
     *******************************************************************************************************************/
+    // tslint:disable:max-line-length
     export class SettingEngine
     {
         /** The application's internal name. */
-        public  static  readonly    TITLE                                   :string             = "Babylon.js take off, (c) 2018 Mayflower GmbH, v. [" + bz.Version.CURRENT_VERSION.getVersionDescriptor() + "]";
+        public  static  readonly    TITLE                                   :string             = 'Babylon.js take off, (c) 2018 Mayflower GmbH, v. [' + bz.Version.getCurrent() + ']';
 
         /** The minimum canvas2D width. */
         public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;
@@ -16,13 +17,13 @@
         public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
         /** The relative path from index.html where all texture images reside. */
-        public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = "res/image/texture/";
+        public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = 'res/image/texture/';
         /** The relative path from index.html where all skybox images reside. */
-        public  static  readonly    PATH_IMAGE_SKYBOX                       :string             = "res/image/skybox/";
+        public  static  readonly    PATH_IMAGE_SKYBOX                       :string             = 'res/image/skybox/';
         /** The relative path from index.html where all sounds the app makes use of reside. */
-        public  static  readonly    PATH_SOUND                              :string             = "res/sound/";
+        public  static  readonly    PATH_SOUND                              :string             = 'res/sound/';
         /** The relative path from index.html where all 3d model files the app makes use of reside. */
-        public  static  readonly    PATH_MESH                               :string             = "res/mesh/";
+        public  static  readonly    PATH_MESH                               :string             = 'res/mesh/';
 
         /** Follow camera height offset. */
         public  static  readonly    CAMERA_FOLLOW_HEIGHT_OFFSET             :number             = 6.0;

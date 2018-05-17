@@ -17,10 +17,10 @@
         public constructor()
         {
             // create
-            this.canvas = document.createElement( "canvas" );
+            this.canvas = document.createElement( 'canvas' );
 
             // reference 3d rendering context
-            this.canvasContext = this.canvas.getContext( "webgl" );
+            this.canvasContext = this.canvas.getContext( 'webgl' );
 
             // append to body
             document.body.appendChild( this.canvas );
@@ -43,7 +43,7 @@
             this.canvas.width  = canvasWidth;
             this.canvas.height = canvasHeight;
 
-            bz.Debug.canvas.log( "Updated canvas dimensions to [" + canvasWidth + "x" + canvasHeight + "] " );
+            bz.Debug.canvas.log( 'Updated canvas dimensions to [' + canvasWidth + 'x' + canvasHeight + '] ' );
         }
 
         /***************************************************************************************************************

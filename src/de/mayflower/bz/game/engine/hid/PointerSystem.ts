@@ -22,10 +22,9 @@
                     src = bz.Main.game.engine.scene.getScene().activeCamera.position;
                 }
 
-                let dir = pickResult.pickedPoint.subtract( src );
+                const dir = pickResult.pickedPoint.subtract( src );
                 dir.normalize();
                 pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
-
 
                 // this.mesh.applyImpulse( new BABYLON.Vector3( -SPEED_MOVING, 0.0, 0.0 ), this.mesh.position );
             }

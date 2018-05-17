@@ -17,11 +17,11 @@
         ***************************************************************************************************************/
         public init()
         {
-            bz.Debug.init.log( "Init game engine" );
+            bz.Debug.init.log( 'Init game engine' );
             this.engine = new bz.GameEngine();
             this.engine.init();
 
-            bz.Debug.init.log( "Init custom level" );
+            bz.Debug.init.log( 'Init custom level' );
             this.level = new bz.LevelTest( this.engine.scene.getScene() );
             this.level.reset();
         }
@@ -31,7 +31,7 @@
         ***************************************************************************************************************/
         public onInitLevelCompleted=()=>
         {
-            bz.Debug.init.log( "onInitLevelCompleted being invoked" );
+            bz.Debug.init.log( 'onInitLevelCompleted being invoked' );
 
             this.engine.scene.getScene().executeWhenReady
             (
@@ -44,18 +44,18 @@
         ***************************************************************************************************************/
         public initSceneCompleted=()=>
         {
-            bz.Debug.init.log( "System callback: Scene initialization completed" );
+            bz.Debug.init.log( 'System callback: Scene initialization completed' );
 
             // hide the loading UI
-            bz.Debug.init.log( "Hide loading UI" );
+            bz.Debug.init.log( 'Hide loading UI' );
             this.engine.babylonEngine.hideLoadingUI();
 
             // assign controls to camera
-            bz.Debug.init.log( "Assign controls to camera" );
+            bz.Debug.init.log( 'Assign controls to camera' );
             this.engine.scene.assignControls();
 
-            //launch render loop ?? required ??
-            bz.Debug.init.log( "Starting the render loop." );
+            // launch render loop ?? required ??
+            bz.Debug.init.log( 'Starting the render loop.' );
             this.engine.babylonEngine.runRenderLoop( bz.Main.game.render );
         };
 

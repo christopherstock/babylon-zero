@@ -7,14 +7,14 @@
     export class SoundSystem
     {
         /** All sound file names to load. */
-        private             readonly    fileNames                       :Array<string>                  = null;
+        private             readonly    fileNames                       :string[]                       = null;
         /** The method to invoke when all sounds are loaded. */
-        private             readonly    onLoadComplete                  :Function                       = null;
+        private             readonly    onLoadComplete                  :()=>void                       = null;
 
         /** The number of currently loaded sounds. */
         private                         loadedSoundCount                :number                         = 0;
         /** All loaded sound objects. */
-        private                         sounds                          :Array<HTMLAudioElement>        = [];
+        private                         sounds                          :HTMLAudioElement[]             = [];
 
         /***************************************************************************************************************
         *   Preloads all images into memory.
@@ -22,7 +22,7 @@
         *   @param fileNames      The names of all image files to load.
         *   @param onLoadComplete The method to invoke when all image files are loaded.
         ***************************************************************************************************************/
-        public constructor( fileNames:Array<string>, onLoadComplete:Function )
+        public constructor( fileNames:string[], onLoadComplete:()=>void )
         {
             this.fileNames      = fileNames;
             this.onLoadComplete = onLoadComplete;
@@ -42,15 +42,15 @@
             {
                 if ( this.sounds[ id ] != null )
                 {
-                    let clipClone:HTMLAudioElement = this.sounds[ id ].cloneNode( true );
+                    const clipClone:HTMLAudioElement = this.sounds[ id ].cloneNode( true );
 
                     if ( loop )
                     {
                         clipClone.addEventListener(
-                            "ended",
+                            'ended',
                             () => {
 
-                                bz.Debug.sound.log( "Clip ended - now repeating .." );
+                                bz.Debug.sound.log( 'Clip ended - now repeating ..' );
 
                                 // noinspection JSIgnoredPromiseFromCall
                                 clipClone.play();
@@ -73,9 +73,9 @@
         ***************************************************************************************************************/
         public loadSounds() : void
         {
-            bz.Debug.sound.log( "Preloading [" + this.fileNames.length + "] sounds" );
+            bz.Debug.sound.log( 'Preloading [' + this.fileNames.length + '] sounds' );
 
-            for ( let fileName of this.fileNames )
+            for ( const fileName of this.fileNames )
             {
                 try
                 {
@@ -91,7 +91,7 @@
                 }
                 catch ( e )
                 {
-                    bz.Debug.sound.log( "Error on creating Audio element: " + e.message );
+                    bz.Debug.sound.log( 'Error on creating Audio element: ' + e.message );
                     this.onLoadSoundError();
                 }
             }
@@ -104,7 +104,7 @@
         {
             if ( ++this.loadedSoundCount >= this.fileNames.length )
             {
-                bz.Debug.sound.log( "All [" + this.fileNames.length + "] sounds loaded" );
+                bz.Debug.sound.log( 'All [' + this.fileNames.length + '] sounds loaded' );
 
                 this.onLoadComplete();
             }
@@ -115,7 +115,7 @@
         ***************************************************************************************************************/
         private onLoadSoundError=() : void =>
         {
-            bz.Debug.sound.log( "ERROR on loading audio element!" );
+            bz.Debug.sound.log( 'ERROR on loading audio element!' );
 
             this.onLoadSound();
         };

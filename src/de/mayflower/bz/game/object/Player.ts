@@ -11,11 +11,6 @@
         /** The player's current rotation on axis Z. */
         protected                           rotZ                    :number                             = 0.0;
 
-        /** The head mesh. */
-        private                             head                    :bz.Mesh                            = null;
-        /** The body mesh. */
-        private                             body                    :bz.Mesh                            = null;
-
         /** Current move delta X. */
         protected                           moveDeltaX              :number                             = 0.0;
         /** Current move delta Z. */
@@ -24,6 +19,11 @@
         protected                           rotationDeltaY          :number                             = 0.0;
         /** Current rotation delta Z. */
         protected                           rotationDeltaZ          :number                             = 0.0;
+
+        /** The head mesh. */
+        private                             head                    :bz.Mesh                            = null;
+        /** The body mesh. */
+        private                             body                    :bz.Mesh                            = null;
 
         /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;
@@ -41,7 +41,7 @@
             (
                 bz.MeshFactory.createCylinder
                 (
-                    "playerBody",
+                    'playerBody',
                     new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
                     bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
                     ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
@@ -62,7 +62,7 @@
             (
                 bz.MeshFactory.createSphere
                 (
-                    "playerHead",
+                    'playerHead',
                     new BABYLON.Vector3
                     (
                         0.0,
@@ -85,16 +85,6 @@
 
             // stick head to body
             this.head.getMesh().parent = this.body.getMesh();
-
-
-
-
-
-
-
-
-            // this.head.getMesh().parent = this.body.getMesh();
-
 /*
             // physical link
             this.body.getMesh().setPhysicsLinkWith
@@ -219,7 +209,7 @@
 
         private movePlayer()
         {
-            if ( this.moveDeltaX != 0.0 || this.moveDeltaZ != 0.0 )
+            if ( this.moveDeltaX !== 0.0 || this.moveDeltaZ !== 0.0 )
             {
                 this.body.moveWithCollisions( this.moveDeltaX, 0.0, this.moveDeltaZ );
 
@@ -237,13 +227,13 @@
 
         private rotatePlayerXYZ()
         {
-            if ( this.rotationDeltaY != 0.0 )
+            if ( this.rotationDeltaY !== 0.0 )
             {
                 this.rotY = bz.MathUtil.normalizeAngle( this.rotY + this.rotationDeltaY );
                 this.rotationDeltaY = 0.0;
             }
 
-            if ( this.rotationDeltaZ != 0.0 )
+            if ( this.rotationDeltaZ !== 0.0 )
             {
                 this.rotZ += this.rotationDeltaZ;
 
@@ -292,7 +282,7 @@
         private manipulateVelocities()
         {
             // filter linear velocity Y
-            let playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity();
+            const playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity();
             this.body.getMesh().physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3

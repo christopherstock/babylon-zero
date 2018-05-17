@@ -16,14 +16,14 @@
         *                    This string MUST NOT be enclosed in string quotes!
         *   @return          An array containing all matched results.
         ***************************************************************************************************************/
-        public static searchRegEx( subject:string, regEx:RegExp ):Array<string>
+        public static searchRegEx( subject:string, regEx:RegExp ) : string[]
         {
-            let results:RegExpMatchArray = subject.match( regEx );
-            let ret:Array<string>        = [];
+            const results:RegExpMatchArray = subject.match( regEx );
+            const ret:string[]             = [];
 
             if ( results != null )
             {
-                for ( let result of results )
+                for ( const result of results )
                 {
                     ret.push( result );
                 }

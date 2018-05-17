@@ -12,18 +12,18 @@
         *
         *   @return The newly created but not already loaded mirrored image.
         ***************************************************************************************************************/
-        public static flipImageHorizontal( original:HTMLImageElement, onLoadCallack:Function ) : HTMLImageElement
+        public static flipImageHorizontal( original:HTMLImageElement, onLoadCallack:()=>void ) : HTMLImageElement
         {
-            let canvas:HTMLCanvasElement = document.createElement( "canvas" );
+            const canvas:HTMLCanvasElement = document.createElement( 'canvas' );
             canvas.width  = original.width;
             canvas.height = original.height;
 
-            let context = canvas.getContext( "2d" );
+            const context = canvas.getContext( '2d' );
             context.scale( -1, 1 );
             context.drawImage( original, -original.width, 0 );
 
-            let target:HTMLImageElement = new Image();
-            target.crossOrigin = "anonymous";
+            const target:HTMLImageElement = new Image();
+            target.crossOrigin = 'anonymous';
             target.src = canvas.toDataURL();
             target.onload = ( event:Event ) => { onLoadCallack(); };
 

@@ -15,7 +15,7 @@
         /** Debugs sound system. */
         public      static      readonly    sound               :Debug              = new Debug( true  );
         /** Debugs key system. */
-        public      static      readonly    key                 :Debug              = new Debug( false  );
+        public      static      readonly    key                 :Debug              = new Debug( true );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;
@@ -36,10 +36,11 @@
         *
         *   @param msg The message to log to the default console.
         ***************************************************************************************************************/
-        public log( msg:string = "" ):void
+        public log( msg:string = '' ):void
         {
             if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
             {
+                // tslint:disable-next-line:no-console
                 console.log( '[' + bz.String.getDateTimeString() + '] ' + msg );
             }
         }

@@ -7,20 +7,20 @@
     export class KeySystem
     {
         /** All 'pressed' information for all keys. */
-        private             keysPressed         :Array<boolean>                 = [];
+        private             keysPressed         :boolean[]                      = [];
         /** All 'needs release' information for all keys. */
-        private             keysNeedRelease     :Array<boolean>                 = [];
+        private             keysNeedRelease     :boolean[]                      = [];
 
         /***************************************************************************************************************
         *   Creates a new key system.
         ***************************************************************************************************************/
         public constructor()
         {
-            window.addEventListener( "keydown",     this.onKeyDown, false );
-            window.addEventListener( "keyup",       this.onKeyUp,   false );
+            window.addEventListener( 'keydown',     this.onKeyDown, false );
+            window.addEventListener( 'keyup',       this.onKeyUp,   false );
 
-            window.addEventListener( "onkeydown",   this.onKeyDown, false );
-            window.addEventListener( "onkeyup",     this.onKeyUp,   false );
+            window.addEventListener( 'onkeydown',   this.onKeyDown, false );
+            window.addEventListener( 'onkeyup',     this.onKeyUp,   false );
         }
 
         /***************************************************************************************************************
@@ -30,12 +30,12 @@
         ***************************************************************************************************************/
         public onKeyDown=( event:Event )=>
         {
-            let keyCode = ( event as KeyboardEvent ).which;
+            const keyCode:number = ( event as KeyboardEvent ).which; // TODO use 'code' instead?
 
             if ( !this.keysNeedRelease[ keyCode ] ) {
                 this.keysPressed[ keyCode ] = true;
 
-                bz.Debug.key.log( "key pressed ["  + keyCode + "]" );
+                bz.Debug.key.log( 'key pressed ['  + keyCode + ']' );
             }
         };
 
@@ -46,12 +46,12 @@
         ***************************************************************************************************************/
         public onKeyUp=( event:Event )=>
         {
-            let keyCode = ( event as KeyboardEvent ).which;
+            const keyCode:number = ( event as KeyboardEvent ).which; // TODO use 'code' instead?
 
             this.keysPressed[     keyCode ] = false;
             this.keysNeedRelease[ keyCode ] = false;
 
-            bz.Debug.key.log( "key released ["  + keyCode + "]" );
+            bz.Debug.key.log( 'key released ['  + keyCode + ']' );
         };
 
         /***************************************************************************************************************

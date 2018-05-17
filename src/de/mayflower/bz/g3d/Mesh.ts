@@ -1,6 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz from "../index";
+    import * as bz from '../index';
 
     /*******************************************************************************************************************
     *   Represents a mesh and wraps a babylon.JS mesh.
@@ -41,12 +41,12 @@
         public moveWithCollisions( deltaX:number, deltaY:number, deltaZ:number )
         {
             this.mesh.moveWithCollisions( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
-/*
-            this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
-            bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
-            this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
-            this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
-*/
+
+            // tslint:disable:max-line-length
+            // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
+            // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
+            // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
+            // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
         }
 
         public getMesh() : BABYLON.Mesh

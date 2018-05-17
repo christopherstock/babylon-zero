@@ -30,7 +30,11 @@
         )
         : BABYLON.StandardMaterial
         {
-            let textureMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( "name", bz.Main.game.engine.scene.getScene() );
+            const textureMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
+            (
+                'name',
+                bz.Main.game.engine.scene.getScene()
+            );
 
             textureMaterial.diffuseTexture       = new BABYLON.Texture
             (
@@ -42,16 +46,16 @@
             textureMaterial.diffuseTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
-            if ( repeatU != -1 )
+            if ( repeatU !== -1 )
             {
                 ( textureMaterial.diffuseTexture as any ).uScale = repeatU;
             }
-            if ( repeatV != -1 )
+            if ( repeatV !== -1 )
             {
                 ( textureMaterial.diffuseTexture as any ).vScale = repeatV;
             }
 
-            textureMaterial.diffuseTexture.hasAlpha = ( textureHasAlpha == bz.TextureHasAlpha.YES );
+            textureMaterial.diffuseTexture.hasAlpha = ( textureHasAlpha === bz.TextureHasAlpha.YES );
 
             textureMaterial.alpha                = alpha;
             textureMaterial.backFaceCulling      = backFaceCulling;

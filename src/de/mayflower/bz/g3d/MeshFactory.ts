@@ -1,6 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz from "..";
+    import * as bz from '..';
 
     /*******************************************************************************************************************
     *   Specifies all valid anchors for a mesh.
@@ -75,7 +75,7 @@
                 }
             }
 
-            let box:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
+            const box:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
             (
                 id,
                 {
@@ -89,7 +89,16 @@
             );
 
             MeshFactory.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, null, size.x, size.z, color, materialAlpha );
+            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            (
+                texture,
+                textureHasAlpha,
+                null,
+                size.x,
+                size.z,
+                color,
+                materialAlpha
+            );
 
             return MeshFactory.decorateMesh
             (
@@ -150,7 +159,7 @@
                 }
             }
 
-            let cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
+            const cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
             (
                 id,
                 {
@@ -163,7 +172,16 @@
             );
 
             MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, null, diameter, height, color, materialAlpha );
+            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            (
+                texture,
+                textureHasAlpha,
+                null,
+                diameter,
+                height,
+                color,
+                materialAlpha
+            );
 
             return MeshFactory.decorateMesh
             (
@@ -196,7 +214,7 @@
         )
         : BABYLON.Mesh
         {
-            let sphere:BABYLON.Mesh = BABYLON.MeshBuilder.CreateSphere
+            const sphere:BABYLON.Mesh = BABYLON.MeshBuilder.CreateSphere
             (
                 id,
                 {
@@ -206,7 +224,16 @@
             );
 
             MeshFactory.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, diameter, diameter, color, materialAlpha );
+            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            (
+                texture,
+                textureHasAlpha,
+                textureUV,
+                diameter,
+                diameter,
+                color,
+                materialAlpha
+            );
 
             return MeshFactory.decorateMesh
             (
@@ -243,7 +270,7 @@
         )
         : BABYLON.Mesh
         {
-            let plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
+            const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
             (
                 id,
                 {
@@ -254,7 +281,16 @@
             );
 
             MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( texture, textureHasAlpha, textureUV, width, height, color, materialAlpha );
+            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            (
+                texture,
+                textureHasAlpha,
+                textureUV,
+                width,
+                height,
+                color,
+                materialAlpha
+            );
 
             return MeshFactory.decorateMesh
             (
@@ -285,7 +321,7 @@
         )
         : BABYLON.Mesh
         {
-            let line:BABYLON.Mesh = BABYLON.MeshBuilder.CreateLines
+            const line:BABYLON.Mesh = BABYLON.MeshBuilder.CreateLines
             (
                 id,
                 {
@@ -336,7 +372,7 @@
         )
         : BABYLON.Mesh
         {
-            let triangle:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
+            const triangle:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
             (
                 id,
                 {
@@ -354,8 +390,25 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( triangle, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), pivotAnchor, 0.0, 0.0, 0.0 );
-            let material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial( null, null, null, 0.0, 0.0, color, 1.0 );
+            MeshFactory.setPositionAndPivot
+            (
+                triangle,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                pivotAnchor,
+                0.0,
+                0.0,
+                0.0
+            );
+            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            (
+                null,
+                null,
+                null,
+                0.0,
+                0.0,
+                color,
+                1.0
+            );
 
             return MeshFactory.decorateMesh
             (
@@ -370,7 +423,7 @@
 
         public static createSkyBox( cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
-            let skyboxMaterial = new BABYLON.StandardMaterial( "skyBox", scene );
+            const skyboxMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
 
             skyboxMaterial.backFaceCulling = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
@@ -384,7 +437,7 @@
             skyboxMaterial.alpha = 1.0;
             // skyboxMaterial.disableLighting = true;
 
-            let skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox( "skyBox", 1000.0, scene );
+            const skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'skyBox', 1000.0, scene );
             skybox.infiniteDistance = true;
             skybox.material         = skyboxMaterial;
 

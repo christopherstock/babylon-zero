@@ -81,6 +81,7 @@
                 }
 
                 case CameraType.FIRST_PERSON:
+                default:
                 {
                     scene.activeCamera = this.firstPersonCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
@@ -88,72 +89,6 @@
                     break;
                 }
             }
-        }
-
-        /***************************************************************************************************************
-        *   Creates a free and non-colliding debug camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        *   @param startupPosition The camera startup position.
-        *   @param startupTarget   The camera startup target.
-        ***************************************************************************************************************/
-        private createFreeDebugCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3, startupTarget:BABYLON.Vector3 ) : void
-        {
-            this.freeDebugCamera = new BABYLON.FreeCamera( "freeCamera", startupPosition, scene );
-
-            // set startup direction
-            this.freeDebugCamera.setTarget( startupTarget );
-
-            // disable collisions and gravity
-            this.freeDebugCamera.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-            this.freeDebugCamera.applyGravity    = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-
-            //Set the ellipsoid around the camera (the size of the player in our case)
-            this.freeDebugCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
-            this.freeDebugCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
-
-            this.freeDebugCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );
-            this.freeDebugCamera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
-            this.freeDebugCamera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
-            this.freeDebugCamera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
-        }
-
-        /***************************************************************************************************************
-        *   Creates a stationary and targeted camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        *   @param startupPosition The camera startup position.
-        ***************************************************************************************************************/
-        private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
-        {
-            this.stationaryCamera = new BABYLON.TargetCamera( "stationaryCamera", startupPosition, scene );
-        }
-
-        /***************************************************************************************************************
-        *   Creates a following camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        *   @param startupPosition The camera startup position.
-        ***************************************************************************************************************/
-        private createFollowCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
-        {
-            this.followCamera = new BABYLON.FollowCamera( "followCamera", startupPosition, scene );
-
-            this.followCamera.heightOffset       = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;
-            this.followCamera.radius             = bz.SettingEngine.CAMERA_FOLLOW_RADIUS;
-            this.followCamera.rotationOffset     = bz.SettingEngine.CAMERA_FOLLOW_ROTATION_OFFSET;
-            this.followCamera.cameraAcceleration = bz.SettingEngine.CAMERA_FOLLOW_ACCELERATION_SPEED;
-            this.followCamera.maxCameraSpeed     = bz.SettingEngine.CAMERA_FOLLOW_MAX_SPEED;
-        }
-
-        /***************************************************************************************************************
-        *   Creates the first person camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        ***************************************************************************************************************/
-        private createFirstPersonCamera( scene:BABYLON.Scene ) : void
-        {
-            this.firstPersonCamera = new BABYLON.FreeCamera( "firstPersonCamera", new BABYLON.Vector3( 0.0, 0.0, 0.0 ), scene );
         }
 
         public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh )
@@ -173,7 +108,84 @@
 
         public isFirstPersonCameraActive() : boolean
         {
-            return ( this.activeCamera == bz.CameraType.FIRST_PERSON );
+            return ( this.activeCamera === bz.CameraType.FIRST_PERSON );
+        }
+
+        /***************************************************************************************************************
+        *   Creates a free and non-colliding debug camera.
+        *
+        *   @param scene           The babylon.JS scene.
+        *   @param startupPosition The camera startup position.
+        *   @param startupTarget   The camera startup target.
+        ***************************************************************************************************************/
+        private createFreeDebugCamera
+        (
+            scene           :BABYLON.Scene,
+            startupPosition :BABYLON.Vector3,
+            startupTarget   :BABYLON.Vector3
+        )
+        : void
+        {
+            this.freeDebugCamera = new BABYLON.FreeCamera( 'freeCamera', startupPosition, scene );
+
+            // set startup direction
+            this.freeDebugCamera.setTarget( startupTarget );
+
+            // disable collisions and gravity
+            this.freeDebugCamera.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+            this.freeDebugCamera.applyGravity    = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
+            // set the ellipsoid around the camera (the size of the player in our case)
+            this.freeDebugCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
+            this.freeDebugCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
+
+            this.freeDebugCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );
+            this.freeDebugCamera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
+            this.freeDebugCamera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
+            this.freeDebugCamera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
+        }
+
+        /***************************************************************************************************************
+        *   Creates a stationary and targeted camera.
+        *
+        *   @param scene           The babylon.JS scene.
+        *   @param startupPosition The camera startup position.
+        ***************************************************************************************************************/
+        private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
+        {
+            this.stationaryCamera = new BABYLON.TargetCamera( 'stationaryCamera', startupPosition, scene );
+        }
+
+        /***************************************************************************************************************
+        *   Creates a following camera.
+        *
+        *   @param scene           The babylon.JS scene.
+        *   @param startupPosition The camera startup position.
+        ***************************************************************************************************************/
+        private createFollowCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
+        {
+            this.followCamera = new BABYLON.FollowCamera( 'followCamera', startupPosition, scene );
+
+            this.followCamera.heightOffset       = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;
+            this.followCamera.radius             = bz.SettingEngine.CAMERA_FOLLOW_RADIUS;
+            this.followCamera.rotationOffset     = bz.SettingEngine.CAMERA_FOLLOW_ROTATION_OFFSET;
+            this.followCamera.cameraAcceleration = bz.SettingEngine.CAMERA_FOLLOW_ACCELERATION_SPEED;
+            this.followCamera.maxCameraSpeed     = bz.SettingEngine.CAMERA_FOLLOW_MAX_SPEED;
+        }
+
+        /***************************************************************************************************************
+        *   Creates the first person camera.
+        *
+        *   @param scene           The babylon.JS scene.
+        ***************************************************************************************************************/
+        private createFirstPersonCamera( scene:BABYLON.Scene ) : void
+        {
+            this.firstPersonCamera = new BABYLON.FreeCamera
+            (
+                'firstPersonCamera',
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                scene
+            );
         }
 
         private setControlsForFreeDebugCameraEnabled( enable:boolean )

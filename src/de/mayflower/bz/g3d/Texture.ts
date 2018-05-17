@@ -4,11 +4,11 @@
     *******************************************************************************************************************/
     export enum Texture
     {
-        TEST            = "test.jpg",
-        MAYFLOWER_LOGO  = "mfLogo.jpg",
-        AMIGA           = "amiga.jpg",
-        WOOD            = "wood.jpg",
-        GRASS           = "grass.jpg",
-        GLASS           = "glass.jpg",
-        TREE            = "tree.png",
+        TEST            = 'test.jpg',
+        MAYFLOWER_LOGO  = 'mfLogo.jpg',
+        AMIGA           = 'amiga.jpg',
+        WOOD            = 'wood.jpg',
+        GRASS           = 'grass.jpg',
+        GLASS           = 'glass.jpg',
+        TREE            = 'tree.png',
     }
