@@ -110,8 +110,9 @@
         *   @param impostor The kind of physics impostor to set.
         *   @param scene    The babylon.JS scene that manages this impostor.
         ***************************************************************************************************************/
-        public static setPhysic( mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene ) : void
+        public static setPhysic(mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene ) : void
         {
+            // TODO to PhysicSet !
             switch ( physic.state )
             {
                 case bz.PhysicState.STATIC:
@@ -123,7 +124,7 @@
                     (
                         mesh,
                         impostor,
-                        physic.createFromDensity( 1.0 ),
+                        physic.createImpostorParams( 1.0 ),
                         scene
                     );
 

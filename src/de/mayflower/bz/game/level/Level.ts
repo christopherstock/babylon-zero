@@ -75,7 +75,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
 
@@ -91,7 +91,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -105,7 +105,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
 
@@ -121,7 +121,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -135,7 +135,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
 
@@ -151,7 +151,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
             bz.MeshFactory.createBox
@@ -165,7 +165,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
                 1.0
             );
         }
@@ -186,7 +186,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_RED_OPAQUE,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
             );
             // axis y
             bz.MeshFactory.createLine
@@ -197,7 +197,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_GREEN_OPAQUE,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
             );
             // axis z
             bz.MeshFactory.createLine
@@ -208,7 +208,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_BLUE_OPAQUE,
                 this.scene,
-                new bz.Physic( bz.PhysicState.NONE, null ),
+                bz.Physic.NONE,
             );
         }
 

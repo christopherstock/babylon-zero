@@ -91,7 +91,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                new bz.Physic( bz.PhysicState.STATIC, bz.PhysicSet.STATIC ),
+                bz.Physic.STATIC,
                 1.0
             );
 
@@ -105,7 +105,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                new bz.Physic( bz.PhysicState.STATIC, bz.PhysicSet.STATIC ),
+                bz.Physic.STATIC,
                 1.0
             );
 
@@ -119,7 +119,7 @@
                 bz.TextureUV.TILED_BY_SIZE,
                 null,
                 this.scene,
-                new bz.Physic( bz.PhysicState.STATIC, bz.PhysicSet.STATIC ),
+                bz.Physic.STATIC,
                 1.0
             );
         }
