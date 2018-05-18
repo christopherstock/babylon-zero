@@ -27,15 +27,17 @@
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Minor jitter bug improvements on colliding walls?
     *
-    *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
-    *   TODO Rotating texture UVs for certain box sides?
-    *
     *   TODO Try to create a realistic scene.
     *   TODO Solve lights. Create lights system.
     *   TODO Solve shadows?
     *   TODO Try fog or smoke?
     *
-    *   TODO Smooth camera animation on active camera change?
+    *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
+    *   TODO Rotating texture UVs for certain box sides?
+    *
+    *   TODO Delete LevelBunny. Move all functonality to LevelTest.
+    *
+    *   TODO Smooth camera transfers / animation on changine active camera?
     *
     *   TODO Try 3dsmax 2018/2019 with babylon plugin?
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
@@ -57,7 +59,6 @@
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Specify, how deep the player rect may sink into colliding objects. (0 would be perfect!) ?
-    *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Increase performance in chrome?
     *   TODO Create material system with unified parameters!
     *   TODO move onInitLevelCompleted to class Level and also scene to class level?

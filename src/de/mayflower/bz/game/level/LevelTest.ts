@@ -166,7 +166,7 @@
             // movable crate - different UVs for all sides
             bz.MeshFactory.createBox
             (
-                new BABYLON.Vector3( 12.0,  0.0, 24.0   ),
+                new BABYLON.Vector3( 24.0,  0.0, 12.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 1.0, 2.0, 3.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -276,5 +276,55 @@
                 this.scene,
                 new bz.Physic( bz.PhysicState.STATIC, null )
             );
+
+
+            // small crate - density crafting
+            bz.MeshFactory.createBox
+            (
+                new BABYLON.Vector3( 5.5, 0.0, 22.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Texture.WOOD,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.TILED_BY_SIZE,
+                null,
+                this.scene,
+                new bz.Physic( bz.PhysicState.MOVABLE, bz.PhysicProps.LIGHT_WOOD ),
+                1.0
+            );
+
+            // medium crate - density crafting
+            bz.MeshFactory.createBox
+            (
+                new BABYLON.Vector3( 5.5, 0.0, 25.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Texture.WOOD,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.TILED_BY_SIZE,
+                null,
+                this.scene,
+                new bz.Physic( bz.PhysicState.MOVABLE, bz.PhysicProps.LIGHT_WOOD ),
+                1.0
+            );
+
+            // large crate - density crafting
+            bz.MeshFactory.createBox
+            (
+                new BABYLON.Vector3( 5.5, 0.0, 30.0 ),
+                bz.PivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 3.0, 3.0, 3.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Texture.WOOD,
+                bz.TextureHasAlpha.NO,
+                bz.TextureUV.TILED_BY_SIZE,
+                null,
+                this.scene,
+                new bz.Physic( bz.PhysicState.MOVABLE, bz.PhysicProps.LIGHT_WOOD ),
+                1.0
+            );
+
         }
     }

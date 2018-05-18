@@ -53,7 +53,7 @@
         ***************************************************************************************************************/
         protected createPlayer() : void
         {
-            this.player = new bz.Player( 135.0 );
+            this.player = new bz.Player( 225.0 );
         }
 
         /** ************************************************************************************************************
@@ -230,7 +230,7 @@
                 this.scene,
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0, 0.0  )
+                new BABYLON.Vector3( 0.0,  0.0, 25.0  )
             );
 
             // lock statinary target camera to player
