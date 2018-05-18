@@ -129,6 +129,8 @@
                 materialAlpha
             );
 
+            const volume:number = ( size.x * size.y * size.z );
+
             return MeshFactory.decorateMesh
             (
                 box,
@@ -136,7 +138,8 @@
                 material,
                 scene,
                 physic,
-                BABYLON.PhysicsImpostor.BoxImpostor
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                volume
             );
         }
 
@@ -226,6 +229,8 @@
                 materialAlpha
             );
 
+            const volume:number = ( Math.pow( ( diameter / 2 ), 2 ) * Math.PI * height );
+
             return MeshFactory.decorateMesh
             (
                 cylinder,
@@ -233,7 +238,8 @@
                 material,
                 scene,
                 physic,
-                BABYLON.PhysicsImpostor.CylinderImpostor
+                BABYLON.PhysicsImpostor.CylinderImpostor,
+                volume
             );
         }
 
@@ -291,6 +297,8 @@
                 materialAlpha
             );
 
+            const volume:number = ( Math.pow( ( diameter / 2 ), 3 ) * Math.PI * 4 / 3 );
+
             return MeshFactory.decorateMesh
             (
                 sphere,
@@ -298,7 +306,8 @@
                 material,
                 scene,
                 physic,
-                BABYLON.PhysicsImpostor.SphereImpostor
+                BABYLON.PhysicsImpostor.SphereImpostor,
+                volume
             );
         }
 
@@ -362,6 +371,8 @@
                 materialAlpha
             );
 
+            const volume:number = ( width * height * 0.001 );
+
             return MeshFactory.decorateMesh
             (
                 plane,
@@ -369,7 +380,8 @@
                 material,
                 scene,
                 physic,
-                BABYLON.PhysicsImpostor.BoxImpostor
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                volume
             );
         }
 
@@ -382,7 +394,6 @@
         *   @param rotation        The initial rotation for all axis.
         *   @param color           The solid color to apply.
         *   @param scene           The scene where this mesh will be applied.
-        *   @param physic          The physical attributes to apply for this mesh.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -394,9 +405,7 @@
             rotation        :BABYLON.Vector3,
 
             color           :BABYLON.Color4,
-            scene           :BABYLON.Scene,
-
-            physic          :bz.Physic,
+            scene           :BABYLON.Scene
         )
         : BABYLON.Mesh
         {
@@ -427,8 +436,9 @@
                 rotation,
                 null,
                 scene,
-                physic,
-                BABYLON.PhysicsImpostor.BoxImpostor
+                bz.Physic.NONE,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                0.0
             );
         }
 
@@ -504,7 +514,8 @@
                 material,
                 scene,
                 physic,
-                BABYLON.PhysicsImpostor.BoxImpostor
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                1.0
             );
         }
 
@@ -552,6 +563,7 @@
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param physicsImpostor The kind of physic impostor to apply to this mesh.
+        *   @param volume          The calculated volume of the mesh.
         ***************************************************************************************************************/
         private static decorateMesh
         (
@@ -560,14 +572,15 @@
             material        :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
-            physicsImpostor :number
+            physicsImpostor :number,
+            volume          :number
         )
         : BABYLON.Mesh
         {
             mesh.material       = material;
             mesh.receiveShadows = false;
 
-            bz.Mesh.setPhysic( mesh, physic, physicsImpostor, scene );
+            bz.Mesh.setPhysic( mesh, volume, physic, physicsImpostor, scene );
 
             if ( rotation != null )
             {

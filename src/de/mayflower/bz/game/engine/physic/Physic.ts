@@ -120,7 +120,7 @@
 
                 case PhysicState.MOVABLE:
                 {
-                    mass = 1.0;
+                    mass = ( volume * this.density );
                     break;
                 }
 

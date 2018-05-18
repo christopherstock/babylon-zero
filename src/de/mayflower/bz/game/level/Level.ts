@@ -185,8 +185,7 @@
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_RED_OPAQUE,
-                this.scene,
-                bz.Physic.NONE,
+                this.scene
             );
             // axis y
             bz.MeshFactory.createLine
@@ -196,8 +195,7 @@
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_GREEN_OPAQUE,
-                this.scene,
-                bz.Physic.NONE,
+                this.scene
             );
             // axis z
             bz.MeshFactory.createLine
@@ -207,8 +205,7 @@
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_BLUE_OPAQUE,
-                this.scene,
-                bz.Physic.NONE,
+                this.scene
             );
         }
 

@@ -104,15 +104,24 @@
 
         /** ************************************************************************************************************
         *   Applies the specified physical behaviour to the given mesh.
+        *   TODO to PhysicSet !
         *
-        *   @param mesh     The native babylon.JS mesh to set the physical behaviour for.
-        *   @param physic   The physical behaviour to set.
-        *   @param impostor The kind of physics impostor to set.
-        *   @param scene    The babylon.JS scene that manages this impostor.
+        *   @param mesh         The native babylon.JS mesh to set the physical behaviour for.
+        *   @param volume       The calculated volume of the mesh.
+        *   @param physic       The physical behaviour to set.
+        *   @param impostorType The type of physics impostor to set.
+        *   @param scene        The babylon.JS scene that manages this impostor.
         ***************************************************************************************************************/
-        public static setPhysic(mesh:BABYLON.Mesh, physic:bz.Physic, impostor:number, scene:BABYLON.Scene ) : void
+        public static setPhysic
+        (
+            mesh         :BABYLON.Mesh,
+            volume       :number,
+            physic       :bz.Physic,
+            impostorType :number,
+            scene        :BABYLON.Scene
+        )
+        : void
         {
-            // TODO to PhysicSet !
             switch ( physic.state )
             {
                 case bz.PhysicState.STATIC:
@@ -123,8 +132,8 @@
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
-                        impostor,
-                        physic.createImpostorParams( 1.0 ),
+                        impostorType,
+                        physic.createImpostorParams( volume ),
                         scene
                     );
 

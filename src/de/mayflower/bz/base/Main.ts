@@ -6,13 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Auto-Calc mass according to density and volume: Create density value!
-    *
     *   TODO Create collections for all meshes in Level.
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create class for compound object creation ("createTree").
+    *   TODO All volume calculations to MathUtil functions.
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
