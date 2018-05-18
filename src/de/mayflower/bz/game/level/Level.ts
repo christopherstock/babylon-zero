@@ -308,26 +308,34 @@
 
         /** ************************************************************************************************************
         *   Sets up all lights.
+        *
+        *   TODO to LightFactory - create dynamic LightId
         ***************************************************************************************************************/
         private setupLights() : void
         {
-            // setup lights
-/*
-            this.light1 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
-            this.light1.intensity = 1.0;
-            this.light1.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
+            // hemispheric light
+            this.lightHemispheric  = new BABYLON.HemisphericLight
+            (
+                'Hemi0',
+                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+                this.scene
+            );
 
-            this.light1.diffuse   = new BABYLON.Color3( 1.0, 0.5, 0.0 );
-            this.light1.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+            this.lightHemispheric.diffuse     = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+            this.lightHemispheric.specular    = new BABYLON.Color3( 0.1, 0.1, 0.1 );
+            this.lightHemispheric.groundColor = new BABYLON.Color3( 0.0, 0.0, 0.0 );
+            this.lightHemispheric.setEnabled( false );
+
+/*
+            this.lightHemispheric = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
+            this.lightHemispheric.intensity = 1.0;
+            this.lightHemispheric.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
+
+            this.lightHemispheric.diffuse   = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+            this.lightHemispheric.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
 */
 
-/*
-            this.light1 = new BABYLON.HemisphericLight( "Hemi0", new BABYLON.Vector3( 0.0, 1.0, 0.0 ), this.scene );
 
-            this.light1.diffuse     = new BABYLON.Color3( 1, 1, 1 );
-            this.light1.specular    = new BABYLON.Color3( 1, 1, 1 );
-            this.light1.groundColor = new BABYLON.Color3( 0, 0, 0 );
-*/
 
 /*
             this.light2 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
