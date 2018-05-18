@@ -42,6 +42,11 @@
             this.movables = this.createMovables();
             this.items    = this.createItems();
             this.bots     = this.createBots();
+
+            this.player   = this.createPlayer();
+            this.skybox   = this.setupSkybox();
+
+            // this.setupLights();
         }
 
         /** ************************************************************************************************************
@@ -92,10 +97,12 @@
 
         /** ************************************************************************************************************
         *   Sets up the player for the scene.
+        *
+        *   @return The created player.
         ***************************************************************************************************************/
-        protected createPlayer() : void
+        protected createPlayer() : bz.Player
         {
-            this.player = new bz.Player( 225.0 );
+            return new bz.Player( 225.0 );
         }
 
         /** ************************************************************************************************************
@@ -253,10 +260,12 @@
 
         /** ************************************************************************************************************
         *   Sets up the skybox.
+        *
+        *   @return The created skybox mesh.
         ***************************************************************************************************************/
-        protected setupSkybox() : void
+        protected setupSkybox() : BABYLON.Mesh
         {
-            this.skybox = bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
+            return bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
         }
 
         /** ************************************************************************************************************
