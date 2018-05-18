@@ -7,6 +7,8 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Release all keys when the browser window loses the foxus.
+    *   TODO Auto-Calc mass according to density and volume: Create density value!
+    *
     *   TODO Create collections for all meshes in Level.
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)
@@ -35,7 +37,6 @@
     *   TODO Try fog or smoke?
     *
     *   TODO Smooth camera animation on active camera change?
-    *   TODO Auto-Calc mass according to density and volume: Create density value!
     *
     *   TODO Try 3dsmax 2018/2019 with babylon plugin?
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )

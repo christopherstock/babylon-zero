@@ -104,7 +104,7 @@
         {
             const solidMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
-                'name',
+                'material' + bz.TextureSystem.nextMaterialId++,
                 bz.Main.game.engine.scene.getScene()
             );
 

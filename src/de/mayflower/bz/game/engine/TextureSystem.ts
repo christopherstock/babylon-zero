@@ -4,9 +4,14 @@
 
     /** ****************************************************************************************************************
     *   Offers texture creation and management.
+    *
+    *   TODO unify with MaterialSystem!
     *******************************************************************************************************************/
     export class TextureSystem
     {
+        /** Next ID to assign for material creation. */
+        public              static              nextMaterialId                  :number                     = 0;
+
         /** ************************************************************************************************************
         *   Creates a textured material.
         *
@@ -32,7 +37,7 @@
         {
             const textureMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
-                'name',
+                'material' + TextureSystem.nextMaterialId++,
                 bz.Main.game.engine.scene.getScene()
             );
 
