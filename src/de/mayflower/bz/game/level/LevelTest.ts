@@ -33,7 +33,7 @@
         *
         *   @return All walls of this level.
         ***************************************************************************************************************/
-        protected createWalls() : BABYLON.Mesh[]
+        protected createWalls() : bz.Wall[]
         {
             return [];
         }
@@ -43,7 +43,7 @@
         *
         *   @return All movables of this level.
         ***************************************************************************************************************/
-        protected createMovables() : BABYLON.Mesh[]
+        protected createMovables() : bz.Movable[]
         {
             return [];
         }
@@ -53,7 +53,7 @@
         *
         *   @return All items of this level.
         ***************************************************************************************************************/
-        protected createItems() : BABYLON.Mesh[]
+        protected createItems() : bz.Item[]
         {
             return [];
         }
@@ -63,7 +63,7 @@
         *
         *   @return All bots of this level.
         ***************************************************************************************************************/
-        protected createBots() : BABYLON.Mesh[]
+        protected createBots() : bz.Bot[]
         {
             return [];
         }

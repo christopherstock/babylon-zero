@@ -16,13 +16,13 @@
         protected                           skybox                  :BABYLON.Mesh                       = null;
 
         /** A collection of all walls in this level. */
-        protected       readonly            walls                   :BABYLON.Mesh[]                     = null;
+        protected       readonly            walls                   :bz.Wall[]                          = null;
         /** A collection of all movables in this level. */
-        protected       readonly            movables                :BABYLON.Mesh[]                     = null;
+        protected       readonly            movables                :bz.Movable[]                       = null;
         /** A collection of all items in this level. */
-        protected       readonly            items                   :any[]                              = null;
+        protected       readonly            items                   :bz.Item[]                          = null;
         /** A collection of all bots in this level. */
-        protected       readonly            bots                    :any[]                              = null;
+        protected       readonly            bots                    :bz.Bot[]                           = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom level.
@@ -67,28 +67,28 @@
         *
         *   @return All walls of this level.
         ***************************************************************************************************************/
-        protected abstract createWalls() : BABYLON.Mesh[];
+        protected abstract createWalls() : bz.Wall[];
 
         /** ************************************************************************************************************
         *   Creates and returns all movables this level consists of.
         *
         *   @return All movables of this level.
         ***************************************************************************************************************/
-        protected abstract createMovables() : BABYLON.Mesh[];
+        protected abstract createMovables() : bz.Movable[];
 
         /** ************************************************************************************************************
         *   Creates and returns all items this level consists of.
         *
         *   @return All items of this level.
         ***************************************************************************************************************/
-        protected abstract createItems() : BABYLON.Mesh[];
+        protected abstract createItems() : bz.Item[];
 
         /** ************************************************************************************************************
         *   Creates and returns all bots this level consists of.
         *
         *   @return All bots of this level.
         ***************************************************************************************************************/
-        protected abstract createBots() : BABYLON.Mesh[];
+        protected abstract createBots() : bz.Bot[];
 
         /** ************************************************************************************************************
         *   Sets up the player for the scene.
