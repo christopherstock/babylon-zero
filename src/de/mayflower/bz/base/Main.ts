@@ -6,12 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve global light for the scene??
-    *   TODO Try to create a realistic scene.
-    *   TODO Solve lights. Create lights system.
-    *   TODO Solve shadows?
     *   TODO Try fog or smoke?
-    *
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *
     *   TOOD Try GUI via babylon-gui.

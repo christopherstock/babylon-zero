@@ -352,22 +352,17 @@
             this.lightSpot.specular = new BABYLON.Color3( 1.0, 1.0, 1.0 );
             this.lightSpot.setEnabled( false );
 
-
-
-
-
-
-/*
-            this.light2 = new BABYLON.PointLight( 'omni01', new BABYLON.Vector3( -10.0, 0.0, -10.0 ), this.scene );
-            this.light2.intensity = 1.0;
-            this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.0, 0.0 );
-            this.light2.specular  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
-
-            this.light3 = new BABYLON.PointLight( 'spot01', new BABYLON.Vector3( 10.0,  0.0, 10.0  ), this.scene );
-            this.light3.intensity = 1.0;
-            this.light3.diffuse   = new BABYLON.Color3( 0.0, 0.0, 1.0 );
-            this.light3.specular  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
-*/
+            // point light
+            this.lightPoint = new BABYLON.PointLight
+            (
+                'spot01',
+                new BABYLON.Vector3( 10.0,  10.0, 20.0 ),
+                this.scene
+            );
+            this.lightPoint.intensity = 1.0;
+            this.lightPoint.diffuse   = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+            this.lightPoint.specular  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
+            this.lightSpot.setEnabled( true );
         }
 
         /** ************************************************************************************************************
@@ -375,11 +370,9 @@
         ***************************************************************************************************************/
         private setupShadowGenerator() : void
         {
-/*
-            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.light2 );
+            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.lightSpot );
             this.shadowGenerator1.useExponentialShadowMap = true;
             this.shadowGenerator1.usePoissonSampling      = true;
-*/
         }
 
         /** ************************************************************************************************************
@@ -387,8 +380,6 @@
         ***************************************************************************************************************/
         private setupShadows() : void
         {
-
-
             // set shadows for all movables
             for ( const movable of this.movables )
             {
@@ -400,7 +391,5 @@
             {
                 this.shadowGenerator1.getShadowMap().renderList.push( wall.mesh );
             }
-
-
         }
     }

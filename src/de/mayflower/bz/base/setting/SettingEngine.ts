@@ -40,7 +40,5 @@
         public  static  readonly    CAMERA_FREE_ELLIPSOID                   :BABYLON.Vector3    = new BABYLON.Vector3( 2.0, 2.0, 2.0 );
 
         /** Specifies if shadow rendering shall be enabled. */
-        public  static  readonly    ENABLE_SHADOWS                          :boolean            = false;
-
-
+        public  static  readonly    ENABLE_SHADOWS                          :boolean            = true;
     }

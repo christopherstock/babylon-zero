@@ -218,7 +218,7 @@
                     // movable crate - small
                     bz.MeshFactory.createBox
                     (
-                        new BABYLON.Vector3( 10.0,  0.0, 10.0   ),
+                        new BABYLON.Vector3( 12.0, 0.0, 12.0   ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                         new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
