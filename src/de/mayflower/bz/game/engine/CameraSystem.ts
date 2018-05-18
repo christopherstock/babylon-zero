@@ -170,10 +170,10 @@
             this.freeDebugCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
             this.freeDebugCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
 
-            this.freeDebugCamera.keysUp.push(    bz.KeyCodes.KEY_UP    );
-            this.freeDebugCamera.keysDown.push(  bz.KeyCodes.KEY_DOWN  );
-            this.freeDebugCamera.keysLeft.push(  bz.KeyCodes.KEY_LEFT  );
-            this.freeDebugCamera.keysRight.push( bz.KeyCodes.KEY_RIGHT );
+            this.freeDebugCamera.keysUp.push(    38 );
+            this.freeDebugCamera.keysDown.push(  40 );
+            this.freeDebugCamera.keysLeft.push(  37 );
+            this.freeDebugCamera.keysRight.push( 39 );
         }
 
         /** ************************************************************************************************************

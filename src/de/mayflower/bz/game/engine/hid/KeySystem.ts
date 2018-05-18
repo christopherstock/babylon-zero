@@ -30,7 +30,7 @@
         ***************************************************************************************************************/
         public onKeyDown=( event:Event ) : void  =>
         {
-            const keyCode:number = ( event as KeyboardEvent ).which; // TODO use 'code' instead?
+            const keyCode:string = ( event as KeyboardEvent ).code;
 
             if ( !this.keysNeedRelease[ keyCode ] ) {
                 this.keysPressed[ keyCode ] = true;
@@ -46,7 +46,7 @@
         ***************************************************************************************************************/
         public onKeyUp=( event:Event ) : void =>
         {
-            const keyCode:number = ( event as KeyboardEvent ).which; // TODO use 'code' instead?
+            const keyCode:string = ( event as KeyboardEvent ).code;
 
             this.keysPressed[     keyCode ] = false;
             this.keysNeedRelease[ keyCode ] = false;
@@ -62,7 +62,7 @@
         *   @return         <code>true</code> if this key is currently pressed.
         *                   Otherwise <code>false</code>.
         ***************************************************************************************************************/
-        public isPressed( keyCode:number ) : boolean
+        public isPressed( keyCode:string ) : boolean
         {
             return this.keysPressed[ keyCode ];
         }
@@ -72,7 +72,7 @@
         *
         *   @param keyCode The keyCode of the key to mark as 'needs key release'.
         ***************************************************************************************************************/
-        public setNeedsRelease( keyCode:number ) : void
+        public setNeedsRelease( keyCode:string ) : void
         {
             this.keysNeedRelease[ keyCode ] = true;
             this.keysPressed[     keyCode ] = false;

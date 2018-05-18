@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Change key system which to code (string).
-    *
     *   TODO Remove all ids for meshes, textures and materials? (Auto-Counters?) Check reasons for ids in lib code!
     *   TODO Create collections for all meshes in Level.
     *

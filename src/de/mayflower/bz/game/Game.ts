@@ -54,9 +54,9 @@
             bz.Debug.init.log( 'Assign controls to camera' );
             this.engine.scene.assignControls();
 
-            // launch render loop ?? required ??
+            // launch render
             bz.Debug.init.log( 'Starting the render loop.' );
-            this.engine.babylonEngine.runRenderLoop( bz.Main.game.render );
+            this.engine.babylonEngine.runRenderLoop( this.render );
         };
 
         /** ************************************************************************************************************
