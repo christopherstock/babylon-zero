@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Represents the character being controlled by the user.
     *******************************************************************************************************************/
-    export class Player
+    export class Player extends bz.GameObject
     {
         /** The player's current rotation on axis Y. */
         protected                           rotY                    :number                             = 270.0;
@@ -35,6 +35,8 @@
         ***************************************************************************************************************/
         public constructor( rotY:number )
         {
+            super();
+
             this.rotY = rotY;
 
             this.body = new bz.Mesh

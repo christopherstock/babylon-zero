@@ -6,12 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO make game objects (static wall, non-static movable, player etc.)
-    *   TODO Create game classes for all game objects (all with field mesh etc.)!
+    *   TODO Fill game classes with according meshes etc. and fill level collections.
     *
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create class for compound object creation ("createTree").
     *   TODO All volume calculations to MathUtil functions.
+    *   TODO Create a football.
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
@@ -25,6 +25,8 @@
     *   TODO Improved triangle / polygon drawing by xyz vertices?
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Minor jitter bug improvements on colliding walls?
+    *
+    *   TODO Solve pickable items.
     *
     *   TODO Try to create a realistic scene.
     *   TODO Solve lights. Create lights system.
