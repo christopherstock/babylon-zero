@@ -54,6 +54,9 @@
             bz.Debug.init.log( 'Assign controls to camera' );
             this.engine.scene.assignControls();
 
+            // set the window blur handler
+            this.engine.initWindowBlurHandler();
+
             // launch render
             bz.Debug.init.log( 'Starting the render loop.' );
             this.engine.babylonEngine.runRenderLoop( this.render );

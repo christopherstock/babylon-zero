@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Release all keys when the browser window loses the foxus.
     *   TODO Auto-Calc mass according to density and volume: Create density value!
     *
     *   TODO Create collections for all meshes in Level.

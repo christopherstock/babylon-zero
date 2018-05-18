@@ -84,6 +84,8 @@
         ***************************************************************************************************************/
         public releaseAllKeys() : void
         {
+            bz.Debug.key.log( 'releasing all keys' );
+
             this.keysPressed = [];
         }
     }

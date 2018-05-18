@@ -64,4 +64,19 @@
             this.sprite = new bz.Sprite();
             this.sprite.init();
         }
+
+        /***************************************************************************************************************
+        *   Inits the window blur handler.
+        ***************************************************************************************************************/
+        public initWindowBlurHandler() : void
+        {
+            bz.Debug.init.log( 'Initing window blur handler' );
+
+            window.onblur = ( event:Event ) : void =>
+            {
+                bz.Debug.canvas.log( 'Detected window focus lost. Releasing all keys.' );
+
+                this.keySystem.releaseAllKeys();
+            };
+        }
     }
