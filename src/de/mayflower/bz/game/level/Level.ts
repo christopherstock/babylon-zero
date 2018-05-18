@@ -29,12 +29,12 @@
 
         /** A hemispheric light. */
         private                             lightHemispheric        :BABYLON.HemisphericLight           = null;
-        /** A spot light. */
-        private                             lightSpot               :BABYLON.SpotLight                  = null;
         /** A directional light. */
         private                             lightDirectional        :BABYLON.DirectionalLight           = null;
+        /** A spot light. */
+        private                             lightSpot               :BABYLON.SpotLight                  = null;
         /** A point light. */
-        private                             pointDirectional        :BABYLON.PointLight                 = null;
+        private                             lightPoint              :BABYLON.PointLight                 = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom level.
@@ -338,20 +338,23 @@
             this.lightDirectional.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
             this.lightDirectional.setEnabled( false );
 
+            // spot light
+            this.lightSpot = new BABYLON.SpotLight
+            (
+                'light2',
+                new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
+                new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
+                bz.MathUtil.degreesToRad( 30.0 ),
+                2,
+                this.scene
+            );
+            this.lightSpot.diffuse  = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+            this.lightSpot.specular = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+            this.lightSpot.setEnabled( false );
 
 
 
 
-
-
-
-/*
-            this.light2 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
-            this.light2.intensity = 1.0;
-            this.light2.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
-            this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.5, 0.0 );
-            this.light2.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
-*/
 
 
 /*
