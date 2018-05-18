@@ -37,18 +37,21 @@
 
         /** The RGB color 'white' with full opacity. */
         public  static  readonly    COLOR_WHITE                                 :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-        /** The RGBA color 'transparent'. */
-        public  static  readonly    COLOR_TRANSPARENT                           :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
-        /** The RGBA color 'dark grey' with full opacity. */
-        public  static  readonly    COLOR_DARK_GREY_OPAQUE                      :BABYLON.Color4     = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
-        /** The RGBA color 'mayflower orange' with full opacity. */
-        public  static  readonly    COLOR_ORANGE_MAYFLOWER_OPAQUE               :BABYLON.Color4     = new BABYLON.Color4( 0.92, 0.45, 0.01, 1.0 );
-        /** The RGBA color 'red' with full opacity. */
-        public  static  readonly    COLOR_RED_OPAQUE                            :BABYLON.Color4     = new BABYLON.Color4( 1.0, 0.0, 0.0, 1.0 );
-        /** The RGBA color 'green' with full opacity. */
-        public  static  readonly    COLOR_GREEN_OPAQUE                          :BABYLON.Color4     = new BABYLON.Color4( 0.0, 1.0, 0.0, 1.0 );
-        /** The RGBA color 'blue' with full opacity. */
-        public  static  readonly    COLOR_BLUE_OPAQUE                           :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 1.0, 1.0 );
         /** The RGB color 'black' with full opacity. */
         public  static  readonly    COLOR_BLACK                                 :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 0.0 );
+
+        /** The RGBA color 'transparent'. */
+        public  static  readonly    COLOR_TRANSPARENT_RGBA                      :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
+        /** The RGBA color 'dark grey' with full opacity. */
+        public  static  readonly    COLOR_DARK_GREY_OPAQUE_RGBA                 :BABYLON.Color4     = new BABYLON.Color4( 0.33, 0.33, 0.33, 1.0 );
+        /** The RGBA color 'mayflower orange' with full opacity. */
+        public  static  readonly    COLOR_ORANGE_MAYFLOWER_OPAQUE_RGBA          :BABYLON.Color4     = new BABYLON.Color4( 0.92, 0.45, 0.01, 1.0 );
+        /** The RGBA color 'red' with full opacity. */
+        public  static  readonly    COLOR_RED_OPAQUE_RGBA                       :BABYLON.Color4     = new BABYLON.Color4( 1.0, 0.0, 0.0, 1.0 );
+        /** The RGBA color 'green' with full opacity. */
+        public  static  readonly    COLOR_GREEN_OPAQUE_RGBA                     :BABYLON.Color4     = new BABYLON.Color4( 0.0, 1.0, 0.0, 1.0 );
+        /** The RGBA color 'blue' with full opacity. */
+        public  static  readonly    COLOR_BLUE_OPAQUE_RGBA                      :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 1.0, 1.0 );
+        /** The RGBA color 'black' with full opacity. */
+        public  static  readonly    COLOR_BLACK_OPAQUE_RGBA                     :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 );
     }

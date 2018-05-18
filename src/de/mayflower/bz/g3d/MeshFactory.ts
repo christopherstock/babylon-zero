@@ -522,12 +522,13 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh.
         *
+        *   @param opacity         The alpha value for the skybox texture.
         *   @param cubeTextureName The name of the folder that contains the skybox.
         *   @param scene           The scene where this mesh will be applied.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSkyBox( cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBox( opacity:number, cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
             const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
 
@@ -543,8 +544,8 @@
             skyboxMaterial.specularColor = bz.SettingGame.COLOR_BLACK;
             skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
 
-            skyboxMaterial.alpha = 1.0;
-            skyboxMaterial.disableLighting = false;
+            skyboxMaterial.alpha = opacity;
+            skyboxMaterial.disableLighting = true;
 
             const skybox:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox(
                 'box' + MeshFactory.nextBoxId++,

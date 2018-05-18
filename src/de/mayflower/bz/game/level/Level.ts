@@ -24,15 +24,17 @@
         /** A collection of all bots in this level. */
         protected       readonly            bots                    :bz.Bot[]                           = null;
 
-
-        /** Testwise shadow generator. */
+        /** A shadow generator for one specific light. */
         protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
-        /** Test light 1. */
-        private                             light1                  :BABYLON.DirectionalLight           = null;
-        /** Test light 2. */
-        private                             light2                  :BABYLON.DirectionalLight           = null;
-        /** Test light 3. */
-        private                             light3                  :BABYLON.Light                      = null;
+
+        /** A hemispheric light. */
+        private                             lightHemispheric        :BABYLON.HemisphericLight           = null;
+        /** A spot light. */
+        private                             lightSpot               :BABYLON.SpotLight                  = null;
+        /** A directional light. */
+        private                             lightDirectional        :BABYLON.DirectionalLight           = null;
+        /** A point light. */
+        private                             pointDirectional        :BABYLON.PointLight                 = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom level.
@@ -239,7 +241,7 @@
                 new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingGame.COLOR_RED_OPAQUE,
+                bz.SettingGame.COLOR_RED_OPAQUE_RGBA,
                 this.scene
             );
             // axis y
@@ -249,7 +251,7 @@
                 new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingGame.COLOR_GREEN_OPAQUE,
+                bz.SettingGame.COLOR_GREEN_OPAQUE_RGBA,
                 this.scene
             );
             // axis z
@@ -259,7 +261,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingGame.COLOR_BLUE_OPAQUE,
+                bz.SettingGame.COLOR_BLUE_OPAQUE_RGBA,
                 this.scene
             );
         }
@@ -277,7 +279,7 @@
         ***************************************************************************************************************/
         private setupSkybox() : void
         {
-            this.skybox = bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
+            this.skybox = bz.MeshFactory.createSkyBox( 0.5, 'bluesky', this.scene );
         }
 
         /** ************************************************************************************************************
@@ -354,9 +356,11 @@
         ***************************************************************************************************************/
         private setupShadowGenerator() : void
         {
+/*
             this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.light2 );
             this.shadowGenerator1.useExponentialShadowMap = true;
             this.shadowGenerator1.usePoissonSampling      = true;
+*/
         }
 
         /** ************************************************************************************************************
