@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Represents a custom level set.
     *******************************************************************************************************************/
-    export class Level
+    export abstract class Level
     {
         /** The camera system. */
         public                              cameraSystem            :bz.CameraSystem                    = null;
@@ -14,6 +14,15 @@
         protected       readonly            scene                   :BABYLON.Scene                      = null;
         /** The skybox that surrounds the whole level. */
         protected                           skybox                  :BABYLON.Mesh                       = null;
+
+        /** A collection of all walls in this level. */
+        protected       readonly            walls                   :BABYLON.Mesh[]                     = null;
+        /** A collection of all movables in this level. */
+        protected       readonly            movables                :BABYLON.Mesh[]                     = null;
+        /** A collection of all items in this level. */
+        protected       readonly            items                   :any[]                              = null;
+        /** A collection of all bots in this level. */
+        protected       readonly            bots                    :any[]                              = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom level.
@@ -28,7 +37,40 @@
             {
                 this.createTestAxis();
             }
+
+            this.walls    = this.createWalls();
+            this.movables = this.createMovables();
+            this.items    = this.createItems();
+            this.bots     = this.createBots();
         }
+
+        /** ************************************************************************************************************
+        *   Creates and returns all walls this level consists of.
+        *
+        *   @return All walls of this level.
+        ***************************************************************************************************************/
+        protected abstract createWalls() : BABYLON.Mesh[];
+
+        /** ************************************************************************************************************
+        *   Creates and returns all movables this level consists of.
+        *
+        *   @return All movables of this level.
+        ***************************************************************************************************************/
+        protected abstract createMovables() : BABYLON.Mesh[];
+
+        /** ************************************************************************************************************
+        *   Creates and returns all items this level consists of.
+        *
+        *   @return All items of this level.
+        ***************************************************************************************************************/
+        protected abstract createItems() : BABYLON.Mesh[];
+
+        /** ************************************************************************************************************
+        *   Creates and returns all bots this level consists of.
+        *
+        *   @return All bots of this level.
+        ***************************************************************************************************************/
+        protected abstract createBots() : BABYLON.Mesh[];
 
         /** ************************************************************************************************************
         *   Resets this level.

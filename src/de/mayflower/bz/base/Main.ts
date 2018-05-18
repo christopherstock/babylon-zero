@@ -6,9 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create collections for all meshes in Level.
-    *
     *   TODO make game objects (static wall, non-static movable, player etc.)
+    *   TODO Create game classes for all game objects (all with field mesh etc.)!
+    *
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create class for compound object creation ("createTree").
     *   TODO All volume calculations to MathUtil functions.
