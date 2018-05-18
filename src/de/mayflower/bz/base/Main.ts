@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Remove all ids for meshes, textures and materials? (Auto-Counters?) Check reasons for ids in lib code!
+    *   TODO Release all keys when the browser window loses the foxus.
     *   TODO Create collections for all meshes in Level.
     *
     *   TODO make game objects (static wall, non-static movable, player etc.)

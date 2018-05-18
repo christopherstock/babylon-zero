@@ -82,7 +82,6 @@
         private setupGround() : void
         {
             bz.MeshFactory.createBox(
-                'Ground1',
                 new BABYLON.Vector3( -50.0,   -4.4, -49.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,  100.0 ),
@@ -97,7 +96,6 @@
             );
 
             bz.MeshFactory.createBox(
-                'Ground2',
                 new BABYLON.Vector3( -50.0,   -26.0, -143.5 ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),
@@ -112,7 +110,6 @@
             );
 
             bz.MeshFactory.createBox(
-                'Ground3',
                 new BABYLON.Vector3( -50.0,   -48.0, -235.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 100.0, 1.0,   100.0  ),

@@ -41,7 +41,6 @@
             (
                 bz.MeshFactory.createCylinder
                 (
-                    'playerBody',
                     new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
                     bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
                     ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
@@ -62,7 +61,6 @@
             (
                 bz.MeshFactory.createSphere
                 (
-                    'playerHead',
                     new BABYLON.Vector3
                     (
                         0.0,

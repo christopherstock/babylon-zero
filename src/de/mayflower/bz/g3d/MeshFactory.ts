@@ -18,10 +18,22 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
+        /** Next ID to assign for box creation. */
+        private             static              nextBoxId               :number                     = 0;
+        /** Next ID to assign for cylinder creation. */
+        private             static              nextCylinderId          :number                     = 0;
+        /** Next ID to assign for sphere creation. */
+        private             static              nextSphereId            :number                     = 0;
+        /** Next ID to assign for plane creation. */
+        private             static              nextPlaneId             :number                     = 0;
+        /** Next ID to assign for line creation. */
+        private             static              nextLineId              :number                     = 0;
+        /** Next ID to assign for polygon creation. */
+        private             static              nextPolygonId           :number                     = 0;
+
         /** ************************************************************************************************************
         *   Creates a box mesh.
         *
-        *   @param id              The internal babylon.JS mesh identifier.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param size            The dimensions of this mesh for all axis.
@@ -38,7 +50,6 @@
         ***************************************************************************************************************/
         public static createBox
         (
-            id              :string,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
             size            :BABYLON.Vector3,
@@ -95,7 +106,7 @@
 
             const box:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
             (
-                id,
+                'box' + MeshFactory.nextBoxId++,
                 {
                     width:  size.x,
                     height: size.y,
@@ -132,7 +143,6 @@
         /** ************************************************************************************************************
         *   Creates a cylinder mesh.
         *
-        *   @param id              The internal babylon.JS mesh identifier.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param diameter        The diameter of the cylinder.
@@ -150,7 +160,6 @@
         ***************************************************************************************************************/
         public static createCylinder
         (
-            id              :string,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
             diameter        :number,
@@ -195,7 +204,7 @@
 
             const cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
             (
-                id,
+                'cylinder' + MeshFactory.nextCylinderId++,
                 {
                     diameter: diameter,
                     height:   height,
@@ -231,7 +240,6 @@
         /** ************************************************************************************************************
         *   Creates a sphere.
         *
-        *   @param id              The internal babylon.JS mesh identifier.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param diameter        The diameter of the sphere.
@@ -248,7 +256,6 @@
         ***************************************************************************************************************/
         public static createSphere
         (
-            id              :string,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
             diameter        :number,
@@ -265,7 +272,7 @@
         {
             const sphere:BABYLON.Mesh = BABYLON.MeshBuilder.CreateSphere
             (
-                id,
+                'sphere' + MeshFactory.nextSphereId++,
                 {
                     diameter: diameter,
                 },
@@ -298,7 +305,6 @@
         /** ************************************************************************************************************
         *   Creates a plane mesh.
         *
-        *   @param id              The internal babylon.JS mesh identifier.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param width           Width  of the plane.
@@ -316,7 +322,6 @@
         ***************************************************************************************************************/
         public static createPlane
         (
-            id              :string,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
             width           :number,
@@ -337,7 +342,7 @@
         {
             const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
             (
-                id,
+                'plane' + MeshFactory.nextPlaneId++,
                 {
                     width:  width,
                     height: height,
@@ -371,7 +376,6 @@
         /** ************************************************************************************************************
         *   Creates a line mesh.
         *
-        *   @param id              The internal babylon.JS mesh identifier.
         *   @param start           Start point of the line mesh.
         *   @param end             End point of the line mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
@@ -384,7 +388,6 @@
         ***************************************************************************************************************/
         public static createLine
         (
-            id              :string,
             start           :BABYLON.Vector3,
             end             :BABYLON.Vector3,
             pivotAnchor     :bz.PivotAnchor,
@@ -399,7 +402,7 @@
         {
             const line:BABYLON.Mesh = BABYLON.MeshBuilder.CreateLines
             (
-                id,
+                'line' + MeshFactory.nextLineId++,
                 {
                     points:
                     [
@@ -432,7 +435,6 @@
         /** ************************************************************************************************************
         *   Creates a polygon mesh.
         *
-        *   @param id              The internal babylon.JS mesh identifier.
         *   @param points          All corner points for this polygon to create.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param rotation        The initial rotation for all axis.
@@ -444,8 +446,6 @@
         ***************************************************************************************************************/
         public static createPolygon
         (
-            id              :string,
-
             points          :BABYLON.Vector3[],
 
             pivotAnchor     :bz.PivotAnchor,
@@ -458,9 +458,9 @@
         )
         : BABYLON.Mesh
         {
-            const triangle:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
+            const polygon:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
             (
-                id,
+                'polygon' + MeshFactory.nextPolygonId++,
                 {
                     shape: points,
 /*
@@ -471,6 +471,7 @@
                         color,
                     ],
 */
+                    // TODO to constant!
                     depth: 0.001,
                 },
                 scene
@@ -478,7 +479,7 @@
 
             MeshFactory.setPositionAndPivot
             (
-                triangle,
+                polygon,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 pivotAnchor,
                 0.0,
@@ -498,7 +499,7 @@
 
             return MeshFactory.decorateMesh
             (
-                triangle,
+                polygon,
                 rotation,
                 material,
                 scene,
@@ -531,7 +532,11 @@
             skyboxMaterial.alpha = 1.0;
             // skyboxMaterial.disableLighting = true;
 
-            const skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'skyBox', 1000.0, scene );
+            const skybox:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox(
+                'box' + MeshFactory.nextBoxId++,
+                { size: 1000.0 },
+                scene
+            );
             skybox.infiniteDistance = true;
             skybox.material         = skyboxMaterial;
 

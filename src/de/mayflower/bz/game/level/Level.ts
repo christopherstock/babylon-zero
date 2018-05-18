@@ -66,7 +66,6 @@
             // origin
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -83,7 +82,6 @@
             // x test
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -98,7 +96,6 @@
             );
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 2.5,  0.25, 0.25   ),
@@ -115,7 +112,6 @@
             // y test
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -130,7 +126,6 @@
             );
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 2.5, 0.25   ),
@@ -147,7 +142,6 @@
             // z test
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
@@ -162,7 +156,6 @@
             );
             bz.MeshFactory.createBox
             (
-                'Ground1',
                 new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
                 bz.PivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 2.5   ),
@@ -187,7 +180,6 @@
             // axis x
             bz.MeshFactory.createLine
             (
-                'axisX',
                 new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                 new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
@@ -199,7 +191,6 @@
             // axis y
             bz.MeshFactory.createLine
             (
-                'axisY',
                 new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                 new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
                 bz.PivotAnchor.LOWEST_XYZ,
@@ -211,7 +202,6 @@
             // axis z
             bz.MeshFactory.createLine
             (
-                'axisZ',
                 new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                 new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
                 bz.PivotAnchor.LOWEST_XYZ,
