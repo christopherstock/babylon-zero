@@ -7,7 +7,7 @@
     export class Movable extends bz.GameObject
     {
         /** The movable mesh. */
-        private                             mesh                    :BABYLON.Mesh                           = null;
+        public                          mesh                    :BABYLON.Mesh                           = null;
 
         /** ************************************************************************************************************
         *   Creates a new movable instance.

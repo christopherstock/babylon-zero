@@ -24,12 +24,22 @@
         /** A collection of all bots in this level. */
         protected       readonly            bots                    :bz.Bot[]                           = null;
 
+
+        /** Testwise shadow generator. */
+        protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
+        /** Test light 1. */
+        private                             light1                  :BABYLON.DirectionalLight           = null;
+        /** Test light 2. */
+        private                             light2                  :BABYLON.PointLight                 = null;
+        /** Test light 3. */
+        private                             light3                  :BABYLON.PointLight                 = null;
+
         /** ************************************************************************************************************
         *   Creates a new custom level.
         *
         *   @param scene The babylon.JS scene reference.
         ***************************************************************************************************************/
-        constructor( scene:BABYLON.Scene )
+        protected constructor( scene:BABYLON.Scene )
         {
             this.scene = scene;
 
@@ -43,10 +53,13 @@
             this.items    = this.createItems();
             this.bots     = this.createBots();
 
-            this.player   = this.createPlayer();
-            this.skybox   = this.setupSkybox();
+            this.setupPlayer();
+            this.setupSkybox();
 
-            // this.setupLights();
+            this.setupLights();
+            this.setupShadowGenerator();
+
+            this.setupShadows();
         }
 
         /** ************************************************************************************************************
@@ -94,16 +107,6 @@
         *   @return All bots of this level.
         ***************************************************************************************************************/
         protected abstract createBots() : bz.Bot[];
-
-        /** ************************************************************************************************************
-        *   Sets up the player for the scene.
-        *
-        *   @return The created player.
-        ***************************************************************************************************************/
-        protected createPlayer() : bz.Player
-        {
-            return new bz.Player( 225.0 );
-        }
 
         /** ************************************************************************************************************
         *   Sets up the axis orientation test points.
@@ -259,13 +262,19 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up the skybox.
-        *
-        *   @return The created skybox mesh.
+        *   Sets up the player for the scene.
         ***************************************************************************************************************/
-        protected setupSkybox() : BABYLON.Mesh
+        private setupPlayer() : void
         {
-            return bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
+            this.player = new bz.Player( 225.0 );
+        }
+
+        /** ************************************************************************************************************
+        *   Sets up the skybox.
+        ***************************************************************************************************************/
+        private setupSkybox() : void
+        {
+            this.skybox = bz.MeshFactory.createSkyBox( 'bluesky', this.scene );
         }
 
         /** ************************************************************************************************************
@@ -290,5 +299,62 @@
 
             // set active scene camera
             this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
+        }
+
+        /** ************************************************************************************************************
+        *   Sets up all lights.
+        ***************************************************************************************************************/
+        private setupLights() : void
+        {
+            // setup lights
+            this.light1 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
+            this.light1.intensity = 1.0;
+            this.light1.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
+
+            this.light1.diffuse   = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+            this.light1.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+
+
+            this.light2 = new BABYLON.PointLight( 'omni01', new BABYLON.Vector3( -10.0, 0.0, -10.0 ), this.scene );
+            this.light2.intensity = 1.0;
+            this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.0, 0.0 );
+            this.light2.specular  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
+
+            this.light3 = new BABYLON.PointLight( 'spot01', new BABYLON.Vector3( 10.0,  0.0, 10.0  ), this.scene );
+            this.light3.intensity = 1.0;
+            this.light3.diffuse   = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+            this.light3.specular  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+        }
+
+        /** ************************************************************************************************************
+        *   Sets up all shadow generators.
+        ***************************************************************************************************************/
+        private setupShadowGenerator() : void
+        {
+            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.light1 );
+            this.shadowGenerator1.useExponentialShadowMap = true;
+            this.shadowGenerator1.usePoissonSampling      = true;
+        }
+
+        /** ************************************************************************************************************
+        *   Sets up shadows for all meshes.
+        ***************************************************************************************************************/
+        private setupShadows() : void
+        {
+
+
+            // set shadows for all movables
+            for ( const movable of this.movables )
+            {
+                this.shadowGenerator1.getShadowMap().renderList.push( movable.mesh );
+            }
+
+            // set shadows for all walls
+            for ( const wall of this.walls )
+            {
+                this.shadowGenerator1.getShadowMap().renderList.push( wall.mesh );
+            }
+
+
         }
     }

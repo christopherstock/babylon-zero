@@ -10,16 +10,6 @@
         /** Number of spheres to spawn into this test level. */
         private     static              SPHERES_TO_SPAWN            :number                         = 15; // 250
 
-        /** Test light 1. */
-        private                         light1                      :BABYLON.DirectionalLight       = null;
-        /** Test light 2. */
-        private                         light2                      :BABYLON.PointLight             = null;
-        /** Test light 3. */
-        private                         light3                      :BABYLON.PointLight             = null;
-
-        /** The testwise shadow generator. */
-        private                         shadowGenerator1            :BABYLON.ShadowGenerator        = null;
-
         /** ************************************************************************************************************
         *   Sets up the 'bunny' level.
         *
@@ -29,15 +19,9 @@
         {
             super( scene );
 
-            this.createPlayer();
-
-            this.setupLights();
-            this.setupShadows();
             this.setupGround();
-            this.setupCollidableBox();
             this.setupSpheres();
             this.setupBox0();
-            // this.setupCompound();
             this.setupGlassPanes();
             this.setupSprites();
             this.importMesh();
@@ -81,39 +65,6 @@
         protected createBots() : bz.Bot[]
         {
             return [];
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up all lights.
-        ***************************************************************************************************************/
-        private setupLights() : void
-        {
-            // setup lights
-            this.light1 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( 0.2, -1, 0 ), this.scene );
-            this.light1.intensity = 1.0;
-            this.light1.position  = new BABYLON.Vector3( 0, 80, 0 );
-
-            this.light2 = new BABYLON.PointLight( 'omni01', new BABYLON.Vector3( -10.0, 0.0, -10.0 ), this.scene );
-            this.light2.intensity = 1.0;
-            this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.0, 0.0 );
-            this.light2.specular  = new BABYLON.Color3( 1.0, 0.0, 0.0 );
-
-            this.light3 = new BABYLON.PointLight( 'spot01', new BABYLON.Vector3( 10.0,  0.0, 10.0  ), this.scene );
-            this.light3.intensity = 1.0;
-            this.light3.diffuse   = new BABYLON.Color3( 0.0, 0.0, 1.0 );
-            this.light3.specular  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up all shadows.
-        ***************************************************************************************************************/
-        private setupShadows() : void
-        {
-            // setup shadows
-            this.shadowGenerator1                         = new BABYLON.ShadowGenerator( 2048, this.light1 );
-            // this.shadowGenerator1.useVarianceShadowMap    = true; // deprecated!
-            this.shadowGenerator1.useExponentialShadowMap = true;
-            this.shadowGenerator1.usePoissonSampling      = true;
         }
 
         /** ************************************************************************************************************
@@ -232,17 +183,6 @@
                     this.scene
                 );
             }
-/*
-            for (index = 0; index < 10; index++)
-            {
-                spheres[index].setPhysicsLinkWith
-                (
-                    spheres[index + 1],
-                    new BABYLON.Vector3( 0, 0.5, 0 ),
-                    new BABYLON.Vector3( 0, -0.5, 0 )
-                );
-            }
-*/
         }
 
         /** ************************************************************************************************************
@@ -391,29 +331,6 @@
 
             // Scene.shadowGenerator.getShadowMap().renderList.push( glassPane1 );
             // Scene.shadowGenerator.getShadowMap().renderList.push( glassPane2 );
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up a collidable box.
-        ***************************************************************************************************************/
-        private setupCollidableBox() : void
-        {
-            const solidBox:BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'box1', 1.0, this.scene );
-
-            solidBox.scaling         = new BABYLON.Vector3( 3.0,  3.0,  3.0   );
-            solidBox.position        = new BABYLON.Vector3( 45.0, -2.0, -45.0 );
-            solidBox.checkCollisions = true;
-
-            solidBox.material = bz.TextureSystem.createTexture
-            (
-                'amiga.jpg',
-                1.0,
-                1.0,
-                1.0,
-                false,
-                bz.SettingGame.COLOR_WHITE,
-                bz.TextureHasAlpha.NO
-            );
         }
 
         /** ************************************************************************************************************

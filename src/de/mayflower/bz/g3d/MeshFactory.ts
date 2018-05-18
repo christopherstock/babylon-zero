@@ -19,7 +19,7 @@
     export class MeshFactory
     {
         /** Next ID to assign for box creation. */
-        private             static              nextBoxId               :number                     = 0;
+        public              static              nextBoxId               :number                     = 0;
         /** Next ID to assign for cylinder creation. */
         private             static              nextCylinderId          :number                     = 0;
         /** Next ID to assign for sphere creation. */
@@ -578,7 +578,7 @@
         : BABYLON.Mesh
         {
             mesh.material       = material;
-            mesh.receiveShadows = false;
+            mesh.receiveShadows = true;
 
             bz.Mesh.setPhysic( mesh, volume, physic, physicsImpostor, scene );
 
