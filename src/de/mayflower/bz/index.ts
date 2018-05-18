@@ -28,7 +28,7 @@
     export * from './game/engine/hid/PointerSystem';
 
     export * from './game/engine/physic/Physic';
-    export * from './game/engine/physic/PhysicProps';
+    export * from './game/engine/physic/PhysicSet';
 
     export * from './game/level/Level';
     export * from './game/level/LevelBunny';

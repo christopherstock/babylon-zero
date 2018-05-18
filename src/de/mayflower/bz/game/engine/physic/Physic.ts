@@ -4,6 +4,8 @@
 
     /** ****************************************************************************************************************
     *   The general physic state of a mesh.
+    *
+    *   TODO to PhysicSet!
     *******************************************************************************************************************/
     export enum PhysicState
     {
@@ -20,21 +22,59 @@
     *******************************************************************************************************************/
     export class Physic
     {
-        /** The general physics state. */
+        /** The general physic state. TODO put state to physicSet !! */
         public                      state                           :bz.PhysicState                     = null;
 
-        /** Physical attributes. */
-        public                      params                          :BABYLON.PhysicsImpostorParameters  = null;
+        /** The physical properties. TODO revise name? */
+        public                      props                           :bz.PhysicSet                     = null;
 
         /** ************************************************************************************************************
         *   Creates a new physical setting.
         *
-        *   @param state  The physical state for this setting.
-        *   @param params The physical params for this setting.
+        *   @param state The physical state for this setting.
+        *   @param props The physical properties for this setting.
         ***************************************************************************************************************/
-        constructor( state:bz.PhysicState, params:BABYLON.PhysicsImpostorParameters )
+        constructor( state:bz.PhysicState, props:bz.PhysicSet )
         {
-            this.state  = state;
-            this.params = params;
+            this.state = state;
+            this.props = props;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates the physical impostor parameters for these physic set.
+        *
+        *   @param volume The volume of the mesh to create the impostor parameters for.
+        *
+        *   @return The impostor parameters for these physical settings.
+        ***************************************************************************************************************/
+        public createFromDensity( volume:number ) : BABYLON.PhysicsImpostorParameters
+        {
+            let mass:number = 0.0;
+
+            switch ( this.state )
+            {
+                case PhysicState.STATIC:
+                {
+                    mass = 0.0;
+                    break;
+                }
+
+                case PhysicState.MOVABLE:
+                {
+                    mass = 1.0;
+                    break;
+                }
+
+                case PhysicState.NONE:
+                {
+                    break;
+                }
+            }
+
+            return {
+                mass:        mass,
+                friction:    this.props.friction,
+                restitution: this.props.restitution
+            };
         }
     }

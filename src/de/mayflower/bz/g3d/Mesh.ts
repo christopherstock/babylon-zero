@@ -115,22 +115,6 @@
             switch ( physic.state )
             {
                 case bz.PhysicState.STATIC:
-                {
-                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-
-                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        mesh,
-                        impostor,
-                        bz.PhysicProps.STATIC,
-                        scene
-                    );
-
-                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-
-                    break;
-                }
-
                 case bz.PhysicState.MOVABLE:
                 {
                     mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
@@ -139,7 +123,7 @@
                     (
                         mesh,
                         impostor,
-                        physic.params,
+                        physic.createFromDensity( 1.0 ),
                         scene
                     );
 
