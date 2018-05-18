@@ -83,7 +83,7 @@
                     textureV,
                     materialAlpha,
                     false,
-                    bz.SettingGame.COLOR_WHITE,
+                    bz.SettingGame.COLOR_BLACK,
                     textureHasAlpha
                 );
             }
@@ -109,7 +109,7 @@
             );
 
             solidMaterial.diffuseColor    = color;
-            solidMaterial.emissiveColor   = color;
+            solidMaterial.emissiveColor   = bz.SettingGame.COLOR_BLACK;
             solidMaterial.backFaceCulling = false;
 
             return solidMaterial;

@@ -49,4 +49,6 @@
         public  static  readonly    COLOR_GREEN_OPAQUE                          :BABYLON.Color4     = new BABYLON.Color4( 0.0, 1.0, 0.0, 1.0 );
         /** The RGBA color 'blue' with full opacity. */
         public  static  readonly    COLOR_BLUE_OPAQUE                           :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 1.0, 1.0 );
+        /** The RGB color 'black' with full opacity. */
+        public  static  readonly    COLOR_BLACK                                 :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 0.0 );
     }

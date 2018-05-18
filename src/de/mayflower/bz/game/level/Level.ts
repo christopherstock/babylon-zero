@@ -30,9 +30,9 @@
         /** Test light 1. */
         private                             light1                  :BABYLON.DirectionalLight           = null;
         /** Test light 2. */
-        private                             light2                  :BABYLON.PointLight                 = null;
+        private                             light2                  :BABYLON.DirectionalLight           = null;
         /** Test light 3. */
-        private                             light3                  :BABYLON.PointLight                 = null;
+        private                             light3                  :BABYLON.Light                      = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom level.
@@ -57,9 +57,12 @@
             this.setupSkybox();
 
             this.setupLights();
-            this.setupShadowGenerator();
 
-            this.setupShadows();
+            if ( bz.SettingEngine.ENABLE_SHADOWS )
+            {
+                this.setupShadowGenerator();
+                this.setupShadows();
+            }
         }
 
         /** ************************************************************************************************************
@@ -307,14 +310,33 @@
         private setupLights() : void
         {
             // setup lights
+/*
             this.light1 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
             this.light1.intensity = 1.0;
             this.light1.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
 
             this.light1.diffuse   = new BABYLON.Color3( 1.0, 0.5, 0.0 );
             this.light1.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+*/
+
+/*
+            this.light1 = new BABYLON.HemisphericLight( "Hemi0", new BABYLON.Vector3( 0.0, 1.0, 0.0 ), this.scene );
+
+            this.light1.diffuse     = new BABYLON.Color3( 1, 1, 1 );
+            this.light1.specular    = new BABYLON.Color3( 1, 1, 1 );
+            this.light1.groundColor = new BABYLON.Color3( 0, 0, 0 );
+*/
+
+/*
+            this.light2 = new BABYLON.DirectionalLight( 'dir01', new BABYLON.Vector3( -1.0, -1.0, -1.0 ), this.scene );
+            this.light2.intensity = 1.0;
+            this.light2.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
+            this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+            this.light2.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
+*/
 
 
+/*
             this.light2 = new BABYLON.PointLight( 'omni01', new BABYLON.Vector3( -10.0, 0.0, -10.0 ), this.scene );
             this.light2.intensity = 1.0;
             this.light2.diffuse   = new BABYLON.Color3( 1.0, 0.0, 0.0 );
@@ -324,6 +346,7 @@
             this.light3.intensity = 1.0;
             this.light3.diffuse   = new BABYLON.Color3( 0.0, 0.0, 1.0 );
             this.light3.specular  = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+*/
         }
 
         /** ************************************************************************************************************
@@ -331,7 +354,7 @@
         ***************************************************************************************************************/
         private setupShadowGenerator() : void
         {
-            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.light1 );
+            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.light2 );
             this.shadowGenerator1.useExponentialShadowMap = true;
             this.shadowGenerator1.usePoissonSampling      = true;
         }

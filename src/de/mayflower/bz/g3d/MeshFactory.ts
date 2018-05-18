@@ -538,10 +538,13 @@
                 scene
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            skyboxMaterial.diffuseColor  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-            skyboxMaterial.specularColor = new BABYLON.Color3( 0.0, 0.0, 0.0 );
+
+            skyboxMaterial.diffuseColor  = bz.SettingGame.COLOR_BLACK;
+            skyboxMaterial.specularColor = bz.SettingGame.COLOR_BLACK;
+            skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
+
             skyboxMaterial.alpha = 1.0;
-            // skyboxMaterial.disableLighting = true;
+            skyboxMaterial.disableLighting = false;
 
             const skybox:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox(
                 'box' + MeshFactory.nextBoxId++,
@@ -578,7 +581,7 @@
         : BABYLON.Mesh
         {
             mesh.material       = material;
-            mesh.receiveShadows = true;
+            mesh.receiveShadows = bz.SettingEngine.ENABLE_SHADOWS;
 
             bz.Mesh.setPhysic( mesh, volume, physic, physicsImpostor, scene );
 
