@@ -1,7 +1,7 @@
 
     import * as BABYLON from 'babylonjs';
 
-    /*******************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Specifies the physical behaviour of a body.
     *******************************************************************************************************************/
     export class PhysicProps
@@ -30,8 +30,17 @@
             restitution: 0.0
         };
 
+        /** ************************************************************************************************************
+        *   Creates physical properties from a specified density. The friction and restitution are set separately.
+        *
+        *   @param volume      The volume of the body.
+        *   @param density     The density of the body.
+        *   @param friction    The friction of the body.
+        *   @param restitution The density of the body.
+        ***************************************************************************************************************/
         public static createFromDensity
         (
+            volume      :number,
             density     :number,
             friction    :number,
             restitution :number
