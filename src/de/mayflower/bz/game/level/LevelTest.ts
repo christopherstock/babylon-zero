@@ -135,16 +135,18 @@
 
 
 
+
+
                 new bz.Wall
                 (
-                    // plane - amiga plane 45°
+                    // plane - amiga plane 45° - BACKSIDE
                     bz.MeshFactory.createPlane
                     (
-                        new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
+                        new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         7.0,
                         7.0,
-                        new BABYLON.Vector3( 0.0, 135.0, 0.0 ),
+                        new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
                         bz.TextureUV.TILED_BY_SIZE,
@@ -153,15 +155,59 @@
                         bz.Physic.STATIC,
                         1.0,
                         bz.SettingGame.LEVEL_EMISSIVE_COLOR,
-                        BABYLON.Mesh.DEFAULTSIDE
+                        BABYLON.Mesh.BACKSIDE
+                    )
+                ),
+                new bz.Wall
+                (
+                    // plane - amiga plane 45° - FRONTSIDE
+                    bz.MeshFactory.createPlane
+                    (
+                        new BABYLON.Vector3( 15.0, 0.0, 6.0 - 0.001 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        7.0,
+                        7.0,
+                        new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
+                        bz.Texture.AMIGA,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.FRONTSIDE
                     )
                 ),
 
 
 
+
+
                 new bz.Wall
                 (
-                    // plane - amiga 180°
+                    // plane - amiga 180° - FRONTSIDE
+                    bz.MeshFactory.createPlane
+                    (
+                        new BABYLON.Vector3( 8.0, 0.0, 6.0 - 0.001 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        7.0,
+                        7.0,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.Texture.GRASS,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.FRONTSIDE
+                    )
+                ),
+                new bz.Wall
+                (
+                    // plane - amiga 180° - BACKSIDE
                     bz.MeshFactory.createPlane
                     (
                         new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
@@ -177,20 +223,40 @@
                         bz.Physic.STATIC,
                         1.0,
                         bz.SettingGame.LEVEL_EMISSIVE_COLOR,
-                        BABYLON.Mesh.DEFAULTSIDE
+                        BABYLON.Mesh.BACKSIDE
                     )
                 ),
 
 
                 new bz.Wall
                 (
-                    // box - amiga 4
+                    // box - amiga straight
                     bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.Texture.AMIGA,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    // box - amiga 45°
+                    bz.MeshFactory.createBox
+                    (
+                        new BABYLON.Vector3( 20.0, 0.0, 18.0 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
+                        new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
                         bz.TextureUV.TILED_BY_SIZE,

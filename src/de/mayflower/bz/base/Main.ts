@@ -8,6 +8,7 @@
     *
     *   TODO Try fog or smoke?
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
+    *   TODO Introduce class 'MeshCollection'.
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
@@ -18,6 +19,7 @@
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Minor jitter bug improvements on colliding walls?
     *
+    *   TODO Enable rotation meshes (walls, items) etc.!
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO All volume calculations to MathUtil functions.
     *   TODO Create (different?) characters from primitives or mesh objects?

@@ -321,7 +321,8 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates a plane mesh.
+        *   Creates a plane mesh. Shouldn't be used in a free 3d space because the side orientation is explicitly
+        *   required in order to calculate light effects correctly.
         *
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
