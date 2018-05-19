@@ -27,12 +27,12 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            this.solidBlack = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ) );
-            this.solidRed   = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ) );
-            this.solidGreen = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ) );
-            this.solidBlue  = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ) );
-            this.solidGrey  = MaterialSystem.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ) );
-            this.solidWhite = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ) );
+            this.solidBlack = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ), bz.SettingGame.COLOR_BLACK );
+            this.solidRed   = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ), bz.SettingGame.COLOR_BLACK );
+            this.solidGreen = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ), bz.SettingGame.COLOR_BLACK );
+            this.solidBlue  = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ), bz.SettingGame.COLOR_BLACK );
+            this.solidGrey  = MaterialSystem.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ), bz.SettingGame.COLOR_BLACK );
+            this.solidWhite = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ), bz.SettingGame.COLOR_BLACK );
         }
 
         /** ************************************************************************************************************
@@ -47,6 +47,7 @@
         *   @param sizeV           The texture V size for the texture.
         *   @param color           The desired solid color to apply.
         *   @param materialAlpha   The opacity for the applied texture.
+        *   @param emissiveColor   The emissive color for this material.
         ***************************************************************************************************************/
         public static createMaterial
         (
@@ -56,7 +57,8 @@
             sizeU           :number,
             sizeV           :number,
             color           :BABYLON.StandardMaterial,
-            materialAlpha   :number
+            materialAlpha   :number,
+            emissiveColor   :BABYLON.Color3
         )
         : BABYLON.StandardMaterial
         {
@@ -83,7 +85,7 @@
                     textureV,
                     materialAlpha,
                     false,
-                    bz.SettingGame.COLOR_BLACK,
+                    emissiveColor,
                     textureHasAlpha
                 );
             }
@@ -98,9 +100,10 @@
         /** ************************************************************************************************************
         *   Creates a solid material of the specified color.
         *
-        *   @param color The solid and emissive color for this material.
+        *   @param color         The solid and emissive color for this material.
+        *   @param emissiveColor The emissive color for this material.
         ***************************************************************************************************************/
-        public static createSolid( color:BABYLON.Color3 ) : BABYLON.StandardMaterial
+        public static createSolid( color:BABYLON.Color3, emissiveColor:BABYLON.Color3 ) : BABYLON.StandardMaterial
         {
             const solidMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
@@ -109,7 +112,7 @@
             );
 
             solidMaterial.diffuseColor    = color;
-            solidMaterial.emissiveColor   = bz.SettingGame.COLOR_BLACK;
+            solidMaterial.emissiveColor   = emissiveColor;
             solidMaterial.backFaceCulling = false;
 
             return solidMaterial;

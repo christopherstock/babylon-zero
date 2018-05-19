@@ -83,7 +83,8 @@
                 null,
                 this.scene,
                 bz.Physic.STATIC,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
 
             bz.MeshFactory.createBox(
@@ -97,7 +98,8 @@
                 null,
                 this.scene,
                 bz.Physic.STATIC,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
 
             bz.MeshFactory.createBox(
@@ -111,7 +113,8 @@
                 null,
                 this.scene,
                 bz.Physic.STATIC,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
         }
 

@@ -43,7 +43,8 @@
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -62,7 +63,8 @@
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -82,7 +84,9 @@
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
 
@@ -101,13 +105,15 @@
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
 
                 new bz.Wall
                 (
-                    // plane - amiga, 1
+                    // plane - amiga at world origin
                     bz.MeshFactory.createPlane
                     (
                         new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
@@ -121,47 +127,78 @@
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
 
-                new bz.Wall
-                (
-                    // plane - amiga 2
-                    bz.MeshFactory.createPlane
-                    (
-                        new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
-                        bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
-                        new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
-                        bz.Texture.AMIGA,
-                        bz.TextureHasAlpha.NO,
-                        bz.TextureUV.TILED_BY_SIZE,
-                        null,
-                        this.scene,
-                        bz.Physic.STATIC,
-                        1.0
-                    )
-                ),
+
 
                 new bz.Wall
                 (
-                    // plane - amiga 3
+                    // plane - amiga plane 45°
                     bz.MeshFactory.createPlane
                     (
                         new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         7.0,
                         7.0,
-                        new BABYLON.Vector3( 0.0, -90.0, 0.0 ),
+                        new BABYLON.Vector3( 0.0, 135.0, 0.0 ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
                         bz.TextureUV.TILED_BY_SIZE,
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.DEFAULTSIDE
+                    )
+                ),
+
+
+
+                new bz.Wall
+                (
+                    // plane - amiga 180°
+                    bz.MeshFactory.createPlane
+                    (
+                        new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        7.0,
+                        7.0,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.Texture.GRASS,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.DEFAULTSIDE
+                    )
+                ),
+
+
+                new bz.Wall
+                (
+                    // box - amiga 4
+                    bz.MeshFactory.createBox
+                    (
+                        new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.Texture.AMIGA,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -180,7 +217,9 @@
                         null,
                         this.scene,
                         bz.Physic.STATIC,
-                        0.5
+                        0.5,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
 
@@ -199,6 +238,7 @@
                         bz.Main.game.engine.material.solidRed,
                         this.scene,
                         bz.Physic.STATIC,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
             ];
@@ -228,7 +268,8 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -247,7 +288,8 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -266,7 +308,8 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -285,7 +328,8 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        0.5
+                        0.5,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -304,7 +348,8 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -323,7 +368,8 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        1.0
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
                     )
                 ),
 
@@ -342,8 +388,9 @@
                         null,
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
-                        1.0
-                    )
+                        1.0,
+                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                    ),
                 ),
             ];
         }

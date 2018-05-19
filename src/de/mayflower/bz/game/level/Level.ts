@@ -133,7 +133,8 @@
                 bz.Main.game.engine.material.solidBlack,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
 
             // x test
@@ -149,7 +150,8 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
             bz.MeshFactory.createBox
             (
@@ -163,7 +165,8 @@
                 bz.Main.game.engine.material.solidRed,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
 
             // y test
@@ -179,7 +182,8 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
             bz.MeshFactory.createBox
             (
@@ -193,7 +197,8 @@
                 bz.Main.game.engine.material.solidGreen,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
 
             // z test
@@ -209,7 +214,8 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
             bz.MeshFactory.createBox
             (
@@ -223,7 +229,8 @@
                 bz.Main.game.engine.material.solidBlue,
                 this.scene,
                 bz.Physic.NONE,
-                1.0
+                1.0,
+                bz.SettingGame.LEVEL_EMISSIVE_COLOR
             );
         }
 
@@ -355,14 +362,14 @@
             // point light
             this.lightPoint = new BABYLON.PointLight
             (
-                'spot01',
-                new BABYLON.Vector3( 10.0,  10.0, 20.0 ),
+                'light3',
+                new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
                 this.scene
             );
             this.lightPoint.intensity = 1.0;
             this.lightPoint.diffuse   = new BABYLON.Color3( 1.0, 1.0, 1.0 );
             this.lightPoint.specular  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-            this.lightSpot.setEnabled( true );
+            this.lightPoint.setEnabled( true );
         }
 
         /** ************************************************************************************************************

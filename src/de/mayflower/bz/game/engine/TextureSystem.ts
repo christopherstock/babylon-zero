@@ -62,8 +62,8 @@
 
             textureMaterial.diffuseTexture.hasAlpha = ( textureHasAlpha === bz.TextureHasAlpha.YES );
 
-            textureMaterial.alpha                = alpha;
-            textureMaterial.backFaceCulling      = backFaceCulling;
+            textureMaterial.alpha           = alpha;
+            textureMaterial.backFaceCulling = backFaceCulling;
 
             // textureMaterial.diffuseTexture.hasAlpha = false;
 

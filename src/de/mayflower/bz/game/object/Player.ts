@@ -54,7 +54,8 @@
                     null,
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physic.PLAYER,
-                    0.25 // is ignored! use lower value!
+                    0.25, // is ignored! use lower value!
+                    bz.SettingGame.LEVEL_EMISSIVE_COLOR
                 ),
                 0.25
             );
@@ -78,7 +79,8 @@
                     null,
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physic.NONE,
-                    1.0
+                    1.0,
+                    bz.SettingGame.LEVEL_EMISSIVE_COLOR
                 ),
                 1.0
             );

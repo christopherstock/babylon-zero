@@ -45,6 +45,7 @@
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
+        *   @param emissiveColor   The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -63,7 +64,8 @@
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
-            materialAlpha   :number
+            materialAlpha   :number,
+            emissiveColor   :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -126,7 +128,8 @@
                 size.x,
                 size.z,
                 color,
-                materialAlpha
+                materialAlpha,
+                emissiveColor
             );
 
             const volume:number = ( size.x * size.y * size.z );
@@ -158,6 +161,7 @@
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
+        *   @param emissiveColor   The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -174,7 +178,8 @@
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
-            materialAlpha   :number
+            materialAlpha   :number,
+            emissiveColor   :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -226,7 +231,8 @@
                 diameter,
                 height,
                 color,
-                materialAlpha
+                materialAlpha,
+                emissiveColor
             );
 
             const volume:number = ( Math.pow( ( diameter / 2 ), 2 ) * Math.PI * height );
@@ -257,6 +263,7 @@
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
+        *   @param emissiveColor   The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -272,7 +279,8 @@
             color           :BABYLON.StandardMaterial,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
-            materialAlpha   :number
+            materialAlpha   :number,
+            emissiveColor   :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -294,7 +302,8 @@
                 diameter,
                 diameter,
                 color,
-                materialAlpha
+                materialAlpha,
+                emissiveColor
             );
 
             const volume:number = ( Math.pow( ( diameter / 2 ), 3 ) * Math.PI * 4 / 3 );
@@ -326,6 +335,8 @@
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
+        *   @param emissiveColor   The emissive color for this material.
+        *   @param sideOrientation The orientation sattribute is required for correct light effects.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -345,7 +356,9 @@
 
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
-            materialAlpha   :number
+            materialAlpha   :number,
+            emissiveColor   :BABYLON.Color3,
+            sideOrientation :number
         )
         : BABYLON.Mesh
         {
@@ -353,8 +366,9 @@
             (
                 'plane' + MeshFactory.nextPlaneId++,
                 {
-                    width:  width,
-                    height: height,
+                    width:           width,
+                    height:          height,
+                    sideOrientation: sideOrientation,
                 },
                 scene
             );
@@ -368,7 +382,8 @@
                 width,
                 height,
                 color,
-                materialAlpha
+                materialAlpha,
+                emissiveColor
             );
 
             const volume:number = ( width * height * 0.001 );
@@ -451,6 +466,7 @@
         *   @param color           The solid color to apply.
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
+        *   @param emissiveColor   The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -465,6 +481,7 @@
             scene           :BABYLON.Scene,
 
             physic          :bz.Physic,
+            emissiveColor   :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -504,7 +521,8 @@
                 0.0,
                 0.0,
                 color,
-                1.0
+                1.0,
+                emissiveColor
             );
 
             return MeshFactory.decorateMesh

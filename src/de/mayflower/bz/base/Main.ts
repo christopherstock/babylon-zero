@@ -11,8 +11,10 @@
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
+    *   TODO Create level param for default material emission.
     *   TODO Create debug console on-screen.
     *   TODO Improved triangle / polygon drawing by xyz vertices?
+    *   TODO Flag createPlane deprecated and replace with createBox in order to support lights.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Minor jitter bug improvements on colliding walls?
     *
