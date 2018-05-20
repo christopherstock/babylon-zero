@@ -21,6 +21,7 @@
     *   TODO Remove all planes from the level!
     *
     *   TODO Solve pickable items.
+    *   TODO Enable physics and collisions for imported meshes.
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!

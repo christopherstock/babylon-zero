@@ -28,7 +28,6 @@
             this.setupSpheres();
             this.setupBox0();
             this.setupGlassPanes();
-            this.setupSprites();
             this.importMesh();
         }
 
@@ -342,24 +341,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up all sprites.
-        ***************************************************************************************************************/
-        private setupSprites() : void
-        {
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -35.0 ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -20.0 ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -5.0  ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 );
-        }
-
-        /** ************************************************************************************************************
         *   Imports a mesh in the .babylon format.
         ***************************************************************************************************************/
         private importMesh() : void
         {
-            const skipMeshImport:boolean = true;
+            const skipMeshImport:boolean = false;
 
             if ( skipMeshImport )
             {

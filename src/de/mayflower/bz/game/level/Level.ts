@@ -63,6 +63,8 @@
             this.items    = this.createItems();
             this.bots     = this.createBots();
 
+            this.setupSprites();
+
             this.setupPlayer();
             this.setupSkybox();
 
@@ -406,5 +408,18 @@
             {
                 this.shadowGenerator1.getShadowMap().renderList.push( wall.mesh );
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Sets up all sprites.
+        ***************************************************************************************************************/
+        private setupSprites() : void
+        {
+            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -35.0 ), 20.0 );
+            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -20.0 ), 20.0 );
+            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -5.0  ), 20.0 );
+            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 );
+            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 );
+            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 );
         }
     }
