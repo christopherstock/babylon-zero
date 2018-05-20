@@ -54,7 +54,4 @@
         public  static  readonly    COLOR_BLUE_OPAQUE_RGBA                      :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 1.0, 1.0 );
         /** The RGBA color 'black' with full opacity. */
         public  static  readonly    COLOR_BLACK_OPAQUE_RGBA                     :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 );
-
-        /** TODO move to level parameter. */
-        public  static  readonly    LEVEL_EMISSIVE_COLOR                        :BABYLON.Color3     = new BABYLON.Color3( 0.1, 0.1, 0.1 );
     }

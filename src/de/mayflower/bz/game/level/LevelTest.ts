@@ -9,11 +9,16 @@
         /** ************************************************************************************************************
         *   Sets up the 'bunny' level.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param ambientColor The ambient color of the level is the emissive color for all faces.
+        *   @param scene        The babylon.JS scene reference.
         ***************************************************************************************************************/
-        constructor( scene:BABYLON.Scene )
+        public constructor
+        (
+            ambientColor :BABYLON.Color3,
+            scene        :BABYLON.Scene
+        )
         {
-            super( scene );
+            super( ambientColor, scene );
 
             // Move to parent class Level later
             bz.Main.game.onInitLevelCompleted();
@@ -44,7 +49,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -64,7 +69,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -85,7 +90,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
@@ -106,7 +111,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
@@ -128,7 +133,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
@@ -154,7 +159,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.BACKSIDE
                     )
                 ),
@@ -175,7 +180,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.FRONTSIDE
                     )
                 ),
@@ -201,7 +206,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.FRONTSIDE
                     )
                 ),
@@ -222,7 +227,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.BACKSIDE
                     )
                 ),
@@ -230,7 +235,7 @@
 
                 new bz.Wall
                 (
-                    // box - amiga straight
+                    // box - amiga light frontside
                     bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
@@ -244,19 +249,19 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
                 new bz.Wall
                 (
-                    // box - amiga 45°
+                    // box - amiga light backside
                     bz.MeshFactory.createBox
                     (
-                        new BABYLON.Vector3( 20.0, 0.0, 18.0 ),
+                        new BABYLON.Vector3( 10.0, 0.0, 18.0 ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                        new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
+                        new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
                         bz.TextureUV.TILED_BY_SIZE,
@@ -264,9 +269,53 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
+
+                new bz.Wall
+                (
+                    // plane - grass 180° - FRONTSIDE
+                    bz.MeshFactory.createPlane
+                    (
+                        new BABYLON.Vector3( 8.0, 0.0, 26.0 - 0.001 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        7.0,
+                        7.0,
+                        new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
+                        bz.Texture.GRASS,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        this.ambientColor,
+                        BABYLON.Mesh.FRONTSIDE
+                    )
+                ),
+                new bz.Wall
+                (
+                    // plane - grass 180° - BACKSIDE
+                    bz.MeshFactory.createPlane
+                    (
+                        new BABYLON.Vector3( 8.0, 0.0, 26.0 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        7.0,
+                        7.0,
+                        new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
+                        bz.Texture.GRASS,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.STATIC,
+                        1.0,
+                        this.ambientColor,
+                        BABYLON.Mesh.BACKSIDE
+                    )
+                ),
+
 
                 new bz.Wall
                 (
@@ -284,7 +333,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         0.5,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR,
+                        this.ambientColor,
                         BABYLON.Mesh.DEFAULTSIDE
                     )
                 ),
@@ -304,7 +353,7 @@
                         bz.Main.game.engine.material.solidRed,
                         this.scene,
                         bz.Physic.STATIC,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
             ];
@@ -335,7 +384,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -355,7 +404,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -375,7 +424,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -395,7 +444,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         0.5,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -415,7 +464,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -435,7 +484,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     )
                 ),
 
@@ -455,7 +504,7 @@
                         this.scene,
                         bz.Physic.LIGHT_WOOD,
                         1.0,
-                        bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                        this.ambientColor
                     ),
                 ),
             ];

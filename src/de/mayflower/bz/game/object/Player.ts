@@ -31,9 +31,10 @@
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
-        *   @param rotY Initial rotation Y.
+        *   @param rotY          Initial rotation Y.
+        *   @param emissiveColor The emissive color of all mesh faces.
         ***************************************************************************************************************/
-        public constructor( rotY:number )
+        public constructor( rotY:number, emissiveColor:BABYLON.Color3 )
         {
             super();
 
@@ -55,7 +56,7 @@
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physic.PLAYER,
                     0.25, // is ignored! use lower value!
-                    bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                    emissiveColor
                 ),
                 0.25
             );
@@ -80,7 +81,7 @@
                     bz.Main.game.engine.scene.getScene(),
                     bz.Physic.NONE,
                     1.0,
-                    bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                    emissiveColor
                 ),
                 1.0
             );

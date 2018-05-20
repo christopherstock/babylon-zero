@@ -13,11 +13,16 @@
         /** ************************************************************************************************************
         *   Sets up the 'bunny' level.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param ambientColor The ambient color of the level is the emissive color for all faces.
+        *   @param scene        The babylon.JS scene reference.
         ***************************************************************************************************************/
-        constructor( scene:BABYLON.Scene )
+        public constructor
+        (
+            ambientColor :BABYLON.Color3,
+            scene        :BABYLON.Scene
+        )
         {
-            super( scene );
+            super( ambientColor, scene );
 
             this.setupGround();
             this.setupSpheres();
@@ -84,7 +89,7 @@
                 this.scene,
                 bz.Physic.STATIC,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
 
             bz.MeshFactory.createBox(
@@ -99,7 +104,7 @@
                 this.scene,
                 bz.Physic.STATIC,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
 
             bz.MeshFactory.createBox(
@@ -114,7 +119,7 @@
                 this.scene,
                 bz.Physic.STATIC,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
         }
 

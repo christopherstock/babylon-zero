@@ -22,7 +22,11 @@
             this.engine.init();
 
             bz.Debug.init.log( 'Init custom level' );
-            this.level = new bz.LevelTest( this.engine.scene.getScene() );
+            this.level = new bz.LevelTest
+            (
+                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                this.engine.scene.getScene()
+            );
             this.level.reset();
         }
 

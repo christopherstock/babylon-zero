@@ -56,7 +56,6 @@
             size            :BABYLON.Vector3,
             rotation        :BABYLON.Vector3,
 
-            // TODO bundle!
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
@@ -340,6 +339,8 @@
         *   @param sideOrientation The orientation sattribute is required for correct light effects.
         *
         *   @return The created mesh.
+        *
+        *   @deprecated Lights will not be corrected automatically by the babylon.JS engine!
         ***************************************************************************************************************/
         public static createPlane
         (
@@ -499,7 +500,6 @@
                         color,
                     ],
 */
-                    // TODO to constant!
                     depth: 0.001,
                 },
                 scene

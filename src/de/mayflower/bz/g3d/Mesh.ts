@@ -104,7 +104,6 @@
 
         /** ************************************************************************************************************
         *   Applies the specified physical behaviour to the given mesh.
-        *   TODO to PhysicSet !
         *
         *   @param mesh         The native babylon.JS mesh to set the physical behaviour for.
         *   @param volume       The calculated volume of the mesh.

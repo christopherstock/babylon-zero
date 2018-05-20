@@ -6,32 +6,41 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try fog or smoke?
     *   TODO Delete LevelBunny. Move all functonality to LevelTest.
     *   TODO Introduce class 'MeshCollection'.
     *
+    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
+    *   TODO Turn 0.001 to constant FACE_DEPTH!
+    *   TODO remove prepared solid color textures (MaterialSystem.init())!
+    *   TODO Bundle material being propagated to all MeshFactory functions..?
+    *   TODO Refactor materialSystem and textureSystem? ( unify textureSystem with MaterialSystem? )
+    *   TODO Split MaterialSystem.createMaterial to createTexture and createMaterial?
+    *   TODO bundle all texture parameters in MaterialFactory to separate class TextureInfo etc.?
+    *   TODO Refactor Mesh.setPhysic to PhysicSet!
+    *   TODO Flag createPlane deprecated and replace with createBox in order to support lights.
+    *   TODO Remove all planes from the level!
+    *
+    *   TODO Solve pickable items.
+    *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
-    *   TODO Create level param for default material emission.
     *   TODO Create debug console on-screen.
-    *   TODO Improved triangle / polygon drawing by xyz vertices?
-    *   TODO Flag createPlane deprecated and replace with createBox in order to support lights.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Minor jitter bug improvements on colliding walls?
     *
-    *   TODO Enable rotation meshes (walls, items) etc.!
+    *   TODO Created improved triangle / polygon drawing by xyz vertices?
+    *   TODO Try fog or smoke?
+    *   TODO Minor jitter bug improvements on colliding walls?
+    *   TODO Enable rotation for all meshes (walls, items) etc.!
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
-    *   TODO All volume calculations to MathUtil functions.
+    *
+    *   TODO All body volume calculations to MathUtil functions.
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO Create a football.
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
-    *
     *   TODO Create 3d gun as 2nd scene in front?
-    *
-    *   TODO Solve pickable items.
     *
     *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
     *   TODO Rotating texture UVs for certain box sides?

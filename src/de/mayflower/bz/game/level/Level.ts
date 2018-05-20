@@ -14,6 +14,8 @@
         protected       readonly            scene                   :BABYLON.Scene                      = null;
         /** The skybox that surrounds the whole level. */
         protected                           skybox                  :BABYLON.Mesh                       = null;
+        /** The ambient color of this level is the emissive color of all mesh materials. */
+        protected       readonly            ambientColor            :BABYLON.Color3                     = null;
 
         /** A collection of all walls in this level. */
         protected       readonly            walls                   :bz.Wall[]                          = null;
@@ -39,11 +41,17 @@
         /** ************************************************************************************************************
         *   Creates a new custom level.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param ambientColor The ambient color of the level is the emissive color for all faces.
+        *   @param scene        The babylon.JS scene reference.
         ***************************************************************************************************************/
-        protected constructor( scene:BABYLON.Scene )
+        protected constructor
+        (
+            ambientColor :BABYLON.Color3,
+            scene        :BABYLON.Scene
+        )
         {
-            this.scene = scene;
+            this.ambientColor = ambientColor;
+            this.scene        = scene;
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
             {
@@ -83,6 +91,8 @@
             this.player.handlePlayerKeys();
 
             this.player.render();
+
+            // this.lightPoint.position.z += 0.001;
         }
 
         /** ************************************************************************************************************
@@ -134,7 +144,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
 
             // x test
@@ -151,7 +161,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
             bz.MeshFactory.createBox
             (
@@ -166,7 +176,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
 
             // y test
@@ -183,7 +193,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
             bz.MeshFactory.createBox
             (
@@ -198,7 +208,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
 
             // z test
@@ -215,7 +225,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
             bz.MeshFactory.createBox
             (
@@ -230,7 +240,7 @@
                 this.scene,
                 bz.Physic.NONE,
                 1.0,
-                bz.SettingGame.LEVEL_EMISSIVE_COLOR
+                this.ambientColor
             );
         }
 
@@ -278,7 +288,7 @@
         ***************************************************************************************************************/
         private setupPlayer() : void
         {
-            this.player = new bz.Player( 225.0 );
+            this.player = new bz.Player( 225.0, this.ambientColor );
         }
 
         /** ************************************************************************************************************
@@ -315,8 +325,6 @@
 
         /** ************************************************************************************************************
         *   Sets up all lights.
-        *
-        *   TODO to LightFactory - create dynamic LightId
         ***************************************************************************************************************/
         private setupLights() : void
         {

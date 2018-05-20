@@ -22,8 +22,6 @@
 
         /** ************************************************************************************************************
         *   Inits all materials being used in the game.
-        *
-        *   TODO remove prepared solid color textures!
         ***************************************************************************************************************/
         public init() : void
         {
@@ -37,8 +35,6 @@
 
         /** ************************************************************************************************************
         *   Creates a material from the given texture or color.
-        *
-        *   TODO split to createTexture and createMaterial
         *
         *   @param texture         The desired texture.
         *   @param textureHasAlpha Specified if the texture image contains alpha information.
