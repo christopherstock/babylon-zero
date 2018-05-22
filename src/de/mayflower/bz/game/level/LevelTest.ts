@@ -504,6 +504,26 @@
                         this.ambientColor
                     ),
                 ),
+
+                new bz.Movable
+                (
+                    // sphere
+                    bz.MeshFactory.createSphere
+                    (
+                        new BABYLON.Vector3( 10.5, 0.0, 30.0 ),
+                        bz.PivotAnchor.LOWEST_XYZ,
+                        3.0,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.Texture.TEST,
+                        bz.TextureHasAlpha.NO,
+                        bz.TextureUV.TILED_BY_SIZE,
+                        null,
+                        this.scene,
+                        bz.Physic.LIGHT_WOOD,
+                        1.0,
+                        this.ambientColor
+                    ),
+                ),
             ];
         }
 

@@ -6,26 +6,29 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *   TODO Turn 0.001 to constant FACE_DEPTH!
+    *   TODO Refactor Mesh.setPhysic to PhysicSet!
+    *
+    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *   TODO remove prepared solid color textures (MaterialSystem.init())!
-    *   TODO Introduce class 'MeshCollection'.
     *   TODO Dynamic IDs for solid and texture materials.
     *   TODO Bundle material being propagated to all MeshFactory functions..?
     *   TODO Refactor materialSystem and textureSystem? ( unify textureSystem with MaterialSystem? )
     *   TODO Split MaterialSystem.createMaterial to createTexture and createMaterial?
     *   TODO bundle all texture parameters in MaterialFactory to separate class TextureInfo etc.?
-    *   TODO Refactor Mesh.setPhysic to PhysicSet!
+    *
+    *   TODO Introduce class 'MeshCollection'.
     *   TODO Flag createPlane deprecated and replace with createBox in order to support lights.
     *   TODO Remove all planes from the level!
     *
-    *   TODO Solve pickable items.
-    *   TODO Enable physics and collisions for imported meshes.
-    *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
-    *   TODO Create debug console on-screen.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Create debug console on-screen.
+    *
+    *   TODO Enable physics and collisions for imported meshes.
+    *
+    *   TODO Solve pickable items.
     *
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fog or smoke?
@@ -35,7 +38,6 @@
     *
     *   TODO All body volume calculations to MathUtil functions.
     *   TODO Create (different?) characters from primitives or mesh objects?
-    *   TODO Create a football.
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
