@@ -35,9 +35,15 @@
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
 
-        /** The RGB color 'white' with full opacity. */
+        /** The RGB color 'white' without alpha information. */
         public  static  readonly    COLOR_WHITE                                 :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-        /** The RGB color 'black' with full opacity. */
+        /** The RGB color 'red' without alpha information. */
+        public  static  readonly    COLOR_RED                                   :BABYLON.Color3     = new BABYLON.Color3( 1.0, 0.0, 0.0 );
+        /** The RGB color 'green' without alpha information. */
+        public  static  readonly    COLOR_GREEN                                 :BABYLON.Color3     = new BABYLON.Color3( 0.0, 1.0, 0.0 );
+        /** The RGB color 'blue' without alpha information. */
+        public  static  readonly    COLOR_BLUE                                  :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+        /** The RGB color 'black' without alpha information. */
         public  static  readonly    COLOR_BLACK                                 :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 0.0 );
 
         /** The RGBA color 'transparent'. */

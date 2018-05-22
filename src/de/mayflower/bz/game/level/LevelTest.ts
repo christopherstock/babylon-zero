@@ -272,50 +272,6 @@
 
                 new bz.Wall
                 (
-                    // plane - grass 180° - FRONTSIDE
-                    bz.MeshFactory.createPlane
-                    (
-                        new BABYLON.Vector3( 8.0, 0.0, 26.0 - bz.MeshFactory.FACE_DEPTH ),
-                        bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
-                        new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
-                        bz.Texture.GRASS,
-                        bz.TextureHasAlpha.NO,
-                        bz.TextureUV.TILED_BY_SIZE,
-                        null,
-                        this.scene,
-                        bz.Physic.STATIC,
-                        1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.FRONTSIDE
-                    )
-                ),
-                new bz.Wall
-                (
-                    // plane - grass 180° - BACKSIDE
-                    bz.MeshFactory.createPlane
-                    (
-                        new BABYLON.Vector3( 8.0, 0.0, 26.0 ),
-                        bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
-                        new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
-                        bz.Texture.GRASS,
-                        bz.TextureHasAlpha.NO,
-                        bz.TextureUV.TILED_BY_SIZE,
-                        null,
-                        this.scene,
-                        bz.Physic.STATIC,
-                        1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.BACKSIDE
-                    )
-                ),
-
-
-                new bz.Wall
-                (
                     // movable glass pane
                     bz.MeshFactory.createPlane
                     (
@@ -347,7 +303,7 @@
                         ],
                         bz.PivotAnchor.LOWEST_XYZ,
                         new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
-                        bz.Main.game.engine.material.solidRed,
+                        bz.SettingGame.COLOR_RED,
                         this.scene,
                         bz.Physic.STATIC,
                         this.ambientColor

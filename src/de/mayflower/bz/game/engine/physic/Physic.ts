@@ -2,86 +2,54 @@
     import * as bz from '../../../index';
 
     /** ****************************************************************************************************************
-    *   The general physic state of a mesh.
-    *******************************************************************************************************************/
-    export enum PhysicState
-    {
-        /** Specifies a collidable and non-moving object. */
-        STATIC,
-        /** Specifies a collidable and movable object. */
-        MOVABLE,
-        /** Specifies a non-collidable object. */
-        NONE,
-    }
-
-    /** ****************************************************************************************************************
-    *   Specifies densities with their the physical behaviour of a body.
-    *******************************************************************************************************************/
-    export enum PhysicDensity
-    {
-        /** The density value for static bodies. */
-        STATIC = 0.0,
-
-        /** The density value for 'light wood'. */
-        LIGHT_WOOD = 0.5,
-        /** The density value for 'solid wood'. */
-        SOLID_WOOD = 1.0,
-        /** The density value for 'concrete'. */
-        CONCRETE   = 1.5,
-
-        /** The density value for the player. */
-        PLAYER     = 2.5,
-    }
-
-    /** ****************************************************************************************************************
     *   Specifies the physical behaviour of a body.
     *******************************************************************************************************************/
     export class Physic
     {
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly    NONE        :Physic             = new Physic
+        public  static  readonly        NONE            :Physic                 = new Physic
         (
-            PhysicState.NONE,
+            bz.PhysicState.NONE,
             null,
             0.0,
             0.0
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly    PLAYER      :Physic             = new Physic
+        public  static  readonly        PLAYER          :Physic                 = new Physic
         (
-            PhysicState.MOVABLE,
-            PhysicDensity.PLAYER,
+            bz.PhysicState.MOVABLE,
+            bz.PhysicDensity.PLAYER,
             0.0,
             0.0
         );
 
         /** Props for light wood. */
-        public  static  readonly    LIGHT_WOOD  :Physic             = new Physic
+        public  static  readonly        LIGHT_WOOD      :Physic                 = new Physic
         (
-            PhysicState.MOVABLE,
-            PhysicDensity.LIGHT_WOOD,
+            bz.PhysicState.MOVABLE,
+            bz.PhysicDensity.LIGHT_WOOD,
             1.0,
             0.0
         );
 
         /** Physical properties for a non-moving and collidable body. */
-        public  static  readonly    STATIC      :Physic             = new Physic
+        public  static  readonly        STATIC          :Physic                 = new Physic
         (
-            PhysicState.STATIC,
-            PhysicDensity.STATIC,
+            bz.PhysicState.STATIC,
+            bz.PhysicDensity.STATIC,
             1.0,
             0.0
         );
 
         /** The general physic state of this physics setting. */
-        public          readonly    state       :bz.PhysicState     = null;
+        private         readonly        state           :bz.PhysicState         = null;
         /** The density of this physics setting. */
-        public          readonly    density     :bz.PhysicDensity   = null;
+        private         readonly        density         :bz.PhysicDensity       = null;
         /** The friction of this physics setting */
-        public          readonly    friction    :number             = 0.0;
+        private         readonly        friction        :number                 = 0.0;
         /** The density of this physics setting */
-        public          readonly    restitution :number             = 0.0;
+        private         readonly        restitution     :number                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new set of physical properties.
@@ -91,12 +59,63 @@
         *   @param friction    The friction of this physical body setting.
         *   @param restitution The restitution of this physical body setting.
         ***************************************************************************************************************/
-        public constructor( state:PhysicState, density:PhysicDensity, friction:number, restitution:number )
+        private constructor
+        (
+            state       :bz.PhysicState,
+            density     :bz.PhysicDensity,
+            friction    :number,
+            restitution :number
+        )
         {
             this.state       = state;
             this.density     = density;
             this.friction    = friction;
             this.restitution = restitution;
+        }
+
+        /** ************************************************************************************************************
+        *   Applies the specified physical behaviour to the given mesh.
+        *
+        *   @param mesh         The native babylon.JS mesh to set the physical behaviour for.
+        *   @param volume       The calculated volume of the mesh.
+        *   @param impostorType The type of physics impostor to set.
+        *   @param scene        The babylon.JS scene that manages this impostor.
+        ***************************************************************************************************************/
+        public applyPhysicToMesh
+        (
+            mesh         :BABYLON.Mesh,
+            volume       :number,
+            impostorType :number,
+            scene        :BABYLON.Scene
+        )
+        : void
+        {
+            switch ( this.state )
+            {
+                case bz.PhysicState.STATIC:
+                case bz.PhysicState.MOVABLE:
+                {
+                    const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
+
+                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        mesh,
+                        impostorType,
+                        impostorParams,
+                        scene
+                    );
+                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+
+                    break;
+                }
+
+                case bz.PhysicState.NONE:
+                {
+                    // no collisions or impostor
+                    break;
+                }
+            }
         }
 
         /** ************************************************************************************************************
@@ -106,25 +125,25 @@
         *
         *   @return The impostor parameters for these physical settings.
         ***************************************************************************************************************/
-        public createImpostorParams( volume:number ) : BABYLON.PhysicsImpostorParameters
+        private createImpostorParams( volume:number ) : BABYLON.PhysicsImpostorParameters
         {
             let mass:number = 0.0;
 
             switch ( this.state )
             {
-                case PhysicState.STATIC:
+                case bz.PhysicState.STATIC:
                 {
                     mass = 0.0;
                     break;
                 }
 
-                case PhysicState.MOVABLE:
+                case bz.PhysicState.MOVABLE:
                 {
                     mass = ( volume * this.density );
                     break;
                 }
 
-                case PhysicState.NONE:
+                case bz.PhysicState.NONE:
                 {
                     break;
                 }

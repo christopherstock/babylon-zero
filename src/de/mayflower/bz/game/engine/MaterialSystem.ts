@@ -7,30 +7,11 @@
     *******************************************************************************************************************/
     export class MaterialSystem
     {
-        /** The pre-creatred solid color material 'black'. */
-        public              solidBlack              :BABYLON.StandardMaterial           = null;
-        /** The pre-creatred solid color material 'red'. */
-        public              solidRed                :BABYLON.StandardMaterial           = null;
-        /** The pre-creatred solid color material 'green'. */
-        public              solidGreen              :BABYLON.StandardMaterial           = null;
-        /** The pre-creatred solid color material 'blue'. */
-        public              solidBlue               :BABYLON.StandardMaterial           = null;
-        /** The pre-creatred solid color material 'grey'. */
-        public              solidGrey               :BABYLON.StandardMaterial           = null;
-        /** The pre-creatred solid color material 'white'. */
-        public              solidWhite              :BABYLON.StandardMaterial           = null;
-
         /** ************************************************************************************************************
         *   Inits all materials being used in the game.
         ***************************************************************************************************************/
         public init() : void
         {
-            this.solidBlack = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 0.0 ), bz.SettingGame.COLOR_BLACK );
-            this.solidRed   = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 0.0, 0.0 ), bz.SettingGame.COLOR_BLACK );
-            this.solidGreen = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 1.0, 0.0 ), bz.SettingGame.COLOR_BLACK );
-            this.solidBlue  = MaterialSystem.createSolid( new BABYLON.Color3( 0.0, 0.0, 1.0 ), bz.SettingGame.COLOR_BLACK );
-            this.solidGrey  = MaterialSystem.createSolid( new BABYLON.Color3( 0.5, 0.5, 0.5 ), bz.SettingGame.COLOR_BLACK );
-            this.solidWhite = MaterialSystem.createSolid( new BABYLON.Color3( 1.0, 1.0, 1.0 ), bz.SettingGame.COLOR_BLACK );
         }
 
         /** ************************************************************************************************************
@@ -52,7 +33,7 @@
             textureUV       :bz.TextureUV,
             sizeU           :number,
             sizeV           :number,
-            color           :BABYLON.StandardMaterial,
+            color           :BABYLON.Color3,
             materialAlpha   :number,
             emissiveColor   :BABYLON.Color3
         )
@@ -87,7 +68,7 @@
             }
             else if ( color != null )
             {
-                return color;
+                return bz.MaterialSystem.createSolid( color, emissiveColor );
             }
 
             return null;

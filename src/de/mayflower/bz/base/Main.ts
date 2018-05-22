@@ -6,15 +6,14 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Refactor Mesh.setPhysic to PhysicSet!
-    *
-    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
-    *   TODO remove prepared solid color textures (MaterialSystem.init())!
     *   TODO Dynamic IDs for solid and texture materials.
+    *   TODO Precreate all textures?
     *   TODO Bundle material being propagated to all MeshFactory functions..?
     *   TODO Refactor materialSystem and textureSystem? ( unify textureSystem with MaterialSystem? )
     *   TODO Split MaterialSystem.createMaterial to createTexture and createMaterial?
     *   TODO bundle all texture parameters in MaterialFactory to separate class TextureInfo etc.?
+    *
+    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *
     *   TODO Introduce class 'MeshCollection'.
     *   TODO Flag createPlane deprecated and replace with createBox in order to support lights.

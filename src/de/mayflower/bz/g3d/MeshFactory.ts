@@ -63,7 +63,7 @@
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
 
-            color           :BABYLON.StandardMaterial,
+            color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
             materialAlpha   :number,
@@ -177,7 +177,7 @@
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
-            color           :BABYLON.StandardMaterial,
+            color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
             materialAlpha   :number,
@@ -278,7 +278,7 @@
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
-            color           :BABYLON.StandardMaterial,
+            color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
             materialAlpha   :number,
@@ -357,7 +357,7 @@
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
-            color           :BABYLON.StandardMaterial,
+            color           :BABYLON.Color3,
 
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
@@ -483,7 +483,7 @@
             pivotAnchor     :bz.PivotAnchor,
             rotation        :BABYLON.Vector3,
 
-            color           :BABYLON.StandardMaterial,
+            color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
 
             physic          :bz.Physic,
@@ -607,7 +607,7 @@
             mesh.material       = material;
             mesh.receiveShadows = bz.SettingEngine.ENABLE_SHADOWS;
 
-            bz.Mesh.setPhysic( mesh, volume, physic, physicsImpostor, scene );
+            physic.applyPhysicToMesh( mesh, volume, physicsImpostor, scene );
 
             if ( rotation != null )
             {

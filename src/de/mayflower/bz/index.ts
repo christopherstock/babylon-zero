@@ -27,6 +27,8 @@
     export * from './game/engine/hid/KeySystem';
     export * from './game/engine/hid/PointerSystem';
 
+    export * from './game/engine/physic/PhysicDensity';
+    export * from './game/engine/physic/PhysicState';
     export * from './game/engine/physic/Physic';
 
     export * from './game/level/Level';
