@@ -18,6 +18,9 @@
     *******************************************************************************************************************/
     export class MeshFactory
     {
+        /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
+        public              static  readonly    FACE_DEPTH              :number                     = 0.001;
+
         /** Next ID to assign for box creation. */
         public              static              nextBoxId               :number                     = 0;
         /** Next ID to assign for cylinder creation. */
@@ -375,6 +378,7 @@
                 scene
             );
 
+            // TODO replace with a call to .createBox() !
             MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
             const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
             (
@@ -388,7 +392,7 @@
                 emissiveColor
             );
 
-            const volume:number = ( width * height * 0.001 );
+            const volume:number = ( width * height * MeshFactory.FACE_DEPTH );
 
             return MeshFactory.decorateMesh
             (
@@ -500,7 +504,7 @@
                         color,
                     ],
 */
-                    depth: 0.001,
+                    depth: MeshFactory.FACE_DEPTH,
                 },
                 scene
             );

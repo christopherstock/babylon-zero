@@ -35,9 +35,9 @@
                     // static ground
                     bz.MeshFactory.createBox
                     (
-                        new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
+                        new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                         bz.PivotAnchor.DEBUG_NONE,
-                        new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
+                        new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                         bz.Texture.TEST,
                         bz.TextureHasAlpha.NO,
@@ -55,9 +55,9 @@
                     // static elevated ground
                     bz.MeshFactory.createBox
                     (
-                        new BABYLON.Vector3( 0.0, -0.001, 0.0  ),
+                        new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        new BABYLON.Vector3( 40.0, 0.001,  40.0 ),
+                        new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                         new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                         bz.Texture.GRASS,
                         bz.TextureHasAlpha.NO,
@@ -165,7 +165,7 @@
                     // plane - amiga plane 45° - FRONTSIDE
                     bz.MeshFactory.createPlane
                     (
-                        new BABYLON.Vector3( 15.0, 0.0, 6.0 - 0.001 ),
+                        new BABYLON.Vector3( 15.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         7.0,
                         7.0,
@@ -191,7 +191,7 @@
                     // plane - amiga 180° - FRONTSIDE
                     bz.MeshFactory.createPlane
                     (
-                        new BABYLON.Vector3( 8.0, 0.0, 6.0 - 0.001 ),
+                        new BABYLON.Vector3( 8.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         7.0,
                         7.0,
@@ -275,7 +275,7 @@
                     // plane - grass 180° - FRONTSIDE
                     bz.MeshFactory.createPlane
                     (
-                        new BABYLON.Vector3( 8.0, 0.0, 26.0 - 0.001 ),
+                        new BABYLON.Vector3( 8.0, 0.0, 26.0 - bz.MeshFactory.FACE_DEPTH ),
                         bz.PivotAnchor.LOWEST_XYZ,
                         7.0,
                         7.0,

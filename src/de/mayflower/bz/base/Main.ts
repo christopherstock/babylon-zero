@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Turn 0.001 to constant FACE_DEPTH!
     *   TODO Refactor Mesh.setPhysic to PhysicSet!
     *
     *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
