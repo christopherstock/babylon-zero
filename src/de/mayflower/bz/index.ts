@@ -30,7 +30,6 @@
     export * from './game/engine/physic/Physic';
 
     export * from './game/level/Level';
-    export * from './game/level/LevelBunny';
     export * from './game/level/LevelTest';
 
     export * from './game/object/GameObject';

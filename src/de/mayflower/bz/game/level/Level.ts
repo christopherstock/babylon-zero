@@ -75,6 +75,8 @@
                 this.setupShadowGenerator();
                 this.setupShadows();
             }
+
+            this.importMesh();
         }
 
         /** ************************************************************************************************************
@@ -421,5 +423,45 @@
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 );
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 );
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 );
+        }
+
+        /** ************************************************************************************************************
+        *   Imports a mesh in the .babylon format.
+        ***************************************************************************************************************/
+        private importMesh() : void
+        {
+            const skipMeshImport:boolean = false;
+
+            if ( skipMeshImport )
+            {
+                bz.Main.game.onInitLevelCompleted();
+            }
+            else
+            {
+                // The first parameter can be used to specify which mesh to import. Here we import all meshes
+                BABYLON.SceneLoader.ImportMesh
+                (
+                    '',
+                    bz.SettingEngine.PATH_MESH,
+
+                    'rabbit.babylon',
+                    // 'test.obj',
+
+                    this.scene,
+                    ( newMeshes:BABYLON.AbstractMesh[] ) =>
+                    {
+                        const rabbit:BABYLON.AbstractMesh = newMeshes[ 0 ];
+
+                        // transform the rabbit
+                        rabbit.position.y -= 4.0;
+                        rabbit.position.z += 60.0;
+                        rabbit.rotate( new BABYLON.Vector3( 0.0, 1.0, 0.0 ), 135.0, BABYLON.Space.LOCAL );
+
+                        // rabbit.checkCollisions = true;
+
+                        bz.Main.game.onInitLevelCompleted();
+                    }
+                );
+            }
         }
     }

@@ -19,9 +19,6 @@
         )
         {
             super( ambientColor, scene );
-
-            // Move to parent class Level later
-            bz.Main.game.onInitLevelCompleted();
         }
 
         /** ************************************************************************************************************

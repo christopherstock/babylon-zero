@@ -6,12 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Delete LevelBunny. Move all functonality to LevelTest.
-    *   TODO Introduce class 'MeshCollection'.
-    *
     *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *   TODO Turn 0.001 to constant FACE_DEPTH!
     *   TODO remove prepared solid color textures (MaterialSystem.init())!
+    *   TODO Introduce class 'MeshCollection'.
+    *   TODO Dynamic IDs for solid and texture materials.
     *   TODO Bundle material being propagated to all MeshFactory functions..?
     *   TODO Refactor materialSystem and textureSystem? ( unify textureSystem with MaterialSystem? )
     *   TODO Split MaterialSystem.createMaterial to createTexture and createMaterial?
