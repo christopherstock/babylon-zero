@@ -18,13 +18,14 @@
 
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
-    export * from './game/engine/MaterialSystem';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
     export * from './game/engine/hid/PointerSystem';
+
+    export * from './game/engine/material/MaterialSystem';
 
     export * from './game/engine/physic/PhysicDensity';
     export * from './game/engine/physic/PhysicState';
