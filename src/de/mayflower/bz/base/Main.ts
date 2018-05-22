@@ -16,7 +16,6 @@
     *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *
     *   TODO Introduce class 'MeshCollection'.
-    *   TODO Flag createPlane deprecated and replace with createBox in order to support lights.
     *   TODO Remove all planes from the level!
     *
     *   TOOD Try GUI via babylon-gui.

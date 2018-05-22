@@ -73,12 +73,11 @@
                 new bz.Wall
                 (
                     // tree - standing (crossed)
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        3.0,
-                        7.0,
+                        new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
                         bz.Texture.TREE,
                         bz.TextureHasAlpha.YES,
@@ -87,19 +86,17 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.DEFAULTSIDE
+                        this.ambientColor
                     )
                 ),
 
                 new bz.Wall
                 (
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        3.0,
-                        7.0,
+                        new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0, 270.0, 0.0   ),
                         bz.Texture.TREE,
                         bz.TextureHasAlpha.YES,
@@ -108,20 +105,18 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.DEFAULTSIDE
+                        this.ambientColor
                     )
                 ),
 
                 new bz.Wall
                 (
                     // plane - amiga at world origin
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        2.0,
-                        4.0,
+                        new BABYLON.Vector3( 2.0,  4.0, bz.MeshFactory.FACE_DEPTH   ),
                         new BABYLON.Vector3( 0.0, 45.0, 0.0   ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
@@ -130,24 +125,18 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.DEFAULTSIDE
+                        this.ambientColor
                     )
                 ),
-
-
-
-
 
                 new bz.Wall
                 (
                     // plane - amiga plane 45° - BACKSIDE
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
+                        new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
@@ -156,19 +145,17 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.BACKSIDE
+                        this.ambientColor
                     )
                 ),
                 new bz.Wall
                 (
                     // plane - amiga plane 45° - FRONTSIDE
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 15.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
+                        new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                         bz.Texture.AMIGA,
                         bz.TextureHasAlpha.NO,
@@ -177,24 +164,18 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.FRONTSIDE
+                        this.ambientColor
                     )
                 ),
-
-
-
-
 
                 new bz.Wall
                 (
                     // plane - amiga 180° - FRONTSIDE
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 8.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
+                        new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                         bz.Texture.GRASS,
                         bz.TextureHasAlpha.NO,
@@ -203,19 +184,17 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.FRONTSIDE
+                        this.ambientColor
                     )
                 ),
                 new bz.Wall
                 (
                     // plane - amiga 180° - BACKSIDE
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        7.0,
-                        7.0,
+                        new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                         bz.Texture.GRASS,
                         bz.TextureHasAlpha.NO,
@@ -224,11 +203,9 @@
                         this.scene,
                         bz.Physic.STATIC,
                         1.0,
-                        this.ambientColor,
-                        BABYLON.Mesh.BACKSIDE
+                        this.ambientColor
                     )
                 ),
-
 
                 new bz.Wall
                 (
@@ -273,11 +250,11 @@
                 new bz.Wall
                 (
                     // movable glass pane
-                    bz.MeshFactory.createPlane
+                    bz.MeshFactory.createBox
                     (
                         new BABYLON.Vector3( 2.0,  0.0, 15.0   ),
                         bz.PivotAnchor.LOWEST_XYZ,
-                        2.0, 3.0,
+                        new BABYLON.Vector3( 2.0, 3.0, bz.MeshFactory.FACE_DEPTH ),
                         new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
                         bz.Texture.GLASS,
                         bz.TextureHasAlpha.NO,
@@ -286,8 +263,7 @@
                         this.scene,
                         bz.Physic.STATIC,
                         0.5,
-                        this.ambientColor,
-                        BABYLON.Mesh.DEFAULTSIDE
+                        this.ambientColor
                     )
                 ),
 

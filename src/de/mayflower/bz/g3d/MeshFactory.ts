@@ -378,7 +378,6 @@
                 scene
             );
 
-            // TODO replace with a call to .createBox() !
             MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (

@@ -58,13 +58,15 @@
                     textureV = 1.0;
                 }
 
+                const backfaceCulling:boolean = ( textureHasAlpha === bz.TextureHasAlpha.YES );
+
                 return this.createTexture
                 (
                     texture.toString(),
                     textureU,
                     textureV,
                     materialAlpha,
-                    false,
+                    backfaceCulling,
                     emissiveColor,
                     textureHasAlpha
                 );
