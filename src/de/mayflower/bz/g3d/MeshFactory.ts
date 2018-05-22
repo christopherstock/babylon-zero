@@ -122,7 +122,7 @@
             );
 
             MeshFactory.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
-            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
                 textureHasAlpha,
@@ -225,7 +225,7 @@
             );
 
             MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
-            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
                 textureHasAlpha,
@@ -296,7 +296,7 @@
             );
 
             MeshFactory.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
-            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
                 textureHasAlpha,
@@ -380,7 +380,7 @@
 
             // TODO replace with a call to .createBox() !
             MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
-            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
                 textureHasAlpha,
@@ -518,7 +518,7 @@
                 0.0,
                 0.0
             );
-            const material:BABYLON.StandardMaterial = bz.MaterialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 null,
                 null,

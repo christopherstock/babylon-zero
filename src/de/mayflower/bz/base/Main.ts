@@ -9,7 +9,7 @@
     *   TODO Dynamic IDs for solid and texture materials.
     *   TODO Precreate all textures?
     *   TODO Bundle material being propagated to all MeshFactory functions..?
-    *   TODO Refactor materialSystem and textureSystem? ( unify textureSystem with MaterialSystem? )
+    *   TODO Refactor materialSystem and textureSystem!
     *   TODO Split MaterialSystem.createMaterial to createTexture and createMaterial?
     *   TODO bundle all texture parameters in MaterialFactory to separate class TextureInfo etc.?
     *

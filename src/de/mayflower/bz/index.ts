@@ -21,7 +21,6 @@
     export * from './game/engine/MaterialSystem';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
-    export * from './game/engine/TextureSystem';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
