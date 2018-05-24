@@ -10,8 +10,6 @@
     *   TODO Bundle material being propagated to all MeshFactory functions..?
     *   TODO Enable physics and collisions for imported meshes.
     *
-    *   TODO add enums for physic friction and restitution.
-    *
     *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *
     *   TODO Introduce class 'MeshCollection'.
@@ -25,13 +23,13 @@
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create debug console on-screen.
     *
-    *   TODO Precreate all textures?
     *   TODO Solve pickable items.
     *
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fog or smoke?
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
+    *   TODO Precreate all textures?
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *
     *   TODO All body volume calculations to MathUtil functions.

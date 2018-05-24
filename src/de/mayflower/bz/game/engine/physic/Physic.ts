@@ -11,8 +11,8 @@
         (
             bz.PhysicState.NONE,
             null,
-            0.0,
-            0.0
+            bz.PhysicFriction.NONE,
+            bz.PhysicRestitution.NONE,
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
@@ -20,8 +20,8 @@
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.PLAYER,
-            0.0,
-            0.0
+            bz.PhysicFriction.NONE,
+            bz.PhysicRestitution.NONE,
         );
 
         /** Props for light wood. */
@@ -29,8 +29,8 @@
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.LIGHT_WOOD,
-            1.0,
-            0.0
+            bz.PhysicFriction.HIGH,
+            bz.PhysicRestitution.NONE,
         );
 
         /** Physical properties for a non-moving and collidable body. */
@@ -38,8 +38,8 @@
         (
             bz.PhysicState.STATIC,
             bz.PhysicDensity.STATIC,
-            1.0,
-            0.0
+            bz.PhysicFriction.HIGH,
+            bz.PhysicRestitution.NONE,
         );
 
         /** The general physic state of this physics setting. */
@@ -47,9 +47,9 @@
         /** The density of this physics setting. */
         private         readonly        density         :bz.PhysicDensity       = null;
         /** The friction of this physics setting */
-        private         readonly        friction        :number                 = 0.0;
+        private         readonly        friction        :bz.PhysicFriction      = null;
         /** The density of this physics setting */
-        private         readonly        restitution     :number                 = 0.0;
+        private         readonly        restitution     :bz.PhysicRestitution   = null;
 
         /** ************************************************************************************************************
         *   Creates a new set of physical properties.
@@ -63,8 +63,8 @@
         (
             state       :bz.PhysicState,
             density     :bz.PhysicDensity,
-            friction    :number,
-            restitution :number
+            friction    :bz.PhysicFriction,
+            restitution :bz.PhysicRestitution
         )
         {
             this.state       = state;

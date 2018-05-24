@@ -31,7 +31,7 @@
         ***************************************************************************************************************/
         public createMaterial
         (
-            // TODO bundle!
+            // TODO bundle to bz.Texture!
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
