@@ -6,25 +6,26 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Dynamic IDs for solid and texture materials.
-    *   TODO Precreate all textures?
-    *   TODO Bundle material being propagated to all MeshFactory functions..?
-    *   TODO Refactor materialSystem and textureSystem!
-    *   TODO Split MaterialSystem.createMaterial to createTexture and createMaterial?
     *   TODO bundle all texture parameters in MaterialFactory to separate class TextureInfo etc.?
+    *   TODO Bundle material being propagated to all MeshFactory functions..?
+    *   TODO Enable physics and collisions for imported meshes.
+    *
+    *   TODO add enums for physic friction and restitution.
     *
     *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *
     *   TODO Introduce class 'MeshCollection'.
     *   TODO Remove all planes from the level!
     *
+    *   TODO Separate lib classes for reusability (All classes that implement BABYLON)??
+    *   TODO Implement lib classes via git external?
+    *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create debug console on-screen.
     *
-    *   TODO Enable physics and collisions for imported meshes.
-    *
+    *   TODO Precreate all textures?
     *   TODO Solve pickable items.
     *
     *   TODO Created improved triangle / polygon drawing by xyz vertices?

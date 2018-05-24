@@ -343,7 +343,7 @@
         *
         *   @return The created mesh.
         *
-        *   @deprecated Lights will not be corrected automatically by the babylon.JS engine!
+        *   @deprecated Lights will not automatically be calculated correctly by the babylon.JS engine!
         ***************************************************************************************************************/
         public static createPlane
         (

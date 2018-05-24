@@ -26,22 +26,30 @@
         *   @param sizeU           The texture U size for the texture.
         *   @param sizeV           The texture V size for the texture.
         *   @param color           The desired solid color to apply.
-        *   @param materialAlpha   The opacity for the applied texture.
+        *   @param alpha           The opacity for the applied texture.
         *   @param emissiveColor   The emissive color for this material.
         ***************************************************************************************************************/
         public createMaterial
         (
+            // TODO bundle!
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
             sizeU           :number,
             sizeV           :number,
+
             color           :BABYLON.Color3,
-            materialAlpha   :number,
+            alpha           :number,
             emissiveColor   :BABYLON.Color3
         )
         : BABYLON.StandardMaterial
         {
+            const material:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
+            (
+                'material' + MaterialSystem.nextMaterialId++,
+                bz.Main.game.engine.scene.getScene()
+            );
+
             if ( texture != null )
             {
                 let textureU:number = -1;
@@ -58,25 +66,25 @@
                     textureV = 1.0;
                 }
 
-                const backfaceCulling:boolean = ( textureHasAlpha === bz.TextureHasAlpha.YES );
-
-                return this.createTexture
+                material.diffuseTexture = this.createTexture
                 (
                     texture.toString(),
                     textureU,
                     textureV,
-                    materialAlpha,
-                    backfaceCulling,
-                    emissiveColor,
+                    alpha,
                     textureHasAlpha
                 );
             }
             else if ( color != null )
             {
-                return this.createSolid( color, emissiveColor );
+                material.diffuseColor = color;
             }
 
-            return null;
+            material.alpha           = alpha;
+            material.emissiveColor   = emissiveColor;
+            material.backFaceCulling = ( textureHasAlpha === bz.TextureHasAlpha.YES );
+
+            return material;
         }
 
         /** ************************************************************************************************************
@@ -86,8 +94,6 @@
         *   @param repeatU         The amount for U repeating this texture.
         *   @param repeatV         The amount for V repeating this texture.
         *   @param alpha           Alpha for this texture.
-        *   @param backFaceCulling Specifies if the drawing for the backside of this texture shall be omitted.
-        *   @param emissiveColor   The color this texture emits.
         *   @param textureHasAlpha Specifies alpha occurance in texture image.
         ***************************************************************************************************************/
         private createTexture
@@ -96,70 +102,31 @@
             repeatU         :number,
             repeatV         :number,
             alpha           :number,
-            backFaceCulling :boolean,
-            emissiveColor   :BABYLON.Color3,
             textureHasAlpha :bz.TextureHasAlpha
         )
-        : BABYLON.StandardMaterial
+        : BABYLON.Texture
         {
-            const textureMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
-            (
-                'material' + MaterialSystem.nextMaterialId++,
-                bz.Main.game.engine.scene.getScene()
-            );
-
-            textureMaterial.diffuseTexture       = new BABYLON.Texture
+            const texture:BABYLON.Texture = new BABYLON.Texture
             (
                 bz.SettingEngine.PATH_IMAGE_TEXTURE + fileName,
                 bz.Main.game.engine.scene.getScene()
             );
 
-            textureMaterial.diffuseTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
-            textureMaterial.diffuseTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
+            texture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            texture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
             if ( repeatU !== -1 )
             {
-                ( textureMaterial.diffuseTexture as any ).uScale = repeatU;
+                ( texture as any ).uScale = repeatU;
             }
             if ( repeatV !== -1 )
             {
-                ( textureMaterial.diffuseTexture as any ).vScale = repeatV;
+                ( texture as any ).vScale = repeatV;
             }
 
-            textureMaterial.diffuseTexture.hasAlpha = ( textureHasAlpha === bz.TextureHasAlpha.YES );
+            texture.hasAlpha = ( textureHasAlpha === bz.TextureHasAlpha.YES );
 
-            textureMaterial.alpha           = alpha;
-            textureMaterial.backFaceCulling = backFaceCulling;
-
-            // textureMaterial.diffuseTexture.hasAlpha = false;
-
-            if ( emissiveColor != null )
-            {
-                textureMaterial.emissiveColor   = emissiveColor;
-            }
-
-            return textureMaterial;
-        }
-
-        /** ************************************************************************************************************
-        *   Creates a solid material of the specified color.
-        *
-        *   @param color         The solid and emissive color for this material.
-        *   @param emissiveColor The emissive color for this material.
-        ***************************************************************************************************************/
-        private createSolid( color:BABYLON.Color3, emissiveColor:BABYLON.Color3 ) : BABYLON.StandardMaterial
-        {
-            const solidMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
-            (
-                'material' + MaterialSystem.nextMaterialId++,
-                bz.Main.game.engine.scene.getScene()
-            );
-
-            solidMaterial.diffuseColor    = color;
-            solidMaterial.emissiveColor   = emissiveColor;
-            solidMaterial.backFaceCulling = false;
-
-            return solidMaterial;
+            return texture;
         }
     }
