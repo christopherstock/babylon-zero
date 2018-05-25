@@ -78,6 +78,44 @@
             return light;
         }
 
+        /** ************************************************************************************************************
+        *   Creates a spot light.
+        *
+        *   @param scene         The scene that contains this light.
+        *   @param position      Where this light is located.
+        *   @param direction     The direction for this light.
+        *   @param angle         The angle of this spot light's cone.
+        *   @param exponent      The light decay speed with the distance from the emission spot.
+        *   @param diffuseColor  The color this light spreads to all surfaces.
+        *   @param specularColor The shining spot color this light spreads to faces.
+        ***************************************************************************************************************/
+        public static createSpot
+        (
+            scene         :BABYLON.Scene,
+            position      :BABYLON.Vector3,
+            direction     :BABYLON.Vector3,
+            angle         :number,
+            exponent      :number,
+            diffuseColor  :BABYLON.Color3,
+            specularColor :BABYLON.Color3,
+        )
+        : BABYLON.SpotLight
+        {
+            const light:BABYLON.SpotLight = new BABYLON.SpotLight
+            (
+                'light' + LightFactory.currentLightId++,
+                position,
+                direction,
+                angle,
+                exponent,
+                scene
+            );
+
+            light.diffuse  = diffuseColor ;
+            light.specular = specularColor;
+
+            return light;
+        }
 
 
 
