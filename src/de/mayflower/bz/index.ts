@@ -21,6 +21,7 @@
     export * from './game/engine/hid/PointerSystem';
 
     export * from './game/engine/material/MaterialSystem';
+    export * from './game/engine/material/Texture';
 
     export * from './game/engine/mesh/Mesh';
     export * from './game/engine/mesh/MeshFactory';
@@ -42,8 +43,6 @@
     export * from './game/object/Movable';
     export * from './game/object/Player';
     export * from './game/object/Wall';
-
-    export * from './res/Texture';
 
     export * from './ui/Draw2D';
 

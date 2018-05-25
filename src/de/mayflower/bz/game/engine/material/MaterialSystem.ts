@@ -44,29 +44,25 @@
         /** ************************************************************************************************************
         *   Creates a material from the given texture or color.
         *
-        *   @param texture         The desired texture.
-        *   @param textureHasAlpha Specified if the texture image contains alpha information.
-        *   @param textureUV       The UV strategy for the specified texture.
-        *   @param sizeU           The texture U size for the texture.
-        *   @param sizeV           The texture V size for the texture.
-        *   @param color           The desired solid color to apply.
-        *   @param alpha           The opacity for the applied texture.
-        *   @param emissiveColor   The emissive color for this material.
+        *   @param texture            The desired texture.
+        *   @param ommitTextureTiling Specifies if tiling for the given texture shall be omitted.
+        *   @param sizeU              The texture U size for the texture.
+        *   @param sizeV              The texture V size for the texture.
+        *   @param color              The desired solid color to apply.
+        *   @param alpha              The opacity for the applied texture.
+        *   @param emissiveColor      The emissive color for this material.
         ***************************************************************************************************************/
         public createMaterial
         (
-            // TODO bundle to bz.Texture!
-            texture         :bz.Texture,
-            textureHasAlpha :bz.TextureHasAlpha,
-            textureUV       :bz.TextureUV,
+            texture            :bz.Texture,
+            ommitTextureTiling :boolean,
 
-            sizeU           :number,
-            sizeV           :number,
+            sizeU              :number,
+            sizeV              :number,
 
-
-            color           :BABYLON.Color3,
-            alpha           :number,
-            emissiveColor   :BABYLON.Color3
+            color              :BABYLON.Color3,
+            alpha              :number,
+            emissiveColor      :BABYLON.Color3
         )
         : BABYLON.StandardMaterial
         {
@@ -81,34 +77,45 @@
                 let textureU:number = -1;
                 let textureV:number = -1;
 
-                if ( textureUV === bz.TextureUV.TILED_BY_SIZE )
+                if ( !ommitTextureTiling )
                 {
-                    textureU = sizeU;
-                    textureV = sizeV;
-                }
-                else if ( textureUV === bz.TextureUV.ALL_TO_ONE )
-                {
-                    textureU = 1.0;
-                    textureV = 1.0;
+                    switch ( texture.textureUV )
+                    {
+                        case bz.TextureUV.TILED_BY_SIZE:
+                        {
+                            textureU = sizeU;
+                            textureV = sizeV;
+                            break;
+                        }
+
+                        case bz.TextureUV.ALL_TO_ONE:
+                        {
+                            textureU = 1.0;
+                            textureV = 1.0;
+                            break;
+                        }
+                    }
                 }
 
                 material.diffuseTexture = this.createTexture
                 (
-                    texture.toString(),
+                    texture.fileName,
                     textureU,
                     textureV,
                     alpha,
-                    textureHasAlpha
+                    texture.textureHasAlpha
                 );
+
+                material.backFaceCulling = ( texture.textureHasAlpha === bz.TextureHasAlpha.YES );
             }
             else if ( color != null )
             {
                 material.diffuseColor = color;
+                material.backFaceCulling = false;
             }
 
             material.alpha           = alpha;
             material.emissiveColor   = emissiveColor;
-            material.backFaceCulling = ( textureHasAlpha === bz.TextureHasAlpha.YES );
 
             return material;
         }

@@ -42,8 +42,6 @@
         *   @param size            The dimensions of this mesh for all axis.
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
-        *   @param textureHasAlpha Specifies if the texture has alpha information.
-        *   @param textureUV       The UV strategy for the given texture.
         *   @param color           The solid color to apply.
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
@@ -60,8 +58,6 @@
             rotation        :BABYLON.Vector3,
 
             texture         :bz.Texture,
-            textureHasAlpha :bz.TextureHasAlpha,
-            textureUV       :bz.TextureUV,
 
             color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
@@ -73,38 +69,41 @@
         {
             let faceUV:BABYLON.Vector4[] = [];
 
-            switch ( textureUV )
+            if ( texture != null )
             {
-                case bz.TextureUV.ALL_TO_ONE:
+                switch ( texture.textureUV )
                 {
-                    faceUV =
-                    [
-                        new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
-                        new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
+                    case bz.TextureUV.ALL_TO_ONE:
+                    {
+                        faceUV =
+                        [
+                            new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
+                            new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
-                        new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
+                            new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
+                            new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
-                        new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
-                    ];
-                    break;
-                }
+                            new BABYLON.Vector4( 0.0, 0.0, -1.0, -1.0 ),
+                            new BABYLON.Vector4( 0.0, 0.0, 1.0,  1.0  ),
+                        ];
+                        break;
+                    }
 
-                case bz.TextureUV.TILED_BY_SIZE:
-                {
-                    faceUV =
-                    [
-                        new BABYLON.Vector4( 0.0, 0.0, -size.x, -size.y ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.x,  size.y  ),
+                    case bz.TextureUV.TILED_BY_SIZE:
+                    {
+                        faceUV =
+                        [
+                            new BABYLON.Vector4( 0.0, 0.0, -size.x, -size.y ),
+                            new BABYLON.Vector4( 0.0, 0.0, size.x,  size.y  ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -size.y, -size.z ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.y,  size.z  ),
+                            new BABYLON.Vector4( 0.0, 0.0, -size.y, -size.z ),
+                            new BABYLON.Vector4( 0.0, 0.0, size.y,  size.z  ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -size.z, -size.x ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.z,  size.x  ),
-                    ];
-                    break;
+                            new BABYLON.Vector4( 0.0, 0.0, -size.z, -size.x ),
+                            new BABYLON.Vector4( 0.0, 0.0, size.z,  size.x  ),
+                        ];
+                        break;
+                    }
                 }
             }
 
@@ -125,8 +124,7 @@
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
-                textureHasAlpha,
-                null,
+                true,
                 size.x,
                 size.z,
                 color,
@@ -157,8 +155,6 @@
         *   @param height          The height of the cylinder.
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
-        *   @param textureHasAlpha Specifies if the texture has alpha information.
-        *   @param textureUV       The UV strategy for the given texture.
         *   @param color           The solid color to apply.
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
@@ -175,8 +171,6 @@
             height          :number,
             rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
-            textureHasAlpha :bz.TextureHasAlpha,
-            textureUV       :bz.TextureUV,
             color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
@@ -187,28 +181,31 @@
         {
             let faceUV:BABYLON.Vector4[] = [];
 
-            switch ( textureUV )
+            if ( texture != null )
             {
-                case bz.TextureUV.ALL_TO_ONE:
+                switch ( texture.textureUV )
                 {
-                    faceUV =
-                    [
-                        new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0 ),
-                        new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0  ),
-                        new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0 ),
-                    ];
-                    break;
-                }
+                    case bz.TextureUV.ALL_TO_ONE:
+                    {
+                        faceUV =
+                        [
+                            new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0 ),
+                            new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0  ),
+                            new BABYLON.Vector4( 0.0, 0.0, 1.0, 1.0 ),
+                        ];
+                        break;
+                    }
 
-                case bz.TextureUV.TILED_BY_SIZE:
-                {
-                    faceUV =
-                    [
-                        new BABYLON.Vector4( 0.0, 0.0, -diameter,               diameter ),
-                        new BABYLON.Vector4( 0.0, 0.0, -( diameter * Math.PI ), height   ),
-                        new BABYLON.Vector4( 0.0, 0.0, diameter,                diameter ),
-                    ];
-                    break;
+                    case bz.TextureUV.TILED_BY_SIZE:
+                    {
+                        faceUV =
+                        [
+                            new BABYLON.Vector4( 0.0, 0.0, -diameter,               diameter ),
+                            new BABYLON.Vector4( 0.0, 0.0, -( diameter * Math.PI ), height   ),
+                            new BABYLON.Vector4( 0.0, 0.0, diameter,                diameter ),
+                        ];
+                        break;
+                    }
                 }
             }
 
@@ -228,8 +225,7 @@
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
-                textureHasAlpha,
-                null,
+                true,
                 diameter,
                 height,
                 color,
@@ -259,8 +255,6 @@
         *   @param diameter        The diameter of the sphere.
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
-        *   @param textureHasAlpha Specifies if the texture has alpha information.
-        *   @param textureUV       The UV strategy for the given texture.
         *   @param color           The solid color to apply.
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
@@ -276,8 +270,6 @@
             diameter        :number,
             rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
-            textureHasAlpha :bz.TextureHasAlpha,
-            textureUV       :bz.TextureUV,
             color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
@@ -299,8 +291,7 @@
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
-                textureHasAlpha,
-                textureUV,
+                false,
                 diameter,
                 diameter,
                 color,
@@ -332,8 +323,6 @@
         *   @param height          Height of the plane.
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
-        *   @param textureHasAlpha Specifies if the texture has alpha information.
-        *   @param textureUV       The UV strategy for the given texture.
         *   @param color           The solid color to apply.
         *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
@@ -353,10 +342,8 @@
             height          :number,
             rotation        :BABYLON.Vector3,
 
-            // bundle texture props
             texture         :bz.Texture,
-            textureHasAlpha :bz.TextureHasAlpha,
-            textureUV       :bz.TextureUV,
+
             color           :BABYLON.Color3,
 
             scene           :BABYLON.Scene,
@@ -382,8 +369,7 @@
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
-                textureHasAlpha,
-                textureUV,
+                false,
                 width,
                 height,
                 color,
@@ -465,13 +451,13 @@
         /** ************************************************************************************************************
         *   Creates a polygon mesh.
         *
-        *   @param points          All corner points for this polygon to create.
-        *   @param pivotAnchor     The anchor point of this mesh.
-        *   @param rotation        The initial rotation for all axis.
-        *   @param color           The solid color to apply.
-        *   @param scene           The scene where this mesh will be applied.
-        *   @param physic          The physical attributes to apply for this mesh.
-        *   @param emissiveColor   The emissive color for this material.
+        *   @param points        All corner points for this polygon to create.
+        *   @param pivotAnchor   The anchor point of this mesh.
+        *   @param rotation      The initial rotation for all axis.
+        *   @param color         The solid color to apply.
+        *   @param scene         The scene where this mesh will be applied.
+        *   @param physic        The physical attributes to apply for this mesh.
+        *   @param emissiveColor The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -520,8 +506,7 @@
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 null,
-                null,
-                null,
+                false,
                 0.0,
                 0.0,
                 color,
@@ -554,7 +539,7 @@
         {
             const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
 
-            skyboxMaterial.backFaceCulling = false;
+            skyboxMaterial.backFaceCulling   = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
             (
                 bz.SettingEngine.PATH_IMAGE_SKYBOX + cubeTextureName,
