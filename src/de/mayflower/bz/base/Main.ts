@@ -6,11 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO g3d move to game/engine!
+    *
+    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
+    *
     *   TODO bundle all texture parameters in MaterialFactory to separate class TextureInfo etc.?
     *   TODO Bundle material being propagated to all MeshFactory functions..?
     *   TODO Enable physics and collisions for imported meshes.
-    *
-    *   TODO Level.setupLights to class lightSystem and class LightFactory with dynamic LightId.
     *
     *   TODO Introduce class 'MeshCollection'.
     *   TODO Remove all planes from the level!

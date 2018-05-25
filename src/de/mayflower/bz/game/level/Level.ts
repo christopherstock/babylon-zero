@@ -331,19 +331,20 @@
         private setupLights() : void
         {
             // hemispheric light
-            this.lightHemispheric  = new BABYLON.HemisphericLight
+            this.lightHemispheric = bz.LightFactory.createHemispheric
             (
-                'light0',
                 new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-                this.scene
+                this.scene,
+                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                new BABYLON.Color3( 0.0, 0.0, 0.0 )
             );
-            this.lightHemispheric.diffuse     = new BABYLON.Color3( 0.5, 0.5, 0.5 );
-            this.lightHemispheric.specular    = new BABYLON.Color3( 0.1, 0.1, 0.1 );
-            this.lightHemispheric.groundColor = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-            this.lightHemispheric.setEnabled( false );
+            this.lightHemispheric.setEnabled( true );
+
+
 
             // directional light
-            this.lightDirectional= new BABYLON.DirectionalLight
+            this.lightDirectional = new BABYLON.DirectionalLight
             (
                 'light1',
                 new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
@@ -379,7 +380,7 @@
             this.lightPoint.intensity = 1.0;
             this.lightPoint.diffuse   = new BABYLON.Color3( 1.0, 1.0, 1.0 );
             this.lightPoint.specular  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-            this.lightPoint.setEnabled( true );
+            this.lightPoint.setEnabled( false );
         }
 
         /** ************************************************************************************************************

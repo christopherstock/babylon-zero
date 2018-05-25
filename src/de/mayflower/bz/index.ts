@@ -33,6 +33,8 @@
     export * from './game/engine/physic/PhysicRestitution';
     export * from './game/engine/physic/Physic';
 
+    export * from './game/engine/LightFactory';
+
     export * from './game/level/Level';
     export * from './game/level/LevelTest';
 
