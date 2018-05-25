@@ -425,20 +425,34 @@
                     '',
                     bz.SettingEngine.PATH_MESH,
 
-                    'rabbit.babylon',
+                    'skull.babylon',
+                    // 'rabbit.babylon',
                     // 'test.obj',
 
                     this.scene,
-                    ( newMeshes:BABYLON.AbstractMesh[] ) =>
+                    ( importedMeshes:BABYLON.AbstractMesh[] ) =>
                     {
-                        const rabbit:BABYLON.AbstractMesh = newMeshes[ 0 ];
+                        const rabbit:BABYLON.AbstractMesh = importedMeshes[ 0 ];
 
                         // transform the rabbit
-                        rabbit.position.y -= 4.0;
-                        rabbit.position.z += 60.0;
-                        rabbit.rotate( new BABYLON.Vector3( 0.0, 1.0, 0.0 ), 135.0, BABYLON.Space.LOCAL );
+                        rabbit.position.x += -25.0;
+                        rabbit.position.y += 75.0;
+                        rabbit.position.z -= 70.0;
 
-                        // rabbit.checkCollisions = true;
+                        rabbit.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                        rabbit.scaling         = new BABYLON.Vector3( 0.2, 0.2, 0.2 );
+                        rabbit.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                        rabbit.physicsImpostor = new BABYLON.PhysicsImpostor
+                        (
+                            rabbit,
+                            BABYLON.PhysicsImpostor.BoxImpostor,
+                            {
+                                mass: 0.5,
+                                friction: 0.0,
+                                restitution: 1.0,
+                            },
+                            this.scene
+                        );
 
                         bz.Main.game.onInitLevelCompleted();
                     }

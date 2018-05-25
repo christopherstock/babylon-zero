@@ -7,6 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Enable physics and collisions for imported meshes.
+    *
     *   TODO Introduce class 'MeshCollection'.
     *   TODO Separate lib classes for reusability (All classes that implement BABYLON)??
     *   TODO Implement lib classes via git external?
