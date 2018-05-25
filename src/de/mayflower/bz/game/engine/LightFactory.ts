@@ -117,7 +117,36 @@
             return light;
         }
 
+        /** ************************************************************************************************************
+        *   Creates a point light.
+        *
+        *   @param scene         The scene that contains this light.
+        *   @param position      Where this light is located.
+        *   @param intensity     The intensity of this light.
+        *   @param diffuseColor  The color this light spreads to all surfaces.
+        *   @param specularColor The shining spot color this light spreads to faces.
+        ***************************************************************************************************************/
+        public static createPoint
+        (
+            scene         :BABYLON.Scene,
+            position      :BABYLON.Vector3,
+            intensity     :number,
+            diffuseColor  :BABYLON.Color3,
+            specularColor :BABYLON.Color3,
+        )
+        : BABYLON.PointLight
+        {
+            const light:BABYLON.PointLight = new BABYLON.PointLight
+            (
+                'light' + LightFactory.currentLightId++,
+                position,
+                scene
+            );
 
+            light.intensity = 1.0;
+            light.diffuse   = diffuseColor;
+            light.specular  = specularColor;
 
-
+            return light;
+        }
     }

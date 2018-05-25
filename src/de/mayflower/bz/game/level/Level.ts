@@ -1,5 +1,6 @@
 
-    import * as bz from '../..';
+    import * as BABYLON from 'babylonjs';
+    import * as bz      from '../..';
 
     /** ****************************************************************************************************************
     *   Represents a custom level set.
@@ -364,22 +365,18 @@
                 new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 )
             );
-            this.lightSpot.setEnabled( true );
-
-
-
+            this.lightSpot.setEnabled( false );
 
             // point light
-            this.lightPoint = new BABYLON.PointLight
+            this.lightPoint = bz.LightFactory.createPoint
             (
-                'light3',
+                this.scene,
                 new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
-                this.scene
+                1.0,
+                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                new BABYLON.Color3( 0.0, 0.0, 0.0 )
             );
-            this.lightPoint.intensity = 1.0;
-            this.lightPoint.diffuse   = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-            this.lightPoint.specular  = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-            this.lightPoint.setEnabled( false );
+            this.lightPoint.setEnabled( true );
         }
 
         /** ************************************************************************************************************
