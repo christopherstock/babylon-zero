@@ -9,8 +9,6 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
-    export * from './g3d/Texture';
-
     export * from './game/Game';
 
     export * from './game/engine/CanvasSystem';
@@ -44,6 +42,10 @@
     export * from './game/object/Movable';
     export * from './game/object/Player';
     export * from './game/object/Wall';
+
+    export * from './res/Texture';
+
+    export * from './ui/Draw2D';
 
     export * from './util/HTML';
     export * from './util/IO';
