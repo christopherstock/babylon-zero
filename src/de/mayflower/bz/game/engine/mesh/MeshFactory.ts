@@ -1,6 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz      from '..';
+    import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
     *   Specifies all valid anchors for a mesh.

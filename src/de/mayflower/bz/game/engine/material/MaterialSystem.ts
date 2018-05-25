@@ -3,6 +3,30 @@
     import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
+    *   Specifies if a texture has an alpha value.
+    *******************************************************************************************************************/
+    export enum TextureHasAlpha
+    {
+        /** Specifies that the texture has an alpha channel. */
+        YES,
+
+        /** No alpha channel in the texture. */
+        NO,
+    }
+
+    /** ****************************************************************************************************************
+    *   Specifies the UV strategy of the applied texture.
+    *******************************************************************************************************************/
+    export enum TextureUV
+    {
+        /** One texture dimension for the whole face size. */
+        ALL_TO_ONE,
+
+        /** One texture dimension per 1.0 world unit. */
+        TILED_BY_SIZE,
+    }
+
+    /** ****************************************************************************************************************
     *   Specifies all textures and materials.
     *******************************************************************************************************************/
     export class MaterialSystem
@@ -35,8 +59,10 @@
             texture         :bz.Texture,
             textureHasAlpha :bz.TextureHasAlpha,
             textureUV       :bz.TextureUV,
+
             sizeU           :number,
             sizeV           :number,
+
 
             color           :BABYLON.Color3,
             alpha           :number,

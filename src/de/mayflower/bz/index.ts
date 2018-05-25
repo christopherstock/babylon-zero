@@ -9,9 +9,6 @@
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
 
-    export * from './g3d/Mesh';
-    export * from './g3d/MeshFactory';
-    export * from './g3d/MeshProps';
     export * from './g3d/Texture';
 
     export * from './game/Game';
@@ -26,6 +23,9 @@
     export * from './game/engine/hid/PointerSystem';
 
     export * from './game/engine/material/MaterialSystem';
+
+    export * from './game/engine/mesh/Mesh';
+    export * from './game/engine/mesh/MeshFactory';
 
     export * from './game/engine/physic/PhysicDensity';
     export * from './game/engine/physic/PhysicFriction';
