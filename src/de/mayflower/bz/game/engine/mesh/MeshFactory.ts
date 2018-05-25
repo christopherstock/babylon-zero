@@ -56,9 +56,7 @@
             pivotAnchor     :bz.PivotAnchor,
             size            :BABYLON.Vector3,
             rotation        :BABYLON.Vector3,
-
             texture         :bz.Texture,
-
             color           :BABYLON.Color3,
             scene           :BABYLON.Scene,
             physic          :bz.Physic,
