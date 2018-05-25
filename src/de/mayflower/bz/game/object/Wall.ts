@@ -1,6 +1,6 @@
 
-    import * as bz from '../..';
     import * as BABYLON from 'babylonjs';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Represents a static wall.

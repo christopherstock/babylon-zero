@@ -1,6 +1,6 @@
 
-    import * as bz from '../..';
     import * as BABYLON from 'babylonjs';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Specifies all adjustments and balancings for the game.

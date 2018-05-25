@@ -333,28 +333,29 @@
             // hemispheric light
             this.lightHemispheric = bz.LightFactory.createHemispheric
             (
-                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
                 this.scene,
+                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
                 new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                 new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                 new BABYLON.Color3( 0.0, 0.0, 0.0 )
             );
-            this.lightHemispheric.setEnabled( true );
-
-
+            this.lightHemispheric.setEnabled( false );
 
             // directional light
-            this.lightDirectional = new BABYLON.DirectionalLight
+            this.lightDirectional = bz.LightFactory.createDirectional
             (
-                'light1',
+                this.scene,
                 new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
-                this.scene
+                new BABYLON.Vector3( 20.0, 20.0, 20.0 ),
+                1.0,
+                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                new BABYLON.Color3( 1.0, 0.5, 0.0 ),
             );
-            this.lightDirectional.intensity = 1.0;
-            this.lightDirectional.position  = new BABYLON.Vector3( 20.0, 20.0, 20.0 );
-            this.lightDirectional.diffuse   = new BABYLON.Color3( 0.5, 0.5, 0.5 );
-            this.lightDirectional.specular  = new BABYLON.Color3( 1.0, 0.5, 0.0 );
-            this.lightDirectional.setEnabled( false );
+            this.lightDirectional.setEnabled( true );
+
+
+
+
 
             // spot light
             this.lightSpot = new BABYLON.SpotLight
