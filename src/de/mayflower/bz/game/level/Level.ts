@@ -425,7 +425,8 @@
                     '',
                     bz.SettingEngine.PATH_MESH,
 
-                    'skull.babylon',
+                    // 'skull.babylon',
+                    'test.babylon',
                     // 'rabbit.babylon',
                     // 'test.obj',
 

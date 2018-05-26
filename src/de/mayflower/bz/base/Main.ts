@@ -6,16 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable physics and collisions for imported meshes.
-    *
     *   TODO Introduce class 'MeshCollection'.
-    *   TODO Separate lib classes for reusability (All classes that implement BABYLON)??
-    *   TODO Implement lib classes via git external?
     *   TOOD Try GUI via babylon-gui.
+    *
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Create debug console on-screen.
     *   TODO Solve pickable items.
+    *
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fog or smoke?
     *   TODO Minor jitter bug improvements on colliding walls?
@@ -23,8 +20,11 @@
     *   TODO Precreate all textures?
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO All body volume calculations to MathUtil functions.
+    *   TODO Separate lib classes for reusability (All classes that implement BABYLON) as separate npm package!
     *   TODO Create (different?) characters from primitives or mesh objects?
+    *
     *   TODO Check collisions via shooting.
+    *   TODO Create debug console on-screen?
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
