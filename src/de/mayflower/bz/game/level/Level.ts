@@ -433,27 +433,32 @@
                     this.scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) =>
                     {
-                        const rabbit:BABYLON.AbstractMesh = importedMeshes[ 0 ];
+                        for ( const importedMesh of importedMeshes )
+                        {
+                            const rabbit:BABYLON.AbstractMesh = importedMesh;
 
-                        // transform the rabbit
-                        rabbit.position.x += -25.0;
-                        rabbit.position.y += 75.0;
-                        rabbit.position.z -= 70.0;
+                            // transform the rabbit
+                            rabbit.position.x += -25.0;
+                            rabbit.position.y += 75.0;
+                            rabbit.position.z += 25.0;
 
-                        rabbit.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                        rabbit.scaling         = new BABYLON.Vector3( 0.2, 0.2, 0.2 );
-                        rabbit.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                        rabbit.physicsImpostor = new BABYLON.PhysicsImpostor
-                        (
-                            rabbit,
-                            BABYLON.PhysicsImpostor.BoxImpostor,
-                            {
-                                mass: 0.5,
-                                friction: 0.0,
-                                restitution: 1.0,
-                            },
-                            this.scene
-                        );
+                            rabbit.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                            rabbit.scaling         = new BABYLON.Vector3( 0.2, 0.2, 0.2 );
+                            rabbit.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                            rabbit.physicsImpostor = new BABYLON.PhysicsImpostor
+                            (
+                                rabbit,
+                                BABYLON.PhysicsImpostor.BoxImpostor,
+                                {
+                                    mass: 1.0,
+                                    friction: 1.0,
+                                    restitution: 1.0,
+                                },
+                                this.scene
+                            );
+
+                            rabbit.isPickable = true;
+                        }
 
                         bz.Main.game.onInitLevelCompleted();
                     }
