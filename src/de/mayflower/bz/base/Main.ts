@@ -6,12 +6,17 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Remove class 'Mesh'.
+    *   TODO Extract mesh importer to separate system.
+    *   TODO Add physical compound for imported mesh collections.
     *   TODO Introduce class 'MeshCollection'.
-    *   TOOD Try GUI via babylon-gui.
     *
+    *   TODO Solve pickable game items.
+    *
+    *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Solve pickable items.
+    *   TODO Create debug console on-screen?
     *
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fog or smoke?
@@ -24,12 +29,11 @@
     *   TODO Create (different?) characters from primitives or mesh objects?
     *
     *   TODO Check collisions via shooting.
-    *   TODO Create debug console on-screen?
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Solve free rotations physics for camera object (on rotated planes or boxes?)
-    *   TODO Rotating texture UVs for certain box sides?
+    *
+    *   TODO Rotating texture UVs for certain box sides? (obsolete though importing meshes!)
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Try 3dsmax 2018/2019 with babylon plugin?
     *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )

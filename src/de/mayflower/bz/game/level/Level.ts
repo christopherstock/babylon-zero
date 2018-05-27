@@ -425,8 +425,9 @@
                     '',
                     bz.SettingEngine.PATH_MESH,
 
-                    // 'skull.babylon',
                     'test.babylon',
+
+                    // 'skull.babylon',
                     // 'rabbit.babylon',
                     // 'test.obj',
 
@@ -442,9 +443,8 @@
                             rabbit.position.y += 75.0;
                             rabbit.position.z += 25.0;
 
-                            rabbit.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                             rabbit.scaling         = new BABYLON.Vector3( 0.2, 0.2, 0.2 );
-                            rabbit.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
                             rabbit.physicsImpostor = new BABYLON.PhysicsImpostor
                             (
                                 rabbit,
@@ -457,6 +457,8 @@
                                 this.scene
                             );
 
+                            rabbit.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                            rabbit.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                             rabbit.isPickable = true;
                         }
 
