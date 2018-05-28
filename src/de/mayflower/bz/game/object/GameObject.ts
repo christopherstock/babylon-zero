@@ -4,10 +4,26 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
+        /** All meshes this game object consists of. */
+        protected           readonly    meshes                  :BABYLON.AbstractMesh[]             = null;
+
         /** ************************************************************************************************************
         *   Creates a new game object.
+        *
+        *   @param meshes The mesh for this wall.
         ***************************************************************************************************************/
-        protected constructor()
+        protected constructor( meshes:BABYLON.AbstractMesh[] )
         {
+            this.meshes = meshes;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns all meshes that build this game object .
+        *
+        *   @return meshes All meshes this game object consists of.
+        ***************************************************************************************************************/
+        public getMeshes() : BABYLON.AbstractMesh[]
+        {
+            return this.meshes;
         }
     }

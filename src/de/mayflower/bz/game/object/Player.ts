@@ -25,11 +25,6 @@
         /** Current rotation delta Z. */
         protected                           rotationDeltaZ          :number                             = 0.0;
 
-        /** The head mesh. */
-        private                 readonly    head                    :BABYLON.AbstractMesh               = null;
-        /** The body mesh. */
-        private                 readonly    body                    :BABYLON.AbstractMesh               = null;
-
         /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;
 
@@ -41,51 +36,56 @@
         ***************************************************************************************************************/
         public constructor( rotY:number, emissiveColor:BABYLON.Color3 )
         {
-            super();
+            super
+            (
+                [
+                    // Player.PLAYER_HEAD_ID
+                    bz.MeshFactory.createSphere
+                    (
+                        new BABYLON.Vector3
+                        (
+                            0.0,
+                            ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                            0.0
+                        ),
+                        bz.PivotAnchor.CENTER_XYZ,
+                        ( 2 * bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                        bz.Texture.GRASS,
+                        null,
+                        bz.Main.game.engine.scene.getScene(),
+                        bz.Physic.NONE,
+                        1.0,
+                        emissiveColor
+                    ),
+
+                    // Player.PLAYER_BODY_ID
+                    bz.MeshFactory.createCylinder
+                    (
+                        new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
+                        bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
+                        ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
+                        bz.SettingGame.PLAYER_HEIGHT_Y,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                        bz.Texture.GLASS,
+                        null,
+                        bz.Main.game.engine.scene.getScene(),
+                        bz.Physic.PLAYER,
+                        0.25,
+                        emissiveColor
+                    ),
+                ]
+            );
 
             this.rotY = rotY;
 
-            this.body = bz.MeshFactory.createCylinder
-            (
-                new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
-                bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
-                bz.SettingGame.PLAYER_HEIGHT_Y,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                bz.Texture.GLASS,
-                null,
-                bz.Main.game.engine.scene.getScene(),
-                bz.Physic.PLAYER,
-                0.25,
-                emissiveColor
-            );
-
-            this.head = bz.MeshFactory.createSphere
-            (
-                new BABYLON.Vector3
-                (
-                    0.0,
-                    ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_HEAD_RADIUS ),
-                    0.0
-                ),
-                bz.PivotAnchor.CENTER_XYZ,
-                ( 2 * bz.SettingGame.PLAYER_HEAD_RADIUS ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                bz.Texture.GRASS,
-                null,
-                bz.Main.game.engine.scene.getScene(),
-                bz.Physic.NONE,
-                1.0,
-                emissiveColor
-            );
-
             // stick head to body
-            this.head.parent = this.body;
+            this.meshes[ Player.PLAYER_HEAD_ID ].parent = this.meshes[ Player.PLAYER_BODY_ID ];
 /*
             // create physical link
-            this.body.getMesh().setPhysicsLinkWith
+            this.meshes[ Player.PLAYER_BODY_ID ].getMesh().setPhysicsLinkWith
             (
-                this.head.getMesh(),
+                this.meshes[ Player.PLAYER_HEAD_ID ].getMesh(),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0, 1.5, 0.0 ),
             );
@@ -195,7 +195,7 @@
         ***************************************************************************************************************/
         public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
-            return this.head;
+            return this.meshes[ Player.PLAYER_HEAD_ID ];
         }
 
         /** ************************************************************************************************************
@@ -206,7 +206,7 @@
         ***************************************************************************************************************/
         public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
-            return this.body;
+            return this.meshes[ Player.PLAYER_BODY_ID ];
         }
 
         /** ************************************************************************************************************
@@ -218,19 +218,19 @@
         {
             if ( visible )
             {
-                this.head.material.alpha = 1.0;
-                this.head.isPickable = true;
+                this.meshes[ Player.PLAYER_HEAD_ID ].material.alpha = 1.0;
+                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable     = true;
 
-                this.body.material.alpha = 0.25;
-                this.body.isPickable = true;
+                this.meshes[ Player.PLAYER_BODY_ID ].material.alpha = 0.25;
+                this.meshes[ Player.PLAYER_BODY_ID ].isPickable     = true;
             }
             else
             {
-                this.head.material.alpha = 0.0;
-                this.head.isPickable = false;
+                this.meshes[ Player.PLAYER_HEAD_ID ].material.alpha = 0.0;
+                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable     = false;
 
-                this.body.material.alpha = 0.0;
-                this.body.isPickable = false;
+                this.meshes[ Player.PLAYER_BODY_ID ].material.alpha = 0.0;
+                this.meshes[ Player.PLAYER_BODY_ID ].isPickable     = false;
             }
         }
 
@@ -242,11 +242,15 @@
             if ( this.moveDeltaX !== 0.0 || this.moveDeltaZ !== 0.0 )
             {
                 // apply move delta
-                this.body.moveWithCollisions( new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ ) );
+                this.meshes[ Player.PLAYER_BODY_ID ].moveWithCollisions
+                (
+                    new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ )
+                );
 
-                // tslint:disable:max-line-length
+                // tslint:disable-next-line:max-line-length
                 // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
                 // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
+                // tslint:disable-next-line:max-line-length
                 // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
                 // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
 
@@ -291,8 +295,8 @@
             }
 
             // rotate all meshes
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.body, 0.0,       this.rotY, 0.0 );
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.head, this.rotZ, 0.0,       0.0 );
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.meshes[ Player.PLAYER_BODY_ID ], 0.0,       this.rotY, 0.0 );
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.meshes[ Player.PLAYER_HEAD_ID ], this.rotZ, 0.0,       0.0 );
         }
 
         /** ************************************************************************************************************
@@ -329,21 +333,21 @@
         private manipulateVelocities() : void
         {
             // filter linear velocity Y
-            const playerVelocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
-            this.body.physicsImpostor.setLinearVelocity
+            const velocity:BABYLON.Vector3 = this.meshes[ Player.PLAYER_BODY_ID ].physicsImpostor.getLinearVelocity();
+            this.meshes[ Player.PLAYER_BODY_ID ].physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
                 (
                     0.0,
 
                     // allow falling but not jumping ..?
-                    ( playerVelocity.y < 0.0 ? playerVelocity.y * 0.95 : 0.0 ),
+                    ( velocity.y < 0.0 ? velocity.y * 0.95 : 0.0 ),
 
                     0.0,
                 )
             );
 
             // suppress angular velocity
-            this.body.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+            this.meshes[ Player.PLAYER_BODY_ID ].physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
         }
     }

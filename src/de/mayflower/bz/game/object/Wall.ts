@@ -7,18 +7,13 @@
     *******************************************************************************************************************/
     export class Wall extends bz.GameObject
     {
-        /** The wall mesh. */
-        public                      mesh                    :BABYLON.AbstractMesh                       = null;
-
         /** ************************************************************************************************************
         *   Creates a new wall instance.
         *
-        *   @param mesh The mesh for this wall.
+        *   @param meshes All meshes that build this wall.
         ***************************************************************************************************************/
-        public constructor( mesh:BABYLON.Mesh )
+        public constructor( meshes:BABYLON.AbstractMesh[] )
         {
-            super();
-
-            this.mesh = mesh;
+            super( meshes );
         }
     }

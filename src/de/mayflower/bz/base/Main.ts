@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Introduce class 'MeshCollection' or enable multiple meshes per game object.
-    *
     *   TODO Extract mesh importer to separate system.
     *   TODO Add physical compound for imported mesh collections.
     *
