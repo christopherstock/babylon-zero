@@ -6,6 +6,11 @@
     *******************************************************************************************************************/
     export class Player extends bz.GameObject
     {
+        /** The id of the player's head mesh in the mesh array. */
+        private     static      readonly    PLAYER_HEAD_ID          :number                             = 0;
+        /** The id of the player's body mesh in the mesh array. */
+        private     static      readonly    PLAYER_BODY_ID          :number                             = 1;
+
         /** The player's current rotation on axis Y. */
         protected                           rotY                    :number                             = 270.0;
         /** The player's current rotation on axis Z. */
@@ -21,9 +26,9 @@
         protected                           rotationDeltaZ          :number                             = 0.0;
 
         /** The head mesh. */
-        private                 readonly    head                    :BABYLON.Mesh                       = null;
+        private                 readonly    head                    :BABYLON.AbstractMesh               = null;
         /** The body mesh. */
-        private                 readonly    body                    :BABYLON.Mesh                       = null;
+        private                 readonly    body                    :BABYLON.AbstractMesh               = null;
 
         /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;
@@ -188,7 +193,7 @@
         *   @return The player's head mesh.
         *           This is the right mesh to set the first person camera into.
         ***************************************************************************************************************/
-        public getFirstPersonCameraTargetMesh() : BABYLON.Mesh
+        public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
             return this.head;
         }
@@ -199,7 +204,7 @@
         *   @return The player's body mesh.
         *           This is the right mesh to set as a target for the third person camera.
         ***************************************************************************************************************/
-        public getThirdPersonCameraTargetMesh() : BABYLON.Mesh
+        public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
             return this.body;
         }

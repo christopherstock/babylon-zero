@@ -1,5 +1,6 @@
 
-    import * as bz from '../..';
+    import * as BABYLON from 'babylonjs';
+    import * as bz      from '../..';
 
     /** ****************************************************************************************************************
     *   Represents a movable object.
@@ -7,7 +8,7 @@
     export class Movable extends bz.GameObject
     {
         /** The movable mesh. */
-        public                          mesh                    :BABYLON.Mesh                           = null;
+        public                          mesh                    :BABYLON.AbstractMesh                       = null;
 
         /** ************************************************************************************************************
         *   Creates a new movable instance.
@@ -20,5 +21,4 @@
 
             this.mesh = mesh;
         }
-
     }

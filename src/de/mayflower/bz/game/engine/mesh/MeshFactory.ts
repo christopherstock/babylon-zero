@@ -571,7 +571,7 @@
         *   @param rotY The y axis rotation (yaw).
         *   @param rotZ The z axis rotation (roll).
         ***************************************************************************************************************/
-        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number ) : void
+        public static setAbsoluteRotationXYZ( mesh:BABYLON.AbstractMesh, rotX:number, rotY:number, rotZ:number ) : void
         {
             mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
             (

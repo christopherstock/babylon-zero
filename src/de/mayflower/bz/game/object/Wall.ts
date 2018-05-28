@@ -8,7 +8,7 @@
     export class Wall extends bz.GameObject
     {
         /** The wall mesh. */
-        public                      mesh                    :BABYLON.Mesh                           = null;
+        public                      mesh                    :BABYLON.AbstractMesh                       = null;
 
         /** ************************************************************************************************************
         *   Creates a new wall instance.

@@ -107,7 +107,7 @@
         *
         *   @param mesh The mesh to lock the stationary camera to.
         ***************************************************************************************************************/
-        public lockStationaryTargetCameraTo( mesh:BABYLON.Mesh ) : void
+        public lockStationaryTargetCameraTo( mesh:BABYLON.AbstractMesh ) : void
         {
             this.stationaryCamera.lockedTarget = mesh;
         }
@@ -117,7 +117,7 @@
         *
         *   @param mesh The mesh to lock the follow camera to.
         ***************************************************************************************************************/
-        public lockFollowCameraTo( mesh:BABYLON.Mesh ) : void
+        public lockFollowCameraTo( mesh:BABYLON.AbstractMesh ) : void
         {
             this.followCamera.lockedTarget = mesh;
         }
@@ -127,7 +127,7 @@
         *
         *   @param mesh The mesh to lock the first person camera to.
         ***************************************************************************************************************/
-        public setFirstPersonCameraInside( mesh:BABYLON.Mesh ) : void
+        public setFirstPersonCameraInside( mesh:BABYLON.AbstractMesh ) : void
         {
             this.firstPersonCamera.parent = mesh;
         }
