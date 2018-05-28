@@ -21,9 +21,9 @@
         protected                           rotationDeltaZ          :number                             = 0.0;
 
         /** The head mesh. */
-        private                             head                    :bz.Mesh                            = null;
+        private                             head                    :BABYLON.Mesh                       = null;
         /** The body mesh. */
-        private                             body                    :bz.Mesh                            = null;
+        private                             body                    :BABYLON.Mesh                       = null;
 
         /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;
@@ -40,52 +40,44 @@
 
             this.rotY = rotY;
 
-            this.body = new bz.Mesh
+            this.body = bz.MeshFactory.createCylinder
             (
-                bz.MeshFactory.createCylinder
-                (
-                    new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
-                    bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
-                    ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
-                    bz.SettingGame.PLAYER_HEIGHT_Y,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                    bz.Texture.GLASS,
-                    null,
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.Physic.PLAYER,
-                    0.25, // is ignored! use lower value!
-                    emissiveColor
-                ),
-                0.25
+                new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
+                bz.PivotAnchor.CENTER_XZ_LOWEST_Y,
+                ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
+                bz.SettingGame.PLAYER_HEIGHT_Y,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                bz.Texture.GLASS,
+                null,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Physic.PLAYER,
+                0.25,
+                emissiveColor
             );
 
-            this.head = new bz.Mesh
+            this.head = bz.MeshFactory.createSphere
             (
-                bz.MeshFactory.createSphere
+                new BABYLON.Vector3
                 (
-                    new BABYLON.Vector3
-                    (
-                        0.0,
-                        ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_HEAD_RADIUS ),
-                        0.0
-                    ),
-                    bz.PivotAnchor.CENTER_XYZ,
-                    ( 2 * bz.SettingGame.PLAYER_HEAD_RADIUS ),
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                    bz.Texture.GRASS,
-                    null,
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.Physic.NONE,
-                    1.0,
-                    emissiveColor
+                    0.0,
+                    ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                    0.0
                 ),
-                1.0
+                bz.PivotAnchor.CENTER_XYZ,
+                ( 2 * bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                bz.Texture.GRASS,
+                null,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Physic.NONE,
+                1.0,
+                emissiveColor
             );
 
             // stick head to body
-            this.head.getMesh().parent = this.body.getMesh();
+            this.head.parent = this.body;
 /*
-            // physical link
+            // create physical link
             this.body.getMesh().setPhysicsLinkWith
             (
                 this.head.getMesh(),
@@ -198,7 +190,7 @@
         ***************************************************************************************************************/
         public getFirstPersonCameraTargetMesh() : BABYLON.Mesh
         {
-            return this.head.getMesh();
+            return this.head;
         }
 
         /** ************************************************************************************************************
@@ -209,7 +201,7 @@
         ***************************************************************************************************************/
         public getThirdPersonCameraTargetMesh() : BABYLON.Mesh
         {
-            return this.body.getMesh();
+            return this.body;
         }
 
         /** ************************************************************************************************************
@@ -219,8 +211,22 @@
         ***************************************************************************************************************/
         public setVisible( visible:boolean ) : void
         {
-            this.head.setVisible( visible );
-            this.body.setVisible( visible );
+            if ( visible )
+            {
+                this.head.material.alpha = 1.0;
+                this.head.isPickable = true;
+
+                this.body.material.alpha = 0.25;
+                this.body.isPickable = true;
+            }
+            else
+            {
+                this.head.material.alpha = 0.0;
+                this.head.isPickable = false;
+
+                this.body.material.alpha = 0.0;
+                this.body.isPickable = false;
+            }
         }
 
         /** ************************************************************************************************************
@@ -230,12 +236,20 @@
         {
             if ( this.moveDeltaX !== 0.0 || this.moveDeltaZ !== 0.0 )
             {
-                this.body.moveWithCollisions( this.moveDeltaX, 0.0, this.moveDeltaZ );
+                // apply move delta
+                this.body.moveWithCollisions( new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ ) );
 
+                // tslint:disable:max-line-length
+                // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
+                // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
+                // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
+                // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
+
+                // reset move deltas
                 this.moveDeltaX = 0.0;
                 this.moveDeltaZ = 0.0;
 
-                // demand rotZ centering
+                // force rotZ centering
                 this.centerRotZ = true;
             }
             else
@@ -272,8 +286,8 @@
             }
 
             // rotate all meshes
-            this.body.setAbsoluteRotationXYZ( 0.0, this.rotY, 0.0 );
-            this.head.setAbsoluteRotationXYZ( this.rotZ, 0.0, 0.0 );
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.body, 0.0,       this.rotY, 0.0 );
+            bz.MeshFactory.setAbsoluteRotationXYZ( this.head, this.rotZ, 0.0,       0.0 );
         }
 
         /** ************************************************************************************************************
@@ -310,8 +324,8 @@
         private manipulateVelocities() : void
         {
             // filter linear velocity Y
-            const playerVelocity:BABYLON.Vector3 = this.body.getMesh().physicsImpostor.getLinearVelocity();
-            this.body.getMesh().physicsImpostor.setLinearVelocity
+            const playerVelocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
+            this.body.physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
                 (
@@ -325,6 +339,6 @@
             );
 
             // suppress angular velocity
-            this.body.getMesh().physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+            this.body.physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
         }
     }

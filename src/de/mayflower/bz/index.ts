@@ -23,7 +23,6 @@
     export * from './game/engine/material/MaterialSystem';
     export * from './game/engine/material/Texture';
 
-    export * from './game/engine/mesh/Mesh';
     export * from './game/engine/mesh/MeshFactory';
 
     export * from './game/engine/physic/PhysicDensity';

@@ -564,6 +564,24 @@
         }
 
         /** ************************************************************************************************************
+        *   Specifies the absolute rotation of the specified mesh for all axis.
+        *
+        *   @param mesh The mesh to set the rotation for.
+        *   @param rotX The x axis rotation (pitch)
+        *   @param rotY The y axis rotation (yaw).
+        *   @param rotZ The z axis rotation (roll).
+        ***************************************************************************************************************/
+        public static setAbsoluteRotationXYZ( mesh:BABYLON.Mesh, rotX:number, rotY:number, rotZ:number ) : void
+        {
+            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
+            (
+                bz.MathUtil.degreesToRad( rotY ),
+                bz.MathUtil.degreesToRad( rotX ),
+                bz.MathUtil.degreesToRad( rotZ )
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Adds general mesh properties.
         *
         *   @param mesh            The mesh to decorate.
@@ -593,7 +611,7 @@
 
             if ( rotation != null )
             {
-                bz.Mesh.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
+                MeshFactory.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
             }
 
             return mesh;

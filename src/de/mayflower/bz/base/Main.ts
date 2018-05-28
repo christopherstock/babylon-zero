@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Remove class 'Mesh'.
     *   TODO Extract mesh importer to separate system.
     *   TODO Add physical compound for imported mesh collections.
     *   TODO Introduce class 'MeshCollection'.
