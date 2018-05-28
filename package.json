@@ -9,11 +9,10 @@
     "repository": "https://github.com/christopherstock/babylon-zero.git",
     "bugs": "https://github.com/christopherstock/babylon-zero/issues",
     "scripts": {
-        "start": "npm run build:dev",
         "build:dev": "webpack --watch",
         "build:production": "webpack --optimize-minimize --watch",
-        "typedoc": "typedoc --out doc\\ --listInvalidSymbolLinks --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src",
-        "tslint": "tslint --project ./tsconfig.json --config ./tslint.json \"src/**/*.{ts,tsx}\""
+        "typedoc:generate": "typedoc --out doc\\ --listInvalidSymbolLinks --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src",
+        "tslint:check": "tslint --project ./tsconfig.json --config ./tslint.json \"src/**/*.{ts,tsx}\""
     },
     "devDependencies": {
         "@types/node": "^9.6.5",

@@ -21,9 +21,9 @@
         protected                           rotationDeltaZ          :number                             = 0.0;
 
         /** The head mesh. */
-        private                             head                    :BABYLON.Mesh                       = null;
+        private                 readonly    head                    :BABYLON.Mesh                       = null;
         /** The body mesh. */
-        private                             body                    :BABYLON.Mesh                       = null;
+        private                 readonly    body                    :BABYLON.Mesh                       = null;
 
         /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;

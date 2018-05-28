@@ -5,12 +5,11 @@
     // tslint:disable:max-line-length
     export class SettingDebug
     {
-        /** Specifies debug mode. */
+        /** The global switch for the debug mode. */
         public      static      DEBUG_MODE                                  :boolean            = true;
 
         /** Disables all sounds. */
         public      static      DISABLE_SOUND                               :boolean            = ( true && SettingDebug.DEBUG_MODE );
-
         /** Enabled collisions for the free debug camera. */
         public      static      ENABLE_COLLISIONS_FOR_DEBUG_CAMERA          :boolean            = ( false && SettingDebug.DEBUG_MODE );
 

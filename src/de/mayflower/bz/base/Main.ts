@@ -6,19 +6,19 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Introduce class 'MeshCollection' or enable multiple meshes per game object.
+    *
     *   TODO Extract mesh importer to separate system.
     *   TODO Add physical compound for imported mesh collections.
-    *   TODO Introduce class 'MeshCollection'.
     *
     *   TODO Solve pickable game items.
+    *   TODO Improve Sprite System handling (asset loading etc.).
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create debug console on-screen?
     *
-    *   TODO Created improved triangle / polygon drawing by xyz vertices?
-    *   TODO Try fog or smoke?
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
     *   TODO Precreate all textures?
@@ -32,10 +32,7 @@
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
     *
-    *   TODO Rotating texture UVs for certain box sides? (obsolete though importing meshes!)
     *   TODO Smooth camera transfers / animation on changine active camera?
-    *   TODO Try 3dsmax 2018/2019 with babylon plugin?
-    *   TODO Solve 3dsmax OBJ file importer? ( with different OBJ file? )
     *   TODO Improve abstract level system and make it more generic.
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
@@ -44,13 +41,18 @@
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   TODO Add player/camrera controls (turn, duck)
     *   TODO Check Perfect Dark and Goldeneye sound board.
-    *   TODO Improve Sprite System handling (asset loading etc.).
     *   TODO Try PostProcess (camera.setPostProcess ?)
     *   TODO move onInitLevelCompleted to class Level and also scene to class level?
     *   TODO Create material system with unified parameters!
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
     *   TODO Increase performance in chrome?
+    *
+    *   TODO Rotating texture UVs for certain box sides? (may be obsolete though importing meshes!)
+    *   TODO Try fog or smoke?
+    *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fur.
+    *
+    *   TODO Try video textures!
     *   TODO Create main menu where player can reset level etc.
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
