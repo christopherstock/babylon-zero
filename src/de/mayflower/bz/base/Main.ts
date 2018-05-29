@@ -6,8 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Extract mesh importer to separate system.
     *   TODO Add physical compound for imported mesh collections.
+    *   TODO Extract mesh importer to separate system.
     *
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling (asset loading etc.).
@@ -49,6 +49,8 @@
     *   TODO Try fog or smoke?
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fur.
+    *
+    *   TODO Create MVP - Techn-Demo with rotating logo intro etc.
     *
     *   TODO Try video textures!
     *   TODO Create main menu where player can reset level etc.

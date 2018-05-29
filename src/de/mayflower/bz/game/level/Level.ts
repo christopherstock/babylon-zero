@@ -285,7 +285,7 @@
         ***************************************************************************************************************/
         private setupSkybox() : void
         {
-            this.skybox = bz.MeshFactory.createSkyBox( 0.5, 'bluesky', this.scene );
+            this.skybox = bz.MeshFactory.createSkyBox( 0.1, 'darksky/darksky', this.scene );
         }
 
         /** ************************************************************************************************************
@@ -415,64 +415,78 @@
         }
 
         /** ************************************************************************************************************
-        *   Imports a mesh in the .babylon format.
+        *   Imports a mesh from a .babylon 3ds max file.
         ***************************************************************************************************************/
         private importMesh() : void
         {
-            const skipMeshImport:boolean = false;
+            const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
+            (
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.PivotAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                null,
+                this.scene,
+                bz.Physic.NONE,
+                0.0,
+                this.ambientColor
+            );
 
-            if ( skipMeshImport )
-            {
-                bz.Main.game.onInitLevelCompleted();
-            }
-            else
-            {
-                // The first parameter can be used to specify which mesh to import. Here we import all meshes
-                BABYLON.SceneLoader.ImportMesh
-                (
-                    '',
-                    bz.SettingEngine.PATH_MESH,
+            // First parameter specifies the mesh name to import - an empty string will import all meshes.
+            BABYLON.SceneLoader.ImportMesh
+            (
+                '',
+                bz.SettingEngine.PATH_MESH,
 
-                    'test.babylon',
+                'test.babylon',
 
-                    // 'skull.babylon',
-                    // 'rabbit.babylon',
-                    // 'test.obj',
+                // 'skull.babylon',
+                // 'rabbit.babylon',
+                // 'test.obj',
 
-                    this.scene,
-                    ( importedMeshes:BABYLON.AbstractMesh[] ) =>
+                this.scene,
+                ( importedMeshes:BABYLON.AbstractMesh[] ) =>
+                {
+                    // browse all meshes of this .babylon file
+                    for ( const importedMesh of importedMeshes )
                     {
-                        for ( const importedMesh of importedMeshes )
-                        {
-                            const rabbit:BABYLON.AbstractMesh = importedMesh;
+                        const mesh:BABYLON.AbstractMesh = importedMesh;
+/*
+// transform this mesh
+mesh.position.x += -25.0;
+mesh.position.y += 75.0;
+mesh.position.z += 25.0;
+*/
 
-                            // transform the rabbit
-                            rabbit.position.x += -25.0;
-                            rabbit.position.y += 75.0;
-                            rabbit.position.z += 25.0;
 
-                            rabbit.scaling         = new BABYLON.Vector3( 0.2, 0.2, 0.2 );
+                        mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                        (
+                            mesh,
+                            BABYLON.PhysicsImpostor.BoxImpostor,
+                            {
+                                mass: 1.0,
+                                friction: 1.0,
+                                restitution: 1.0,
+                            },
+                            this.scene
+                        );
+                        mesh.setPhysicsLinkWith( centerMesh, BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero() );
 
-                            rabbit.physicsImpostor = new BABYLON.PhysicsImpostor
-                            (
-                                rabbit,
-                                BABYLON.PhysicsImpostor.BoxImpostor,
-                                {
-                                    mass: 1.0,
-                                    friction: 1.0,
-                                    restitution: 1.0,
-                                },
-                                this.scene
-                            );
 
-                            rabbit.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                            rabbit.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                            rabbit.isPickable = true;
-                        }
 
-                        bz.Main.game.onInitLevelCompleted();
+
+                        mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                        mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                        mesh.isPickable = true;
                     }
-                );
-            }
+
+
+
+
+
+                    bz.Main.game.onInitLevelCompleted();
+                }
+            );
         }
     }
