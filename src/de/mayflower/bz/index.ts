@@ -13,6 +13,7 @@
 
     export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
+    export * from './game/engine/MeshImportSystem';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
 

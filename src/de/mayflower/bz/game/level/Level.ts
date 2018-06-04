@@ -419,6 +419,7 @@
         ***************************************************************************************************************/
         private importMesh() : void
         {
+/*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -432,7 +433,7 @@
                 0.0,
                 this.ambientColor
             );
-
+*/
             // First parameter specifies the mesh name to import - an empty string will import all meshes.
             BABYLON.SceneLoader.ImportMesh
             (
@@ -452,26 +453,31 @@
                     for ( const importedMesh of importedMeshes )
                     {
                         const mesh:BABYLON.AbstractMesh = importedMesh;
-/*
-// transform this mesh
-mesh.position.x += -25.0;
-mesh.position.y += 75.0;
-mesh.position.z += 25.0;
-*/
 
 
-                        mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                        (
-                            mesh,
-                            BABYLON.PhysicsImpostor.BoxImpostor,
-                            {
-                                mass: 1.0,
-                                friction: 1.0,
-                                restitution: 1.0,
-                            },
-                            this.scene
-                        );
-                        mesh.setPhysicsLinkWith( centerMesh, BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero() );
+                        // transform this mesh
+                        mesh.position.x += -25.0;
+                        mesh.position.y += 20.0;
+                        mesh.position.z += 25.0;
+
+                        let test:boolean = false;
+                        if (test)
+                        {
+                            mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                            (
+                                mesh,
+                                BABYLON.PhysicsImpostor.BoxImpostor,
+                                {
+                                    mass: 1.0,
+                                    friction: 1.0,
+                                    restitution: 1.0,
+                                },
+                                this.scene
+                            );
+                        }
+
+
+//                        mesh.setPhysicsLinkWith( centerMesh, BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero() );
 
 
 

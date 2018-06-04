@@ -16,6 +16,8 @@
         public      static      readonly    sound               :Debug              = new Debug( true  );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
+        /** Debugs mesh importer system. */
+        public      static      readonly    meshImport          :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

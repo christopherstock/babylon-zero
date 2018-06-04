@@ -29,6 +29,35 @@
         }
 
         /** ************************************************************************************************************
+        *   Loads all specified sound files into system memory.
+        ***************************************************************************************************************/
+        public loadSounds() : void
+        {
+            bz.Debug.sound.log( 'Preloading [' + this.fileNames.length + '] sounds' );
+
+            for ( const fileName of this.fileNames )
+            {
+                try
+                {
+                    this.sounds[ fileName ]              = new Audio();
+                    this.sounds[ fileName ].src          = fileName;
+                    this.sounds[ fileName ].onloadeddata = this.onLoadSound;
+                    this.sounds[ fileName ].onerror      = this.onLoadSoundError;
+
+                    if ( bz.IO.isMac() )
+                    {
+                        this.onLoadSound();
+                    }
+                }
+                catch ( e )
+                {
+                    bz.Debug.sound.log( 'Error on creating Audio element: ' + e.message );
+                    this.onLoadSoundError();
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Creates and plays a COPY of the specified audio object.
         *
         *   @param id   The ID of the audio object to play.
@@ -66,35 +95,6 @@
             }
 
             return null;
-        }
-
-        /** ************************************************************************************************************
-        *   Loads all specified sound files into system memory.
-        ***************************************************************************************************************/
-        public loadSounds() : void
-        {
-            bz.Debug.sound.log( 'Preloading [' + this.fileNames.length + '] sounds' );
-
-            for ( const fileName of this.fileNames )
-            {
-                try
-                {
-                    this.sounds[ fileName ]              = new Audio();
-                    this.sounds[ fileName ].src          = fileName;
-                    this.sounds[ fileName ].onloadeddata = this.onLoadSound;
-                    this.sounds[ fileName ].onerror      = this.onLoadSoundError;
-
-                    if ( bz.IO.isMac() )
-                    {
-                        this.onLoadSound();
-                    }
-                }
-                catch ( e )
-                {
-                    bz.Debug.sound.log( 'Error on creating Audio element: ' + e.message );
-                    this.onLoadSoundError();
-                }
-            }
         }
 
         /** ************************************************************************************************************

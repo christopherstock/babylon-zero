@@ -20,6 +20,14 @@
             bz.Debug.init.log( 'Init game engine' );
             this.engine = new bz.GameEngine();
             this.engine.init();
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the game engine is completely initialized.
+        ***************************************************************************************************************/
+        public onInitGameEngineCompleted=() : void =>
+        {
+            bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Init custom level' );
             this.level = new bz.LevelTest
@@ -28,7 +36,7 @@
                 this.engine.scene.getScene()
             );
             this.level.reset();
-        }
+        };
 
         /** ************************************************************************************************************
         *   Being invoked when the level is completely initialized.

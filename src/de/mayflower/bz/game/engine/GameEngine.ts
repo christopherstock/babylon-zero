@@ -14,6 +14,8 @@
         public                      scene                       :bz.Scene                   = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                  = null;
+        /** The mesh import system. */
+        public                      meshImporter                :bz.MeshImportSystem        = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem               = null;
         /** The pointer system. */
@@ -63,6 +65,17 @@
             bz.Debug.init.log( 'Init sprites' );
             this.sprite = new bz.Sprite();
             this.sprite.init();
+
+            // init mesh importer
+            bz.Debug.init.log( 'Init mesh importer' );
+            this.meshImporter = new bz.MeshImportSystem(
+                [
+                    'furniture/officeChair',
+                    'furniture/skull',
+                ],
+                bz.Main.game.onInitGameEngineCompleted
+            );
+            this.meshImporter.loadMeshes();
         }
 
         /** ************************************************************************************************************
