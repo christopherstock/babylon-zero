@@ -9,6 +9,11 @@
     *   TODO Add physical compound for imported mesh collections.
     *   TODO Extract mesh importer to separate system.
     *
+    *   TODO Rename top level class to 'Stage'.
+    *   TODO Create stage for 3d pictured room.
+    *   TODO Create 3d room (see tutorial project)
+    *   TODO Create third stage with AxisCamera.
+    *
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling (asset loading etc.).
     *
