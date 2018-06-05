@@ -79,10 +79,35 @@
         ***************************************************************************************************************/
         public render=() : void =>
         {
-            // render stage
-            this.stage.render();
+            // handle global keys
+            this.handleMenuKeys();
+
+            // render stage if currently present
+            if ( this.stage != null )
+            {
+                this.stage.render();
+            }
 
             // render babylon.JS scene
             this.engine.scene.renderScene();
+        };
+
+        /** ************************************************************************************************************
+        *   Handles all keys for the menu.
+        ***************************************************************************************************************/
+        public handleMenuKeys() : void
+        {
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
+
+                console.log( '>> clear stage..' );
+
+                this.stage.unload();
+
+                this.stage = null;
+
+
+            }
         }
     }

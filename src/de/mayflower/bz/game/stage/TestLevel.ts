@@ -530,4 +530,14 @@
             );
 */
         }
+
+        /** ************************************************************************************************************
+        *   Sets up the skybox.
+        *
+        *   @return The created skybox for this stage.
+        ***************************************************************************************************************/
+        protected createSkybox() : BABYLON.Mesh
+        {
+            return bz.MeshFactory.createSkyBox( 0.1, 'darksky/darksky', this.scene );
+        }
     }

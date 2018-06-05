@@ -7,30 +7,30 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The camera system. */
+        /** The camera system. TODO to engine..? */
         public                              cameraSystem            :bz.CameraSystem                    = null;
+
         /** The player instance. */
         public                              player                  :bz.Player                          = null;
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
-        /** The skybox that surrounds the whole stage. */
-        protected                           skybox                  :BABYLON.Mesh                       = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected       readonly            ambientColor            :BABYLON.Color3                     = null;
 
         /** A collection of the coordinate axis in this stage. */
-        protected       readonly            coordinateAxis          :BABYLON.Mesh[]                     = [];
-
+        protected                           coordinateAxis          :BABYLON.Mesh[]                     = [];
+        /** The skybox that surrounds the whole stage. */
+        protected                           skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all walls in this stage. */
-        protected       readonly            walls                   :bz.Wall[]                          = null;
+        protected                           walls                   :bz.Wall[]                          = [];
         /** A collection of all movables in this stage. */
-        protected       readonly            movables                :bz.Movable[]                       = null;
+        protected                           movables                :bz.Movable[]                       = [];
         /** A collection of all items in this stage. */
-        protected       readonly            items                   :bz.Item[]                          = null;
+        protected                           items                   :bz.Item[]                          = [];
         /** A collection of all bots in this stage. */
-        protected       readonly            bots                    :bz.Bot[]                           = null;
+        protected                           bots                    :bz.Bot[]                           = [];
         /** A collection of all imported meshes in this stage. TODO remove and merge to game objects! */
-        protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
+        protected                           importedMeshes          :BABYLON.Mesh[][]                   = [];
 
         /** A shadow generator for one specific light. */
         protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
@@ -69,16 +69,14 @@
             this.items          = this.createItems();
             this.bots           = this.createBots();
             this.importedMeshes = this.createImportedMeshes();
+            this.skybox         = this.createSkybox();
+
+
 
 
 
             this.setupSprites();
-
-
-
             this.setupPlayer();
-            this.setupSkybox();
-
             this.setupLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
@@ -152,6 +150,12 @@
                 mesh.dispose();
             }
 
+            // dispose skybox
+            this.skybox.dispose();
+
+            // dispose player
+            this.player.dispose();
+
 
 
 
@@ -191,6 +195,13 @@
         *   @return All imported meshes of this stage.
         ***************************************************************************************************************/
         protected abstract createImportedMeshes() : BABYLON.Mesh[][];
+
+        /** ************************************************************************************************************
+        *   Sets up the skybox.
+        *
+        *   @return The created skybox for this stage.
+        ***************************************************************************************************************/
+        protected abstract createSkybox() : BABYLON.Mesh;
 
         /** ************************************************************************************************************
         *   Sets up the coordinate axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
@@ -242,14 +253,6 @@
         private setupPlayer() : void
         {
             this.player = new bz.Player( 225.0, this.ambientColor );
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up the skybox.
-        ***************************************************************************************************************/
-        private setupSkybox() : void
-        {
-            this.skybox = bz.MeshFactory.createSkyBox( 0.1, 'darksky/darksky', this.scene );
         }
 
         /** ************************************************************************************************************
