@@ -6,14 +6,10 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Disable visibility for single imported meshes.
-    *   TODO Create imported mesh cloning!
-    *
-    *   TODO Second (debug) level as default without lights! Switch with F-Keys.
+    *   TODO Second (debug) stage as default without lights! Switch with F-Keys.
+    *   TODO Ditch internal scene on changing level!
     *
     *   TODO Add physical compound for imported mesh collections.
-    *
-    *   TODO Rename top level class to 'Stage'.
     *
     *   TODO Create stage for 3d pictured room.
     *   TODO Create 3d room (see tutorial project)
@@ -43,7 +39,7 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *
     *   TODO Smooth camera transfers / animation on changine active camera?
-    *   TODO Improve abstract level system and make it more generic.
+    *   TODO Improve abstract stage system and make it more generic.
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
@@ -52,7 +48,7 @@
     *   TODO Add player/camrera controls (turn, duck)
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Try PostProcess (camera.setPostProcess ?)
-    *   TODO move onInitLevelCompleted to class Level and also scene to class level?
+    *   TODO move onInitLevelCompleted to class Level and also scene to class stage?
     *   TODO Create material system with unified parameters!
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
     *   TODO Increase performance in chrome?
@@ -65,7 +61,7 @@
     *   TODO Create MVP - Techn-Demo with rotating logo intro etc.
     *
     *   TODO Try video textures!
-    *   TODO Create main menu where player can reset level etc.
+    *   TODO Create main menu where player can reset stage etc.
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?

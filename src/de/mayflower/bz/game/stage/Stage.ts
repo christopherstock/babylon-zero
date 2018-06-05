@@ -3,9 +3,9 @@
     import * as bz      from '../..';
 
     /** ****************************************************************************************************************
-    *   Represents a custom level set.
+    *   Represents a custom stage set.
     *******************************************************************************************************************/
-    export abstract class Level
+    export abstract class Stage
     {
         /** The camera system. */
         public                              cameraSystem            :bz.CameraSystem                    = null;
@@ -13,18 +13,18 @@
         public                              player                  :bz.Player                          = null;
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
-        /** The skybox that surrounds the whole level. */
+        /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                       = null;
-        /** The ambient color of this level is the emissive color of all mesh materials. */
+        /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected       readonly            ambientColor            :BABYLON.Color3                     = null;
 
-        /** A collection of all walls in this level. */
+        /** A collection of all walls in this stage. */
         protected       readonly            walls                   :bz.Wall[]                          = null;
-        /** A collection of all movables in this level. */
+        /** A collection of all movables in this stage. */
         protected       readonly            movables                :bz.Movable[]                       = null;
-        /** A collection of all items in this level. */
+        /** A collection of all items in this stage. */
         protected       readonly            items                   :bz.Item[]                          = null;
-        /** A collection of all bots in this level. */
+        /** A collection of all bots in this stage. */
         protected       readonly            bots                    :bz.Bot[]                           = null;
 
         /** A shadow generator for one specific light. */
@@ -40,9 +40,9 @@
         private                             lightPoint              :BABYLON.PointLight                 = null;
 
         /** ************************************************************************************************************
-        *   Creates a new custom level.
+        *   Creates a new custom stage.
         *
-        *   @param ambientColor The ambient color of the level is the emissive color for all faces.
+        *   @param ambientColor The ambient color of the stage is the emissive color for all faces.
         *   @param scene        The babylon.JS scene reference.
         ***************************************************************************************************************/
         protected constructor
@@ -85,7 +85,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Resets this level.
+        *   Resets this stage.
         ***************************************************************************************************************/
         public reset() : void
         {
@@ -93,7 +93,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Renders all level concernings for one tick of the game loop.
+        *   Renders all stage concernings for one tick of the game loop.
         ***************************************************************************************************************/
         public render() : void
         {
@@ -103,30 +103,30 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all walls this level consists of.
+        *   Creates and returns all walls this stage consists of.
         *
-        *   @return All walls of this level.
+        *   @return All walls of this stage.
         ***************************************************************************************************************/
         protected abstract createWalls() : bz.Wall[];
 
         /** ************************************************************************************************************
-        *   Creates and returns all movables this level consists of.
+        *   Creates and returns all movables this stage consists of.
         *
-        *   @return All movables of this level.
+        *   @return All movables of this stage.
         ***************************************************************************************************************/
         protected abstract createMovables() : bz.Movable[];
 
         /** ************************************************************************************************************
-        *   Creates and returns all items this level consists of.
+        *   Creates and returns all items this stage consists of.
         *
-        *   @return All items of this level.
+        *   @return All items of this stage.
         ***************************************************************************************************************/
         protected abstract createItems() : bz.Item[];
 
         /** ************************************************************************************************************
-        *   Creates and returns all bots this level consists of.
+        *   Creates and returns all bots this stage consists of.
         *
-        *   @return All bots of this level.
+        *   @return All bots of this stage.
         ***************************************************************************************************************/
         protected abstract createBots() : bz.Bot[];
 
@@ -423,7 +423,7 @@
         ***************************************************************************************************************/
         private importMeshes() : void
         {
-            bz.Debug.level.log( 'Importing level meshes' );
+            bz.Debug.level.log( 'Importing stage meshes' );
 
             bz.MeshFactory.createImportedMesh
             (

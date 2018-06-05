@@ -2,14 +2,14 @@
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
-    *   Specifies the 'test' level.
+    *   Specifies the 'test' stage.
     *******************************************************************************************************************/
-    export class LevelTest extends bz.Level
+    export class LevelTest extends bz.Stage
     {
         /** ************************************************************************************************************
-        *   Sets up the 'bunny' level.
+        *   Sets up the 'bunny' stage.
         *
-        *   @param ambientColor The ambient color of the level is the emissive color for all faces.
+        *   @param ambientColor The ambient color of the stage is the emissive color for all faces.
         *   @param scene        The babylon.JS scene reference.
         ***************************************************************************************************************/
         public constructor
@@ -22,9 +22,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all walls this level consists of.
+        *   Creates and returns all walls this stage consists of.
         *
-        *   @return All walls of this level.
+        *   @return All walls of this stage.
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
@@ -291,9 +291,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all movables this level consists of.
+        *   Creates and returns all movables this stage consists of.
         *
-        *   @return All movables of this level.
+        *   @return All movables of this stage.
         ***************************************************************************************************************/
         protected createMovables() : bz.Movable[]
         {
@@ -462,9 +462,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all items this level consists of.
+        *   Creates and returns all items this stage consists of.
         *
-        *   @return All items of this level.
+        *   @return All items of this stage.
         ***************************************************************************************************************/
         protected createItems() : bz.Item[]
         {
@@ -472,9 +472,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all bots this level consists of.
+        *   Creates and returns all bots this stage consists of.
         *
-        *   @return All bots of this level.
+        *   @return All bots of this stage.
         ***************************************************************************************************************/
         protected createBots() : bz.Bot[]
         {

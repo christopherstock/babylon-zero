@@ -248,7 +248,7 @@
                 );
 
                 // tslint:disable-next-line:max-line-length
-                // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.level.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
+                // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.stage.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
                 // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
                 // tslint:disable-next-line:max-line-length
                 // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );

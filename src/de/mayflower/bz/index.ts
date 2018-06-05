@@ -41,8 +41,8 @@
 
     export * from './game/engine/LightFactory';
 
-    export * from './game/level/Level';
-    export * from './game/level/LevelTest';
+    export * from './game/stage/Stage';
+    export * from './game/stage/LevelTest';
 
     export * from './game/object/GameObject';
     export * from './game/object/Bot';

@@ -7,7 +7,7 @@
         /** A free controllable debug camera. */
         FREE_DEBUG,
 
-        /** A stationary level camera. */
+        /** A stationary stage camera. */
         STATIONARY,
 
         /** A camera that follows the player's body. */
