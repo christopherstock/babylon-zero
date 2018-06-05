@@ -26,7 +26,7 @@
         protected       readonly            items                   :bz.Item[]                          = null;
         /** A collection of all bots in this stage. */
         protected       readonly            bots                    :bz.Bot[]                           = null;
-        /** A collection of all imported meshes in this stage. */
+        /** A collection of all imported meshes in this stage. TODO remove and merge to game objects! */
         protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
 
         /** A shadow generator for one specific light. */
@@ -121,6 +121,30 @@
             {
                 movable.dispose();
             }
+
+            // dispose all items
+            for ( const item of this.items )
+            {
+                item.dispose();
+            }
+
+            // dispose all bots
+            for ( const bot of this.bots )
+            {
+                bot.dispose();
+            }
+
+            // dispose all imported meshes
+            for ( const importedMesh of this.importedMeshes )
+            {
+                for ( const mesh of importedMesh )
+                {
+                    mesh.dispose();
+                }
+            }
+
+
+
 
 
 

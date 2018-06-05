@@ -607,6 +607,9 @@
                 clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
+
+                // append to array of cloned meshes
+                clonedMeshes.push( clonedMesh );
             }
 
             return clonedMeshes;
