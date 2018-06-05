@@ -10,10 +10,14 @@
         /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
         public              static  readonly    FACE_DEPTH              :number                     = 0.001;
 
+        // TODO private!
+
         /** Next ID to assign for mesh creation. */
         public              static              nextMeshId              :number                     = 0;
 
         // TODO prune all!
+
+        // TODO createNextMeshId()
 
         /** Next ID to assign for box creation. */
         public              static              nextBoxId               :number                     = 0;
@@ -556,6 +560,10 @@
 
             return skybox;
         }
+
+        // TODO export all to MeshManipulator static abstract class
+
+
 
         /** ************************************************************************************************************
         *   Specifies the absolute rotation of the specified mesh for all axis.

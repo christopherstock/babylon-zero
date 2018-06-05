@@ -17,7 +17,7 @@
     *   TODO Create 3d room (see tutorial project)
     *   TODO Create third stage with AxisCamera.
     *
-    *   TODO Check control delay gap in firefox. (edge, chrome?)
+    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! ( babylon-engine is running smoothly! )
     *
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling (asset loading etc.).

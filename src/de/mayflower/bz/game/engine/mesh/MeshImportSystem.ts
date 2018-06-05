@@ -46,54 +46,16 @@
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 
+                        // hide all meshes
+                        for ( const importedMesh of importedMeshes )
+                        {
+                            importedMesh.visibility = 0.0;
+                        }
+
                         // save in meshes array
                         this.meshes[ fileName ] = importedMeshes;
 
-
-
-
-                        // browse all meshes of this .babylon file
-                        for ( const importedMesh of importedMeshes )
-                        {
-                            // hide this mesh
-                            importedMesh.visibility = 0.0;
-
-
-
-
-
-                            // transform this mesh
-                            importedMesh.position.x += -25.0;
-                            importedMesh.position.y += 20.0;
-                            importedMesh.position.z += 25.0;
-
-                            let enablePhysics:boolean = false;
-                            if ( enablePhysics )
-                            {
-                                importedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                                (
-                                    importedMesh,
-                                    BABYLON.PhysicsImpostor.BoxImpostor,
-                                    {
-                                        mass: 1.0,
-                                        friction: 1.0,
-                                        restitution: 1.0,
-                                    },
-                                    scene
-                                );
-
-                                // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
-                            }
-
-                            let enableDebugStuff:boolean = false;
-                            if ( enableDebugStuff )
-                            {
-                                importedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                                importedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                                importedMesh.isPickable = true;
-                            }
-                        }
-
+                        // notify load
                         this.onLoadMesh();
                     }
                 );
@@ -106,10 +68,13 @@
         *   TODO static to MeshFactory!
         *
         *   @param fileName The filename of the imported mesh to return a clone for.
+        *   @param scene    The scene where this imported mesh is cloned into.
         ***************************************************************************************************************/
         public cloneImportedMesh
         (
-            fileName:string
+            fileName :string,
+            position :BABYLON.Vector3,
+            scene    :BABYLON.Scene
         )
         : BABYLON.Mesh[]
         {
@@ -135,6 +100,36 @@
                 clonedMesh.visibility = 1.0;
 
 
+                // transform this mesh TODO replace by MeshFactory methods!
+                clonedMesh.position.x += position.x;
+                clonedMesh.position.y += position.y;
+                clonedMesh.position.z += position.z;
+
+                let enablePhysics:boolean = false;
+                if ( enablePhysics )
+                {
+                    clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        clonedMesh,
+                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        {
+                            mass: 1.0,
+                            friction: 1.0,
+                            restitution: 1.0,
+                        },
+                        scene
+                    );
+
+                    // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
+                }
+
+                let enableDebugStuff:boolean = false;
+                if ( enableDebugStuff )
+                {
+                    clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                    clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                    clonedMesh.isPickable = true;
+                }
             }
 
             return originalMeshes;

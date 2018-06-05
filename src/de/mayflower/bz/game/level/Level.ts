@@ -426,7 +426,26 @@
             console.log( 'Testwise meshes import ..' );
 
 
-            bz.Main.game.engine.meshImporter.cloneImportedMesh( bz.MeshImport.OFFICE_CHAIR );
+            bz.Main.game.engine.meshImporter.cloneImportedMesh
+            (
+                bz.MeshImport.OFFICE_CHAIR,
+                new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
+                this.scene
+            );
+
+            bz.Main.game.engine.meshImporter.cloneImportedMesh
+            (
+                bz.MeshImport.OFFICE_CHAIR,
+                new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
+                this.scene
+            );
+
+            bz.Main.game.engine.meshImporter.cloneImportedMesh
+            (
+                bz.MeshImport.OFFICE_CHAIR,
+                new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
+                this.scene
+            );
 
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
