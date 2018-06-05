@@ -10,9 +10,6 @@
         /** The camera system. TODO to camera instance array ?? TODO to engine..? */
         public                              cameraSystem            :bz.CameraSystem                    = null;
 
-
-
-
         /** The player instance. */
         public          readonly            player                  :bz.Player                          = null;
 
@@ -39,13 +36,8 @@
         protected       readonly            sprites                 :BABYLON.Sprite[]                   = [];
         /** A collection of all lights that appear in this stage. */
         protected       readonly            lights                  :BABYLON.Light[]                    = [];
-
-
-
-
-
-        /** A shadow generator for one specific light. */
-        protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
+        /** A collection of all shadowGenerators that appear in this stage. */
+        protected       readonly            shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -77,20 +69,11 @@
             this.player         = this.createPlayer();
             this.lights         = this.createLights();
 
-
-
-
-
-
-
-
             if ( bz.SettingEngine.ENABLE_SHADOWS )
             {
-                this.setupShadowGenerator();
+                this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
             }
-
-            bz.Main.game.onInitStageCompleted();
         }
 
         /** ************************************************************************************************************
@@ -173,6 +156,11 @@
                 light.dispose();
             }
 
+            // dispose shadow generators
+            for ( const shadowGenerator of this.shadowGenerators )
+            {
+                shadowGenerator.dispose();
+            }
 
 
 
@@ -236,6 +224,18 @@
         protected abstract createLights() : BABYLON.Light[];
 
         /** ************************************************************************************************************
+        *   Creates all shadow generators that appear in this level.
+        *
+        *   @return All shadow generators that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createShadowGenerators() : BABYLON.ShadowGenerator[];
+
+        /** ************************************************************************************************************
+        *   Sets up shadows for all meshes.
+        ***************************************************************************************************************/
+        protected abstract setupShadows() : void
+
+        /** ************************************************************************************************************
         *   Sets up the coordinate axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
         *
         *   @return A collection of all meshes that build the coordinate axis lines.
@@ -291,6 +291,8 @@
 
         /** ************************************************************************************************************
         *   Resets the camera system and all cameras to their initial positions.
+        *
+        *   TODO move cameraSystem to engine. Reset camera positions here!
         ***************************************************************************************************************/
         private resetCameraSystem() : void
         {
@@ -311,41 +313,5 @@
 
             // set active scene camera
             this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up all shadow generators.
-        ***************************************************************************************************************/
-        private setupShadowGenerator() : void
-        {
-            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) );
-            this.shadowGenerator1.useExponentialShadowMap = true;
-            this.shadowGenerator1.usePoissonSampling      = true;
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up shadows for all meshes.
-        ***************************************************************************************************************/
-        private setupShadows() : void
-        {
-            // set shadows for all movables
-            for ( const movable of this.movables )
-            {
-                // set shadows for all meshes
-                for ( const mesh of movable.getMeshes() )
-                {
-                    this.shadowGenerator1.getShadowMap().renderList.push( mesh );
-                }
-            }
-
-            // set shadows for all walls
-            for ( const wall of this.walls )
-            {
-                // set shadows for all meshes
-                for ( const mesh of wall.getMeshes() )
-                {
-                    this.shadowGenerator1.getShadowMap().renderList.push( mesh );
-                }
-            }
         }
     }

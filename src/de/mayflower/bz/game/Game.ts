@@ -36,6 +36,9 @@
                 this.engine.scene.getScene()
             );
             this.stage.reset();
+
+            // invoke stage loaded complete callback
+            bz.Main.game.onInitStageCompleted();
         };
 
         /** ************************************************************************************************************

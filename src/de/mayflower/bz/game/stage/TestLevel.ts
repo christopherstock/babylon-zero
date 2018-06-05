@@ -619,4 +619,47 @@
 
             return lights;
         }
+
+        /** ************************************************************************************************************
+        *   Creates all shadow generators that appear in this level.
+        *
+        *   @return All shadow generators that appear in this stage.
+        ***************************************************************************************************************/
+        protected createShadowGenerators() : BABYLON.ShadowGenerator[]
+        {
+            const shadowGenerators:BABYLON.ShadowGenerator[] = [
+                new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) ),
+            ];
+
+            shadowGenerators[ 0 ].useExponentialShadowMap = true;
+            shadowGenerators[ 0 ].usePoissonSampling      = true;
+
+            return shadowGenerators;
+        }
+
+        /** ************************************************************************************************************
+        *   Sets up shadows for all meshes.
+        ***************************************************************************************************************/
+        protected setupShadows() : void
+        {
+            // set shadows for all movables
+            for ( const movable of this.movables )
+            {
+                // set shadows for all meshes
+                for ( const mesh of movable.getMeshes() )
+                {
+                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
+                }
+            }
+
+            // set shadows for all walls
+            for ( const wall of this.walls )
+            {
+                // set shadows for all meshes
+                for ( const mesh of wall.getMeshes() )
+                {
+                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
+                }
+            }
+        }
     }
