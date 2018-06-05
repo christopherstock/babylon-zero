@@ -101,7 +101,7 @@
 
 
                 // transform this mesh
-                bz.MeshFactory.translatePosition( clonedMesh, position );
+                bz.MeshManipulation.translatePosition( clonedMesh, position );
 
 
 

@@ -27,6 +27,7 @@
 
     export * from './game/engine/mesh/MeshFactory';
     export * from './game/engine/mesh/MeshImportSystem';
+    export * from './game/engine/mesh/MeshManipulation';
     export * from './game/engine/mesh/MeshPivotAnchor';
 
     export * from './data/MeshImport';

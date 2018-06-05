@@ -14,6 +14,16 @@
         private             static              nextMeshId              :number                     = 0;
 
         /** ************************************************************************************************************
+        *   Returns the next id for a mesh to create.
+        *
+        *   @return The next free unique id for a new mesh to create.
+        ***************************************************************************************************************/
+        public static createNextMeshId() : string
+        {
+            return 'mesh' + MeshFactory.nextMeshId++;
+        }
+
+        /** ************************************************************************************************************
         *   Creates a box mesh.
         *
         *   @param position        Where to place this mesh.
@@ -543,28 +553,6 @@
             return skybox;
         }
 
-        // TODO export all to MeshManipulator static abstract class
-
-
-
-        /** ************************************************************************************************************
-        *   Specifies the absolute rotation of the specified mesh for all axis.
-        *
-        *   @param mesh The mesh to set the rotation for.
-        *   @param rotX The x axis rotation (pitch)
-        *   @param rotY The y axis rotation (yaw).
-        *   @param rotZ The z axis rotation (roll).
-        ***************************************************************************************************************/
-        public static setAbsoluteRotationXYZ( mesh:BABYLON.AbstractMesh, rotX:number, rotY:number, rotZ:number ) : void
-        {
-            mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( rotY ),
-                bz.MathUtil.degreesToRad( rotX ),
-                bz.MathUtil.degreesToRad( rotZ )
-            );
-        }
-
         /** ************************************************************************************************************
         *   Adds general mesh properties.
         *
@@ -595,7 +583,7 @@
 
             if ( rotation != null )
             {
-                MeshFactory.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
+                bz.MeshManipulation.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
             }
 
             return mesh;
@@ -616,6 +604,8 @@
             mesh        :BABYLON.Mesh,
             position    :BABYLON.Vector3,
             pivotAnchor :bz.MeshPivotAnchor,
+
+            // TODO replace with bounding box info??
             width       :number,
             height      :number,
             depth       :number,
@@ -682,34 +672,5 @@
                     break;
                 }
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Sets the position and pivot to the specified mesh.
-        *
-        *   @param mesh     The mesh to apply position and pivot to.
-        *   @param position Where to place this mesh.
-        ***************************************************************************************************************/
-        public static translatePosition
-        (
-            mesh     :BABYLON.Mesh,
-            position :BABYLON.Vector3
-        )
-        : void
-        {
-            mesh.position.x += position.x;
-            mesh.position.y += position.y;
-            mesh.position.z += position.z;
-        }
-
-        /** ************************************************************************************************************
-        *   Sets the position and pivot to the specified mesh.
-        *
-        *   @param mesh     The mesh to apply position and pivot to.
-        *   @param position Where to place this mesh.
-        ***************************************************************************************************************/
-        public static createNextMeshId() : string
-        {
-            return 'mesh' + MeshFactory.nextMeshId++;
         }
     }

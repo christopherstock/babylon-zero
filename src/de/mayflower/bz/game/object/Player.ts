@@ -294,9 +294,23 @@
                 this.rotationDeltaZ = 0.0;
             }
 
-            // rotate all meshes
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.meshes[ Player.PLAYER_BODY_ID ], 0.0,       this.rotY, 0.0 );
-            bz.MeshFactory.setAbsoluteRotationXYZ( this.meshes[ Player.PLAYER_HEAD_ID ], this.rotZ, 0.0,       0.0 );
+            // rotate body
+            bz.MeshManipulation.setAbsoluteRotationXYZ
+            (
+                this.meshes[ Player.PLAYER_BODY_ID ],
+                0.0,
+                this.rotY,
+                0.0
+            );
+
+            // rotate head
+            bz.MeshManipulation.setAbsoluteRotationXYZ
+            (
+                this.meshes[ Player.PLAYER_HEAD_ID ],
+                this.rotZ,
+                0.0,
+                0.0
+            );
         }
 
         /** ************************************************************************************************************
