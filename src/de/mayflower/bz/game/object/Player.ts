@@ -173,6 +173,21 @@
                     bz.CameraType.FIRST_PERSON
                 );
             }
+
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
+
+
+
+                console.log( '>> clear level ..' );
+
+
+
+                bz.Main.game.stage.unload();
+
+
+            }
         }
 
         /** ************************************************************************************************************

@@ -30,7 +30,7 @@
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Init custom stage' );
-            this.stage = new bz.LevelTest
+            this.stage = new bz.TestLevel
             (
                 new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                 this.engine.scene.getScene()

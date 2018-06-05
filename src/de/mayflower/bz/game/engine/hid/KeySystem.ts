@@ -30,7 +30,10 @@
         ***************************************************************************************************************/
         public onKeyDown=( event:Event ) : void  =>
         {
-            event.preventDefault();
+            if ( ( event as KeyboardEvent ).code !== bz.KeyCodes.KEY_F5 )
+            {
+                event.preventDefault();
+            }
 
             const keyCode:string = ( event as KeyboardEvent ).code;
 

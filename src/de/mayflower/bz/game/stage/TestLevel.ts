@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Specifies the 'test' stage.
     *******************************************************************************************************************/
-    export class LevelTest extends bz.Stage
+    export class TestLevel extends bz.Stage
     {
         /** ************************************************************************************************************
         *   Sets up the 'bunny' stage.
@@ -479,5 +479,55 @@
         protected createBots() : bz.Bot[]
         {
             return [];
+        }
+
+        /** ************************************************************************************************************
+        *   Creates and returns all imported meshes this stage consists of.
+        *
+        *   @return All imported meshes of this stage.
+        ***************************************************************************************************************/
+        protected createImportedMeshes() : BABYLON.Mesh[][]
+        {
+            bz.Debug.stage.log( 'Importing stage meshes' );
+
+            return [
+
+                bz.MeshFactory.createImportedMesh
+                (
+                    bz.MeshImport.OFFICE_CHAIR,
+                    new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
+                    this.scene
+                ),
+
+                bz.MeshFactory.createImportedMesh
+                (
+                    bz.MeshImport.OFFICE_CHAIR,
+                    new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
+                    this.scene
+                ),
+
+                bz.MeshFactory.createImportedMesh
+                (
+                    bz.MeshImport.OFFICE_CHAIR,
+                    new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
+                    this.scene
+                ),
+
+            ];
+/*
+            const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
+            (
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.PivotAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                null,
+                this.scene,
+                bz.Physic.NONE,
+                0.0,
+                this.ambientColor
+            );
+*/
         }
     }

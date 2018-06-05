@@ -60,4 +60,6 @@
         public      static  readonly    KEY_F3                  :string                         = 'F3';
         /** The keycode that represents the 'F4' key. */
         public      static  readonly    KEY_F4                  :string                         = 'F4';
+        /** The keycode that represents the 'F5' key. */
+        public      static  readonly    KEY_F5                  :string                         = 'F5';
     }

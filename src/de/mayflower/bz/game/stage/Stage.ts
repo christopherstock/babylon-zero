@@ -26,6 +26,8 @@
         protected       readonly            items                   :bz.Item[]                          = null;
         /** A collection of all bots in this stage. */
         protected       readonly            bots                    :bz.Bot[]                           = null;
+        /** A collection of all imported meshes in this stage. */
+        protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
 
         /** A shadow generator for one specific light. */
         protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
@@ -59,12 +61,17 @@
                 this.createTestAxis();
             }
 
-            this.walls    = this.createWalls();
-            this.movables = this.createMovables();
-            this.items    = this.createItems();
-            this.bots     = this.createBots();
+            this.walls          = this.createWalls();
+            this.movables       = this.createMovables();
+            this.items          = this.createItems();
+            this.bots           = this.createBots();
+            this.importedMeshes = this.createImportedMeshes();
+
+
 
             this.setupSprites();
+
+
 
             this.setupPlayer();
             this.setupSkybox();
@@ -76,10 +83,6 @@
                 this.setupShadowGenerator();
                 this.setupShadows();
             }
-
-
-            this.importMeshes();
-
 
             bz.Main.game.onInitStageCompleted();
         }
@@ -100,6 +103,27 @@
             this.player.handlePlayerKeys();
 
             this.player.render();
+        }
+
+        /** ************************************************************************************************************
+        *   Removes all meshes of this level.
+        ***************************************************************************************************************/
+        public unload() : void
+        {
+            // dispose all walls
+            for ( const wall of this.walls )
+            {
+                wall.dispose();
+            }
+
+            // dispose all movables
+            for ( const movable of this.movables )
+            {
+                movable.dispose();
+            }
+
+
+
         }
 
         /** ************************************************************************************************************
@@ -129,6 +153,13 @@
         *   @return All bots of this stage.
         ***************************************************************************************************************/
         protected abstract createBots() : bz.Bot[];
+
+        /** ************************************************************************************************************
+        *   Creates and returns all imported meshes this stage consists of.
+        *
+        *   @return All imported meshes of this stage.
+        ***************************************************************************************************************/
+        protected abstract createImportedMeshes() : BABYLON.Mesh[][];
 
         /** ************************************************************************************************************
         *   Sets up the axis orientation test points.
@@ -416,49 +447,5 @@
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 );
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 );
             bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 );
-        }
-
-        /** ************************************************************************************************************
-        *   Imports meshes from .babylon files.
-        ***************************************************************************************************************/
-        private importMeshes() : void
-        {
-            bz.Debug.stage.log( 'Importing stage meshes' );
-
-            bz.MeshFactory.createImportedMesh
-            (
-                bz.MeshImport.OFFICE_CHAIR,
-                new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
-                this.scene
-            );
-
-            bz.MeshFactory.createImportedMesh
-            (
-                bz.MeshImport.OFFICE_CHAIR,
-                new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
-                this.scene
-            );
-
-            bz.MeshFactory.createImportedMesh
-            (
-                bz.MeshImport.OFFICE_CHAIR,
-                new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
-                this.scene
-            );
-/*
-            const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.PivotAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                null,
-                this.scene,
-                bz.Physic.NONE,
-                0.0,
-                this.ambientColor
-            );
-*/
         }
     }
