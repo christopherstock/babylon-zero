@@ -558,4 +558,65 @@
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 ),
             ];
         }
+
+        /** ************************************************************************************************************
+        *   Creates all lights that appear in this level.
+        *
+        *   @return All lights that appear in this stage.
+        ***************************************************************************************************************/
+        protected createLights() : BABYLON.Light[]
+        {
+            const lights:BABYLON.Light[] = [
+
+                // hemispheric light
+                bz.LightFactory.createHemispheric
+                (
+                    this.scene,
+                    new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+                    new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                    new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                ),
+
+                // directional light
+                bz.LightFactory.createDirectional
+                (
+                    this.scene,
+                    new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
+                    new BABYLON.Vector3( 20.0, 20.0, 20.0 ),
+                    1.0,
+                    new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                    new BABYLON.Color3( 1.0, 0.5, 0.0 ),
+                ),
+
+                // spot light
+                bz.LightFactory.createSpot
+                (
+                    this.scene,
+                    new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
+                    new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
+                    bz.MathUtil.degreesToRad( 30.0 ),
+                    2,
+                    new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 )
+                ),
+
+                // point light
+                bz.LightFactory.createPoint
+                (
+                    this.scene,
+                    new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
+                    1.0,
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                ),
+            ];
+
+            lights[ 0 ].setEnabled( false );
+            lights[ 1 ].setEnabled( false );
+            lights[ 2 ].setEnabled( false );
+            lights[ 3 ].setEnabled( true  );
+
+            return lights;
+        }
     }

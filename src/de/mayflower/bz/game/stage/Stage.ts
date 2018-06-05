@@ -10,6 +10,12 @@
         /** The camera system. TODO to camera instance array ?? TODO to engine..? */
         public                              cameraSystem            :bz.CameraSystem                    = null;
 
+
+
+
+        /** The player instance. */
+        public          readonly            player                  :bz.Player                          = null;
+
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
@@ -31,21 +37,15 @@
         protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
         /** A collection of all sprites that appear in this stage. */
         protected       readonly            sprites                 :BABYLON.Sprite[]                   = [];
-        /** The player instance. */
-        public          readonly            player                  :bz.Player                          = null;
+        /** A collection of all lights that appear in this stage. */
+        protected       readonly            lights                  :BABYLON.Light[]                    = [];
+
+
+
 
 
         /** A shadow generator for one specific light. */
         protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
-
-        /** A hemispheric light. */
-        private                             lightHemispheric        :BABYLON.HemisphericLight           = null;
-        /** A directional light. */
-        private                             lightDirectional        :BABYLON.DirectionalLight           = null;
-        /** A spot light. */
-        private                             lightSpot               :BABYLON.SpotLight                  = null;
-        /** A point light. */
-        private                             lightPoint              :BABYLON.PointLight                 = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -75,6 +75,7 @@
             this.skybox         = this.createSkybox();
             this.sprites        = this.createSprites();
             this.player         = this.createPlayer();
+            this.lights         = this.createLights();
 
 
 
@@ -82,8 +83,6 @@
 
 
 
-
-            this.setupLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
             {
@@ -168,6 +167,13 @@
                 sprite.dispose();
             }
 
+            // dispose lights
+            for ( const light of this.lights )
+            {
+                light.dispose();
+            }
+
+
 
 
 
@@ -221,6 +227,13 @@
         *   @return All sprites that appear in this stage.
         ***************************************************************************************************************/
         protected abstract createSprites() : BABYLON.Sprite[];
+
+        /** ************************************************************************************************************
+        *   Creates all lights that appear in this level.
+        *
+        *   @return All lights that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createLights() : BABYLON.Light[];
 
         /** ************************************************************************************************************
         *   Sets up the coordinate axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
@@ -301,64 +314,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up all lights.
-        ***************************************************************************************************************/
-        private setupLights() : void
-        {
-            // hemispheric light
-            this.lightHemispheric = bz.LightFactory.createHemispheric
-            (
-                this.scene,
-                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 )
-            );
-            this.lightHemispheric.setEnabled( false );
-
-            // directional light
-            this.lightDirectional = bz.LightFactory.createDirectional
-            (
-                this.scene,
-                new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
-                new BABYLON.Vector3( 20.0, 20.0, 20.0 ),
-                1.0,
-                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                new BABYLON.Color3( 1.0, 0.5, 0.0 ),
-            );
-            this.lightDirectional.setEnabled( false );
-
-            // spot light
-            this.lightSpot = bz.LightFactory.createSpot
-            (
-                this.scene,
-                new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
-                new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
-                bz.MathUtil.degreesToRad( 30.0 ),
-                2,
-                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 )
-            );
-            this.lightSpot.setEnabled( false );
-
-            // point light
-            this.lightPoint = bz.LightFactory.createPoint
-            (
-                this.scene,
-                new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
-                1.0,
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 )
-            );
-            this.lightPoint.setEnabled( true );
-        }
-
-        /** ************************************************************************************************************
         *   Sets up all shadow generators.
         ***************************************************************************************************************/
         private setupShadowGenerator() : void
         {
-            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, this.lightSpot );
+            this.shadowGenerator1 = new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) );
             this.shadowGenerator1.useExponentialShadowMap = true;
             this.shadowGenerator1.usePoissonSampling      = true;
         }
