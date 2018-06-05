@@ -6,6 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Disable visibility for single imported meshes.
+    *   TODO Create imported mesh cloning!
+    *
     *   TODO Add physical compound for imported mesh collections.
     *
     *   TODO Rename top level class to 'Stage'.
@@ -13,6 +16,8 @@
     *   TODO Create stage for 3d pictured room.
     *   TODO Create 3d room (see tutorial project)
     *   TODO Create third stage with AxisCamera.
+    *
+    *   TODO Check control delay gap in firefox. (edge, chrome?)
     *
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling (asset loading etc.).

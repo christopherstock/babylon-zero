@@ -78,7 +78,7 @@
             }
 
 
-            // this.importMesh();
+            this.importMeshes();
 
 
             bz.Main.game.onInitLevelCompleted();
@@ -419,10 +419,15 @@
         }
 
         /** ************************************************************************************************************
-        *   Imports a mesh from a .babylon 3ds max file.
+        *   Imports meshes from .babylon files.
         ***************************************************************************************************************/
-        private importMesh() : void
+        private importMeshes() : void
         {
+            console.log( 'Testwise meshes import ..' );
+
+
+            bz.Main.game.engine.meshImporter.cloneImportedMesh( bz.MeshImport.OFFICE_CHAIR );
+
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
             (

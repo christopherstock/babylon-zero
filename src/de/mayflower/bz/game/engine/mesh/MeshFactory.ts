@@ -10,6 +10,11 @@
         /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
         public              static  readonly    FACE_DEPTH              :number                     = 0.001;
 
+        /** Next ID to assign for mesh creation. */
+        public              static              nextMeshId              :number                     = 0;
+
+        // TODO prune all!
+
         /** Next ID to assign for box creation. */
         public              static              nextBoxId               :number                     = 0;
         /** Next ID to assign for cylinder creation. */

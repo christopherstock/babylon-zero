@@ -14,7 +14,7 @@
         /** The number of currently loaded meshes. */
         private                         loadedMeshCount                 :number                         = 0;
         /** All loaded mesh objects. */
-        private                         meshes                          :BABYLON.Mesh[]                 = [];
+        private                         meshes                          :BABYLON.Mesh[][]               = [];
 
         /** ************************************************************************************************************
         *   Preloads all images into memory.
@@ -46,22 +46,33 @@
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 
+                        // save in meshes array
+                        this.meshes[ fileName ] = importedMeshes;
+
+
+
+
                         // browse all meshes of this .babylon file
                         for ( const importedMesh of importedMeshes )
                         {
-                            const mesh:BABYLON.AbstractMesh = importedMesh;
+                            // hide this mesh
+                            importedMesh.visibility = 0.0;
+
+
+
+
 
                             // transform this mesh
-                            mesh.position.x += -25.0;
-                            mesh.position.y += 20.0;
-                            mesh.position.z += 25.0;
+                            importedMesh.position.x += -25.0;
+                            importedMesh.position.y += 20.0;
+                            importedMesh.position.z += 25.0;
 
                             let enablePhysics:boolean = false;
                             if ( enablePhysics )
                             {
-                                mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                                importedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
                                 (
-                                    mesh,
+                                    importedMesh,
                                     BABYLON.PhysicsImpostor.BoxImpostor,
                                     {
                                         mass: 1.0,
@@ -77,9 +88,9 @@
                             let enableDebugStuff:boolean = false;
                             if ( enableDebugStuff )
                             {
-                                mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                                mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                                mesh.isPickable = true;
+                                importedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                                importedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                                importedMesh.isPickable = true;
                             }
                         }
 
@@ -87,6 +98,46 @@
                     }
                 );
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns a clone of the imported mesh with the specified filename.
+        *
+        *   TODO static to MeshFactory!
+        *
+        *   @param fileName The filename of the imported mesh to return a clone for.
+        ***************************************************************************************************************/
+        public cloneImportedMesh
+        (
+            fileName:string
+        )
+        : BABYLON.Mesh[]
+        {
+            console.log( 'clone imported mesh [' + fileName + ']' );
+
+            let originalMeshes :BABYLON.Mesh[] = this.meshes[ fileName ];
+            let clonedMeshes   :BABYLON.Mesh[] = [];
+
+            console.log( 'cloning [' + originalMeshes.length + '] meshes' );
+
+            for ( const originalMesh of originalMeshes )
+            {
+                let clonedMesh:BABYLON.Mesh = originalMesh.clone
+                (
+                    'mesh' + bz.MeshFactory.nextMeshId++
+                );
+
+
+                console.log( ' cloned mesh: [' + clonedMesh + ']' );
+
+
+                // show this mesh
+                clonedMesh.visibility = 1.0;
+
+
+            }
+
+            return originalMeshes;
         }
 
         /** ************************************************************************************************************
