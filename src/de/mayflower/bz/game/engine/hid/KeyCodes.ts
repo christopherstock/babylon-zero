@@ -2,7 +2,7 @@
     /** ****************************************************************************************************************
     *   All key values used by the key system.
     *******************************************************************************************************************/
-    export class KeyCodes
+    export abstract class KeyCodes
     {
         /** The keycode that represents the 'ARROW LEFT' key. */
         public      static  readonly    KEY_LEFT                :string                         = 'ArrowLeft';

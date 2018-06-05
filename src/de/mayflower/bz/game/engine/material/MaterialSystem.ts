@@ -1,30 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz      from '../../..';
-
-    /** ****************************************************************************************************************
-    *   Specifies if a texture has an alpha value.
-    *******************************************************************************************************************/
-    export enum TextureHasAlpha
-    {
-        /** Specifies that the texture has an alpha channel. */
-        YES,
-
-        /** No alpha channel in the texture. */
-        NO,
-    }
-
-    /** ****************************************************************************************************************
-    *   Specifies the UV strategy of the applied texture.
-    *******************************************************************************************************************/
-    export enum TextureUV
-    {
-        /** One texture dimension for the whole face size. */
-        ALL_TO_ONE,
-
-        /** One texture dimension per 1.0 world unit. */
-        TILED_BY_SIZE,
-    }
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Specifies all textures and materials.

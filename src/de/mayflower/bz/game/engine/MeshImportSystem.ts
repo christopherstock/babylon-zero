@@ -44,8 +44,8 @@
                     bz.SettingEngine.PATH_MESH,
                     fileName + '.babylon',
                     scene,
-                    ( importedMeshes:BABYLON.AbstractMesh[] ) =>
-                    {
+                    ( importedMeshes:BABYLON.AbstractMesh[] ) => {
+
                         // browse all meshes of this .babylon file
                         for ( const importedMesh of importedMeshes )
                         {
@@ -55,9 +55,9 @@
                             mesh.position.x += -25.0;
                             mesh.position.y += 20.0;
                             mesh.position.z += 25.0;
-/*
-                            let test:boolean = false;
-                            if (test)
+
+                            let enablePhysics:boolean = false;
+                            if ( enablePhysics )
                             {
                                 mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                                 (
@@ -68,16 +68,19 @@
                                         friction: 1.0,
                                         restitution: 1.0,
                                     },
-                                    this.scene
+                                    scene
                                 );
+
+                                // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
                             }
 
-//                          mesh.setPhysicsLinkWith( centerMesh, BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero() );
-*/
-
-                            mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                            mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                            mesh.isPickable = true;
+                            let enableDebugStuff:boolean = false;
+                            if ( enableDebugStuff )
+                            {
+                                mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                                mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                                mesh.isPickable = true;
+                            }
                         }
 
                         this.onLoadMesh();

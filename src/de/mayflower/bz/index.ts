@@ -21,8 +21,11 @@
     export * from './game/engine/hid/KeySystem';
     export * from './game/engine/hid/PointerSystem';
 
+    export * from './game/engine/material/TextureUV';
+    export * from './game/engine/material/TextureHasAlpha';
     export * from './game/engine/material/MaterialSystem';
-    export * from './game/engine/material/Texture';
+
+    export * from './data/Texture';
 
     export * from './game/engine/mesh/MeshFactory';
 
