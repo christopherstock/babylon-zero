@@ -56,7 +56,7 @@
                 {
                     scene.activeCamera = this.freeDebugCamera;
                     this.setControlsForFreeDebugCameraEnabled( true );
-                    bz.Main.game.level.player.setVisible( true );
+                    bz.Main.game.stage.player.setVisible( true );
                     break;
                 }
 
@@ -64,7 +64,7 @@
                 {
                     scene.activeCamera = this.stationaryCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.level.player.setVisible( true );
+                    bz.Main.game.stage.player.setVisible( true );
                     break;
                 }
 
@@ -72,7 +72,7 @@
                 {
                     scene.activeCamera = this.followCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.level.player.setVisible( true );
+                    bz.Main.game.stage.player.setVisible( true );
                     break;
                 }
 
@@ -81,7 +81,7 @@
                 {
                     scene.activeCamera = this.firstPersonCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.level.player.setVisible( false );
+                    bz.Main.game.stage.player.setVisible( false );
                     break;
                 }
             }

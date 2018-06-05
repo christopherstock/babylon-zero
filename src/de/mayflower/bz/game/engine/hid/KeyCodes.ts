@@ -51,4 +51,13 @@
         public      static  readonly    KEY_4                   :string                         = 'Digit4';
         /** The keycode that represents the '5' key. */
         public      static  readonly    KEY_5                   :string                         = 'Digit5';
+
+        /** The keycode that represents the 'F1' key. */
+        public      static  readonly    KEY_F1                  :string                         = 'F1';
+        /** The keycode that represents the 'F2' key. */
+        public      static  readonly    KEY_F2                  :string                         = 'F2';
+        /** The keycode that represents the 'F3' key. */
+        public      static  readonly    KEY_F3                  :string                         = 'F3';
+        /** The keycode that represents the 'F4' key. */
+        public      static  readonly    KEY_F4                  :string                         = 'F4';
     }

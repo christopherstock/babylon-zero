@@ -14,12 +14,12 @@
         public      static      readonly    canvas              :Debug              = new Debug( true  );
         /** Debugs sound system. */
         public      static      readonly    sound               :Debug              = new Debug( true  );
-        /** Debugs key system. */
-        public      static      readonly    key                 :Debug              = new Debug( false );
         /** Debugs stage system. */
-        public      static      readonly    level               :Debug              = new Debug( true  );
+        public      static      readonly    stage               :Debug              = new Debug( true  );
         /** Debugs mesh importer system. */
         public      static      readonly    meshImport          :Debug              = new Debug( true  );
+        /** Debugs key system. */
+        public      static      readonly    key                 :Debug              = new Debug( false );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

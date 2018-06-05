@@ -10,7 +10,7 @@
         public                      engine                      :bz.GameEngine              = null;
 
         /** The current stage instance. */
-        public                      level                       :bz.Stage                   = null;
+        public                      stage                       :bz.Stage                   = null;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -30,20 +30,20 @@
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Init custom stage' );
-            this.level = new bz.LevelTest
+            this.stage = new bz.LevelTest
             (
                 new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                 this.engine.scene.getScene()
             );
-            this.level.reset();
+            this.stage.reset();
         };
 
         /** ************************************************************************************************************
         *   Being invoked when the stage is completely initialized.
         ***************************************************************************************************************/
-        public onInitLevelCompleted=() : void =>
+        public onInitStageCompleted=() : void =>
         {
-            bz.Debug.init.log( 'onInitLevelCompleted being invoked' );
+            bz.Debug.init.log( 'onInitStageCompleted being invoked' );
 
             this.engine.scene.getScene().executeWhenReady
             (
@@ -80,7 +80,7 @@
         public render=() : void =>
         {
             // render stage
-            this.level.render();
+            this.stage.render();
 
             // render babylon.JS scene
             this.engine.scene.renderScene();

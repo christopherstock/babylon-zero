@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Second (debug) stage as default without lights! Switch with F-Keys.
+    *   TODO Second (debug) stage as default without lights!
     *   TODO Ditch internal scene on changing level!
     *
     *   TODO Add physical compound for imported mesh collections.
@@ -15,7 +15,7 @@
     *   TODO Create 3d room (see tutorial project)
     *   TODO Create third stage with AxisCamera.
     *
-    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! ( babylon-engine is running smoothly! )
+    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling (asset loading etc.).

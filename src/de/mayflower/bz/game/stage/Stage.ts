@@ -81,7 +81,7 @@
             this.importMeshes();
 
 
-            bz.Main.game.onInitLevelCompleted();
+            bz.Main.game.onInitStageCompleted();
         }
 
         /** ************************************************************************************************************
@@ -423,7 +423,7 @@
         ***************************************************************************************************************/
         private importMeshes() : void
         {
-            bz.Debug.level.log( 'Importing stage meshes' );
+            bz.Debug.stage.log( 'Importing stage meshes' );
 
             bz.MeshFactory.createImportedMesh
             (
