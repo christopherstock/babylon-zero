@@ -9,6 +9,8 @@
     *   TODO Disable visibility for single imported meshes.
     *   TODO Create imported mesh cloning!
     *
+    *   TODO Second (debug) level as default without lights! Switch with F-Keys.
+    *
     *   TODO Add physical compound for imported mesh collections.
     *
     *   TODO Rename top level class to 'Stage'.

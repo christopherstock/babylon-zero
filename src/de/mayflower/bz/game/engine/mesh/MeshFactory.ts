@@ -554,6 +554,65 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns a clone of the imported mesh with the specified filename.
+        *
+        *   @param fileName The filename of the imported mesh to return a clone for.
+        *   @param position The position for this mesh to show up.
+        *   @param scene    The scene where this imported mesh is cloned into.
+        ***************************************************************************************************************/
+        public static createImportedMesh
+        (
+            fileName :string,
+            position :BABYLON.Vector3,
+            scene    :BABYLON.Scene
+        )
+        : BABYLON.Mesh[]
+        {
+            const originalMeshes :BABYLON.Mesh[] = bz.Main.game.engine.meshImporter.getOriginalMesh( fileName );
+            const clonedMeshes   :BABYLON.Mesh[] = [];
+
+            for ( const originalMesh of originalMeshes )
+            {
+                const clonedMesh:BABYLON.Mesh = originalMesh.clone
+                (
+                    bz.MeshFactory.createNextMeshId()
+                );
+
+                // show this mesh
+                clonedMesh.visibility = 1.0;
+
+                // transform this mesh
+                bz.MeshManipulation.translatePosition( clonedMesh, position );
+
+                // specify physics for the cloned mesh
+                const enablePhysics:boolean = false;
+                if ( enablePhysics )
+                {
+                    clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        clonedMesh,
+                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        {
+                            mass: 1.0,
+                            friction: 1.0,
+                            restitution: 1.0,
+                        },
+                        scene
+                    );
+
+                    // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
+                }
+
+                // specify debug settings for the cloned mesh
+                clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                clonedMesh.isPickable = true;
+            }
+
+            return clonedMeshes;
+        }
+
+        /** ************************************************************************************************************
         *   Adds general mesh properties.
         *
         *   @param mesh            The mesh to decorate.

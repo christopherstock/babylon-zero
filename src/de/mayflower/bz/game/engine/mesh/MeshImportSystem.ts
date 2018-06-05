@@ -63,78 +63,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns a clone of the imported mesh with the specified filename.
+        *   Returns the original mesh data of the specified imported mesh file.
         *
-        *   TODO static to MeshFactory!
-        *
-        *   @param fileName The filename of the imported mesh to return a clone for.
-        *   @param scene    The scene where this imported mesh is cloned into.
+        *   @return The original mesh data of the specified imported mesh file.
         ***************************************************************************************************************/
-        public cloneImportedMesh
-        (
-            fileName :string,
-            position :BABYLON.Vector3,
-            scene    :BABYLON.Scene
-        )
-        : BABYLON.Mesh[]
+        public getOriginalMesh( fileName:string ) : BABYLON.Mesh[]
         {
-            console.log( 'clone imported mesh [' + fileName + ']' );
-
-            let originalMeshes :BABYLON.Mesh[] = this.meshes[ fileName ];
-            let clonedMeshes   :BABYLON.Mesh[] = [];
-
-            console.log( 'cloning [' + originalMeshes.length + '] meshes' );
-
-            for ( const originalMesh of originalMeshes )
-            {
-                let clonedMesh:BABYLON.Mesh = originalMesh.clone
-                (
-                    bz.MeshFactory.createNextMeshId()
-                );
-
-
-                console.log( ' cloned mesh: [' + clonedMesh + ']' );
-
-
-                // show this mesh
-                clonedMesh.visibility = 1.0;
-
-
-                // transform this mesh
-                bz.MeshManipulation.translatePosition( clonedMesh, position );
-
-
-
-
-
-                let enablePhysics:boolean = false;
-                if ( enablePhysics )
-                {
-                    clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        clonedMesh,
-                        BABYLON.PhysicsImpostor.BoxImpostor,
-                        {
-                            mass: 1.0,
-                            friction: 1.0,
-                            restitution: 1.0,
-                        },
-                        scene
-                    );
-
-                    // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
-                }
-
-                let enableDebugStuff:boolean = false;
-                if ( enableDebugStuff )
-                {
-                    clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                    clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                    clonedMesh.isPickable = true;
-                }
-            }
-
-            return originalMeshes;
+            return this.meshes[ fileName ];
         }
 
         /** ************************************************************************************************************

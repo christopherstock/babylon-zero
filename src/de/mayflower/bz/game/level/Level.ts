@@ -423,30 +423,28 @@
         ***************************************************************************************************************/
         private importMeshes() : void
         {
-            console.log( 'Testwise meshes import ..' );
+            bz.Debug.level.log( 'Importing level meshes' );
 
-
-            bz.Main.game.engine.meshImporter.cloneImportedMesh
+            bz.MeshFactory.createImportedMesh
             (
                 bz.MeshImport.OFFICE_CHAIR,
                 new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
                 this.scene
             );
 
-            bz.Main.game.engine.meshImporter.cloneImportedMesh
+            bz.MeshFactory.createImportedMesh
             (
                 bz.MeshImport.OFFICE_CHAIR,
                 new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
                 this.scene
             );
 
-            bz.Main.game.engine.meshImporter.cloneImportedMesh
+            bz.MeshFactory.createImportedMesh
             (
                 bz.MeshImport.OFFICE_CHAIR,
                 new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
                 this.scene
             );
-
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
             (
