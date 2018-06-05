@@ -18,6 +18,9 @@
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected       readonly            ambientColor            :BABYLON.Color3                     = null;
 
+        /** A collection of the coordinate axis in this stage. */
+        protected       readonly            coordinateAxis          :BABYLON.Mesh[]                     = [];
+
         /** A collection of all walls in this stage. */
         protected       readonly            walls                   :bz.Wall[]                          = null;
         /** A collection of all movables in this stage. */
@@ -58,7 +61,7 @@
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
             {
-                this.createTestAxis();
+                this.coordinateAxis = this.createCoordinalAxis();
             }
 
             this.walls          = this.createWalls();
@@ -143,7 +146,11 @@
                 }
             }
 
-
+            // dispose coordinate axis
+            for ( const mesh of this.coordinateAxis )
+            {
+                mesh.dispose();
+            }
 
 
 
@@ -186,149 +193,47 @@
         protected abstract createImportedMeshes() : BABYLON.Mesh[][];
 
         /** ************************************************************************************************************
-        *   Sets up the axis orientation test points.
+        *   Sets up the coordinate axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
         *
-        *   X Y and Z axes are aligned by the LEFT HAND RULE.
+        *   @return A collection of all meshes that build the coordinate axis lines.
         ***************************************************************************************************************/
-        protected createTestAxisPoints() : void
+        protected createCoordinalAxis() : BABYLON.Mesh[]
         {
-            // origin
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_BLACK,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
+            return [
 
-            // x test
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_RED,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 2.5,  0.25, 0.25   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_RED,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
+                // axis x
+                bz.MeshFactory.createLine
+                (
+                    new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
+                    new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
+                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.SettingGame.COLOR_RED_OPAQUE_RGBA,
+                    this.scene
+                ),
 
-            // y test
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_GREEN,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.25, 2.5, 0.25   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_GREEN,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
+                // axis y
+                bz.MeshFactory.createLine
+                (
+                    new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
+                    new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
+                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.SettingGame.COLOR_GREEN_OPAQUE_RGBA,
+                    this.scene
+                ),
 
-            // z test
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_BLUE,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
-            bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.25, 0.25, 2.5   ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingGame.COLOR_BLUE,
-                this.scene,
-                bz.Physic.NONE,
-                1.0,
-                this.ambientColor
-            );
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up the coordinate axis lines.
-        *
-        *   X Y and Z axes are aligned by the LEFT HAND RULE.
-        ***************************************************************************************************************/
-        protected createTestAxis() : void
-        {
-            // axis x
-            bz.MeshFactory.createLine
-            (
-                new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
-                new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingGame.COLOR_RED_OPAQUE_RGBA,
-                this.scene
-            );
-            // axis y
-            bz.MeshFactory.createLine
-            (
-                new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
-                new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingGame.COLOR_GREEN_OPAQUE_RGBA,
-                this.scene
-            );
-            // axis z
-            bz.MeshFactory.createLine
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
-                bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingGame.COLOR_BLUE_OPAQUE_RGBA,
-                this.scene
-            );
+                // axis z
+                bz.MeshFactory.createLine
+                (
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                    new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
+                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.SettingGame.COLOR_BLUE_OPAQUE_RGBA,
+                    this.scene
+                ),
+            ];
         }
 
         /** ************************************************************************************************************
