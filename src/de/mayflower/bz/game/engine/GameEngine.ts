@@ -10,7 +10,7 @@
         public                      canvas                      :bz.CanvasSystem            = null;
         /** The material system. */
         public                      material                    :bz.MaterialSystem          = null;
-        /** The scene system. */
+        /** The singleton scene. */
         public                      scene                       :bz.Scene                   = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                  = null;
@@ -51,7 +51,7 @@
             this.keySystem     = new bz.KeySystem();
             this.pointerSystem = new bz.PointerSystem();
 
-            // create the scene
+            // create the scene singleton
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
             this.scene.init();
@@ -75,7 +75,7 @@
                 ],
                 bz.Main.game.onInitGameEngineCompleted
             );
-            this.meshImporter.loadMeshes();
+            this.meshImporter.loadMeshes( this.scene.getScene() );
         }
 
         /** ************************************************************************************************************

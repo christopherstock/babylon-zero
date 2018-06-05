@@ -77,7 +77,11 @@
                 this.setupShadows();
             }
 
-            this.importMesh();
+
+            // this.importMesh();
+
+
+            bz.Main.game.onInitLevelCompleted();
         }
 
         /** ************************************************************************************************************
@@ -434,65 +438,5 @@
                 this.ambientColor
             );
 */
-            // First parameter specifies the mesh name to import - an empty string will import all meshes.
-            BABYLON.SceneLoader.ImportMesh
-            (
-                '',
-                bz.SettingEngine.PATH_MESH,
-
-                'test.babylon',
-
-                // 'skull.babylon',
-                // 'rabbit.babylon',
-                // 'test.obj',
-
-                this.scene,
-                ( importedMeshes:BABYLON.AbstractMesh[] ) =>
-                {
-                    // browse all meshes of this .babylon file
-                    for ( const importedMesh of importedMeshes )
-                    {
-                        const mesh:BABYLON.AbstractMesh = importedMesh;
-
-
-                        // transform this mesh
-                        mesh.position.x += -25.0;
-                        mesh.position.y += 20.0;
-                        mesh.position.z += 25.0;
-
-                        let test:boolean = false;
-                        if (test)
-                        {
-                            mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                            (
-                                mesh,
-                                BABYLON.PhysicsImpostor.BoxImpostor,
-                                {
-                                    mass: 1.0,
-                                    friction: 1.0,
-                                    restitution: 1.0,
-                                },
-                                this.scene
-                            );
-                        }
-
-
-//                        mesh.setPhysicsLinkWith( centerMesh, BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero() );
-
-
-
-
-                        mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                        mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                        mesh.isPickable = true;
-                    }
-
-
-
-
-
-                    bz.Main.game.onInitLevelCompleted();
-                }
-            );
         }
     }
