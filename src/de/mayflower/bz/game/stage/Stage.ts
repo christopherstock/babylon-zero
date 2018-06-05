@@ -7,32 +7,33 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The camera system. TODO to engine..? */
+        /** The camera system. TODO to camera instance array ?? TODO to engine..? */
         public                              cameraSystem            :bz.CameraSystem                    = null;
 
-        /** The player instance. */
-        public                              player                  :bz.Player                          = null;
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected       readonly            ambientColor            :BABYLON.Color3                     = null;
 
-        /** A collection of the coordinate axis in this stage. */
-        protected                           coordinateAxis          :BABYLON.Mesh[]                     = [];
+        /** A collection of the coordinate axis in this stage. TODO same order than consturcor assignments and unloading process! */
+        protected       readonly            coordinateAxis          :BABYLON.Mesh[]                     = [];
         /** The skybox that surrounds the whole stage. */
-        protected                           skybox                  :BABYLON.Mesh                       = null;
+        protected       readonly            skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all walls in this stage. */
-        protected                           walls                   :bz.Wall[]                          = [];
+        protected       readonly            walls                   :bz.Wall[]                          = [];
         /** A collection of all movables in this stage. */
-        protected                           movables                :bz.Movable[]                       = [];
+        protected       readonly            movables                :bz.Movable[]                       = [];
         /** A collection of all items in this stage. */
-        protected                           items                   :bz.Item[]                          = [];
+        protected       readonly            items                   :bz.Item[]                          = [];
         /** A collection of all bots in this stage. */
-        protected                           bots                    :bz.Bot[]                           = [];
+        protected       readonly            bots                    :bz.Bot[]                           = [];
         /** A collection of all imported meshes in this stage. TODO remove and merge to game objects! */
-        protected                           importedMeshes          :BABYLON.Mesh[][]                   = [];
+        protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
         /** A collection of all sprites that appear in this stage. */
-        protected                           sprites                 :BABYLON.Sprite[]                   = [];
+        protected       readonly            sprites                 :BABYLON.Sprite[]                   = [];
+        /** The player instance. */
+        public          readonly            player                  :bz.Player                          = null;
+
 
         /** A shadow generator for one specific light. */
         protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
@@ -58,8 +59,8 @@
             scene        :BABYLON.Scene
         )
         {
-            this.ambientColor = ambientColor;
-            this.scene        = scene;
+            this.ambientColor   = ambientColor;
+            this.scene          = scene;
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
             {
@@ -73,12 +74,15 @@
             this.importedMeshes = this.createImportedMeshes();
             this.skybox         = this.createSkybox();
             this.sprites        = this.createSprites();
+            this.player         = this.createPlayer();
 
 
 
 
 
-            this.setupPlayer();
+
+
+
             this.setupLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
@@ -263,11 +267,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up the player for the scene.
+        *   Sets up the player for this stage.
+        *
+        *   @return The player instance for this stage.
         ***************************************************************************************************************/
-        private setupPlayer() : void
+        private createPlayer() : bz.Player
         {
-            this.player = new bz.Player( 225.0, this.ambientColor );
+            return new bz.Player( 225.0, this.ambientColor );
         }
 
         /** ************************************************************************************************************
