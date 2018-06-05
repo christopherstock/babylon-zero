@@ -31,6 +31,8 @@
         protected                           bots                    :bz.Bot[]                           = [];
         /** A collection of all imported meshes in this stage. TODO remove and merge to game objects! */
         protected                           importedMeshes          :BABYLON.Mesh[][]                   = [];
+        /** A collection of all sprites that appear in this stage. */
+        protected                           sprites                 :BABYLON.Sprite[]                   = [];
 
         /** A shadow generator for one specific light. */
         protected                           shadowGenerator1        :BABYLON.ShadowGenerator            = null;
@@ -70,12 +72,12 @@
             this.bots           = this.createBots();
             this.importedMeshes = this.createImportedMeshes();
             this.skybox         = this.createSkybox();
+            this.sprites        = this.createSprites();
 
 
 
 
 
-            this.setupSprites();
             this.setupPlayer();
             this.setupLights();
 
@@ -156,6 +158,12 @@
             // dispose player
             this.player.dispose();
 
+            // dispose sprites
+            for ( const sprite of this.sprites )
+            {
+                sprite.dispose();
+            }
+
 
 
 
@@ -204,11 +212,18 @@
         protected abstract createSkybox() : BABYLON.Mesh;
 
         /** ************************************************************************************************************
+        *   Creates all sprites that appear in the stage.
+        *
+        *   @return All sprites that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createSprites() : BABYLON.Sprite[];
+
+        /** ************************************************************************************************************
         *   Sets up the coordinate axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
         *
         *   @return A collection of all meshes that build the coordinate axis lines.
         ***************************************************************************************************************/
-        protected createCoordinalAxis() : BABYLON.Mesh[]
+        private createCoordinalAxis() : BABYLON.Mesh[]
         {
             return [
 
@@ -366,18 +381,5 @@
                     this.shadowGenerator1.getShadowMap().renderList.push( mesh );
                 }
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up all sprites.
-        ***************************************************************************************************************/
-        private setupSprites() : void
-        {
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -35.0 ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -20.0 ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -5.0  ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 );
-            bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 );
         }
     }

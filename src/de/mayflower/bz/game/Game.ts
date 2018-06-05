@@ -101,11 +101,18 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
 
-                console.log( '>> clear stage..' );
+                console.log( '>> clear stage if existent..' );
 
-                this.stage.unload();
+                if ( this.stage != null )
+                {
+                    this.stage.unload();
+                    this.stage = null;
 
-                this.stage = null;
+
+
+
+                }
+
 
 
             }
