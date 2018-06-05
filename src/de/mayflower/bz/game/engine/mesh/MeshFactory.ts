@@ -10,27 +10,8 @@
         /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
         public              static  readonly    FACE_DEPTH              :number                     = 0.001;
 
-        // TODO private!
-
         /** Next ID to assign for mesh creation. */
-        public              static              nextMeshId              :number                     = 0;
-
-        // TODO prune all!
-
-        // TODO createNextMeshId()
-
-        /** Next ID to assign for box creation. */
-        public              static              nextBoxId               :number                     = 0;
-        /** Next ID to assign for cylinder creation. */
-        private             static              nextCylinderId          :number                     = 0;
-        /** Next ID to assign for sphere creation. */
-        private             static              nextSphereId            :number                     = 0;
-        /** Next ID to assign for plane creation. */
-        private             static              nextPlaneId             :number                     = 0;
-        /** Next ID to assign for line creation. */
-        private             static              nextLineId              :number                     = 0;
-        /** Next ID to assign for polygon creation. */
-        private             static              nextPolygonId           :number                     = 0;
+        private             static              nextMeshId              :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a box mesh.
@@ -105,7 +86,7 @@
 
             const box:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
             (
-                'box' + MeshFactory.nextBoxId++,
+                MeshFactory.createNextMeshId(),
                 {
                     width:  size.x,
                     height: size.y,
@@ -207,7 +188,7 @@
 
             const cylinder:BABYLON.Mesh = BABYLON.MeshBuilder.CreateCylinder
             (
-                'cylinder' + MeshFactory.nextCylinderId++,
+                MeshFactory.createNextMeshId(),
                 {
                     diameter: diameter,
                     height:   height,
@@ -276,7 +257,7 @@
         {
             const sphere:BABYLON.Mesh = BABYLON.MeshBuilder.CreateSphere
             (
-                'sphere' + MeshFactory.nextSphereId++,
+                MeshFactory.createNextMeshId(),
                 {
                     diameter: diameter,
                 },
@@ -352,7 +333,7 @@
         {
             const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
             (
-                'plane' + MeshFactory.nextPlaneId++,
+                MeshFactory.createNextMeshId(),
                 {
                     width:           width,
                     height:          height,
@@ -413,7 +394,7 @@
         {
             const line:BABYLON.Mesh = BABYLON.MeshBuilder.CreateLines
             (
-                'line' + MeshFactory.nextLineId++,
+                MeshFactory.createNextMeshId(),
                 {
                     points:
                     [
@@ -474,7 +455,7 @@
         {
             const polygon:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
             (
-                'polygon' + MeshFactory.nextPolygonId++,
+                MeshFactory.createNextMeshId(),
                 {
                     shape: points,
 /*
@@ -550,8 +531,9 @@
             skyboxMaterial.alpha = opacity;
             skyboxMaterial.disableLighting = true;
 
-            const skybox:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox(
-                'box' + MeshFactory.nextBoxId++,
+            const skybox:BABYLON.Mesh = BABYLON.MeshBuilder.CreateBox
+            (
+                MeshFactory.createNextMeshId(),
                 { size: 1000.0 },
                 scene
             );
@@ -718,5 +700,16 @@
             mesh.position.x += position.x;
             mesh.position.y += position.y;
             mesh.position.z += position.z;
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the position and pivot to the specified mesh.
+        *
+        *   @param mesh     The mesh to apply position and pivot to.
+        *   @param position Where to place this mesh.
+        ***************************************************************************************************************/
+        public static createNextMeshId() : string
+        {
+            return 'mesh' + MeshFactory.nextMeshId++;
         }
     }

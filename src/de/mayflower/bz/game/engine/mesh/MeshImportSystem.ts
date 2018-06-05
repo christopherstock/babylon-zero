@@ -89,7 +89,7 @@
             {
                 let clonedMesh:BABYLON.Mesh = originalMesh.clone
                 (
-                    'mesh' + bz.MeshFactory.nextMeshId++
+                    bz.MeshFactory.createNextMeshId()
                 );
 
 
