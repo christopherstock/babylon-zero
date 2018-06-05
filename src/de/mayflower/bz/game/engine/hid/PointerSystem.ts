@@ -19,7 +19,7 @@
             {
                 let src:BABYLON.Vector3 = null;
 
-                if ( bz.Main.game.stage != null && bz.Main.game.stage.cameraSystem.isFirstPersonCameraActive() )
+                if ( bz.Main.game.stage != null && bz.Main.game.engine.cameraSystem.isFirstPersonCameraActive() )
                 {
                     src = bz.Main.game.stage.player.getThirdPersonCameraTargetMesh().position;
                 }

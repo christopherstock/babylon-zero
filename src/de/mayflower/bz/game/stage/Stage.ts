@@ -7,9 +7,6 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The camera system. TODO to camera instance array ?? TODO to engine..? */
-        public                              cameraSystem            :bz.CameraSystem                    = null;
-
         /** The player instance. */
         public          readonly            player                  :bz.Player                          = null;
 
@@ -75,14 +72,6 @@
                 this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Resets this stage.
-        ***************************************************************************************************************/
-        public reset() : void
-        {
-            this.resetCameraSystem();
         }
 
         /** ************************************************************************************************************
@@ -284,31 +273,5 @@
         private createPlayer() : bz.Player
         {
             return new bz.Player( 225.0, this.ambientColor );
-        }
-
-        /** ************************************************************************************************************
-        *   Resets the camera system and all cameras to their initial positions.
-        *
-        *   TODO move cameraSystem to engine. Reset camera positions here!
-        ***************************************************************************************************************/
-        private resetCameraSystem() : void
-        {
-            this.cameraSystem = new bz.CameraSystem
-            (
-                this.scene,
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0, 25.0  )
-            );
-
-            // lock statinary target camera to player
-            this.cameraSystem.lockStationaryTargetCameraTo( this.player.getThirdPersonCameraTargetMesh() );
-            // lock follow camera to player
-            this.cameraSystem.lockFollowCameraTo(           this.player.getThirdPersonCameraTargetMesh() );
-            // lock first person camera to player
-            this.cameraSystem.setFirstPersonCameraInside(   this.player.getFirstPersonCameraTargetMesh() );
-
-            // set active scene camera
-            this.cameraSystem.setActiveSceneCamera( this.scene, bz.SettingGame.DEFAULT_CAMERA );
         }
     }

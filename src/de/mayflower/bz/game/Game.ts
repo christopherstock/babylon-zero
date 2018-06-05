@@ -35,7 +35,9 @@
                 new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                 this.engine.scene.getScene()
             );
-            this.stage.reset();
+
+            bz.Debug.init.log( 'Init camera system' );
+            this.engine.initCameraSystem();
 
             // invoke stage loaded complete callback
             bz.Main.game.onInitStageCompleted();

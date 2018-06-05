@@ -7,22 +7,24 @@
     export class GameEngine
     {
         /** The canvas system. */
-        public                      canvas                      :bz.CanvasSystem            = null;
+        public                      canvas                      :bz.CanvasSystem                    = null;
         /** The material system. */
-        public                      material                    :bz.MaterialSystem          = null;
+        public                      material                    :bz.MaterialSystem                  = null;
         /** The singleton scene. */
-        public                      scene                       :bz.Scene                   = null;
+        public                      scene                       :bz.Scene                           = null;
+        /** The camera system. */
+        public                      cameraSystem                :bz.CameraSystem                    = null;
         /** The sprite system. */
-        public                      sprite                      :bz.Sprite                  = null;
+        public                      sprite                      :bz.Sprite                          = null;
         /** The mesh import system. */
-        public                      meshImporter                :bz.MeshImportSystem        = null;
+        public                      meshImporter                :bz.MeshImportSystem                = null;
         /** The key system. */
-        public                      keySystem                   :bz.KeySystem               = null;
+        public                      keySystem                   :bz.KeySystem                       = null;
         /** The pointer system. */
-        public                      pointerSystem               :bz.PointerSystem           = null;
+        public                      pointerSystem               :bz.PointerSystem                   = null;
 
         /** The babylon.JS engine. */
-        public                      babylonEngine               :BABYLON.Engine             = null;
+        public                      babylonEngine               :BABYLON.Engine                     = null;
 
         /** ************************************************************************************************************
         *   Inits all components of the game engine.
@@ -89,5 +91,40 @@
 
                 this.keySystem.releaseAllKeys();
             };
+        }
+
+        /** ************************************************************************************************************
+        *   Resets the camera system and all cameras to their initial positions.
+        ***************************************************************************************************************/
+        public initCameraSystem() : void
+        {
+            this.cameraSystem = new bz.CameraSystem
+            (
+                this.scene.getScene(),
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 0.0,  0.0, 25.0  )
+            );
+
+            // lock statinary target camera to player
+            this.cameraSystem.lockStationaryTargetCameraTo
+            (
+                bz.Main.game.stage.player.getThirdPersonCameraTargetMesh()
+            );
+
+            // lock follow camera to player
+            this.cameraSystem.lockFollowCameraTo
+            (
+                bz.Main.game.stage.player.getThirdPersonCameraTargetMesh()
+            );
+
+            // lock first person camera to player
+            this.cameraSystem.setFirstPersonCameraInside
+            (
+                bz.Main.game.stage.player.getFirstPersonCameraTargetMesh()
+            );
+
+            // set active scene camera
+            this.cameraSystem.setActiveSceneCamera( this.scene.getScene(), bz.SettingGame.DEFAULT_CAMERA );
         }
     }
