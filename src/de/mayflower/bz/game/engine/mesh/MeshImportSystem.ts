@@ -100,10 +100,12 @@
                 clonedMesh.visibility = 1.0;
 
 
-                // transform this mesh TODO replace by MeshFactory methods!
-                clonedMesh.position.x += position.x;
-                clonedMesh.position.y += position.y;
-                clonedMesh.position.z += position.z;
+                // transform this mesh
+                bz.MeshFactory.translatePosition( clonedMesh, position );
+
+
+
+
 
                 let enablePhysics:boolean = false;
                 if ( enablePhysics )
