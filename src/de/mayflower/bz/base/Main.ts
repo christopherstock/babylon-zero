@@ -6,24 +6,20 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Ditch all scene objects on changing level!
-    *
     *   TODO Second (debug) stage as default without lights!
-    *
-    *   TODO Add physical compound for imported mesh collections.
-    *
+    *   TODO Create third stage with AxisCamera.
     *   TODO Create stage for 3d pictured room.
     *   TODO Create 3d room (see tutorial project)
     *
-    *   TODO Try rotating MF logo as separate stage.
+    *   TODO Try rotating MF logo as separate 4th stage.
     *   TODO Use rotating MF logo for positioning imported mesh files.
     *
-    *   TODO Create third stage with AxisCamera.
+    *   TODO Add physical compound for imported mesh collections.
     *
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *
     *   TODO Solve pickable game items.
-    *   TODO Improve Sprite System handling (asset loading etc.).
+    *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!

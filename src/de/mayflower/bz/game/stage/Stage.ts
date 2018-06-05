@@ -20,8 +20,6 @@
 
         /** A collection of the coordinate axis in this stage. TODO same order than consturcor assignments and unloading process! */
         protected       readonly            coordinateAxis          :BABYLON.Mesh[]                     = [];
-        /** The skybox that surrounds the whole stage. */
-        protected       readonly            skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all walls in this stage. */
         protected       readonly            walls                   :bz.Wall[]                          = [];
         /** A collection of all movables in this stage. */
@@ -30,8 +28,10 @@
         protected       readonly            items                   :bz.Item[]                          = [];
         /** A collection of all bots in this stage. */
         protected       readonly            bots                    :bz.Bot[]                           = [];
-        /** A collection of all imported meshes in this stage. TODO remove and merge to game objects! */
+        /** A collection of all imported meshes in this stage. */
         protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
+        /** The skybox that surrounds the whole stage. */
+        protected       readonly            skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all sprites that appear in this stage. */
         protected       readonly            sprites                 :BABYLON.Sprite[]                   = [];
         /** A collection of all lights that appear in this stage. */
@@ -54,6 +54,8 @@
             this.ambientColor   = ambientColor;
             this.scene          = scene;
 
+            this.player         = this.createPlayer();
+
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
             {
                 this.coordinateAxis = this.createCoordinalAxis();
@@ -66,7 +68,6 @@
             this.importedMeshes = this.createImportedMeshes();
             this.skybox         = this.createSkybox();
             this.sprites        = this.createSprites();
-            this.player         = this.createPlayer();
             this.lights         = this.createLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
@@ -99,6 +100,9 @@
         ***************************************************************************************************************/
         public unload() : void
         {
+            // dispose player
+            this.player.dispose();
+
             // dispose all walls
             for ( const wall of this.walls )
             {
@@ -141,9 +145,6 @@
             // dispose skybox
             this.skybox.dispose();
 
-            // dispose player
-            this.player.dispose();
-
             // dispose sprites
             for ( const sprite of this.sprites )
             {
@@ -161,10 +162,6 @@
             {
                 shadowGenerator.dispose();
             }
-
-
-
-
         }
 
         /** ************************************************************************************************************
