@@ -3,19 +3,6 @@
     import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
-    *   Specifies all valid anchors for a mesh.
-    *
-    *   TODO export as separate class Mesh..
-    *******************************************************************************************************************/
-    export enum PivotAnchor
-    {
-        DEBUG_NONE,
-        LOWEST_XYZ,
-        CENTER_XYZ,
-        CENTER_XZ_LOWEST_Y,
-    }
-
-    /** ****************************************************************************************************************
     *   Constructs meshes.
     *******************************************************************************************************************/
     export class MeshFactory
@@ -55,7 +42,7 @@
         public static createBox
         (
             position        :BABYLON.Vector3,
-            pivotAnchor     :bz.PivotAnchor,
+            pivotAnchor     :bz.MeshPivotAnchor,
             size            :BABYLON.Vector3,
             rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
@@ -166,7 +153,7 @@
         public static createCylinder
         (
             position        :BABYLON.Vector3,
-            pivotAnchor     :bz.PivotAnchor,
+            pivotAnchor     :bz.MeshPivotAnchor,
             diameter        :number,
             height          :number,
             rotation        :BABYLON.Vector3,
@@ -266,7 +253,7 @@
         public static createSphere
         (
             position        :BABYLON.Vector3,
-            pivotAnchor     :bz.PivotAnchor,
+            pivotAnchor     :bz.MeshPivotAnchor,
             diameter        :number,
             rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
@@ -337,7 +324,7 @@
         public static createPlane
         (
             position        :BABYLON.Vector3,
-            pivotAnchor     :bz.PivotAnchor,
+            pivotAnchor     :bz.MeshPivotAnchor,
             width           :number,
             height          :number,
             rotation        :BABYLON.Vector3,
@@ -407,7 +394,7 @@
         (
             start           :BABYLON.Vector3,
             end             :BABYLON.Vector3,
-            pivotAnchor     :bz.PivotAnchor,
+            pivotAnchor     :bz.MeshPivotAnchor,
             rotation        :BABYLON.Vector3,
 
             color           :BABYLON.Color4,
@@ -465,7 +452,7 @@
         (
             points          :BABYLON.Vector3[],
 
-            pivotAnchor     :bz.PivotAnchor,
+            pivotAnchor     :bz.MeshPivotAnchor,
             rotation        :BABYLON.Vector3,
 
             color           :BABYLON.Color3,
@@ -633,7 +620,7 @@
         (
             mesh        :BABYLON.Mesh,
             position    :BABYLON.Vector3,
-            pivotAnchor :bz.PivotAnchor,
+            pivotAnchor :bz.MeshPivotAnchor,
             width       :number,
             height      :number,
             depth       :number,
@@ -642,7 +629,7 @@
         {
             switch ( pivotAnchor )
             {
-                case bz.PivotAnchor.LOWEST_XYZ:
+                case bz.MeshPivotAnchor.LOWEST_XYZ:
                 {
                     mesh.position = position;
                     mesh.setPivotMatrix
@@ -658,7 +645,7 @@
                     break;
                 }
 
-                case bz.PivotAnchor.CENTER_XYZ:
+                case bz.MeshPivotAnchor.CENTER_XYZ:
                 {
                     mesh.position = position;
                     mesh.setPivotMatrix
@@ -674,7 +661,7 @@
                     break;
                 }
 
-                case bz.PivotAnchor.CENTER_XZ_LOWEST_Y:
+                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
                 {
                     mesh.position = position;
                     mesh.setPivotMatrix
@@ -690,7 +677,7 @@
                     break;
                 }
 
-                case bz.PivotAnchor.DEBUG_NONE:
+                case bz.MeshPivotAnchor.NONE:
                 {
                     mesh.position = new BABYLON.Vector3(
                         position.x + ( width  / 2 ),

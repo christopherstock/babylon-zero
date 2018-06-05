@@ -141,7 +141,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -156,7 +156,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 5.0, 0.0, 0.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -169,7 +169,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 10.0, 0.0, 0.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 2.5,  0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -184,7 +184,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 0.0, 5.0, 0.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -197,7 +197,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 0.0, 10.0, 0.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 2.5, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -212,7 +212,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 0.0, 0.0, 5.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 0.25   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -225,7 +225,7 @@
             bz.MeshFactory.createBox
             (
                 new BABYLON.Vector3( 0.0, 0.0, 10.0   ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.25, 0.25, 2.5   ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -249,7 +249,7 @@
             (
                 new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                 new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_RED_OPAQUE_RGBA,
                 this.scene
@@ -259,7 +259,7 @@
             (
                 new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                 new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_GREEN_OPAQUE_RGBA,
                 this.scene
@@ -269,7 +269,7 @@
             (
                 new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                 new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
-                bz.PivotAnchor.LOWEST_XYZ,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingGame.COLOR_BLUE_OPAQUE_RGBA,
                 this.scene

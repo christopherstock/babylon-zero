@@ -68,11 +68,9 @@
 
             // init mesh importer
             bz.Debug.init.log( 'Init mesh importer' );
-            this.meshImporter = new bz.MeshImportSystem(
-                [
-                    'furniture/officeChair',
-                    'furniture/skull',
-                ],
+            this.meshImporter = new bz.MeshImportSystem
+            (
+                bz.MeshImport.ALL_MESH_FILES,
                 bz.Main.game.onInitGameEngineCompleted
             );
             this.meshImporter.loadMeshes( this.scene.getScene() );

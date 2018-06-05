@@ -1,7 +1,4 @@
 
-    import * as BABYLON from 'babylonjs';
-    import * as bz from '../../..';
-
     /** ****************************************************************************************************************
     *   Specifies the UV strategy of the applied texture.
     *

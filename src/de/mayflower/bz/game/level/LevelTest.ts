@@ -37,7 +37,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
-                            bz.PivotAnchor.DEBUG_NONE,
+                            bz.MeshPivotAnchor.NONE,
                             new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.TEST,
@@ -57,7 +57,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                             bz.Texture.GRASS,
@@ -77,7 +77,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
                             bz.Texture.TREE,
@@ -96,7 +96,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0, 270.0, 0.0   ),
                             bz.Texture.TREE,
@@ -116,7 +116,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 2.0,  4.0, bz.MeshFactory.FACE_DEPTH   ),
                             new BABYLON.Vector3( 0.0, 45.0, 0.0   ),
                             bz.Texture.AMIGA,
@@ -136,7 +136,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                             bz.Texture.AMIGA,
@@ -155,7 +155,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 15.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                             bz.Texture.AMIGA,
@@ -175,7 +175,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 8.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.GRASS,
@@ -194,7 +194,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.GRASS,
@@ -214,7 +214,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.AMIGA,
@@ -234,7 +234,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 10.0, 0.0, 18.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                             new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
                             bz.Texture.AMIGA,
@@ -254,7 +254,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 2.0,  0.0, 15.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 2.0, 3.0, bz.MeshFactory.FACE_DEPTH ),
                             new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
                             bz.Texture.GLASS,
@@ -278,7 +278,7 @@
                                 new BABYLON.Vector3( 10.0, 0.0,  13.0    ),
                                 new BABYLON.Vector3( 10.0, 0.0,  0.0     ),
                             ],
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
                             bz.SettingGame.COLOR_RED,
                             this.scene,
@@ -306,7 +306,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 12.0, 0.0, 12.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                             new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
                             bz.Texture.WOOD,
@@ -326,7 +326,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( -1.0,  3.0, 5.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                             new BABYLON.Vector3( 0.0, 30.0, 0.0 ),
                             bz.Texture.WOOD,
@@ -346,7 +346,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 24.0,  0.0, 12.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 1.0, 2.0, 3.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.TEST,
@@ -366,7 +366,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
                             new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
                             bz.Texture.GLASS,
@@ -386,7 +386,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 5.5, 0.0, 22.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WOOD,
@@ -406,7 +406,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 5.5, 0.0, 25.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WOOD,
@@ -426,7 +426,7 @@
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3( 5.5, 0.0, 30.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 3.0, 3.0, 3.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WOOD,
@@ -446,7 +446,7 @@
                         bz.MeshFactory.createSphere
                         (
                             new BABYLON.Vector3( 10.5, 0.0, 30.0 ),
-                            bz.PivotAnchor.LOWEST_XYZ,
+                            bz.MeshPivotAnchor.LOWEST_XYZ,
                             3.0,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.TEST,

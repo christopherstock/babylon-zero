@@ -1,5 +1,5 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Imports all meshes from 3ds max.
@@ -42,7 +42,7 @@
                 (
                     '',
                     bz.SettingEngine.PATH_MESH,
-                    fileName + '.babylon',
+                    fileName,
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 

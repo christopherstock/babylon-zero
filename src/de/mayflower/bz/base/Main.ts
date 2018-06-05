@@ -6,10 +6,10 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Extract mesh importer to separate system.
     *   TODO Add physical compound for imported mesh collections.
     *
     *   TODO Rename top level class to 'Stage'.
+    *
     *   TODO Create stage for 3d pictured room.
     *   TODO Create 3d room (see tutorial project)
     *   TODO Create third stage with AxisCamera.

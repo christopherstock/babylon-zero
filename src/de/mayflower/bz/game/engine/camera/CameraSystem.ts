@@ -1,20 +1,5 @@
 
-    import * as bz from '../..';
-
-    /** ****************************************************************************************************************
-    *   All supplied camera types the app supports.
-    *******************************************************************************************************************/
-    export enum CameraType
-    {
-        /** A free controllable debug camera. */
-        FREE_DEBUG,
-        /** A stationary level camera. */
-        STATIONARY,
-        /** A camera that follows the player's body. */
-        FOLLOW,
-        /** The first person camera being fixed in the player's head mesh. */
-        FIRST_PERSON,
-    }
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Manages all scene cameras.
@@ -22,7 +7,7 @@
     export class CameraSystem
     {
         /** The currently active scene camera type. */
-        private                 activeCameraType                    :CameraType                             = null;
+        private                 activeCameraType                    :bz.CameraType                          = null;
 
         /** The free controllable babylon.JS camera. */
         private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
@@ -61,13 +46,13 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
         ***************************************************************************************************************/
-        public setActiveSceneCamera( scene:BABYLON.Scene, camera:CameraType ) : void
+        public setActiveSceneCamera( scene:BABYLON.Scene, camera:bz.CameraType ) : void
         {
             this.activeCameraType = camera;
 
             switch ( camera )
             {
-                case CameraType.FREE_DEBUG:
+                case bz.CameraType.FREE_DEBUG:
                 {
                     scene.activeCamera = this.freeDebugCamera;
                     this.setControlsForFreeDebugCameraEnabled( true );
@@ -75,7 +60,7 @@
                     break;
                 }
 
-                case CameraType.STATIONARY:
+                case bz.CameraType.STATIONARY:
                 {
                     scene.activeCamera = this.stationaryCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
@@ -83,7 +68,7 @@
                     break;
                 }
 
-                case CameraType.FOLLOW:
+                case bz.CameraType.FOLLOW:
                 {
                     scene.activeCamera = this.followCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
@@ -91,7 +76,7 @@
                     break;
                 }
 
-                case CameraType.FIRST_PERSON:
+                case bz.CameraType.FIRST_PERSON:
                 default:
                 {
                     scene.activeCamera = this.firstPersonCamera;
