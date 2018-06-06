@@ -35,8 +35,8 @@
         protected           readonly        lights                  :BABYLON.Light[]                    = [];
         /** A collection of all shadowGenerators that appear in this stage. */
         protected           readonly        shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
-        /** A collection of all cameras that appear in this stage. */
-        protected           readonly        cameras                 :BABYLON.Camera[]                   = [];
+        /** The camera system that manages all scene cameras. */
+        public              readonly        cameraSystem            :bz.CameraSystem                    = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -75,7 +75,7 @@
                 this.setupShadows();
             }
 
-            this.cameras        = this.createCameras();
+            this.cameraSystem   = this.createCameraSystem();
         }
 
         /** ************************************************************************************************************
@@ -177,11 +177,8 @@
                 shadowGenerator.dispose();
             }
 
-            // dispose cameras
-            for ( const camera of this.cameras )
-            {
-                camera.dispose();
-            }
+            // dispose camera system
+            this.cameraSystem.dispose();
         }
 
         /** ************************************************************************************************************
@@ -260,11 +257,11 @@
         protected abstract setupShadows() : void
 
         /** ************************************************************************************************************
-        *   Creates all cameras that appear in this level.
+        *   Creates the camera system that manages all cameras that appear in this level.
         *
-        *   @return All cameras that appear in this stage.
+        *   @return The camera system for this stage.
         ***************************************************************************************************************/
-        protected abstract createCameras() : BABYLON.Camera[];
+        protected abstract createCameraSystem() : bz.CameraSystem;
 
         /** ************************************************************************************************************
         *   Sets up the coordinal axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.

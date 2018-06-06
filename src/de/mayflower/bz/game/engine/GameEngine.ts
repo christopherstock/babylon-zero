@@ -12,8 +12,6 @@
         public                      material                    :bz.MaterialSystem                  = null;
         /** The singleton scene. */
         public                      scene                       :bz.Scene                           = null;
-        /** The camera system. */
-        public                      cameraSystem                :bz.CameraSystem                    = null;
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                          = null;
         /** The mesh import system. */
@@ -91,25 +89,5 @@
 
                 this.keySystem.releaseAllKeys();
             };
-        }
-
-        /** ************************************************************************************************************
-        *   Resets the camera system and all cameras to their initial positions.
-        ***************************************************************************************************************/
-        public initCameraSystem() : void
-        {
-            this.cameraSystem = new bz.CameraSystem
-            (
-                this.scene.getScene(),
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0, 0.0  ),
-                bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh(),
-                bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh(),
-                bz.Main.game.stage.getPlayer().getFirstPersonCameraTargetMesh()
-            );
-
-            // set active scene camera
-            this.cameraSystem.setActiveCamera( this.scene.getScene(), bz.SettingGame.DEFAULT_CAMERA );
         }
     }

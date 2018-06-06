@@ -46,19 +46,16 @@
                 startupPositionFreeDebugCamera,
                 startupTargetFreeDebugCamera
             );
-
             this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera
             (
                 scene,
                 startupPositionStationaryCamera
             );
-
             this.followCamera      = bz.CameraFactory.createFollowCamera
             (
                 scene,
                 startupPositionFreeDebugCamera
             );
-
             this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera
             (
                 scene
@@ -85,7 +82,7 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
         ***************************************************************************************************************/
-        public setActiveCamera(scene:BABYLON.Scene, camera:bz.CameraType ) : void
+        public setActiveCamera( scene:BABYLON.Scene, camera:bz.CameraType ) : void
         {
             this.activeCameraType = camera;
 

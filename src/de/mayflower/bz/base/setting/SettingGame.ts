@@ -1,6 +1,5 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz      from '../..';
 
     /** ****************************************************************************************************************
     *   Specifies all adjustments and balancings for the game.
@@ -10,9 +9,6 @@
     {
         /** The scene's gravity. */
         public  static  readonly    GRAVITY                                     :number             = -10.0;
-
-        /** The startup camera type. */
-        public  static  readonly    DEFAULT_CAMERA                              :bz.CameraType      = bz.CameraType.FREE_DEBUG;
 
         /** The player's radius on the XoZ axis. */
         public  static  readonly    PLAYER_RADIUS_XZ                            :number             = 2.0;

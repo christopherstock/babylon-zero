@@ -678,18 +678,21 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates all cameras that appear in this level.
+        *   Creates the camera system that manages all cameras that appear in this level.
         *
-        *   @return All cameras that appear in this stage.
+        *   @return The camera system for this stage.
         ***************************************************************************************************************/
-        protected createCameras() : BABYLON.Camera[]
+        protected createCameraSystem() : bz.CameraSystem
         {
-            const cameras:BABYLON.Camera[] = [
-
-
-            ];
-
-
-            return cameras;
+            return new bz.CameraSystem
+            (
+                this.scene,
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 0.0,  0.0, 0.0  ),
+                this.player.getThirdPersonCameraTargetMesh(),
+                this.player.getThirdPersonCameraTargetMesh(),
+                this.player.getFirstPersonCameraTargetMesh()
+            );
         }
     }
