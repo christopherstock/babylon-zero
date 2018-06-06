@@ -31,7 +31,6 @@
 
             bz.Debug.init.log( 'Init custom stage' );
             this.stage = new bz.TestOffice( this.engine.scene.getScene() );
-            this.stage.cameraSystem.setActiveCamera( this.engine.scene.getScene(), bz.CameraType.FREE_DEBUG );
 
             // invoke stage loaded complete callback
             bz.Main.game.onInitStageCompleted();
@@ -131,14 +130,12 @@
                 case bz.StageId.STAGE_TEST_OFFICE:
                 {
                     this.stage = new bz.TestOffice( this.engine.scene.getScene() );
-                    this.stage.cameraSystem.setActiveCamera( this.engine.scene.getScene(), bz.CameraType.FREE_DEBUG );
                     break;
                 }
 
                 case bz.StageId.STAGE_TEST_LEVEL:
                 {
                     this.stage = new bz.TestLevel( this.engine.scene.getScene() );
-                    this.stage.cameraSystem.setActiveCamera( this.engine.scene.getScene(), bz.CameraType.FREE_DEBUG );
                     break;
                 }
             }

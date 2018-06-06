@@ -6,10 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create CameraFactory and refactor.
-    *   TODO Ditch CameraSystem.
-    *   TODO Revise camera system: Mount and unmount different cameras for different stages. Access cams with 1-x
-    *
     *   TODO Create third stage with AxisCamera for rotating MF logo.
     *   TODO Create fourth stage for 3d pictured room.
     *   TODO Create fifth stage for displaying imported mesh (animated?).

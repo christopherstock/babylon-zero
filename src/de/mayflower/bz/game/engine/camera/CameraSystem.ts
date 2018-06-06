@@ -17,29 +17,44 @@
         private         readonly        followCamera                    :BABYLON.FollowCamera                   = null;
         /** The first person babylon.JS camera. */
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
+        /** The player that might change visibility by camera switch. */
+        private         readonly        player                          :bz.Player                              = null;
+        /** The HTML canvas that might change debug controls on camera switch. */
+        private         readonly        canvas                          :HTMLCanvasElement                      = null;
 
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
         *
         *   @param scene                           The babylon.JS scene.
+        *   @param player                          The player that might change visibility by camera switch.
+        *   @param canvas                          The HTML canvas that might change debug controls on camera switch.
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
         *   @param startupTargetFreeDebugCamera    The camera startup target for the free debug camera.
         *   @param stationaryCameraTarget          The target mesh for the starionary camera.
         *   @param followCameraTarget              The target mesh for the follow camera.
         *   @param firstPersonCameraTarget         The target mesh for the first person camera.
+        *   @param initialActiveCamera             The initial camera to set as the active camera.
         ***************************************************************************************************************/
         constructor
         (
             scene                           :BABYLON.Scene,
+            player                          :bz.Player,
+            canvas                          :HTMLCanvasElement,
+
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
             startupTargetFreeDebugCamera    :BABYLON.Vector3,
             stationaryCameraTarget          :BABYLON.AbstractMesh,
             followCameraTarget              :BABYLON.AbstractMesh,
-            firstPersonCameraTarget         :BABYLON.AbstractMesh
+            firstPersonCameraTarget         :BABYLON.AbstractMesh,
+
+            initialActiveCamera             :bz.CameraType
         )
         {
+            this.player = player;
+            this.canvas = canvas;
+
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (
                 scene,
@@ -74,6 +89,8 @@
             {
                 this.setFirstPersonCameraTo( firstPersonCameraTarget );
             }
+
+            this.setActiveCamera( scene, initialActiveCamera );
         }
 
         /** ************************************************************************************************************
@@ -82,7 +99,12 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
         ***************************************************************************************************************/
-        public setActiveCamera( scene:BABYLON.Scene, camera:bz.CameraType ) : void
+        public setActiveCamera
+        (
+            scene  :BABYLON.Scene,
+            camera :bz.CameraType
+        )
+        : void
         {
             this.activeCameraType = camera;
 
@@ -91,11 +113,11 @@
                 case bz.CameraType.FREE_DEBUG:
                 {
                     scene.activeCamera = this.freeCamera;
-                    this.setControlsForFreeDebugCameraEnabled( true );
+                    this.setControlsForFreeDebugCameraEnabled( true, this.canvas );
 
-                    if ( bz.Main.game.stage.getPlayer() != null )
+                    if ( this.player != null )
                     {
-                        bz.Main.game.stage.getPlayer().setVisible( true );
+                        this.player.setVisible( true );
                     }
                     break;
                 }
@@ -103,11 +125,11 @@
                 case bz.CameraType.STATIONARY:
                 {
                     scene.activeCamera = this.stationaryCamera;
-                    this.setControlsForFreeDebugCameraEnabled( false );
+                    this.setControlsForFreeDebugCameraEnabled( false, this.canvas );
 
-                    if ( bz.Main.game.stage.getPlayer() != null )
+                    if ( this.player != null )
                     {
-                        bz.Main.game.stage.getPlayer().setVisible( true );
+                        this.player.setVisible( true );
                     }
                     break;
                 }
@@ -115,11 +137,11 @@
                 case bz.CameraType.FOLLOW:
                 {
                     scene.activeCamera = this.followCamera;
-                    this.setControlsForFreeDebugCameraEnabled( false );
+                    this.setControlsForFreeDebugCameraEnabled( false, this.canvas );
 
-                    if ( bz.Main.game.stage.getPlayer() != null )
+                    if ( this.player != null )
                     {
-                        bz.Main.game.stage.getPlayer().setVisible( true );
+                        this.player.setVisible( true );
                     }
                     break;
                 }
@@ -128,11 +150,11 @@
                 default:
                 {
                     scene.activeCamera = this.firstPersonCamera;
-                    this.setControlsForFreeDebugCameraEnabled( false );
+                    this.setControlsForFreeDebugCameraEnabled( false, this.canvas );
 
-                    if ( bz.Main.game.stage.getPlayer() != null )
+                    if ( this.player != null )
                     {
-                        bz.Main.game.stage.getPlayer().setVisible( false );
+                        this.player.setVisible( false );
                     }
                     break;
                 }
@@ -194,16 +216,17 @@
         *   Enables or disables the debug controls for the free debug camera.
         *
         *   @param enable Whether to enable the debug controls or not.
+        *   @param canvas The HTML canvas to enable or disable debug controls.
         ***************************************************************************************************************/
-        private setControlsForFreeDebugCameraEnabled( enable:boolean ) : void
+        private setControlsForFreeDebugCameraEnabled( enable:boolean, canvas:HTMLCanvasElement ) : void
         {
             if ( enable )
             {
-                this.freeCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+                this.freeCamera.attachControl( canvas );
             }
             else
             {
-                this.freeCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                this.freeCamera.detachControl( canvas );
             }
         }
     }
