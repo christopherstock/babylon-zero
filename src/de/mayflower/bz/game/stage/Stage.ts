@@ -7,15 +7,15 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The player instance. */
-        public          readonly            player                  :bz.Player                          = null;
-
         /** The reference to the babylon.JS Scene. */
         protected       readonly            scene                   :BABYLON.Scene                      = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected       readonly            ambientColor            :BABYLON.Color3                     = null;
 
-        /** A collection of the coordinate axis in this stage. TODO same order than consturcor assignments and unloading process! */
+        /** The player instance. */
+        protected       readonly            player                  :bz.Player                          = null;
+
+        /** A collection of the coordinate axis in this stage. */
         protected       readonly            coordinateAxis          :BABYLON.Mesh[]                     = [];
         /** A collection of all walls in this stage. */
         protected       readonly            walls                   :bz.Wall[]                          = [];
@@ -75,6 +75,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns the player instance.
+        *
+        *   @return The player instance.
+        ***************************************************************************************************************/
+        public getPlayer() : bz.Player
+        {
+            return this.player;
+        }
+
+        /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
         ***************************************************************************************************************/
         public render() : void
@@ -91,6 +101,12 @@
         {
             // dispose player
             this.player.dispose();
+
+            // dispose coordinate axis
+            for ( const mesh of this.coordinateAxis )
+            {
+                mesh.dispose();
+            }
 
             // dispose all walls
             for ( const wall of this.walls )
@@ -123,12 +139,6 @@
                 {
                     mesh.dispose();
                 }
-            }
-
-            // dispose coordinate axis
-            for ( const mesh of this.coordinateAxis )
-            {
-                mesh.dispose();
             }
 
             // dispose skybox
@@ -222,9 +232,9 @@
         protected abstract setupShadows() : void
 
         /** ************************************************************************************************************
-        *   Sets up the coordinate axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
+        *   Sets up the coordinal axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
         *
-        *   @return A collection of all meshes that build the coordinate axis lines.
+        *   @return A collection of all meshes that build the coordinal axis lines.
         ***************************************************************************************************************/
         private createCoordinalAxis() : BABYLON.Mesh[]
         {

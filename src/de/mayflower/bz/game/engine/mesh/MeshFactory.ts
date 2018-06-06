@@ -667,7 +667,6 @@
             position    :BABYLON.Vector3,
             pivotAnchor :bz.MeshPivotAnchor,
 
-            // TODO replace with bounding box info??
             width       :number,
             height      :number,
             depth       :number,

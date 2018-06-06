@@ -109,19 +109,19 @@
             // lock statinary target camera to player
             this.cameraSystem.lockStationaryTargetCameraTo
             (
-                bz.Main.game.stage.player.getThirdPersonCameraTargetMesh()
+                bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh()
             );
 
             // lock follow camera to player
             this.cameraSystem.lockFollowCameraTo
             (
-                bz.Main.game.stage.player.getThirdPersonCameraTargetMesh()
+                bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh()
             );
 
             // lock first person camera to player
             this.cameraSystem.setFirstPersonCameraInside
             (
-                bz.Main.game.stage.player.getFirstPersonCameraTargetMesh()
+                bz.Main.game.stage.getPlayer().getFirstPersonCameraTargetMesh()
             );
 
             // set active scene camera

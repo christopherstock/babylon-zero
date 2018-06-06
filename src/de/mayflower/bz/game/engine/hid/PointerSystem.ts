@@ -21,7 +21,7 @@
 
                 if ( bz.Main.game.stage != null && bz.Main.game.engine.cameraSystem.isFirstPersonCameraActive() )
                 {
-                    src = bz.Main.game.stage.player.getThirdPersonCameraTargetMesh().position;
+                    src = bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
                 }
                 else
                 {

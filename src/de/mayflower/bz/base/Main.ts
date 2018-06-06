@@ -7,9 +7,17 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Second (debug) stage as default without lights!
+    *   TODO Enable level with playsr null.
+    *
+    *   TODO Mount and unmount different cameras for different stages.
+    *
     *   TODO Create third stage with AxisCamera.
     *   TODO Create stage for 3d pictured room.
     *   TODO Create 3d room (see tutorial project)
+    *
+    *   TODO Create param for player startup. Abstract method for player creation.
+    *
+    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *
     *   TODO Try rotating MF logo as separate 4th stage.
     *   TODO Use rotating MF logo for positioning imported mesh files.
@@ -38,6 +46,8 @@
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
+    *
+    *   TODO Try reflections and glossy fx for textures.
     *
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
