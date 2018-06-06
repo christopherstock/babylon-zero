@@ -28,7 +28,9 @@
         public onInitGameEngineCompleted=() : void =>
         {
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
-
+/*
+            this.initNewStage(  );
+*/
             bz.Debug.init.log( 'Init custom stage' );
             this.stage = new bz.TestOffice( this.engine.scene.getScene() );
 
@@ -102,6 +104,10 @@
             // dispose existent stage
             this.stage.unload();
 
+/*
+            this.initNewStage(  );
+*/
+
             bz.Debug.init.log( 'Switch to target level [' + targetStage + ']' );
 
             switch ( targetStage )
@@ -119,18 +125,6 @@
                 }
             }
 
-            this.engine.scene.getScene().executeWhenReady
-            (
-                () => {
-
-                    // TODO reuse initSceneCompleted after the camera system has been outsourced!
-
-                    // hide loading UI
-                    this.engine.babylonEngine.hideLoadingUI();
-
-                    bz.Debug.init.log( 'Starting the render loop.' );
-                    this.engine.babylonEngine.runRenderLoop( this.render );
-                }
-            );
+            this.engine.scene.getScene().executeWhenReady( this.initSceneCompleted );
         }
     }
