@@ -10,7 +10,7 @@
         private                         activeCameraType                :bz.CameraType                          = null;
 
         /** The free controllable babylon.JS camera. */
-        private         readonly        freeCamera                     :BABYLON.FreeCamera                      = null;
+        private         readonly        freeCamera                      :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
         private         readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
         /** The follow babylon.JS camera. */
@@ -34,10 +34,29 @@
             startupTargetFreeDebugCamera    :BABYLON.Vector3
         )
         {
-            this.freeCamera        = bz.CameraFactory.createFreeCamera(             scene, startupPositionFreeDebugCamera, startupTargetFreeDebugCamera );
-            this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera( scene, startupPositionStationaryCamera );
-            this.followCamera      = bz.CameraFactory.createFollowCamera(           scene, startupPositionFreeDebugCamera  );
-            this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera(      scene                                  );
+            this.freeCamera        = bz.CameraFactory.createFreeCamera
+            (
+                scene,
+                startupPositionFreeDebugCamera,
+                startupTargetFreeDebugCamera
+            );
+
+            this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera
+            (
+                scene,
+                startupPositionStationaryCamera
+            );
+
+            this.followCamera      = bz.CameraFactory.createFollowCamera
+            (
+                scene,
+                startupPositionFreeDebugCamera
+            );
+
+            this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera
+            (
+                scene
+            );
         }
 
         /** ************************************************************************************************************
@@ -141,6 +160,17 @@
         public isFirstPersonCameraActive() : boolean
         {
             return ( this.activeCameraType === bz.CameraType.FIRST_PERSON );
+        }
+
+        /** ************************************************************************************************************
+        *   Removes all cameras from the babylon.JS scene.
+        ***************************************************************************************************************/
+        public dispose() : void
+        {
+            this.freeCamera.dispose();
+            this.stationaryCamera.dispose();
+            this.followCamera.dispose();
+            this.firstPersonCamera.dispose();
         }
 
         /** ************************************************************************************************************
