@@ -25,13 +25,19 @@
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
         *   @param startupTargetFreeDebugCamera    The camera startup target for the free debug camera.
+        *   @param stationaryCameraTarget          The target mesh for the starionary camera.
+        *   @param followCameraTarget              The target mesh for the follow camera.
+        *   @param firstPersonCameraTarget         The target mesh for the first person camera.
         ***************************************************************************************************************/
         constructor
         (
             scene                           :BABYLON.Scene,
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
-            startupTargetFreeDebugCamera    :BABYLON.Vector3
+            startupTargetFreeDebugCamera    :BABYLON.Vector3,
+            stationaryCameraTarget          :BABYLON.AbstractMesh,
+            followCameraTarget              :BABYLON.AbstractMesh,
+            firstPersonCameraTarget         :BABYLON.AbstractMesh
         )
         {
             this.freeCamera        = bz.CameraFactory.createFreeCamera
@@ -57,6 +63,20 @@
             (
                 scene
             );
+
+            // assign camera targets
+            if ( stationaryCameraTarget != null )
+            {
+                this.lockStationaryTargetCameraTo( stationaryCameraTarget );
+            }
+            if ( followCameraTarget != null )
+            {
+                this.lockFollowCameraTo( followCameraTarget );
+            }
+            if ( firstPersonCameraTarget != null )
+            {
+                this.setFirstPersonCameraTo( firstPersonCameraTarget );
+            }
         }
 
         /** ************************************************************************************************************
@@ -65,7 +85,7 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
         ***************************************************************************************************************/
-        public setActiveSceneCamera( scene:BABYLON.Scene, camera:bz.CameraType ) : void
+        public setActiveCamera(scene:BABYLON.Scene, camera:bz.CameraType ) : void
         {
             this.activeCameraType = camera;
 
@@ -123,36 +143,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Locks the stationary camera to the specified target.
-        *
-        *   @param mesh The mesh to lock the stationary camera to.
-        ***************************************************************************************************************/
-        public lockStationaryTargetCameraTo( mesh:BABYLON.AbstractMesh ) : void
-        {
-            this.stationaryCamera.lockedTarget = mesh;
-        }
-
-        /** ************************************************************************************************************
-        *   Locks the follow camera to the specified target.
-        *
-        *   @param mesh The mesh to lock the follow camera to.
-        ***************************************************************************************************************/
-        public lockFollowCameraTo( mesh:BABYLON.AbstractMesh ) : void
-        {
-            this.followCamera.lockedTarget = mesh;
-        }
-
-        /** ************************************************************************************************************
-        *   Locks the first person camera inside the specified target.
-        *
-        *   @param mesh The mesh to lock the first person camera to.
-        ***************************************************************************************************************/
-        public setFirstPersonCameraInside( mesh:BABYLON.AbstractMesh ) : void
-        {
-            this.firstPersonCamera.parent = mesh;
-        }
-
-        /** ************************************************************************************************************
         *   Checks if the first person camera is currently active.
         *
         *   @return <code>true</code> if the first person camera is currently active.
@@ -171,6 +161,36 @@
             this.stationaryCamera.dispose();
             this.followCamera.dispose();
             this.firstPersonCamera.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Locks the stationary camera to the specified target.
+        *
+        *   @param mesh The mesh to lock the stationary camera to.
+        ***************************************************************************************************************/
+        private lockStationaryTargetCameraTo( mesh:BABYLON.AbstractMesh ) : void
+        {
+            this.stationaryCamera.lockedTarget = mesh;
+        }
+
+        /** ************************************************************************************************************
+        *   Locks the follow camera to the specified target.
+        *
+        *   @param mesh The mesh to lock the follow camera to.
+        ***************************************************************************************************************/
+        private lockFollowCameraTo( mesh:BABYLON.AbstractMesh ) : void
+        {
+            this.followCamera.lockedTarget = mesh;
+        }
+
+        /** ************************************************************************************************************
+        *   Locks the first person camera inside the specified target.
+        *
+        *   @param mesh The mesh to lock the first person camera to.
+        ***************************************************************************************************************/
+        private setFirstPersonCameraTo( mesh:BABYLON.AbstractMesh ) : void
+        {
+            this.firstPersonCamera.parent = mesh;
         }
 
         /** ************************************************************************************************************

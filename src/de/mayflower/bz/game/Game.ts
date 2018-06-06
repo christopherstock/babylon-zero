@@ -147,7 +147,7 @@
             (
                 () => {
 
-                    // TODO reuse initSceneCompleted
+                    // TODO reuse initSceneCompleted after the camera system has been outsourced!
 
                     // hide loading UI
                     this.engine.babylonEngine.hideLoadingUI();
