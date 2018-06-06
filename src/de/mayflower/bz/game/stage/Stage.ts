@@ -164,6 +164,13 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up the player for this stage.
+        *
+        *   @return The player instance for this stage.
+        ***************************************************************************************************************/
+        protected abstract createPlayer() : bz.Player;
+
+        /** ************************************************************************************************************
         *   Creates and returns all walls this stage consists of.
         *
         *   @return All walls of this stage.
@@ -273,15 +280,5 @@
                     this.scene
                 ),
             ];
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up the player for this stage.
-        *
-        *   @return The player instance for this stage.
-        ***************************************************************************************************************/
-        private createPlayer() : bz.Player
-        {
-            return new bz.Player( 225.0, this.ambientColor );
         }
     }
