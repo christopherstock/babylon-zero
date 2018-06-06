@@ -67,6 +67,10 @@
             this.scene = new bz.Scene();
             this.scene.init();
 
+            // assign pointer debug controls to scene
+            bz.Debug.init.log( 'Assign controls to camera' );
+            this.scene.assignControls();
+
             // init materials
             bz.Debug.init.log( 'Init materials' );
             this.material = new bz.MaterialSystem();

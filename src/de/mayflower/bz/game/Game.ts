@@ -46,10 +46,6 @@
             bz.Debug.init.log( 'Hide loading UI' );
             this.engine.babylonEngine.hideLoadingUI();
 
-            // assign controls to camera
-            bz.Debug.init.log( 'Assign controls to camera' );
-            this.engine.scene.assignControls();
-
             // launch render loop
             bz.Debug.init.log( 'Starting the render loop.' );
             this.engine.babylonEngine.runRenderLoop( this.render );
