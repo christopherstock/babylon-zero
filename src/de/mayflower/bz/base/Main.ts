@@ -6,20 +6,22 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Second (debug) stage as default without lights!
-    *
-    *   TODO Mount and unmount different cameras for different stages.
-    *
-    *   TODO Create third stage with AxisCamera.
-    *   TODO Create stage for 3d pictured room.
-    *   TODO Create 3d room (see tutorial project)
+    *   TODO Second (debug) stage (start empty ..) as default without lights!
     *
     *   TODO Create param for player startup. Abstract method for player creation.
     *
-    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *   TODO Mount and unmount different cameras for different stages.
+    *
+    *   TODO Create third stage with AxisCamera for rotating MF logo.
+    *   TODO Create fourth stage for 3d pictured room.
+    *   TODO Create fifth stage for displaying imported mesh (animated?).
     *
     *   TODO Try rotating MF logo as separate 4th stage.
     *   TODO Use rotating MF logo for positioning imported mesh files.
+    *
+    *   TODO Create 3d room (see tutorial project)
+    *
+    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *
     *   TODO Add physical compound for imported mesh collections.
     *
