@@ -8,33 +8,33 @@
     export abstract class Stage
     {
         /** The reference to the babylon.JS Scene. */
-        protected       readonly            scene                   :BABYLON.Scene                      = null;
+        protected           readonly        scene                   :BABYLON.Scene                      = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
-        protected       readonly            ambientColor            :BABYLON.Color3                     = null;
+        protected           readonly        ambientColor            :BABYLON.Color3                     = null;
 
         /** The player instance. */
-        protected       readonly            player                  :bz.Player                          = null;
+        protected           readonly        player                  :bz.Player                          = null;
 
         /** A collection of the coordinate axis in this stage. */
-        protected       readonly            coordinateAxis          :BABYLON.Mesh[]                     = [];
+        protected           readonly        coordinateAxis          :BABYLON.Mesh[]                     = [];
         /** A collection of all walls in this stage. */
-        protected       readonly            walls                   :bz.Wall[]                          = [];
+        protected           readonly        walls                   :bz.Wall[]                          = [];
         /** A collection of all movables in this stage. */
-        protected       readonly            movables                :bz.Movable[]                       = [];
+        protected           readonly        movables                :bz.Movable[]                       = [];
         /** A collection of all items in this stage. */
-        protected       readonly            items                   :bz.Item[]                          = [];
+        protected           readonly        items                   :bz.Item[]                          = [];
         /** A collection of all bots in this stage. */
-        protected       readonly            bots                    :bz.Bot[]                           = [];
+        protected           readonly        bots                    :bz.Bot[]                           = [];
         /** A collection of all imported meshes in this stage. */
-        protected       readonly            importedMeshes          :BABYLON.Mesh[][]                   = [];
+        protected           readonly        importedMeshes          :BABYLON.Mesh[][]                   = [];
         /** The skybox that surrounds the whole stage. */
-        protected       readonly            skybox                  :BABYLON.Mesh                       = null;
+        protected           readonly        skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all sprites that appear in this stage. */
-        protected       readonly            sprites                 :BABYLON.Sprite[]                   = [];
+        protected           readonly        sprites                 :BABYLON.Sprite[]                   = [];
         /** A collection of all lights that appear in this stage. */
-        protected       readonly            lights                  :BABYLON.Light[]                    = [];
+        protected           readonly        lights                  :BABYLON.Light[]                    = [];
         /** A collection of all shadowGenerators that appear in this stage. */
-        protected       readonly            shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
+        protected           readonly        shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.

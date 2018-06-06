@@ -99,21 +99,23 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F1 );
 
-                this.switchStage( 0 );
+                this.switchStage( bz.StageId.STAGE_TEST_OFFICE );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
 
-                this.switchStage( 1 );
+                this.switchStage( bz.StageId.STAGE_TEST_LEVEL );
             }
         }
 
         /** ************************************************************************************************************
         *   Switches the current stage to the specified target stage.
+        *
+        *   @param targetStage The target stage to switch to.
         ***************************************************************************************************************/
-        private switchStage( targetStage:number ) : void
+        private switchStage( targetStage:bz.StageId ) : void
         {
             // show loading UI
             this.engine.babylonEngine.displayLoadingUI();
@@ -128,21 +130,15 @@
 
             switch ( targetStage )
             {
-                case 0:
+                case bz.StageId.STAGE_TEST_OFFICE:
                 {
                     this.stage = new bz.TestOffice( this.engine.scene.getScene() );
                     break;
                 }
 
-                case 1:
+                case bz.StageId.STAGE_TEST_LEVEL:
                 {
                     this.stage = new bz.TestLevel( this.engine.scene.getScene() );
-                    break;
-                }
-
-                case 2:
-                {
-
                     break;
                 }
             }

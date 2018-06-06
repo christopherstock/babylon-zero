@@ -12,7 +12,6 @@
 
     export * from './game/Game';
 
-    export * from './game/engine/CanvasSystem';
     export * from './game/engine/GameEngine';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
@@ -39,9 +38,12 @@
     export * from './game/engine/physic/PhysicRestitution';
     export * from './game/engine/physic/Physic';
 
+    export * from './game/engine/ui/CanvasSystem';
+
     export * from './game/engine/LightFactory';
 
     export * from './game/stage/Stage';
+    export * from './game/stage/StageId';
     export * from './game/stage/TestLevel';
     export * from './game/stage/TestOffice';
 
