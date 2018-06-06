@@ -2,12 +2,12 @@
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
-    *   Specifies the 'test' level that tries out all level components.
+    *   Specifies the 'office' level.
     *******************************************************************************************************************/
-    export class TestLevel extends bz.Stage
+    export class TestOffice extends bz.Stage
     {
         /** ************************************************************************************************************
-        *   Creates a new test level.
+        *   Creates a new test office.
         *
         *   @param scene The babylon.JS scene reference.
         ***************************************************************************************************************/
@@ -15,7 +15,7 @@
         {
             super
             (
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 scene
             );
         }
@@ -51,7 +51,7 @@
                         (
                             new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                             bz.MeshPivotAnchor.NONE,
-                            new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
+                            new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.TEST,
                             null,
@@ -62,7 +62,7 @@
                         ),
                     ]
                 ),
-
+/*
                 new bz.Wall
                 (
                     [
@@ -300,6 +300,7 @@
                         ),
                     ]
                 ),
+*/
             ];
         }
 
@@ -311,7 +312,7 @@
         protected createMovables() : bz.Movable[]
         {
             return [
-
+/*
                 new bz.Movable
                 (
                     [
@@ -471,6 +472,7 @@
                         ),
                     ]
                 ),
+*/
             ];
         }
 
@@ -504,7 +506,7 @@
             bz.Debug.stage.log( 'Importing stage meshes' );
 
             return [
-
+/*
                 bz.MeshFactory.createImportedMesh
                 (
                     bz.MeshImport.OFFICE_CHAIR,
@@ -525,7 +527,7 @@
                     new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
                     this.scene
                 ),
-
+*/
             ];
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
@@ -551,7 +553,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBox( 0.25, 'darksky', this.scene );
+            return bz.MeshFactory.createSkyBox( 1.0, 'bluesky', this.scene );
         }
 
         /** ************************************************************************************************************
@@ -562,13 +564,14 @@
         protected createSprites() : BABYLON.Sprite[]
         {
             return [
-
+/*
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -35.0 ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -20.0 ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -5.0  ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 ),
+*/
             ];
         }
 
@@ -580,7 +583,7 @@
         protected createLights() : BABYLON.Light[]
         {
             const lights:BABYLON.Light[] = [
-
+/*
                 // hemispheric light
                 bz.LightFactory.createHemispheric
                 (
@@ -623,13 +626,14 @@
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 0.0, 0.0, 0.0 )
                 ),
+*/
             ];
-
+/*
             lights[ 0 ].setEnabled( false );
             lights[ 1 ].setEnabled( false );
             lights[ 2 ].setEnabled( false );
             lights[ 3 ].setEnabled( true  );
-
+*/
             return lights;
         }
 
@@ -641,12 +645,14 @@
         protected createShadowGenerators() : BABYLON.ShadowGenerator[]
         {
             const shadowGenerators:BABYLON.ShadowGenerator[] = [
+/*
                 new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) ),
+*/
             ];
-
+/*
             shadowGenerators[ 0 ].useExponentialShadowMap = true;
             shadowGenerators[ 0 ].usePoissonSampling      = true;
-
+*/
             return shadowGenerators;
         }
 
@@ -655,6 +661,7 @@
         ***************************************************************************************************************/
         protected setupShadows() : void
         {
+/*
             // set shadows for all movables
             for ( const movable of this.movables )
             {
@@ -674,5 +681,6 @@
                     this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
                 }
             }
+*/
         }
     }

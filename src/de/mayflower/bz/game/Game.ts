@@ -30,11 +30,7 @@
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Init custom stage' );
-            this.stage = new bz.TestLevel
-            (
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                this.engine.scene.getScene()
-            );
+            this.stage = new bz.TestOffice( this.engine.scene.getScene() );
 
             bz.Debug.init.log( 'Init camera system' );
             this.engine.initCameraSystem();

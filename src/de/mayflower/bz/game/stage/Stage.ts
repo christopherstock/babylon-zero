@@ -42,7 +42,7 @@
         *   @param ambientColor The ambient color of the stage is the emissive color for all faces.
         *   @param scene        The babylon.JS scene reference.
         ***************************************************************************************************************/
-        protected constructor
+        public constructor
         (
             ambientColor :BABYLON.Color3,
             scene        :BABYLON.Scene

@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Second (debug) stage (start empty ..) as default without lights!
-    *
     *   TODO Create param for player startup. Abstract method for player creation.
     *
     *   TODO Mount and unmount different cameras for different stages.
@@ -49,6 +47,8 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *
     *   TODO Try reflections and glossy fx for textures.
+    *
+    *   TODO Create custom preloader.
     *
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.

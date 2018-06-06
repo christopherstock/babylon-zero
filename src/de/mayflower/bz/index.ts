@@ -43,6 +43,7 @@
 
     export * from './game/stage/Stage';
     export * from './game/stage/TestLevel';
+    export * from './game/stage/TestOffice';
 
     export * from './game/object/GameObject';
     export * from './game/object/Bot';

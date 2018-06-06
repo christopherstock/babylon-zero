@@ -529,7 +529,7 @@
             skyboxMaterial.backFaceCulling   = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
             (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + cubeTextureName,
+                bz.SettingEngine.PATH_IMAGE_SKYBOX + cubeTextureName + '/' + cubeTextureName,
                 scene
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
