@@ -83,11 +83,8 @@
             // handle global keys
             this.handleMenuKeys();
 
-            // render stage if currently present
-            if ( this.stage != null )
-            {
-                this.stage.render();
-            }
+            // render stage
+            this.stage.render();
 
             // render babylon.JS scene
             this.engine.scene.renderScene();
@@ -98,22 +95,70 @@
         ***************************************************************************************************************/
         public handleMenuKeys() : void
         {
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F1 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F1 );
+
+                this.switchStage( 0 );
+            }
+
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
 
-                // clear stage if existent
-                if ( this.stage != null )
+                this.switchStage( 1 );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Switches the current stage to the specified target stage.
+        ***************************************************************************************************************/
+        private switchStage( targetStage:number ) : void
+        {
+            // show loading UI
+            this.engine.babylonEngine.displayLoadingUI();
+
+            bz.Debug.init.log( 'Stopping the render loop.' );
+            this.engine.babylonEngine.stopRenderLoop( this.render );
+
+            // dispose existent stage
+            this.stage.unload();
+
+            bz.Debug.init.log( 'Switch to target level [' + targetStage + ']' );
+
+            switch ( targetStage )
+            {
+                case 0:
                 {
-                    this.stage.unload();
-                    this.stage = null;
-
-
-
+                    this.stage = new bz.TestOffice( this.engine.scene.getScene() );
+                    break;
                 }
 
+                case 1:
+                {
+                    this.stage = new bz.TestLevel( this.engine.scene.getScene() );
+                    break;
+                }
 
+                case 2:
+                {
 
+                    break;
+                }
             }
+
+            this.engine.scene.getScene().executeWhenReady
+            (
+                () => {
+
+                    // TODO reuse initSceneCompleted
+
+                    // hide loading UI
+                    this.engine.babylonEngine.hideLoadingUI();
+
+                    bz.Debug.init.log( 'Starting the render loop.' );
+                    this.engine.babylonEngine.runRenderLoop( this.render );
+                }
+            );
         }
     }
