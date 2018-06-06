@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create param for player startup. Abstract method for player creation.
-    *
     *   TODO Mount and unmount different cameras for different stages.
     *
     *   TODO Create third stage with AxisCamera for rotating MF logo.

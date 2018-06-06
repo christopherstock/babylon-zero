@@ -29,6 +29,7 @@
         {
             return new bz.Player
             (
+                new BABYLON.Vector3( 15.0, 0.0, 15.0 ),
                 225.0,
                 this.ambientColor
             );

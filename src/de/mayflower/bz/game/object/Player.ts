@@ -31,10 +31,16 @@
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
+        *   @param position      The startup position for the player.
         *   @param rotY          Initial rotation Y.
         *   @param emissiveColor The emissive color of all mesh faces.
         ***************************************************************************************************************/
-        public constructor( rotY:number, emissiveColor:BABYLON.Color3 )
+        public constructor
+        (
+            position      :BABYLON.Vector3,
+            rotY          :number,
+            emissiveColor :BABYLON.Color3
+        )
         {
             super
             (
@@ -62,7 +68,7 @@
                     // Player.PLAYER_BODY_ID
                     bz.MeshFactory.createCylinder
                     (
-                        new BABYLON.Vector3( 15.0, 0.0, 15.0  ),
+                        position,
                         bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
                         ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
                         bz.SettingGame.PLAYER_HEIGHT_Y,

@@ -103,7 +103,7 @@
                 this.scene.getScene(),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0, 25.0  )
+                new BABYLON.Vector3( 0.0,  0.0, 0.0  )
             );
 
             // assign player cameras only if a player is set
