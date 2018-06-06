@@ -676,4 +676,20 @@
                 }
             }
         }
+
+        /** ************************************************************************************************************
+        *   Creates all cameras that appear in this level.
+        *
+        *   @return All cameras that appear in this stage.
+        ***************************************************************************************************************/
+        protected createCameras() : BABYLON.Camera[]
+        {
+            const cameras:BABYLON.Camera[] = [
+
+
+            ];
+
+
+            return cameras;
+        }
     }

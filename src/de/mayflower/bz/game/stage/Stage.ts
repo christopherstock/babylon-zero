@@ -35,6 +35,8 @@
         protected           readonly        lights                  :BABYLON.Light[]                    = [];
         /** A collection of all shadowGenerators that appear in this stage. */
         protected           readonly        shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
+        /** A collection of all cameras that appear in this stage. */
+        protected           readonly        cameras                 :BABYLON.Camera[]                   = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -72,6 +74,8 @@
                 this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
             }
+
+            this.cameras        = this.createCameras();
         }
 
         /** ************************************************************************************************************
@@ -172,6 +176,12 @@
             {
                 shadowGenerator.dispose();
             }
+
+            // dispose cameras
+            for ( const camera of this.cameras )
+            {
+                camera.dispose();
+            }
         }
 
         /** ************************************************************************************************************
@@ -248,6 +258,13 @@
         *   Sets up shadows for all meshes.
         ***************************************************************************************************************/
         protected abstract setupShadows() : void
+
+        /** ************************************************************************************************************
+        *   Creates all cameras that appear in this level.
+        *
+        *   @return All cameras that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createCameras() : BABYLON.Camera[];
 
         /** ************************************************************************************************************
         *   Sets up the coordinal axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
