@@ -3,6 +3,7 @@
     export * from './base/Version';
     export * from './base/Main';
 
+    export * from './game/engine/camera/CameraFactory';
     export * from './game/engine/camera/CameraSystem';
     export * from './game/engine/camera/CameraType';
 

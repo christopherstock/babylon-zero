@@ -14,7 +14,7 @@
         private             static              nextMeshId              :number                     = 0;
 
         /** ************************************************************************************************************
-        *   Returns the next id for a mesh to create.
+        *   Returns the next id for a new mesh to create.
         *
         *   @return The next free unique id for a new mesh to create.
         ***************************************************************************************************************/

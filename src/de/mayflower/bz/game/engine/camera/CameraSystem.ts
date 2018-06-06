@@ -7,16 +7,16 @@
     export class CameraSystem
     {
         /** The currently active scene camera type. */
-        private                 activeCameraType                    :bz.CameraType                          = null;
+        private                         activeCameraType                :bz.CameraType                          = null;
 
         /** The free controllable babylon.JS camera. */
-        private                 freeDebugCamera                     :BABYLON.FreeCamera                     = null;
+        private         readonly        freeCamera                     :BABYLON.FreeCamera                      = null;
         /** The stationary and targeted babylon.JS camera. */
-        private                 stationaryCamera                    :BABYLON.TargetCamera                   = null;
+        private         readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
         /** The follow babylon.JS camera. */
-        private                 followCamera                        :BABYLON.FollowCamera                   = null;
+        private         readonly        followCamera                    :BABYLON.FollowCamera                   = null;
         /** The first person babylon.JS camera. */
-        private                 firstPersonCamera                   :BABYLON.FreeCamera                     = null;
+        private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
 
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
@@ -34,10 +34,10 @@
             startupTargetFreeDebugCamera    :BABYLON.Vector3
         )
         {
-            this.createFreeDebugCamera(        scene, startupPositionFreeDebugCamera, startupTargetFreeDebugCamera );
-            this.createStationaryTargetCamera( scene, startupPositionStationaryCamera                              );
-            this.createFollowCamera(           scene, startupPositionFreeDebugCamera                               );
-            this.createFirstPersonCamera(      scene                                                               );
+            this.freeCamera        = bz.CameraFactory.createFreeCamera(             scene, startupPositionFreeDebugCamera, startupTargetFreeDebugCamera );
+            this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera( scene, startupPositionStationaryCamera );
+            this.followCamera      = bz.CameraFactory.createFollowCamera(           scene, startupPositionFreeDebugCamera  );
+            this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera(      scene                                  );
         }
 
         /** ************************************************************************************************************
@@ -54,7 +54,7 @@
             {
                 case bz.CameraType.FREE_DEBUG:
                 {
-                    scene.activeCamera = this.freeDebugCamera;
+                    scene.activeCamera = this.freeCamera;
                     this.setControlsForFreeDebugCameraEnabled( true );
 
                     if ( bz.Main.game.stage.getPlayer() != null )
@@ -144,83 +144,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the free debug camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        *   @param startupPosition The camera startup position.
-        *   @param startupTarget   The camera startup target.
-        ***************************************************************************************************************/
-        private createFreeDebugCamera
-        (
-            scene           :BABYLON.Scene,
-            startupPosition :BABYLON.Vector3,
-            startupTarget   :BABYLON.Vector3
-        )
-        : void
-        {
-            this.freeDebugCamera = new BABYLON.FreeCamera( 'freeCamera', startupPosition, scene );
-
-            // set startup direction
-            this.freeDebugCamera.setTarget( startupTarget );
-
-            // disable collisions and gravity
-            this.freeDebugCamera.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-            this.freeDebugCamera.applyGravity    = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-
-            // set the ellipsoid around the camera (the size of the player in our case)
-            this.freeDebugCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
-            this.freeDebugCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
-
-            this.freeDebugCamera.keysUp.push(    38 );
-            this.freeDebugCamera.keysDown.push(  40 );
-            this.freeDebugCamera.keysLeft.push(  37 );
-            this.freeDebugCamera.keysRight.push( 39 );
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the stationary camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        *   @param startupPosition The camera startup position.
-        ***************************************************************************************************************/
-        private createStationaryTargetCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
-        {
-            this.stationaryCamera = new BABYLON.TargetCamera( 'stationaryCamera', startupPosition, scene );
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the follow camera.
-        *
-        *   @param scene           The babylon.JS scene.
-        *   @param startupPosition The camera startup position.
-        ***************************************************************************************************************/
-        private createFollowCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : void
-        {
-            this.followCamera = new BABYLON.FollowCamera( 'followCamera', startupPosition, scene );
-
-            this.followCamera.heightOffset       = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;
-            this.followCamera.radius             = bz.SettingEngine.CAMERA_FOLLOW_RADIUS;
-            this.followCamera.rotationOffset     = bz.SettingEngine.CAMERA_FOLLOW_ROTATION_OFFSET;
-            this.followCamera.cameraAcceleration = bz.SettingEngine.CAMERA_FOLLOW_ACCELERATION_SPEED;
-            this.followCamera.maxCameraSpeed     = bz.SettingEngine.CAMERA_FOLLOW_MAX_SPEED;
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the first person camera.
-        *
-        *   @param scene The babylon.JS scene.
-        ***************************************************************************************************************/
-        private createFirstPersonCamera( scene:BABYLON.Scene ) : void
-        {
-            this.firstPersonCamera = new BABYLON.FreeCamera
-            (
-                'firstPersonCamera',
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                scene
-            );
-        }
-
-        /** ************************************************************************************************************
         *   Enables or disables the debug controls for the free debug camera.
         *
         *   @param enable Whether to enable the debug controls or not.
@@ -229,11 +152,11 @@
         {
             if ( enable )
             {
-                this.freeDebugCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
+                this.freeCamera.attachControl( bz.Main.game.engine.canvas.getCanvas() );
             }
             else
             {
-                this.freeDebugCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
+                this.freeCamera.detachControl( bz.Main.game.engine.canvas.getCanvas() );
             }
         }
     }
