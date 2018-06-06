@@ -32,21 +32,7 @@
             bz.Debug.init.log( 'Init custom stage' );
             this.stage = new bz.TestOffice( this.engine.scene.getScene() );
 
-            // invoke stage loaded complete callback
-            bz.Main.game.onInitStageCompleted();
-        };
-
-        /** ************************************************************************************************************
-        *   Being invoked when the stage is completely initialized.
-        ***************************************************************************************************************/
-        public onInitStageCompleted=() : void =>
-        {
-            bz.Debug.init.log( 'onInitStageCompleted being invoked' );
-
-            this.engine.scene.getScene().executeWhenReady
-            (
-                this.initSceneCompleted
-            );
+            this.engine.scene.getScene().executeWhenReady( this.initSceneCompleted );
         };
 
         /** ************************************************************************************************************
@@ -64,10 +50,7 @@
             bz.Debug.init.log( 'Assign controls to camera' );
             this.engine.scene.assignControls();
 
-            // set the window blur handler
-            this.engine.initWindowBlurHandler();
-
-            // launch render
+            // launch render loop
             bz.Debug.init.log( 'Starting the render loop.' );
             this.engine.babylonEngine.runRenderLoop( this.render );
         };

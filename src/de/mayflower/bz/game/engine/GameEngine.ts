@@ -39,17 +39,28 @@
             this.babylonEngine.displayLoadingUI();
 
             // add resize event listener
+            bz.Debug.init.log( 'Init window resize handler' );
             window.addEventListener(
                 'resize',
                 () : void => {
-                    bz.Main.game.engine.canvas.updateDimensions();
-                    bz.Main.game.engine.babylonEngine.resize();
+                    this.canvas.updateDimensions();
+                    this.babylonEngine.resize();
                 }
             );
 
             // create key and pointer system
             this.keySystem     = new bz.KeySystem();
             this.pointerSystem = new bz.PointerSystem();
+
+            // set the window blur handler
+            bz.Debug.init.log( 'Initing window blur handler' );
+            window.addEventListener(
+                'blur',
+                () : void => {
+                    bz.Debug.canvas.log( 'Detected window focus lost. Releasing all keys.' );
+                    this.keySystem.releaseAllKeys();
+                }
+            );
 
             // create the scene singleton
             bz.Debug.init.log( 'Init scene' );
@@ -74,20 +85,5 @@
                 bz.Main.game.onInitGameEngineCompleted
             );
             this.meshImporter.loadMeshes( this.scene.getScene() );
-        }
-
-        /** ************************************************************************************************************
-        *   Inits the window blur handler.
-        ***************************************************************************************************************/
-        public initWindowBlurHandler() : void
-        {
-            bz.Debug.init.log( 'Initing window blur handler' );
-
-            window.onblur = ( event:Event ) : void =>
-            {
-                bz.Debug.canvas.log( 'Detected window focus lost. Releasing all keys.' );
-
-                this.keySystem.releaseAllKeys();
-            };
         }
     }
