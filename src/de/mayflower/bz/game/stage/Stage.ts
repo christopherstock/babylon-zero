@@ -89,9 +89,14 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            this.player.handlePlayerKeys();
+            // render scene ..
 
-            this.player.render();
+            // render player if existent
+            if ( this.player != null )
+            {
+                this.player.handlePlayerKeys();
+                this.player.render();
+            }
         }
 
         /** ************************************************************************************************************
@@ -100,7 +105,10 @@
         public unload() : void
         {
             // dispose player
-            this.player.dispose();
+            if ( this.player != null )
+            {
+                this.player.dispose();
+            }
 
             // dispose coordinate axis
             for ( const mesh of this.coordinateAxis )
@@ -142,7 +150,10 @@
             }
 
             // dispose skybox
-            this.skybox.dispose();
+            if ( this.skybox != null )
+            {
+                this.skybox.dispose();
+            }
 
             // dispose sprites
             for ( const sprite of this.sprites )

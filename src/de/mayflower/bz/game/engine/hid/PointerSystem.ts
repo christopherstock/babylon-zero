@@ -4,6 +4,8 @@
 
     /** ****************************************************************************************************************
     *   The pointer system that manages all pointer operations.
+    *
+    *   This is currently just an implementation for physical debug purposes!
     *******************************************************************************************************************/
     export class PointerSystem
     {
@@ -19,7 +21,13 @@
             {
                 let src:BABYLON.Vector3 = null;
 
-                if ( bz.Main.game.stage != null && bz.Main.game.engine.cameraSystem.isFirstPersonCameraActive() )
+                // horrible debug implementation
+                if
+                (
+                        bz.Main.game.stage != null
+                    &&  bz.Main.game.engine.cameraSystem.isFirstPersonCameraActive()
+                    &&  bz.Main.game.stage.getPlayer() != null
+                )
                 {
                     src = bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
                 }

@@ -7,7 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Second (debug) stage as default without lights!
-    *   TODO Enable level with playsr null.
     *
     *   TODO Mount and unmount different cameras for different stages.
     *

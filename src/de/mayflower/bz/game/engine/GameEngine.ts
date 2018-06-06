@@ -106,23 +106,27 @@
                 new BABYLON.Vector3( 0.0,  0.0, 25.0  )
             );
 
-            // lock statinary target camera to player
-            this.cameraSystem.lockStationaryTargetCameraTo
-            (
-                bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh()
-            );
+            // assign player cameras only if a player is set
+            if ( bz.Main.game.stage.getPlayer() != null )
+            {
+                // lock statinary target camera to player
+                this.cameraSystem.lockStationaryTargetCameraTo
+                (
+                    bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh()
+                );
 
-            // lock follow camera to player
-            this.cameraSystem.lockFollowCameraTo
-            (
-                bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh()
-            );
+                // lock follow camera to player
+                this.cameraSystem.lockFollowCameraTo
+                (
+                    bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh()
+                );
 
-            // lock first person camera to player
-            this.cameraSystem.setFirstPersonCameraInside
-            (
-                bz.Main.game.stage.getPlayer().getFirstPersonCameraTargetMesh()
-            );
+                // lock first person camera to player
+                this.cameraSystem.setFirstPersonCameraInside
+                (
+                    bz.Main.game.stage.getPlayer().getFirstPersonCameraTargetMesh()
+                );
+            }
 
             // set active scene camera
             this.cameraSystem.setActiveSceneCamera( this.scene.getScene(), bz.SettingGame.DEFAULT_CAMERA );

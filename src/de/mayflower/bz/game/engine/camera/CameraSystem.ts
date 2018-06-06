@@ -56,7 +56,11 @@
                 {
                     scene.activeCamera = this.freeDebugCamera;
                     this.setControlsForFreeDebugCameraEnabled( true );
-                    bz.Main.game.stage.getPlayer().setVisible( true );
+
+                    if ( bz.Main.game.stage.getPlayer() != null )
+                    {
+                        bz.Main.game.stage.getPlayer().setVisible( true );
+                    }
                     break;
                 }
 
@@ -64,7 +68,11 @@
                 {
                     scene.activeCamera = this.stationaryCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.stage.getPlayer().setVisible( true );
+
+                    if ( bz.Main.game.stage.getPlayer() != null )
+                    {
+                        bz.Main.game.stage.getPlayer().setVisible( true );
+                    }
                     break;
                 }
 
@@ -72,7 +80,11 @@
                 {
                     scene.activeCamera = this.followCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.stage.getPlayer().setVisible( true );
+
+                    if ( bz.Main.game.stage.getPlayer() != null )
+                    {
+                        bz.Main.game.stage.getPlayer().setVisible( true );
+                    }
                     break;
                 }
 
@@ -81,7 +93,11 @@
                 {
                     scene.activeCamera = this.firstPersonCamera;
                     this.setControlsForFreeDebugCameraEnabled( false );
-                    bz.Main.game.stage.getPlayer().setVisible( false );
+
+                    if ( bz.Main.game.stage.getPlayer() != null )
+                    {
+                        bz.Main.game.stage.getPlayer().setVisible( false );
+                    }
                     break;
                 }
             }
