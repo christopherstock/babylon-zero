@@ -28,13 +28,9 @@
         public onInitGameEngineCompleted=() : void =>
         {
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
-/*
-            this.initNewStage(  );
-*/
-            bz.Debug.init.log( 'Init custom stage' );
-            this.stage = new bz.TestOffice( this.engine.scene.getScene() );
 
-            this.engine.scene.getScene().executeWhenReady( this.initSceneCompleted );
+            bz.Debug.init.log( 'Launch startup stage' );
+            this.switchStage( bz.StageId.STAGE_TEST_OFFICE );
         };
 
         /** ************************************************************************************************************
@@ -95,20 +91,22 @@
         ***************************************************************************************************************/
         private switchStage( targetStage:bz.StageId ) : void
         {
-            // show loading UI
-            this.engine.babylonEngine.displayLoadingUI();
+            bz.Debug.stage.log( 'Switch to target stage [' + targetStage + ']' );
 
-            bz.Debug.init.log( 'Stopping the render loop.' );
-            this.engine.babylonEngine.stopRenderLoop( this.render );
+            // check existent stage unload
+            if ( this.stage != null )
+            {
+                // show loading UI
+                bz.Debug.stage.log( 'Showing loading UI.' );
+                this.engine.babylonEngine.displayLoadingUI();
 
-            // dispose existent stage
-            this.stage.unload();
+                bz.Debug.stage.log( 'Stopping the render loop.' );
+                this.engine.babylonEngine.stopRenderLoop( this.render );
 
-/*
-            this.initNewStage(  );
-*/
-
-            bz.Debug.init.log( 'Switch to target level [' + targetStage + ']' );
+                // dispose existent stage
+                bz.Debug.stage.log( 'Dispose current stage.' );
+                this.stage.unload();
+            }
 
             switch ( targetStage )
             {
