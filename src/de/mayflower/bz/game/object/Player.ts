@@ -142,43 +142,6 @@
             {
                 this.rotationDeltaZ = bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
             }
-
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
-            {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
-                bz.Main.game.stage.cameraSystem.setActiveCamera
-                (
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.FREE_DEBUG
-                );
-            }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
-            {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
-                bz.Main.game.stage.cameraSystem.setActiveCamera
-                (
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.STATIONARY
-                );
-            }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
-            {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_3 );
-                bz.Main.game.stage.cameraSystem.setActiveCamera
-                (
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.FOLLOW
-                );
-            }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
-            {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
-                bz.Main.game.stage.cameraSystem.setActiveCamera
-                (
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.CameraType.FIRST_PERSON
-                );
-            }
         }
 
         /** ************************************************************************************************************

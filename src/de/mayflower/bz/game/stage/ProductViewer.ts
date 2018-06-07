@@ -2,12 +2,12 @@
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
-    *   The 'room viewer' stage offers an 3D view in an virtual room being textured by a spherical texture.
+    *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
     *******************************************************************************************************************/
-    export class RoomViewer extends bz.Stage
+    export class ProductViewer extends bz.Stage
     {
         /** ************************************************************************************************************
-        *   Creates a new room viewer stage.
+        *   Creates a new product viewer stage.
         *
         *   @param scene The babylon.JS scene reference.
         ***************************************************************************************************************/
@@ -87,7 +87,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxSphere( 1.0, 'diningRoom', this.scene );
+            return null;
         }
 
         /** ************************************************************************************************************

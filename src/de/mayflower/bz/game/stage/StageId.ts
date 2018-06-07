@@ -4,12 +4,15 @@
     *******************************************************************************************************************/
     export enum StageId
     {
-        /** The ID of the test office level. */
+        /** The test office level. */
         STAGE_TEST_OFFICE,
 
-        /** The ID of the test level. */
+        /** The test level. */
         STAGE_TEST_LEVEL,
 
-        /** The ID of the room viewer. */
+        /** The room viewer. */
         STAGE_ROOM_VIEWER,
+
+        /** The ID product viewer. */
+        STAGE_PRODUCT_VIEWER,
     }

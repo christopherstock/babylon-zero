@@ -8,11 +8,10 @@
     // tslint:disable:max-line-length
     export class SettingGame
     {
-        /** The scene's gravity. */
-        public  static  readonly    GRAVITY                                     :number             = -10.0;
-
         /** The startup stage. */
-        public  static  readonly    STARTUP_STAGE                               :bz.StageId         = bz.StageId.STAGE_TEST_OFFICE;
+        public  static  readonly    STAGE_STARTUP                               :bz.StageId         = bz.StageId.STAGE_PRODUCT_VIEWER;
+        /** The global scene gravity. */
+        public  static  readonly    STAGE_GLOBAL_GRAVITY                        :BABYLON.Vector3    = new BABYLON.Vector3( 0, -10.0, 0 );
 
         /** The player's radius on the XoZ axis. */
         public  static  readonly    PLAYER_RADIUS_XZ                            :number             = 2.0;

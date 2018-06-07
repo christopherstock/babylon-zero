@@ -30,7 +30,7 @@
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Launch startup stage' );
-            this.switchStage( bz.SettingGame.STARTUP_STAGE, this.engine.scene.getScene() );
+            this.switchStage( bz.SettingGame.STAGE_STARTUP, this.engine.scene.getScene() );
         };
 
         /** ************************************************************************************************************
@@ -69,25 +69,69 @@
         ***************************************************************************************************************/
         public handleMenuKeys() : void
         {
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F1 ) )
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F1 ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F1 );
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F1 );
 
                 this.switchStage( bz.StageId.STAGE_TEST_OFFICE, this.engine.scene.getScene() );
             }
 
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
 
                 this.switchStage( bz.StageId.STAGE_TEST_LEVEL, this.engine.scene.getScene() );
             }
 
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F3 ) )
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F3 ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F3 );
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F3 );
 
                 this.switchStage( bz.StageId.STAGE_ROOM_VIEWER, this.engine.scene.getScene() );
+            }
+
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F4 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F4 );
+
+                this.switchStage( bz.StageId.STAGE_PRODUCT_VIEWER, this.engine.scene.getScene() );
+            }
+
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
+                this.stage.cameraSystem.setActiveCamera
+                (
+                    this.engine.scene.getScene(),
+                    bz.CameraType.FREE_DEBUG
+                );
+            }
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
+                this.stage.cameraSystem.setActiveCamera
+                (
+                    this.engine.scene.getScene(),
+                    bz.CameraType.STATIONARY
+                );
+            }
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_3 );
+                this.stage.cameraSystem.setActiveCamera
+                (
+                    this.engine.scene.getScene(),
+                    bz.CameraType.FOLLOW
+                );
+            }
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
+                this.stage.cameraSystem.setActiveCamera
+                (
+                    this.engine.scene.getScene(),
+                    bz.CameraType.FIRST_PERSON
+                );
             }
         }
 
@@ -133,6 +177,12 @@
                 case bz.StageId.STAGE_ROOM_VIEWER:
                 {
                     this.stage = new bz.RoomViewer( scene );
+                    break;
+                }
+
+                case bz.StageId.STAGE_PRODUCT_VIEWER:
+                {
+                    this.stage = new bz.ProductViewer( scene );
                     break;
                 }
             }
