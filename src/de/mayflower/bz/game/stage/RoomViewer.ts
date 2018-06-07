@@ -37,7 +37,33 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            return [];
+            return [
+
+
+
+                new bz.Wall
+                (
+                    [
+                        // static ground
+                        bz.MeshFactory.createBox
+                        (
+                            new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
+                            bz.MeshPivotAnchor.NONE,
+                            new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                            bz.Texture.TEST,
+                            null,
+                            this.scene,
+                            bz.Physic.STATIC,
+                            1.0,
+                            this.ambientColor
+                        ),
+                    ]
+                ),
+
+
+
+            ];
         }
 
         /** ************************************************************************************************************
@@ -87,7 +113,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBox( 1.0, 'outside', this.scene );
+            return bz.MeshFactory.createSkyBoxSphere( 1.0, 'diningRoom', this.scene );
         }
 
         /** ************************************************************************************************************
