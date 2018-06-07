@@ -570,35 +570,35 @@
         {
             const vertexShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
             vertexShaderCodeScript.type = 'application/vertexShader';
-            vertexShaderCodeScript.id='vertexShaderCode';
-            vertexShaderCodeScript.innerHTML = '        '+
-            '   precision highp float;                  '+
-            '   attribute vec3 position;                '+
-            '   uniform mat4 world;                     '+
-            '   uniform mat4 viewProjection;            '+
-            '   varying vec3 vDirectionW;'+
-            '   void main(void) {'+
-            '           gl_Position =  viewProjection * world * vec4(position, 1.0);'+
-            '           vDirectionW = normalize(vec3(world * vec4(position, 0.0)));'+
+            vertexShaderCodeScript.id   = 'vertexShaderCode';
+            vertexShaderCodeScript.innerHTML = '                                    ' +
+            '   precision highp float;                                              ' +
+            '   attribute vec3 position;                                            ' +
+            '   uniform mat4 world;                                                 ' +
+            '   uniform mat4 viewProjection;                                        ' +
+            '   varying vec3 vDirectionW;                                           ' +
+            '   void main(void) {                                                   ' +
+            '           gl_Position =  viewProjection * world * vec4(position, 1.0);' +
+            '           vDirectionW = normalize(vec3(world * vec4(position, 0.0))); ' +
             '   }';
             document.head.appendChild( vertexShaderCodeScript );
 
-            const fragmentShaderCodeScript:HTMLScriptElement = document.createElement('script');
+            const fragmentShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
             fragmentShaderCodeScript.type = 'application/fragmentShader';
-            fragmentShaderCodeScript.id='fragmentShaderCode';
-            fragmentShaderCodeScript.innerHTML = '              '+
-            '    precision highp float;                         '+
-            '    uniform sampler2D textureSampler;              '+
-            '    varying vec3 vDirectionW;                      '+
-            '    void main(void) {                              '+
-            '        vec3 direction = normalize(vDirectionW);   '+
-            '        float t = clamp(direction.y * -0.5 + 0.5, 0.0, 1.0);'+
-            '        float s = atan(direction.z, direction.x) * 0.15915494 + 0.5; '+
-            '        vec3 vReflectionUVW = vec3(s, t, 0);       '+
-            '        vec2 coords = vReflectionUVW.xy;           '+
-            '        coords.x = 1.0 - coords.x; '+
-            '        coords.y = 1.0 - coords.y; '+
-            '        gl_FragColor = texture2D(textureSampler, coords);'+
+            fragmentShaderCodeScript.id   = 'fragmentShaderCode';
+            fragmentShaderCodeScript.innerHTML = '                                ' +
+            '    precision highp float;                                           ' +
+            '    uniform sampler2D textureSampler;                                ' +
+            '    varying vec3 vDirectionW;                                        ' +
+            '    void main(void) {                                                ' +
+            '        vec3 direction = normalize(vDirectionW);                     ' +
+            '        float t = clamp(direction.y * -0.5 + 0.5, 0.0, 1.0);         ' +
+            '        float s = atan(direction.z, direction.x) * 0.15915494 + 0.5; ' +
+            '        vec3 vReflectionUVW = vec3(s, t, 0);                         ' +
+            '        vec2 coords = vReflectionUVW.xy;                             ' +
+            '        coords.x = 1.0 - coords.x;                                   ' +
+            '        coords.y = 1.0 - coords.y;                                   ' +
+            '        gl_FragColor = texture2D(textureSampler, coords);            ' +
             '    }';
             document.head.appendChild( fragmentShaderCodeScript );
 
