@@ -6,17 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create third stage for 3d pictured room.
-    *   TODO Create spherical panorama skybox texture.
-    *   TODO Create 3d room (see tutorial project)
     *   TODO Create third stage with AxisCamera for rotating MF logo.
-    *   TODO Create enum for skybox images!
-    *
+    *   TODO Try rotating MF logo as separate 4th stage.
     *   TODO Create fifth stage for displaying imported mesh (animated?).
+    *   TODO Use rotating MF logo for positioning imported mesh files.
     *   TODO TS and JS classes etc. in babylon-zero-lib.
     *
-    *   TODO Try rotating MF logo as separate 4th stage.
-    *   TODO Use rotating MF logo for positioning imported mesh files.
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Add physical compound for imported mesh collections.
     *

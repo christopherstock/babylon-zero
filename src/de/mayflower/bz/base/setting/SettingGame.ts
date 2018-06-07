@@ -12,7 +12,7 @@
         public  static  readonly    GRAVITY                                     :number             = -10.0;
 
         /** The startup stage. */
-        public  static  readonly    STARTUP_STAGE                               :bz.StageId         = bz.StageId.STAGE_ROOM_VIEWER;
+        public  static  readonly    STARTUP_STAGE                               :bz.StageId         = bz.StageId.STAGE_TEST_OFFICE;
 
         /** The player's radius on the XoZ axis. */
         public  static  readonly    PLAYER_RADIUS_XZ                            :number             = 2.0;
