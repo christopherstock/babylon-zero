@@ -37,33 +37,7 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            return [
-
-
-
-                new bz.Wall
-                (
-                    [
-                        // static ground
-                        bz.MeshFactory.createBox
-                        (
-                            new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
-                            bz.MeshPivotAnchor.NONE,
-                            new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.Texture.TEST,
-                            null,
-                            this.scene,
-                            bz.Physic.STATIC,
-                            1.0,
-                            this.ambientColor
-                        ),
-                    ]
-                ),
-
-
-
-            ];
+            return [];
         }
 
         /** ************************************************************************************************************

@@ -7,13 +7,9 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Create third stage for 3d pictured room.
-    *
     *   TODO Create spherical panorama skybox texture.
-    *
     *   TODO Create 3d room (see tutorial project)
-    *
     *   TODO Create third stage with AxisCamera for rotating MF logo.
-    *
     *   TODO Create enum for skybox images!
     *
     *   TODO Create fifth stage for displaying imported mesh (animated?).
@@ -21,13 +17,10 @@
     *
     *   TODO Try rotating MF logo as separate 4th stage.
     *   TODO Use rotating MF logo for positioning imported mesh files.
-    *
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
-    *
     *   TODO Add physical compound for imported mesh collections.
     *
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
-    *
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
     *
