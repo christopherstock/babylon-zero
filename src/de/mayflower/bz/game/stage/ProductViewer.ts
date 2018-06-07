@@ -6,8 +6,11 @@
     *******************************************************************************************************************/
     export class ProductViewer extends bz.Stage
     {
+        /** Rotation speed in degrees per tick. */
+        private     static              ROTATION_SPEED          :number                 = 1.5;
+
         /** Logo rotation X. */
-        private                                     rotX                    :number                 = 0.0;
+        private                         rotY                    :number                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -37,21 +40,14 @@
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
                     mesh,
-
-                    this.rotX,
-                    0.0,
-                    0.0
-
+                    270.0,
+                    this.rotY,
+                    90.0
                 );
             }
 
-
             // alter rotations
-            this.rotX += 1.0;
-
-
-
-
+            this.rotY += ProductViewer.ROTATION_SPEED;
         }
 
         /** ************************************************************************************************************
@@ -184,11 +180,11 @@
                 this.player,
                 bz.Main.game.engine.canvas.getCanvas(),
 
-                new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
-                new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
+                new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
 
-                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
                 null,
                 null,
 

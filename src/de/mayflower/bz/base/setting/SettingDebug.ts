@@ -14,7 +14,7 @@
         public      static      ENABLE_COLLISIONS_FOR_DEBUG_CAMERA          :boolean            = ( false && SettingDebug.DEBUG_MODE );
 
         /** Show the bounding boxes for all meshes. */
-        public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = ( false && SettingDebug.DEBUG_MODE );
+        public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = ( true  && SettingDebug.DEBUG_MODE );
         /** Show the world coordinate axis. */
         public      static      SHOW_COORDINATE_AXIS                        :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 

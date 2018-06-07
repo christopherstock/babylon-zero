@@ -55,7 +55,7 @@
         ***************************************************************************************************************/
         public static setPositionAndPivot
         (
-            mesh        :BABYLON.Mesh,
+            mesh        :BABYLON.AbstractMesh,
             position    :BABYLON.Vector3,
             pivotAnchor :bz.MeshPivotAnchor,
 
