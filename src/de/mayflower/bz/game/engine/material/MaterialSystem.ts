@@ -44,7 +44,7 @@
         {
             const material:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
-                'material' + MaterialSystem.nextMaterialId++,
+                bz.MaterialSystem.createNextMaterialId(),
                 bz.Main.game.engine.scene.getScene()
             );
 
@@ -137,5 +137,15 @@
             texture.hasAlpha = ( textureHasAlpha === bz.TextureHasAlpha.YES );
 
             return texture;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next id for a new mesh to create.
+        *
+        *   @return The next free unique id for a new mesh to create.
+        ***************************************************************************************************************/
+        public static createNextMaterialId() : string
+        {
+            return 'material' + MaterialSystem.nextMaterialId++;
         }
     }

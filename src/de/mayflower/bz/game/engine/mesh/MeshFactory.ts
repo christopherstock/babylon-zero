@@ -517,19 +517,24 @@
         *   Creates a skybox mesh.
         *
         *   @param opacity         The alpha value for the skybox texture.
-        *   @param cubeTextureName The name of the folder that contains the skybox.
+        *   @param textureFileName The name of the file the contains the skybox texture.
         *   @param scene           The scene where this mesh will be applied.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSkyBox( opacity:number, cubeTextureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBox( opacity:number, textureFileName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
-            const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial( 'skyBox', scene );
+            const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
+            (
+                bz.MaterialSystem.createNextMaterialId(),
+                scene
+            );
 
             skyboxMaterial.backFaceCulling   = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
             (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + cubeTextureName + '/' + cubeTextureName,
+                // bz.SettingEngine.PATH_IMAGE_SKYBOX + cubeTextureName + '/' + cubeTextureName,
+                bz.SettingEngine.PATH_IMAGE_SKYBOX + textureFileName,
                 scene
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
