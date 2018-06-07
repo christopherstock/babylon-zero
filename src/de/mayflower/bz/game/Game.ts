@@ -30,7 +30,7 @@
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Launch startup stage' );
-            this.switchStage( bz.StageId.STAGE_TEST_OFFICE );
+            this.switchStage( bz.StageId.STAGE_TEST_OFFICE, this.engine.scene.getScene() );
         };
 
         /** ************************************************************************************************************
@@ -73,14 +73,21 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F1 );
 
-                this.switchStage( bz.StageId.STAGE_TEST_OFFICE );
+                this.switchStage( bz.StageId.STAGE_TEST_OFFICE, this.engine.scene.getScene() );
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F2 ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F2 );
 
-                this.switchStage( bz.StageId.STAGE_TEST_LEVEL );
+                this.switchStage( bz.StageId.STAGE_TEST_LEVEL, this.engine.scene.getScene() );
+            }
+
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F3 ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F3 );
+
+                this.switchStage( bz.StageId.STAGE_ROOM_VIEWER, this.engine.scene.getScene() );
             }
         }
 
@@ -88,8 +95,9 @@
         *   Switches the current stage to the specified target stage.
         *
         *   @param targetStage The target stage to switch to.
+        *   @param scene       The babylon.JS scene context.
         ***************************************************************************************************************/
-        private switchStage( targetStage:bz.StageId ) : void
+        private switchStage( targetStage:bz.StageId, scene:BABYLON.Scene ) : void
         {
             bz.Debug.stage.log( 'Switch to target stage [' + targetStage + ']' );
 
@@ -112,17 +120,23 @@
             {
                 case bz.StageId.STAGE_TEST_OFFICE:
                 {
-                    this.stage = new bz.TestOffice( this.engine.scene.getScene() );
+                    this.stage = new bz.TestOffice( scene );
                     break;
                 }
 
                 case bz.StageId.STAGE_TEST_LEVEL:
                 {
-                    this.stage = new bz.TestLevel( this.engine.scene.getScene() );
+                    this.stage = new bz.TestLevel( scene );
+                    break;
+                }
+
+                case bz.StageId.STAGE_ROOM_VIEWER:
+                {
+                    this.stage = new bz.RoomViewer( scene );
                     break;
                 }
             }
 
-            this.engine.scene.getScene().executeWhenReady( this.initSceneCompleted );
+            scene.executeWhenReady( this.initSceneCompleted );
         }
     }

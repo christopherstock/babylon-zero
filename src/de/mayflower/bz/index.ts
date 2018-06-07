@@ -45,6 +45,7 @@
 
     export * from './game/stage/Stage';
     export * from './game/stage/StageId';
+    export * from './game/stage/RoomViewer';
     export * from './game/stage/TestLevel';
     export * from './game/stage/TestOffice';
 
