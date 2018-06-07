@@ -6,6 +6,9 @@
     *******************************************************************************************************************/
     export class ProductViewer extends bz.Stage
     {
+        /** Logo rotation X. */
+        private                     rotX                :number                 = 0.0
+
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
@@ -18,6 +21,35 @@
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 scene
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Renders all stage concernings for one tick of the game loop.
+        ***************************************************************************************************************/
+        public render() : void
+        {
+            // invoke parent method
+            super.render();
+
+            // rotate imported mesh ..
+            for ( const mesh of this.importedMeshes[ 0 ] )
+            {
+                bz.MeshManipulation.setAbsoluteRotationXYZ
+                (
+                    mesh,
+
+                    this.rotX,
+                    0.0,
+                    0.0
+
+                );
+            }
+
+            // alter rotations
+            this.rotX += 1.0;
+
+
+
         }
 
         /** ************************************************************************************************************
@@ -150,13 +182,17 @@
                 this.scene,
                 this.player,
                 bz.Main.game.engine.canvas.getCanvas(),
+
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 50.0, 0.0, 0.0  ),
                 new BABYLON.Vector3( 0.0,  0.0, 0.0  ),
+
+                this.importedMeshes[ 0 ][ 0 ],
                 null,
                 null,
-                null,
-                bz.CameraType.FREE_DEBUG
+
+                bz.CameraType.STATIONARY
             );
         }
+
     }

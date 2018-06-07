@@ -45,6 +45,7 @@
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
             startupTargetFreeDebugCamera    :BABYLON.Vector3,
+
             stationaryCameraTarget          :BABYLON.AbstractMesh,
             followCameraTarget              :BABYLON.AbstractMesh,
             firstPersonCameraTarget         :BABYLON.AbstractMesh,

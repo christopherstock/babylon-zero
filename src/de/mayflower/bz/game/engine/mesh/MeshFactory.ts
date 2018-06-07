@@ -107,7 +107,7 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
+            bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
@@ -208,7 +208,7 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
+            bz.MeshManipulation.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
@@ -274,7 +274,7 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
+            bz.MeshManipulation.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
@@ -352,7 +352,7 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
+            bz.MeshManipulation.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
             (
                 texture,
@@ -421,7 +421,7 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot( line, BABYLON.Vector3.Zero(), pivotAnchor, 0.0, 0.0, 0.0 );
+            bz.MeshManipulation.setPositionAndPivot( line, BABYLON.Vector3.Zero(), pivotAnchor, 0.0, 0.0, 0.0 );
 
             return MeshFactory.decorateMesh
             (
@@ -481,7 +481,7 @@
                 scene
             );
 
-            MeshFactory.setPositionAndPivot
+            bz.MeshManipulation.setPositionAndPivot
             (
                 polygon,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -602,12 +602,6 @@
             '    }';
             document.head.appendChild( fragmentShaderCodeScript );
 
-            const skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox
-            (
-                MeshFactory.createNextMeshId(),
-                100.0,
-                scene
-            );
             const texture:BABYLON.Texture = new BABYLON.Texture
             (
                 bz.SettingEngine.PATH_IMAGE_SKYBOX + textureName + '/' + textureName + '.jpg',
@@ -628,12 +622,17 @@
                     samplers:   ['textureSampler']
                 }
             );
-            skyboxMaterial.setTexture('textureSampler', texture);
-
+            skyboxMaterial.setTexture( 'textureSampler', texture );
             skyboxMaterial.backFaceCulling = false;
 
-            skybox.material = skyboxMaterial;
-            skybox.scaling = new BABYLON.Vector3(-1, -1, -1);
+            const skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox
+            (
+                MeshFactory.createNextMeshId(),
+                100.0,
+                scene
+            );
+            skybox.material         = skyboxMaterial;
+            skybox.scaling          = new BABYLON.Vector3(-1, -1, -1);
             skybox.infiniteDistance = true;
 
             return skybox;
@@ -735,89 +734,5 @@
             }
 
             return mesh;
-        }
-
-        /** ************************************************************************************************************
-        *   Sets the position and pivot to the specified mesh.
-        *
-        *   @param mesh        The mesh to apply position and pivot to.
-        *   @param position    Where to place this mesh.
-        *   @param pivotAnchor The anchor point of this mesh.
-        *   @param width       The dimension x of this mesh.
-        *   @param height      The dimension y of this mesh.
-        *   @param depth       The dimension z of this mesh.
-        ***************************************************************************************************************/
-        private static setPositionAndPivot
-        (
-            mesh        :BABYLON.Mesh,
-            position    :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPivotAnchor,
-
-            width       :number,
-            height      :number,
-            depth       :number,
-        )
-        : void
-        {
-            switch ( pivotAnchor )
-            {
-                case bz.MeshPivotAnchor.LOWEST_XYZ:
-                {
-                    mesh.position = position;
-                    mesh.setPivotMatrix
-                    (
-                        BABYLON.Matrix.Translation
-                        (
-                            ( width  / 2 ),
-                            ( height / 2 ),
-                            ( depth  / 2 )
-                        ),
-                        false
-                    );
-                    break;
-                }
-
-                case bz.MeshPivotAnchor.CENTER_XYZ:
-                {
-                    mesh.position = position;
-                    mesh.setPivotMatrix
-                    (
-                        BABYLON.Matrix.Translation
-                        (
-                            0.0,
-                            0.0,
-                            0.0
-                        ),
-                        false
-                    );
-                    break;
-                }
-
-                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
-                {
-                    mesh.position = position;
-                    mesh.setPivotMatrix
-                    (
-                        BABYLON.Matrix.Translation
-                        (
-                            0.0,
-                            ( height / 2 ),
-                            0.0
-                        ),
-                        false
-                    );
-                    break;
-                }
-
-                case bz.MeshPivotAnchor.NONE:
-                {
-                    mesh.position = new BABYLON.Vector3(
-                        position.x + ( width  / 2 ),
-                        position.y + ( height / 2 ),
-                        position.z + ( depth  / 2 )
-                    );
-                    break;
-                }
-            }
         }
     }
