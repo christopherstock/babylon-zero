@@ -33,7 +33,7 @@
         ***************************************************************************************************************/
         public loadMeshes( scene:BABYLON.Scene ) : void
         {
-            bz.Debug.meshImport.log( 'Preloading [' + this.fileNames.length + '] meshes' );
+            bz.Debug.meshImport.log( 'Importing [' + this.fileNames.length + '] mesh files' );
 
             for ( const fileName of this.fileNames )
             {
@@ -45,6 +45,8 @@
                     fileName,
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
+
+                        bz.Debug.meshImport.log( ' Imported [' + importedMeshes.length + '] meshes' );
 
                         // hide all meshes
                         for ( const importedMesh of importedMeshes )

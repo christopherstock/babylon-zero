@@ -7,7 +7,7 @@
     export class ProductViewer extends bz.Stage
     {
         /** Logo rotation X. */
-        private                     rotX                :number                 = 0.0
+        private                                     rotX                    :number                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -45,8 +45,10 @@
                 );
             }
 
+
             // alter rotations
             this.rotX += 1.0;
+
 
 
 
@@ -119,7 +121,6 @@
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     this.scene
                 ),
-
             ];
         }
 
@@ -183,16 +184,15 @@
                 this.player,
                 bz.Main.game.engine.canvas.getCanvas(),
 
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
-                new BABYLON.Vector3( 50.0, 0.0, 0.0  ),
-                new BABYLON.Vector3( 0.0,  0.0, 0.0  ),
+                new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
+                new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
 
-                this.importedMeshes[ 0 ][ 0 ],
+                new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                 null,
                 null,
 
                 bz.CameraType.STATIONARY
             );
         }
-
     }

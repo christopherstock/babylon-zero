@@ -31,8 +31,8 @@
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
         *   @param startupTargetFreeDebugCamera    The camera startup target for the free debug camera.
-        *   @param stationaryCameraTarget          The target mesh for the starionary camera.
-        *   @param followCameraTarget              The target mesh for the follow camera.
+        *   @param stationaryCameraTarget          The target node for the starionary camera.
+        *   @param followCameraTarget              The target node for the follow camera.
         *   @param firstPersonCameraTarget         The target mesh for the first person camera.
         *   @param initialActiveCamera             The initial camera to set as the active camera.
         ***************************************************************************************************************/
@@ -46,8 +46,8 @@
             startupPositionStationaryCamera :BABYLON.Vector3,
             startupTargetFreeDebugCamera    :BABYLON.Vector3,
 
-            stationaryCameraTarget          :BABYLON.AbstractMesh,
-            followCameraTarget              :BABYLON.AbstractMesh,
+            stationaryCameraTarget          :any,
+            followCameraTarget              :any,
             firstPersonCameraTarget         :BABYLON.AbstractMesh,
 
             initialActiveCamera             :bz.CameraType
@@ -188,7 +188,7 @@
         *
         *   @param mesh The mesh to lock the stationary camera to.
         ***************************************************************************************************************/
-        private lockStationaryTargetCameraTo( mesh:BABYLON.AbstractMesh ) : void
+        private lockStationaryTargetCameraTo( mesh:any ) : void
         {
             this.stationaryCamera.lockedTarget = mesh;
         }
@@ -198,7 +198,7 @@
         *
         *   @param mesh The mesh to lock the follow camera to.
         ***************************************************************************************************************/
-        private lockFollowCameraTo( mesh:BABYLON.AbstractMesh ) : void
+        private lockFollowCameraTo( mesh:any ) : void
         {
             this.followCamera.lockedTarget = mesh;
         }
