@@ -77,7 +77,18 @@
         ***************************************************************************************************************/
         protected createImportedMeshes() : BABYLON.Mesh[][]
         {
-            return [];
+            bz.Debug.stage.log( 'Importing stage meshes' );
+
+            return [
+
+                bz.MeshFactory.createImportedMesh
+                (
+                    bz.MeshImport.MF_LOGO,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    this.scene
+                ),
+
+            ];
         }
 
         /** ************************************************************************************************************
