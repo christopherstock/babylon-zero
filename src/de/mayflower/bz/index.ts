@@ -7,6 +7,8 @@
     export * from './game/engine/camera/CameraSystem';
     export * from './game/engine/camera/CameraType';
 
+    export * from './game/stage/StageId';
+
     export * from './base/setting/SettingDebug';
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';
@@ -44,7 +46,6 @@
     export * from './game/engine/LightFactory';
 
     export * from './game/stage/Stage';
-    export * from './game/stage/StageId';
     export * from './game/stage/RoomViewer';
     export * from './game/stage/TestLevel';
     export * from './game/stage/TestOffice';

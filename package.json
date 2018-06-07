@@ -30,6 +30,7 @@
         "webpack-cli": "^2.0.14"
     },
     "dependencies": {
+        "babylon-zero-lib": "^0.1.0",
         "babylonjs": "^3.2.0-beta.5",
         "cannon": "^0.6.2",
         "earcut": "^2.1.3",

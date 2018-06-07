@@ -17,6 +17,7 @@
     *   TODO Create enum for skybox images!
     *
     *   TODO Create fifth stage for displaying imported mesh (animated?).
+    *   TODO TS and JS classes etc. in babylon-zero-lib.
     *
     *   TODO Try rotating MF logo as separate 4th stage.
     *   TODO Use rotating MF logo for positioning imported mesh files.
