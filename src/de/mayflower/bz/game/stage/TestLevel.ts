@@ -612,7 +612,8 @@
                     bz.MathUtil.degreesToRad( 30.0 ),
                     2,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                    new BABYLON.Color3( 1.0, 1.0, 1.0 )
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    50.0
                 ),
 
                 // point light
@@ -622,7 +623,8 @@
                     new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
                     1.0,
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    50.0
                 ),
             ];
 

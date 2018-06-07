@@ -9,7 +9,7 @@
         /** Rotation speed in degrees per tick. */
         private     static              ROTATION_SPEED          :number                 = 1.5;
 
-        /** Logo rotation X. */
+        /** Current logo rotation Y. */
         private                         rotY                    :number                 = 0.0;
 
         /** ************************************************************************************************************
@@ -21,7 +21,7 @@
         {
             super
             (
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
                 scene
             );
         }
@@ -34,7 +34,7 @@
             // invoke parent method
             super.render();
 
-            // rotate imported mesh ..
+            // rotate imported
             for ( const mesh of this.importedMeshes[ 0 ] )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
@@ -46,8 +46,15 @@
                 );
             }
 
-            // alter rotations
+            // alter rotation Y
             this.rotY += ProductViewer.ROTATION_SPEED;
+/*
+            // increase point light range
+            if ( this.lights[ 0 ].range < 150.0 )
+            {
+                this.lights[ 0 ].range += 1.00;
+            }
+*/
         }
 
         /** ************************************************************************************************************
@@ -147,7 +154,23 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            return [];
+            const lights:BABYLON.Light[] = [
+
+                // point light
+                bz.LightFactory.createPoint
+                (
+                    this.scene,
+                    new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
+                    1.0,
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    50.0
+                ),
+            ];
+
+            lights[ 0 ].setEnabled( true  );
+
+            return lights;
         }
 
         /** ************************************************************************************************************

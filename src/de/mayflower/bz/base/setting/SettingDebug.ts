@@ -17,6 +17,8 @@
         public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = ( true  && SettingDebug.DEBUG_MODE );
         /** Show the world coordinate axis. */
         public      static      SHOW_COORDINATE_AXIS                        :boolean            = ( true  && SettingDebug.DEBUG_MODE );
+        /** Show the babylon.JS scene debug panel. */
+        public      static      SHOW_SCENE_DEBUG_PANEL                      :boolean            = ( false && SettingDebug.DEBUG_MODE );
 
         /** The length of the debug coordinate axis. */
         public      static      DEBUG_AXIS_LENGTH                           :number             = 25.0;

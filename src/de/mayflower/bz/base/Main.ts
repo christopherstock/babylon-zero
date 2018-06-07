@@ -12,9 +12,15 @@
     *   TODO Create fifth stage for displaying imported mesh (animated?).
     *   TODO Use rotating MF logo for positioning imported mesh files.
     *
+    *   TODO Check requirement of emissiveColor in materials! maybe ambient scene color is sufficient?
+    *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *
     *   TODO TS and JS classes etc. in babylon-zero-lib.
+    *
+    *   TODO lights.setEnable as constructor params for all lights.
+    *
+    *   TODO Check for babylon.JS lib update!
     *
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Add physical compound for imported mesh collections.
@@ -30,6 +36,8 @@
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create debug console on-screen?
+    *
+    *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!

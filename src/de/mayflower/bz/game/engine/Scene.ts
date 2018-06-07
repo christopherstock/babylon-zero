@@ -17,9 +17,6 @@
             // create babylon.JS scene
             this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
 
-            // set ambient color ( defaults to black .. no effect ? )
-            this.babylonScene.ambientColor = bz.SettingGame.COLOR_WHITE;
-
             // enable physics engine
             this.babylonScene.enablePhysics
             (
@@ -32,6 +29,12 @@
 
             // enable debug collisions for free debug camera
             this.babylonScene.collisionsEnabled = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+
+            // show the babylon.JS debug layer
+            if ( bz.SettingDebug.SHOW_SCENE_DEBUG_PANEL )
+            {
+                this.babylonScene.debugLayer.show()
+            }
         }
 
         /** ************************************************************************************************************

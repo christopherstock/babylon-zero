@@ -88,16 +88,20 @@
         *   @param exponent      The light decay speed with the distance from the emission spot.
         *   @param diffuseColor  The color this light spreads to all surfaces.
         *   @param specularColor The shining spot color this light spreads to faces.
+        *   @param range         How far the spot light shall reach.
         ***************************************************************************************************************/
         public static createSpot
         (
             scene         :BABYLON.Scene,
             position      :BABYLON.Vector3,
             direction     :BABYLON.Vector3,
+
+            // TODO to angleDegrees
             angle         :number,
             exponent      :number,
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
+            range         :number
         )
         : BABYLON.SpotLight
         {
@@ -113,6 +117,7 @@
 
             light.diffuse  = diffuseColor ;
             light.specular = specularColor;
+            light.range    = range;
 
             return light;
         }
@@ -125,6 +130,7 @@
         *   @param intensity     The intensity of this light.
         *   @param diffuseColor  The color this light spreads to all surfaces.
         *   @param specularColor The shining spot color this light spreads to faces.
+        *   @param range         How far the point light shall reach.
         ***************************************************************************************************************/
         public static createPoint
         (
@@ -133,6 +139,7 @@
             intensity     :number,
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
+            range         :number
         )
         : BABYLON.PointLight
         {
@@ -143,9 +150,10 @@
                 scene
             );
 
-            light.intensity = 1.0;
+            light.intensity = intensity;
             light.diffuse   = diffuseColor;
             light.specular  = specularColor;
+            light.range     = range;
 
             return light;
         }
