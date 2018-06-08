@@ -7,7 +7,7 @@
     export class ProductViewer extends bz.Stage
     {
         /** Rotation speed in degrees per tick. */
-        private     static              ROTATION_SPEED          :number                 = 1.5;
+        private     static  readonly    ROTATION_SPEED          :number                 = 1.75;
 
         /** Referenced imported logo. */
         protected                       logo                    :BABYLON.Mesh[]         = null;
@@ -31,7 +31,7 @@
                 scene
             );
 
-            this.rotY = 180.0;
+            this.rotY = 270.0;
         }
 
         /** ************************************************************************************************************
@@ -59,21 +59,18 @@
 
             // alter the light intensity
             ++this.currentTick;
-            if ( this.currentTick < 250 )
+            if ( this.currentTick < 100 )
             {
             }
-            else if ( this.currentTick < 500 )
+            else if ( this.currentTick < 250 )
             {
-                // increase point light range
-                this.lights[ 0 ].range += 0.25;
+                this.pointLight.range += 1.5;
+                if ( this.pointLight.range > 100.0 ) this.pointLight.range = 100.0;
             }
-            else if ( this.currentTick < 750 )
+            else if ( this.currentTick < 625 )
             {
-            }
-            else if ( this.currentTick < 1000 )
-            {
-                // increase point light range
-                this.lights[ 0 ].range -= 0.25;
+                this.pointLight.range -= 1.5;
+                if ( this.pointLight.range < 0.0 ) this.pointLight.range = 0.0;
             }
         }
 
@@ -173,23 +170,17 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            const lights:BABYLON.Light[] = [
+            this.pointLight = bz.LightFactory.createPoint
+            (
+                this.scene,
+                new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
+                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                50.0,
+                2.5
+            );
 
-                // point light
-                bz.LightFactory.createPoint
-                (
-                    this.scene,
-                    new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
-                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    50.0,
-                    3.0
-                ),
-            ];
-
-            lights[ 0 ].setEnabled( true  );
-
-            return lights;
+            return [ this.pointLight ];
         }
 
         /** ************************************************************************************************************
