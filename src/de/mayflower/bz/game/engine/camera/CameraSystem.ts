@@ -18,7 +18,7 @@
         /** The first person babylon.JS camera. */
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
         /** The babylon.JS axis camera. */
-        public          readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+        private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
 
         /** The player that might change visibility by camera switch. */
         private         readonly        player                          :bz.Player                              = null;
@@ -198,6 +198,16 @@
         public isFirstPersonCameraActive() : boolean
         {
             return ( this.activeCameraType === bz.CameraType.FIRST_PERSON );
+        }
+
+        /** ************************************************************************************************************
+        *   Set light to arc rotation camera.
+        *
+        *   @param light The light to append to the arc rotation camera by setting the camera as parent.
+        ***************************************************************************************************************/
+        public setLightToArcRotationCamera( light:BABYLON.Light ) : void
+        {
+            light.parent = this.arcRotateCamera;
         }
 
         /** ************************************************************************************************************

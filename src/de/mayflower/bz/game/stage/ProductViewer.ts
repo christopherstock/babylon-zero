@@ -6,15 +6,10 @@
     *******************************************************************************************************************/
     export class ProductViewer extends bz.Stage
     {
-        /** Rotation speed in degrees per tick. */
-        private     static  readonly    ROTATION_SPEED          :number                 = 1.75;
-
         /** Referenced imported helmet. */
         protected                       helmet                  :BABYLON.Mesh[]         = null;
         /** Referenced point light. */
         private                         pointLight              :BABYLON.PointLight     = null;
-        /** Current logo rotation Y. */
-        private                         rotY                    :number                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -28,8 +23,6 @@
                 new BABYLON.Color3( 0.25, 0.25, 0.25 ),
                 scene
             );
-
-            this.rotY = 270.0;
         }
 
         /** ************************************************************************************************************
@@ -47,7 +40,7 @@
                 (
                     mesh,
                     0.0,
-                    this.rotY,
+                    0.0,
                     0.0
                 );
             }
@@ -163,7 +156,7 @@
             );
 
             // stick light to arc rotate camera
-            this.pointLight.parent = this.cameraSystem.arcRotateCamera;
+            this.cameraSystem.setLightToArcRotationCamera( this.pointLight );
 
             return [ this.pointLight ];
         }
