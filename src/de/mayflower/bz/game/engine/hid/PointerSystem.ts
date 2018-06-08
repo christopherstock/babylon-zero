@@ -25,7 +25,7 @@
                 if
                 (
                         bz.Main.game.stage != null
-                    &&  bz.Main.game.stage.cameraSystem.isFirstPersonCameraActive()
+                    &&  bz.Main.game.stage.getCameraSystem().isFirstPersonCameraActive()
                     &&  bz.Main.game.stage.getPlayer() != null
                 )
                 {

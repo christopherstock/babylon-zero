@@ -57,6 +57,9 @@
             // handle global keys
             this.handleMenuKeys();
 
+            // handle level specific keys
+            this.stage.handleLevelKeys();
+
             // render stage
             this.stage.render();
 

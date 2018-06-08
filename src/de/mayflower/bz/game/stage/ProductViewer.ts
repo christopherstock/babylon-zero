@@ -50,6 +50,26 @@
         }
 
         /** ************************************************************************************************************
+        *   Handles level specific keys.
+        ***************************************************************************************************************/
+        public handleLevelKeys() : void
+        {
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+
+
+                console.log( ">> Starting animation .." );
+
+                for ( const mesh of this.helmet )
+                {
+                    bz.Main.game.engine.scene.getScene().beginAnimation( mesh, 0, 20 );
+                }
+
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Sets up the player for this stage.
         *
         *   @return The player instance for this stage.

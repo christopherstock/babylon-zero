@@ -7,6 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Try reflections and glossy fx for textures.
+    *   TODO Try to trigger animations from 3ds max.
     *
     *   TODO Check requirement of emissiveColor in materials! maybe ambient scene color is sufficient?
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
