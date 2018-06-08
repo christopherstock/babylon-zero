@@ -15,7 +15,7 @@
         {
             super
             (
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                 scene
             );
         }

@@ -9,14 +9,12 @@
         /** Rotation speed in degrees per tick. */
         private     static  readonly    ROTATION_SPEED          :number                 = 1.75;
 
-        /** Referenced imported logo. */
-        protected                       logo                    :BABYLON.Mesh[]         = null;
+        /** Referenced imported helmet. */
+        protected                       helmet                  :BABYLON.Mesh[]         = null;
         /** Referenced point light. */
         private                         pointLight              :BABYLON.PointLight     = null;
         /** Current logo rotation Y. */
         private                         rotY                    :number                 = 0.0;
-        /** Notifies current frame. */
-        private                         currentTick             :number                 = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -27,11 +25,11 @@
         {
             super
             (
-                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Color3( 0.25, 0.25, 0.25 ),
                 scene
             );
 
-            this.rotY = 270.0;
+            this.rotY = 0.0;
         }
 
         /** ************************************************************************************************************
@@ -43,35 +41,19 @@
             super.render();
 
             // rotate logo
-            for ( const mesh of this.logo )
+            for ( const mesh of this.helmet )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
                     mesh,
-                    270.0,
+                    0.0,
                     this.rotY,
-                    90.0
+                    0.0
                 );
             }
 
             // increase logo rotation
             this.rotY += ProductViewer.ROTATION_SPEED;
-
-            // alter the light intensity
-            ++this.currentTick;
-            if ( this.currentTick < 100 )
-            {
-            }
-            else if ( this.currentTick < 250 )
-            {
-                this.pointLight.range += 1.5;
-                if ( this.pointLight.range > 100.0 ) this.pointLight.range = 100.0;
-            }
-            else if ( this.currentTick < 625 )
-            {
-                this.pointLight.range -= 1.5;
-                if ( this.pointLight.range < 0.0 ) this.pointLight.range = 0.0;
-            }
         }
 
         /** ************************************************************************************************************
@@ -133,14 +115,14 @@
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
-            this.logo = bz.MeshFactory.createImportedMesh
+            this.helmet = bz.MeshFactory.createImportedMesh
             (
-                bz.MeshImport.MF_LOGO,
+                bz.MeshImport.HELMET,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene
             );
 
-            return [ this.logo ];
+            return [ this.helmet ];
         }
 
         /** ************************************************************************************************************
@@ -173,11 +155,11 @@
             this.pointLight = bz.LightFactory.createPoint
             (
                 this.scene,
-                new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 250.0, 0.0, 0.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                50.0,
-                2.5
+                400.0,
+                2.0
             );
 
             return [ this.pointLight ];
@@ -214,7 +196,7 @@
                 bz.Main.game.engine.canvas.getCanvas(),
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-                new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 250.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0  ),

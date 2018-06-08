@@ -2,7 +2,7 @@
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
-    *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
+    *   The 'intro logo' stage offers an exploration of a 3D model that can be viewed from all angles.
     *******************************************************************************************************************/
     export class IntroLogo extends bz.Stage
     {
@@ -67,7 +67,7 @@
                 this.pointLight.range += 1.5;
                 if ( this.pointLight.range > 100.0 ) this.pointLight.range = 100.0;
             }
-            else if ( this.currentTick < 625 )
+            else if ( this.currentTick < 700 )
             {
                 this.pointLight.range -= 1.5;
                 if ( this.pointLight.range < 0.0 ) this.pointLight.range = 0.0;

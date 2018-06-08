@@ -12,6 +12,8 @@
         public      static      SKULL                   :string                 = 'furniture/skull.babylon';
         /** The mesh 'Mayflower Logo'. */
         public      static      MF_LOGO                 :string                 = 'presentation/mfLogo.babylon';
+        /** The mesh 'helmet'. */
+        public      static      HELMET                  :string                 = 'presentation/helmet.babylon';
 
         /** All filenames for all meshes. */
         public      static      ALL_MESH_FILES          :string[]               =
@@ -20,5 +22,6 @@
             MeshImport.SHELVES,
             MeshImport.SKULL,
             MeshImport.MF_LOGO,
+            MeshImport.HELMET,
         ];
     }
