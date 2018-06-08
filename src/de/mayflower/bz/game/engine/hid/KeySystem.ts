@@ -30,12 +30,8 @@
         ***************************************************************************************************************/
         public onKeyDown=( event:Event ) : void  =>
         {
-/*
-            if ( ( event as KeyboardEvent ).code !== bz.KeyCodes.KEY_F5 )
-            {
-                event.preventDefault();
-            }
-*/
+            event.preventDefault();
+
             const keyCode:string = ( event as KeyboardEvent ).code;
 
             if ( !this.keysNeedRelease[ keyCode ] )
@@ -53,9 +49,8 @@
         ***************************************************************************************************************/
         public onKeyUp=( event:Event ) : void =>
         {
-/*
             event.preventDefault();
-*/
+
             const keyCode:string = ( event as KeyboardEvent ).code;
 
             this.keysPressed[     keyCode ] = false;

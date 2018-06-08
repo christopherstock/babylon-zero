@@ -15,4 +15,7 @@
 
         /** The ID product viewer. */
         STAGE_PRODUCT_VIEWER,
+
+        /** Mayflower logo */
+        STAGE_INTRO_LOGO,
     }

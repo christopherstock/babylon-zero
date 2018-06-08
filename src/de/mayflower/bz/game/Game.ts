@@ -97,6 +97,13 @@
                 this.switchStage( bz.StageId.STAGE_PRODUCT_VIEWER, this.engine.scene.getScene() );
             }
 
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F5 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F5 );
+
+                this.switchStage( bz.StageId.STAGE_INTRO_LOGO, this.engine.scene.getScene() );
+            }
+
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
@@ -186,6 +193,13 @@
                 case bz.StageId.STAGE_PRODUCT_VIEWER:
                 {
                     this.stage = new bz.ProductViewer( scene );
+                    this.stage.init();
+                    break;
+                }
+
+                case bz.StageId.STAGE_INTRO_LOGO:
+                {
+                    this.stage = new bz.IntroLogo( scene );
                     this.stage.init();
                     break;
                 }
