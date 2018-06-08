@@ -127,19 +127,19 @@
         *
         *   @param scene         The scene that contains this light.
         *   @param position      Where this light is located.
-        *   @param intensity     The intensity of this light.
         *   @param diffuseColor  The color this light spreads to all surfaces.
         *   @param specularColor The shining spot color this light spreads to faces.
         *   @param range         How far the point light shall reach.
+        *   @param intensity     The intensity of this light.
         ***************************************************************************************************************/
         public static createPoint
         (
             scene         :BABYLON.Scene,
             position      :BABYLON.Vector3,
-            intensity     :number,
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
-            range         :number
+            range         :number,
+            intensity     :number
         )
         : BABYLON.PointLight
         {

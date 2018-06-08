@@ -9,8 +9,14 @@
         /** Rotation speed in degrees per tick. */
         private     static              ROTATION_SPEED          :number                 = 1.5;
 
+        /** Referenced imported logo. */
+        private                         logo2                   :BABYLON.Mesh[]         = null;
+        /** Referenced point light. */
+        private                         pointLight              :BABYLON.PointLight     = null;
         /** Current logo rotation Y. */
         private                         rotY                    :number                 = 0.0;
+        /** Notifies current frame. */
+        private                         currentTick             :number                 = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -24,6 +30,8 @@
                 new BABYLON.Color3( 0.0, 0.0, 0.0 ),
                 scene
             );
+
+            this.rotY = 180.0;
         }
 
         /** ************************************************************************************************************
@@ -34,8 +42,13 @@
             // invoke parent method
             super.render();
 
-            // rotate imported
-            for ( const mesh of this.importedMeshes[ 0 ] )
+
+            // TODO investigate further
+            this.logo2 = this.importedMeshes[ 0 ];
+
+
+            // rotate logo
+            for ( const mesh of this.logo2 )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
@@ -46,15 +59,27 @@
                 );
             }
 
-            // alter rotation Y
+            // increase logo rotation
             this.rotY += ProductViewer.ROTATION_SPEED;
-/*
-            // increase point light range
-            if ( this.lights[ 0 ].range < 150.0 )
+
+            // alter the light intensity
+            ++this.currentTick;
+            if ( this.currentTick < 250 )
             {
-                this.lights[ 0 ].range += 1.00;
             }
-*/
+            else if ( this.currentTick < 500 )
+            {
+                // increase point light range
+                this.lights[ 0 ].range += 0.25;
+            }
+            else if ( this.currentTick < 750 )
+            {
+            }
+            else if ( this.currentTick < 1000 )
+            {
+                // increase point light range
+                this.lights[ 0 ].range -= 0.25;
+            }
         }
 
         /** ************************************************************************************************************
@@ -116,15 +141,14 @@
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
-            return [
+            this.logo2 = bz.MeshFactory.createImportedMesh
+            (
+                bz.MeshImport.MF_LOGO,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                this.scene
+            );
 
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.MeshImport.MF_LOGO,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    this.scene
-                ),
-            ];
+            return [ this.logo2 ];
         }
 
         /** ************************************************************************************************************
@@ -161,10 +185,10 @@
                 (
                     this.scene,
                     new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
-                    1.0,
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    50.0
+                    50.0,
+                    3.0
                 ),
             ];
 

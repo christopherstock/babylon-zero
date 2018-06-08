@@ -621,10 +621,10 @@
                 (
                     this.scene,
                     new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
-                    1.0,
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                    50.0
+                    50.0,
+                    1.0,
                 ),
             ];
 
