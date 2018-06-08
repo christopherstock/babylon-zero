@@ -29,7 +29,7 @@
                 scene
             );
 
-            this.rotY = 0.0;
+            this.rotY = 270.0;
         }
 
         /** ************************************************************************************************************
@@ -53,7 +53,7 @@
             }
 
             // increase logo rotation
-            this.rotY += ProductViewer.ROTATION_SPEED;
+            // this.rotY += ProductViewer.ROTATION_SPEED;
         }
 
         /** ************************************************************************************************************
@@ -155,12 +155,15 @@
             this.pointLight = bz.LightFactory.createPoint
             (
                 this.scene,
-                new BABYLON.Vector3( 250.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 400.0,
                 2.0
             );
+
+            // stick light to arc rotate camera
+            this.pointLight.parent = this.cameraSystem.arcRotateCamera;
 
             return [ this.pointLight ];
         }
@@ -203,7 +206,7 @@
                 null,
                 null,
 
-                bz.CameraType.STATIONARY
+                bz.CameraType.ARC_ROTATE
             );
         }
     }

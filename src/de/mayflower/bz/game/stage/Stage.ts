@@ -75,6 +75,9 @@
             this.importedMeshes = this.createImportedMeshes();
             this.skybox         = this.createSkybox();
             this.sprites        = this.createSprites();
+
+            this.cameraSystem   = this.createCameraSystem();
+
             this.lights         = this.createLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
@@ -82,8 +85,6 @@
                 this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
             }
-
-            this.cameraSystem   = this.createCameraSystem();
         }
 
         /** ************************************************************************************************************

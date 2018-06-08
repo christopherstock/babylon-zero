@@ -17,6 +17,9 @@
         private         readonly        followCamera                    :BABYLON.FollowCamera                   = null;
         /** The first person babylon.JS camera. */
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
+        /** The babylon.JS axis camera. */
+        public          readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+
         /** The player that might change visibility by camera switch. */
         private         readonly        player                          :bz.Player                              = null;
         /** The HTML canvas that might change debug controls on camera switch. */
@@ -76,6 +79,10 @@
             (
                 scene
             );
+            this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera
+            (
+                scene
+            );
 
             // assign camera targets
             if ( stationaryCameraTarget != null )
@@ -114,7 +121,9 @@
                 case bz.CameraType.FREE_DEBUG:
                 {
                     scene.activeCamera = this.freeCamera;
-                    this.setControlsForFreeDebugCameraEnabled( true, this.canvas );
+
+                    this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( this.player != null )
                     {
@@ -126,7 +135,9 @@
                 case bz.CameraType.STATIONARY:
                 {
                     scene.activeCamera = this.stationaryCamera;
-                    this.setControlsForFreeDebugCameraEnabled( false, this.canvas );
+
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( this.player != null )
                     {
@@ -138,7 +149,9 @@
                 case bz.CameraType.FOLLOW:
                 {
                     scene.activeCamera = this.followCamera;
-                    this.setControlsForFreeDebugCameraEnabled( false, this.canvas );
+
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( this.player != null )
                     {
@@ -148,10 +161,25 @@
                 }
 
                 case bz.CameraType.FIRST_PERSON:
-                default:
                 {
                     scene.activeCamera = this.firstPersonCamera;
-                    this.setControlsForFreeDebugCameraEnabled( false, this.canvas );
+
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+
+                    if ( this.player != null )
+                    {
+                        this.player.setVisible( false );
+                    }
+                    break;
+                }
+
+                case bz.CameraType.ARC_ROTATE:
+                {
+                    scene.activeCamera = this.arcRotateCamera;
+
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas );
 
                     if ( this.player != null )
                     {
@@ -181,6 +209,7 @@
             this.stationaryCamera.dispose();
             this.followCamera.dispose();
             this.firstPersonCamera.dispose();
+            this.arcRotateCamera.dispose();
         }
 
         /** ************************************************************************************************************
@@ -214,20 +243,27 @@
         }
 
         /** ************************************************************************************************************
-        *   Enables or disables the debug controls for the free debug camera.
+        *   Enables or disables the debug controls for the specified camera.
         *
-        *   @param enable Whether to enable the debug controls or not.
+        *   @param camera The camera to attach or detach control to.
+        *   @param enable Whether to enable the canvas controls or not.
         *   @param canvas The HTML canvas to enable or disable debug controls.
         ***************************************************************************************************************/
-        private setControlsForFreeDebugCameraEnabled( enable:boolean, canvas:HTMLCanvasElement ) : void
+        private setCameraControlsEnabled
+        (
+            camera :BABYLON.Camera,
+            enable :boolean,
+            canvas :HTMLCanvasElement
+        )
+        : void
         {
             if ( enable )
             {
-                this.freeCamera.attachControl( canvas );
+                camera.attachControl( canvas );
             }
             else
             {
-                this.freeCamera.detachControl( canvas );
+                camera.detachControl( canvas );
             }
         }
     }

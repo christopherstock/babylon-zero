@@ -15,4 +15,7 @@
 
         /** The first person camera being fixed in the player's head mesh. */
         FIRST_PERSON,
+
+        /** The arc rotation camera. */
+        ARC_ROTATE,
     }

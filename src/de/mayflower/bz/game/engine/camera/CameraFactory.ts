@@ -115,6 +115,26 @@
         }
 
         /** ************************************************************************************************************
+        *   Creates the arc rotation camera.
+        *
+        *   @param scene The babylon.JS scene.
+        *
+        *   @return An arc rotation camera.
+        ***************************************************************************************************************/
+        public static createArcRotateCamera( scene:BABYLON.Scene ) : BABYLON.ArcRotateCamera
+        {
+            return new BABYLON.ArcRotateCamera
+            (
+                bz.CameraFactory.getNextCameraId(),
+                ( 3 * Math.PI ) / 2,
+                ( Math.PI / 8 ),
+                250,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                scene
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Returns the next id for a new camera to create.
         *
         *   @return The next free unique id for a new camera to create.
