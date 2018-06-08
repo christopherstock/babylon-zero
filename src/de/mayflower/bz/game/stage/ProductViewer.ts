@@ -63,7 +63,13 @@
 
                 for ( const mesh of this.helmet )
                 {
+                    console.log( " >> mesh: [" + mesh.id + "]" );
+
+
+
                     bz.Main.game.engine.scene.getScene().beginAnimation( mesh, 0, 20 );
+
+
                 }
 
             }
