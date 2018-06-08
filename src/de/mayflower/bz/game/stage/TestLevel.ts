@@ -609,7 +609,7 @@
                     this.scene,
                     new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
                     new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
-                    bz.MathUtil.degreesToRad( 30.0 ),
+                    30.0,
                     2,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),

@@ -107,36 +107,32 @@
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
-                this.stage.cameraSystem.setActiveCamera
+                this.stage.setActiveCamera
                 (
-                    this.engine.scene.getScene(),
                     bz.CameraType.FREE_DEBUG
                 );
             }
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
-                this.stage.cameraSystem.setActiveCamera
+                this.stage.setActiveCamera
                 (
-                    this.engine.scene.getScene(),
                     bz.CameraType.STATIONARY
                 );
             }
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_3 );
-                this.stage.cameraSystem.setActiveCamera
+                this.stage.setActiveCamera
                 (
-                    this.engine.scene.getScene(),
                     bz.CameraType.FOLLOW
                 );
             }
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
-                this.stage.cameraSystem.setActiveCamera
+                this.stage.setActiveCamera
                 (
-                    this.engine.scene.getScene(),
                     bz.CameraType.FIRST_PERSON
                 );
             }

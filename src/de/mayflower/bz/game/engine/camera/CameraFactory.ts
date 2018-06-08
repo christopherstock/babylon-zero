@@ -126,8 +126,8 @@
             return new BABYLON.ArcRotateCamera
             (
                 bz.CameraFactory.getNextCameraId(),
-                bz.MathUtil.degreesToRad( -20.0 ),
-                bz.MathUtil.degreesToRad( 70.0  ),
+                bz.MathUtil.degreesToRad( -110.0 ),
+                bz.MathUtil.degreesToRad( 70.0   ),
                 250,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 scene

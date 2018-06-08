@@ -35,8 +35,8 @@
         protected                           lights                  :BABYLON.Light[]                    = [];
         /** A collection of all shadowGenerators that appear in this stage. */
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
-        /** The camera system that manages all scene cameras. TODO up! */
-        public                              cameraSystem            :bz.CameraSystem                    = null;
+        /** The camera system that manages all scene cameras. */
+        protected                           cameraSystem            :bz.CameraSystem                    = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -188,6 +188,20 @@
 
             // dispose camera system
             this.cameraSystem.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the active camera for this stage.
+        *
+        *   @return The player instance for this stage.
+        ***************************************************************************************************************/
+        public setActiveCamera( cameraId:bz.CameraType ) : void
+        {
+            this.cameraSystem.setActiveCamera
+            (
+                bz.Main.game.engine.scene.getScene(),
+                cameraId
+            );
         }
 
         /** ************************************************************************************************************
