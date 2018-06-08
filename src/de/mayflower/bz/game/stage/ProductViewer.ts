@@ -10,6 +10,8 @@
         protected                       helmet                  :BABYLON.AbstractMesh[]     = null;
         /** Referenced point light. */
         private                         pointLight              :BABYLON.PointLight         = null;
+        /** The number of running animations for all meshes. */
+        private                         animationsRunning       :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -58,21 +60,35 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-
-                console.log( ">> Starting animation .." );
-
-                for ( const mesh of this.helmet )
+                if ( this.animationsRunning === 0 )
                 {
-                    console.log( " >> mesh: [" + mesh.id + "]" );
+                    this.animationsRunning = this.helmet.length;
 
-
-                    // ( mesh as BABYLON.AbstractMesh ).frame
-
-                    bz.Main.game.engine.scene.getScene().beginAnimation( mesh, 0, 20 );
-
-
+                    for ( const mesh of this.helmet )
+                    {
+                        bz.Main.game.engine.scene.getScene().beginAnimation
+                        (
+                            mesh,
+                            0,
+                            20,
+                            false,
+                            1.0,
+                            () => {
+                                bz.Main.game.engine.scene.getScene().beginAnimation
+                                (
+                                    mesh,
+                                    20,
+                                    0,
+                                    false,
+                                    1.0,
+                                    () => {
+                                        this.animationsRunning -= 1;
+                                    }
+                                );
+                            }
+                        );
+                    }
                 }
-
             }
         }
 
