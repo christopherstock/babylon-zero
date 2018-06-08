@@ -14,7 +14,7 @@
         /** The number of currently loaded meshes. */
         private                         loadedMeshCount                 :number                         = 0;
         /** All loaded mesh objects. */
-        private                         meshes                          :BABYLON.Mesh[][]               = [];
+        private                         meshes                          :BABYLON.AbstractMesh[][]       = [];
 
         /** ************************************************************************************************************
         *   Preloads all images into memory.
@@ -69,7 +69,7 @@
         *
         *   @return The original mesh data of the specified imported mesh file.
         ***************************************************************************************************************/
-        public getOriginalMesh( fileName:string ) : BABYLON.Mesh[]
+        public getOriginalMesh( fileName:string ) : BABYLON.AbstractMesh[]
         {
             return this.meshes[ fileName ];
         }

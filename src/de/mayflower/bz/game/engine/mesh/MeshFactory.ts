@@ -651,16 +651,17 @@
             position :BABYLON.Vector3,
             scene    :BABYLON.Scene
         )
-        : BABYLON.Mesh[]
+        : BABYLON.AbstractMesh[]
         {
-            const originalMeshes :BABYLON.Mesh[] = bz.Main.game.engine.meshImporter.getOriginalMesh( fileName );
-            const clonedMeshes   :BABYLON.Mesh[] = [];
+            const originalMeshes :BABYLON.AbstractMesh[] = bz.Main.game.engine.meshImporter.getOriginalMesh( fileName );
+            const clonedMeshes   :BABYLON.AbstractMesh[] = [];
 
             for ( const originalMesh of originalMeshes )
             {
-                const clonedMesh:BABYLON.Mesh = originalMesh.clone
+                const clonedMesh:BABYLON.AbstractMesh = originalMesh.clone
                 (
-                    bz.MeshFactory.createNextMeshId()
+                    bz.MeshFactory.createNextMeshId(),
+                    null // newParent
                 );
 
                 // show this mesh

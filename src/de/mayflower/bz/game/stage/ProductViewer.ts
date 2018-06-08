@@ -7,9 +7,9 @@
     export class ProductViewer extends bz.Stage
     {
         /** Referenced imported helmet. */
-        protected                       helmet                  :BABYLON.Mesh[]         = null;
+        protected                       helmet                  :BABYLON.AbstractMesh[]     = null;
         /** Referenced point light. */
-        private                         pointLight              :BABYLON.PointLight     = null;
+        private                         pointLight              :BABYLON.PointLight         = null;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -66,6 +66,7 @@
                     console.log( " >> mesh: [" + mesh.id + "]" );
 
 
+                    // ( mesh as BABYLON.AbstractMesh ).frame
 
                     bz.Main.game.engine.scene.getScene().beginAnimation( mesh, 0, 20 );
 
@@ -130,7 +131,7 @@
         *
         *   @return All imported meshes of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.Mesh[][]
+        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 

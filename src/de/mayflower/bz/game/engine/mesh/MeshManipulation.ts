@@ -33,7 +33,7 @@
         ***************************************************************************************************************/
         public static translatePosition
         (
-            mesh     :BABYLON.Mesh,
+            mesh     :BABYLON.AbstractMesh,
             position :BABYLON.Vector3
         )
         : void

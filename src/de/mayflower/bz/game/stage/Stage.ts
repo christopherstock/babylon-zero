@@ -26,7 +26,7 @@
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                           = [];
         /** A collection of all imported meshes in this stage. */
-        protected                           importedMeshes          :BABYLON.Mesh[][]                   = [];
+        protected                           importedMeshes          :BABYLON.AbstractMesh[][]           = [];
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all sprites that appear in this stage. */
@@ -259,7 +259,7 @@
         *
         *   @return All imported meshes of this stage.
         ***************************************************************************************************************/
-        protected abstract createImportedMeshes() : BABYLON.Mesh[][];
+        protected abstract createImportedMeshes() : BABYLON.AbstractMesh[][];
 
         /** ************************************************************************************************************
         *   Sets up the skybox.

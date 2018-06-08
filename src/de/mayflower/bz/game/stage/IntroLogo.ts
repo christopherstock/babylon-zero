@@ -7,16 +7,16 @@
     export class IntroLogo extends bz.Stage
     {
         /** Rotation speed in degrees per tick. */
-        private     static  readonly    ROTATION_SPEED          :number                 = 1.75;
+        private     static  readonly    ROTATION_SPEED          :number                     = 1.75;
 
         /** Referenced imported logo. */
-        protected                       logo                    :BABYLON.Mesh[]         = null;
+        protected                       logo                    :BABYLON.AbstractMesh[]     = null;
         /** Referenced point light. */
-        private                         pointLight              :BABYLON.PointLight     = null;
+        private                         pointLight              :BABYLON.PointLight         = null;
         /** Current logo rotation Y. */
-        private                         rotY                    :number                 = 0.0;
+        private                         rotY                    :number                     = 0.0;
         /** Notifies current frame. */
-        private                         currentTick             :number                 = 0;
+        private                         currentTick             :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -136,7 +136,7 @@
         *
         *   @return All imported meshes of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.Mesh[][]
+        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 

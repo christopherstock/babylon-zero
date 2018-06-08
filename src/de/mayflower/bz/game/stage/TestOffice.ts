@@ -509,7 +509,7 @@
         *
         *   @return All imported meshes of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.Mesh[][]
+        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
