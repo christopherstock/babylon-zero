@@ -45,12 +45,6 @@
 
     export * from './game/engine/LightFactory';
 
-    export * from './game/stage/Stage';
-    export * from './game/stage/ProductViewer';
-    export * from './game/stage/RoomViewer';
-    export * from './game/stage/TestLevel';
-    export * from './game/stage/TestOffice';
-
     export * from './game/object/GameObject';
     export * from './game/object/Bot';
     export * from './game/object/Item';
@@ -64,3 +58,9 @@
     export * from './util/IO';
     export * from './util/MathUtil';
     export * from './util/String';
+
+    export * from './game/stage/Stage';
+    export * from './game/stage/RoomViewer';
+    export * from './game/stage/TestLevel';
+    export * from './game/stage/TestOffice';
+    export * from './game/stage/ProductViewer';

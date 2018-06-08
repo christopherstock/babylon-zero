@@ -165,24 +165,28 @@
                 case bz.StageId.STAGE_TEST_OFFICE:
                 {
                     this.stage = new bz.TestOffice( scene );
+                    this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_TEST_LEVEL:
                 {
                     this.stage = new bz.TestLevel( scene );
+                    this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_ROOM_VIEWER:
                 {
                     this.stage = new bz.RoomViewer( scene );
+                    this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_PRODUCT_VIEWER:
                 {
                     this.stage = new bz.ProductViewer( scene );
+                    this.stage.init();
                     break;
                 }
             }

@@ -13,30 +13,30 @@
         protected           readonly        ambientColor            :BABYLON.Color3                     = null;
 
         /** The player instance. */
-        protected           readonly        player                  :bz.Player                          = null;
+        protected                           player                  :bz.Player                          = null;
 
         /** A collection of the coordinate axis in this stage. */
-        protected           readonly        coordinateAxis          :BABYLON.Mesh[]                     = [];
+        protected                           coordinateAxis          :BABYLON.Mesh[]                     = [];
         /** A collection of all walls in this stage. */
-        protected           readonly        walls                   :bz.Wall[]                          = [];
+        protected                           walls                   :bz.Wall[]                          = [];
         /** A collection of all movables in this stage. */
-        protected           readonly        movables                :bz.Movable[]                       = [];
+        protected                           movables                :bz.Movable[]                       = [];
         /** A collection of all items in this stage. */
-        protected           readonly        items                   :bz.Item[]                          = [];
+        protected                           items                   :bz.Item[]                          = [];
         /** A collection of all bots in this stage. */
-        protected           readonly        bots                    :bz.Bot[]                           = [];
+        protected                           bots                    :bz.Bot[]                           = [];
         /** A collection of all imported meshes in this stage. */
-        protected           readonly        importedMeshes          :BABYLON.Mesh[][]                   = [];
+        protected                           importedMeshes          :BABYLON.Mesh[][]                   = [];
         /** The skybox that surrounds the whole stage. */
-        protected           readonly        skybox                  :BABYLON.Mesh                       = null;
+        protected                           skybox                  :BABYLON.Mesh                       = null;
         /** A collection of all sprites that appear in this stage. */
-        protected           readonly        sprites                 :BABYLON.Sprite[]                   = [];
+        protected                           sprites                 :BABYLON.Sprite[]                   = [];
         /** A collection of all lights that appear in this stage. */
-        protected           readonly        lights                  :BABYLON.Light[]                    = [];
+        protected                           lights                  :BABYLON.Light[]                    = [];
         /** A collection of all shadowGenerators that appear in this stage. */
-        protected           readonly        shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
-        /** The camera system that manages all scene cameras. */
-        public              readonly        cameraSystem            :bz.CameraSystem                    = null;
+        protected                           shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
+        /** The camera system that manages all scene cameras. TODO up! */
+        public                              cameraSystem            :bz.CameraSystem                    = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -50,12 +50,18 @@
             scene        :BABYLON.Scene
         )
         {
-            this.ambientColor   = ambientColor;
-            this.scene          = scene;
+            this.ambientColor = ambientColor;
+            this.scene        = scene;
+        }
 
-            this.scene.ambientColor = ambientColor;
+        /** ************************************************************************************************************
+        *   Inits the stage.
+        ***************************************************************************************************************/
+        public init() : void
+        {
+            this.scene.ambientColor = this.ambientColor;
 
-            this.player         = this.createPlayer();
+            this.player             = this.createPlayer();
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
             {
