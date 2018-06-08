@@ -6,29 +6,18 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create third stage with AxisCamera for rotating MF logo.
-    *
-    *   TODO Try rotating MF logo as separate 4th stage.
-    *   TODO Create fifth stage for displaying imported mesh (animated?).
-    *   TODO Use rotating MF logo for positioning imported mesh files.
+    *   TODO Try reflections and glossy fx for textures.
     *
     *   TODO Check requirement of emissiveColor in materials! maybe ambient scene color is sufficient?
-    *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Parameters for arc rotation camera.
-    *
-    *   TODO TS and JS classes etc. in babylon-zero-lib.
-    *
+    *   TODO Move TS and JS classes etc. to babylon-zero-lib.
     *   TODO lights.setEnable as constructor params for all lights.
-    *
     *   TODO Check for babylon.JS lib update!
-    *
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Add physical compound for imported mesh collections.
-    *
     *   TODO Improve camera system for actual usage.
     *   TODO Improve camera startup positions and enable used cameras only.
-    *
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Solve pickable game items.
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
@@ -53,7 +42,6 @@
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
     *
-    *   TODO Try reflections and glossy fx for textures.
     *
     *   TODO Create custom preloader.
     *
