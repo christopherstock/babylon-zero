@@ -15,6 +15,7 @@
     *   TODO Check requirement of emissiveColor in materials! maybe ambient scene color is sufficient?
     *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
+    *   TODO Parameters for arc rotation camera.
     *
     *   TODO TS and JS classes etc. in babylon-zero-lib.
     *
