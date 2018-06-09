@@ -11,9 +11,11 @@
     *   TODO Alter helmet visir material on button press.
     *   TODO Try reflections and glossy fx for textures.
     *   TODO Parameterize for arc rotation camera.
+    *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Add param 'enabled' as constructor params for all lights.
+    *   TODO Move level stages and presentation stages to separate subpackages.
     *   TODO Create custom preloader (company logo etc.).
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *

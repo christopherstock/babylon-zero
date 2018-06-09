@@ -30,6 +30,8 @@
         private                         pointLight              :BABYLON.PointLight         = null;
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
+        /** Index of the current visir material. */
+        private                         currentVisirMaterial    :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -75,43 +77,14 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                switch ( this.animationState )
-                {
-                    case HelmetState.CLOSED:
-                    {
-                        this.animationState = HelmetState.OPENING;
+                this.requestVisirAnimationToggle();
+            }
 
-                        bz.Main.game.engine.scene.getScene().beginAnimation(
-                            this.visir, 0, 20, false, 1.0, () => {
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
 
-                                this.animationState = HelmetState.OPEN;
-
-                                bz.Main.game.engine.scene.getScene().beginAnimation(
-                                    this.visir, 20, 21, true, 1.0, () => { }
-                                );
-                            }
-                        );
-                        break;
-                    }
-
-                    case HelmetState.OPEN:
-                    {
-                        this.animationState = HelmetState.CLOSING;
-
-                        bz.Main.game.engine.scene.getScene().beginAnimation(
-                            this.visir, 20, 0, false, 1.0, () => {
-                                this.animationState = HelmetState.CLOSED;
-                            }
-                        );
-                        break;
-                    }
-
-                    case HelmetState.OPENING:
-                    case HelmetState.CLOSING:
-                    {
-                        break;
-                    }
-                }
+                this.requestVisirColorChange();
             }
         }
 
@@ -270,5 +243,86 @@
 
                 bz.CameraType.ARC_ROTATE
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Requests a toggle of the animation phase for the visir.
+        *   May not be performed if an animation is currently running.
+        ***************************************************************************************************************/
+        private requestVisirAnimationToggle() : void
+        {
+            switch ( this.animationState )
+            {
+                case HelmetState.CLOSED:
+                {
+                    this.animationState = HelmetState.OPENING;
+
+                    bz.Main.game.engine.scene.getScene().beginAnimation(
+                        this.visir, 0, 20, false, 1.0, () => {
+
+                            this.animationState = HelmetState.OPEN;
+
+                            bz.Main.game.engine.scene.getScene().beginAnimation(
+                                this.visir, 20, 21, true, 1.0, () => { }
+                            );
+                        }
+                    );
+                    break;
+                }
+
+                case HelmetState.OPEN:
+                {
+                    this.animationState = HelmetState.CLOSING;
+
+                    bz.Main.game.engine.scene.getScene().beginAnimation(
+                        this.visir, 20, 0, false, 1.0, () => {
+                            this.animationState = HelmetState.CLOSED;
+                        }
+                    );
+                    break;
+                }
+
+                case HelmetState.OPENING:
+                case HelmetState.CLOSING:
+                {
+                    // do nothing if an animation is currently running.
+                    break;
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Changes the visir color.
+        ***************************************************************************************************************/
+        private requestVisirColorChange() : void
+        {
+            const visirMaterial:BABYLON.StandardMaterial = this.visir.material as BABYLON.StandardMaterial;
+
+            this.currentVisirMaterial += 1;
+            if ( this.currentVisirMaterial === 4 ) this.currentVisirMaterial = 0;
+
+            switch ( this.currentVisirMaterial )
+            {
+                case 0:
+                {
+                    visirMaterial.diffuseColor = new BABYLON.Color3( 0.9647, 0.8235, 0.4392 );
+                    break;
+                }
+                case 1:
+                {
+                    visirMaterial.diffuseColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+                    break;
+                }
+                case 2:
+                {
+                    visirMaterial.diffuseColor = new BABYLON.Color3( 0.85, 0.4, 0.0 );
+                    break;
+                }
+                case 3:
+                {
+                    visirMaterial.diffuseColor = new BABYLON.Color3( 0.8, 0.15, 0.15 );
+                    break;
+                }
+            }
         }
     }
