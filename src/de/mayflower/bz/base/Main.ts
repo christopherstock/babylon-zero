@@ -6,28 +6,29 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try to trigger animations from 3ds max.
     *   TODO Try reflections and glossy fx for textures.
-    *
-    *   TODO Check requirement of emissiveColor in materials! maybe ambient scene color is sufficient?
+    *   TODO Parameterize for arc rotation camera.
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
-    *   TODO Parameters for arc rotation camera.
-    *   TODO Move TS and JS classes etc. to babylon-zero-lib.
-    *   TODO lights.setEnable as constructor params for all lights.
-    *   TODO Check for babylon.JS lib update!
-    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
-    *   TODO Add physical compound for imported mesh collections.
-    *   TODO Improve camera system for actual usage.
-    *   TODO Improve camera startup positions and enable used cameras only.
-    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
-    *   TODO Solve pickable game items.
-    *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
+    *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create debug console on-screen?
     *
+    *   TODO Check requirement of emissiveColor in materials (TestLevel)! maybe ambient scene color is sufficient?
+    *
+    *   TODO Move TS and JS classes etc. to babylon-zero-lib.
+    *   TODO Add param 'enabled' as constructor params for all lights.
+    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *
+    *   TODO Check for babylon.JS lib update!
+    *
+    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
+    *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
+    *
+    *   TODO Solve pickable game items.
+    *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *
     *   TODO Minor jitter bug improvements on colliding walls?
@@ -38,6 +39,8 @@
     *   TODO Separate lib classes for reusability (All classes that implement BABYLON) as separate npm package!
     *   TODO Create (different?) characters from primitives or mesh objects?
     *
+    *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
+    *   TODO Improve camera startup positions and enable used cameras only.
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
@@ -66,7 +69,7 @@
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fur.
     *
-    *   TODO Create MVP - Techn-Demo with rotating logo intro etc.
+    *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
     *
     *   TODO Try video textures!
     *   TODO Create main menu where player can reset stage etc.

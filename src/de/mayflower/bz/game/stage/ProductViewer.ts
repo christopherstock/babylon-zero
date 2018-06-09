@@ -1,11 +1,18 @@
 
     import * as bz from '../..';
 
+    /** ****************************************************************************************************************
+    *   All possible states concerning the helmet animation.
+    *******************************************************************************************************************/
     enum HelmetState
     {
+        /** The Helmet is closed and no animation is running. */
         CLOSED,
+        /** The Helmet is opening and an animation is running. */
         OPENING,
+        /** The Helmet is open and no animation is running. */
         OPEN,
+        /** The Helmet is closing and an animation is running. */
         CLOSING,
     }
 
@@ -73,8 +80,6 @@
                     case HelmetState.CLOSED:
                     {
                         this.animationState = HelmetState.OPENING;
-
-                        // TODO move to MeshFactory etc.
 
                         // browse all meshes
                         for ( const mesh of this.helmet )
