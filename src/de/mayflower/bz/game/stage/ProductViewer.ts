@@ -23,6 +23,9 @@
     {
         /** Referenced imported helmet. */
         private                         helmet                  :BABYLON.AbstractMesh[]     = null;
+        /** Referenced visir of the helmet. */
+        private                         visir                   :BABYLON.AbstractMesh       = null;
+
         /** Referenced point light. */
         private                         pointLight              :BABYLON.PointLight         = null;
         /** Flags if the helmet animation is currently running. */
