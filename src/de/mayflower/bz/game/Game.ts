@@ -139,6 +139,14 @@
                     bz.CameraType.FIRST_PERSON
                 );
             }
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_5 ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_5 );
+                this.stage.setActiveCamera
+                (
+                    bz.CameraType.ARC_ROTATE
+                );
+            }
         }
 
         /** ************************************************************************************************************
