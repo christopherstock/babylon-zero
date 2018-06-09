@@ -1,17 +1,25 @@
 
     import * as bz from '../..';
 
+    enum HelmetState
+    {
+        CLOSED,
+        OPENING,
+        OPEN,
+        CLOSING,
+    }
+
     /** ****************************************************************************************************************
     *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
     *******************************************************************************************************************/
     export class ProductViewer extends bz.Stage
     {
         /** Referenced imported helmet. */
-        protected                       helmet                  :BABYLON.AbstractMesh[]     = null;
+        private                         helmet                  :BABYLON.AbstractMesh[]     = null;
         /** Referenced point light. */
         private                         pointLight              :BABYLON.PointLight         = null;
-        /** The number of running animations for all meshes. */
-        private                         animationsRunning       :number                     = 0;
+        /** Flags if the helmet animation is currently running. */
+        private                         animationState          :HelmetState                = HelmetState.CLOSED;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -60,33 +68,59 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                if ( this.animationsRunning === 0 )
+                switch ( this.animationState )
                 {
-                    this.animationsRunning = this.helmet.length;
-
-                    for ( const mesh of this.helmet )
+                    case HelmetState.CLOSED:
                     {
-                        bz.Main.game.engine.scene.getScene().beginAnimation
-                        (
-                            mesh,
-                            0,
-                            20,
-                            false,
-                            1.0,
-                            () => {
-                                bz.Main.game.engine.scene.getScene().beginAnimation
-                                (
-                                    mesh,
-                                    20,
-                                    0,
-                                    false,
-                                    1.0,
-                                    () => {
-                                        this.animationsRunning -= 1;
+                        this.animationState = HelmetState.OPENING;
+
+                        // TODO move to MeshFactory etc.
+
+                        // browse all meshes
+                        for ( const mesh of this.helmet )
+                        {
+                            // only pick meshes that have an animation ( one )
+                            if ( mesh.animations.length > 0 )
+                            {
+                                bz.Main.game.engine.scene.getScene().beginAnimation(
+                                    mesh, 0, 20, false, 1.0, () => {
+
+                                        this.animationState = HelmetState.OPEN;
+
+                                        bz.Main.game.engine.scene.getScene().beginAnimation(
+                                            mesh, 20, 21, true, 1.0, () => { }
+                                        );
                                     }
                                 );
                             }
-                        );
+                        }
+                        break;
+                    }
+
+                    case HelmetState.OPEN:
+                    {
+                        this.animationState = HelmetState.CLOSING;
+
+                        // browse all meshes
+                        for ( const mesh of this.helmet )
+                        {
+                            // only pick meshes that have an animation ( one )
+                            if ( mesh.animations.length > 0 )
+                            {
+                                bz.Main.game.engine.scene.getScene().beginAnimation(
+                                    mesh, 20, 0, false, 1.0, () => {
+                                        this.animationState = HelmetState.CLOSED;
+                                    }
+                                );
+                            }
+                        }
+                        break;
+                    }
+
+                    case HelmetState.OPENING:
+                    case HelmetState.CLOSING:
+                    {
+                        break;
                     }
                 }
             }
