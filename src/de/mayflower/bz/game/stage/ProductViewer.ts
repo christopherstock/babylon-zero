@@ -64,9 +64,6 @@
                     0.0
                 );
             }
-
-            // increase logo rotation
-            // this.rotY += ProductViewer.ROTATION_SPEED;
         }
 
         /** ************************************************************************************************************
@@ -84,24 +81,16 @@
                     {
                         this.animationState = HelmetState.OPENING;
 
-                        // browse all meshes
-                        for ( const mesh of this.helmet )
-                        {
-                            // only pick meshes that have an animation ( one )
-                            if ( mesh.animations.length > 0 )
-                            {
+                        bz.Main.game.engine.scene.getScene().beginAnimation(
+                            this.visir, 0, 20, false, 1.0, () => {
+
+                                this.animationState = HelmetState.OPEN;
+
                                 bz.Main.game.engine.scene.getScene().beginAnimation(
-                                    mesh, 0, 20, false, 1.0, () => {
-
-                                        this.animationState = HelmetState.OPEN;
-
-                                        bz.Main.game.engine.scene.getScene().beginAnimation(
-                                            mesh, 20, 21, true, 1.0, () => { }
-                                        );
-                                    }
+                                    this.visir, 20, 21, true, 1.0, () => { }
                                 );
                             }
-                        }
+                        );
                         break;
                     }
 
@@ -109,19 +98,11 @@
                     {
                         this.animationState = HelmetState.CLOSING;
 
-                        // browse all meshes
-                        for ( const mesh of this.helmet )
-                        {
-                            // only pick meshes that have an animation ( one )
-                            if ( mesh.animations.length > 0 )
-                            {
-                                bz.Main.game.engine.scene.getScene().beginAnimation(
-                                    mesh, 20, 0, false, 1.0, () => {
-                                        this.animationState = HelmetState.CLOSED;
-                                    }
-                                );
+                        bz.Main.game.engine.scene.getScene().beginAnimation(
+                            this.visir, 20, 0, false, 1.0, () => {
+                                this.animationState = HelmetState.CLOSED;
                             }
-                        }
+                        );
                         break;
                     }
 
@@ -199,6 +180,9 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene
             );
+
+            // reference visir
+            this.visir = this.helmet[ this.helmet.length - 1 ];
 
             return [ this.helmet ];
         }

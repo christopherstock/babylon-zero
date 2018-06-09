@@ -20,6 +20,7 @@
     *   TODO Solve ortho drawing!
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create debug console on-screen?
+    *   TODO Test all features and performance in all browsers.
     *   =========================================
     *
     *   TODO Check requirement of emissiveColor in materials (TestLevel)! maybe ambient scene color is sufficient?
