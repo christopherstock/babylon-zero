@@ -15,6 +15,7 @@
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Add param 'enabled' as constructor params for all lights.
     *   TODO Create custom preloader (company logo etc.).
+    *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!
