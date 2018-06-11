@@ -9,16 +9,16 @@
     export class SettingGame
     {
         /** The startup stage. */
-        public  static  readonly    STAGE_STARTUP                               :bz.StageId         = bz.StageId.STAGE_PRODUCT_VIEWER;
+        public  static  readonly    STAGE_STARTUP                               :bz.StageId         = bz.StageId.STAGE_TEST_LEVEL;
         /** The global scene gravity. */
-        public  static  readonly    STAGE_GLOBAL_GRAVITY                        :BABYLON.Vector3    = new BABYLON.Vector3( 0, -10.0, 0 );
+        public  static  readonly    STAGE_GRAVITY_GLOBAL                        :BABYLON.Vector3    = new BABYLON.Vector3( 0, -10.0, 0 );
 
         /** The player's radius on the XoZ axis. */
-        public  static  readonly    PLAYER_RADIUS_XZ                            :number             = 2.0;
+        public  static  readonly    PLAYER_RADIUS_BODY_XZ                       :number             = 2.0;
         /** The player's height on the Y axis. */
         public  static  readonly    PLAYER_HEIGHT_Y                             :number             = 4.0;
         /** The player's head radius on all axis. */
-        public  static  readonly    PLAYER_HEAD_RADIUS                          :number             = 0.5;
+        public  static  readonly    PLAYER_RADIUS_HEAD                          :number             = 0.5;
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.25;
@@ -36,6 +36,12 @@
 
         /** The RGB color 'white' without alpha information. */
         public  static  readonly    COLOR_WHITE                                 :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+        /** The RGB color 'grey 0.75' without alpha information. */
+        public  static  readonly    COLOR_GREY_THREE_QUARTERS                   :BABYLON.Color3     = new BABYLON.Color3( 0.75, 0.75, 0.75 );
+        /** The RGB color 'grey 0.5' without alpha information. */
+        public  static  readonly    COLOR_GREY_HALF                             :BABYLON.Color3     = new BABYLON.Color3( 0.5, 0.5, 0.5 );
+        /** The RGB color 'grey 0.25' without alpha information. */
+        public  static  readonly    COLOR_GREY_QUARTER                          :BABYLON.Color3     = new BABYLON.Color3( 0.25, 0.25, 0.25 );
         /** The RGB color 'red' without alpha information. */
         public  static  readonly    COLOR_RED                                   :BABYLON.Color3     = new BABYLON.Color3( 1.0, 0.0, 0.0 );
         /** The RGB color 'green' without alpha information. */

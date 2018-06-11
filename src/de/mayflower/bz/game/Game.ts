@@ -178,7 +178,7 @@
             {
                 case bz.StageId.STAGE_TEST_OFFICE:
                 {
-                    this.stage = new bz.TestOffice( scene );
+                    this.stage = new bz.Office( scene );
                     this.stage.init();
                     break;
                 }

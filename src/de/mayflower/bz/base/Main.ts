@@ -6,27 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Project: Helmet Product Configurator
-    *   =========================================
-    *   TODO Alter helmet visir material on button press.
-    *   TODO Try reflections and glossy fx for textures.
-    *   TODO Parameterize for arc rotation camera.
-    *   TODO GUI for switching color/material of visir / helmet.
-    *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
-    *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
-    *   TODO Add param 'enabled' as constructor params for all lights.
-    *   TODO Move level stages and presentation stages to separate subpackages.
-    *   TODO Create custom preloader (company logo etc.).
-    *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
-    *
-    *   TOOD Try GUI via babylon-gui.
-    *   TODO Solve ortho drawing!
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Create debug console on-screen?
-    *   TODO Test all features and performance in all browsers.
-    *   =========================================
-    *
     *   TODO Check requirement of emissiveColor in materials (TestLevel)! maybe ambient scene color is sufficient?
+    *
     *   TODO Move TS and JS classes etc. to babylon-zero-lib.
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Check for babylon.JS lib update!
@@ -52,6 +33,7 @@
     *   TODO Improve abstract stage system and make it more generic.
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
+    *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
@@ -73,6 +55,26 @@
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *   TODO Review babylon.JS tutorials, features and playground.
+    *
+    *   TODO Project: Helmet Product Configurator
+    *   =========================================
+    *   TODO Alter helmet visir color / material on button press.
+    *   TODO Try reflections and glossy fx for textures.
+    *   TODO Parameterize constructor of arc rotation camera.
+    *   TODO GUI for switching color/material of visir / helmet.
+    *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
+    *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
+    *   TODO Add param 'enabled' as constructor params for all lights.
+    *   TODO Move level stages and presentation stages to separate subpackages.
+    *   TODO Create custom preloader (company logo etc.).
+    *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
+    *
+    *   TOOD Try GUI via babylon-gui.
+    *   TODO Solve ortho drawing!
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Create debug console on-screen?
+    *   TODO Test all features and performance in all browsers.
+    *   =========================================
     *******************************************************************************************************************/
     export class Main
     {

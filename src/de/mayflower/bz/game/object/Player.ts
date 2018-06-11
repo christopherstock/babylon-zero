@@ -51,11 +51,11 @@
                         new BABYLON.Vector3
                         (
                             0.0,
-                            ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                            ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
                             0.0
                         ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
-                        ( 2 * bz.SettingGame.PLAYER_HEAD_RADIUS ),
+                        ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
                         new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                         bz.Texture.GRASS,
                         null,
@@ -70,7 +70,7 @@
                     (
                         position,
                         bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                        ( 2 * bz.SettingGame.PLAYER_RADIUS_XZ ),
+                        ( 2 * bz.SettingGame.PLAYER_RADIUS_BODY_XZ ),
                         bz.SettingGame.PLAYER_HEIGHT_Y,
                         new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                         bz.Texture.GLASS,

@@ -15,7 +15,7 @@
         {
             super
             (
-                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                 scene
             );
         }
@@ -559,7 +559,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( 0.25, 'darksky', this.scene );
+            return bz.MeshFactory.createSkyBoxCube( 0.15, 'darksky', this.scene );
         }
 
         /** ************************************************************************************************************
