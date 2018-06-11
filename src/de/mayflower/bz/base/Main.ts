@@ -6,12 +6,14 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TOOD Try GUI via babylon-gui.
+    *   TODO Solve ortho drawing!
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Create debug console on-screen?
+    *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
-    *
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
-    *
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
-    *
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *
     *   TODO Minor jitter bug improvements on colliding walls?
@@ -20,7 +22,6 @@
     *
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO Move all body volume calculations to MathUtil functions.
-    *
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO move onInitLevelCompleted to class Level and also scene to class stage?
     *
@@ -72,11 +73,7 @@
     *   TODO Create custom preloader (company logo, app title, loading bar etc.).
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *   TODO Check for babylon.JS lib update!
-    *
-    *   TOOD Try GUI via babylon-gui.
-    *   TODO Solve ortho drawing!
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Create debug console on-screen?
+    *   TODO Improve light (point) for 3d product configurator.
     *   TODO Test all features and performance in all browsers.
     *   =========================================
     *******************************************************************************************************************/
