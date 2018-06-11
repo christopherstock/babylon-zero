@@ -6,23 +6,29 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Move TS and JS classes etc. to babylon-zero-lib.
-    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
-    *   TODO Check for babylon.JS lib update!
-    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
+    *
+    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *
+    *   TODO Improve camera startup positions for all cameras and enable used cameras only.
+    *
+    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
+    *
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
     *   TODO Precreate all textures?
+    *
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
-    *   TODO All body volume calculations to MathUtil functions.
-    *   TODO Separate lib classes for reusability (All classes that implement BABYLON) as separate npm package!
+    *   TODO Move all body volume calculations to MathUtil functions.
+    *
     *   TODO Create (different?) characters from primitives or mesh objects?
+    *   TODO move onInitLevelCompleted to class Level and also scene to class stage?
+    *
     *   TODO Solve pickable game items.
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
-    *   TODO Improve camera startup positions and enable used cameras only.
+    *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
@@ -38,7 +44,6 @@
     *   TODO Add player/camrera controls (turn, duck)
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Try PostProcess (camera.setPostProcess ?)
-    *   TODO move onInitLevelCompleted to class Level and also scene to class stage?
     *   TODO Create material system with unified parameters!
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
     *   TODO Increase performance in chrome?
@@ -64,8 +69,9 @@
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Add param 'enabled' as constructor params for all lights.
     *   TODO Move level stages and presentation stages to separate subpackages.
-    *   TODO Create custom preloader (company logo etc.).
+    *   TODO Create custom preloader (company logo, app title, loading bar etc.).
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
+    *   TODO Check for babylon.JS lib update!
     *
     *   TOOD Try GUI via babylon-gui.
     *   TODO Solve ortho drawing!

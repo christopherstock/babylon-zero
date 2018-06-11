@@ -7,14 +7,14 @@
     export class Sprite
     {
         /** The sprite manager for trees ... will be refactored soon! */
-        private                     factoryTreeSprite               :BABYLON.SpriteManager      = null;
+        private                     managerTreeSprite               :BABYLON.SpriteManager      = null;
 
         /** ************************************************************************************************************
         *   Initializes all sprite systems.
         ***************************************************************************************************************/
         public init() : void
         {
-            this.factoryTreeSprite = new BABYLON.SpriteManager
+            this.managerTreeSprite = new BABYLON.SpriteManager
             (
                 'treesManager',
                 bz.SettingEngine.PATH_IMAGE_TEXTURE + 'tree.png',
@@ -34,7 +34,7 @@
         ***************************************************************************************************************/
         public createTreeSprite( position:BABYLON.Vector3, size:number ) : BABYLON.Sprite
         {
-            const ret:BABYLON.Sprite = new BABYLON.Sprite( 'tree1', bz.Main.game.engine.sprite.factoryTreeSprite );
+            const ret:BABYLON.Sprite = new BABYLON.Sprite( 'tree1', bz.Main.game.engine.sprite.managerTreeSprite );
 
             ret.position = position;
             ret.size     = size;

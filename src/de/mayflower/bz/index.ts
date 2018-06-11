@@ -18,6 +18,7 @@
     export * from './game/engine/GameEngine';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
+    export * from './game/engine/SpriteSystem';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
