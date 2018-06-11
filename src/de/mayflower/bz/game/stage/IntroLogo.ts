@@ -59,12 +59,10 @@
 
             // alter the light intensity
             ++this.currentTick;
-            if ( this.currentTick < 10 )
+
+            if ( this.currentTick < 100 )
             {
-            }
-            else if ( this.currentTick < 100 )
-            {
-                this.pointLight.range += 1.5;
+                this.pointLight.range += 1.0;
                 if ( this.pointLight.range > 50.0 ) this.pointLight.range = 50.0;
             }
             else if ( this.currentTick < 150 )
@@ -238,5 +236,12 @@
 
                 bz.CameraType.STATIONARY
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the stage setup is complete.
+        ***************************************************************************************************************/
+        protected onInitComplete() : void
+        {
         }
     }

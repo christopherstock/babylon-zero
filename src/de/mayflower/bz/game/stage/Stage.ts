@@ -85,6 +85,8 @@
                 this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
             }
+
+            this.onInitComplete();
         }
 
         /** ************************************************************************************************************
@@ -300,6 +302,11 @@
         *   @return The camera system for this stage.
         ***************************************************************************************************************/
         protected abstract createCameraSystem() : bz.CameraSystem;
+
+        /** ************************************************************************************************************
+        *   Being invoked when the stage setup is complete.
+        ***************************************************************************************************************/
+        protected abstract onInitComplete() : void;
 
         /** ************************************************************************************************************
         *   Sets up the coordinal axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.

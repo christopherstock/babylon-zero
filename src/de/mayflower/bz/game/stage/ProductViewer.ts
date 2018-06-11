@@ -1,5 +1,7 @@
 
-    import * as bz from '../..';
+    import * as bz          from '../..';
+    import * as BABYLON     from 'babylonjs';
+    import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   All possible states concerning the helmet animation.
@@ -243,6 +245,35 @@
 
                 bz.CameraType.ARC_ROTATE
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the stage setup is complete.
+        ***************************************************************************************************************/
+        protected onInitComplete() : void
+        {
+            const advancedTexture = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI( 'babylonjs-gui' );
+            advancedTexture.renderScale  = 1.0;
+            advancedTexture.isForeground = true;
+
+            const text1 = new BABYLON_GUI.TextBlock();
+            text1.text = 'Hello world';
+            text1.color = 'white';
+            text1.fontSize = 24;
+            advancedTexture.addControl( text1 );
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         /** ************************************************************************************************************
