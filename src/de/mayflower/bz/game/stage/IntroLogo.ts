@@ -59,15 +59,23 @@
 
             // alter the light intensity
             ++this.currentTick;
-            if ( this.currentTick < 100 )
+            if ( this.currentTick < 10 )
             {
             }
-            else if ( this.currentTick < 250 )
+            else if ( this.currentTick < 100 )
+            {
+                this.pointLight.range += 1.5;
+                if ( this.pointLight.range > 50.0 ) this.pointLight.range = 50.0;
+            }
+            else if ( this.currentTick < 150 )
             {
                 this.pointLight.range += 1.5;
                 if ( this.pointLight.range > 100.0 ) this.pointLight.range = 100.0;
             }
-            else if ( this.currentTick < 700 )
+            else if ( this.currentTick < 360 )
+            {
+            }
+            else
             {
                 this.pointLight.range -= 1.5;
                 if ( this.pointLight.range < 0.0 ) this.pointLight.range = 0.0;
@@ -183,7 +191,7 @@
                 new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                50.0,
+                0.0,
                 2.5
             );
 
