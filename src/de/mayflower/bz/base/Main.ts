@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Check requirement of emissiveColor in materials (TestLevel)! maybe ambient scene color is sufficient?
-    *
     *   TODO Move TS and JS classes etc. to babylon-zero-lib.
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Check for babylon.JS lib update!

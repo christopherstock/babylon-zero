@@ -540,8 +540,9 @@
 
             skyboxMaterial.diffuseColor  = bz.SettingGame.COLOR_BLACK;
             skyboxMaterial.specularColor = bz.SettingGame.COLOR_BLACK;
+/*
             skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
-
+*/
             skyboxMaterial.alpha = opacity;
             skyboxMaterial.disableLighting = true;
 

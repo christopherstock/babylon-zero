@@ -90,8 +90,8 @@
                 material.backFaceCulling = false;
             }
 
-            material.alpha           = alpha;
-            material.emissiveColor   = emissiveColor;
+            material.alpha         = alpha;
+            material.emissiveColor = emissiveColor;
 
             return material;
         }
