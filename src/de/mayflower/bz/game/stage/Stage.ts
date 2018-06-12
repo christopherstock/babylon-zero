@@ -1,6 +1,7 @@
 
-    import * as BABYLON from 'babylonjs';
-    import * as bz      from '../..';
+    import * as BABYLON     from 'babylonjs';
+    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz          from '../..';
 
     /** ****************************************************************************************************************
     *   Represents a custom stage set.
@@ -8,35 +9,40 @@
     export abstract class Stage
     {
         /** The reference to the babylon.JS Scene. */
-        protected           readonly        scene                   :BABYLON.Scene                      = null;
+        protected           readonly        scene                   :BABYLON.Scene                          = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
-        protected           readonly        ambientColor            :BABYLON.Color3                     = null;
+        protected           readonly        ambientColor            :BABYLON.Color3                         = null;
 
         /** The player instance. */
-        protected                           player                  :bz.Player                          = null;
+        protected                           player                  :bz.Player                              = null;
 
         /** A collection of the coordinate axis in this stage. */
-        protected                           coordinateAxis          :BABYLON.Mesh[]                     = [];
+        protected                           coordinateAxis          :BABYLON.Mesh[]                         = [];
         /** A collection of all walls in this stage. */
-        protected                           walls                   :bz.Wall[]                          = [];
+        protected                           walls                   :bz.Wall[]                              = [];
         /** A collection of all movables in this stage. */
-        protected                           movables                :bz.Movable[]                       = [];
+        protected                           movables                :bz.Movable[]                           = [];
         /** A collection of all items in this stage. */
-        protected                           items                   :bz.Item[]                          = [];
+        protected                           items                   :bz.Item[]                              = [];
         /** A collection of all bots in this stage. */
-        protected                           bots                    :bz.Bot[]                           = [];
+        protected                           bots                    :bz.Bot[]                               = [];
         /** A collection of all imported meshes in this stage. */
-        protected                           importedMeshes          :BABYLON.AbstractMesh[][]           = [];
+        protected                           importedMeshes          :BABYLON.AbstractMesh[][]               = [];
         /** The skybox that surrounds the whole stage. */
-        protected                           skybox                  :BABYLON.Mesh                       = null;
+        protected                           skybox                  :BABYLON.Mesh                           = null;
         /** A collection of all sprites that appear in this stage. */
-        protected                           sprites                 :BABYLON.Sprite[]                   = [];
+        protected                           sprites                 :BABYLON.Sprite[]                       = [];
         /** A collection of all lights that appear in this stage. */
-        protected                           lights                  :BABYLON.Light[]                    = [];
+        protected                           lights                  :BABYLON.Light[]                        = [];
         /** A collection of all shadowGenerators that appear in this stage. */
-        protected                           shadowGenerators        :BABYLON.ShadowGenerator[]          = [];
+        protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
         /** The camera system that manages all scene cameras. */
-        protected                           cameraSystem            :bz.CameraSystem                    = null;
+        protected                           cameraSystem            :bz.CameraSystem                        = null;
+
+        /** The fullscreen gui in foreground. */
+        protected                           guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+        /** The fullscreen gui in background. */
+        protected                           guiBg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -195,6 +201,16 @@
 
             // dispose camera system
             this.cameraSystem.dispose();
+
+            // dispose GUIs
+            if ( this.guiFg != null )
+            {
+                this.guiFg.dispose();
+            }
+            if ( this.guiBg != null )
+            {
+                this.guiBg.dispose();
+            }
         }
 
         /** ************************************************************************************************************
@@ -219,6 +235,29 @@
                 bz.Main.game.engine.scene.getScene(),
                 cameraId
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Resizes fg and bg GUIs so they fit the current canvas size.
+        ***************************************************************************************************************/
+        public adjustGuiSizeToCanvasSize()
+        {
+            // assign canvas dimensions
+            let canvasWidth  :number = bz.Main.game.engine.canvas.getWidth();
+            let canvasHeight :number = bz.Main.game.engine.canvas.getHeight();
+
+            if ( this.guiFg != null )
+            {
+                this.guiFg.idealWidth  = canvasWidth;
+                this.guiFg.idealHeight = canvasHeight;
+                this.guiFg.scaleTo( canvasWidth, canvasHeight );
+            }
+            if ( this.guiBg != null )
+            {
+                this.guiBg.idealWidth  = canvasWidth;
+                this.guiBg.idealHeight = canvasHeight;
+                this.guiBg.scaleTo( canvasWidth, canvasHeight );
+            }
         }
 
         /** ************************************************************************************************************

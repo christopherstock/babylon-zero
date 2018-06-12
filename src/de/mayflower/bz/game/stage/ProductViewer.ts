@@ -252,21 +252,24 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
-            const advancedTexture:BABYLON_GUI.AdvancedDynamicTexture = (
-                BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
-                (
-                    'babylonjs-gui',
-                    true,
-                    bz.Main.game.engine.scene.getScene(),
-                    BABYLON.Texture.NEAREST_SAMPLINGMODE
-                )
+            this.guiFg = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
+            (
+                'babylonjs-gui',
+                true,
+                bz.Main.game.engine.scene.getScene(),
+                BABYLON.Texture.NEAREST_SAMPLINGMODE
             );
-            advancedTexture.renderScale       = 1.0;
-            advancedTexture.isForeground      = true;
-            advancedTexture.idealWidth        = bz.Main.game.engine.canvas.getWidth();
-            advancedTexture.idealHeight       = bz.Main.game.engine.canvas.getHeight();
-            advancedTexture.renderAtIdealSize = true;
-            advancedTexture.useSmallestIdeal  = true;
+
+            this.guiFg.renderAtIdealSize = true;
+            this.guiFg.useSmallestIdeal  = false;
+            this.guiFg.renderScale       = 1.0;
+
+            this.adjustGuiSizeToCanvasSize();
+
+
+
+
+
 
             const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
             rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -277,8 +280,11 @@
             rectangle.height = '360px';
             rectangle.color = '#c7c7c7';
             rectangle.background = 'rgba( 50, 50, 50, 0.5 )';
-            advancedTexture.addControl( rectangle );
 
+            this.guiFg.addControl( rectangle );
+
+
+/*
             const text:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock();
             text.text = '3DPC, v.0.1.0';
             text.color = 'white';
@@ -287,11 +293,12 @@
             text.textVerticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
             text.top = 50;
             text.left = 50;
-            advancedTexture.addControl( text );
+            this.guiFg.addControl( text );
 
             const input:BABYLON_GUI.InputText = new BABYLON_GUI.InputText();
             input.width = 0.2;
             input.maxWidth = 0.2;
+            input.width  = '150px';
             input.height = '40px';
             input.text = 'This is a very long text used to test how the cursor works within the InputText control.';
             input.color = 'white';
@@ -300,7 +307,7 @@
             input.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
             input.top = 85;
             input.left = 50;
-            advancedTexture.addControl( input );
+            this.guiFg.addControl( input );
 
             const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton( 'but', 'Click Me');
             button.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -311,7 +318,7 @@
             button.left       = 50;
             button.width      = '150px';
             button.height     = '35px';
-            advancedTexture.addControl( button );
+            this.guiFg.addControl( button );
 
             const checkbox:BABYLON_GUI.Checkbox = new BABYLON_GUI.Checkbox();
             checkbox.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -327,7 +334,7 @@
                     console.log( 'clicked checkbox [' + value + ']' );
                 }
             );
-            advancedTexture.addControl( checkbox );
+            this.guiFg.addControl( checkbox );
 
             const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider();
             slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -346,7 +353,7 @@
                     console.log( 'slider changed to [' + value + ']' );
                 }
             );
-            advancedTexture.addControl( slider );
+            this.guiFg.addControl( slider );
 
             const line:BABYLON_GUI.Line = new BABYLON_GUI.Line();
             line.x1 = 50;
@@ -355,7 +362,7 @@
             line.y2 = 240;
             line.lineWidth = 1;
             line.color = 'white';
-            advancedTexture.addControl( line );
+            this.guiFg.addControl( line );
 
             const image:BABYLON_GUI.Image = new BABYLON_GUI.Image( 'but', 'res/image/hud/mfLogo.png' );
             image.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -364,12 +371,12 @@
             image.left = 50;
             image.width  = '104px';
             image.height = '104px';
-            advancedTexture.addControl( image );
+            this.guiFg.addControl( image );
+*/
 
 
 
-
-            const advancedTexture2:BABYLON_GUI.AdvancedDynamicTexture = (
+            this.guiBg = (
                 BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
                 (
                     'babylonjs-gui2',
@@ -378,12 +385,11 @@
                     BABYLON.Texture.NEAREST_SAMPLINGMODE
                 )
             );
-            advancedTexture2.renderScale       = 1.0;
-            advancedTexture2.isForeground      = false;
-            advancedTexture2.idealWidth        = bz.Main.game.engine.canvas.getWidth();
-            advancedTexture2.idealHeight       = bz.Main.game.engine.canvas.getHeight();
-            advancedTexture2.renderAtIdealSize = true;
-            advancedTexture2.useSmallestIdeal  = true;
+            this.guiBg.renderScale       = 1.0;
+            this.guiBg.idealWidth        = bz.Main.game.engine.canvas.getWidth();
+            this.guiBg.idealHeight       = bz.Main.game.engine.canvas.getHeight();
+            this.guiBg.renderAtIdealSize = true;
+            this.guiBg.useSmallestIdeal  = true;
 
             const rectangle2:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
             rectangle2.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -394,7 +400,7 @@
             rectangle2.height = '360px';
             rectangle2.color = '#c7c7c7';
             rectangle2.background = 'rgba( 50, 50, 50, 0.5 )';
-            advancedTexture2.addControl( rectangle2 );
+            this.guiBg.addControl( rectangle2 );
         }
 
         /** ************************************************************************************************************

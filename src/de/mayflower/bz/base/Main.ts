@@ -6,6 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Solve constant GUI dimensions on resizing screen!
+    *
     *   TODO Project: Helmet Product Configurator
     *   =========================================
     *   TODO Check 3D model creation from photos?
@@ -15,6 +17,7 @@
     *   TODO Parameterize constructor of arc rotation camera.
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
+    *   TODO Outsource resize handler and blur handler code to separate methods.
     *   TODO Add param 'enabled' as constructor params for all lights.
     *   TODO Move level stages and presentation stages to separate subpackages.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
@@ -40,6 +43,7 @@
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO move onInitLevelCompleted to class Level and also scene to class stage?
+    *   TODO Multiple player objects: car, etc?
     *
     *   TODO Solve pickable game items.
     *   TODO Add physical compound (link?) for imported mesh collections.
