@@ -6,15 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Check 3D model creation from photos.
-    *
-    *   TOOD Try GUI via babylon-gui.
-    *   TODO Solve ortho drawing!
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Create debug console on-screen?
-    *
     *   TODO Project: Helmet Product Configurator
     *   =========================================
+    *   TODO Check 3D model creation from photos?
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
@@ -23,6 +17,7 @@
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Add param 'enabled' as constructor params for all lights.
     *   TODO Move level stages and presentation stages to separate subpackages.
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Create custom preloader (company logo, app title, loading bar etc.).
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *   TODO Check for babylon.JS lib update!
@@ -75,6 +70,7 @@
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fur.
     *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
+    *   TODO Create debug console on-screen?
     *   TODO Try video textures!
     *   TODO Create main menu where player can reset stage etc.
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
