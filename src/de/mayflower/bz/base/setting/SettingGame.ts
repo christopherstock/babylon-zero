@@ -9,7 +9,7 @@
     export class SettingGame
     {
         /** The startup stage. */
-        public  static  readonly    STAGE_STARTUP                               :bz.StageId         = bz.StageId.STAGE_TEST_LEVEL;
+        public  static  readonly    STAGE_STARTUP                               :bz.StageId         = bz.StageId.STAGE_PRODUCT_VIEWER;
         /** The global scene gravity. */
         public  static  readonly    STAGE_GRAVITY_GLOBAL                        :BABYLON.Vector3    = new BABYLON.Vector3( 0, -10.0, 0 );
 

@@ -252,28 +252,119 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
-            const advancedTexture = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI( 'babylonjs-gui' );
+            const advancedTexture:BABYLON_GUI.AdvancedDynamicTexture = (
+                BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
+                (
+                    'babylonjs-gui',
+                    true,
+                    bz.Main.game.engine.scene.getScene(),
+                    BABYLON.Texture.NEAREST_SAMPLINGMODE
+                )
+            );
             advancedTexture.renderScale  = 1.0;
             advancedTexture.isForeground = true;
+            advancedTexture.idealWidth        = bz.Main.game.engine.canvas.getWidth();
+            advancedTexture.idealHeight       = bz.Main.game.engine.canvas.getHeight();
+            advancedTexture.renderAtIdealSize = true;
+            advancedTexture.useSmallestIdeal  = true;
 
-            const text1 = new BABYLON_GUI.TextBlock();
-            text1.text = 'Hello world';
+            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
+            rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            rectangle.top  = 25;
+            rectangle.left = 25;
+            rectangle.width  = '250px';
+            rectangle.height = '360px';
+            rectangle.color = '#c7c7c7';
+            rectangle.background = 'rgba( 50, 50, 50, 0.5 )';
+            advancedTexture.addControl( rectangle );
+
+            const text1:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock();
+            text1.text = '3DPC, v.0.1.0';
             text1.color = 'white';
             text1.fontSize = 24;
+            text1.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            text1.textVerticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            text1.top = 50;
+            text1.left = 50;
             advancedTexture.addControl( text1 );
 
+            const input:BABYLON_GUI.InputText = new BABYLON_GUI.InputText();
+            input.width = 0.2;
+            input.maxWidth = 0.2;
+            input.height = '40px';
+            input.text = 'This is a very long text used to test how the cursor works within the InputText control.';
+            input.color = 'white';
+            input.background = 'green';
+            input.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            input.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            input.top = 85;
+            input.left = 50;
+            advancedTexture.addControl( input );
 
+            const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton( 'but', 'Click Me');
+            button.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            button.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            button.color      ='white';
+            button.background ='red';
+            button.top        = 135;
+            button.left       = 50;
+            button.width      = '150px';
+            button.height     = '35px';
+            advancedTexture.addControl( button );
 
+            const checkbox:BABYLON_GUI.Checkbox = new BABYLON_GUI.Checkbox();
+            checkbox.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            checkbox.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            checkbox.top       = 175;
+            checkbox.left      = 50;
+            checkbox.width     = '20px';
+            checkbox.height    = '20px';
+            checkbox.isChecked = true;
+            checkbox.color     = 'green';
+            checkbox.onIsCheckedChangedObservable.add(
+                ( value:boolean ) => {
+                    console.log( 'clicked checkbox [' + value + ']' );
+                }
+            );
+            advancedTexture.addControl( checkbox );
 
+            const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider();
+            slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            slider.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            slider.minimum    = 0;
+            slider.maximum    = 100;
+            slider.value      = 0;
+            slider.top        = 205;
+            slider.left       = 50;
+            slider.width      = '200px';
+            slider.height     = '20px';
+            slider.background = 'green';
+            slider.color      = 'white';
+            slider.onValueChangedObservable.add(
+                ( value:number ) => {
+                    console.log( 'slider changed to [' + value + ']' );
+                }
+            );
+            advancedTexture.addControl( slider );
 
+            const line:BABYLON_GUI.Line = new BABYLON_GUI.Line();
+            line.x1 = 50;
+            line.y1 = 240;
+            line.x2 = 200;
+            line.y2 = 240;
+            line.lineWidth = 1;
+            line.color = 'white';
+            advancedTexture.addControl( line );
 
-
-
-
-
-
-
-
+            const image:BABYLON_GUI.Image = new BABYLON_GUI.Image( 'but', 'res/image/hud/mfLogo.png' );
+            image.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            image.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            image.top  = 250;
+            image.left = 50;
+            image.width  = '104px';
+            image.height = '104px';
+            advancedTexture.addControl( image );
         }
 
         /** ************************************************************************************************************

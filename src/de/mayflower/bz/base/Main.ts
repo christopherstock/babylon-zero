@@ -28,6 +28,8 @@
     *   TODO Check for babylon.JS lib update!
     *   TODO Improve light (point) for 3d product configurator.
     *   TODO Test all features and performance in all browsers.
+    *   TODO Create GUI Factory for babylon.GUI component creation.
+    *   TODO Remove and replace by GUI Factory.
     *   =========================================
     *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
@@ -57,6 +59,7 @@
     *   TODO Improve abstract stage system and make it more generic.
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
+    *   TODO Reduce static accesses to Main.game.
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
@@ -90,7 +93,6 @@
         public static main() : void
         {
             bz.HTML.setTitle( bz.SettingEngine.TITLE );
-
             Main.acclaim();
 
             Main.game = new bz.Game();
