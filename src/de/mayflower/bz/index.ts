@@ -45,6 +45,7 @@
     export * from './game/engine/ui/CanvasSystem';
 
     export * from './game/engine/LightFactory';
+    export * from './game/engine/GuiFactory';
 
     export * from './game/object/GameObject';
     export * from './game/object/Bot';

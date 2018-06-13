@@ -5,7 +5,7 @@
     /** ****************************************************************************************************************
     *   Creates all types of lights.
     *******************************************************************************************************************/
-    export class LightFactory
+    export abstract class LightFactory
     {
         /** Next ID to assign for light creation. */
         private         static          currentLightId          :number                 = 0;

@@ -6,13 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Craft useful UI-Components for the product configurator.
-    *
-    *
-    *   TODO Project: Helmet Product Configurator
+    *   TODO Project: 3D Product Configurator
     *   =========================================
-    *   TODO Check 3D model creation from photos?
     *   TODO Refactor all GUI element creation to GuiFactory.
+    *
+    *   TODO Craft useful UI-Components for the product configurator.
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
@@ -32,6 +30,8 @@
     *   TODO Test all features and performance in all browsers.
     *   TODO Create GUI Factory for babylon.GUI component creation.
     *   TODO Remove and replace by GUI Factory.
+    *   TODO Check 3D model creation from photos?
+    *   TODO Complete the MVP of the Product Configurator
     *   =========================================
     *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).

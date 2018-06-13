@@ -252,17 +252,7 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
-            this.guiFg = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
-            (
-                'babylonjs-gui',
-                true,
-                bz.Main.game.engine.scene.getScene(),
-                BABYLON.Texture.NEAREST_SAMPLINGMODE
-            );
-
-            this.guiFg.renderAtIdealSize = true;
-            this.guiFg.useSmallestIdeal  = false;
-            this.guiFg.renderScale       = 1.0;
+            this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
             const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
             rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -363,32 +353,7 @@
             image.width  = '104px';
             image.height = '104px';
             this.guiFg.addControl( image );
-/*
-            this.guiBg = (
-                BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
-                (
-                    'babylonjs-gui2',
-                    false,
-                    bz.Main.game.engine.scene.getScene(),
-                    BABYLON.Texture.NEAREST_SAMPLINGMODE
-                )
-            );
 
-            this.guiBg.renderAtIdealSize = true;
-            this.guiBg.useSmallestIdeal  = false;
-            this.guiBg.renderScale       = 1.0;
-
-            const rectangle2:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
-            rectangle2.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            rectangle2.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            rectangle2.left = 500;
-            rectangle2.top  = 25;
-            rectangle2.width  = '250px';
-            rectangle2.height = '360px';
-            rectangle2.color = '#c7c7c7';
-            rectangle2.background = 'rgba( 50, 50, 50, 0.5 )';
-            this.guiBg.addControl( rectangle2 );
-*/
             this.adjustGuiSizeToCanvasSize();
         }
 
