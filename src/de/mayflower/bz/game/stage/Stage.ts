@@ -240,11 +240,11 @@
         /** ************************************************************************************************************
         *   Resizes fg and bg GUIs so they fit the current canvas size.
         ***************************************************************************************************************/
-        public adjustGuiSizeToCanvasSize()
+        public adjustGuiSizeToCanvasSize() : void
         {
             // assign canvas dimensions
-            let canvasWidth  :number = bz.Main.game.engine.canvas.getWidth();
-            let canvasHeight :number = bz.Main.game.engine.canvas.getHeight();
+            const canvasWidth  :number = bz.Main.game.engine.canvas.getWidth();
+            const canvasHeight :number = bz.Main.game.engine.canvas.getHeight();
 
             if ( this.guiFg != null )
             {

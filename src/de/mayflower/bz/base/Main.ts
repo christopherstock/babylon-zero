@@ -6,10 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Craft useful UI-Components for the product configurator.
+    *
+    *
     *   TODO Project: Helmet Product Configurator
     *   =========================================
-    *   TODO Solve constant size for texts on canvas resize.
-    *   TODO Craft useful UI-Components for the product configurator.
     *   TODO Check 3D model creation from photos?
     *   TODO Refactor all GUI element creation to GuiFactory.
     *   TODO GUI for switching color/material of visir / helmet.
@@ -17,7 +18,8 @@
     *   TODO Try reflections and glossy fx for textures.
     *   TODO Introduce abstract method 'Stage.createGui'. Remove code from onInitComplete.
     *   TODO Parameterize constructor of arc rotation camera.
-    *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
+    *   TODO Rename 'ProductViewer' to 'ProductConfigurator'.
+    *   RODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *   TODO Add param 'enabled' as constructor params for all lights.
