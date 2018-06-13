@@ -254,16 +254,18 @@
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
-            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
-            rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            rectangle.left = 25;
-            rectangle.top  = 25;
-            rectangle.width  = '250px';
-            rectangle.height = '360px';
-            rectangle.color = '#c7c7c7';
-            rectangle.background = 'rgba( 50, 50, 50, 0.5 )';
-            this.guiFg.addControl( rectangle );
+            this.guiFg.addControl
+            (
+                bz.GuiFactory.createRectangle
+                (
+                    25,
+                    25,
+                    250,
+                    360,
+                    '#c7c7c7',
+                    'rgba( 50, 50, 50, 0.5 )'
+                )
+            );
 
             const text:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock();
             text.text = '3DPC, v.0.1.0';

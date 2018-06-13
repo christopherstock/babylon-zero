@@ -17,6 +17,8 @@
         *   @param scene      The scene that contains this light.
         *   @param foreground Specifies if this GUI shall be set in foreground of this scene.
         *                     <code>false</code> will put this GUI into the background.
+        *
+        *   @return The fullscreen GUI.
         ***************************************************************************************************************/
         public static createGUI
         (
@@ -38,5 +40,42 @@
             gui.renderScale       = 1.0;
 
             return gui;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a rectangle for the GUI.
+        *
+        *   @param x           Position of the left edge.
+        *   @param y           Position of the top edge.
+        *   @param width       The horizontal dimension.
+        *   @param height      The vertical dimension.
+        *   @param colorBorder A css value for the border color.
+        *   @param colorFill   A css value for the fill color.
+        *
+        *   @return The specified rectangle.
+        ***************************************************************************************************************/
+        public static createRectangle
+        (
+            x           :number,
+            y           :number,
+            width       :number,
+            height      :number,
+            colorBorder :string,
+            colorFill   :string
+        )
+        : BABYLON_GUI.Rectangle
+        {
+            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'gui' + bz.GuiFactory.currentGuiId++ );
+
+            rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            rectangle.left                = x;
+            rectangle.top                 = y;
+            rectangle.width               = width  + 'px';
+            rectangle.height              = height + 'px';
+            rectangle.color               = colorBorder;
+            rectangle.background          = colorFill;
+
+            return rectangle;
         }
     }
