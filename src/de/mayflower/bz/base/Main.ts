@@ -6,11 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve constant GUI dimensions on resizing screen!
-    *
     *   TODO Project: Helmet Product Configurator
     *   =========================================
+    *   TODO Solve constant size for texts on canvas resize.
+    *   TODO Craft useful UI-Components for the product configurator.
     *   TODO Check 3D model creation from photos?
+    *   TODO Refactor all GUI element creation to GuiFactory.
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
@@ -50,6 +51,7 @@
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
+    *   TODO Update to ts 2.9.0 ?
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
@@ -57,6 +59,7 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
+    *   TODO Try strictNullChecks in tsconfig.
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
