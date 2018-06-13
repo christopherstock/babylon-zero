@@ -14,6 +14,7 @@
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
+    *   TODO Introduce abstract method 'Stage.createGui'. Remove code from onInitComplete.
     *   TODO Parameterize constructor of arc rotation camera.
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
@@ -43,7 +44,7 @@
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Create (different?) characters from primitives or mesh objects?
     *   TODO move onInitLevelCompleted to class Level and also scene to class stage?
-    *   TODO Multiple player objects: car, etc?
+    *   TODO Multiple player objects: physics for car, etc?
     *
     *   TODO Solve pickable game items.
     *   TODO Add physical compound (link?) for imported mesh collections.

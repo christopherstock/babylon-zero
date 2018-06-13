@@ -28,8 +28,10 @@
 
         /** ************************************************************************************************************
         *   Updates the canvas dimensions according to current screen size.
+        *
+        *   @return <code>true</code> if the canvas dimensions have actually been changed.
         ***************************************************************************************************************/
-        public updateDimensions() : void
+        public updateDimensions() : boolean
         {
             // get inner window dimensions
             let canvasWidth:number  = window.innerWidth;
@@ -39,11 +41,23 @@
             if ( canvasWidth  < bz.SettingEngine.CANVAS_MIN_WIDTH  ) canvasWidth  = bz.SettingEngine.CANVAS_MIN_WIDTH;
             if ( canvasHeight < bz.SettingEngine.CANVAS_MIN_HEIGHT ) canvasHeight = bz.SettingEngine.CANVAS_MIN_HEIGHT;
 
+            const dimensionsChanged:boolean =
+            (
+                   this.canvas.width  !== canvasWidth
+                || this.canvas.height !== canvasHeight
+            );
+
             // assign new dimensions to canvas
             this.canvas.width  = canvasWidth;
             this.canvas.height = canvasHeight;
 
-            bz.Debug.canvas.log( 'Updated canvas dimensions to [' + canvasWidth + 'x' + canvasHeight + '] ' );
+            bz.Debug.canvas.log
+            (
+                'Updated canvas dimensions to [' + canvasWidth + 'x' + canvasHeight + '] '
+                + 'changed [' + dimensionsChanged + ']'
+            );
+
+            return dimensionsChanged;
         }
 
         /** ************************************************************************************************************

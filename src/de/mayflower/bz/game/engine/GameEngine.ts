@@ -45,15 +45,18 @@
                 () : void => {
 
                     // update canvas
-                    this.canvas.updateDimensions();
+                    const dimensionsChanged:boolean = this.canvas.updateDimensions();
 
-                    // update babylon.JS engine
-                    this.babylonEngine.resize();
-
-                    // update GUIs
-                    if ( bz.Main.game.stage != null )
+                    if ( dimensionsChanged )
                     {
-                        bz.Main.game.stage.adjustGuiSizeToCanvasSize();
+                        // update babylon.JS engine
+                        this.babylonEngine.resize();
+
+                        // update GUIs
+                        if ( bz.Main.game.stage != null )
+                        {
+                            bz.Main.game.stage.adjustGuiSizeToCanvasSize();
+                        }
                     }
                 }
             );

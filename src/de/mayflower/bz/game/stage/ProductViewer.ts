@@ -264,13 +264,6 @@
             this.guiFg.useSmallestIdeal  = false;
             this.guiFg.renderScale       = 1.0;
 
-            this.adjustGuiSizeToCanvasSize();
-
-
-
-
-
-
             const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
             rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -280,11 +273,8 @@
             rectangle.height = '360px';
             rectangle.color = '#c7c7c7';
             rectangle.background = 'rgba( 50, 50, 50, 0.5 )';
-
             this.guiFg.addControl( rectangle );
 
-
-/*
             const text:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock();
             text.text = '3DPC, v.0.1.0';
             text.color = 'white';
@@ -372,10 +362,7 @@
             image.width  = '104px';
             image.height = '104px';
             this.guiFg.addControl( image );
-*/
-
-
-
+/*
             this.guiBg = (
                 BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
                 (
@@ -385,11 +372,10 @@
                     BABYLON.Texture.NEAREST_SAMPLINGMODE
                 )
             );
-            this.guiBg.renderScale       = 1.0;
-            this.guiBg.idealWidth        = bz.Main.game.engine.canvas.getWidth();
-            this.guiBg.idealHeight       = bz.Main.game.engine.canvas.getHeight();
+
             this.guiBg.renderAtIdealSize = true;
-            this.guiBg.useSmallestIdeal  = true;
+            this.guiBg.useSmallestIdeal  = false;
+            this.guiBg.renderScale       = 1.0;
 
             const rectangle2:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'rec' );
             rectangle2.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
@@ -401,6 +387,8 @@
             rectangle2.color = '#c7c7c7';
             rectangle2.background = 'rgba( 50, 50, 50, 0.5 )';
             this.guiBg.addControl( rectangle2 );
+*/
+            this.adjustGuiSizeToCanvasSize();
         }
 
         /** ************************************************************************************************************
