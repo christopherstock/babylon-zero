@@ -92,6 +92,8 @@
                 this.setupShadows();
             }
 
+            this.createGuis();
+
             this.onInitComplete();
         }
 
@@ -341,6 +343,11 @@
         *   @return The camera system for this stage.
         ***************************************************************************************************************/
         protected abstract createCameraSystem() : bz.CameraSystem;
+
+        /** ************************************************************************************************************
+        *   Creates the GUIs for this stage.
+        ***************************************************************************************************************/
+        protected abstract createGuis() : void;
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.

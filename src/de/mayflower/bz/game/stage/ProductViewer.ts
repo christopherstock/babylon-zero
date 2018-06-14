@@ -248,9 +248,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Being invoked when the stage setup is complete.
+        *   Creates the GUIs for this stage.
         ***************************************************************************************************************/
-        protected onInitComplete() : void
+        protected createGuis() : void
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
@@ -348,6 +348,13 @@
             this.guiFg.addControl( logo );
 
             this.adjustGuiSizeToCanvasSize();
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the stage setup is complete.
+        ***************************************************************************************************************/
+        protected onInitComplete() : void
+        {
         }
 
         /** ************************************************************************************************************

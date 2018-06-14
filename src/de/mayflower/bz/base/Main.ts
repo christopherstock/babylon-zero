@@ -12,7 +12,7 @@
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
-    *   TODO Introduce abstract method 'Stage.createGui'. Remove code from onInitComplete.
+    *
     *   TODO Parameterize constructor of arc rotation camera.
     *   TODO Rename 'ProductViewer' to 'ProductConfigurator'.
     *   RODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
