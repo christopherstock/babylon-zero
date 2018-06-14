@@ -81,7 +81,11 @@
             );
             this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera
             (
-                scene
+                scene,
+                70.0,
+                -110.0,
+                250,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
             );
 
             // assign camera targets

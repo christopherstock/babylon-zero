@@ -117,19 +117,31 @@
         /** ************************************************************************************************************
         *   Creates the arc rotation camera.
         *
-        *   @param scene The babylon.JS scene.
+        *   @param scene    The babylon.JS scene.
+        *   @param rotX     Initial rotation X of the camera in degrees.
+        *   @param rotY     Initial rotation Y of the camera in degrees.
+        *   @param distance The distance of the camera from the center point.
+        *   @param center   The center point for the camera to rotate around.
         *
         *   @return An arc rotation camera.
         ***************************************************************************************************************/
-        public static createArcRotateCamera( scene:BABYLON.Scene ) : BABYLON.ArcRotateCamera
+        public static createArcRotateCamera
+        (
+            scene    :BABYLON.Scene,
+            rotX     :number,
+            rotY     :number,
+            distance :number,
+            center   :BABYLON.Vector3
+        )
+        : BABYLON.ArcRotateCamera
         {
             return new BABYLON.ArcRotateCamera
             (
                 bz.CameraFactory.getNextCameraId(),
-                bz.MathUtil.degreesToRad( -110.0 ),
-                bz.MathUtil.degreesToRad( 70.0   ),
-                250,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.MathUtil.degreesToRad( rotY ),
+                bz.MathUtil.degreesToRad( rotX ),
+                distance,
+                center,
                 scene
             );
         }

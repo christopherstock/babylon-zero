@@ -8,29 +8,36 @@
     *
     *   TODO Project: 3D Product Configurator
     *   =========================================
+    *   TODO Check for babylon.JS lib update!
+    *   TODO Update to ts 2.9.0 ?
+    *
     *   TODO Craft useful UI-Components for the product configurator.
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
     *
-    *   TODO Parameterize constructor of arc rotation camera.
-    *   TODO Rename 'ProductViewer' to 'ProductConfigurator'.
-    *   RODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
-    *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
-    *   TODO Outsource resize handler and blur handler code to separate methods.
-    *   TODO Add param 'enabled' as constructor params for all lights.
+    *   TODO Next id creators for Light and Gui Factory.
+    *
+    *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
+    *
+    *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
+    *
+    *   TODO Improve light (point) for 3d product configurator.
+    *   TODO Add param 'enabled' as constructor params for all lights.
+    *   TODO Try strictNullChecks in tsconfig.
+    *
+    *   TODO Rename 'ProductViewer' to 'ProductConfigurator'.
+    *   TODO Outsource resize handler and blur handler code to separate methods.
+    *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *
     *   TODO Create custom preloader (company logo, app title, loading bar etc.).
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
-    *   TODO Check for babylon.JS lib update!
-    *   TODO Improve light (point) for 3d product configurator.
+    *
     *   TODO Test all features and performance in all browsers.
-    *   TODO Create GUI Factory for babylon.GUI component creation.
-    *   TODO Next id creators for Light and Gui Factory.
-    *   TODO Remove and replace by GUI Factory.
-    *   TODO Check 3D model creation from photos?
     *   TODO Complete the MVP of the Product Configurator
+    *   TODO Check 3D model creation from photos?
     *   =========================================
     *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
@@ -40,7 +47,7 @@
     *
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
-    *   TODO Precreate all textures?
+    *   TODO Preload all textures?
     *
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO Move all body volume calculations to MathUtil functions.
@@ -52,7 +59,6 @@
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
-    *   TODO Update to ts 2.9.0 ?
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
@@ -60,7 +66,6 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
-    *   TODO Try strictNullChecks in tsconfig.
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
@@ -85,7 +90,7 @@
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
-    *   TODO Review babylon.JS tutorials, features and playground.
+    *   TODO Review babylon.JS tutorials, features and playground for gathering new features.
     *******************************************************************************************************************/
     export class Main
     {
