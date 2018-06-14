@@ -8,35 +8,41 @@
     *
     *   TODO Project: 3D Product Configurator
     *   =========================================
+    *
+    *   1. Environment
+    *   =========================================
     *   TODO Check for babylon.JS lib update!
     *   TODO Update to ts 2.9.0 ?
+    *   TODO Try strictNullChecks in tsconfig.
     *
+    *   2. Features
+    *   =========================================
     *   TODO Craft useful UI-Components for the product configurator.
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *   TODO Try reflections and glossy fx for textures.
+    *   TODO Create custom preloader (company logo, app title, loading bar etc.).
+    *   TODO Improve light (point) for 3d product configurator.
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *
-    *   TODO Next id creators for Light and Gui Factory.
-    *
+    *   3. Refactorings
+    *   =========================================
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
-    *
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
-    *
-    *   TODO Improve light (point) for 3d product configurator.
+    *   TODO Next id creators for Light and Gui Factory.
     *   TODO Add param 'enabled' as constructor params for all lights.
-    *   TODO Try strictNullChecks in tsconfig.
-    *
     *   TODO Rename 'ProductViewer' to 'ProductConfigurator'.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *
-    *   TODO Create custom preloader (company logo, app title, loading bar etc.).
-    *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
-    *
+    *   4. Testing
+    *   =========================================
     *   TODO Test all features and performance in all browsers.
     *   TODO Complete the MVP of the Product Configurator
+    *
+    *   5. Outlook
+    *   =========================================
     *   TODO Check 3D model creation from photos?
     *   =========================================
     *
