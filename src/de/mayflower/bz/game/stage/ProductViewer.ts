@@ -278,7 +278,7 @@
 
             const inputField:BABYLON_GUI.InputText = bz.GuiFactory.createInputField
             (
-                '`Feel free to enter a text here.',
+                'Feel free to enter a text here.',
                 'white',
                 'green',
                 50,
@@ -288,32 +288,34 @@
             );
             this.guiFg.addControl( inputField );
 
-            const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton( 'but', 'Click Me');
-            button.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            button.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            button.color      ='white';
-            button.background ='red';
-            button.top        = 135;
-            button.left       = 50;
-            button.width      = '150px';
-            button.height     = '35px';
+            const button:BABYLON_GUI.Button = bz.GuiFactory.createButton
+            (
+                'Click me',
+                'white',
+                'red',
+                50,
+                135,
+                150,
+                35,
+                () => { bz.Debug.gui.log( 'Button clicked' ); }
+            );
             this.guiFg.addControl( button );
 
-            const checkbox:BABYLON_GUI.Checkbox = new BABYLON_GUI.Checkbox();
-            checkbox.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            checkbox.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            checkbox.top       = 175;
-            checkbox.left      = 50;
-            checkbox.width     = '20px';
-            checkbox.height    = '20px';
-            checkbox.isChecked = true;
-            checkbox.color     = 'green';
-            checkbox.onIsCheckedChangedObservable.add(
-                ( value:boolean ) => {
-                    console.log( 'clicked checkbox [' + value + ']' );
-                }
+            const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+            (
+                true,
+                'green',
+                50,
+                180,
+                20,
+                20,
+                () => { bz.Debug.gui.log( 'Checkbox toggled' ); }
             );
             this.guiFg.addControl( checkbox );
+
+
+
+
 
             const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider();
             slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;

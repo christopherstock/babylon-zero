@@ -29,6 +29,7 @@
     *   TODO Improve light (point) for 3d product configurator.
     *   TODO Test all features and performance in all browsers.
     *   TODO Create GUI Factory for babylon.GUI component creation.
+    *   TODO Next id creators for Light and Gui Factory.
     *   TODO Remove and replace by GUI Factory.
     *   TODO Check 3D model creation from photos?
     *   TODO Complete the MVP of the Product Configurator
