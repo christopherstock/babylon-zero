@@ -8,8 +8,6 @@
     *
     *   TODO Project: 3D Product Configurator
     *   =========================================
-    *   TODO Refactor all GUI element creation to GuiFactory.
-    *
     *   TODO Craft useful UI-Components for the product configurator.
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.

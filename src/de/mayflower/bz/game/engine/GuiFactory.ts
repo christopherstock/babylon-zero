@@ -278,7 +278,7 @@
         *   @param height    The vertical dimension.
         *   @param onChange  The callback to invoke when the slider value has changed.
         *
-        *   @return The specified checkbox.
+        *   @return The specified slider.
         ***************************************************************************************************************/
         public static createSlider
         (
@@ -329,7 +329,7 @@
         *   @param width The line width in pixels.
         *   @param color The color of the line.
         *
-        *   @return The specified checkbox.
+        *   @return The specified line.
         ***************************************************************************************************************/
         public static createLine
         (
@@ -365,7 +365,7 @@
         *   @param x        Left edge of the image.
         *   @param y        Top edge of the image.
         *
-        *   @return The specified checkbox.
+        *   @return The specified image.
         ***************************************************************************************************************/
         public static createImage
         (
