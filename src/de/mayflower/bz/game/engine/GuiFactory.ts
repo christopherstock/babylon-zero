@@ -78,4 +78,44 @@
 
             return rectangle;
         }
+
+        /** ************************************************************************************************************
+        *   Creates a text for the GUI.
+        *
+        *   @param text   The text to set into the block.
+        *   @param color  A css value for the text color.
+        *   @param x      Position of the left edge.
+        *   @param y      Position of the top edge.
+        *   @param width  The horizontal dimension.
+        *   @param height The vertical dimension.
+        *
+        *   @return The specified text.
+        ***************************************************************************************************************/
+        public static createTextBlock
+        (
+            text   :string,
+            color  :string,
+            x      :number,
+            y      :number,
+            width  :number,
+            height :number
+        )
+        : BABYLON_GUI.TextBlock
+        {
+            const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock();
+
+            textBlock.text                = text;
+            textBlock.left                = x;
+            textBlock.top                 = y;
+            textBlock.width               = width  + 'px';
+            textBlock.height              = height + 'px';
+            textBlock.color               = color;
+
+            textBlock.horizontalAlignment     = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            textBlock.verticalAlignment       = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            textBlock.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            textBlock.textVerticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+
+            return textBlock;
+        }
     }
