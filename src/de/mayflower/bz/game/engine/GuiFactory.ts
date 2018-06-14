@@ -357,4 +357,38 @@
 
             return line;
         }
+
+        /** ************************************************************************************************************
+        *   Creates an image for the GUI.
+        *
+        *   @param filename The name of the image file to display.
+        *   @param x        Left edge of the image.
+        *   @param y        Top edge of the image.
+        *
+        *   @return The specified checkbox.
+        ***************************************************************************************************************/
+        public static createImage
+        (
+            filename :string,
+            x        :number,
+            y        :number,
+        )
+        : BABYLON_GUI.Image
+        {
+            const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
+            (
+                'gui' + bz.GuiFactory.currentGuiId++,
+                bz.SettingEngine.PATH_IMAGE_GUI + filename
+            );
+
+            image.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            image.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            image.autoScale           = true;
+            image.stretch             = BABYLON_GUI.Image.STRETCH_NONE;
+
+            image.left = x;
+            image.top  = y;
+
+            return image;
+        }
     }

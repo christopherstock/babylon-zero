@@ -339,14 +339,13 @@
             );
             this.guiFg.addControl( line );
 
-            const image:BABYLON_GUI.Image = new BABYLON_GUI.Image( 'but', 'res/image/hud/mfLogo.png' );
-            image.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            image.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            image.top  = 250;
-            image.left = 50;
-            image.width  = '104px';
-            image.height = '104px';
-            this.guiFg.addControl( image );
+            const logo:BABYLON_GUI.Image = bz.GuiFactory.createImage
+            (
+                'mfLogo.png',
+                50,
+                250
+            );
+            this.guiFg.addControl( logo );
 
             this.adjustGuiSizeToCanvasSize();
         }
