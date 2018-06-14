@@ -67,20 +67,21 @@
         {
             const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'gui' + bz.GuiFactory.currentGuiId++ );
 
+            rectangle.left       = x;
+            rectangle.top        = y;
+            rectangle.width      = width  + 'px';
+            rectangle.height     = height + 'px';
+            rectangle.color      = colorBorder;
+            rectangle.background = colorFill;
+
             rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            rectangle.left                = x;
-            rectangle.top                 = y;
-            rectangle.width               = width  + 'px';
-            rectangle.height              = height + 'px';
-            rectangle.color               = colorBorder;
-            rectangle.background          = colorFill;
 
             return rectangle;
         }
 
         /** ************************************************************************************************************
-        *   Creates a text for the GUI.
+        *   Creates a text block for the GUI.
         *
         *   @param text   The text to set into the block.
         *   @param color  A css value for the text color.
@@ -89,7 +90,7 @@
         *   @param width  The horizontal dimension.
         *   @param height The vertical dimension.
         *
-        *   @return The specified text.
+        *   @return The specified text block.
         ***************************************************************************************************************/
         public static createTextBlock
         (
@@ -104,12 +105,12 @@
         {
             const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock();
 
-            textBlock.text                = text;
-            textBlock.left                = x;
-            textBlock.top                 = y;
-            textBlock.width               = width  + 'px';
-            textBlock.height              = height + 'px';
-            textBlock.color               = color;
+            textBlock.text   = text;
+            textBlock.left   = x;
+            textBlock.top    = y;
+            textBlock.width  = width  + 'px';
+            textBlock.height = height + 'px';
+            textBlock.color  = color;
 
             textBlock.horizontalAlignment     = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             textBlock.verticalAlignment       = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -117,5 +118,50 @@
             textBlock.textVerticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
 
             return textBlock;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates an input field for the GUI.
+        *
+        *   @param text    The text to set into the block.
+        *   @param colorFg A css value for the text color.
+        *   @param colorBg A css value for the background color.
+        *   @param x       Position of the left edge.
+        *   @param y       Position of the top edge.
+        *   @param width   The horizontal dimension.
+        *   @param height  The vertical dimension.
+        *
+        *   @return The specified input field.
+        ***************************************************************************************************************/
+        public static createInputField
+        (
+            text    :string,
+            colorFg :string,
+            colorBg :string,
+            x       :number,
+            y       :number,
+            width   :number,
+            height  :number
+        )
+        : BABYLON_GUI.InputText
+        {
+            const inputField:BABYLON_GUI.InputText = new BABYLON_GUI.InputText();
+
+            inputField.text       = text;
+            inputField.color      = colorFg;
+            inputField.background = colorBg;
+            inputField.left       = x;
+            inputField.top        = y;
+            inputField.width      = width  + 'px';
+            inputField.height     = height + 'px';
+
+
+            // inputField.maxWidth = 0.2;
+
+
+            inputField.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            inputField.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+
+            return inputField;
         }
     }

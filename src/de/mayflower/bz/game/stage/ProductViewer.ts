@@ -276,19 +276,17 @@
             );
             this.guiFg.addControl( textBlock );
 
-            const input:BABYLON_GUI.InputText = new BABYLON_GUI.InputText();
-            input.width = 0.2;
-            input.maxWidth = 0.2;
-            input.width  = '150px';
-            input.height = '40px';
-            input.text = 'This is a very long text used to test how the cursor works within the InputText control.';
-            input.color = 'white';
-            input.background = 'green';
-            input.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            input.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            input.top = 85;
-            input.left = 50;
-            this.guiFg.addControl( input );
+            const inputField:BABYLON_GUI.InputText = bz.GuiFactory.createInputField
+            (
+                '`Feel free to enter a text here.',
+                'white',
+                'green',
+                50,
+                85,
+                150,
+                40
+            );
+            this.guiFg.addControl( inputField );
 
             const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton( 'but', 'Click Me');
             button.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
