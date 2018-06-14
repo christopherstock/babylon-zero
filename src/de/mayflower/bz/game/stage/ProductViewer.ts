@@ -313,26 +313,18 @@
             );
             this.guiFg.addControl( checkbox );
 
-
-
-
-
-            const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider();
-            slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            slider.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
-            slider.minimum    = 0;
-            slider.maximum    = 100;
-            slider.value      = 0;
-            slider.top        = 205;
-            slider.left       = 50;
-            slider.width      = '200px';
-            slider.height     = '20px';
-            slider.background = 'green';
-            slider.color      = 'white';
-            slider.onValueChangedObservable.add(
-                ( value:number ) => {
-                    console.log( 'slider changed to [' + value + ']' );
-                }
+            const slider:BABYLON_GUI.Slider = bz.GuiFactory.createSlider
+            (
+                0,
+                0,
+                100,
+                'green',
+                '#777777',
+                50,
+                205,
+                200,
+                20,
+                ( value:number ) => { bz.Debug.gui.log( 'slider changed to [' + value + ']' ); }
             );
             this.guiFg.addControl( slider );
 

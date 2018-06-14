@@ -217,13 +217,13 @@
         /** ************************************************************************************************************
         *   Creates a checkbox for the GUI.
         *
-        *   @param checkbox Specifies if the checkbox is initially checked.
-        *   @param color    A css value for the color.
-        *   @param x        Position of the left edge.
-        *   @param y        Position of the top edge.
-        *   @param width    The horizontal dimension.
-        *   @param height   The vertical dimension.
-        *   @param onToggle The callback to invoke when the checknox is toggled.
+        *   @param isChecked Specifies if the checkbox is initially checked.
+        *   @param color     A css value for the color.
+        *   @param x         Position of the left edge.
+        *   @param y         Position of the top edge.
+        *   @param width     The horizontal dimension.
+        *   @param height    The vertical dimension.
+        *   @param onToggle  The callback to invoke when the checknox is toggled.
         *
         *   @return The specified checkbox.
         ***************************************************************************************************************/
@@ -262,5 +262,60 @@
             );
 
             return checkbox;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a slider for the GUI.
+        *
+        *   @param value     The initial value of this slider.
+        *   @param minimum   The minimum value of this slider.
+        *   @param maximum   The maximum value of this slider.
+        *   @param colorFg   A css value for the fg color.
+        *   @param colorBg   A css value for the bg color.
+        *   @param x         Position of the left edge.
+        *   @param y         Position of the top edge.
+        *   @param width     The horizontal dimension.
+        *   @param height    The vertical dimension.
+        *   @param onChange  The callback to invoke when the slider value has changed.
+        *
+        *   @return The specified checkbox.
+        ***************************************************************************************************************/
+        public static createSlider
+        (
+            value    :number,
+            minimum  :number,
+            maximum  :number,
+            colorFg  :string,
+            colorBg  :string,
+            x        :number,
+            y        :number,
+            width    :number,
+            height   :number,
+            onChange :( value:number ) => void
+        )
+        : BABYLON_GUI.Slider
+        {
+            const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider
+            (
+                'gui' + bz.GuiFactory.currentGuiId++
+            );
+
+            slider.value       = value;
+            slider.minimum    =  minimum;
+            slider.maximum    =  maximum;
+
+            slider.color      = colorFg;
+            slider.background = colorBg;
+            slider.left       = x;
+            slider.top        = y;
+            slider.width      = width  + 'px';
+            slider.height     = height + 'px';
+
+            slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            slider.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+
+            slider.onValueChangedObservable.add( onChange );
+
+            return slider;
         }
     }
