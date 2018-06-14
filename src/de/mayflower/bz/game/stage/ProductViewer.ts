@@ -328,13 +328,15 @@
             );
             this.guiFg.addControl( slider );
 
-            const line:BABYLON_GUI.Line = new BABYLON_GUI.Line();
-            line.x1 = 50;
-            line.y1 = 240;
-            line.x2 = 200;
-            line.y2 = 240;
-            line.lineWidth = 1;
-            line.color = 'white';
+            const line:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            (
+                50,
+                240,
+                200,
+                240,
+                1,
+                'white'
+            );
             this.guiFg.addControl( line );
 
             const image:BABYLON_GUI.Image = new BABYLON_GUI.Image( 'but', 'res/image/hud/mfLogo.png' );

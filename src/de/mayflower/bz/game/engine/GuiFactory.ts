@@ -318,4 +318,43 @@
 
             return slider;
         }
+
+        /** ************************************************************************************************************
+        *   Creates a line for the GUI.
+        *
+        *   @param x1    Start position X.
+        *   @param y1    Start position Y.
+        *   @param x2    End position X.
+        *   @param y2    End position Y.
+        *   @param width The line width in pixels.
+        *   @param color The color of the line.
+        *
+        *   @return The specified checkbox.
+        ***************************************************************************************************************/
+        public static createLine
+        (
+            x1    :number,
+            y1    :number,
+            x2    :number,
+            y2    :number,
+            width :number,
+            color :string,
+        )
+        : BABYLON_GUI.Line
+        {
+            const line:BABYLON_GUI.Line = new BABYLON_GUI.Line
+            (
+                'gui' + bz.GuiFactory.currentGuiId++
+            );
+
+            line.x1 = x1;
+            line.y1 = y1;
+            line.x2 = x2;
+            line.y2 = y2;
+
+            line.color     = color;
+            line.lineWidth = width;
+
+            return line;
+        }
     }
