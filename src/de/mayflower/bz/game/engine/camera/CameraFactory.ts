@@ -117,25 +117,29 @@
         /** ************************************************************************************************************
         *   Creates the arc rotation camera.
         *
-        *   @param scene    The babylon.JS scene.
-        *   @param rotX     Initial rotation X of the camera in degrees.
-        *   @param rotY     Initial rotation Y of the camera in degrees.
-        *   @param distance The distance of the camera from the center point.
-        *   @param center   The center point for the camera to rotate around.
+        *   @param scene            The babylon.JS scene.
+        *   @param rotX             Initial rotation X of the camera in degrees.
+        *   @param rotY             Initial rotation Y of the camera in degrees.
+        *   @param distance         The distance of the camera from the center point.
+        *   @param center           The center point for the camera to rotate around.
+        *   @param lowerRadiusLimit The minimum distance from the camera to the center.
+        *   @param upperRadiusLimit The maximum distance from the camera to the center.
         *
         *   @return An arc rotation camera.
         ***************************************************************************************************************/
         public static createArcRotateCamera
         (
-            scene    :BABYLON.Scene,
-            rotX     :number,
-            rotY     :number,
-            distance :number,
-            center   :BABYLON.Vector3
+            scene            :BABYLON.Scene,
+            rotX             :number,
+            rotY             :number,
+            distance         :number,
+            center           :BABYLON.Vector3,
+            lowerRadiusLimit :number,
+            upperRadiusLimit :number
         )
         : BABYLON.ArcRotateCamera
         {
-            return new BABYLON.ArcRotateCamera
+            let camera:BABYLON.ArcRotateCamera = new BABYLON.ArcRotateCamera
             (
                 bz.CameraFactory.getNextCameraId(),
                 bz.MathUtil.degreesToRad( rotY ),
@@ -144,6 +148,11 @@
                 center,
                 scene
             );
+
+            camera.lowerRadiusLimit = lowerRadiusLimit;
+            camera.upperRadiusLimit = upperRadiusLimit;
+
+            return camera;
         }
 
         /** ************************************************************************************************************

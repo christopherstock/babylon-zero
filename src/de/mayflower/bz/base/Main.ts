@@ -15,7 +15,6 @@
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Search suitable 3D model.
     *   TODO Alter helmet visir color / material on button press.
-    *   TODO Clip arc rotate camera zoom.
     *   TODO Try reflections and glossy fx for textures.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.

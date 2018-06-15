@@ -85,7 +85,9 @@
                 70.0,
                 -110.0,
                 250,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                100.0,
+                400.0
             );
 
             // assign camera targets
