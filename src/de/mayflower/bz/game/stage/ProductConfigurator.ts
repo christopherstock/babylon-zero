@@ -24,6 +24,15 @@
     export class ProductConfigurator extends bz.Stage
     {
         /** The bg color for the GUI. */
+        private     static  readonly    VISOR_COLORS            :BABYLON.Color3[]           =
+        [
+            new BABYLON.Color3( 0.9647, 0.8235, 0.4392  ),
+            new BABYLON.Color3( 1.0,    1.0,    1.0     ),
+            new BABYLON.Color3( 0.85,   0.4,    0.0     ),
+            new BABYLON.Color3( 0.8,    0.15,   0.15    ),
+        ];
+
+        /** The bg color for the GUI. */
         private     static  readonly    GUI_COLOR_BG            :string                     = 'rgba( 75, 75, 75, 0.5 )';
         /** The text color for the GUI. */
         private     static  readonly    GUI_COLOR_TEXT          :string                     = '#ffffff';
@@ -40,7 +49,7 @@
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
         /** Index of the current visir material. */
-        private                         currentVisirMaterial    :number                     = 0;
+        private                         currentVisorColor       :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -458,31 +467,9 @@
         {
             const visirMaterial:BABYLON.StandardMaterial = this.visir.material as BABYLON.StandardMaterial;
 
-            this.currentVisirMaterial += 1;
-            if ( this.currentVisirMaterial === 4 ) this.currentVisirMaterial = 0;
+            ++this.currentVisorColor;
+            if ( this.currentVisorColor === ProductConfigurator.VISOR_COLORS.length ) this.currentVisorColor = 0;
 
-            switch ( this.currentVisirMaterial )
-            {
-                case 0:
-                {
-                    visirMaterial.diffuseColor = new BABYLON.Color3( 0.9647, 0.8235, 0.4392 );
-                    break;
-                }
-                case 1:
-                {
-                    visirMaterial.diffuseColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-                    break;
-                }
-                case 2:
-                {
-                    visirMaterial.diffuseColor = new BABYLON.Color3( 0.85, 0.4, 0.0 );
-                    break;
-                }
-                case 3:
-                {
-                    visirMaterial.diffuseColor = new BABYLON.Color3( 0.8, 0.15, 0.15 );
-                    break;
-                }
-            }
+            visirMaterial.diffuseColor = ProductConfigurator.VISOR_COLORS[ this.currentVisorColor ];
         }
     }
