@@ -21,7 +21,7 @@
     /** ****************************************************************************************************************
     *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
     *******************************************************************************************************************/
-    export class ProductViewer extends bz.Stage
+    export class ProductConfigurator extends bz.Stage
     {
         /** Referenced imported helmet. */
         private                         helmet                  :BABYLON.AbstractMesh[]     = null;

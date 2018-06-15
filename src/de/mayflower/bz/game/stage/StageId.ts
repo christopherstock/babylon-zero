@@ -13,8 +13,8 @@
         /** The room viewer. */
         STAGE_ROOM_VIEWER,
 
-        /** The ID product viewer. */
-        STAGE_PRODUCT_VIEWER,
+        /** The product configurator. */
+        STAGE_PRODUCT_CONFIGURATOR,
 
         /** Mayflower logo */
         STAGE_INTRO_LOGO,

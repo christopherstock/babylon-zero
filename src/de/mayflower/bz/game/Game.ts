@@ -7,7 +7,7 @@
     export class Game
     {
         /** The game engine. */
-        public                      engine                      :bz.Engine              = null;
+        public                      engine                      :bz.Engine                  = null;
 
         /** The current stage instance. */
         public                      stage                       :bz.Stage                   = null;
@@ -97,7 +97,7 @@
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F4 );
 
-                this.switchStage( bz.StageId.STAGE_PRODUCT_VIEWER, this.engine.scene.getScene() );
+                this.switchStage( bz.StageId.STAGE_PRODUCT_CONFIGURATOR, this.engine.scene.getScene() );
             }
 
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F5 ) )
@@ -197,9 +197,9 @@
                     break;
                 }
 
-                case bz.StageId.STAGE_PRODUCT_VIEWER:
+                case bz.StageId.STAGE_PRODUCT_CONFIGURATOR:
                 {
-                    this.stage = new bz.ProductViewer( scene );
+                    this.stage = new bz.ProductConfigurator( scene );
                     this.stage.init();
                     break;
                 }

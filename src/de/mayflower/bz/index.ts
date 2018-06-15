@@ -66,5 +66,5 @@
     export * from './game/stage/RoomViewer';
     export * from './game/stage/TestLevel';
     export * from './game/stage/Office';
-    export * from './game/stage/ProductViewer';
+    export * from './game/stage/ProductConfigurator';
     export * from './game/stage/IntroLogo';
