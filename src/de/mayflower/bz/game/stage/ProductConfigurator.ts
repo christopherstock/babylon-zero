@@ -339,21 +339,6 @@
             );
             this.guiFg.addControl( line );
 
-            this.visorToggleButton = bz.GuiFactory.createButton
-            (
-                'Open Visor',
-                'white',
-                '#ed7304',
-                50,
-                400,
-                250,
-                35,
-                () => {
-                    this.requestVisirAnimationToggle();
-                }
-            );
-            this.guiFg.addControl( this.visorToggleButton );
-
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color Visor',
@@ -418,20 +403,36 @@
                 100.0,
                 100.0,
                 400.0,
-                'green',
-                '#777777',
-                100,
-                350,
-                200,
+                '#ed7304',
+                ProductConfigurator.GUI_COLOR_BORDER,
+                50,
+                380,
+                250,
                 20,
                 ( value:number ) =>
                 {
                     bz.Debug.gui.log( 'slider changed to [' + value + ']' );
 
-                    this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - Math.floor( value ) );
+                    // this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - Math.floor( value ) );
+                    this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - value );
                 }
             );
             this.guiFg.addControl( this.cameraZoomSlider );
+
+            this.visorToggleButton = bz.GuiFactory.createButton
+            (
+                'Open Visor',
+                'white',
+                '#ed7304',
+                50,
+                420,
+                250,
+                35,
+                () => {
+                    this.requestVisirAnimationToggle();
+                }
+            );
+            this.guiFg.addControl( this.visorToggleButton );
         }
 
         /** ************************************************************************************************************
@@ -446,7 +447,8 @@
 
                     this.cameraZoomSlider.value =
                     (
-                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
+//                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
+                        400.0 + 100.0 - this.getCameraSystem().arcRotateCamera.radius
                     );
 
 
