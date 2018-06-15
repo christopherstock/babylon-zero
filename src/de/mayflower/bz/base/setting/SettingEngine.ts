@@ -16,6 +16,8 @@
         /** The minimum canvas2D height. */
         public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
+        /** The relative path from index.html where all loading images reside. */
+        public  static  readonly    PATH_IMAGE_LOADING                      :string             = 'res/image/loading/';
         /** The relative path from index.html where all texture images reside. */
         public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = 'res/image/texture/';
         /** The relative path from index.html where all skybox images reside. */
@@ -43,4 +45,7 @@
 
         /** Specifies if shadow rendering shall be enabled. */
         public  static  readonly    ENABLE_SHADOWS                          :boolean            = true;
+
+        /** Specifies if the custom loading screen shall be used. */
+        public  static  readonly    CUSTOM_LOADING_SCREEN                   :boolean            = true;
     }

@@ -7,7 +7,7 @@
     export class Game
     {
         /** The game engine. */
-        public                      engine                      :bz.GameEngine              = null;
+        public                      engine                      :bz.Engine              = null;
 
         /** The current stage instance. */
         public                      stage                       :bz.Stage                   = null;
@@ -18,7 +18,7 @@
         public init() : void
         {
             bz.Debug.init.log( 'Init game engine' );
-            this.engine = new bz.GameEngine();
+            this.engine = new bz.Engine();
             this.engine.init();
         }
 

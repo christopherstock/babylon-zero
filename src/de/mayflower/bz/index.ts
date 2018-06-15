@@ -15,7 +15,7 @@
 
     export * from './game/Game';
 
-    export * from './game/engine/GameEngine';
+    export * from './game/engine/Engine';
     export * from './game/engine/Scene';
     export * from './game/engine/Sprite';
     export * from './game/engine/SpriteSystem';
@@ -45,6 +45,7 @@
     export * from './game/engine/ui/CanvasSystem';
 
     export * from './game/engine/LightFactory';
+    export * from './game/engine/LoadingScreen';
     export * from './game/engine/GuiFactory';
 
     export * from './game/object/GameObject';
