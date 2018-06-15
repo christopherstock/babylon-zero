@@ -65,9 +65,12 @@
         private     static  readonly    GUI_COLOR_BORDER        :string                     = '#c9c9c9';
 
         /** Referenced imported helmet. */
-        private                         helmet                  :BABYLON.AbstractMesh[]     = null;
+        private                         model                   :BABYLON.AbstractMesh[]     = null;
         /** Referenced visir of the helmet. */
         private                         visir                   :BABYLON.AbstractMesh       = null;
+        /** Referenced helmet of the helmet. */
+        private                         helmet                  :BABYLON.AbstractMesh       = null;
+
         /** All checkboxes that change the visor color. */
         private                         visorColorCheckboxes    :BABYLON_GUI.Checkbox[]     = [];
         /** All checkboxes that change the helmet color. */
@@ -104,8 +107,8 @@
             // invoke parent method
             super.render();
 
-            // rotate logo
-            for ( const mesh of this.helmet )
+            // rotate whole model
+            for ( const mesh of this.model )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
@@ -189,17 +192,19 @@
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
-            this.helmet = bz.MeshFactory.createImportedMesh
+            // import mesh model
+            this.model = bz.MeshFactory.createImportedMesh
             (
                 bz.MeshImport.HELMET,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene
             );
 
-            // reference visir
-            this.visir = this.helmet[ this.helmet.length - 1 ];
+            // reference single meshes
+            this.helmet = this.model[ 0 ];
+            this.visir  = this.model[ 1 ];
 
-            return [ this.helmet ];
+            return [ this.model ];
         }
 
         /** ************************************************************************************************************
