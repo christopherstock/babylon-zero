@@ -23,13 +23,21 @@
     *******************************************************************************************************************/
     export class ProductConfigurator extends bz.Stage
     {
-        /** The bg color for the GUI. */
+        /** The colors for the visor. */
         private     static  readonly    VISOR_COLORS            :BABYLON.Color3[]           =
         [
             new BABYLON.Color3( 0.9647, 0.8235, 0.4392  ),
             new BABYLON.Color3( 1.0,    1.0,    1.0     ),
             new BABYLON.Color3( 0.85,   0.4,    0.0     ),
             new BABYLON.Color3( 0.8,    0.15,   0.15    ),
+        ];
+        /** The color names for the visor. */
+        private     static  readonly    VISOR_COLOR_NAMES       :string[]                   =
+        [
+            'Pearl Beige',
+            'Pepper White',
+            'Peach Melba',
+            'Rosso Corallo',
         ];
 
         /** The bg color for the GUI. */
@@ -43,13 +51,15 @@
         private                         helmet                  :BABYLON.AbstractMesh[]     = null;
         /** Referenced visir of the helmet. */
         private                         visir                   :BABYLON.AbstractMesh       = null;
+        /** All checkboxes that change the visor color. */
+        private                         visorColorCheckboxes    :BABYLON_GUI.Checkbox[]     = [];
+        /** The textfield with the visir color name. */
+        private                         visorColorName          :BABYLON_GUI.TextBlock      = null;
 
         /** Referenced product presentation light. */
         private                         presentationLight       :BABYLON.Light              = null;
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
-        /** Index of the current visir material. */
-        private                         currentVisorColor       :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -96,13 +106,6 @@
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
                 this.requestVisirAnimationToggle();
-            }
-
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
-            {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
-
-                this.requestVisirColorChange();
             }
         }
 
@@ -290,7 +293,7 @@
             );
             this.guiFg.addControl( logo );
 
-            const title1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const titleLine1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 '3D Product',
                 ProductConfigurator.GUI_COLOR_TEXT,
@@ -299,7 +302,7 @@
                 250,
                 25
             );
-            this.guiFg.addControl( title1 );
+            this.guiFg.addControl( titleLine1 );
             const titleLine2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Configurator',
@@ -331,7 +334,6 @@
                 'white'
             );
             this.guiFg.addControl( line );
-
 /*
             const button:BABYLON_GUI.Button = bz.GuiFactory.createButton
             (
@@ -345,29 +347,55 @@
                 () => { bz.Debug.gui.log( 'Button clicked' ); }
             );
             this.guiFg.addControl( button );
-
+*/
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color Visor',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 50,
-                210,
                 250,
+                300,
                 25
             );
             this.guiFg.addControl( textColorChoserVisor );
-            const checkboxColor1:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
-            (
-                true,
-                'yellow',
-                75,
-                180,
-                20,
-                20,
-                () => { bz.Debug.gui.log( 'Checkbox toggled' ); }
-            );
-            this.guiFg.addControl( checkboxColor1 );
 
+            for ( let i:number = 0; i < ProductConfigurator.VISOR_COLORS.length; ++i )
+            {
+                const visorColor:BABYLON.Color3 = ProductConfigurator.VISOR_COLORS[ i ];
+                const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+                (
+                    ( i === 0 ),
+                    'rgb( '
+                    + ( visorColor.r * 255 )
+                    + ', '
+                    + ( visorColor.g * 255 )
+                    + ', '
+                    + ( visorColor.b * 255 )
+                    + ' )',
+                    50 + i * 30,
+                    277,
+                    20,
+                    20,
+                    () => {
+                        bz.Debug.gui.log( 'Checkbox clicked' );
+                        this.clickVisorColorCheckbox( i );
+                    }
+                );
+                this.visorColorCheckboxes.push( checkbox );
+                this.guiFg.addControl( checkbox );
+            }
+
+            this.visorColorName = bz.GuiFactory.createTextBlock
+            (
+                ProductConfigurator.VISOR_COLOR_NAMES[ 0 ],
+                ProductConfigurator.GUI_COLOR_TEXT,
+                50,
+                300,
+                300,
+                25
+            );
+            this.guiFg.addControl( this.visorColorName );
+/*
             const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color helmet',
@@ -462,14 +490,36 @@
 
         /** ************************************************************************************************************
         *   Changes the visir color.
+        *
+        *   @param color The color to set as the visor color.
         ***************************************************************************************************************/
-        private requestVisirColorChange() : void
+        private requestVisorColorChange( color:BABYLON.Color3 ) : void
         {
             const visirMaterial:BABYLON.StandardMaterial = this.visir.material as BABYLON.StandardMaterial;
 
-            ++this.currentVisorColor;
-            if ( this.currentVisorColor === ProductConfigurator.VISOR_COLORS.length ) this.currentVisorColor = 0;
+            visirMaterial.diffuseColor = color;
+        }
 
-            visirMaterial.diffuseColor = ProductConfigurator.VISOR_COLORS[ this.currentVisorColor ];
+        /** ************************************************************************************************************
+        *   Being invoked when a visor color checkbox is clicked.
+        *
+        *   @param checkboxId The ID of the visir color checkbox being clicked.
+        ***************************************************************************************************************/
+        private clickVisorColorCheckbox( checkboxId:number ) : void
+        {
+            bz.Debug.gui.log( 'Visor color change checkbox [' + checkboxId + ']' );
+
+            // disable all other checkboxes
+            for ( let i:number = 0; i < ProductConfigurator.VISOR_COLORS.length; ++i )
+            {
+                this.visorColorCheckboxes[ i ].isChecked = false;
+            }
+
+            // alter UI
+            this.visorColorCheckboxes[ checkboxId ].isChecked = true;
+            this.visorColorName.text = ProductConfigurator.VISOR_COLOR_NAMES[ checkboxId ];
+
+            // change visor color
+            this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );
         }
     }
