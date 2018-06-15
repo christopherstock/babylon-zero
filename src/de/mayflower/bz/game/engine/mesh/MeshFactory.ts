@@ -14,16 +14,6 @@
         private             static              nextMeshId              :number                     = 0;
 
         /** ************************************************************************************************************
-        *   Returns the next id for a new mesh to create.
-        *
-        *   @return The next free unique id for a new mesh to create.
-        ***************************************************************************************************************/
-        public static createNextMeshId() : string
-        {
-            return 'mesh' + MeshFactory.nextMeshId++;
-        }
-
-        /** ************************************************************************************************************
         *   Creates a box mesh.
         *
         *   @param position        Where to place this mesh.
@@ -610,7 +600,7 @@
             );
 
             const skyboxMaterial:BABYLON.ShaderMaterial = new BABYLON.ShaderMaterial(
-                'panorama',
+                bz.MaterialSystem.createNextMaterialId(),
                 scene,
                 {
                     vertexElement: 'vertexShaderCode',
@@ -736,5 +726,15 @@
             }
 
             return mesh;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next id for a new mesh to create.
+        *
+        *   @return The next free unique id for a new mesh to create.
+        ***************************************************************************************************************/
+        private static createNextMeshId() : string
+        {
+            return 'mesh' + MeshFactory.nextMeshId++;
         }
     }

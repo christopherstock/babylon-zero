@@ -8,7 +8,7 @@
     export abstract class LightFactory
     {
         /** Next ID to assign for light creation. */
-        private         static          currentLightId          :number                 = 0;
+        private         static          nextLightId          :number                 = 0;
 
         /** ************************************************************************************************************
         *   Creates a hemispheric light.
@@ -31,7 +31,7 @@
         {
             const light:BABYLON.HemisphericLight = new BABYLON.HemisphericLight
             (
-                'light' + LightFactory.currentLightId++,
+                LightFactory.createNextLightId(),
                 direction,
                 scene
             );
@@ -66,7 +66,7 @@
         {
             const light:BABYLON.DirectionalLight = new BABYLON.DirectionalLight
             (
-                'light' + LightFactory.currentLightId++,
+                LightFactory.createNextLightId(),
                 direction,
                 scene
             );
@@ -106,7 +106,7 @@
         {
             const light:BABYLON.SpotLight = new BABYLON.SpotLight
             (
-                'light' + LightFactory.currentLightId++,
+                LightFactory.createNextLightId(),
                 position,
                 direction,
                 bz.MathUtil.degreesToRad( angleDegrees ),
@@ -144,7 +144,7 @@
         {
             const light:BABYLON.PointLight = new BABYLON.PointLight
             (
-                'light' + LightFactory.currentLightId++,
+                LightFactory.createNextLightId(),
                 position,
                 scene
             );
@@ -155,5 +155,15 @@
             light.range     = range;
 
             return light;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next id for a new light to create.
+        *
+        *   @return The next free unique id for a new light to create.
+        ***************************************************************************************************************/
+        private static createNextLightId() : string
+        {
+            return 'light' + LightFactory.nextLightId++;
         }
     }

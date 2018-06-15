@@ -9,7 +9,7 @@
     export abstract class GuiFactory
     {
         /** Next ID to assign for GUI component creation. */
-        private         static          currentGuiId                        :number                 = 0;
+        private         static          nextGuiId                           :number                 = 0;
 
         /** ************************************************************************************************************
         *   Creates a fullscreen GUI in bg or fg.
@@ -29,7 +29,7 @@
         {
             const gui:BABYLON_GUI.AdvancedDynamicTexture = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
             (
-                'gui' + bz.GuiFactory.currentGuiId++,
+                GuiFactory.createNextGuiId(),
                 foreground,
                 scene,
                 BABYLON.Texture.NEAREST_SAMPLINGMODE
@@ -65,7 +65,7 @@
         )
         : BABYLON_GUI.Rectangle
         {
-            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( 'gui' + bz.GuiFactory.currentGuiId++ );
+            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( GuiFactory.createNextGuiId() );
 
             rectangle.left       = x;
             rectangle.top        = y;
@@ -103,7 +103,7 @@
         )
         : BABYLON_GUI.TextBlock
         {
-            const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  'gui' + bz.GuiFactory.currentGuiId++  );
+            const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  GuiFactory.createNextGuiId()  );
 
             textBlock.text   = text;
             textBlock.left   = x;
@@ -145,7 +145,7 @@
         )
         : BABYLON_GUI.InputText
         {
-            const inputField:BABYLON_GUI.InputText = new BABYLON_GUI.InputText( 'gui' + bz.GuiFactory.currentGuiId++ );
+            const inputField:BABYLON_GUI.InputText = new BABYLON_GUI.InputText( GuiFactory.createNextGuiId() );
 
             inputField.text       = text;
             inputField.color      = colorFg;
@@ -190,7 +190,7 @@
         {
             const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton
             (
-                'gui' + bz.GuiFactory.currentGuiId++,
+                GuiFactory.createNextGuiId(),
                 text
             );
 
@@ -241,7 +241,7 @@
         {
             const checkbox:BABYLON_GUI.Checkbox = new BABYLON_GUI.Checkbox
             (
-                'gui' + bz.GuiFactory.currentGuiId++
+                GuiFactory.createNextGuiId()
             );
 
             checkbox.isChecked  = isChecked;
@@ -297,7 +297,7 @@
         {
             const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider
             (
-                'gui' + bz.GuiFactory.currentGuiId++
+                GuiFactory.createNextGuiId()
             );
 
             slider.value       = value;
@@ -344,7 +344,7 @@
         {
             const line:BABYLON_GUI.Line = new BABYLON_GUI.Line
             (
-                'gui' + bz.GuiFactory.currentGuiId++
+                GuiFactory.createNextGuiId()
             );
 
             line.x1 = x1;
@@ -377,7 +377,7 @@
         {
             const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
             (
-                'gui' + bz.GuiFactory.currentGuiId++,
+                GuiFactory.createNextGuiId(),
                 bz.SettingEngine.PATH_IMAGE_GUI + filename
             );
 
@@ -390,5 +390,15 @@
             image.top  = y;
 
             return image;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next id for a new gui component to create.
+        *
+        *   @return The next free unique id for a new gui component to create.
+        ***************************************************************************************************************/
+        private static createNextGuiId() : string
+        {
+            return 'gui' + GuiFactory.nextGuiId++;
         }
     }

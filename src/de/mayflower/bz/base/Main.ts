@@ -6,6 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Add param 'enabled' as constructor params for all lights.
+    *
     *   TODO Project: 3D Product Configurator
     *   =========================================
     *
@@ -17,7 +19,6 @@
     *
     *   2. Features
     *   =========================================
-    *   TODO Create custom preloader (company logo, app title, loading bar etc.).
     *   TODO Craft useful UI-Components for the product configurator.
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Search suitable 3D model.
@@ -32,8 +33,6 @@
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
-    *   TODO Next id creators for Light and Gui Factory.
-    *   TODO Add param 'enabled' as constructor params for all lights.
     *   TODO Rename 'ProductViewer' to 'ProductConfigurator'.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *
