@@ -196,7 +196,8 @@
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 400.0,
-                2.0
+                2.0,
+                true
             );
 
             // stick light to arc rotate camera
