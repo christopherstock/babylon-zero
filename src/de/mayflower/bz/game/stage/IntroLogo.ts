@@ -190,7 +190,8 @@
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 0.0,
-                2.5
+                2.5,
+                true
             );
 
             return [ this.pointLight ];
