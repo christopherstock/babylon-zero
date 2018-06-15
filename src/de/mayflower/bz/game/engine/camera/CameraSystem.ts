@@ -18,7 +18,7 @@
         /** The first person babylon.JS camera. */
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
         /** The babylon.JS axis camera. */
-        private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+        public          readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
 
         /** The player that might change visibility by camera switch. */
         private         readonly        player                          :bz.Player                              = null;

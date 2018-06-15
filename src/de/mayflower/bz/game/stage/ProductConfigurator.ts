@@ -61,7 +61,9 @@
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
 
-        private                         visorToggleButton       :BABYLON_GUI.Button;
+        private                         visorToggleButton       :BABYLON_GUI.Button         = null;
+
+        private                         cameraZoomSlider        :BABYLON_GUI.Slider         = null;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -411,20 +413,25 @@
             );
             this.guiFg.addControl( textCameraZoom );
 
-            const slider:BABYLON_GUI.Slider = bz.GuiFactory.createSlider
+            this.cameraZoomSlider = bz.GuiFactory.createSlider
             (
-                0,
-                0,
-                100,
+                100.0,
+                100.0,
+                400.0,
                 'green',
                 '#777777',
                 100,
                 350,
                 200,
                 20,
-                ( value:number ) => { bz.Debug.gui.log( 'slider changed to [' + value + ']' ); }
+                ( value:number ) =>
+                {
+                    bz.Debug.gui.log( 'slider changed to [' + value + ']' );
+
+                    this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - Math.floor( value ) );
+                }
             );
-            this.guiFg.addControl( slider );
+            this.guiFg.addControl( this.cameraZoomSlider );
         }
 
         /** ************************************************************************************************************
@@ -432,6 +439,19 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
+            this.cameraSystem.arcRotateCamera.onViewMatrixChangedObservable.add(
+                () => {
+                    console.log( 'View matrix changed ..!' );
+
+
+                    this.cameraZoomSlider.value =
+                    (
+                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
+                    );
+
+
+                }
+            );
         }
 
         /** ************************************************************************************************************
