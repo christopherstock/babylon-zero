@@ -93,6 +93,7 @@
             }
 
             this.createGuis();
+            this.adjustGuiSizeToCanvasSize();
 
             this.onInitComplete();
         }

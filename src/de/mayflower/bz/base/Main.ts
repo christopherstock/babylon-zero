@@ -6,16 +6,18 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Craft useful UI-Components for the product configurator.
-    *
     *   =========================================
     *   3D Product Configurator - 2. Features
     *   =========================================
     *
+    *   TODO Craft useful UI-Components for the product configurator.
+    *
     *   TODO GUI for switching color/material of visir / helmet.
-    *   TODO Search suitable 3D model.
     *   TODO Alter helmet visir color / material on button press.
+    *
+    *   TODO Search suitable 3D model.
     *   TODO Try reflections and glossy fx for textures.
+    *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *

@@ -23,6 +23,13 @@
     *******************************************************************************************************************/
     export class ProductConfigurator extends bz.Stage
     {
+        /** The bg color for the GUI. */
+        private     static  readonly    GUI_COLOR_BG            :string                     = 'rgba( 75, 75, 75, 0.5 )';
+        /** The text color for the GUI. */
+        private     static  readonly    GUI_COLOR_TEXT          :string                     = '#ffffff';
+        /** The border color for the GUI. */
+        private     static  readonly    GUI_COLOR_BORDER        :string                     = '#c9c9c9';
+
         /** Referenced imported helmet. */
         private                         helmet                  :BABYLON.AbstractMesh[]     = null;
         /** Referenced visir of the helmet. */
@@ -259,39 +266,67 @@
             (
                 25,
                 25,
-                250,
-                360,
-                '#c7c7c7',
-                'rgba( 50, 50, 50, 0.5 )'
+                300,
+                500,
+                ProductConfigurator.GUI_COLOR_BORDER,
+                ProductConfigurator.GUI_COLOR_BG
             );
             this.guiFg.addControl( rectangle );
 
-            const textBlock:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const logo:BABYLON_GUI.Image = bz.GuiFactory.createImage
             (
-                '3DPC, v.0.1.0',
-                'white',
+                'mfLogo.png',
                 50,
-                50,
-                150,
-                15,
+                50
             );
-            this.guiFg.addControl( textBlock );
+            this.guiFg.addControl( logo );
 
-            const inputField:BABYLON_GUI.InputText = bz.GuiFactory.createInputField
+            const title1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
-                'Feel free to enter a text here.',
-                'white',
-                'green',
+                '3D Product',
+                ProductConfigurator.GUI_COLOR_TEXT,
+                160,
                 50,
-                85,
-                150,
-                40
+                250,
+                25
             );
-            this.guiFg.addControl( inputField );
+            this.guiFg.addControl( title1 );
+            const titleLine2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                'Configurator',
+                ProductConfigurator.GUI_COLOR_TEXT,
+                160,
+                80,
+                250,
+                25
+            );
+            this.guiFg.addControl( titleLine2 );
+            const titleLine3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                'v.1.0.0, MVP',
+                ProductConfigurator.GUI_COLOR_TEXT,
+                160,
+                110,
+                250,
+                25
+            );
+            this.guiFg.addControl( titleLine3 );
 
+            const line:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            (
+                50,
+                160,
+                300,
+                160,
+                1,
+                'white'
+            );
+            this.guiFg.addControl( line );
+
+/*
             const button:BABYLON_GUI.Button = bz.GuiFactory.createButton
             (
-                'Click me',
+                'Open Visor',
                 'white',
                 'red',
                 50,
@@ -302,17 +337,49 @@
             );
             this.guiFg.addControl( button );
 
-            const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+            const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                'Color Visor',
+                ProductConfigurator.GUI_COLOR_TEXT,
+                50,
+                210,
+                250,
+                25
+            );
+            this.guiFg.addControl( textColorChoserVisor );
+            const checkboxColor1:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
             (
                 true,
-                'green',
-                50,
+                'yellow',
+                75,
                 180,
                 20,
                 20,
                 () => { bz.Debug.gui.log( 'Checkbox toggled' ); }
             );
-            this.guiFg.addControl( checkbox );
+            this.guiFg.addControl( checkboxColor1 );
+
+            const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                'Color helmet',
+                ProductConfigurator.GUI_COLOR_TEXT,
+                75,
+                245,
+                250,
+                25
+            );
+            this.guiFg.addControl( textColorChoserHelmet );
+
+            const textCameraZoom:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                'Zoom',
+                ProductConfigurator.GUI_COLOR_TEXT,
+                50,
+                280,
+                250,
+                25
+            );
+            this.guiFg.addControl( textCameraZoom );
 
             const slider:BABYLON_GUI.Slider = bz.GuiFactory.createSlider
             (
@@ -321,34 +388,14 @@
                 100,
                 'green',
                 '#777777',
-                50,
-                205,
+                100,
+                280,
                 200,
                 20,
                 ( value:number ) => { bz.Debug.gui.log( 'slider changed to [' + value + ']' ); }
             );
             this.guiFg.addControl( slider );
-
-            const line:BABYLON_GUI.Line = bz.GuiFactory.createLine
-            (
-                50,
-                240,
-                200,
-                240,
-                1,
-                'white'
-            );
-            this.guiFg.addControl( line );
-
-            const logo:BABYLON_GUI.Image = bz.GuiFactory.createImage
-            (
-                'mfLogo.png',
-                50,
-                250
-            );
-            this.guiFg.addControl( logo );
-
-            this.adjustGuiSizeToCanvasSize();
+*/
         }
 
         /** ************************************************************************************************************
