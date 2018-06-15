@@ -341,10 +341,10 @@
             (
                 'Open Visor',
                 'white',
-                'red',
-                60,
-                185,
-                220,
+                '#ed7304',
+                50,
+                400,
+                250,
                 35,
                 () => {
                     this.requestVisirAnimationToggle();
@@ -399,24 +399,13 @@
                 25
             );
             this.guiFg.addControl( this.visorColorName );
-/*
-            const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
-            (
-                'Color helmet',
-                ProductConfigurator.GUI_COLOR_TEXT,
-                75,
-                245,
-                250,
-                25
-            );
-            this.guiFg.addControl( textColorChoserHelmet );
 
             const textCameraZoom:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Zoom',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 50,
-                280,
+                350,
                 250,
                 25
             );
@@ -430,13 +419,12 @@
                 'green',
                 '#777777',
                 100,
-                280,
+                350,
                 200,
                 20,
                 ( value:number ) => { bz.Debug.gui.log( 'slider changed to [' + value + ']' ); }
             );
             this.guiFg.addControl( slider );
-*/
         }
 
         /** ************************************************************************************************************
@@ -457,13 +445,12 @@
                 case HelmetState.CLOSED:
                 {
                     this.animationState = HelmetState.OPENING;
+                    this.setVisorToggleButtonText( 'Close Visor' );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visir, 0, 20, false, 1.0, () => {
 
                             this.animationState = HelmetState.OPEN;
-
-                            this.setButtonText(this.visorToggleButton, 'Close Visor');
 
                             bz.Main.game.engine.scene.getScene().beginAnimation(
                                 this.visir, 20, 21, true, 1.0, () => { }
@@ -476,12 +463,11 @@
                 case HelmetState.OPEN:
                 {
                     this.animationState = HelmetState.CLOSING;
+                    this.setVisorToggleButtonText( 'Open Visor' );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visir, 20, 0, false, 1.0, () => {
                             this.animationState = HelmetState.CLOSED;
-
-                            this.setButtonText(this.visorToggleButton, 'Open Visor');
                         }
                     );
                     break;
@@ -531,12 +517,18 @@
             this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );
         }
 
-        private setButtonText(button: BABYLON_GUI.Button, newText: string) : void
+        /** ************************************************************************************************************
+        *   Sets a new caption for the button that toggles the visor.
+        *
+        *   @param newText The text to set as the button's caption.
+        ***************************************************************************************************************/
+        private setVisorToggleButtonText( newText: string ) : void
         {
-            const textName :string = button.name + '_button';
-            const textBlock : BABYLON.GUI.TextBlock = button.getChildByType
+            const textName  :string                = this.visorToggleButton.name + '_button';
+            const textBlock :BABYLON.GUI.TextBlock = this.visorToggleButton.getChildByType
             (
-                textName, 'TextBlock'
+                textName,
+                'TextBlock'
             ) as BABYLON.GUI.TextBlock;
 
             textBlock.text = newText;
