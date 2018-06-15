@@ -28,8 +28,8 @@
         /** Referenced visir of the helmet. */
         private                         visir                   :BABYLON.AbstractMesh       = null;
 
-        /** Referenced point light. */
-        private                         pointLight              :BABYLON.PointLight         = null;
+        /** Referenced product presentation light. */
+        private                         presentationLight       :BABYLON.Light              = null;
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
         /** Index of the current visir material. */
@@ -189,21 +189,21 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            this.pointLight = bz.LightFactory.createPoint
+            this.presentationLight = bz.LightFactory.createDirectional
             (
                 this.scene,
+                new BABYLON.Vector3( 0.0, 0.0, 1.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                1.0,
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                400.0,
-                2.0,
                 true
             );
 
             // stick light to arc rotate camera
-            this.cameraSystem.setLightToArcRotationCamera( this.pointLight );
+            this.cameraSystem.setLightToArcRotationCamera( this.presentationLight );
 
-            return [ this.pointLight ];
+            return [ this.presentationLight ];
         }
 
         /** ************************************************************************************************************
