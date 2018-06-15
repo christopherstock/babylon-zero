@@ -18,6 +18,7 @@
         *   @param diffuseColor  The color this light spreads to all surfaces.
         *   @param specularColor The shining spot color this light spreads to faces.
         *   @param groundColor   The color for the ground to apply.
+        *   @param enabled       Specifies if this light shall be enabled by default.
         ***************************************************************************************************************/
         public static createHemispheric
         (
@@ -25,7 +26,8 @@
             direction     :BABYLON.Vector3,
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
-            groundColor   :BABYLON.Color3
+            groundColor   :BABYLON.Color3,
+            enabled       :boolean
         )
         : BABYLON.HemisphericLight
         {
@@ -39,6 +41,7 @@
             light.diffuse     = diffuseColor ;
             light.specular    = specularColor;
             light.groundColor = groundColor  ;
+            light.setEnabled( enabled );
 
             return light;
         }
@@ -52,6 +55,7 @@
         *   @param intensity     The intensity of this light.
         *   @param diffuseColor  The color this light spreads to all surfaces.
         *   @param specularColor The shining spot color this light spreads to faces.
+        *   @param enabled       Specifies if this light shall be enabled by default.
         ***************************************************************************************************************/
         public static createDirectional
         (
@@ -61,6 +65,7 @@
             intensity     :number,
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
+            enabled       :boolean
         )
         : BABYLON.DirectionalLight
         {
@@ -75,6 +80,7 @@
             light.intensity = 1.0;
             light.diffuse   = diffuseColor;
             light.specular  = specularColor;
+            light.setEnabled( enabled );
 
             return light;
         }
@@ -90,6 +96,7 @@
         *   @param diffuseColor  The color this light spreads to all surfaces.
         *   @param specularColor The shining spot color this light spreads to faces.
         *   @param range         How far the spot light shall reach.
+        *   @param enabled       Specifies if this light shall be enabled by default.
         ***************************************************************************************************************/
         public static createSpot
         (
@@ -100,7 +107,8 @@
             exponent      :number,
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
-            range         :number
+            range         :number,
+            enabled       :boolean
         )
         : BABYLON.SpotLight
         {
@@ -117,6 +125,7 @@
             light.diffuse  = diffuseColor ;
             light.specular = specularColor;
             light.range    = range;
+            light.setEnabled( enabled );
 
             return light;
         }
@@ -130,6 +139,7 @@
         *   @param specularColor The shining spot color this light spreads to faces.
         *   @param range         How far the point light shall reach.
         *   @param intensity     The intensity of this light.
+        *   @param enabled       Specifies if this light shall be enabled by default.
         ***************************************************************************************************************/
         public static createPoint
         (
@@ -138,7 +148,8 @@
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
             range         :number,
-            intensity     :number
+            intensity     :number,
+            enabled       :boolean
         )
         : BABYLON.PointLight
         {
@@ -153,6 +164,7 @@
             light.diffuse   = diffuseColor;
             light.specular  = specularColor;
             light.range     = range;
+            light.setEnabled( enabled );
 
             return light;
         }

@@ -596,7 +596,8 @@
                     new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    false
                 ),
 
                 // directional light
@@ -608,6 +609,7 @@
                     1.0,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 1.0, 0.5, 0.0 ),
+                    false
                 ),
 
                 // spot light
@@ -620,7 +622,8 @@
                     2,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    50.0
+                    50.0,
+                    false
                 ),
 
                 // point light
@@ -632,13 +635,9 @@
                     new BABYLON.Color3( 0.0, 0.0, 0.0 ),
                     50.0,
                     1.0,
+                    true
                 ),
             ];
-
-            lights[ 0 ].setEnabled( false );
-            lights[ 1 ].setEnabled( false );
-            lights[ 2 ].setEnabled( false );
-            lights[ 3 ].setEnabled( true  );
 
             return lights;
         }

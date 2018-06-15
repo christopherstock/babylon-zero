@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Add param 'enabled' as constructor params for all lights.
-    *
     *   TODO Project: 3D Product Configurator
     *   =========================================
     *
