@@ -40,6 +40,23 @@
             'Rosso Corallo',
         ];
 
+        /** The colors for the helmet. */
+        private     static  readonly    HELMET_COLORS           :BABYLON.Color3[]           =
+        [
+            new BABYLON.Color3( 1.0,    1.0,    1.0     ),
+            new BABYLON.Color3( 0.65,   0.65,   0.65    ),
+            new BABYLON.Color3( 0.3,    0.1,    0.1     ),
+            new BABYLON.Color3( 0.5,    0.2,    0.2    ),
+        ];
+        /** The color names for the helmet. */
+        private     static  readonly    HELMET_COLOR_NAMES      :string[]                   =
+        [
+            'Bianco Eldorado',
+            'Grigio Titanio',
+            'Marrone Corniola',
+            'Bordeaux',
+        ];
+
         /** The bg color for the GUI. */
         private     static  readonly    GUI_COLOR_BG            :string                     = 'rgba( 75, 75, 75, 0.5 )';
         /** The text color for the GUI. */
@@ -53,16 +70,16 @@
         private                         visir                   :BABYLON.AbstractMesh       = null;
         /** All checkboxes that change the visor color. */
         private                         visorColorCheckboxes    :BABYLON_GUI.Checkbox[]     = [];
-        /** The textfield with the visir color name. */
-        private                         visorColorName          :BABYLON_GUI.TextBlock      = null;
+        /** All checkboxes that change the helmet color. */
+        private                         helmetColorCheckboxes   :BABYLON_GUI.Checkbox[]     = [];
 
         /** Referenced product presentation light. */
         private                         presentationLight       :BABYLON.Light              = null;
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
-
+        /** A reference to the toggle button to open and close the visor. */
         private                         visorToggleButton       :BABYLON_GUI.Button         = null;
-
+        /** A reference to the camera zoom slider. */
         private                         cameraZoomSlider        :BABYLON_GUI.Slider         = null;
 
         /** ************************************************************************************************************
@@ -283,7 +300,7 @@
                 25,
                 25,
                 300,
-                500,
+                640,
                 ProductConfigurator.GUI_COLOR_BORDER,
                 ProductConfigurator.GUI_COLOR_BG
             );
@@ -319,7 +336,7 @@
             this.guiFg.addControl( titleLine2 );
             const titleLine3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
-                'v.1.0.0, MVP',
+                'v.0.4.0, MVP',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 160,
                 110,
@@ -328,7 +345,7 @@
             );
             this.guiFg.addControl( titleLine3 );
 
-            const line:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            const line1:BABYLON_GUI.Line = bz.GuiFactory.createLine
             (
                 50,
                 160,
@@ -337,14 +354,14 @@
                 1,
                 'white'
             );
-            this.guiFg.addControl( line );
+            this.guiFg.addControl( line1 );
 
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color Visor',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 50,
-                250,
+                170,
                 300,
                 25
             );
@@ -352,19 +369,22 @@
 
             for ( let i:number = 0; i < ProductConfigurator.VISOR_COLORS.length; ++i )
             {
-                const visorColor:BABYLON.Color3 = ProductConfigurator.VISOR_COLORS[ i ];
-                const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
-                (
-                    ( i === 0 ),
+                const visorColor :BABYLON.Color3 = ProductConfigurator.VISOR_COLORS[ i ];
+                const colorCss   :string         = (
                     'rgb( '
                     + ( visorColor.r * 255 )
                     + ', '
                     + ( visorColor.g * 255 )
                     + ', '
                     + ( visorColor.b * 255 )
-                    + ' )',
-                    50 + i * 30,
-                    277,
+                    + ' )'
+                );
+                const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+                (
+                    ( i === 0 ),
+                    colorCss,
+                    50,
+                    203 + ( i * 30 ),
                     20,
                     20,
                     () => {
@@ -374,25 +394,98 @@
                 );
                 this.visorColorCheckboxes.push( checkbox );
                 this.guiFg.addControl( checkbox );
+
+                const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+                (
+                    ProductConfigurator.VISOR_COLOR_NAMES[ i ],
+                    colorCss,
+                    80,
+                    203 + ( i * 30 ),
+                    300,
+                    20
+                );
+                this.guiFg.addControl( colorCaption );
             }
 
-            this.visorColorName = bz.GuiFactory.createTextBlock
+            const line2:BABYLON_GUI.Line = bz.GuiFactory.createLine
             (
-                ProductConfigurator.VISOR_COLOR_NAMES[ 0 ],
+                50,
+                330,
+                300,
+                330,
+                1,
+                'white'
+            );
+            this.guiFg.addControl( line2 );
+
+            const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                'Color Helmet',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 50,
-                300,
+                340,
                 300,
                 25
             );
-            this.guiFg.addControl( this.visorColorName );
+            this.guiFg.addControl( textColorChoserHelmet );
+
+            for ( let i:number = 0; i < ProductConfigurator.HELMET_COLORS.length; ++i )
+            {
+                const visorColor :BABYLON.Color3 = ProductConfigurator.HELMET_COLORS[ i ];
+                const colorCss   :string         = (
+                    'rgb( '
+                    + ( visorColor.r * 255 )
+                    + ', '
+                    + ( visorColor.g * 255 )
+                    + ', '
+                    + ( visorColor.b * 255 )
+                    + ' )'
+                );
+                const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+                (
+                    ( i === 0 ),
+                    colorCss,
+                    50,
+                    373 + ( i * 30 ),
+                    20,
+                    20,
+                    () => {
+                        bz.Debug.gui.log( 'Checkbox clicked' );
+                        // this.clickVisorColorCheckbox( i );
+                    }
+                );
+                this.visorColorCheckboxes.push( checkbox );
+                this.guiFg.addControl( checkbox );
+
+                const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+                (
+                    ProductConfigurator.HELMET_COLOR_NAMES[ i ],
+                    colorCss,
+                    80,
+                    373 + ( i * 30 ),
+                    300,
+                    20
+                );
+                this.guiFg.addControl( colorCaption );
+            }
+
+            const line3:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            (
+                50,
+                500,
+                300,
+                500,
+                1,
+                'white'
+            );
+            this.guiFg.addControl( line3 );
 
             const textCameraZoom:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Zoom',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 50,
-                350,
+                510,
                 250,
                 25
             );
@@ -406,7 +499,7 @@
                 '#ed7304',
                 ProductConfigurator.GUI_COLOR_BORDER,
                 50,
-                380,
+                545,
                 250,
                 20,
                 ( value:number ) =>
@@ -419,13 +512,24 @@
             );
             this.guiFg.addControl( this.cameraZoomSlider );
 
+            const line4:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            (
+                50,
+                580,
+                300,
+                580,
+                1,
+                'white'
+            );
+            this.guiFg.addControl( line4 );
+
             this.visorToggleButton = bz.GuiFactory.createButton
             (
                 'Open Visor',
                 'white',
                 '#ed7304',
                 50,
-                420,
+                600,
                 250,
                 35,
                 () => {
@@ -442,8 +546,8 @@
         {
             this.cameraSystem.arcRotateCamera.onViewMatrixChangedObservable.add(
                 () => {
-                    console.log( 'View matrix changed ..!' );
 
+                    console.log( 'View matrix changed ..!' );
 
                     this.cameraZoomSlider.value =
                     (
@@ -533,7 +637,6 @@
 
             // alter UI
             this.visorColorCheckboxes[ checkboxId ].isChecked = true;
-            this.visorColorName.text = ProductConfigurator.VISOR_COLOR_NAMES[ checkboxId ];
 
             // change visor color
             this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );

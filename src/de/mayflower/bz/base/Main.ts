@@ -11,6 +11,7 @@
     *   =========================================
     *
     *   TODO Craft useful UI-Components for the product configurator.
+    *   TODO Create radio buttons instead of checkboxes!
     *
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
@@ -25,6 +26,7 @@
     *   =========================================
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
+    *   TODO Outsource to class ProductConfiguratorGui-
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *
