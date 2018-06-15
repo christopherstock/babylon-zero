@@ -61,6 +61,8 @@
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :HelmetState                = HelmetState.CLOSED;
 
+        private                         visorToggleButton       :BABYLON_GUI.Button;
+
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
@@ -334,20 +336,22 @@
                 'white'
             );
             this.guiFg.addControl( line );
-/*
-            const button:BABYLON_GUI.Button = bz.GuiFactory.createButton
+
+            this.visorToggleButton = bz.GuiFactory.createButton
             (
                 'Open Visor',
                 'white',
                 'red',
-                50,
-                135,
-                150,
+                60,
+                185,
+                220,
                 35,
-                () => { bz.Debug.gui.log( 'Button clicked' ); }
+                () => {
+                    this.requestVisirAnimationToggle();
+                }
             );
-            this.guiFg.addControl( button );
-*/
+            this.guiFg.addControl( this.visorToggleButton );
+
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color Visor',
@@ -459,6 +463,8 @@
 
                             this.animationState = HelmetState.OPEN;
 
+                            this.setButtonText(this.visorToggleButton, 'Close Visor');
+
                             bz.Main.game.engine.scene.getScene().beginAnimation(
                                 this.visir, 20, 21, true, 1.0, () => { }
                             );
@@ -474,6 +480,8 @@
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visir, 20, 0, false, 1.0, () => {
                             this.animationState = HelmetState.CLOSED;
+
+                            this.setButtonText(this.visorToggleButton, 'Open Visor');
                         }
                     );
                     break;
@@ -521,5 +529,16 @@
 
             // change visor color
             this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );
+        }
+
+        private setButtonText(button: BABYLON_GUI.Button, newText: string) : void
+        {
+            const textName :string = button.name + '_button';
+            const textBlock : BABYLON.GUI.TextBlock = button.getChildByType
+            (
+                textName, 'TextBlock'
+            ) as BABYLON.GUI.TextBlock;
+
+            textBlock.text = newText;
         }
     }
