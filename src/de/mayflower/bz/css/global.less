@@ -1,18 +1,42 @@
 
     body
     {
-        background:         #000000;
-        margin:             0;
-        padding:            0;
-        text-align:         center;
-        overflow-x:         hidden;
-        overflow-y:         hidden;
+        background:             #000000;
+        margin:                 0;
+        padding:                0;
+        text-align:             center;
+        overflow-x:             hidden;
+        overflow-y:             hidden;
     }
 
     div#loading
     {
-        width:              100%;
-        height:             100%;
-        background:         #000000 no-repeat center center;
-        position:           absolute;
+        width:                  100%;
+        height:                 100%;
+        background:             #000000 no-repeat center center;
+        position:               absolute;
+
+        -webkit-animation:      pulse 2s linear infinite;
+        -moz-animation:         pulse 2s linear infinite;
+        animation:              pulse 2s linear infinite;
+/*
+        transition:             transform 1s;
+        transform-style:        preserve-3d;
+*/
+    }
+
+    @keyframes spin
+    {
+        100%
+        {
+            -webkit-transform:  rotate( 360deg );
+            transform:          rotate( 360deg );
+        }
+    }
+
+    @keyframes pulse
+    {
+        0%   { opacity: 1.0;  }
+        50%  { opacity: 0.5; }
+        100% { opacity: 1.0;  }
     }
