@@ -332,23 +332,25 @@
         /** ************************************************************************************************************
         *   Creates a line for the GUI.
         *
-        *   @param x1    Start position X.
-        *   @param y1    Start position Y.
-        *   @param x2    End position X.
-        *   @param y2    End position Y.
-        *   @param width The line width in pixels.
-        *   @param color The color of the line.
+        *   @param x1          Start position X.
+        *   @param y1          Start position Y.
+        *   @param x2          End position X.
+        *   @param y2          End position Y.
+        *   @param width       The line width in pixels.
+        *   @param color       The color of the line.
+        *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
         *
         *   @return The specified line.
         ***************************************************************************************************************/
         public static createLine
         (
-            x1    :number,
-            y1    :number,
-            x2    :number,
-            y2    :number,
-            width :number,
-            color :string,
+            x1          :number,
+            y1          :number,
+            x2          :number,
+            y2          :number,
+            width       :number,
+            color       :string,
+            shadowColor :string
         )
         : BABYLON_GUI.Line
         {
@@ -365,23 +367,33 @@
             line.color     = color;
             line.lineWidth = width;
 
+            if ( shadowColor != null )
+            {
+                line.shadowColor   = shadowColor;
+                line.shadowBlur    = 0.0;
+                line.shadowOffsetX = 1.0;
+                line.shadowOffsetY = 1.5;
+            }
+
             return line;
         }
 
         /** ************************************************************************************************************
         *   Creates an image for the GUI.
         *
-        *   @param filename The name of the image file to display.
-        *   @param x        Left edge of the image.
-        *   @param y        Top edge of the image.
+        *   @param filename    The name of the image file to display.
+        *   @param x           Left edge of the image.
+        *   @param y           Top edge of the image.
+        *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
         *
         *   @return The specified image.
         ***************************************************************************************************************/
         public static createImage
         (
-            filename :string,
-            x        :number,
-            y        :number,
+            filename    :string,
+            x           :number,
+            y           :number,
+            shadowColor :string
         )
         : BABYLON_GUI.Image
         {
@@ -398,6 +410,14 @@
 
             image.left = x;
             image.top  = y;
+
+            if ( shadowColor != null )
+            {
+                image.shadowColor   = shadowColor;
+                image.shadowBlur    = 0.0;
+                image.shadowOffsetX = 1.0;
+                image.shadowOffsetY = 1.0;
+            }
 
             return image;
         }

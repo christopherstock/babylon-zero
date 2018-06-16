@@ -58,11 +58,11 @@
         ];
 
         /** The bg color for the GUI. */
-        private     static  readonly    GUI_COLOR_BG            :string                     = 'rgba( 75, 75, 75, 0.5 )';
+        private     static  readonly    GUI_COLOR_BG            :string                     = 'rgba( 100, 100, 100, 0.5 )';
         /** The text color for the GUI. */
         private     static  readonly    GUI_COLOR_TEXT          :string                     = '#ffffff';
         /** The text shadow color for the GUI. */
-        private     static  readonly    GUI_COLOR_TEXT_SHADOW   :string                     = '#000000';
+        private     static  readonly    GUI_COLOR_SHADOW        :string                     = '#000000';
         /** The border color for the GUI. */
         private     static  readonly    GUI_COLOR_BORDER        :string                     = '#c9c9c9';
 
@@ -304,7 +304,29 @@
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
-            const rectangle:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
+            const rectangleOuter:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
+            (
+                22,
+                22,
+                306,
+                646,
+                ProductConfigurator.GUI_COLOR_BORDER,
+                'transparent'
+            );
+            this.guiFg.addControl( rectangleOuter );
+
+            const rectangleOuter2:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
+            (
+                23,
+                23,
+                304,
+                644,
+                ProductConfigurator.GUI_COLOR_BORDER,
+                'transparent'
+            );
+            this.guiFg.addControl( rectangleOuter2 );
+
+            const rectangleInner:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
             (
                 25,
                 25,
@@ -313,49 +335,50 @@
                 ProductConfigurator.GUI_COLOR_BORDER,
                 ProductConfigurator.GUI_COLOR_BG
             );
-            this.guiFg.addControl( rectangle );
+            this.guiFg.addControl( rectangleInner );
 
             const logo:BABYLON_GUI.Image = bz.GuiFactory.createImage
             (
                 'mfLogo.png',
                 50,
-                50
+                50,
+                ProductConfigurator.GUI_COLOR_SHADOW
             );
             this.guiFg.addControl( logo );
 
-            const titleLine1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const titleRow1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 '3D Product',
                 ProductConfigurator.GUI_COLOR_TEXT,
-                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
+                ProductConfigurator.GUI_COLOR_SHADOW,
                 160,
                 50,
                 250,
                 25
             );
-            this.guiFg.addControl( titleLine1 );
-            const titleLine2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            this.guiFg.addControl( titleRow1 );
+            const titleRow2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Configurator',
                 ProductConfigurator.GUI_COLOR_TEXT,
-                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
+                ProductConfigurator.GUI_COLOR_SHADOW,
                 160,
                 80,
                 250,
                 25
             );
-            this.guiFg.addControl( titleLine2 );
-            const titleLine3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            this.guiFg.addControl( titleRow2 );
+            const titleRow3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'v.0.4.1, MVP',
                 ProductConfigurator.GUI_COLOR_TEXT,
-                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
+                ProductConfigurator.GUI_COLOR_SHADOW,
                 160,
                 110,
                 250,
                 25
             );
-            this.guiFg.addControl( titleLine3 );
+            this.guiFg.addControl( titleRow3 );
 
             const line1:BABYLON_GUI.Line = bz.GuiFactory.createLine
             (
@@ -364,7 +387,8 @@
                 300,
                 160,
                 1,
-                'white'
+                'white',
+                'transparent'
             );
             this.guiFg.addControl( line1 );
 
@@ -372,7 +396,7 @@
             (
                 'Color Visor',
                 ProductConfigurator.GUI_COLOR_TEXT,
-                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
+                ProductConfigurator.GUI_COLOR_SHADOW,
                 50,
                 170,
                 300,
@@ -412,7 +436,7 @@
                 (
                     ProductConfigurator.VISOR_COLOR_NAMES[ i ],
                     colorCss,
-                    null,
+                    ProductConfigurator.GUI_COLOR_SHADOW,
                     80,
                     203 + ( i * 30 ),
                     300,
@@ -428,7 +452,8 @@
                 300,
                 330,
                 1,
-                'white'
+                'white',
+                'transparent'
             );
             this.guiFg.addControl( line2 );
 
@@ -436,7 +461,7 @@
             (
                 'Color Helmet',
                 ProductConfigurator.GUI_COLOR_TEXT,
-                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
+                ProductConfigurator.GUI_COLOR_SHADOW,
                 50,
                 340,
                 300,
@@ -476,7 +501,7 @@
                 (
                     ProductConfigurator.HELMET_COLOR_NAMES[ i ],
                     colorCss,
-                    null,
+                    ProductConfigurator.GUI_COLOR_SHADOW,
                     80,
                     373 + ( i * 30 ),
                     300,
@@ -492,7 +517,8 @@
                 300,
                 500,
                 1,
-                'white'
+                'white',
+                'transparent'
             );
             this.guiFg.addControl( line3 );
 
@@ -500,7 +526,7 @@
             (
                 'Zoom',
                 ProductConfigurator.GUI_COLOR_TEXT,
-                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
+                ProductConfigurator.GUI_COLOR_SHADOW,
                 50,
                 510,
                 250,
@@ -536,7 +562,8 @@
                 300,
                 580,
                 1,
-                'white'
+                'white',
+                'transparent'
             );
             this.guiFg.addControl( line4 );
 

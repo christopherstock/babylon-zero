@@ -7,8 +7,10 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =========================================
-    *   3D Product Configurator - 2. Features
+    *   3D Product Configurator - 1. Features
     *   =========================================
+    *
+    *   TODO Outsource to class ProductConfiguratorGui.
     *
     *   TODO Create radio buttons instead of checkboxes!
     *   TODO Solve different text sizes that keep constant size??
@@ -19,26 +21,26 @@
     *
     *   TODO Auto rotate helmet if not being touched?
     *
-    *   3D Product Configurator - 3. Refactorings
+    *   3D Product Configurator - 2. Refactorings
     *   =========================================
-    *   TODO Outsource to class ProductConfiguratorGui.
     *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *
-    *   3D Product Configurator - 4. Testing
+    *   3D Product Configurator - 3. Testing
     *   =========================================
     *   TODO Test all features and performance in all browsers.
     *   TODO Complete the MVP of the Product Configurator
     *
-    *   3D Product Configurator - 5. Outlook
+    *   3D Product Configurator - 4. Outlook
     *   =========================================
     *   TODO Check 3D model creation from photos?
     *   =========================================
     *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
+    *   TODO Create CSS colors in settings.
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO MeshImportSystem > ModelImportSystem
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
