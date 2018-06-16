@@ -22,6 +22,8 @@
         public      static      readonly    meshImport          :Debug              = new Debug( true  );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
+        /** Debugs the product configurator app. */
+        public      static      readonly    pc                  :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

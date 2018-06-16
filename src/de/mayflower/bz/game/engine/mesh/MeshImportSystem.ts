@@ -33,7 +33,7 @@
         ***************************************************************************************************************/
         public loadMeshes( scene:BABYLON.Scene ) : void
         {
-            bz.Debug.meshImport.log( 'Importing [' + this.fileNames.length + '] mesh files' );
+            bz.Debug.meshImport.log( 'Importing [' + this.fileNames.length + '] model files' );
 
             for ( const fileName of this.fileNames )
             {
@@ -81,7 +81,7 @@
         {
             if ( ++this.loadedMeshCount >= this.fileNames.length )
             {
-                bz.Debug.meshImport.log( 'All [' + this.fileNames.length + '] meshes loaded' );
+                bz.Debug.meshImport.log( 'All [' + this.fileNames.length + '] models loaded' );
 
                 this.onLoadComplete();
             }

@@ -35,26 +35,26 @@
         private     static  readonly    VISOR_COLOR_NAMES       :string[]                   =
         [
             'Pearl Beige',
-            'Pepper White',
-            'Peach Melba',
+            'Giallo Granturismo',
+            'Arancio Trionfale',
             'Rosso Corallo',
         ];
 
         /** The colors for the helmet. */
         private     static  readonly    HELMET_COLORS           :BABYLON.Color3[]           =
         [
-            new BABYLON.Color3( 1.0,    1.0,    1.0     ),
+            new BABYLON.Color3( 0.4392, 0.4392, 0.4392  ),
             new BABYLON.Color3( 0.65,   0.65,   0.65    ),
-            new BABYLON.Color3( 0.3,    0.1,    0.1     ),
-            new BABYLON.Color3( 0.5,    0.2,    0.2    ),
+            new BABYLON.Color3( 1.0,    1.0,    1.0     ),
+            new BABYLON.Color3( 0.33,   0.33,   0.33    ),
         ];
         /** The color names for the helmet. */
         private     static  readonly    HELMET_COLOR_NAMES      :string[]                   =
         [
-            'Bianco Eldorado',
             'Grigio Titanio',
-            'Marrone Corniola',
-            'Bordeaux',
+            'Grigio Touring Metallic',
+            'Bianco Eldorado',
+            'Grigio Granito',
         ];
 
         /** The bg color for the GUI. */
@@ -67,7 +67,7 @@
         /** Referenced imported helmet. */
         private                         model                   :BABYLON.AbstractMesh[]     = null;
         /** Referenced visir of the helmet. */
-        private                         visir                   :BABYLON.AbstractMesh       = null;
+        private                         visor                   :BABYLON.AbstractMesh       = null;
         /** Referenced helmet of the helmet. */
         private                         helmet                  :BABYLON.AbstractMesh       = null;
 
@@ -106,7 +106,7 @@
         {
             // invoke parent method
             super.render();
-
+/*
             // rotate whole model
             for ( const mesh of this.model )
             {
@@ -118,6 +118,7 @@
                     0.0
                 );
             }
+*/
         }
 
         /** ************************************************************************************************************
@@ -202,7 +203,7 @@
 
             // reference single meshes
             this.helmet = this.model[ 0 ];
-            this.visir  = this.model[ 1 ];
+            this.visor  = this.model[ 1 ];
 
             return [ this.model ];
         }
@@ -341,7 +342,7 @@
             this.guiFg.addControl( titleLine2 );
             const titleLine3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
-                'v.0.4.0, MVP',
+                'v.0.4.1, MVP',
                 ProductConfigurator.GUI_COLOR_TEXT,
                 160,
                 110,
@@ -456,10 +457,10 @@
                     20,
                     () => {
                         bz.Debug.gui.log( 'Checkbox clicked' );
-                        // this.clickVisorColorCheckbox( i );
+                        this.clickHelmetColorCheckbox( i );
                     }
                 );
-                this.visorColorCheckboxes.push( checkbox );
+                this.helmetColorCheckboxes.push( checkbox );
                 this.guiFg.addControl( checkbox );
 
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
@@ -502,7 +503,7 @@
                 100.0,
                 400.0,
                 '#ed7304',
-                ProductConfigurator.GUI_COLOR_BORDER,
+                '#707070',
                 50,
                 545,
                 250,
@@ -552,8 +553,6 @@
             this.cameraSystem.arcRotateCamera.onViewMatrixChangedObservable.add(
                 () => {
 
-                    console.log( 'View matrix changed ..!' );
-
                     this.cameraZoomSlider.value =
                     (
 //                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
@@ -579,12 +578,12 @@
                     this.setVisorToggleButtonText( 'Close Visor' );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
-                        this.visir, 0, 20, false, 1.0, () => {
+                        this.visor, 0, 20, false, 1.0, () => {
 
                             this.animationState = HelmetState.OPEN;
 
                             bz.Main.game.engine.scene.getScene().beginAnimation(
-                                this.visir, 20, 21, true, 1.0, () => { }
+                                this.visor, 20, 21, true, 1.0, () => { }
                             );
                         }
                     );
@@ -597,7 +596,7 @@
                     this.setVisorToggleButtonText( 'Open Visor' );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
-                        this.visir, 20, 0, false, 1.0, () => {
+                        this.visor, 20, 0, false, 1.0, () => {
                             this.animationState = HelmetState.CLOSED;
                         }
                     );
@@ -611,40 +610,6 @@
                     break;
                 }
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Changes the visir color.
-        *
-        *   @param color The color to set as the visor color.
-        ***************************************************************************************************************/
-        private requestVisorColorChange( color:BABYLON.Color3 ) : void
-        {
-            const visirMaterial:BABYLON.StandardMaterial = this.visir.material as BABYLON.StandardMaterial;
-
-            visirMaterial.diffuseColor = color;
-        }
-
-        /** ************************************************************************************************************
-        *   Being invoked when a visor color checkbox is clicked.
-        *
-        *   @param checkboxId The ID of the visir color checkbox being clicked.
-        ***************************************************************************************************************/
-        private clickVisorColorCheckbox( checkboxId:number ) : void
-        {
-            bz.Debug.gui.log( 'Visor color change checkbox [' + checkboxId + ']' );
-
-            // disable all other checkboxes
-            for ( let i:number = 0; i < ProductConfigurator.VISOR_COLORS.length; ++i )
-            {
-                this.visorColorCheckboxes[ i ].isChecked = false;
-            }
-
-            // alter UI
-            this.visorColorCheckboxes[ checkboxId ].isChecked = true;
-
-            // change visor color
-            this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );
         }
 
         /** ************************************************************************************************************
@@ -662,5 +627,81 @@
             ) as BABYLON.GUI.TextBlock;
 
             textBlock.text = newText;
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when a visor color checkbox is clicked.
+        *
+        *   @param checkboxId The ID of the visir color checkbox being clicked.
+        ***************************************************************************************************************/
+        private clickVisorColorCheckbox( checkboxId:number ) : void
+        {
+            bz.Debug.gui.log( 'Visor color change checkbox [' + checkboxId + ']' );
+
+            // disable all other checkboxes
+            for ( let i:number = 0; i < ProductConfigurator.VISOR_COLORS.length; ++i )
+            {
+                this.visorColorCheckboxes[ i ].isChecked = false;
+            }
+
+            // check selected checkbox
+            this.visorColorCheckboxes[ checkboxId ].isChecked = true;
+
+            // change visor color
+            this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );
+        }
+
+        /** ************************************************************************************************************
+        *   Changes the visir color.
+        *
+        *   @param color The color to set as the visor color.
+        ***************************************************************************************************************/
+        private requestVisorColorChange( color:BABYLON.Color3 ) : void
+        {
+            const visorMaterial:BABYLON.StandardMaterial = this.visor.material as BABYLON.StandardMaterial;
+            visorMaterial.diffuseColor = color;
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when a helmet color checkbox is clicked.
+        *
+        *   @param checkboxId The ID of the helmet color checkbox being clicked.
+        ***************************************************************************************************************/
+        private clickHelmetColorCheckbox( checkboxId:number ) : void
+        {
+            bz.Debug.gui.log( 'Helmet color change checkbox [' + checkboxId + ']' );
+
+            // disable all other checkboxes
+            for ( let i:number = 0; i < ProductConfigurator.HELMET_COLORS.length; ++i )
+            {
+                this.helmetColorCheckboxes[ i ].isChecked = false;
+            }
+
+            // check selected checkbox
+            this.helmetColorCheckboxes[ checkboxId ].isChecked = true;
+
+            // change helmet color
+            this.requestHelmetColorChange( ProductConfigurator.HELMET_COLORS[ checkboxId ] );
+        }
+
+        /** ************************************************************************************************************
+        *   Changes the helmet color.
+        *
+        *   @param color The color to set as the helmet color.
+        ***************************************************************************************************************/
+        private requestHelmetColorChange( color:BABYLON.Color3 ) : void
+        {
+            bz.Debug.pc.log( 'Change helmet color' );
+
+            const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
+            const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
+
+            bz.Debug.pc.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
+
+            // pick 1st helmet submaterial for knight helmet
+            const subMaterial:BABYLON.Material = subMaterials[ 0 ];
+            const material:BABYLON.StandardMaterial = subMaterial as BABYLON.StandardMaterial;
+
+            material.diffuseColor  = color;
         }
     }

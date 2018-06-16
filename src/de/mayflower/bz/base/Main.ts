@@ -13,20 +13,26 @@
     *   TODO Craft useful UI-Components for the product configurator.
     *   TODO Create radio buttons instead of checkboxes!
     *
+    *   TODO Solve different text sizes that keep constant size??
+    *   TODO Try white bg?
+    *
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
     *
-    *   TODO Search suitable 3D model.
+    *   TODO Search suitable 3D helmet model.
     *   TODO Try reflections and glossy fx for textures.
     *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *
+    *   TODO Auto rotate helmet if not being touched?
+    *
     *   3D Product Configurator - 3. Refactorings
     *   =========================================
+    *   TODO Outsource to class ProductConfiguratorGui.
+    *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
-    *   TODO Outsource to class ProductConfiguratorGui-
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *
@@ -42,6 +48,7 @@
     *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *   TODO MeshImportSystem > ModelImportSystem
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *
