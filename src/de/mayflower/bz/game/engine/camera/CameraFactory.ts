@@ -139,7 +139,7 @@
         )
         : BABYLON.ArcRotateCamera
         {
-            const camera:BABYLON.ArcRotateCamera = new BABYLON.ArcRotateCamera
+            const arcRotateCamera:BABYLON.ArcRotateCamera = new BABYLON.ArcRotateCamera
             (
                 bz.CameraFactory.getNextCameraId(),
                 bz.MathUtil.degreesToRad( rotY ),
@@ -149,15 +149,21 @@
                 scene
             );
 
-            camera.lowerRadiusLimit = lowerRadiusLimit;
-            camera.upperRadiusLimit = upperRadiusLimit;
+            arcRotateCamera.lowerRadiusLimit = lowerRadiusLimit;
+            arcRotateCamera.upperRadiusLimit = upperRadiusLimit;
 
-            camera.keysUp    = [ 40 ];
-            camera.keysDown  = [ 38 ];
-            camera.keysLeft  = [ 39 ];
-            camera.keysRight = [ 37 ];
+            arcRotateCamera.lowerAlphaLimit  = null;
+            arcRotateCamera.upperAlphaLimit  = null;
 
-            return camera;
+            arcRotateCamera.lowerBetaLimit   = null;
+            arcRotateCamera.upperBetaLimit   = null;
+
+            arcRotateCamera.keysUp    = [ 40 ];
+            arcRotateCamera.keysDown  = [ 38 ];
+            arcRotateCamera.keysLeft  = [ 39 ];
+            arcRotateCamera.keysRight = [ 37 ];
+
+            return arcRotateCamera;
         }
 
         /** ************************************************************************************************************
