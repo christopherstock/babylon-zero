@@ -42,10 +42,10 @@
             freeCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
             freeCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
 
-            freeCamera.keysUp.push(    38 );
-            freeCamera.keysDown.push(  40 );
-            freeCamera.keysLeft.push(  37 );
-            freeCamera.keysRight.push( 39 );
+            freeCamera.keysUp    = [ 38 ];
+            freeCamera.keysDown  = [ 40 ];
+            freeCamera.keysLeft  = [ 37 ];
+            freeCamera.keysRight = [ 39 ];
 
             return freeCamera;
         }
@@ -139,7 +139,7 @@
         )
         : BABYLON.ArcRotateCamera
         {
-            let camera:BABYLON.ArcRotateCamera = new BABYLON.ArcRotateCamera
+            const camera:BABYLON.ArcRotateCamera = new BABYLON.ArcRotateCamera
             (
                 bz.CameraFactory.getNextCameraId(),
                 bz.MathUtil.degreesToRad( rotY ),
@@ -151,6 +151,11 @@
 
             camera.lowerRadiusLimit = lowerRadiusLimit;
             camera.upperRadiusLimit = upperRadiusLimit;
+
+            camera.keysUp    = [ 40 ];
+            camera.keysDown  = [ 38 ];
+            camera.keysLeft  = [ 39 ];
+            camera.keysRight = [ 37 ];
 
             return camera;
         }
