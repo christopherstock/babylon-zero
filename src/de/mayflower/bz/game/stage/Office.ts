@@ -15,8 +15,9 @@
         {
             super
             (
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                scene
+                scene,
+                bz.SettingGame.COLOR_WHITE,
+                bz.SettingGame.COLOR_WHITE_OPAQUE_RGBA
             );
         }
 

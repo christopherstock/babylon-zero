@@ -12,6 +12,8 @@
         protected           readonly        scene                   :BABYLON.Scene                          = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
+        /** The clear color of this stage is the background color of all mesh materials. */
+        protected           readonly        clearColor              :BABYLON.Color4                         = null;
 
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -47,17 +49,20 @@
         /** ************************************************************************************************************
         *   Creates a new custom stage.
         *
-        *   @param ambientColor The ambient color of the stage is the emissive color for all faces.
         *   @param scene        The babylon.JS scene reference.
+        *   @param ambientColor The ambient color of the stage is the emissive color for all faces.
+        *   @param clearColor   The clear color of the stage is the background color of the scene.
         ***************************************************************************************************************/
         protected constructor
         (
+            scene        :BABYLON.Scene,
             ambientColor :BABYLON.Color3,
-            scene        :BABYLON.Scene
+            clearColor   :BABYLON.Color4
         )
         {
-            this.ambientColor = ambientColor;
             this.scene        = scene;
+            this.ambientColor = ambientColor;
+            this.clearColor   = clearColor;
         }
 
         /** ************************************************************************************************************
@@ -66,7 +71,7 @@
         public init() : void
         {
             this.scene.ambientColor = this.ambientColor;
-
+            this.scene.clearColor   = this.clearColor;
             this.player             = this.createPlayer();
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )

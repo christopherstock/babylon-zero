@@ -24,7 +24,7 @@
                 new BABYLON.CannonJSPlugin( true, 30 )
             );
 
-            // set scene bg color
+            // set default scene clear color
             this.babylonScene.clearColor = bz.SettingGame.COLOR_BLACK_OPAQUE_RGBA;
 
             // enable debug collisions for free debug camera

@@ -94,8 +94,9 @@
         {
             super
             (
+                scene,
                 bz.SettingGame.COLOR_GREY_QUARTER,
-                scene
+                new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 )
             );
         }
 

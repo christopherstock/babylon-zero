@@ -14,7 +14,6 @@
     *   TODO Create radio buttons instead of checkboxes!
     *
     *   TODO Solve different text sizes that keep constant size??
-    *   TODO Try white bg?
     *
     *   TODO GUI for switching color/material of visir / helmet.
     *   TODO Alter helmet visir color / material on button press.
@@ -55,6 +54,8 @@
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
     *   TODO Preload all textures?
+    *
+    *   TODO Add Bg color for checkboxes!
     *
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO Move all body volume calculations to MathUtil functions.
