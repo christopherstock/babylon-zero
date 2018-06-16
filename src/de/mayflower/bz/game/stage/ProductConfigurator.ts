@@ -61,6 +61,8 @@
         private     static  readonly    GUI_COLOR_BG            :string                     = 'rgba( 75, 75, 75, 0.5 )';
         /** The text color for the GUI. */
         private     static  readonly    GUI_COLOR_TEXT          :string                     = '#ffffff';
+        /** The text shadow color for the GUI. */
+        private     static  readonly    GUI_COLOR_TEXT_SHADOW   :string                     = '#000000';
         /** The border color for the GUI. */
         private     static  readonly    GUI_COLOR_BORDER        :string                     = '#c9c9c9';
 
@@ -325,6 +327,7 @@
             (
                 '3D Product',
                 ProductConfigurator.GUI_COLOR_TEXT,
+                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
                 160,
                 50,
                 250,
@@ -335,6 +338,7 @@
             (
                 'Configurator',
                 ProductConfigurator.GUI_COLOR_TEXT,
+                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
                 160,
                 80,
                 250,
@@ -345,6 +349,7 @@
             (
                 'v.0.4.1, MVP',
                 ProductConfigurator.GUI_COLOR_TEXT,
+                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
                 160,
                 110,
                 250,
@@ -367,6 +372,7 @@
             (
                 'Color Visor',
                 ProductConfigurator.GUI_COLOR_TEXT,
+                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
                 50,
                 170,
                 300,
@@ -406,6 +412,7 @@
                 (
                     ProductConfigurator.VISOR_COLOR_NAMES[ i ],
                     colorCss,
+                    null,
                     80,
                     203 + ( i * 30 ),
                     300,
@@ -429,6 +436,7 @@
             (
                 'Color Helmet',
                 ProductConfigurator.GUI_COLOR_TEXT,
+                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
                 50,
                 340,
                 300,
@@ -468,6 +476,7 @@
                 (
                     ProductConfigurator.HELMET_COLOR_NAMES[ i ],
                     colorCss,
+                    null,
                     80,
                     373 + ( i * 30 ),
                     300,
@@ -491,6 +500,7 @@
             (
                 'Zoom',
                 ProductConfigurator.GUI_COLOR_TEXT,
+                ProductConfigurator.GUI_COLOR_TEXT_SHADOW,
                 50,
                 510,
                 250,
@@ -511,7 +521,7 @@
                 20,
                 ( value:number ) =>
                 {
-                    bz.Debug.gui.log( 'slider changed to [' + value + ']' );
+                    // bz.Debug.gui.log( 'slider changed to [' + value + ']' );
 
                     // this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - Math.floor( value ) );
                     this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - value );

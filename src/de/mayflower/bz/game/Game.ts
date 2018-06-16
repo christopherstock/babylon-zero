@@ -72,6 +72,17 @@
         ***************************************************************************************************************/
         public handleMenuKeys() : void
         {
+            if ( bz.SettingDebug.ENABLE_MENU_DEBUG_KEYS )
+            {
+                this.handleDebugMenuKeys()
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Handles all debug keys in the menu state.
+        ***************************************************************************************************************/
+        private handleDebugMenuKeys() : void
+        {
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_F1 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_F1 );

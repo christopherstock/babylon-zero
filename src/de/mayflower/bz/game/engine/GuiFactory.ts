@@ -83,23 +83,25 @@
         /** ************************************************************************************************************
         *   Creates a text block for the GUI.
         *
-        *   @param text   The text to set into the block.
-        *   @param color  A css value for the text color.
-        *   @param x      Position of the left edge.
-        *   @param y      Position of the top edge.
-        *   @param width  The horizontal dimension.
-        *   @param height The vertical dimension.
+        *   @param text        The text to set into the block.
+        *   @param color       A css value for the text color.
+        *   @param shadowColor A css value for the text's shadow color.
+        *   @param x           Position of the left edge.
+        *   @param y           Position of the top edge.
+        *   @param width       The horizontal dimension.
+        *   @param height      The vertical dimension.
         *
         *   @return The specified text block.
         ***************************************************************************************************************/
         public static createTextBlock
         (
-            text   :string,
-            color  :string,
-            x      :number,
-            y      :number,
-            width  :number,
-            height :number
+            text        :string,
+            color       :string,
+            shadowColor :string,
+            x           :number,
+            y           :number,
+            width       :number,
+            height      :number
         )
         : BABYLON_GUI.TextBlock
         {
@@ -111,6 +113,14 @@
             textBlock.width  = width  + 'px';
             textBlock.height = height + 'px';
             textBlock.color  = color;
+
+            if ( shadowColor != null )
+            {
+                textBlock.shadowColor   = shadowColor;
+                textBlock.shadowBlur    = 0.0;
+                textBlock.shadowOffsetX = 1.0;
+                textBlock.shadowOffsetY = 1.0;
+            }
 
             textBlock.horizontalAlignment     = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             textBlock.verticalAlignment       = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;

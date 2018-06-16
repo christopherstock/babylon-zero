@@ -10,19 +10,12 @@
     *   3D Product Configurator - 2. Features
     *   =========================================
     *
-    *   TODO Craft useful UI-Components for the product configurator.
     *   TODO Create radio buttons instead of checkboxes!
-    *
     *   TODO Solve different text sizes that keep constant size??
-    *
-    *   TODO GUI for switching color/material of visir / helmet.
-    *   TODO Alter helmet visir color / material on button press.
-    *
+    *   TODO Try reflections and glossy fx for textures?
     *   TODO Search suitable 3D helmet model.
-    *   TODO Try reflections and glossy fx for textures.
     *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Improve Scene selection and cam selection (F1-F5, 1-5) and disable in LIVE mode.
     *
     *   TODO Auto rotate helmet if not being touched?
     *
@@ -77,6 +70,7 @@
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
+    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
