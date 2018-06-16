@@ -420,6 +420,7 @@
                 (
                     ( i === 0 ),
                     colorCss,
+                    ProductConfigurator.GUI_COLOR_BG,
                     50,
                     203 + ( i * 30 ),
                     20,
@@ -485,6 +486,7 @@
                 (
                     ( i === 0 ),
                     colorCss,
+                    ProductConfigurator.GUI_COLOR_BG,
                     50,
                     373 + ( i * 30 ),
                     20,

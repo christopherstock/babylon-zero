@@ -10,9 +10,10 @@
     *   3D Product Configurator - 1. Features
     *   =========================================
     *
+    *   TODO Create radio buttons instead of checkboxes!
+    *
     *   TODO Outsource to class ProductConfiguratorGui.
     *
-    *   TODO Create radio buttons instead of checkboxes!
     *   TODO Solve different text sizes that keep constant size??
     *   TODO Try reflections and glossy fx for textures?
     *   TODO Search suitable 3D helmet model.

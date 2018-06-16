@@ -228,19 +228,21 @@
         *   Creates a checkbox for the GUI.
         *
         *   @param isChecked Specifies if the checkbox is initially checked.
-        *   @param color     A css value for the color.
+        *   @param colorFg   A css value for the foreground color.
+        *   @param colorBg   A css value for the background color.
         *   @param x         Position of the left edge.
         *   @param y         Position of the top edge.
         *   @param width     The horizontal dimension.
         *   @param height    The vertical dimension.
-        *   @param onToggle  The callback to invoke when the checknox is toggled.
+        *   @param onToggle  The callback to invoke when the checkbox is toggled.
         *
         *   @return The specified checkbox.
         ***************************************************************************************************************/
         public static createCheckbox
         (
             isChecked :boolean,
-            color     :string,
+            colorFg   :string,
+            colorBg   :string,
             x         :number,
             y         :number,
             width     :number,
@@ -255,7 +257,8 @@
             );
 
             checkbox.isChecked  = isChecked;
-            checkbox.color      = color;
+            checkbox.color      = colorFg;
+            checkbox.background = colorBg;
             checkbox.left       = x;
             checkbox.top        = y;
             checkbox.width      = width  + 'px';
@@ -272,6 +275,62 @@
             );
 
             return checkbox;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a radiobutton for the GUI that is assigned to a selection group.
+        *
+        *   @param group     The name of the group this radio button belongs to.
+        *   @param isChecked Specifies if the radiobutton is initially checked.
+        *   @param colorFg   A css value for the foreground color.
+        *   @param colorBg   A css value for the background color.
+        *   @param x         Position of the left edge.
+        *   @param y         Position of the top edge.
+        *   @param width     The horizontal dimension.
+        *   @param height    The vertical dimension.
+        *   @param onClick  The callback to invoke when this radiobutton is clicked.
+        *
+        *   @return The specified radiobutton.
+        ***************************************************************************************************************/
+        public static createRadioButton
+        (
+            group     :string,
+            isChecked :boolean,
+            colorFg   :string,
+            colorBg   :string,
+            x         :number,
+            y         :number,
+            width     :number,
+            height    :number,
+            onClick  :() => void
+        )
+        : BABYLON_GUI.RadioButton
+        {
+            const radioButton:BABYLON_GUI.RadioButton = new BABYLON_GUI.RadioButton
+            (
+                GuiFactory.createNextGuiId()
+            );
+
+            radioButton.group      = group;
+            radioButton.isChecked  = isChecked;
+            radioButton.color      = colorFg;
+            radioButton.background = colorBg;
+            radioButton.left       = x;
+            radioButton.top        = y;
+            radioButton.width      = width  + 'px';
+            radioButton.height     = height + 'px';
+
+            radioButton.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            radioButton.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+
+            radioButton.onPointerClickObservable.add
+            (
+                () => {
+                    onClick();
+                }
+            );
+
+            return radioButton;
         }
 
         /** ************************************************************************************************************
