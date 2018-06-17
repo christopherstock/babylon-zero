@@ -199,7 +199,7 @@
             // import mesh model
             this.model = bz.MeshFactory.createImportedMesh
             (
-                bz.MeshImport.HELMET,
+                bz.MeshImport.KNIGHT_HELMET,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene
             );
