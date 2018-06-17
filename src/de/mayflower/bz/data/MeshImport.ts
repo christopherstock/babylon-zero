@@ -25,7 +25,7 @@
             MeshImport.SHELVES,
             MeshImport.SKULL,
             MeshImport.MF_LOGO,
-            MeshImport.KNIGHT_HELMET,
+            // MeshImport.KNIGHT_HELMET,
             MeshImport.MOTORCYCLE_HELMET,
         ];
     }

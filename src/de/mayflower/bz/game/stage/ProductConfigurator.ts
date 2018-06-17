@@ -199,7 +199,7 @@
             // import mesh model
             this.model = bz.MeshFactory.createImportedMesh
             (
-                bz.MeshImport.KNIGHT_HELMET,
+                bz.MeshImport.MOTORCYCLE_HELMET,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene
             );
@@ -568,8 +568,8 @@
 
             this.cameraZoomSlider = bz.GuiFactory.createSlider
             (
-                100.0,
-                100.0,
+                175.0,
+                175.0,
                 400.0,
                 '#ed7304',
                 '#707070',

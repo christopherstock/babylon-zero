@@ -154,10 +154,10 @@
 
             arcRotateCamera.lowerAlphaLimit  = null;
             arcRotateCamera.upperAlphaLimit  = null;
-
+/*
             arcRotateCamera.lowerBetaLimit   = null;
             arcRotateCamera.upperBetaLimit   = null;
-
+*/
             arcRotateCamera.keysUp    = [ 40 ];
             arcRotateCamera.keysDown  = [ 38 ];
             arcRotateCamera.keysLeft  = [ 39 ];

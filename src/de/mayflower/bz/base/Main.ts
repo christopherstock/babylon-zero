@@ -10,9 +10,8 @@
     *   3D Product Configurator - 1. Features
     *   =========================================
     *
-    *   TODO Search suitable 3D helmet model.
+    *   TODO Solve nice color changes for motorcycle helmet.
     *   TODO Solve different text sizes that keep their constant size on canvas resize?
-    *   TODO Try reflections and glossy fx for textures?
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Auto rotate helmet if not being touched?
     *
