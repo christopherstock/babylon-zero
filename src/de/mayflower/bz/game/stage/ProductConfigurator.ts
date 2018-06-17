@@ -74,9 +74,9 @@
         private                         helmet                  :BABYLON.AbstractMesh       = null;
 
         /** All checkboxes that change the visor color. */
-        private                         visorColorCheckboxes    :BABYLON_GUI.Checkbox[]     = [];
+        private                         visorColorRadioButtons    :BABYLON_GUI.RadioButton[]  = [];
         /** All checkboxes that change the helmet color. */
-        private                         helmetColorCheckboxes   :BABYLON_GUI.Checkbox[]     = [];
+        private                         helmetColorRadioButtons   :BABYLON_GUI.RadioButton[]  = [];
 
         /** Referenced product presentation light. */
         private                         presentationLight       :BABYLON.Light              = null;
@@ -354,7 +354,8 @@
                 160,
                 50,
                 250,
-                25
+                25,
+                null
             );
             this.guiFg.addControl( titleRow1 );
             const titleRow2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
@@ -365,7 +366,8 @@
                 160,
                 80,
                 250,
-                25
+                25,
+                null
             );
             this.guiFg.addControl( titleRow2 );
             const titleRow3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
@@ -376,7 +378,8 @@
                 160,
                 110,
                 250,
-                25
+                25,
+                null
             );
             this.guiFg.addControl( titleRow3 );
 
@@ -400,7 +403,8 @@
                 50,
                 170,
                 300,
-                25
+                25,
+                null
             );
             this.guiFg.addControl( textColorChoserVisor );
 
@@ -416,22 +420,22 @@
                     + ( visorColor.b * 255 )
                     + ' )'
                 );
-                const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+                const radioButton:BABYLON_GUI.RadioButton = bz.GuiFactory.createRadioButton
                 (
-                    ( i === 0 ),
-                    colorCss,
+                    'visorColorSelect',
+                    'white',
                     ProductConfigurator.GUI_COLOR_BG,
                     50,
                     203 + ( i * 30 ),
                     20,
                     20,
-                    () => {
-                        bz.Debug.gui.log( 'Checkbox clicked' );
-                        this.clickVisorColorCheckbox( i );
+                    ( checked:boolean ) => {
+                        bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
+                        if ( checked ) this.checkVisorColorRadioButton( i );
                     }
                 );
-                this.visorColorCheckboxes.push( checkbox );
-                this.guiFg.addControl( checkbox );
+                this.visorColorRadioButtons.push( radioButton );
+                this.guiFg.addControl( radioButton );
 
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
                 (
@@ -441,10 +445,15 @@
                     80,
                     203 + ( i * 30 ),
                     300,
-                    20
+                    20,
+                    () => {
+                        bz.Debug.gui.log( 'text clicked! [' + i + ' ]' );
+                        radioButton.isChecked = true;
+                    }
                 );
                 this.guiFg.addControl( colorCaption );
             }
+            this.visorColorRadioButtons[ 0 ].isChecked = true;
 
             const line2:BABYLON_GUI.Line = bz.GuiFactory.createLine
             (
@@ -466,38 +475,39 @@
                 50,
                 340,
                 300,
-                25
+                25,
+                null
             );
             this.guiFg.addControl( textColorChoserHelmet );
 
             for ( let i:number = 0; i < ProductConfigurator.HELMET_COLORS.length; ++i )
             {
-                const visorColor :BABYLON.Color3 = ProductConfigurator.HELMET_COLORS[ i ];
+                const helmetColor :BABYLON.Color3 = ProductConfigurator.HELMET_COLORS[ i ];
                 const colorCss   :string         = (
                     'rgb( '
-                    + ( visorColor.r * 255 )
+                    + ( helmetColor.r * 255 )
                     + ', '
-                    + ( visorColor.g * 255 )
+                    + ( helmetColor.g * 255 )
                     + ', '
-                    + ( visorColor.b * 255 )
+                    + ( helmetColor.b * 255 )
                     + ' )'
                 );
-                const checkbox:BABYLON_GUI.Checkbox = bz.GuiFactory.createCheckbox
+                const radioButton:BABYLON_GUI.RadioButton = bz.GuiFactory.createRadioButton
                 (
-                    ( i === 0 ),
-                    colorCss,
+                    'helmetColorSelect',
+                    'white',
                     ProductConfigurator.GUI_COLOR_BG,
                     50,
                     373 + ( i * 30 ),
                     20,
                     20,
-                    () => {
-                        bz.Debug.gui.log( 'Checkbox clicked' );
-                        this.clickHelmetColorCheckbox( i );
+                    ( checked:boolean ) => {
+                        bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
+                        if ( checked ) this.checkHelmetColorRadioButton( i );
                     }
                 );
-                this.helmetColorCheckboxes.push( checkbox );
-                this.guiFg.addControl( checkbox );
+                this.helmetColorRadioButtons.push( radioButton );
+                this.guiFg.addControl( radioButton );
 
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
                 (
@@ -507,10 +517,15 @@
                     80,
                     373 + ( i * 30 ),
                     300,
-                    20
+                    20,
+                    () => {
+                        bz.Debug.gui.log( 'text clicked! [' + i + ' ]' );
+                        radioButton.isChecked = true;
+                    }
                 );
                 this.guiFg.addControl( colorCaption );
             }
+            this.helmetColorRadioButtons[ 0 ].isChecked = true;
 
             const line3:BABYLON_GUI.Line = bz.GuiFactory.createLine
             (
@@ -532,7 +547,8 @@
                 50,
                 510,
                 250,
-                25
+                25,
+                null
             );
             this.guiFg.addControl( textCameraZoom );
 
@@ -657,7 +673,7 @@
         *
         *   @param newText The text to set as the button's caption.
         ***************************************************************************************************************/
-        private setVisorToggleButtonText( newText: string ) : void
+        private setVisorToggleButtonText( newText:string ) : void
         {
             const textName  :string                = this.visorToggleButton.name + '_button';
             const textBlock :BABYLON.GUI.TextBlock = this.visorToggleButton.getChildByType
@@ -674,18 +690,9 @@
         *
         *   @param checkboxId The ID of the visir color checkbox being clicked.
         ***************************************************************************************************************/
-        private clickVisorColorCheckbox( checkboxId:number ) : void
+        private checkVisorColorRadioButton( checkboxId:number ) : void
         {
-            bz.Debug.gui.log( 'Visor color change checkbox [' + checkboxId + ']' );
-
-            // disable all other checkboxes
-            for ( let i:number = 0; i < ProductConfigurator.VISOR_COLORS.length; ++i )
-            {
-                this.visorColorCheckboxes[ i ].isChecked = false;
-            }
-
-            // check selected checkbox
-            this.visorColorCheckboxes[ checkboxId ].isChecked = true;
+            bz.Debug.gui.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
 
             // change visor color
             this.requestVisorColorChange( ProductConfigurator.VISOR_COLORS[ checkboxId ] );
@@ -707,18 +714,9 @@
         *
         *   @param checkboxId The ID of the helmet color checkbox being clicked.
         ***************************************************************************************************************/
-        private clickHelmetColorCheckbox( checkboxId:number ) : void
+        private checkHelmetColorRadioButton( checkboxId:number ) : void
         {
-            bz.Debug.gui.log( 'Helmet color change checkbox [' + checkboxId + ']' );
-
-            // disable all other checkboxes
-            for ( let i:number = 0; i < ProductConfigurator.HELMET_COLORS.length; ++i )
-            {
-                this.helmetColorCheckboxes[ i ].isChecked = false;
-            }
-
-            // check selected checkbox
-            this.helmetColorCheckboxes[ checkboxId ].isChecked = true;
+            bz.Debug.gui.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
 
             // change helmet color
             this.requestHelmetColorChange( ProductConfigurator.HELMET_COLORS[ checkboxId ] );

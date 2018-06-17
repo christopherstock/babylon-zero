@@ -26,7 +26,9 @@
     *   =========================================
     *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
+    *   TODO Move Product configurator to separate subpackage and HelmetState to separate class.
     *   TODO Move level stages and presentation stages to separate subpackages.
+    *   TODO Improve label assignment for GUI button?
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *

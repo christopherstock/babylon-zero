@@ -83,25 +83,27 @@
         /** ************************************************************************************************************
         *   Creates a text block for the GUI.
         *
-        *   @param text        The text to set into the block.
-        *   @param color       A css value for the text color.
-        *   @param shadowColor A css value for the text's shadow color.
-        *   @param x           Position of the left edge.
-        *   @param y           Position of the top edge.
-        *   @param width       The horizontal dimension.
-        *   @param height      The vertical dimension.
+        *   @param text          The text to set into the block.
+        *   @param color         A css value for the text color.
+        *   @param shadowColor   A css value for the text's shadow color.
+        *   @param x             Position of the left edge.
+        *   @param y             Position of the top edge.
+        *   @param width         The horizontal dimension.
+        *   @param height        The vertical dimension.
+        *   @param onPointerDown A callback to invoke when the pointer is down.
         *
         *   @return The specified text block.
         ***************************************************************************************************************/
         public static createTextBlock
         (
-            text        :string,
-            color       :string,
-            shadowColor :string,
-            x           :number,
-            y           :number,
-            width       :number,
-            height      :number
+            text          :string,
+            color         :string,
+            shadowColor   :string,
+            x             :number,
+            y             :number,
+            width         :number,
+            height        :number,
+            onPointerDown :() => void
         )
         : BABYLON_GUI.TextBlock
         {
@@ -126,6 +128,16 @@
             textBlock.verticalAlignment       = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
             textBlock.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             textBlock.textVerticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+
+            if ( onPointerDown )
+            {
+                textBlock.onPointerDownObservable.add
+                (
+                    () => {
+                        onPointerDown();
+                    }
+                );
+            }
 
             return textBlock;
         }
@@ -281,28 +293,26 @@
         *   Creates a radiobutton for the GUI that is assigned to a selection group.
         *
         *   @param group     The name of the group this radio button belongs to.
-        *   @param isChecked Specifies if the radiobutton is initially checked.
         *   @param colorFg   A css value for the foreground color.
         *   @param colorBg   A css value for the background color.
         *   @param x         Position of the left edge.
         *   @param y         Position of the top edge.
         *   @param width     The horizontal dimension.
         *   @param height    The vertical dimension.
-        *   @param onClick  The callback to invoke when this radiobutton is clicked.
+        *   @param onCheck  The callback to invoke when this radiobutton is checked.
         *
         *   @return The specified radiobutton.
         ***************************************************************************************************************/
         public static createRadioButton
         (
             group     :string,
-            isChecked :boolean,
             colorFg   :string,
             colorBg   :string,
             x         :number,
             y         :number,
             width     :number,
             height    :number,
-            onClick  :() => void
+            onCheck   :( checked:boolean ) => void
         )
         : BABYLON_GUI.RadioButton
         {
@@ -312,7 +322,6 @@
             );
 
             radioButton.group      = group;
-            radioButton.isChecked  = isChecked;
             radioButton.color      = colorFg;
             radioButton.background = colorBg;
             radioButton.left       = x;
@@ -323,10 +332,10 @@
             radioButton.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             radioButton.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
 
-            radioButton.onPointerClickObservable.add
+            radioButton.onIsCheckedChangedObservable.add
             (
-                () => {
-                    onClick();
+                ( checked:boolean ) => {
+                    onCheck( checked );
                 }
             );
 
