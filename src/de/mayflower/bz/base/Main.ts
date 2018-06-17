@@ -10,25 +10,21 @@
     *   3D Product Configurator - 1. Features
     *   =========================================
     *
-    *   TODO Create radio buttons instead of checkboxes!
-    *
-    *   TODO Outsource to class ProductConfiguratorGui.
-    *
-    *   TODO Solve different text sizes that keep constant size??
-    *   TODO Try reflections and glossy fx for textures?
     *   TODO Search suitable 3D helmet model.
-    *
+    *   TODO Solve different text sizes that keep their constant size on canvas resize?
+    *   TODO Try reflections and glossy fx for textures?
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *
     *   TODO Auto rotate helmet if not being touched?
     *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
     *
+    *   TODO Outsource to class ProductConfiguratorGui.
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move Product configurator to separate subpackage and HelmetState to separate class.
     *   TODO Move level stages and presentation stages to separate subpackages.
     *   TODO Improve label assignment for GUI button?
+    *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *

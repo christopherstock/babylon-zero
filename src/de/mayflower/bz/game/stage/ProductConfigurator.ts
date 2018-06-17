@@ -431,7 +431,14 @@
                     20,
                     ( checked:boolean ) => {
                         bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
-                        if ( checked ) this.checkVisorColorRadioButton( i );
+                        if ( checked )
+                        {
+                            this.checkVisorColorRadioButton( i );
+                        }
+                        else
+                        {
+                            this.checkRadioButtonIfAllAreUnchecked( this.visorColorRadioButtons, i );
+                        }
                     }
                 );
                 this.visorColorRadioButtons.push( radioButton );
@@ -503,7 +510,14 @@
                     20,
                     ( checked:boolean ) => {
                         bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
-                        if ( checked ) this.checkHelmetColorRadioButton( i );
+                        if ( checked )
+                        {
+                            this.checkHelmetColorRadioButton( i );
+                        }
+                        else
+                        {
+                            this.checkRadioButtonIfAllAreUnchecked( this.helmetColorRadioButtons, i );
+                        }
                     }
                 );
                 this.helmetColorRadioButtons.push( radioButton );
@@ -741,5 +755,27 @@
             const material:BABYLON.StandardMaterial = subMaterial as BABYLON.StandardMaterial;
 
             material.diffuseColor  = color;
+        }
+
+        /** ************************************************************************************************************
+        *   This is a workaround because babylon.JS allows unselection of the selected radio button in a group.
+        *
+        *   @param radioButtons All radio buttons of the radio button group.
+        *   @param index        The index of the radio button in the group to check if all buttons are unchecked.
+        ***************************************************************************************************************/
+        private checkRadioButtonIfAllAreUnchecked( radioButtons:BABYLON_GUI.RadioButton[], index:number ) : void
+        {
+            let allRadioButtonsUnchecked:boolean = true;
+            for ( const radioButton of radioButtons )
+            {
+                if ( radioButton.isChecked ) allRadioButtonsUnchecked = false;
+            }
+
+            // check if all buttons are unchecked
+            if ( allRadioButtonsUnchecked )
+            {
+                // check the specified button again
+                radioButtons[ index ].isChecked = true;
+            }
         }
     }
