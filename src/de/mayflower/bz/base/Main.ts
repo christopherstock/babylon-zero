@@ -14,7 +14,6 @@
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Auto rotate helmet if not being touched?
     *   TODO Try 3D GUI ( requires babylon.JS 3.3 )
-    *   TODO White shadows for dark color texts.
     *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================

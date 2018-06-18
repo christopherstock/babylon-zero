@@ -31,6 +31,14 @@
             new BABYLON.Color3( 0.65,   0.65,   0.65   ),
             new BABYLON.Color3( 0.33,   0.33,   0.33   ),
         ];
+        /** The colors for the visor text shadows. */
+        private     static  readonly    VISOR_COLOR_SHADOWS     :string[]                   =
+        [
+            '#ffffff',
+            '#000000',
+            '#000000',
+            '#ffffff',
+        ];
         /** The color names for the visor. */
         private     static  readonly    VISOR_COLOR_NAMES       :string[]                   =
         [
@@ -47,6 +55,14 @@
             new BABYLON.Color3( 1.0,    1.0,    1.0    ),
             new BABYLON.Color3( 0.85,   0.4,    0.0    ),
             new BABYLON.Color3( 0.8,    0.15,   0.15   ),
+        ];
+        /** The colors for the helmet text shadows. */
+        private     static  readonly    HELMET_COLOR_SHADOWS    :string[]                   =
+        [
+            '#ffffff',
+            '#000000',
+            '#ffffff',
+            '#ffffff',
         ];
         /** The color names for the helmet. */
         private     static  readonly    HELMET_COLOR_NAMES      :string[]                   =
@@ -448,7 +464,7 @@
                 (
                     ProductConfigurator.VISOR_COLOR_NAMES[ i ],
                     colorCss,
-                    ProductConfigurator.GUI_COLOR_SHADOW,
+                    ProductConfigurator.VISOR_COLOR_SHADOWS[ i ],
                     80,
                     203 + ( i * 30 ),
                     300,
@@ -527,7 +543,7 @@
                 (
                     ProductConfigurator.HELMET_COLOR_NAMES[ i ],
                     colorCss,
-                    ProductConfigurator.GUI_COLOR_SHADOW,
+                    ProductConfigurator.HELMET_COLOR_SHADOWS[ i ],
                     80,
                     373 + ( i * 30 ),
                     300,
