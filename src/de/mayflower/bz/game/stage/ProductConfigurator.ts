@@ -26,35 +26,35 @@
         /** The colors for the visor. */
         private     static  readonly    VISOR_COLORS            :BABYLON.Color3[]           =
         [
-            new BABYLON.Color3( 0.9647, 0.8235, 0.4392  ),
-            new BABYLON.Color3( 1.0,    1.0,    1.0     ),
-            new BABYLON.Color3( 0.85,   0.4,    0.0     ),
-            new BABYLON.Color3( 0.8,    0.15,   0.15    ),
+            new BABYLON.Color3( 0.3,    0.4,    0.3    ),
+            new BABYLON.Color3( 0.9647, 0.8235, 0.4392 ),
+            new BABYLON.Color3( 0.65,   0.65,   0.65   ),
+            new BABYLON.Color3( 0.33,   0.33,   0.33   ),
         ];
         /** The color names for the visor. */
         private     static  readonly    VISOR_COLOR_NAMES       :string[]                   =
         [
+            'Verde Granturismo',
             'Pearl Beige',
-            'Giallo Granturismo',
-            'Arancio Trionfale',
-            'Rosso Corallo',
+            'Grigio Touring Metallic',
+            'Grigio Granito',
         ];
 
         /** The colors for the helmet. */
         private     static  readonly    HELMET_COLORS           :BABYLON.Color3[]           =
         [
-            new BABYLON.Color3( 0.4392, 0.4392, 0.4392  ),
-            new BABYLON.Color3( 0.65,   0.65,   0.65    ),
-            new BABYLON.Color3( 1.0,    1.0,    1.0     ),
-            new BABYLON.Color3( 0.33,   0.33,   0.33    ),
+            new BABYLON.Color3( 0.4392, 0.4392, 0.4392 ),
+            new BABYLON.Color3( 1.0,    1.0,    1.0    ),
+            new BABYLON.Color3( 0.85,   0.4,    0.0    ),
+            new BABYLON.Color3( 0.8,    0.15,   0.15   ),
         ];
         /** The color names for the helmet. */
         private     static  readonly    HELMET_COLOR_NAMES      :string[]                   =
         [
             'Grigio Titanio',
-            'Grigio Touring Metallic',
             'Bianco Eldorado',
-            'Grigio Granito',
+            'Arancio Trionfale',
+            'Rosso Corallo',
         ];
 
         /** The bg color for the GUI. */
@@ -713,17 +713,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Changes the visir color.
-        *
-        *   @param color The color to set as the visor color.
-        ***************************************************************************************************************/
-        private requestVisorColorChange( color:BABYLON.Color3 ) : void
-        {
-            const visorMaterial:BABYLON.StandardMaterial = this.visor.material as BABYLON.StandardMaterial;
-            visorMaterial.diffuseColor = color;
-        }
-
-        /** ************************************************************************************************************
         *   Being invoked when a helmet color checkbox is clicked.
         *
         *   @param checkboxId The ID of the helmet color checkbox being clicked.
@@ -734,27 +723,6 @@
 
             // change helmet color
             this.requestHelmetColorChange( ProductConfigurator.HELMET_COLORS[ checkboxId ] );
-        }
-
-        /** ************************************************************************************************************
-        *   Changes the helmet color.
-        *
-        *   @param color The color to set as the helmet color.
-        ***************************************************************************************************************/
-        private requestHelmetColorChange( color:BABYLON.Color3 ) : void
-        {
-            bz.Debug.pc.log( 'Change helmet color' );
-
-            const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
-            const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
-
-            bz.Debug.pc.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
-
-            // pick 1st helmet submaterial for knight helmet
-            const subMaterial:BABYLON.Material = subMaterials[ 0 ];
-            const material:BABYLON.StandardMaterial = subMaterial as BABYLON.StandardMaterial;
-
-            material.diffuseColor  = color;
         }
 
         /** ************************************************************************************************************
@@ -777,5 +745,49 @@
                 // check the specified button again
                 radioButtons[ index ].isChecked = true;
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Changes the visir color.
+        *
+        *   @param color The color to set as the visor color.
+        ***************************************************************************************************************/
+        private requestVisorColorChange( color:BABYLON.Color3 ) : void
+        {
+            bz.Debug.pc.log( 'Change visor color' );
+
+            const visorMultiMaterial:BABYLON.MultiMaterial = this.visor.material as BABYLON.MultiMaterial;
+            const subMaterials:BABYLON.Material[] = visorMultiMaterial.subMaterials;
+
+            bz.Debug.pc.log( 'Sub-Materials of visor: [' + subMaterials.length + ']' );
+
+            // pick 1st submaterial
+            const visorMaterial:BABYLON.StandardMaterial = subMaterials[ 16 ] as BABYLON.StandardMaterial;
+
+            visorMaterial.diffuseColor  = color;
+        }
+
+        /** ************************************************************************************************************
+        *   Changes the helmet color.
+        *
+        *   @param color The color to set as the helmet color.
+        ***************************************************************************************************************/
+        private requestHelmetColorChange( color:BABYLON.Color3 ) : void
+        {
+            bz.Debug.pc.log( 'Change helmet color' );
+
+            const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
+            const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
+
+            bz.Debug.pc.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
+
+            // pick affected submaterials
+            const stripeMaterial :BABYLON.StandardMaterial = subMaterials[ 0 ] as BABYLON.StandardMaterial;
+            const frontMaterial  :BABYLON.StandardMaterial = subMaterials[ 1 ] as BABYLON.StandardMaterial;
+            const helmetMaterial :BABYLON.StandardMaterial = subMaterials[ 8 ] as BABYLON.StandardMaterial;
+
+            stripeMaterial.diffuseColor = color;
+            frontMaterial.diffuseColor  = color;
+            helmetMaterial.diffuseColor = color;
         }
     }
