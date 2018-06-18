@@ -636,6 +636,7 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
+            // link arc rotate camera zoom to slider
             this.cameraSystem.arcRotateCamera.onViewMatrixChangedObservable.add(
                 () => {
 
@@ -648,6 +649,9 @@
 
                 }
             );
+
+            // enable auto rotation for arc rotate camera
+            this.cameraSystem.arcRotateCamera.useAutoRotationBehavior = true;
         }
 
         /** ************************************************************************************************************

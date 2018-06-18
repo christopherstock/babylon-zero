@@ -12,7 +12,7 @@
     *
     *   TODO Solve different text sizes that keep their constant size on canvas resize?
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Auto rotate helmet if not being touched?
+    *
     *   TODO Try 3D GUI ( requires babylon.JS 3.3 )
     *
     *   3D Product Configurator - 2. Refactorings
@@ -22,7 +22,7 @@
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move Product configurator to separate subpackage and HelmetState to separate class.
     *   TODO Move level stages and presentation stages to separate subpackages.
-    *   TODO Improve label assignment for GUI button?
+    *   TODO Improve label (re-)assignment for GUI button?
     *   TODO Radio-Unselect-Workaround-Method to GuiFactory.
     *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
