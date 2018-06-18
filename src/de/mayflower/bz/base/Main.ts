@@ -10,10 +10,7 @@
     *   3D Product Configurator - 1. Features
     *   =========================================
     *
-    *   TODO Solve different text sizes that keep their constant size on canvas resize?
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *
-    *   TODO Try 3D GUI ( requires babylon.JS 3.3 )
+    *   TODO Try 3D GUI ( requires babylon.JS 3.3 (?) )
     *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
@@ -44,6 +41,7 @@
     *   TODO MeshImportSystem > ModelImportSystem
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
@@ -61,6 +59,7 @@
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
+    *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
