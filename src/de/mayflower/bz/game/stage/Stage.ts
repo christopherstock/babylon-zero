@@ -8,6 +8,11 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
+        /** The fullscreen gui in foreground. */
+        public                              guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+        /** The fullscreen gui in background. */
+        protected                           guiBg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
@@ -40,11 +45,6 @@
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
-
-        /** The fullscreen gui in foreground. */
-        protected                           guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
-        /** The fullscreen gui in background. */
-        protected                           guiBg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.

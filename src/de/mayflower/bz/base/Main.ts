@@ -6,16 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   =========================================
-    *   3D Product Configurator - 1. Features
-    *   =========================================
-    *
-    *   TODO Try 3D GUI ( requires babylon.JS 3.3 (?) )
-    *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
-    *
-    *   TODO Outsource to class ProductConfiguratorGui.
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move Product configurator to separate subpackage and HelmetState to separate class.
     *   TODO Move level stages and presentation stages to separate subpackages.
@@ -24,15 +16,6 @@
     *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
-    *
-    *   3D Product Configurator - 3. Testing
-    *   =========================================
-    *   TODO Test all features and performance in all browsers.
-    *   TODO Complete the MVP of the Product Configurator
-    *
-    *   3D Product Configurator - 4. Outlook
-    *   =========================================
-    *   TODO Check 3D model creation from photos?
     *   =========================================
     *
     *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
@@ -46,8 +29,6 @@
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Enable rotation for all meshes (walls, items) etc.!
     *   TODO Preload all textures?
-    *
-    *   TODO Add Bg color for checkboxes!
     *
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO Move all body volume calculations to MathUtil functions.
@@ -80,6 +61,7 @@
     *   TODO Try PostProcess (camera.setPostProcess ?)
     *   TODO Create material system with unified parameters!
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
+    *   TODO Check 3D model creation from photos ( for 3D product configurator )?
     *   TODO Increase performance in chrome?
     *   TODO Rotating texture UVs for certain box sides? (may be obsolete though importing meshes!)
     *   TODO Try fog or smoke?
@@ -88,6 +70,7 @@
     *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
     *   TODO Create debug console on-screen?
     *   TODO Try video textures!
+    *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
     *   TODO Create main menu where player can reset stage etc.
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
