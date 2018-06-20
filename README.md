@@ -1,4 +1,4 @@
-![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSETS/promo/promoBadge2_1009x560.gif)
+![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSETS/promo/promoBadge5_1009x524.jpg)
 A babylon.JS joyride.
 
 ## 1. Install all Node.js packages
