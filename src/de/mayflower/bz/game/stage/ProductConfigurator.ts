@@ -103,6 +103,9 @@
         /** A reference to the camera zoom slider. */
         private                         cameraZoomSlider        :BABYLON_GUI.Slider         = null;
 
+        /** All GUI dependent components reside here. */
+        private                         gui                     :bz.ProductConfiguratorGui  = null;
+
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
@@ -319,6 +322,8 @@
         protected createGuis() : void
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
+
+            this.gui = new bz.ProductConfiguratorGui();
 
             const rectangleOuter:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
             (
