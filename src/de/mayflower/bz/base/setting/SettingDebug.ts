@@ -6,7 +6,7 @@
     export class SettingDebug
     {
         /** The global switch for the debug mode. */
-        public      static      DEBUG_MODE                                  :boolean            = false;
+        public      static      DEBUG_MODE                                  :boolean            = true;
 
         /** Disables all sounds. */
         public      static      DISABLE_SOUND                               :boolean            = ( true && SettingDebug.DEBUG_MODE );

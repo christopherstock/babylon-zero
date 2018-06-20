@@ -18,8 +18,8 @@
         public      static      readonly    stage               :Debug              = new Debug( true  );
         /** Debugs gui components. */
         public      static      readonly    gui                 :Debug              = new Debug( true  );
-        /** Debugs mesh importer system. */
-        public      static      readonly    meshImport          :Debug              = new Debug( true  );
+        /** Debugs model importer system. */
+        public      static      readonly    modelImport         :Debug              = new Debug( true  );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
         /** Debugs the product configurator app. */

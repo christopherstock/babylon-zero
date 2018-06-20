@@ -2,25 +2,25 @@
     import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   Imports all meshes from 3ds max.
+    *   Imports all .babylon model files from 3ds max.
     *******************************************************************************************************************/
-    export class MeshImportSystem
+    export class ModelImportSystem
     {
-        /** All mesh file names to load. */
+        /** All model file names to load. */
         private             readonly    fileNames                       :string[]                       = null;
-        /** The method to invoke when all meshes are loaded. */
+        /** The method to invoke when all model files are loaded. */
         private             readonly    onLoadComplete                  :()=>void                       = null;
 
-        /** The number of currently loaded meshes. */
-        private                         loadedMeshCount                 :number                         = 0;
+        /** The number of currently loaded model files. */
+        private                         loadedModelCount                :number                         = 0;
         /** All loaded mesh objects. */
         private                         meshes                          :BABYLON.AbstractMesh[][]       = [];
 
         /** ************************************************************************************************************
-        *   Preloads all images into memory.
+        *   Creates a new model import system.
         *
-        *   @param fileNames      The names of all image files to load.
-        *   @param onLoadComplete The method to invoke when all image files are loaded.
+        *   @param fileNames      The names of all model files to load.
+        *   @param onLoadComplete The method to invoke when all model files are loaded.
         ***************************************************************************************************************/
         public constructor( fileNames:string[], onLoadComplete:()=>void )
         {
@@ -29,24 +29,24 @@
         }
 
         /** ************************************************************************************************************
-        *   Loads all specified mesh files into system memory.
+        *   Loads all specified model files into system memory.
         ***************************************************************************************************************/
-        public loadMeshes( scene:BABYLON.Scene ) : void
+        public loadModels( scene:BABYLON.Scene ) : void
         {
-            bz.Debug.meshImport.log( 'Importing [' + this.fileNames.length + '] model files' );
+            bz.Debug.modelImport.log( 'Importing [' + this.fileNames.length + '] model files' );
 
             for ( const fileName of this.fileNames )
             {
-                // First parameter specifies the mesh name to import - an empty string will import all meshes.
                 BABYLON.SceneLoader.ImportMesh
                 (
+                    // first parameter specifies the name of the mesh to import - an empty string will import all meshes
                     '',
-                    bz.SettingEngine.PATH_MESH,
+                    bz.SettingEngine.PATH_MODEL,
                     fileName,
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 
-                        bz.Debug.meshImport.log( ' Imported [' + importedMeshes.length + '] meshes' );
+                        bz.Debug.modelImport.log( ' Imported [' + importedMeshes.length + '] meshes' );
 
                         // hide all meshes
                         for ( const importedMesh of importedMeshes )
@@ -58,16 +58,16 @@
                         this.meshes[ fileName ] = importedMeshes;
 
                         // notify load
-                        this.onLoadMesh();
+                        this.onLoadModel();
                     }
                 );
             }
         }
 
         /** ************************************************************************************************************
-        *   Returns the original mesh data of the specified imported mesh file.
+        *   Returns the original mesh data of the specified imported model file.
         *
-        *   @return The original mesh data of the specified imported mesh file.
+        *   @return The original mesh data of the given imported model file.
         ***************************************************************************************************************/
         public getOriginalMesh( fileName:string ) : BABYLON.AbstractMesh[]
         {
@@ -77,11 +77,11 @@
         /** ************************************************************************************************************
         *   Being invoked when one mesh was loaded completely.
         ***************************************************************************************************************/
-        private onLoadMesh=() : void =>
+        private onLoadModel=() : void =>
         {
-            if ( ++this.loadedMeshCount >= this.fileNames.length )
+            if ( ++this.loadedModelCount >= this.fileNames.length )
             {
-                bz.Debug.meshImport.log( 'All [' + this.fileNames.length + '] models loaded' );
+                bz.Debug.modelImport.log( 'All [' + this.fileNames.length + '] models loaded' );
 
                 this.onLoadComplete();
             }

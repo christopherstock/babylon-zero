@@ -128,7 +128,11 @@
                 case bz.HelmetState.CLOSED:
                 {
                     this.animationState = bz.HelmetState.OPENING;
-                    this.gui.setVisorToggleButtonText( 'Close Visor' );
+                    bz.GuiFactory.setVisorToggleButtonText
+                    (
+                        this.gui.visorToggleButton,
+                        'Close Visor'
+                    );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visor, 0, 20, false, 1.0, () => {
@@ -146,7 +150,11 @@
                 case bz.HelmetState.OPEN:
                 {
                     this.animationState = bz.HelmetState.CLOSING;
-                    this.gui.setVisorToggleButtonText( 'Open Visor' );
+                    bz.GuiFactory.setVisorToggleButtonText
+                    (
+                        this.gui.visorToggleButton,
+                        'Open Visor'
+                    );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visor, 20, 0, false, 1.0, () => {

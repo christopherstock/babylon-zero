@@ -29,7 +29,7 @@
     export * from './game/engine/material/MaterialSystem';
 
     export * from './game/engine/mesh/MeshFactory';
-    export * from './game/engine/mesh/MeshImportSystem';
+    export * from './game/engine/mesh/ModelImportSystem';
     export * from './game/engine/mesh/MeshManipulation';
     export * from './game/engine/mesh/MeshPivotAnchor';
 

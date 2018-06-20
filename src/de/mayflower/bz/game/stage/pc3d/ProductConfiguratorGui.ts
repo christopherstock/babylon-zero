@@ -69,13 +69,13 @@
 
         /** A reference to the camera zoom slider. */
         public                          cameraZoomSlider            :BABYLON_GUI.Slider         = null;
+        /** A reference to the toggle button to open and close the visor. */
+        public                          visorToggleButton           :BABYLON_GUI.Button         = null;
 
         /** All checkboxes that change the visor color. */
         private                         visorColorRadioButtons      :BABYLON_GUI.RadioButton[]  = [];
         /** All checkboxes that change the helmet color. */
         private                         helmetColorRadioButtons     :BABYLON_GUI.RadioButton[]  = [];
-        /** A reference to the toggle button to open and close the visor. */
-        private                         visorToggleButton           :BABYLON_GUI.Button         = null;
         /** A reference to the Product Configurator stage. */
         private                         parent                      :bz.ProductConfigurator     = null;
 
@@ -397,23 +397,6 @@
                 }
             );
             this.parent.guiFg.addControl( this.visorToggleButton );
-        }
-
-        /** ************************************************************************************************************
-        *   Sets a new caption for the button that toggles the visor.
-        *
-        *   @param newText The text to set as the button's caption.
-        ***************************************************************************************************************/
-        public setVisorToggleButtonText( newText:string ) : void
-        {
-            const textName  :string                = this.visorToggleButton.name + '_button';
-            const textBlock :BABYLON.GUI.TextBlock = this.visorToggleButton.getChildByType
-            (
-                textName,
-                'TextBlock'
-            ) as BABYLON.GUI.TextBlock;
-
-            textBlock.text = newText;
         }
 
         /** ************************************************************************************************************

@@ -6,17 +6,18 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO MeshImportSystem > ModelImportSystem
-    *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
+    *   TODO Improve label (re-)assignment for GUI button?
+    *
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
     *   TODO Move level stages and presentation stages to separate subpackages.
-    *   TODO Improve label (re-)assignment for GUI button?
+    *
     *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
     *   TODO Outsource all PC-GUI-CSS-colors to GamrSettings.
+    *   TODO Unify namings for all colors, RGB, RGBA, CSS.
     *   =========================================
     *
     *   TODO Improve Sprite-System handling and make it dynamic! (asset loading etc.).

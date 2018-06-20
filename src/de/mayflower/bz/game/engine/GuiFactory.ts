@@ -513,6 +513,24 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets a new caption for the button that toggles the visor.
+        *
+        *   @param button  The button to set a new text for.
+        *   @param newText The text to set as the button's caption.
+        ***************************************************************************************************************/
+        public static setVisorToggleButtonText( button:BABYLON_GUI.Button, newText:string ) : void
+        {
+            const textName  :string                = button.name + '_button';
+            const textBlock :BABYLON.GUI.TextBlock = button.getChildByType
+            (
+                textName,
+                'TextBlock'
+            ) as BABYLON.GUI.TextBlock;
+
+            textBlock.text = newText;
+        }
+
+        /** ************************************************************************************************************
         *   Returns the next id for a new gui component to create.
         *
         *   @return The next free unique id for a new gui component to create.

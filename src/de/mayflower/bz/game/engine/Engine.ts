@@ -15,7 +15,7 @@
         /** The sprite system. */
         public                      sprite                      :bz.Sprite                          = null;
         /** The mesh import system. */
-        public                      meshImporter                :bz.MeshImportSystem                = null;
+        public                      meshImporter                :bz.ModelImportSystem               = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;
         /** The pointer system. */
@@ -108,11 +108,11 @@
 
             // init mesh importer
             bz.Debug.init.log( 'Init mesh importer' );
-            this.meshImporter = new bz.MeshImportSystem
+            this.meshImporter = new bz.ModelImportSystem
             (
                 bz.MeshImport.ALL_MESH_FILES,
                 bz.Main.game.onInitGameEngineCompleted
             );
-            this.meshImporter.loadMeshes( this.scene.getScene() );
+            this.meshImporter.loadModels( this.scene.getScene() );
         }
     }
