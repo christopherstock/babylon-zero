@@ -6,22 +6,21 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO MeshImportSystem > ModelImportSystem
+    *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
-    *
     *   TODO Move level stages and presentation stages to separate subpackages.
-    *
     *   TODO Improve label (re-)assignment for GUI button?
     *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
+    *   TODO Outsource all PC-GUI-CSS-colors to GamrSettings.
     *   =========================================
     *
-    *   TODO Improve Sprite System handling and make it dynamic! (asset loading etc.).
-    *   TODO Create CSS colors in settings.
+    *   TODO Improve Sprite-System handling and make it dynamic! (asset loading etc.).
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
-    *   TODO MeshImportSystem > ModelImportSystem
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
