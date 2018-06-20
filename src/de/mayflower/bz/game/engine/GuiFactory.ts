@@ -491,6 +491,28 @@
         }
 
         /** ************************************************************************************************************
+        *   This is a workaround because babylon.JS allows unselection of the selected radio button in a group.
+        *
+        *   @param radioButtons All radio buttons of the radio button group.
+        *   @param index        The index of the radio button in the group to check if all buttons are unchecked.
+        ***************************************************************************************************************/
+        public static checkRadioButtonIfAllAreUnchecked( radioButtons:BABYLON_GUI.RadioButton[], index:number ) : void
+        {
+            let allRadioButtonsUnchecked:boolean = true;
+            for ( const radioButton of radioButtons )
+            {
+                if ( radioButton.isChecked ) allRadioButtonsUnchecked = false;
+            }
+
+            // check if all buttons are unchecked
+            if ( allRadioButtonsUnchecked )
+            {
+                // check the specified button again
+                radioButtons[ index ].isChecked = true;
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Returns the next id for a new gui component to create.
         *
         *   @return The next free unique id for a new gui component to create.

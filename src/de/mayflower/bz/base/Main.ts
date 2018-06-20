@@ -9,10 +9,10 @@
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
-    *   TODO Move Product configurator to separate subpackage and HelmetState to separate class.
+    *
     *   TODO Move level stages and presentation stages to separate subpackages.
+    *
     *   TODO Improve label (re-)assignment for GUI button?
-    *   TODO Radio-Unselect-Workaround-Method to GuiFactory.
     *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
     *   TODO Move 'beginAnimation' for Helmet animation to MeshFactory etc.
     *   TODO Outsource resize handler and blur handler code to separate methods.
