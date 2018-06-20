@@ -1,22 +1,7 @@
 
-    import * as bz          from '../..';
+    import * as bz          from '../../..';
     import * as BABYLON     from 'babylonjs';
     import * as BABYLON_GUI from 'babylonjs-gui';
-
-    /** ****************************************************************************************************************
-    *   All possible states concerning the helmet animation.
-    *******************************************************************************************************************/
-    enum HelmetState
-    {
-        /** The Helmet is closed and no animation is running. */
-        CLOSED,
-        /** The Helmet is opening and an animation is running. */
-        OPENING,
-        /** The Helmet is open and no animation is running. */
-        OPEN,
-        /** The Helmet is closing and an animation is running. */
-        CLOSING,
-    }
 
     /** ****************************************************************************************************************
     *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
@@ -97,7 +82,7 @@
         /** Referenced product presentation light. */
         private                         presentationLight       :BABYLON.Light              = null;
         /** Flags if the helmet animation is currently running. */
-        private                         animationState          :HelmetState                = HelmetState.CLOSED;
+        private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
         /** A reference to the toggle button to open and close the visor. */
         private                         visorToggleButton       :BABYLON_GUI.Button         = null;
         /** A reference to the camera zoom slider. */
@@ -667,15 +652,15 @@
         {
             switch ( this.animationState )
             {
-                case HelmetState.CLOSED:
+                case bz.HelmetState.CLOSED:
                 {
-                    this.animationState = HelmetState.OPENING;
+                    this.animationState = bz.HelmetState.OPENING;
                     this.setVisorToggleButtonText( 'Close Visor' );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visor, 0, 20, false, 1.0, () => {
 
-                            this.animationState = HelmetState.OPEN;
+                            this.animationState = bz.HelmetState.OPEN;
 
                             bz.Main.game.engine.scene.getScene().beginAnimation(
                                 this.visor, 20, 21, true, 1.0, () => { }
@@ -685,21 +670,21 @@
                     break;
                 }
 
-                case HelmetState.OPEN:
+                case bz.HelmetState.OPEN:
                 {
-                    this.animationState = HelmetState.CLOSING;
+                    this.animationState = bz.HelmetState.CLOSING;
                     this.setVisorToggleButtonText( 'Open Visor' );
 
                     bz.Main.game.engine.scene.getScene().beginAnimation(
                         this.visor, 20, 0, false, 1.0, () => {
-                            this.animationState = HelmetState.CLOSED;
+                            this.animationState = bz.HelmetState.CLOSED;
                         }
                     );
                     break;
                 }
 
-                case HelmetState.OPENING:
-                case HelmetState.CLOSING:
+                case bz.HelmetState.OPENING:
+                case bz.HelmetState.CLOSING:
                 {
                     // do nothing if an animation is currently running.
                     break;

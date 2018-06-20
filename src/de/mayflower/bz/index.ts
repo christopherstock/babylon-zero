@@ -65,7 +65,8 @@
     export * from './game/stage/Stage';
     export * from './game/stage/IntroLogo';
     export * from './game/stage/Office';
-    export * from './game/stage/ProductConfigurator';
-    export * from './game/stage/ProductConfiguratorGui';
+    export * from './game/stage/pc3d/HelmetState';
+    export * from './game/stage/pc3d/ProductConfigurator';
+    export * from './game/stage/pc3d/ProductConfiguratorGui';
     export * from './game/stage/RoomViewer';
     export * from './game/stage/TestLevel';
