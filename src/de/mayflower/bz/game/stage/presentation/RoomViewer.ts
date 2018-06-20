@@ -1,25 +1,13 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   The 'intro logo' stage offers an exploration of a 3D model that can be viewed from all angles.
+    *   The 'room viewer' stage offers an 3D view in an virtual room being textured by a spherical texture.
     *******************************************************************************************************************/
-    export class IntroLogo extends bz.Stage
+    export class RoomViewer extends bz.Stage
     {
-        /** Rotation speed in degrees per tick. */
-        private     static  readonly    ROTATION_SPEED          :number                     = 1.75;
-
-        /** Referenced imported logo. */
-        protected                       logo                    :BABYLON.AbstractMesh[]     = null;
-        /** Referenced point light. */
-        private                         pointLight              :BABYLON.PointLight         = null;
-        /** Current logo rotation Y. */
-        private                         rotY                    :number                     = 0.0;
-        /** Notifies current frame. */
-        private                         currentTick             :number                     = 0;
-
         /** ************************************************************************************************************
-        *   Creates a new product viewer stage.
+        *   Creates a new room viewer stage.
         *
         *   @param scene The babylon.JS scene reference.
         ***************************************************************************************************************/
@@ -31,54 +19,6 @@
                 bz.SettingGame.COLOR_BLACK,
                 bz.SettingGame.COLOR_BLACK_OPAQUE_RGBA
             );
-
-            this.rotY = 270.0;
-        }
-
-        /** ************************************************************************************************************
-        *   Renders all stage concernings for one tick of the game loop.
-        ***************************************************************************************************************/
-        public render() : void
-        {
-            // invoke parent method
-            super.render();
-
-            // rotate logo
-            for ( const mesh of this.logo )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    270.0,
-                    this.rotY,
-                    90.0
-                );
-            }
-
-            // increase logo rotation
-            this.rotY += IntroLogo.ROTATION_SPEED;
-
-            // alter the light intensity
-            ++this.currentTick;
-
-            if ( this.currentTick < 100 )
-            {
-                this.pointLight.range += 1.0;
-                if ( this.pointLight.range > 50.0 ) this.pointLight.range = 50.0;
-            }
-            else if ( this.currentTick < 150 )
-            {
-                this.pointLight.range += 1.5;
-                if ( this.pointLight.range > 100.0 ) this.pointLight.range = 100.0;
-            }
-            else if ( this.currentTick < 360 )
-            {
-            }
-            else
-            {
-                this.pointLight.range -= 1.5;
-                if ( this.pointLight.range < 0.0 ) this.pointLight.range = 0.0;
-            }
         }
 
         /** ************************************************************************************************************
@@ -145,16 +85,7 @@
         ***************************************************************************************************************/
         protected createImportedMeshes() : BABYLON.AbstractMesh[][]
         {
-            bz.Debug.stage.log( 'Importing stage meshes' );
-
-            this.logo = bz.MeshFactory.createImportedMesh
-            (
-                bz.MeshImport.MF_LOGO,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                this.scene
-            );
-
-            return [ this.logo ];
+            return [];
         }
 
         /** ************************************************************************************************************
@@ -164,7 +95,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return null;
+            return bz.MeshFactory.createSkyBoxSphere( 1.0, 'diningRoom', this.scene );
         }
 
         /** ************************************************************************************************************
@@ -184,18 +115,7 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            this.pointLight = bz.LightFactory.createPoint
-            (
-                this.scene,
-                new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                0.0,
-                2.5,
-                true
-            );
-
-            return [ this.pointLight ];
+            return [];
         }
 
         /** ************************************************************************************************************
@@ -227,16 +147,13 @@
                 this.scene,
                 this.player,
                 bz.Main.game.engine.canvas.getCanvas(),
-
-                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-                new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-
-                new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 1.0, 0.0, 0.0 ),
                 null,
                 null,
-
-                bz.CameraType.STATIONARY
+                null,
+                bz.CameraType.FREE_DEBUG
             );
         }
 

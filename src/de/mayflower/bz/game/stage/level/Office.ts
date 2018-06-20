@@ -1,13 +1,13 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   Specifies the 'test' level that tries out all level components.
+    *   Specifies the 'office' level.
     *******************************************************************************************************************/
-    export class TestLevel extends bz.Stage
+    export class Office extends bz.Stage
     {
         /** ************************************************************************************************************
-        *   Creates a new test level.
+        *   Creates a new test office.
         *
         *   @param scene The babylon.JS scene reference.
         ***************************************************************************************************************/
@@ -16,8 +16,8 @@
             super
             (
                 scene,
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                bz.SettingGame.COLOR_BLACK_OPAQUE_RGBA
+                bz.SettingGame.COLOR_WHITE,
+                bz.SettingGame.COLOR_WHITE_OPAQUE_RGBA
             );
         }
 
@@ -37,8 +37,8 @@
         {
             return new bz.Player
             (
-                new BABYLON.Vector3( 15.0, 0.0, 15.0 ),
-                225.0,
+                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                0.0,
                 this.ambientColor
             );
         }
@@ -60,7 +60,7 @@
                         (
                             new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                             bz.MeshPivotAnchor.NONE,
-                            new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
+                            new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.TEST,
                             null,
@@ -71,7 +71,7 @@
                         ),
                     ]
                 ),
-
+/*
                 new bz.Wall
                 (
                     [
@@ -309,6 +309,7 @@
                         ),
                     ]
                 ),
+*/
             ];
         }
 
@@ -320,7 +321,7 @@
         protected createMovables() : bz.Movable[]
         {
             return [
-
+/*
                 new bz.Movable
                 (
                     [
@@ -480,6 +481,7 @@
                         ),
                     ]
                 ),
+*/
             ];
         }
 
@@ -513,7 +515,7 @@
             bz.Debug.stage.log( 'Importing stage meshes' );
 
             return [
-
+/*
                 bz.MeshFactory.createImportedMesh
                 (
                     bz.MeshImport.OFFICE_CHAIR,
@@ -534,7 +536,7 @@
                     new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
                     this.scene
                 ),
-
+*/
             ];
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
@@ -560,7 +562,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( 0.15, 'darksky', this.scene );
+            return bz.MeshFactory.createSkyBoxCube( 1.0, 'bluesky', this.scene );
         }
 
         /** ************************************************************************************************************
@@ -571,13 +573,14 @@
         protected createSprites() : BABYLON.Sprite[]
         {
             return [
-
+/*
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -35.0 ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -20.0 ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, -5.0  ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 10.0  ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 25.0  ), 20.0 ),
                 bz.Main.game.engine.sprite.createTreeSprite( new BABYLON.Vector3( 45.0, 5.0, 40.0  ), 20.0 ),
+*/
             ];
         }
 
@@ -589,7 +592,7 @@
         protected createLights() : BABYLON.Light[]
         {
             const lights:BABYLON.Light[] = [
-
+/*
                 // hemispheric light
                 bz.LightFactory.createHemispheric
                 (
@@ -597,8 +600,7 @@
                     new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                    false
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
                 ),
 
                 // directional light
@@ -610,7 +612,6 @@
                     1.0,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 1.0, 0.5, 0.0 ),
-                    false
                 ),
 
                 // spot light
@@ -619,12 +620,10 @@
                     this.scene,
                     new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
                     new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
-                    30.0,
+                    bz.MathUtil.degreesToRad( 30.0 ),
                     2,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    50.0,
-                    false
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 )
                 ),
 
                 // point light
@@ -632,14 +631,18 @@
                 (
                     this.scene,
                     new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
-                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                    50.0,
                     1.0,
-                    true
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
                 ),
+*/
             ];
-
+/*
+            lights[ 0 ].setEnabled( false );
+            lights[ 1 ].setEnabled( false );
+            lights[ 2 ].setEnabled( false );
+            lights[ 3 ].setEnabled( true  );
+*/
             return lights;
         }
 
@@ -651,12 +654,14 @@
         protected createShadowGenerators() : BABYLON.ShadowGenerator[]
         {
             const shadowGenerators:BABYLON.ShadowGenerator[] = [
+/*
                 new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) ),
+*/
             ];
-
+/*
             shadowGenerators[ 0 ].useExponentialShadowMap = true;
             shadowGenerators[ 0 ].usePoissonSampling      = true;
-
+*/
             return shadowGenerators;
         }
 
@@ -665,6 +670,7 @@
         ***************************************************************************************************************/
         protected setupShadows() : void
         {
+/*
             // set shadows for all movables
             for ( const movable of this.movables )
             {
@@ -684,6 +690,7 @@
                     this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
                 }
             }
+*/
         }
 
         /** ************************************************************************************************************
@@ -709,16 +716,16 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the GUIs for this stage.
+        *   Being invoked when the stage setup is complete.
         ***************************************************************************************************************/
-        protected createGuis() : void
+        protected onInitComplete() : void
         {
         }
 
         /** ************************************************************************************************************
-        *   Being invoked when the stage setup is complete.
+        *   Creates the GUIs for this stage.
         ***************************************************************************************************************/
-        protected onInitComplete() : void
+        protected createGuis() : void
         {
         }
     }

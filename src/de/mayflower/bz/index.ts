@@ -63,10 +63,10 @@
     export * from './util/String';
 
     export * from './game/stage/Stage';
-    export * from './game/stage/IntroLogo';
-    export * from './game/stage/Office';
-    export * from './game/stage/pc3d/HelmetState';
-    export * from './game/stage/pc3d/ProductConfigurator';
-    export * from './game/stage/pc3d/ProductConfiguratorGui';
-    export * from './game/stage/RoomViewer';
-    export * from './game/stage/TestLevel';
+    export * from './game/stage/level/Office';
+    export * from './game/stage/level/TestLevel';
+    export * from './game/stage/presentation/IntroLogo';
+    export * from './game/stage/presentation/RoomViewer';
+    export * from './game/stage/presentation/pc3d/HelmetState';
+    export * from './game/stage/presentation/pc3d/ProductConfigurator';
+    export * from './game/stage/presentation/pc3d/ProductConfiguratorGui';
