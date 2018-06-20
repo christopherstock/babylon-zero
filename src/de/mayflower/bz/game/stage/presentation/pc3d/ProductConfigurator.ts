@@ -134,13 +134,23 @@
                         'Close Visor'
                     );
 
-                    bz.Main.game.engine.scene.getScene().beginAnimation(
-                        this.visor, 0, 20, false, 1.0, () => {
+                    bz.MeshManipulation.performAnimation
+                    (
+                        this.visor,
+                        0,
+                        20,
+                        false,
+                        () => {
 
                             this.animationState = bz.HelmetState.OPEN;
 
-                            bz.Main.game.engine.scene.getScene().beginAnimation(
-                                this.visor, 20, 21, true, 1.0, () => { }
+                            bz.MeshManipulation.performAnimation
+                            (
+                                this.visor,
+                                20,
+                                21,
+                                true,
+                                () => {}
                             );
                         }
                     );
@@ -156,8 +166,13 @@
                         'Open Visor'
                     );
 
-                    bz.Main.game.engine.scene.getScene().beginAnimation(
-                        this.visor, 20, 0, false, 1.0, () => {
+                    bz.MeshManipulation.performAnimation
+                    (
+                        this.visor,
+                        20,
+                        0,
+                        false,
+                        () => {
                             this.animationState = bz.HelmetState.CLOSED;
                         }
                     );

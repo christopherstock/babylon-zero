@@ -4,7 +4,7 @@
     import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
-    *   The GUI for the 'product viewer' stage.
+    *   The GUI for the '3D product configurator' stage.
     *******************************************************************************************************************/
     export class ProductConfiguratorGui
     {

@@ -126,4 +126,37 @@
                 }
             }
         }
+
+        /** ************************************************************************************************************
+        *   Starts a stored animation for the given mesh in the specified frame range.
+        *
+        *   @param mesh       The mesh to perform a predefined animation.
+        *   @param startFrame The number of the frame to start the animation.
+        *   @param endFrame   The number of the frame to end the animation.
+        *   @param loop       Specifies if the animation shall be looped.
+        *   @param onFinish   The method to perform when the amimation has completed.
+        *                     Will never be invoked if the animation is looped.
+        ***************************************************************************************************************/
+        public static performAnimation
+        (
+            mesh        :BABYLON.AbstractMesh,
+            startFrame  :number,
+            endFrame    :number,
+            loop        :boolean,
+            onFinish    :() => void
+        )
+        : void
+        {
+            const TIME_SCALE:number = 1.0;
+
+            bz.Main.game.engine.scene.getScene().beginAnimation
+            (
+                mesh,
+                startFrame,
+                endFrame,
+                loop,
+                TIME_SCALE,
+                onFinish
+            );
+        }
     }
