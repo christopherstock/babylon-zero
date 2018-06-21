@@ -49,29 +49,7 @@
 
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );
-            window.addEventListener(
-                'resize',
-                () : void => {
-
-                    // resize loading screen
-                    this.loadingScreen.resizeLoadingDivToCanvasDimensions();
-
-                    // resize canvas
-                    const dimensionsChanged:boolean = this.canvas.updateDimensions();
-
-                    if ( dimensionsChanged )
-                    {
-                        // resize GUIs
-                        if ( bz.Main.game.stage != null )
-                        {
-                            bz.Main.game.stage.adjustGuiSizeToCanvasSize();
-                        }
-
-                        // resize babylon.JS
-                        this.babylonEngine.resize();
-                    }
-                }
-            );
+            window.addEventListener( 'resize', this.onWindowResize );
 
             // create key and pointer system
             this.keySystem     = new bz.KeySystem();
@@ -79,13 +57,7 @@
 
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );
-            window.addEventListener(
-                'blur',
-                () : void => {
-                    bz.Debug.canvas.log( 'Detected window focus lost. Releasing all keys.' );
-                    this.keySystem.releaseAllKeys();
-                }
-            );
+            window.addEventListener( 'blur', this.onWindowBlur );
 
             // create the scene singleton
             bz.Debug.init.log( 'Init scene' );
@@ -114,5 +86,38 @@
                 bz.Main.game.onInitGameEngineCompleted
             );
             this.meshImporter.loadModels( this.scene.getScene() );
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the size of the browser window is changed.
+        ***************************************************************************************************************/
+        private onWindowResize=() : void =>
+        {
+            // resize loading screen
+            this.loadingScreen.resizeLoadingDivToCanvasDimensions();
+
+            // update canvas dimensions and check if they actually changed
+            const dimensionsChanged:boolean = this.canvas.updateDimensions();
+
+            if ( dimensionsChanged )
+            {
+                // resize GUIs
+                if ( bz.Main.game.stage != null )
+                {
+                    bz.Main.game.stage.adjustGuiSizeToCanvasSize();
+                }
+
+                // resize babylon.JS
+                this.babylonEngine.resize();
+            }
+        };
+
+        /** ************************************************************************************************************
+        *   Being invoked when the browser window loses the application focue.
+        ***************************************************************************************************************/
+        private onWindowBlur=() : void =>
+        {
+            bz.Debug.canvas.log( 'Detected window focus lost. Releasing all keys.' );
+            this.keySystem.releaseAllKeys();
         }
     }
