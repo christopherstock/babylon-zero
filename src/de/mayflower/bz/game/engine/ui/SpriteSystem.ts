@@ -1,7 +1,7 @@
 
     /** ****************************************************************************************************************
-    *   Handles the whole preloading process for the web app.
+    *   Manages all sprites and offers functions to instanciate them.
     *******************************************************************************************************************/
-    export class Preloader
+    export class SpriteSystem
     {
     }

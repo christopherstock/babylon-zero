@@ -1,6 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz      from '../../index';
+    import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
     *   Creates all types of lights.

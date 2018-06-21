@@ -17,8 +17,13 @@
 
     export * from './game/engine/Engine';
     export * from './game/engine/Scene';
-    export * from './game/engine/Sprite';
-    export * from './game/engine/SpriteSystem';
+
+    export * from './game/engine/ui/Sprite';
+    export * from './game/engine/ui/SpriteSystem';
+    export * from './game/engine/ui/CanvasSystem';
+    export * from './game/engine/ui/LightFactory';
+    export * from './game/engine/ui/LoadingScreen';
+    export * from './game/engine/ui/GuiFactory';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
@@ -41,12 +46,6 @@
     export * from './game/engine/physic/PhysicState';
     export * from './game/engine/physic/PhysicRestitution';
     export * from './game/engine/physic/Physic';
-
-    export * from './game/engine/ui/CanvasSystem';
-
-    export * from './game/engine/LightFactory';
-    export * from './game/engine/LoadingScreen';
-    export * from './game/engine/GuiFactory';
 
     export * from './game/object/GameObject';
     export * from './game/object/Bot';

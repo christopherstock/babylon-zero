@@ -6,12 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Outsource resize handler and blur handler code to separate methods.
+    *
     *   3D Product Configurator - 2. Refactorings
     *   =========================================
     *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
-    *   TODO Merge duplicate GUI functions in ProductConfigurator for color change and radio button select.
-    *   TODO Outsource resize handler and blur handler code to separate methods.
-    *   TODO Outsource all PC-GUI-CSS-colors to GamrSettings.
+    *   TODO Outsource all PC-GUI-CSS-colors to GameSettings.
     *   TODO Unify namings for all colors, RGB, RGBA, CSS.
     *   =========================================
     *

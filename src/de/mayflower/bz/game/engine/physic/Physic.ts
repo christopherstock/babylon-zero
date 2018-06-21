@@ -1,5 +1,5 @@
 
-    import * as bz from '../../../index';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Specifies the physical behaviour of a body.

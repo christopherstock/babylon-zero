@@ -217,7 +217,7 @@
                         bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
                         if ( checked )
                         {
-                            this.checkVisorColorRadioButton( i );
+                            this.onCheckVisorColorRadioButton( i );
                         }
                         else
                         {
@@ -296,7 +296,7 @@
                         bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
                         if ( checked )
                         {
-                            this.checkHelmetColorRadioButton( i );
+                            this.onCheckHelmetColorRadioButton( i );
                         }
                         else
                         {
@@ -404,7 +404,7 @@
         *
         *   @param checkboxId The ID of the visir color checkbox being clicked.
         ***************************************************************************************************************/
-        private checkVisorColorRadioButton( checkboxId:number ) : void
+        private onCheckVisorColorRadioButton( checkboxId:number ) : void
         {
             bz.Debug.gui.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
 
@@ -417,7 +417,7 @@
         *
         *   @param checkboxId The ID of the helmet color checkbox being clicked.
         ***************************************************************************************************************/
-        private checkHelmetColorRadioButton( checkboxId:number ) : void
+        private onCheckHelmetColorRadioButton( checkboxId:number ) : void
         {
             bz.Debug.gui.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
 
