@@ -42,7 +42,10 @@
         constructor
         (
             scene                           :BABYLON.Scene,
+
+            // TODO decouple!
             player                          :bz.Player,
+
             canvas                          :HTMLCanvasElement,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,

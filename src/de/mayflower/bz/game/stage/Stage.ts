@@ -15,8 +15,16 @@
 
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
+
+
+
+        // TODO to Level
+
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
+
+
+
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
 
