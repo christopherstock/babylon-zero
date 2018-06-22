@@ -16,8 +16,8 @@
             super
             (
                 scene,
-                bz.SettingGame.COLOR_WHITE,
-                bz.SettingGame.COLOR_WHITE_OPAQUE_RGBA
+                bz.SettingColor.COLOR_RGB_WHITE,
+                bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE
             );
         }
 

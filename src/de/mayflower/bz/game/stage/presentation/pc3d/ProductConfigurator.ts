@@ -33,7 +33,7 @@
             super
             (
                 scene,
-                bz.SettingGame.COLOR_GREY_QUARTER,
+                bz.SettingColor.COLOR_RGB_GREY_QUARTER,
                 new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 )
             );
         }

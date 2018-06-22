@@ -25,7 +25,7 @@
             );
 
             // set default scene clear color
-            this.babylonScene.clearColor = bz.SettingGame.COLOR_BLACK_OPAQUE_RGBA;
+            this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
 
             // enable debug collisions for free debug camera
             this.babylonScene.collisionsEnabled = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;

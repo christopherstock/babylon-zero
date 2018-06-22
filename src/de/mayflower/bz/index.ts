@@ -9,6 +9,7 @@
 
     export * from './game/stage/StageId';
 
+    export * from './base/setting/SettingColor';
     export * from './base/setting/SettingDebug';
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGame';

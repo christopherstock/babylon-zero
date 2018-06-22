@@ -17,7 +17,7 @@
             (
                 scene,
                 new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                bz.SettingGame.COLOR_BLACK_OPAQUE_RGBA
+                bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE
             );
         }
 
@@ -302,7 +302,7 @@
                             ],
                             bz.MeshPivotAnchor.LOWEST_XYZ,
                             new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
-                            bz.SettingGame.COLOR_RED,
+                            bz.SettingColor.COLOR_RGB_RED,
                             this.scene,
                             bz.Physic.STATIC,
                             this.ambientColor

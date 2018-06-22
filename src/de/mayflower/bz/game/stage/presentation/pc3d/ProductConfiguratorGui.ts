@@ -19,10 +19,10 @@
         /** The colors for the visor text shadows. */
         private     static  readonly    VISOR_COLOR_SHADOWS         :string[]                   =
         [
-            '#ffffff',
-            '#000000',
-            '#000000',
-            '#ffffff',
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+            bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+            bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
         ];
         /** The color names for the visor. */
         private     static  readonly    VISOR_COLOR_NAMES           :string[]                   =
@@ -44,10 +44,10 @@
         /** The colors for the helmet text shadows. */
         private     static  readonly    HELMET_COLOR_SHADOWS        :string[]                   =
         [
-            '#ffffff',
-            '#000000',
-            '#ffffff',
-            '#ffffff',
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+            bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
         ];
         /** The color names for the helmet. */
         private     static  readonly    HELMET_COLOR_NAMES          :string[]                   =
@@ -61,9 +61,9 @@
         /** The bg color for the GUI. */
         private     static  readonly    GUI_COLOR_BG                :string                     = 'rgba( 100, 100, 100, 0.5 )';
         /** The text color for the GUI. */
-        private     static  readonly    GUI_COLOR_TEXT              :string                     = '#ffffff';
+        private     static  readonly    GUI_COLOR_TEXT              :string                     = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
         /** The text shadow color for the GUI. */
-        private     static  readonly    GUI_COLOR_SHADOW            :string                     = '#000000';
+        private     static  readonly    GUI_COLOR_SHADOW            :string                     = bz.SettingColor.COLOR_CSS_BLACK_OPAQUE;
         /** The border color for the GUI. */
         private     static  readonly    GUI_COLOR_BORDER            :string                     = '#c9c9c9';
 
@@ -95,7 +95,7 @@
                 306,
                 646,
                 ProductConfiguratorGui.GUI_COLOR_BORDER,
-                'transparent'
+                bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( rectangleOuter );
 
@@ -106,7 +106,7 @@
                 304,
                 644,
                 ProductConfiguratorGui.GUI_COLOR_BORDER,
-                'transparent'
+                bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( rectangleOuter2 );
 
@@ -174,8 +174,8 @@
                 300,
                 160,
                 1,
-                'white',
-                'transparent'
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( line1 );
 
@@ -207,7 +207,7 @@
                 const radioButton:BABYLON_GUI.RadioButton = bz.GuiFactory.createRadioButton
                 (
                     'visorColorSelect',
-                    'white',
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                     ProductConfiguratorGui.GUI_COLOR_BG,
                     50,
                     203 + ( i * 30 ),
@@ -253,8 +253,8 @@
                 300,
                 330,
                 1,
-                'white',
-                'transparent'
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( line2 );
 
@@ -286,7 +286,7 @@
                 const radioButton:BABYLON_GUI.RadioButton = bz.GuiFactory.createRadioButton
                 (
                     'helmetColorSelect',
-                    'white',
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                     ProductConfiguratorGui.GUI_COLOR_BG,
                     50,
                     373 + ( i * 30 ),
@@ -332,8 +332,8 @@
                 300,
                 500,
                 1,
-                'white',
-                'transparent'
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( line3 );
 
@@ -355,7 +355,7 @@
                 175.0,
                 175.0,
                 400.0,
-                '#ed7304',
+                bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE,
                 '#707070',
                 50,
                 545,
@@ -378,16 +378,16 @@
                 300,
                 580,
                 1,
-                'white',
-                'transparent'
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( line4 );
 
             this.visorToggleButton = bz.GuiFactory.createButton
             (
                 'Open Visor',
-                'white',
-                '#ed7304',
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE,
                 50,
                 600,
                 250,

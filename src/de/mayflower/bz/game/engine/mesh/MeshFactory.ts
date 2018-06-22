@@ -528,8 +528,8 @@
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
-            skyboxMaterial.diffuseColor  = bz.SettingGame.COLOR_BLACK;
-            skyboxMaterial.specularColor = bz.SettingGame.COLOR_BLACK;
+            skyboxMaterial.diffuseColor  = bz.SettingColor.COLOR_RGB_BLACK;
+            skyboxMaterial.specularColor = bz.SettingColor.COLOR_RGB_BLACK;
 /*
             skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
 */
