@@ -17,8 +17,8 @@
             this.managerTreeSprite = new BABYLON.SpriteManager
             (
                 'treesManager',
-                bz.SettingEngine.PATH_IMAGE_TEXTURE + 'tree.png',
-                100,
+                bz.SettingEngine.PATH_IMAGE_SPRITE + 'tree.png',
+                357,
                 357,
                 bz.Main.game.engine.scene.getScene()
             );

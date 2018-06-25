@@ -20,6 +20,8 @@
         public  static  readonly    PATH_IMAGE_LOADING                      :string             = 'res/image/loading/';
         /** The relative path from index.html where all texture images reside. */
         public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = 'res/image/texture/';
+        /** The relative path from index.html where all sprite images reside. */
+        public  static  readonly    PATH_IMAGE_SPRITE                       :string             = 'res/image/sprite/';
         /** The relative path from index.html where all skybox images reside. */
         public  static  readonly    PATH_IMAGE_SKYBOX                       :string             = 'res/image/skybox/';
         /** The relative path from index.html where all GUI images reside. */
