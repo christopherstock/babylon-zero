@@ -18,7 +18,7 @@
             (
                 'treesManager',
                 bz.SettingEngine.PATH_IMAGE_SPRITE + 'tree.png',
-                357,
+                1,
                 357,
                 bz.Main.game.engine.scene.getScene()
             );
@@ -37,7 +37,8 @@
             const ret:BABYLON.Sprite = new BABYLON.Sprite( 'tree1', bz.Main.game.engine.sprite.managerTreeSprite );
 
             ret.position = position;
-            ret.size     = size;
+            ret.width    = 1.0;
+            ret.height   = 2.0;
 
             return ret;
         }
