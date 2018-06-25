@@ -6,23 +6,25 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create superclass for all non-level-stages! (or superclass for all actual level stages!)
+    *
     *   TODO Improve Sprite-System handling and make it dynamic! (asset loading etc.).
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *
     *   TODO Create class for multi-meshed object creation ("createTree": create wall?).
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
-    *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Solve pickable game items.
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Enable rotation for all meshes (rotating walls!?, rotating items) etc.!
     *   TODO Preload all textures / textured materials?
+    *   TODO Create superclass for presentation stages?
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
     *
+    *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Multiple player objects: physics for car, etc?
     *   TODO move onInitLevelCompleted to class Level and also scene to class stage?

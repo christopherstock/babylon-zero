@@ -63,7 +63,6 @@
     export * from './util/String';
 
     export * from './game/stage/Stage';
-    export * from './game/stage/level/Level';
     export * from './game/stage/level/Office';
     export * from './game/stage/level/TestLevel';
     export * from './game/stage/presentation/IntroLogo';
