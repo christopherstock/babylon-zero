@@ -577,7 +577,7 @@
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Main.game.engine.spriteSystem.managerTreeSprite,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 20.0, 0.0, 10.0 ),
                     15.0,
                     30.0
@@ -585,7 +585,7 @@
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Main.game.engine.spriteSystem.managerTreeSprite,
+                    bz.SpriteFile.TREE_WHITE,
                     new BABYLON.Vector3( 20.0, 0.0, 20.0  ),
                     10.0,
                     20.0
