@@ -19,7 +19,6 @@
     export * from './game/engine/Engine';
     export * from './game/engine/Scene';
 
-    export * from './game/engine/ui/Sprite';
     export * from './game/engine/ui/SpriteSystem';
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/LightFactory';

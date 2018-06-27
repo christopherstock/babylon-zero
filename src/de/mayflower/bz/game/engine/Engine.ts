@@ -6,25 +6,26 @@
     *******************************************************************************************************************/
     export class Engine
     {
+        /** The babylon.JS engine. */
+        public                      babylonEngine               :BABYLON.Engine                     = null;
+
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem                    = null;
-        /** The material system. */
-        public                      material                    :bz.MaterialSystem                  = null;
         /** The singleton scene. */
         public                      scene                       :bz.Scene                           = null;
+        /** The custom loading screen. */
+        public                      loadingScreen               :bz.LoadingScreen                   = null;
+
+        /** The material system. */
+        public                      materialSystem              :bz.MaterialSystem                  = null;
         /** The sprite system. */
-        public                      sprite                      :bz.Sprite                          = null;
+        public                      spriteSystem                :bz.SpriteSystem                    = null;
         /** The mesh import system. */
-        public                      meshImporter                :bz.ModelImportSystem               = null;
+        public                      modelImportSystem           :bz.ModelImportSystem               = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;
         /** The pointer system. */
         public                      pointerSystem               :bz.PointerSystem                   = null;
-        /** The custom loading screen. */
-        public                      loadingScreen               :bz.LoadingScreen                   = null;
-
-        /** The babylon.JS engine. */
-        public                      babylonEngine               :BABYLON.Engine                     = null;
 
         /** ************************************************************************************************************
         *   Inits all components of the game engine.
@@ -70,22 +71,22 @@
 
             // init materials
             bz.Debug.init.log( 'Init materials' );
-            this.material = new bz.MaterialSystem();
-            this.material.init();
+            this.materialSystem = new bz.MaterialSystem();
+            this.materialSystem.init();
 
             // init sprites
             bz.Debug.init.log( 'Init sprites' );
-            this.sprite = new bz.Sprite();
-            this.sprite.init();
+            this.spriteSystem = new bz.SpriteSystem();
+            this.spriteSystem.init();
 
             // init mesh importer
             bz.Debug.init.log( 'Init mesh importer' );
-            this.meshImporter = new bz.ModelImportSystem
+            this.modelImportSystem = new bz.ModelImportSystem
             (
                 bz.MeshImport.ALL_MESH_FILES,
                 bz.Main.game.onInitGameEngineCompleted
             );
-            this.meshImporter.loadModels( this.scene.getScene() );
+            this.modelImportSystem.loadModels( this.scene.getScene() );
         }
 
         /** ************************************************************************************************************

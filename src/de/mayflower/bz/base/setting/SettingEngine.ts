@@ -50,4 +50,7 @@
 
         /** Specifies if the custom loading screen shall be used. */
         public  static  readonly    CUSTOM_LOADING_SCREEN                   :boolean            = true;
+
+        /** Maximum instances of concurrent sprites. */
+        public  static  readonly    MAX_SPRITE_INSTANCES                    :number             = 255;
     }

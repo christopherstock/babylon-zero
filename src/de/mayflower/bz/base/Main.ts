@@ -8,6 +8,7 @@
     *
     *   TODO Improve Sprite-System handling and make it dynamic! (asset loading etc.).
     *
+    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *   TODO Make sprites collidable?
     *   TODO Enable animated sprites (explosions etc.)!
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??

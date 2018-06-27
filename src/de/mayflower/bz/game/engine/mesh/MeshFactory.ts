@@ -98,7 +98,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
                 texture,
                 true,
@@ -199,7 +199,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
                 texture,
                 true,
@@ -265,7 +265,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
                 texture,
                 false,
@@ -343,7 +343,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
                 texture,
                 false,
@@ -480,7 +480,7 @@
                 0.0,
                 0.0
             );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.material.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
                 null,
                 false,
@@ -644,7 +644,7 @@
         )
         : BABYLON.AbstractMesh[]
         {
-            const originalMeshes :BABYLON.AbstractMesh[] = bz.Main.game.engine.meshImporter.getOriginalMesh( fileName );
+            const originalMeshes :BABYLON.AbstractMesh[] = bz.Main.game.engine.modelImportSystem.getOriginalMesh( fileName );
             const clonedMeshes   :BABYLON.AbstractMesh[] = [];
 
             for ( const originalMesh of originalMeshes )
