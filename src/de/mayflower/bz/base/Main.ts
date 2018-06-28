@@ -6,10 +6,10 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Solve pickable game items.
     *   TODO Enable rotation for all meshes (rotating walls!?, rotating items) etc. - around the correct pivot!
+    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
