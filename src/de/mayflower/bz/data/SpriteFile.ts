@@ -6,15 +6,18 @@
     export class SpriteFile
     {
         /** The sprite 'tree'. */
-        public      static      TREE                :SpriteFile             = new SpriteFile( 'tree.png',      357 );
+        public      static      TREE                :SpriteFile             = new SpriteFile( 'tree.png',       357 );
         /** The sprite 'tree white'. */
-        public      static      TREE_WHITE          :SpriteFile             = new SpriteFile( 'treeWhite.png', 357 );
+        public      static      TREE_WHITE          :SpriteFile             = new SpriteFile( 'treeWhite.png',  357 );
+        /** The sprite 'test'. */
+        public      static      TEST                :SpriteFile             = new SpriteFile( 'test.png',       64  );
 
         /** Lists all sprite files in an array. */
         public      static      ALL_FILES           :SpriteFile[]           =
         [
             SpriteFile.TREE,
             SpriteFile.TREE_WHITE,
+            SpriteFile.TEST,
         ];
 
         /** The filename of this texture's image. */

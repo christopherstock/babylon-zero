@@ -6,6 +6,9 @@
     *******************************************************************************************************************/
     export class Office extends bz.Stage
     {
+        /** A test sprite that will be animated */
+        private                 testSprite          :BABYLON.Sprite                         = null;
+
         /** ************************************************************************************************************
         *   Creates a new test office.
         *
@@ -572,8 +575,18 @@
         ***************************************************************************************************************/
         protected createSprites() : BABYLON.Sprite[]
         {
-            return [
+            this.testSprite = bz.Main.game.engine.spriteSystem.createSprite
+            (
+                bz.SpriteFile.TEST,
+                new BABYLON.Vector3( 0.0, 0.0, 10.0  ),
+                15.0,
+                30.0,
+                bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
+            );
 
+            this.testSprite.playAnimation( 0, 43, true, 100, () => {} );
+
+            return [
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
@@ -592,6 +605,8 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
                 ),
+
+                this.testSprite,
 /*
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
