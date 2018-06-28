@@ -365,18 +365,18 @@
         protected onInitComplete() : void
         {
             // link arc rotate camera zoom to slider
-            this.cameraSystem.arcRotateCamera.onViewMatrixChangedObservable.add(
+            this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
                 () => {
 
                     this.gui.cameraZoomSlider.value =
                     (
 //                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
-                        400.0 + 100.0 - this.getCameraSystem().arcRotateCamera.radius
+                        400.0 + 100.0 - this.getCameraSystem().getArcRotateCamera().radius
                     );
                 }
             );
 
             // enable auto rotation for arc rotate camera
-            this.cameraSystem.arcRotateCamera.useAutoRotationBehavior = true;
+            this.cameraSystem.getArcRotateCamera().useAutoRotationBehavior = true;
         }
     }

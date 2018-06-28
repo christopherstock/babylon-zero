@@ -39,6 +39,7 @@
         *   @param position   The vector to place the sprite.
         *   @param width      The width of the sprite.
         *   @param height     The height of the sprite.
+        *   @param anchor     The anchor for displaying this sprite.
         *
         *   @return The created sprite instance.
         ***************************************************************************************************************/
@@ -47,7 +48,8 @@
             spriteFile :bz.SpriteFile,
             position   :BABYLON.Vector3,
             width      :number,
-            height     :number
+            height     :number,
+            anchor     :bz.MeshPivotAnchor
         )
         : BABYLON.Sprite
         {
@@ -61,7 +63,42 @@
             sprite.width    = width;
             sprite.height   = height;
 
+            this.translateSpriteByAnchor( sprite, anchor );
+
             return sprite;
+        }
+
+        /** ************************************************************************************************************
+        *   Translates a sprite according to the specified anchor.
+        *
+        *   @param sprite The sprite to translate.
+        *   @param anchor The anchor that specifies the translation.
+        ***************************************************************************************************************/
+        private translateSpriteByAnchor( sprite:BABYLON.Sprite, anchor:bz.MeshPivotAnchor ) : void
+        {
+            switch ( anchor )
+            {
+                case bz.MeshPivotAnchor.NONE:
+                case bz.MeshPivotAnchor.CENTER_XYZ:
+                {
+                    // this is the default bahaviour
+                    break;
+                }
+
+                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
+                {
+                    sprite.position.y += ( sprite.height / 2 );
+                    break;
+                }
+
+                case bz.MeshPivotAnchor.LOWEST_XYZ:
+                {
+                    sprite.position.x += ( sprite.width  / 2 );
+                    sprite.position.z += ( sprite.width  / 2 );
+                    sprite.position.y += ( sprite.height / 2 );
+                    break;
+                }
+            }
         }
 
         /** ************************************************************************************************************

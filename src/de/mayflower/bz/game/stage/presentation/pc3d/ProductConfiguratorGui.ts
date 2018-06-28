@@ -366,7 +366,7 @@
                     // bz.Debug.gui.log( 'slider changed to [' + value + ']' );
 
                     // this.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - Math.floor( value ) );
-                    this.parent.getCameraSystem().arcRotateCamera.radius = ( 400.0 + 100.0 - value );
+                    this.parent.getCameraSystem().getArcRotateCamera().radius = ( 400.0 + 100.0 - value );
                 }
             );
             this.parent.guiFg.addControl( this.cameraZoomSlider );

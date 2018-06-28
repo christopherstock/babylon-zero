@@ -18,10 +18,8 @@
         /** The first person babylon.JS camera. */
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
         /** The babylon.JS axis camera. */
-        public          readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+        private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
 
-        /** The player that might change visibility by camera switch. */
-        private         readonly        player                          :bz.Player                              = null;
         /** The HTML canvas that might change debug controls on camera switch. */
         private         readonly        canvas                          :HTMLCanvasElement                      = null;
 
@@ -31,21 +29,21 @@
         *   @param scene                           The babylon.JS scene.
         *   @param player                          The player that might change visibility by camera switch.
         *   @param canvas                          The HTML canvas that might change debug controls on camera switch.
+        *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
         *   @param startupTargetFreeDebugCamera    The camera startup target for the free debug camera.
+        *
         *   @param stationaryCameraTarget          The target node for the starionary camera.
         *   @param followCameraTarget              The target node for the follow camera.
         *   @param firstPersonCameraTarget         The target mesh for the first person camera.
+        *
         *   @param initialActiveCamera             The initial camera to set as the active camera.
         ***************************************************************************************************************/
         constructor
         (
             scene                           :BABYLON.Scene,
-
-            // TODO decouple!
             player                          :bz.Player,
-
             canvas                          :HTMLCanvasElement,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
@@ -59,7 +57,6 @@
             initialActiveCamera             :bz.CameraType
         )
         {
-            this.player = player;
             this.canvas = canvas;
 
             this.freeCamera        = bz.CameraFactory.createFreeCamera
@@ -107,7 +104,7 @@
                 this.setFirstPersonCameraTo( firstPersonCameraTarget );
             }
 
-            this.setActiveCamera( scene, initialActiveCamera );
+            this.setActiveCamera( scene, initialActiveCamera, player );
         }
 
         /** ************************************************************************************************************
@@ -115,11 +112,13 @@
         *
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
+        *   @param player The player instance that will show or hide according to the currently set camera.
         ***************************************************************************************************************/
         public setActiveCamera
         (
             scene  :BABYLON.Scene,
-            camera :bz.CameraType
+            camera :bz.CameraType,
+            player :bz.Player
         )
         : void
         {
@@ -134,9 +133,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
-                    if ( this.player != null )
+                    if ( player != null )
                     {
-                        this.player.setVisible( true );
+                        player.setVisible( true );
                     }
                     break;
                 }
@@ -148,9 +147,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
-                    if ( this.player != null )
+                    if ( player != null )
                     {
-                        this.player.setVisible( true );
+                        player.setVisible( true );
                     }
                     break;
                 }
@@ -162,9 +161,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
-                    if ( this.player != null )
+                    if ( player != null )
                     {
-                        this.player.setVisible( true );
+                        player.setVisible( true );
                     }
                     break;
                 }
@@ -176,9 +175,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
-                    if ( this.player != null )
+                    if ( player != null )
                     {
-                        this.player.setVisible( false );
+                        player.setVisible( false );
                     }
                     break;
                 }
@@ -190,9 +189,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas );
 
-                    if ( this.player != null )
+                    if ( player != null )
                     {
-                        this.player.setVisible( false );
+                        player.setVisible( true );
                     }
                     break;
                 }
@@ -229,6 +228,16 @@
             this.followCamera.dispose();
             this.firstPersonCamera.dispose();
             this.arcRotateCamera.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the arc rotation camera from the system.
+        *
+        *   @raram The arc rotating camera.
+        ***************************************************************************************************************/
+        public getArcRotateCamera() : BABYLON.ArcRotateCamera
+        {
+            return this.arcRotateCamera;
         }
 
         /** ************************************************************************************************************

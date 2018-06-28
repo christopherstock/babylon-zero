@@ -6,13 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
-    *   TODO Make sprites collidable?
     *   TODO Enable animated sprites (explosions etc.)!
+    *   TODO Add anchor for sprites.
+    *
+    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Solve pickable game items.
     *   TODO Enable rotation for all meshes (rotating walls!?, rotating items) etc. - around the correct pivot!
-    *   TODO Add anchor for sprites.
     *
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
@@ -39,6 +39,8 @@
     *
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
+    *   TODO decouple player and visibility change method from CameraSystem?
+
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *   TODO Improve mesh system.
     *   TODO Enable jumping?
@@ -62,6 +64,7 @@
     *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
     *   TODO Create debug console on-screen?
     *   TODO Try video textures!
+    *   TODO Make sprites collidable?
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
     *   TODO Create main menu where player can reset stage etc.
     *   TODO Enable wearpon zoom. (view angle / camera solution?)

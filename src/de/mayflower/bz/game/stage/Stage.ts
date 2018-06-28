@@ -235,15 +235,14 @@
 
         /** ************************************************************************************************************
         *   Sets the active camera for this stage.
-        *
-        *   @return The player instance for this stage.
         ***************************************************************************************************************/
         public setActiveCamera( cameraId:bz.CameraType ) : void
         {
             this.cameraSystem.setActiveCamera
             (
                 bz.Main.game.engine.scene.getScene(),
-                cameraId
+                cameraId,
+                this.player
             );
         }
 

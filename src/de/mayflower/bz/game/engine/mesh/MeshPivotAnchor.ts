@@ -4,7 +4,7 @@
     *******************************************************************************************************************/
     export enum MeshPivotAnchor
     {
-        /** No anchor for static moving objects like grounds. */
+        /** No anchor for static non-moving objects like grounds. */
         NONE,
 
         /** The anchor is the lowest XYZ point. */
