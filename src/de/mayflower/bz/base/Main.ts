@@ -7,7 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Enable animated sprites (explosions etc.)!
-    *   TODO Add anchor for sprites.
     *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
