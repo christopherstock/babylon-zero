@@ -6,14 +6,14 @@
     export class Sprite
     {
         /** The sprite 'tree'. */
-        public      static      TREE                :Sprite             = new Sprite( 'tree.png',       357 );
+        public      static      TREE                    :Sprite             = new Sprite( 'tree.png',       357 );
         /** The sprite 'tree white'. */
-        public      static      TREE_WHITE          :Sprite             = new Sprite( 'treeWhite.png',  357 );
+        public      static      TREE_WHITE              :Sprite             = new Sprite( 'treeWhite.png',  357 );
         /** The sprite 'test'. */
-        public      static      TEST                :Sprite             = new Sprite( 'test.png',       64  );
+        public      static      TEST                    :Sprite             = new Sprite( 'test.png',       64  );
 
         /** Lists all sprite files in an array. */
-        public      static      ALL_FILES           :Sprite[]           =
+        public      static      ALL_SPRITE_FILES        :Sprite[]           =
         [
             Sprite.TREE,
             Sprite.TREE_WHITE,

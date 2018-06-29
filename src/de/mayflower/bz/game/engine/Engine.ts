@@ -26,6 +26,8 @@
         public                      keySystem                   :bz.KeySystem                       = null;
         /** The pointer system. */
         public                      pointerSystem               :bz.PointerSystem                   = null;
+        /** The sound system. */
+        public                      soundSystem                 :bz.SoundSystem                     = null;
 
         /** ************************************************************************************************************
         *   Inits all components of the game engine.
@@ -79,6 +81,17 @@
             this.spriteSystem = new bz.SpriteSystem();
             this.spriteSystem.init();
 
+            // init sounds
+            bz.Debug.init.log( 'Init sounds' );
+            this.soundSystem = new bz.SoundSystem( bz.Sound.ALL_SOUND_FILES, this.onSoundsLoaded );
+            this.soundSystem.loadSounds();
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when all sounds are loaded completely.
+        ***************************************************************************************************************/
+        private onSoundsLoaded=() : void =>
+        {
             // init mesh importer
             bz.Debug.init.log( 'Init mesh importer' );
             this.modelImportSystem = new bz.ModelImportSystem
@@ -87,7 +100,7 @@
                 bz.Main.game.onInitGameEngineCompleted
             );
             this.modelImportSystem.loadModels( this.scene.getScene() );
-        }
+        };
 
         /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.

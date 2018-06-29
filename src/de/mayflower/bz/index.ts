@@ -28,6 +28,7 @@
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
     export * from './game/engine/hid/PointerSystem';
+    export * from './game/engine/hid/SoundSystem';
 
     export * from './game/engine/material/TextureUV';
     export * from './game/engine/material/TextureHasAlpha';
@@ -40,6 +41,7 @@
 
     export * from './data/MeshImport';
     export * from './data/Sprite';
+    export * from './data/Sound';
     export * from './data/Texture';
 
     export * from './game/engine/physic/PhysicDensity';

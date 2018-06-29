@@ -17,9 +17,9 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            for (let i:number = 0; i < bz.Sprite.ALL_FILES.length; ++i )
+            for (let i:number = 0; i < bz.Sprite.ALL_SPRITE_FILES.length; ++i )
             {
-                const spriteFile:bz.Sprite = bz.Sprite.ALL_FILES[ i ];
+                const spriteFile:bz.Sprite = bz.Sprite.ALL_SPRITE_FILES[ i ];
 
                 this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
                 (
