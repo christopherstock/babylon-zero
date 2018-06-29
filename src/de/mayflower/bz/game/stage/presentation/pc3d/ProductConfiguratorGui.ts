@@ -59,10 +59,13 @@
         ];
 
         /** The bg color for the GUI. */
+        // tslint:disable-next-line:max-line-length
         private     static  readonly    GUI_COLOR_BG                :string                     = 'rgba( 100, 100, 100, 0.5 )';
         /** The text color for the GUI. */
+        // tslint:disable-next-line:max-line-length
         private     static  readonly    GUI_COLOR_TEXT              :string                     = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
         /** The text shadow color for the GUI. */
+        // tslint:disable-next-line:max-line-length
         private     static  readonly    GUI_COLOR_SHADOW            :string                     = bz.SettingColor.COLOR_CSS_BLACK_OPAQUE;
         /** The border color for the GUI. */
         private     static  readonly    GUI_COLOR_BORDER            :string                     = '#c9c9c9';

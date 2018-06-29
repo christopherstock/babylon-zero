@@ -644,7 +644,10 @@
         )
         : BABYLON.AbstractMesh[]
         {
-            const originalMeshes :BABYLON.AbstractMesh[] = bz.Main.game.engine.modelImportSystem.getOriginalMesh( fileName );
+            const originalMeshes :BABYLON.AbstractMesh[] = bz.Main.game.engine.modelImportSystem.getOriginalMesh
+            (
+                fileName
+            );
             const clonedMeshes   :BABYLON.AbstractMesh[] = [];
 
             for ( const originalMesh of originalMeshes )
