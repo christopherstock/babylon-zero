@@ -3,21 +3,21 @@
     *   Specifies all sprite files to load.
     *******************************************************************************************************************/
     // tslint:disable:max-line-length
-    export class SpriteFile
+    export class Sprite
     {
         /** The sprite 'tree'. */
-        public      static      TREE                :SpriteFile             = new SpriteFile( 'tree.png',       357 );
+        public      static      TREE                :Sprite             = new Sprite( 'tree.png',       357 );
         /** The sprite 'tree white'. */
-        public      static      TREE_WHITE          :SpriteFile             = new SpriteFile( 'treeWhite.png',  357 );
+        public      static      TREE_WHITE          :Sprite             = new Sprite( 'treeWhite.png',  357 );
         /** The sprite 'test'. */
-        public      static      TEST                :SpriteFile             = new SpriteFile( 'test.png',       64  );
+        public      static      TEST                :Sprite             = new Sprite( 'test.png',       64  );
 
         /** Lists all sprite files in an array. */
-        public      static      ALL_FILES           :SpriteFile[]           =
+        public      static      ALL_FILES           :Sprite[]           =
         [
-            SpriteFile.TREE,
-            SpriteFile.TREE_WHITE,
-            SpriteFile.TEST,
+            Sprite.TREE,
+            Sprite.TREE_WHITE,
+            Sprite.TEST,
         ];
 
         /** The filename of this texture's image. */

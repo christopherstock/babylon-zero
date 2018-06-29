@@ -17,9 +17,9 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            for ( let i:number = 0; i < bz.SpriteFile.ALL_FILES.length; ++i )
+            for (let i:number = 0; i < bz.Sprite.ALL_FILES.length; ++i )
             {
-                const spriteFile:bz.SpriteFile = bz.SpriteFile.ALL_FILES[ i ];
+                const spriteFile:bz.Sprite = bz.Sprite.ALL_FILES[ i ];
 
                 this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
                 (
@@ -45,7 +45,7 @@
         ***************************************************************************************************************/
         public createSprite
         (
-            spriteFile :bz.SpriteFile,
+            spriteFile :bz.Sprite,
             position   :BABYLON.Vector3,
             width      :number,
             height     :number,

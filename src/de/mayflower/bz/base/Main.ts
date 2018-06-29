@@ -6,6 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Create sound system.
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
     *   TODO Solve pickable game items.
     *   TODO Enable rotation for all meshes (rotating walls!?, rotating items) etc. - around the correct pivot!

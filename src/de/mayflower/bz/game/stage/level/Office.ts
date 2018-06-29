@@ -575,7 +575,7 @@
             // test an animated sprite
             const testSprite:BABYLON.Sprite = bz.Main.game.engine.spriteSystem.createSprite
             (
-                bz.SpriteFile.TEST,
+                bz.Sprite.TEST,
                 new BABYLON.Vector3( 0.0, 0.0, 10.0  ),
                 15.0,
                 30.0,
@@ -587,7 +587,7 @@
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.SpriteFile.TREE,
+                    bz.Sprite.TREE,
                     new BABYLON.Vector3( 20.0, 0.0, 10.0 ),
                     15.0,
                     30.0,
@@ -596,7 +596,7 @@
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.SpriteFile.TREE_WHITE,
+                    bz.Sprite.TREE_WHITE,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     10.0,
                     20.0,

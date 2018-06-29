@@ -39,7 +39,7 @@
     export * from './game/engine/mesh/MeshPivotAnchor';
 
     export * from './data/MeshImport';
-    export * from './data/SpriteFile';
+    export * from './data/Sprite';
     export * from './data/Texture';
 
     export * from './game/engine/physic/PhysicDensity';
