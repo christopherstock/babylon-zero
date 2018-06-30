@@ -26,6 +26,18 @@
         ***************************************************************************************************************/
         public handleLevelKeys() : void
         {
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+
+
+                bz.Main.game.engine.soundSystem.playSound( bz.Sound.TEST_FX_1 );
+                bz.Main.game.engine.soundSystem.playSound( bz.Sound.TEST_BG_STONE_AGE_THE_GOLDEN_VALLEY, true );
+            }
+
+
+
+
         }
 
         /** ************************************************************************************************************

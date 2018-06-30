@@ -650,6 +650,9 @@
             );
             const clonedMeshes   :BABYLON.AbstractMesh[] = [];
 
+            let minTotal :BABYLON.Vector3 = null;
+            let maxTotal :BABYLON.Vector3 = null;
+
             for ( const originalMesh of originalMeshes )
             {
                 const clonedMesh:BABYLON.AbstractMesh = originalMesh.clone
@@ -657,6 +660,19 @@
                     bz.MeshFactory.createNextMeshId(),
                     null // newParent
                 );
+
+                {
+                    // get bounding info and update min and max vector points
+                    const boundingInfo :BABYLON.BoundingInfo = clonedMesh.getBoundingInfo();
+                    const minimum      :BABYLON.Vector3      = boundingInfo.minimum;
+                    const maximum      :BABYLON.Vector3      = boundingInfo.maximum;
+/*
+                    console.log( 'minimum ', minimum );
+                    console.log( 'maximum ', maximum );
+*/
+                    minTotal = ( minTotal == null ? minimum : BABYLON.Vector3.Minimize( minimum, minTotal ) );
+                    maxTotal = ( maxTotal == null ? maximum : BABYLON.Vector3.Maximize( maximum, maxTotal ) );
+                }
 
                 // show this mesh
                 clonedMesh.visibility = 1.0;
@@ -691,7 +707,10 @@
                 // append to array of cloned meshes
                 clonedMeshes.push( clonedMesh );
             }
-
+/*
+            console.log( '> minTotal ', minTotal );
+            console.log( '> maxTotal ', maxTotal );
+*/
             return clonedMeshes;
         }
 

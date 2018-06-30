@@ -6,15 +6,18 @@
     *******************************************************************************************************************/
     export class SoundSystem
     {
+        /** Next ID to assign for sound creation. */
+        private             static      nextSoundId                     :number                         = 0;
+
         /** All sound file names to load. */
         private             readonly    fileNames                       :string[]                       = null;
         /** The method to invoke when all sounds are loaded. */
-        private             readonly    onLoadComplete                  :()=>void                       = null;
+        private             readonly    onLoadComplete                  :() => void                     = null;
 
         /** The number of currently loaded sounds. */
         private                         loadedSoundCount                :number                         = 0;
         /** All loaded sound objects. */
-        private                         sounds                          :HTMLAudioElement[]             = [];
+        private                         sounds                          :BABYLON.Sound[]                = [];
 
         /** ************************************************************************************************************
         *   Preloads all images into memory.
@@ -26,6 +29,9 @@
         {
             this.fileNames      = fileNames;
             this.onLoadComplete = onLoadComplete;
+
+            // set the global volume for all sounds
+            BABYLON.Engine.audioEngine.setGlobalVolume( 1.0 );
         }
 
         /** ************************************************************************************************************
@@ -37,23 +43,13 @@
 
             for ( const fileName of this.fileNames )
             {
-                try
-                {
-                    this.sounds[ fileName ]              = new Audio();
-                    this.sounds[ fileName ].src          = fileName;
-                    this.sounds[ fileName ].onloadeddata = this.onLoadSound;
-                    this.sounds[ fileName ].onerror      = this.onLoadSoundError;
-
-                    if ( bz.IO.isMac() )
-                    {
-                        this.onLoadSound();
-                    }
-                }
-                catch ( e )
-                {
-                    bz.Debug.sound.log( 'Error on creating Audio element: ' + e.message );
-                    this.onLoadSoundError();
-                }
+                this.sounds[ fileName ] = new BABYLON.Sound
+                (
+                    SoundSystem.createNextSoundId(),
+                    fileName,
+                    bz.Main.game.engine.scene.getScene(),
+                    this.onLoadSound
+                );
             }
         }
 
@@ -62,39 +58,14 @@
         *
         *   @param id   The ID of the audio object to play.
         *   @param loop Specifies if playback for this sound should be repeated infinitely.
-        *
-        *   @return A reference to the instanced audio clip.
         ***************************************************************************************************************/
-        public playSound( id:string, loop:boolean = false ) : HTMLAudioElement
+        public playSound( id:string, loop:boolean = false ) : void
         {
             if ( !bz.SettingDebug.DISABLE_SOUND )
             {
-                if ( this.sounds[ id ] != null )
-                {
-                    const clipClone:HTMLAudioElement = this.sounds[ id ].cloneNode( true );
-
-                    if ( loop )
-                    {
-                        clipClone.addEventListener(
-                            'ended',
-                            () => {
-
-                                bz.Debug.sound.log( 'Clip ended - now repeating ..' );
-
-                                // noinspection JSIgnoredPromiseFromCall
-                                clipClone.play();
-                            }
-                        );
-                    }
-
-                    // noinspection JSIgnoredPromiseFromCall
-                    clipClone.play();
-
-                    return clipClone;
-                }
+                this.sounds[ id ].loop = loop;
+                this.sounds[ id ].play();
             }
-
-            return null;
         }
 
         /** ************************************************************************************************************
@@ -111,12 +82,12 @@
         };
 
         /** ************************************************************************************************************
-        *   Being invoked when one sound was loaded completely.
+        *   Returns the next id for a new sound to create.
+        *
+        *   @return The next free unique id for a new sound to create.
         ***************************************************************************************************************/
-        private onLoadSoundError=() : void =>
+        public static createNextSoundId() : string
         {
-            bz.Debug.sound.log( 'ERROR on loading audio element!' );
-
-            this.onLoadSound();
-        };
+            return 'sound' + SoundSystem.nextSoundId++;
+        }
     }

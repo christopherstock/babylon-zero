@@ -396,7 +396,7 @@
                 250,
                 35,
                 () => {
-                    this.parent.requestVisirAnimationToggle();
+                    this.parent.requestVisorAnimationToggle();
                 }
             );
             this.parent.guiFg.addControl( this.visorToggleButton );

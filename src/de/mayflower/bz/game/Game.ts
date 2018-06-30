@@ -30,7 +30,7 @@
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             bz.Debug.init.log( 'Launch startup stage' );
-            this.switchStage( bz.SettingGame.STAGE_STARTUP, this.engine.scene.getScene() );
+            this.switchStage( bz.SettingEngine.STAGE_STARTUP, this.engine.scene.getScene() );
         };
 
         /** ************************************************************************************************************

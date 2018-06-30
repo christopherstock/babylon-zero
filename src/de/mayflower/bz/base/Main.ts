@@ -6,9 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create sound system.
-    *
     *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *
     *   TODO Solve pickable game items.
     *   TODO Enable rotation for all meshes (rotating walls!?, rotating items) etc. - around the correct pivot!
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
@@ -25,6 +24,7 @@
     *
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
+    *   TODO Create and test spatial sound .
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Different player objects: physics for car, etc?
     *

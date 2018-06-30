@@ -69,7 +69,7 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                this.requestVisirAnimationToggle();
+                this.requestVisorAnimationToggle();
             }
         }
 
@@ -118,10 +118,10 @@
         }
 
         /** ************************************************************************************************************
-        *   Requests a toggle of the animation phase for the visir.
+        *   Requests a toggle of the animation phase for the visor.
         *   May not be performed if an animation is currently running.
         ***************************************************************************************************************/
-        public requestVisirAnimationToggle() : void
+        public requestVisorAnimationToggle() : void
         {
             switch ( this.animationState )
             {
