@@ -532,7 +532,42 @@
         ***************************************************************************************************************/
         protected createItems() : bz.Item[]
         {
-            return [];
+            return [
+
+                new bz.Item
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.Model.SHELLS,
+                        new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
+                new bz.Item
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.Model.SHELLS,
+                        new BABYLON.Vector3( 15.0, 0.0, 10.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
+                new bz.Item
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.Model.SHELLS,
+                        new BABYLON.Vector3( 20.0, 0.0, 10.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
+            ];
         }
 
         /** ************************************************************************************************************
@@ -565,15 +600,6 @@
 
 
             return [
-
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.Model.SHELLS,
-                    new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    this.scene
-                ),
-
                 this.chair
             ];
 /*
