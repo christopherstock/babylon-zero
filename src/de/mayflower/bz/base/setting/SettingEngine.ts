@@ -17,7 +17,7 @@
         public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
         /** The startup stage. */
-        public  static  readonly    STAGE_STARTUP                           :bz.StageId         = bz.StageId.STAGE_PRODUCT_CONFIGURATOR;
+        public  static  readonly    STAGE_STARTUP                           :bz.StageId         = bz.StageId.STAGE_TEST_OFFICE;
 
         /** The relative path from index.html where all loading images reside. */
         public  static  readonly    PATH_IMAGE_LOADING                      :string             = 'res/image/loading/';

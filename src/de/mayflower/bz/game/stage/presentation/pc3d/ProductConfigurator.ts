@@ -250,8 +250,9 @@
             // import mesh model
             this.model = bz.MeshFactory.createImportedMesh
             (
-                bz.MeshImport.MOTORCYCLE_HELMET,
+                bz.Model.MOTORCYCLE_HELMET,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene
             );
 

@@ -35,8 +35,6 @@
         protected                           items                   :bz.Item[]                              = [];
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                               = [];
-        /** A collection of all imported meshes in this stage. */
-        protected                           importedMeshes          :BABYLON.AbstractMesh[][]               = [];
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                           = null;
         /** A collection of all sprites that appear in this stage. */
@@ -47,6 +45,8 @@
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
+        /** A collection of all imported meshes in this stage. TODO may be replaced by game objects! */
+        protected                           importedModels          :BABYLON.AbstractMesh[][]               = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -85,7 +85,7 @@
             this.movables       = this.createMovables();
             this.items          = this.createItems();
             this.bots           = this.createBots();
-            this.importedMeshes = this.createImportedMeshes();
+            this.importedModels = this.createImportedMeshes();
             this.skybox         = this.createSkybox();
             this.sprites        = this.createSprites();
 
@@ -120,7 +120,7 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // render scene ..
+            // render scene itself .. ?
 
             // render player if existent
             if ( this.player != null )
@@ -177,7 +177,7 @@
             }
 
             // dispose all imported meshes
-            for ( const importedMesh of this.importedMeshes )
+            for ( const importedMesh of this.importedModels )
             {
                 for ( const mesh of importedMesh )
                 {

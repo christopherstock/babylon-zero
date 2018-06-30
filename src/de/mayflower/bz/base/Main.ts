@@ -6,10 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO invoke setPositionAndPivot for imported meshes: replace with bounding box info??
+    *   TODO Solve pickable and rotating game items.
     *
-    *   TODO Solve pickable game items.
-    *   TODO Enable rotation for all meshes (rotating walls!?, rotating items) etc. - around the correct pivot!
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
@@ -35,6 +33,7 @@
     *   TODO Minor jitter bug improvements on colliding walls?
     *
     *   TODO Complete MVP 'The Office'.
+    *   TODO Create HUD message queue.
     *
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
@@ -45,6 +44,7 @@
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
+    *   TODO Alter the pivot for imported models?
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??

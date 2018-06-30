@@ -149,8 +149,9 @@
 
             this.logo = bz.MeshFactory.createImportedMesh
             (
-                bz.MeshImport.MF_LOGO,
+                bz.Model.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene
             );
 

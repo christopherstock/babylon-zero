@@ -39,7 +39,7 @@
     export * from './game/engine/mesh/MeshManipulation';
     export * from './game/engine/mesh/MeshPivotAnchor';
 
-    export * from './data/MeshImport';
+    export * from './data/Model';
     export * from './data/Sprite';
     export * from './data/Sound';
     export * from './data/Texture';

@@ -632,15 +632,17 @@
         /** ************************************************************************************************************
         *   Returns a clone of the imported mesh with the specified filename.
         *
-        *   @param fileName The filename of the imported mesh to return a clone for.
-        *   @param position The position for this mesh to show up.
-        *   @param scene    The scene where this imported mesh is cloned into.
+        *   @param fileName    The filename of the imported mesh to return a clone for.
+        *   @param position    The position for this mesh to show up.
+        *   @param pivotAnchor The pivot anchor specification for the imported model.
+        *   @param scene       The scene where this imported mesh is cloned into.
         ***************************************************************************************************************/
         public static createImportedMesh
         (
-            fileName :string,
-            position :BABYLON.Vector3,
-            scene    :BABYLON.Scene
+            fileName    :string,
+            position    :BABYLON.Vector3,
+            pivotAnchor :bz.MeshPivotAnchor,
+            scene       :BABYLON.Scene
         )
         : BABYLON.AbstractMesh[]
         {
@@ -648,11 +650,12 @@
             (
                 fileName
             );
-            const clonedMeshes   :BABYLON.AbstractMesh[] = [];
+            const clonedMeshes :BABYLON.AbstractMesh[] = [];
 
             let minTotal :BABYLON.Vector3 = null;
             let maxTotal :BABYLON.Vector3 = null;
 
+            // clone all meshes
             for ( const originalMesh of originalMeshes )
             {
                 const clonedMesh:BABYLON.AbstractMesh = originalMesh.clone
@@ -707,6 +710,52 @@
                 // append to array of cloned meshes
                 clonedMeshes.push( clonedMesh );
             }
+
+/*
+console.log( '>>> MIN TOTAL ' + ( minTotal ) );
+console.log( '>>> MAX TOTAL ' + ( maxTotal ) );
+console.log( '>>> DIST Y ' + ( maxTotal.y - minTotal.y ) );
+*/
+
+/*
+            // apply anchor for all meshes
+            for ( const clonedMesh of clonedMeshes )
+            {
+                switch ( pivotAnchor )
+                {
+                    case bz.MeshPivotAnchor.CENTER_XYZ:
+                    {
+                        // no handling
+/*
+                        clonedMesh.position.y -= 2.0; // ( maxTotal.y - minTotal.y );
+*/
+/*
+                        break;
+                    }
+
+                    case bz.MeshPivotAnchor.LOWEST_XYZ:
+                    {
+*/
+/*
+                        bz.MeshManipulation.setPositionAndPivot
+                        (
+                            clonedMesh,
+                            position,
+                            pivotAnchor,
+                            maxTotal.x - minTotal.y,
+                            maxTotal.y - minTotal.y,
+                            maxTotal.z - minTotal.z,
+                        );
+*/
+/*
+                        break;
+                    }
+*/
+/*
+                }
+            }
+*/
+
 /*
             console.log( '> minTotal ', minTotal );
             console.log( '> maxTotal ', maxTotal );

@@ -6,6 +6,11 @@
     *******************************************************************************************************************/
     export class Office extends bz.Stage
     {
+        /** A test mesh 'chair'. */
+        protected                           chair                   :BABYLON.AbstractMesh[]                 = [];
+        /** The testwise rotation X for the chair. */
+        protected                           chairRotX               :number                                 = 0.0;
+
         /** ************************************************************************************************************
         *   Creates a new test office.
         *
@@ -19,6 +24,29 @@
                 bz.SettingColor.COLOR_RGB_WHITE,
                 bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Renders all stage concernings for one tick of the game loop.
+        ***************************************************************************************************************/
+        public render() : void
+        {
+            // invoke parent method
+            super.render();
+
+            // rotate test chair
+            for ( const mesh of this.chair )
+            {
+                bz.MeshManipulation.setAbsoluteRotationXYZ
+                (
+                    mesh,
+                    this.chairRotX,
+                    0.0,
+                    0.0
+                );
+            }
+
+            this.chairRotX += 0.5;
         }
 
         /** ************************************************************************************************************
@@ -526,29 +554,27 @@
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
+            // import mesh model
+            this.chair = bz.MeshFactory.createImportedMesh
+            (
+                bz.Model.OFFICE_CHAIR_2,
+                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene
+            );
+
+
             return [
-/*
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.MeshImport.OFFICE_CHAIR,
-                    new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
-                    this.scene
-                ),
 
                 bz.MeshFactory.createImportedMesh
                 (
-                    bz.MeshImport.OFFICE_CHAIR,
-                    new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
+                    bz.Model.SHELLS,
+                    new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
+                    bz.MeshPivotAnchor.CENTER_XYZ,
                     this.scene
                 ),
 
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.MeshImport.OFFICE_CHAIR,
-                    new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
-                    this.scene
-                ),
-*/
+                this.chair
             ];
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
@@ -584,6 +610,7 @@
         ***************************************************************************************************************/
         protected createSprites() : BABYLON.Sprite[]
         {
+/*
             // test an animated sprite
             const testSprite:BABYLON.Sprite = bz.Main.game.engine.spriteSystem.createSprite
             (
@@ -594,7 +621,7 @@
                 bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
             );
             testSprite.playAnimation( 0, 43, true, 100, () => {} );
-
+*/
             return [
 
                 bz.Main.game.engine.spriteSystem.createSprite
@@ -603,7 +630,7 @@
                     new BABYLON.Vector3( 20.0, 0.0, 10.0 ),
                     15.0,
                     30.0,
-                    bz.MeshPivotAnchor.CENTER_XYZ
+                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
                 ),
 
                 bz.Main.game.engine.spriteSystem.createSprite
@@ -614,8 +641,9 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
                 ),
-
+/*
                 testSprite,
+*/
 /*
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
