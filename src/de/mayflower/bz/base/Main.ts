@@ -7,7 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Fix: Why is the helmet visor open on entering stage 4?
     *   TODO Create superclass for presentation stages?
     *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
@@ -58,6 +57,7 @@
     *   TODO Try fog or smoke?
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fur.
+    *   TODO Check method for disposing all scene members (scene.dispose()) again ?
     *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
     *   TODO Create debug console on-screen?
     *   TODO Try video textures!
