@@ -6,8 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Add and invoke render() for all game objects.
-    *   TODO Solve pickable and rotating game items.
+    *   TODO Solved pickable and rotating game items.
     *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *
@@ -23,7 +22,7 @@
     *
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
-    *   TODO Create and test spatial sound .
+    *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Different player objects: physics for car, etc?
     *
@@ -39,9 +38,8 @@
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
     *   TODO decouple player and visibility change method from CameraSystem?
-
+    *   TODO Improve mesh system: Do we need a class for bundling BABYLON.AbstractMesh[] ?
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
-    *   TODO Improve mesh system.
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.

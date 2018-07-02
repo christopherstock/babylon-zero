@@ -120,13 +120,17 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // render scene itself .. ?
-
             // render player if existent
             if ( this.player != null )
             {
                 this.player.handlePlayerKeys();
                 this.player.render();
+            }
+
+            // render all items
+            for ( const item of this.items )
+            {
+                item.render();
             }
         }
 

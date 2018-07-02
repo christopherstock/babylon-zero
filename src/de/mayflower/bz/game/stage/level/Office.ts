@@ -33,7 +33,7 @@
         {
             // invoke parent method
             super.render();
-
+/*
             // rotate test chair
             for ( const mesh of this.chair )
             {
@@ -47,6 +47,7 @@
             }
 
             this.chairRotX += 0.5;
+*/
         }
 
         /** ************************************************************************************************************

@@ -6,6 +6,12 @@
     *******************************************************************************************************************/
     export class Item extends bz.GameObject
     {
+        /** Flags that this item has been picked. */
+        private                 picked              :boolean                        = false;
+
+        /** Current rotation Y for this item. */
+        private                 rotY                :number                         = 0.0;
+
         /** ************************************************************************************************************
         *   Creates a new item.
         *
@@ -19,25 +25,23 @@
         /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
         ***************************************************************************************************************/
-/*
         public render() : void
         {
             // invoke parent method
             super.render();
 
-            // rotate test chair
-            for ( const mesh of this.chair )
+            // testwise rotate this item
+            for ( const mesh of this.meshes )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
                     mesh,
-                    this.chairRotX,
                     0.0,
+                    this.rotY,
                     0.0
                 );
             }
 
-            this.chairRotX += 0.5;
+            this.rotY += 0.5;
         }
-*/
     }
