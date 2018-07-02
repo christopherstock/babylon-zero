@@ -131,6 +131,9 @@
             for ( const item of this.items )
             {
                 item.render();
+
+                // check item pick by player
+                item.checkPick( this.player.getMeshes() );
             }
         }
 

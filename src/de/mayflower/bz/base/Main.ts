@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solved pickable and rotating game items.
+    *   TODO Solved pickable game items.
     *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *
@@ -14,6 +14,7 @@
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
     *   TODO Preload all textures / textured materials?
     *   TODO Create superclass for presentation stages?
+    *   TODO Improve mesh system: Do we need a class 'Model' for bundling BABYLON.AbstractMesh[] ?
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
@@ -38,7 +39,6 @@
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
     *   TODO decouple player and visibility change method from CameraSystem?
-    *   TODO Improve mesh system: Do we need a class for bundling BABYLON.AbstractMesh[] ?
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.

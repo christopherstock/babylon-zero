@@ -24,6 +24,8 @@
         public      static      readonly    key                 :Debug              = new Debug( false );
         /** Debugs the product configurator app. */
         public      static      readonly    pc                  :Debug              = new Debug( true  );
+        /** Debugs the game items. */
+        public      static      readonly    item                :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

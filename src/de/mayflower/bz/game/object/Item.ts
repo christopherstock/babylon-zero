@@ -44,4 +44,41 @@
 
             this.rotY += 0.5;
         }
+
+        /** ************************************************************************************************************
+        *   Checks if this item is picked by colliding with one of the specified meshes.
+        ***************************************************************************************************************/
+        public checkPick( meshesToCheck:BABYLON.AbstractMesh[] ) : void
+        {
+            if ( !this.picked )
+            {
+                out:
+                for ( const meshToCheck of meshesToCheck )
+                {
+                    for ( const mesh of this.meshes )
+                    {
+                        if ( mesh.intersectsMesh( meshToCheck ) )
+                        {
+                            this.pick();
+                            break out;
+                        }
+                    }
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Flags this item picked and makes it invisible.
+        ***************************************************************************************************************/
+        private pick() : void
+        {
+            bz.Debug.item.log( 'Item picked' );
+
+            this.picked = true;
+
+            for ( const mesh of this.meshes )
+            {
+                mesh.isVisible = false;
+            }
+        }
     }

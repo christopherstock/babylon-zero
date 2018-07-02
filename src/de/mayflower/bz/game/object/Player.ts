@@ -187,19 +187,23 @@
         {
             if ( visible )
             {
-                this.meshes[ Player.PLAYER_HEAD_ID ].material.alpha = 1.0;
-                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable     = true;
+                // this.meshes[ Player.PLAYER_HEAD_ID ].material.alpha = 1.0;
+                this.meshes[ Player.PLAYER_HEAD_ID ].isVisible  = true;
+                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable = true;
 
-                this.meshes[ Player.PLAYER_BODY_ID ].material.alpha = 0.25;
-                this.meshes[ Player.PLAYER_BODY_ID ].isPickable     = true;
+                // this.meshes[ Player.PLAYER_BODY_ID ].material.alpha = 0.25;
+                this.meshes[ Player.PLAYER_BODY_ID ].isVisible  = true;
+                this.meshes[ Player.PLAYER_BODY_ID ].isPickable = true;
             }
             else
             {
-                this.meshes[ Player.PLAYER_HEAD_ID ].material.alpha = 0.0;
-                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable     = false;
+                // this.meshes[ Player.PLAYER_HEAD_ID ].material.alpha = 0.0;
+                this.meshes[ Player.PLAYER_HEAD_ID ].isVisible  = false;
+                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable = false;
 
-                this.meshes[ Player.PLAYER_BODY_ID ].material.alpha = 0.0;
-                this.meshes[ Player.PLAYER_BODY_ID ].isPickable     = false;
+                // this.meshes[ Player.PLAYER_BODY_ID ].material.alpha = 0.0;
+                this.meshes[ Player.PLAYER_BODY_ID ].isVisible  = false;
+                this.meshes[ Player.PLAYER_BODY_ID ].isPickable = false;
             }
         }
 
