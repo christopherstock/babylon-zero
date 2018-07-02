@@ -96,7 +96,7 @@
             bz.Debug.init.log( 'Init mesh importer' );
             this.modelImportSystem = new bz.ModelImportSystem
             (
-                bz.Model.ALL_MESH_FILES,
+                bz.ModelFile.ALL_MESH_FILES,
                 bz.Main.game.onInitGameEngineCompleted
             );
             this.modelImportSystem.loadModels( this.scene.getScene() );

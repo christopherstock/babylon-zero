@@ -3,7 +3,7 @@
     *   Specifies the filenames of all model files to import.
     *******************************************************************************************************************/
     // tslint:disable:max-line-length
-    export abstract class Model
+    export abstract class ModelFile
     {
         /** The model 'office chair'. */
         public      static      OFFICE_CHAIR            :string                 = 'furniture/officeChair.babylon';
@@ -25,13 +25,13 @@
         /** All filenames for all meshes. */
         public      static      ALL_MESH_FILES          :string[]               =
         [
-            Model.OFFICE_CHAIR,
-            Model.OFFICE_CHAIR_2,
-            Model.SHELVES,
-            Model.SKULL,
-            Model.MF_LOGO,
+            ModelFile.OFFICE_CHAIR,
+            ModelFile.OFFICE_CHAIR_2,
+            ModelFile.SHELVES,
+            ModelFile.SKULL,
+            ModelFile.MF_LOGO,
             // MeshImport.KNIGHT_HELMET,
-            Model.MOTORCYCLE_HELMET,
-            Model.SHELLS,
+            ModelFile.MOTORCYCLE_HELMET,
+            ModelFile.SHELLS,
         ];
     }

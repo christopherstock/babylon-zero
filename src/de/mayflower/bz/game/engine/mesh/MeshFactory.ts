@@ -636,6 +636,8 @@
         *   @param position    The position for this mesh to show up.
         *   @param pivotAnchor The pivot anchor specification for the imported model.
         *   @param scene       The scene where this imported mesh is cloned into.
+        *
+        *   @return A clone of the model with the specified filename.
         ***************************************************************************************************************/
         public static createImportedMesh
         (

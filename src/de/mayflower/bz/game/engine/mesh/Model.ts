@@ -14,8 +14,19 @@
         *
         *   @param meshes All meshes that belong to this model.
         ***************************************************************************************************************/
-        protected constructor( meshes:BABYLON.AbstractMesh[] )
+        public constructor( meshes:BABYLON.AbstractMesh[] )
         {
             this.meshes = meshes;
+        }
+
+        /** ************************************************************************************************************
+        *   Disposes all meshes of this model.
+        ***************************************************************************************************************/
+        public dispose() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                mesh.dispose();
+            }
         }
     }

@@ -35,14 +35,10 @@
     export * from './game/engine/material/MaterialSystem';
 
     export * from './game/engine/mesh/MeshFactory';
+    export * from './game/engine/mesh/Model';
     export * from './game/engine/mesh/ModelImportSystem';
     export * from './game/engine/mesh/MeshManipulation';
     export * from './game/engine/mesh/MeshPivotAnchor';
-
-    export * from './data/Model';
-    export * from './data/Sprite';
-    export * from './data/Sound';
-    export * from './data/Texture';
 
     export * from './game/engine/physic/PhysicDensity';
     export * from './game/engine/physic/PhysicFriction';
@@ -56,6 +52,11 @@
     export * from './game/object/Movable';
     export * from './game/object/Player';
     export * from './game/object/Wall';
+
+    export * from './data/ModelFile';
+    export * from './data/Sprite';
+    export * from './data/Sound';
+    export * from './data/Texture';
 
     export * from './ui/Draw2D';
 

@@ -516,7 +516,7 @@
 
                 bz.MeshFactory.createImportedMesh
                 (
-                    bz.Model.OFFICE_CHAIR,
+                    bz.ModelFile.OFFICE_CHAIR,
                     new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     this.scene
@@ -524,7 +524,7 @@
 
                 bz.MeshFactory.createImportedMesh
                 (
-                    bz.Model.OFFICE_CHAIR,
+                    bz.ModelFile.OFFICE_CHAIR,
                     new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     this.scene
@@ -532,7 +532,7 @@
 
                 bz.MeshFactory.createImportedMesh
                 (
-                    bz.Model.OFFICE_CHAIR,
+                    bz.ModelFile.OFFICE_CHAIR,
                     new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     this.scene
