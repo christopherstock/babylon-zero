@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix 1st person player cam.
     *   TODO Reference head and body meshes for player!
     *   TODO Improve mesh system: Do we need a class 'Model' for bundling BABYLON.AbstractMesh[] ?
     *
