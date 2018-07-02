@@ -45,7 +45,7 @@
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
-        /** A collection of all imported meshes in this stage. TODO may be replaced by game objects! */
+        /** A collection of all imported meshes in this stage. */
         protected                           importedModels          :BABYLON.AbstractMesh[][]               = [];
 
         /** ************************************************************************************************************

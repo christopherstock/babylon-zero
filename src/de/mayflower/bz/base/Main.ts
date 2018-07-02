@@ -6,13 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
-    *
-    *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
-    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Preload all textures / textured materials?
-    *   TODO Create superclass for presentation stages?
     *   TODO Improve mesh system: Do we need a class 'Model' for bundling BABYLON.AbstractMesh[] ?
+    *
+    *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Create superclass for presentation stages?
+    *
+    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
+    *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
     *
     *   TODO Check collisions via shooting.
     *   TODO Create shooting.
@@ -22,6 +22,7 @@
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
+    *   TODO Preload all textures / textured materials?
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Different player objects: physics for car, etc?
     *
@@ -31,6 +32,7 @@
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
     *
+    *   TODO Remove importedModels from Stage! ( replace with game objects )
     *   TODO Complete MVP 'The Office'.
     *   TODO Create HUD message queue.
     *
