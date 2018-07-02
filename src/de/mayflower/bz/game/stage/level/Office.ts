@@ -7,7 +7,7 @@
     export class Office extends bz.Stage
     {
         /** A test mesh 'chair'. */
-        protected                           chair                   :BABYLON.AbstractMesh[]                 = [];
+        protected                           chair                   :bz.Model                               = null;
         /** The testwise rotation X for the chair. */
         protected                           chairRotX               :number                                 = 0.0;
 
@@ -59,14 +59,9 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-
                 bz.Main.game.engine.soundSystem.playSound( bz.Sound.TEST_FX_1 );
                 bz.Main.game.engine.soundSystem.playSound( bz.Sound.TEST_BG_STONE_AGE_THE_GOLDEN_VALLEY, true );
             }
-
-
-
-
         }
 
         /** ************************************************************************************************************
@@ -95,22 +90,25 @@
 
                 new bz.Wall
                 (
-                    [
-                        // static ground
-                        bz.MeshFactory.createBox
-                        (
-                            new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
-                            bz.MeshPivotAnchor.NONE,
-                            new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.Texture.TEST,
-                            null,
-                            this.scene,
-                            bz.Physic.STATIC,
-                            1.0,
-                            this.ambientColor
-                        ),
-                    ]
+                    new bz.Model
+                    (
+                        [
+                            // static ground
+                            bz.MeshFactory.createBox
+                            (
+                                new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
+                                bz.MeshPivotAnchor.NONE,
+                                new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.TEST,
+                                null,
+                                this.scene,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
                 ),
 /*
                 new bz.Wall
@@ -582,11 +580,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all imported meshes this stage consists of.
+        *   Creates and returns all imported models this stage consists of.
         *
-        *   @return All imported meshes of this stage.
+        *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
+        protected createImportedMeshes() : bz.Model[]
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
@@ -598,7 +596,6 @@
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene
             );
-
 
             return [
                 this.chair

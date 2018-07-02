@@ -15,11 +15,11 @@
         /** ************************************************************************************************************
         *   Creates a new item.
         *
-        *   @param meshes The mesh for this item.
+        *   @param model The model that represents this item.
         ***************************************************************************************************************/
-        public constructor( meshes:BABYLON.AbstractMesh[] )
+        public constructor( model:bz.Model )
         {
-            super( meshes );
+            super( model );
         }
 
         /** ************************************************************************************************************
@@ -31,7 +31,7 @@
             super.render();
 
             // testwise rotate this item
-            for ( const mesh of this.meshes )
+            for ( const mesh of this.model.getMeshes() )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
@@ -46,16 +46,18 @@
         }
 
         /** ************************************************************************************************************
-        *   Checks if this item is picked by colliding with one of the specified meshes.
+        *   Checks if this item is picked by colliding with the specified model.
+        *
+        *   @param modelToCheck The model to check for collision with this item.
         ***************************************************************************************************************/
-        public checkPick( meshesToCheck:BABYLON.AbstractMesh[] ) : void
+        public checkPick( modelToCheck:bz.Model ) : void
         {
             if ( !this.picked )
             {
                 out:
-                for ( const meshToCheck of meshesToCheck )
+                for ( const meshToCheck of modelToCheck.getMeshes() )
                 {
-                    for ( const mesh of this.meshes )
+                    for ( const mesh of this.model.getMeshes() )
                     {
                         if ( mesh.intersectsMesh( meshToCheck ) )
                         {
@@ -76,7 +78,7 @@
 
             this.picked = true;
 
-            for ( const mesh of this.meshes )
+            for ( const mesh of this.model.getMeshes() )
             {
                 mesh.isVisible = false;
             }

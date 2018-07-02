@@ -646,13 +646,14 @@
             pivotAnchor :bz.MeshPivotAnchor,
             scene       :BABYLON.Scene
         )
-        : BABYLON.AbstractMesh[]
+        : bz.Model
         {
-            const originalMeshes :BABYLON.AbstractMesh[] = bz.Main.game.engine.modelImportSystem.getOriginalMesh
+            const originalModel  :bz.Model               = bz.Main.game.engine.modelImportSystem.getOriginalModel
             (
                 fileName
             );
-            const clonedMeshes :BABYLON.AbstractMesh[] = [];
+            const originalMeshes :BABYLON.AbstractMesh[] = originalModel.getMeshes();
+            const clonedMeshes   :BABYLON.AbstractMesh[] = [];
 
             let minTotal :BABYLON.Vector3 = null;
             let maxTotal :BABYLON.Vector3 = null;
@@ -762,7 +763,7 @@ console.log( '>>> DIST Y ' + ( maxTotal.y - minTotal.y ) );
             console.log( '> minTotal ', minTotal );
             console.log( '> maxTotal ', maxTotal );
 */
-            return clonedMeshes;
+            return new bz.Model( clonedMeshes );
         }
 
         /** ************************************************************************************************************

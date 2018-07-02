@@ -9,10 +9,10 @@
         /** ************************************************************************************************************
         *   Creates a new bot instance.
         *
-        *   @param meshes All meshes this bot consists of.
+        *   @param model The model that represents this bot.
         ***************************************************************************************************************/
-        public constructor( meshes:BABYLON.AbstractMesh[] )
+        public constructor( model:bz.Model )
         {
-            super( meshes );
+            super( model );
         }
     }

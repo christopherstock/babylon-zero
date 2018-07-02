@@ -79,11 +79,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all imported meshes this stage consists of.
+        *   Creates and returns all imported models this stage consists of.
         *
-        *   @return All imported meshes of this stage.
+        *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
+        protected createImportedMeshes() : bz.Model[]
         {
             return [];
         }

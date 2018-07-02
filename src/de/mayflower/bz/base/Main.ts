@@ -6,9 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Fix 1st person player cam.
+    *   TODO Reference head and body meshes for player!
     *   TODO Improve mesh system: Do we need a class 'Model' for bundling BABYLON.AbstractMesh[] ?
     *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
+    *   TODO Fix: Why is the helmet visor open on entering stage 4?
     *   TODO Create superclass for presentation stages?
     *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost

@@ -10,10 +10,10 @@
         /** ************************************************************************************************************
         *   Creates a new wall instance.
         *
-        *   @param meshes All meshes that build this wall.
+        *   @param model The model that represents this wall.
         ***************************************************************************************************************/
-        public constructor( meshes:BABYLON.AbstractMesh[] )
+        public constructor( model:bz.Model )
         {
-            super( meshes );
+            super( model );
         }
     }

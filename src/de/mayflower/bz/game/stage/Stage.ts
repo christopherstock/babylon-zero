@@ -22,21 +22,22 @@
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
 
-        /** The player instance. */
-        protected                           player                  :bz.Player                              = null;
-
         /** A collection of the coordinate axis in this stage. */
         protected                           coordinateAxis          :BABYLON.Mesh[]                         = [];
-        /** A collection of all walls in this stage. */
-        protected                           walls                   :bz.Wall[]                              = [];
-        /** A collection of all movables in this stage. */
-        protected                           movables                :bz.Movable[]                           = [];
-        /** A collection of all items in this stage. */
-        protected                           items                   :bz.Item[]                              = [];
-        /** A collection of all bots in this stage. */
-        protected                           bots                    :bz.Bot[]                               = [];
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                           = null;
+
+        /** The player instance. */
+        protected                           player                  :bz.Player                              = null;
+        /** A collection of all walls in this stage. */
+        protected                           walls                   :bz.Wall[]                              = [];
+        /** A collection of all items in this stage. */
+        protected                           items                   :bz.Item[]                              = [];
+        /** A collection of all movables in this stage. */
+        protected                           movables                :bz.Movable[]                           = [];
+        /** A collection of all bots in this stage. */
+        protected                           bots                    :bz.Bot[]                               = [];
+
         /** A collection of all sprites that appear in this stage. */
         protected                           sprites                 :BABYLON.Sprite[]                       = [];
         /** A collection of all lights that appear in this stage. */
@@ -46,7 +47,7 @@
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
         /** A collection of all imported meshes in this stage. */
-        protected                           importedModels          :BABYLON.AbstractMesh[][]               = [];
+        protected                           importedModels          :bz.Model[]                             = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -133,7 +134,7 @@
                 item.render();
 
                 // check item pick by player
-                item.checkPick( this.player.getMeshes() );
+                item.checkPick( this.player.getModel() );
             }
         }
 
@@ -184,12 +185,9 @@
             }
 
             // dispose all imported meshes
-            for ( const importedMesh of this.importedModels )
+            for ( const model of this.importedModels )
             {
-                for ( const mesh of importedMesh )
-                {
-                    mesh.dispose();
-                }
+                model.dispose();
             }
 
             // dispose skybox
@@ -312,11 +310,11 @@
         protected abstract createBots() : bz.Bot[];
 
         /** ************************************************************************************************************
-        *   Creates and returns all imported meshes this stage consists of.
+        *   Creates and returns all imported models this stage consists of.
         *
-        *   @return All imported meshes of this stage.
+        *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected abstract createImportedMeshes() : BABYLON.AbstractMesh[][];
+        protected abstract createImportedMeshes() : bz.Model[];
 
         /** ************************************************************************************************************
         *   Sets up the skybox.

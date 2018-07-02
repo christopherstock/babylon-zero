@@ -44,49 +44,52 @@
         {
             super
             (
-                [
-                    // Player.PLAYER_HEAD_ID
-                    bz.MeshFactory.createSphere
-                    (
-                        new BABYLON.Vector3
+                new bz.Model
+                (
+                    [
+                        // Player.PLAYER_HEAD_ID
+                        bz.MeshFactory.createSphere
                         (
-                            0.0,
-                            ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
-                            0.0
+                            new BABYLON.Vector3
+                            (
+                                0.0,
+                                ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                                0.0
+                            ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            bz.Texture.GRASS,
+                            null,
+                            bz.Main.game.engine.scene.getScene(),
+                            bz.Physic.NONE,
+                            1.0,
+                            emissiveColor
                         ),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
-                        ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                        bz.Texture.GRASS,
-                        null,
-                        bz.Main.game.engine.scene.getScene(),
-                        bz.Physic.NONE,
-                        1.0,
-                        emissiveColor
-                    ),
 
-                    // Player.PLAYER_BODY_ID
-                    bz.MeshFactory.createCylinder
-                    (
-                        position,
-                        bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                        ( 2 * bz.SettingGame.PLAYER_RADIUS_BODY_XZ ),
-                        bz.SettingGame.PLAYER_HEIGHT_Y,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                        bz.Texture.GLASS,
-                        null,
-                        bz.Main.game.engine.scene.getScene(),
-                        bz.Physic.PLAYER,
-                        0.25,
-                        emissiveColor
-                    ),
-                ]
+                        // Player.PLAYER_BODY_ID
+                        bz.MeshFactory.createCylinder
+                        (
+                            position,
+                            bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                            ( 2 * bz.SettingGame.PLAYER_RADIUS_BODY_XZ ),
+                            bz.SettingGame.PLAYER_HEIGHT_Y,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            bz.Texture.GLASS,
+                            null,
+                            bz.Main.game.engine.scene.getScene(),
+                            bz.Physic.PLAYER,
+                            0.25,
+                            emissiveColor
+                        ),
+                    ]
+                )
             );
 
             this.rotY = rotY;
 
             // stick head to body
-            this.meshes[ Player.PLAYER_HEAD_ID ].parent = this.meshes[ Player.PLAYER_BODY_ID ];
+            this.model.getMeshes()[ Player.PLAYER_HEAD_ID ].parent = this.model.getMeshes()[ Player.PLAYER_BODY_ID ];
 /*
             // create physical link
             this.meshes[ Player.PLAYER_BODY_ID ].getMesh().setPhysicsLinkWith
@@ -164,7 +167,7 @@
         ***************************************************************************************************************/
         public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
-            return this.meshes[ Player.PLAYER_HEAD_ID ];
+            return this.model.getMeshes()[ Player.PLAYER_HEAD_ID ];
         }
 
         /** ************************************************************************************************************
@@ -175,7 +178,7 @@
         ***************************************************************************************************************/
         public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
-            return this.meshes[ Player.PLAYER_BODY_ID ];
+            return this.model.getMeshes()[ Player.PLAYER_BODY_ID ];
         }
 
         /** ************************************************************************************************************
@@ -187,19 +190,19 @@
         {
             if ( visible )
             {
-                this.meshes[ Player.PLAYER_HEAD_ID ].isVisible  = true;
-                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable = true;
+                this.model.getMeshes()[ Player.PLAYER_HEAD_ID ].isVisible  = true;
+                this.model.getMeshes()[ Player.PLAYER_HEAD_ID ].isPickable = true;
 
-                this.meshes[ Player.PLAYER_BODY_ID ].isVisible  = true;
-                this.meshes[ Player.PLAYER_BODY_ID ].isPickable = true;
+                this.model.getMeshes()[ Player.PLAYER_BODY_ID ].isVisible  = true;
+                this.model.getMeshes()[ Player.PLAYER_BODY_ID ].isPickable = true;
             }
             else
             {
-                this.meshes[ Player.PLAYER_HEAD_ID ].isVisible  = false;
-                this.meshes[ Player.PLAYER_HEAD_ID ].isPickable = false;
+                this.model.getMeshes()[ Player.PLAYER_HEAD_ID ].isVisible  = false;
+                this.model.getMeshes()[ Player.PLAYER_HEAD_ID ].isPickable = false;
 
-                this.meshes[ Player.PLAYER_BODY_ID ].isVisible  = false;
-                this.meshes[ Player.PLAYER_BODY_ID ].isPickable = false;
+                this.model.getMeshes()[ Player.PLAYER_BODY_ID ].isVisible  = false;
+                this.model.getMeshes()[ Player.PLAYER_BODY_ID ].isPickable = false;
             }
         }
 
@@ -211,7 +214,7 @@
             if ( this.moveDeltaX !== 0.0 || this.moveDeltaZ !== 0.0 )
             {
                 // apply move delta
-                this.meshes[ Player.PLAYER_BODY_ID ].moveWithCollisions
+                this.model.getMeshes()[ Player.PLAYER_BODY_ID ].moveWithCollisions
                 (
                     new BABYLON.Vector3( this.moveDeltaX, 0.0, this.moveDeltaZ )
                 );
@@ -266,7 +269,7 @@
             // rotate body
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
-                this.meshes[ Player.PLAYER_BODY_ID ],
+                this.model.getMeshes()[ Player.PLAYER_BODY_ID ],
                 0.0,
                 this.rotY,
                 0.0
@@ -275,7 +278,7 @@
             // rotate head
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
-                this.meshes[ Player.PLAYER_HEAD_ID ],
+                this.model.getMeshes()[ Player.PLAYER_HEAD_ID ],
                 this.rotZ,
                 0.0,
                 0.0
@@ -316,8 +319,8 @@
         private manipulateVelocities() : void
         {
             // filter linear velocity Y
-            const velocity:BABYLON.Vector3 = this.meshes[ Player.PLAYER_BODY_ID ].physicsImpostor.getLinearVelocity();
-            this.meshes[ Player.PLAYER_BODY_ID ].physicsImpostor.setLinearVelocity
+            const velocity:BABYLON.Vector3 = this.model.getMeshes()[ Player.PLAYER_BODY_ID ].physicsImpostor.getLinearVelocity();
+            this.model.getMeshes()[ Player.PLAYER_BODY_ID ].physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
                 (
@@ -331,6 +334,9 @@
             );
 
             // suppress angular velocity
-            this.meshes[ Player.PLAYER_BODY_ID ].physicsImpostor.setAngularVelocity( BABYLON.Vector3.Zero() );
+            this.model.getMeshes()[ Player.PLAYER_BODY_ID ].physicsImpostor.setAngularVelocity
+            (
+                BABYLON.Vector3.Zero()
+            );
         }
     }

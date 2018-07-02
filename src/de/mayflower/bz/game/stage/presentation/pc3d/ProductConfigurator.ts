@@ -9,7 +9,7 @@
     export class ProductConfigurator extends bz.Stage
     {
         /** Referenced imported helmet. */
-        private                         model                   :BABYLON.AbstractMesh[]     = null;
+        private                         model                   :bz.Model                   = null;
         /** Referenced visir of the helmet. */
         private                         visor                   :BABYLON.AbstractMesh       = null;
         /** Referenced helmet of the helmet. */
@@ -239,11 +239,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all imported meshes this stage consists of.
+        *   Creates and returns all imported models this stage consists of.
         *
-        *   @return All imported meshes of this stage.
+        *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
+        protected createImportedMeshes() : bz.Model[]
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 
@@ -257,8 +257,8 @@
             );
 
             // reference single meshes
-            this.helmet = this.model[ 0 ];
-            this.visor  = this.model[ 1 ];
+            this.helmet = this.model.getMeshes()[ 0 ];
+            this.visor  = this.model.getMeshes()[ 1 ];
 
             return [ this.model ];
         }

@@ -7,26 +7,26 @@
     export abstract class GameObject
     {
         /** All meshes this game object consists of. */
-        protected           readonly    meshes                  :BABYLON.AbstractMesh[]             = null;
+        protected           readonly        model                  :bz.Model                    = null;
 
         /** ************************************************************************************************************
         *   Creates a new game object.
         *
-        *   @param meshes The mesh for this wall.
+        *   @param model The model for this game object.
         ***************************************************************************************************************/
-        protected constructor( meshes:BABYLON.AbstractMesh[] )
+        protected constructor( model:bz.Model )
         {
-            this.meshes = meshes;
+            this.model = model;
         }
 
         /** ************************************************************************************************************
-        *   Returns all meshes that build this game object .
+        *   Returns the model of this game object.
         *
-        *   @return meshes All meshes this game object consists of.
+        *   @return model The physical representation of this game object.
         ***************************************************************************************************************/
-        public getMeshes() : BABYLON.AbstractMesh[]
+        public getModel() : bz.Model
         {
-            return this.meshes;
+            return this.model;
         }
 
         /** ************************************************************************************************************
@@ -37,13 +37,10 @@
         }
 
         /** ************************************************************************************************************
-        *   Disposes all meshes of this game object.
+        *   Disposes the model of this game object.
         ***************************************************************************************************************/
         public dispose() : void
         {
-            for ( const mesh of this.meshes )
-            {
-                mesh.dispose();
-            }
+            this.model.dispose();
         }
     }

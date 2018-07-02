@@ -29,4 +29,16 @@
                 mesh.dispose();
             }
         }
+
+        /** ************************************************************************************************************
+        *   Returns all meshes this model consists of.
+        *
+        *   TODO Replace with specified methods!
+        *
+        *   @return All meshes that build up this model.
+        ***************************************************************************************************************/
+        public getMeshes() : BABYLON.AbstractMesh[]
+        {
+            return this.meshes;
+        }
     }

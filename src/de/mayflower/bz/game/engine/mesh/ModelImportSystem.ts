@@ -14,7 +14,7 @@
         /** The number of currently loaded model files. */
         private                         loadedModelCount                :number                         = 0;
         /** All loaded mesh objects. */
-        private                         meshes                          :BABYLON.AbstractMesh[][]       = [];
+        private                         models                          :bz.Model[]                     = [];
 
         /** ************************************************************************************************************
         *   Creates a new model import system.
@@ -55,7 +55,7 @@
                         }
 
                         // save in meshes array
-                        this.meshes[ fileName ] = importedMeshes;
+                        this.models[ fileName ] = new bz.Model( importedMeshes );
 
                         // notify load
                         this.onLoadModel();
@@ -65,13 +65,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the original mesh data of the specified imported model file.
+        *   Returns the original model of the specified imported model file.
         *
-        *   @return The original mesh data of the given imported model file.
+        *   @return The original model of the given imported model file.
         ***************************************************************************************************************/
-        public getOriginalMesh( fileName:string ) : BABYLON.AbstractMesh[]
+        public getOriginalModel( fileName:string ) : bz.Model
         {
-            return this.meshes[ fileName ];
+            return this.models[ fileName ];
         }
 
         /** ************************************************************************************************************

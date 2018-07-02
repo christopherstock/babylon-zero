@@ -10,7 +10,7 @@
         private     static  readonly    ROTATION_SPEED          :number                     = 1.75;
 
         /** Referenced imported logo. */
-        protected                       logo                    :BABYLON.AbstractMesh[]     = null;
+        protected                       logo                    :bz.Model                   = null;
         /** Referenced point light. */
         private                         pointLight              :BABYLON.PointLight         = null;
         /** Current logo rotation Y. */
@@ -44,7 +44,7 @@
             super.render();
 
             // rotate logo
-            for ( const mesh of this.logo )
+            for ( const mesh of this.logo.getMeshes() )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ
                 (
@@ -139,11 +139,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all imported meshes this stage consists of.
+        *   Creates and returns all imported models this stage consists of.
         *
-        *   @return All imported meshes of this stage.
+        *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : BABYLON.AbstractMesh[][]
+        protected createImportedMeshes() : bz.Model[]
         {
             bz.Debug.stage.log( 'Importing stage meshes' );
 

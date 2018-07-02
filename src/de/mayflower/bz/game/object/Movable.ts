@@ -1,5 +1,4 @@
 
-    import * as BABYLON from 'babylonjs';
     import * as bz      from '../..';
 
     /** ****************************************************************************************************************
@@ -10,10 +9,10 @@
         /** ************************************************************************************************************
         *   Creates a new movable instance.
         *
-        *   @param meshes All meshes for this movable.
+        *   @param model The model that represents this movable.
         ***************************************************************************************************************/
-        public constructor( meshes:BABYLON.AbstractMesh[] )
+        public constructor( model:bz.Model )
         {
-            super( meshes );
+            super( model );
         }
     }
