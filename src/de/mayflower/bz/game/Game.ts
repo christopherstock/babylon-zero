@@ -54,9 +54,6 @@
         ***************************************************************************************************************/
         public render=() : void =>
         {
-            // handle global keys
-            this.handleMenuKeys();
-
             // handle level specific keys
             this.stage.handleLevelKeys();
 
@@ -65,6 +62,9 @@
 
             // render babylon.JS scene
             this.engine.scene.renderScene();
+
+            // handle global keys ( perform level switches here! )
+            this.handleMenuKeys();
         };
 
         /** ************************************************************************************************************

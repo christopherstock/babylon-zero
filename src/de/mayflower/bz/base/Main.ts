@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solved pickable game items.
-    *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
