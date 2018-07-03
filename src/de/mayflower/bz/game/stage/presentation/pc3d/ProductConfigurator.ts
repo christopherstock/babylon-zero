@@ -20,9 +20,6 @@
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
 
-        /** All GUI dependent components reside here. */
-        private                         gui                     :bz.ProductConfiguratorGui  = null;
-
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
@@ -130,7 +127,7 @@
                     this.animationState = bz.HelmetState.OPENING;
                     bz.GuiFactory.setVisorToggleButtonText
                     (
-                        this.gui.visorToggleButton,
+                        ( this.hud as bz.ProductConfiguratorHUD ).visorToggleButton,
                         'Close Visor'
                     );
 
@@ -162,7 +159,7 @@
                     this.animationState = bz.HelmetState.CLOSING;
                     bz.GuiFactory.setVisorToggleButtonText
                     (
-                        this.gui.visorToggleButton,
+                        ( this.hud as bz.ProductConfiguratorHUD ).visorToggleButton,
                         'Open Visor'
                     );
 
@@ -350,14 +347,14 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the GUIs for this stage.
+        *   Creates the HUD for this stage.
         ***************************************************************************************************************/
-        protected createGuis() : void
+        protected createHUD() : void
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
-            this.gui = new bz.ProductConfiguratorGui();
-            this.gui.init( this );
+            this.hud = new bz.ProductConfiguratorHUD();
+            ( this.hud as bz.ProductConfiguratorHUD ).init( this );
         }
 
         /** ************************************************************************************************************
@@ -369,7 +366,7 @@
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
                 () => {
 
-                    this.gui.cameraZoomSlider.value =
+                    ( this.hud as bz.ProductConfiguratorHUD ).cameraZoomSlider.value =
                     (
 //                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
                         400.0 + 100.0 - this.getCameraSystem().getArcRotateCamera().radius

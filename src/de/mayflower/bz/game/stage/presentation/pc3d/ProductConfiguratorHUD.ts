@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The GUI for the '3D product configurator' stage.
     *******************************************************************************************************************/
-    export class ProductConfiguratorGui
+    export class ProductConfiguratorHUD extends bz.HUD
     {
         /** The colors for the visor. */
         private     static  readonly    VISOR_COLORS                :BABYLON.Color3[]           =
@@ -83,6 +83,14 @@
         private                         parent                      :bz.ProductConfigurator     = null;
 
         /** ************************************************************************************************************
+        *   Creates a new HUD for the Product Configurator.
+        ***************************************************************************************************************/
+        public constructor()
+        {
+            super();
+        }
+
+        /** ************************************************************************************************************
         *   Inits all GUI components for the 3D Product Configurator.
         *
         *   @param parent The Product Configurator Stage.
@@ -97,7 +105,7 @@
                 22,
                 306,
                 646,
-                ProductConfiguratorGui.GUI_COLOR_BORDER,
+                ProductConfiguratorHUD.GUI_COLOR_BORDER,
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( rectangleOuter );
@@ -108,7 +116,7 @@
                 23,
                 304,
                 644,
-                ProductConfiguratorGui.GUI_COLOR_BORDER,
+                ProductConfiguratorHUD.GUI_COLOR_BORDER,
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.parent.guiFg.addControl( rectangleOuter2 );
@@ -119,8 +127,8 @@
                 25,
                 300,
                 640,
-                ProductConfiguratorGui.GUI_COLOR_BORDER,
-                ProductConfiguratorGui.GUI_COLOR_BG
+                ProductConfiguratorHUD.GUI_COLOR_BORDER,
+                ProductConfiguratorHUD.GUI_COLOR_BG
             );
             this.parent.guiFg.addControl( rectangleInner );
 
@@ -129,15 +137,15 @@
                 'mfLogo.png',
                 50,
                 50,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW
             );
             this.parent.guiFg.addControl( logo );
 
             const titleRow1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 '3D Product',
-                ProductConfiguratorGui.GUI_COLOR_TEXT,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW,
+                ProductConfiguratorHUD.GUI_COLOR_TEXT,
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW,
                 160,
                 50,
                 250,
@@ -149,8 +157,8 @@
             const titleRow2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Configurator',
-                ProductConfiguratorGui.GUI_COLOR_TEXT,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW,
+                ProductConfiguratorHUD.GUI_COLOR_TEXT,
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW,
                 160,
                 80,
                 250,
@@ -162,8 +170,8 @@
             const titleRow3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'v.0.4.1, MVP',
-                ProductConfiguratorGui.GUI_COLOR_TEXT,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW,
+                ProductConfiguratorHUD.GUI_COLOR_TEXT,
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW,
                 160,
                 110,
                 250,
@@ -188,8 +196,8 @@
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color Visor',
-                ProductConfiguratorGui.GUI_COLOR_TEXT,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW,
+                ProductConfiguratorHUD.GUI_COLOR_TEXT,
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW,
                 50,
                 170,
                 300,
@@ -199,9 +207,9 @@
             );
             this.parent.guiFg.addControl( textColorChoserVisor );
 
-            for ( let i:number = 0; i < ProductConfiguratorGui.VISOR_COLORS.length; ++i )
+            for (let i:number = 0; i < ProductConfiguratorHUD.VISOR_COLORS.length; ++i )
             {
-                const visorColor :BABYLON.Color3 = ProductConfiguratorGui.VISOR_COLORS[ i ];
+                const visorColor :BABYLON.Color3 = ProductConfiguratorHUD.VISOR_COLORS[ i ];
                 const colorCss   :string         = (
                     'rgb( '
                     + ( visorColor.r * 255 )
@@ -215,7 +223,7 @@
                 (
                     'visorColorSelect',
                     bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    ProductConfiguratorGui.GUI_COLOR_BG,
+                    ProductConfiguratorHUD.GUI_COLOR_BG,
                     50,
                     203 + ( i * 30 ),
                     20,
@@ -237,9 +245,9 @@
 
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
                 (
-                    ProductConfiguratorGui.VISOR_COLOR_NAMES[ i ],
+                    ProductConfiguratorHUD.VISOR_COLOR_NAMES[ i ],
                     colorCss,
-                    ProductConfiguratorGui.VISOR_COLOR_SHADOWS[ i ],
+                    ProductConfiguratorHUD.VISOR_COLOR_SHADOWS[ i ],
                     80,
                     203 + ( i * 30 ),
                     300,
@@ -269,8 +277,8 @@
             const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Color Helmet',
-                ProductConfiguratorGui.GUI_COLOR_TEXT,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW,
+                ProductConfiguratorHUD.GUI_COLOR_TEXT,
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW,
                 50,
                 340,
                 300,
@@ -280,9 +288,9 @@
             );
             this.parent.guiFg.addControl( textColorChoserHelmet );
 
-            for ( let i:number = 0; i < ProductConfiguratorGui.HELMET_COLORS.length; ++i )
+            for (let i:number = 0; i < ProductConfiguratorHUD.HELMET_COLORS.length; ++i )
             {
-                const helmetColor :BABYLON.Color3 = ProductConfiguratorGui.HELMET_COLORS[ i ];
+                const helmetColor :BABYLON.Color3 = ProductConfiguratorHUD.HELMET_COLORS[ i ];
                 const colorCss   :string         = (
                     'rgb( '
                     + ( helmetColor.r * 255 )
@@ -296,7 +304,7 @@
                 (
                     'helmetColorSelect',
                     bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    ProductConfiguratorGui.GUI_COLOR_BG,
+                    ProductConfiguratorHUD.GUI_COLOR_BG,
                     50,
                     373 + ( i * 30 ),
                     20,
@@ -318,9 +326,9 @@
 
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
                 (
-                    ProductConfiguratorGui.HELMET_COLOR_NAMES[ i ],
+                    ProductConfiguratorHUD.HELMET_COLOR_NAMES[ i ],
                     colorCss,
-                    ProductConfiguratorGui.HELMET_COLOR_SHADOWS[ i ],
+                    ProductConfiguratorHUD.HELMET_COLOR_SHADOWS[ i ],
                     80,
                     373 + ( i * 30 ),
                     300,
@@ -350,8 +358,8 @@
             const textCameraZoom:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
             (
                 'Zoom',
-                ProductConfiguratorGui.GUI_COLOR_TEXT,
-                ProductConfiguratorGui.GUI_COLOR_SHADOW,
+                ProductConfiguratorHUD.GUI_COLOR_TEXT,
+                ProductConfiguratorHUD.GUI_COLOR_SHADOW,
                 50,
                 510,
                 250,
@@ -411,6 +419,13 @@
         }
 
         /** ************************************************************************************************************
+        *   Updates the HUD information for the current game tick.
+        ***************************************************************************************************************/
+        public update() : void
+        {
+        }
+
+        /** ************************************************************************************************************
         *   Being invoked when a visor color checkbox is clicked.
         *
         *   @param checkboxId The ID of the visir color checkbox being clicked.
@@ -420,7 +435,7 @@
             bz.Debug.gui.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
 
             // change visor color
-            this.parent.requestVisorColorChange( ProductConfiguratorGui.VISOR_COLORS[ checkboxId ] );
+            this.parent.requestVisorColorChange( ProductConfiguratorHUD.VISOR_COLORS[ checkboxId ] );
         }
 
         /** ************************************************************************************************************
@@ -433,6 +448,6 @@
             bz.Debug.gui.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
 
             // change helmet color
-            this.parent.requestHelmetColorChange( ProductConfiguratorGui.HELMET_COLORS[ checkboxId ] );
+            this.parent.requestHelmetColorChange( ProductConfiguratorHUD.HELMET_COLORS[ checkboxId ] );
         }
     }

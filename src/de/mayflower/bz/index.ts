@@ -74,4 +74,4 @@
     export * from './game/stage/presentation/RoomViewer';
     export * from './game/stage/presentation/pc3d/HelmetState';
     export * from './game/stage/presentation/pc3d/ProductConfigurator';
-    export * from './game/stage/presentation/pc3d/ProductConfiguratorGui';
+    export * from './game/stage/presentation/pc3d/ProductConfiguratorHUD';

@@ -12,10 +12,12 @@
         public                              hud                     :bz.HUD                                 = null;
 
 
+
         /** The fullscreen gui in foreground. TODO wrap to class HUD */
         public                              guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
         /** The fullscreen gui in background. TODO wrap to class HUD */
         protected                           guiBg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+
 
 
 
@@ -106,7 +108,7 @@
                 this.setupShadows();
             }
 
-            this.createGuis();
+            this.createHUD();
             this.adjustGuiSizeToCanvasSize();
 
             this.onInitComplete();
@@ -363,9 +365,9 @@
         protected abstract createCameraSystem() : bz.CameraSystem;
 
         /** ************************************************************************************************************
-        *   Creates the GUIs for this stage.
+        *   Creates the HUD for this stage.
         ***************************************************************************************************************/
-        protected abstract createGuis() : void;
+        protected abstract createHUD() : void;
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.

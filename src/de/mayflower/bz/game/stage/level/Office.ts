@@ -422,9 +422,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the GUIs for this stage.
+        *   Creates the HUD for this stage.
         ***************************************************************************************************************/
-        protected createGuis() : void
+        protected createHUD() : void
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
