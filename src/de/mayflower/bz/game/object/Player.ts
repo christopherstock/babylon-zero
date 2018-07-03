@@ -107,6 +107,7 @@
         ***************************************************************************************************************/
         public handlePlayerKeys() : void
         {
+            // move forewards and backwards
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
                 this.moveDeltaX +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
@@ -118,6 +119,7 @@
                 this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
 
+            // strave
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
             {
                 this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
@@ -129,6 +131,7 @@
                 this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
             }
 
+            // turn Y
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
                 this.rotationDeltaY = -bz.SettingGame.PLAYER_SPEED_TURN;
@@ -138,6 +141,7 @@
                 this.rotationDeltaY = bz.SettingGame.PLAYER_SPEED_TURN;
             }
 
+            // look up / down
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_R ) )
             {
                 this.rotationDeltaZ = -bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
@@ -146,6 +150,13 @@
             {
                 this.rotationDeltaZ = bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
             }
+
+
+
+// TODO
+
+
+
         }
 
         /** ************************************************************************************************************

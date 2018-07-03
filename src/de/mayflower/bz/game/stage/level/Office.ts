@@ -76,8 +76,8 @@
         {
             return new bz.Player
             (
-                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
-                0.0,
+                new BABYLON.Vector3( 5.0, 0.0, 10.0 ),
+                180.0,
                 this.ambientColor
             );
         }
@@ -158,7 +158,7 @@
         protected createItems() : bz.Item[]
         {
             return [
-
+/*
                 new bz.Item
                 (
                     bz.MeshFactory.createImportedMesh
@@ -191,7 +191,7 @@
                         this.scene
                     )
                 ),
-
+*/
             ];
         }
 
@@ -435,7 +435,7 @@
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getFirstPersonCameraTargetMesh(),
-                bz.CameraType.FREE_DEBUG
+                bz.CameraType.FIRST_PERSON
             );
         }
 
