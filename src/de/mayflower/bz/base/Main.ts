@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Cluster game HUD into separate class and improve implementation to stage.
-    *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
     *
@@ -16,7 +14,6 @@
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
     *
-    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Preload all textures / textured materials?
@@ -36,6 +33,7 @@
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Improve abstract stage system and make it more generic.
     *   TODO decouple player and visibility change method from CameraSystem?
+    *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
