@@ -1,34 +1,21 @@
 
     import * as bz          from '../..';
     import * as BABYLON     from 'babylonjs';
-    import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Represents a custom stage set.
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The game HUD. */
-        public                              hud                     :bz.HUD                                 = null;
-
-
-
-        /** The fullscreen gui in foreground. TODO wrap to class HUD */
-        public                              guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
-        /** The fullscreen gui in background. TODO wrap to class HUD */
-        protected                           guiBg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
-
-
-
-
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
-
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
-
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
+
+        /** The game HUD. */
+        protected                           hud                     :bz.HUD                                 = null;
 
         /** A collection of the coordinate axis in this stage. */
         protected                           coordinateAxis          :BABYLON.Mesh[]                         = [];
@@ -225,14 +212,10 @@
             // dispose camera system
             this.cameraSystem.dispose();
 
-            // dispose GUIs
-            if ( this.guiFg != null )
+            // dispose HUD
+            if ( this.hud != null )
             {
-                this.guiFg.dispose();
-            }
-            if ( this.guiBg != null )
-            {
-                this.guiBg.dispose();
+                this.hud.dispose();
             }
         }
 
@@ -264,21 +247,13 @@
         ***************************************************************************************************************/
         public adjustGuiSizeToCanvasSize() : void
         {
-            // assign canvas dimensions
-            const canvasWidth  :number = bz.Main.game.engine.canvas.getWidth();
-            const canvasHeight :number = bz.Main.game.engine.canvas.getHeight();
-
-            if ( this.guiFg != null )
+            if ( this.hud != null )
             {
-                this.guiFg.idealWidth  = canvasWidth;
-                this.guiFg.idealHeight = canvasHeight;
-                this.guiFg.scaleTo( canvasWidth, canvasHeight );
-            }
-            if ( this.guiBg != null )
-            {
-                this.guiBg.idealWidth  = canvasWidth;
-                this.guiBg.idealHeight = canvasHeight;
-                this.guiBg.scaleTo( canvasWidth, canvasHeight );
+                this.hud.updateSize
+                (
+                    bz.Main.game.engine.canvas.getWidth(),
+                    bz.Main.game.engine.canvas.getHeight()
+                );
             }
         }
 

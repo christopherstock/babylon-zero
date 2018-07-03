@@ -426,8 +426,6 @@
         ***************************************************************************************************************/
         protected createHUD() : void
         {
-            this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
-
-            this.hud = new bz.GameHUD( this.guiFg );
+            this.hud = new bz.GameHUD();
         }
     }

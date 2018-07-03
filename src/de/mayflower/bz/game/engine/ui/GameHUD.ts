@@ -21,7 +21,7 @@
         *
         *   @param guiFg The babylon.JS GUI element to append all controls to.
         ***************************************************************************************************************/
-        public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture )
+        public constructor()
         {
             super();
 
@@ -37,7 +37,7 @@
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
                 null
             );
-            guiFg.addControl( this.fpsText );
+            this.guiFg.addControl( this.fpsText );
         }
 
         /** ************************************************************************************************************
