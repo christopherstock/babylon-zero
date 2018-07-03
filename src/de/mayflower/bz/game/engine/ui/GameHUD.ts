@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   Manages the Heads Up Display that contains all GUI elements for one game level.
     *******************************************************************************************************************/
-    export class GameHUD
+    export class GameHUD extends bz.HUD
     {
         /** The width of the horizontal border for all HUD elements. */
         private     static  readonly        HUD_BORDER_X            :number                                 = 50.0;
@@ -23,6 +23,8 @@
         ***************************************************************************************************************/
         public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture )
         {
+            super();
+
             this.fpsText = bz.GuiFactory.createTextBlock
             (
                 '',
@@ -43,7 +45,9 @@
         ***************************************************************************************************************/
         public update() : void
         {
-            // assign fps
+            // update and assign fps
             this.fpsText.text = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 ) + ' fps';
+
+
         }
     }

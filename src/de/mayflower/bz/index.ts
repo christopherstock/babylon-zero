@@ -20,6 +20,7 @@
     export * from './game/engine/Scene';
 
     export * from './game/engine/ui/CanvasSystem';
+    export * from './game/engine/ui/HUD';
     export * from './game/engine/ui/GameHUD';
     export * from './game/engine/ui/GuiFactory';
     export * from './game/engine/ui/LightFactory';
