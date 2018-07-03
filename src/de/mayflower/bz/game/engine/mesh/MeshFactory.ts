@@ -648,7 +648,7 @@
         )
         : bz.Model
         {
-            const originalModel  :bz.Model               = bz.Main.game.engine.modelImportSystem.getOriginalModel
+            const originalModel:bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel
             (
                 fileName
             );
