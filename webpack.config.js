@@ -1,21 +1,21 @@
 module.exports = {
-    entry: "./src/index.ts",
+    entry: './src/index.ts',
     mode: 'development',
     output: {
-        filename: "bundle.js",
-        path: __dirname + "/dist/js/"
+        filename: 'bundle.js',
+        path: __dirname + '/dist/js/'
     },
 
     // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
+    devtool: 'source-map',
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [
-            ".ts",
-            ".tsx",
-            ".js",
-            ".json"
+            '.ts',
+            '.tsx',
+            '.js',
+            '.json'
         ]
     },
 
@@ -24,14 +24,14 @@ module.exports = {
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
                 test: /\.tsx?$/,
-                loader: "awesome-typescript-loader"
+                loader: 'awesome-typescript-loader'
             },
 
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 test: /\.js$/,
-                enforce: "pre",
-                loader: "source-map-loader"
+                enforce: 'pre',
+                loader: 'source-map-loader'
             },
 
             // All '.css' files will be handled by the style- and css-loader
@@ -69,7 +69,7 @@ module.exports = {
         host: 'localhost',
         port: 1234,
         watchContentBase: true,
-        publicPath: "/js/",
-        contentBase: __dirname + "/dist/"
+        publicPath: '/js/',
+        contentBase: __dirname + '/dist/'
     }
 };
