@@ -12,14 +12,13 @@ Christopher
 npm install
 ```
 
-## 2. Build the project
+## 2. Compile and run the project
 ```
-npm start
+npm run build:devserver
 ```
 
-## 3. Run the app
+## 3. Open the app on the Webpack Dev-Server
 
-Open the following file on your webserver:
 ```
-dist/index.html
+http://localhost:1234
 ```
