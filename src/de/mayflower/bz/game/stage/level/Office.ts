@@ -1,24 +1,15 @@
 
     import * as bz from '../../..';
-    import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Specifies the 'office' level.
     *******************************************************************************************************************/
     export class Office extends bz.Stage
     {
-        /** The width of the horizontal border for all HUD elements. */
-        private     static  readonly        HUD_BORDER_X            :number                                 = 50.0;
-        /** The height of the horizontal border for all HUD elements. */
-        private     static  readonly        HUD_BORDER_Y            :number                                 = 50.0;
-
-        /** A test mesh 'chair'. */
+        /** A testwise mesh 'chair'. */
         protected                           chair                   :bz.Model                               = null;
-        /** The testwise rotation X for the chair. */
+        /** The testwise rotation X for the testwise chair. */
         protected                           chairRotX               :number                                 = 0.0;
-
-        /** The FPS text. */
-        protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
 
         /** ************************************************************************************************************
         *   Creates a new test office.
@@ -43,9 +34,8 @@
             // invoke parent method
             super.render();
 
-            // assign fps
-            const fps:string = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 );
-            this.fpsText.text = fps + ' fps';
+            // update the game HUD information
+            this.hud.update();
 /*
             // rotate test chair
             for ( const mesh of this.chair )
@@ -438,18 +428,6 @@
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
-            this.fpsText = bz.GuiFactory.createTextBlock
-            (
-                '',
-                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                -Office.HUD_BORDER_X,
-                Office.HUD_BORDER_Y,
-                250,
-                25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-                null
-            );
-            this.guiFg.addControl( this.fpsText );
+            this.hud = new bz.GameHUD( this.guiFg );
         }
     }

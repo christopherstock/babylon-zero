@@ -7,7 +7,7 @@
     export class Model
     {
         /** All meshes that belong to this model. */
-        public                                  meshes                  :BABYLON.AbstractMesh[]         = null;
+        private             readonly            meshes                  :BABYLON.AbstractMesh[]             = null;
 
         /** ************************************************************************************************************
         *   Creates a new model.
@@ -33,7 +33,7 @@
         /** ************************************************************************************************************
         *   Returns all meshes this model consists of.
         *
-        *   TODO Replace with specified methods!
+        *   TODO Replace with specific methods!
         *
         *   @return All meshes that build up this model.
         ***************************************************************************************************************/

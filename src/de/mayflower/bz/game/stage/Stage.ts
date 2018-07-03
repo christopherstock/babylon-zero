@@ -8,9 +8,11 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The fullscreen gui in foreground. */
+        /** The game HUD. TODO create class HUD, GameHUD and ProductConfHUD. */
+        public                              hud                     :bz.GameHUD                             = null;
+        /** The fullscreen gui in foreground. TODO wrap to class HUD */
         public                              guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
-        /** The fullscreen gui in background. */
+        /** The fullscreen gui in background. TODO wrap to class HUD */
         protected                           guiBg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
 
         /** The reference to the babylon.JS Scene. */
