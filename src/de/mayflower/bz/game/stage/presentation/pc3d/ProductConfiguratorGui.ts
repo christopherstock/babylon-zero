@@ -142,6 +142,7 @@
                 50,
                 250,
                 25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                 null
             );
             this.parent.guiFg.addControl( titleRow1 );
@@ -154,6 +155,7 @@
                 80,
                 250,
                 25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                 null
             );
             this.parent.guiFg.addControl( titleRow2 );
@@ -166,6 +168,7 @@
                 110,
                 250,
                 25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                 null
             );
             this.parent.guiFg.addControl( titleRow3 );
@@ -191,6 +194,7 @@
                 170,
                 300,
                 25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                 null
             );
             this.parent.guiFg.addControl( textColorChoserVisor );
@@ -240,6 +244,7 @@
                     203 + ( i * 30 ),
                     300,
                     20,
+                    BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                     () => {
                         bz.Debug.gui.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
@@ -270,6 +275,7 @@
                 340,
                 300,
                 25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                 null
             );
             this.parent.guiFg.addControl( textColorChoserHelmet );
@@ -319,6 +325,7 @@
                     373 + ( i * 30 ),
                     300,
                     20,
+                    BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                     () => {
                         bz.Debug.gui.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
@@ -349,6 +356,7 @@
                 510,
                 250,
                 25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                 null
             );
             this.parent.guiFg.addControl( textCameraZoom );

@@ -7,7 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Show FPS output as Ortho drawing: bz.MfgInit.engine.getFps().toFixed() + " fps"
-    *   TODO Create superclass for presentation stages?
+    *   TODO Cluster game HUD into separate class and improve implementation to stage.
     *
     *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
@@ -50,6 +50,7 @@
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Try PostProcess (camera.setPostProcess ?)
     *   TODO Create material system with unified parameters!
+    *   TODO Create superclass for presentation stages?
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
     *   TODO Check 3D model creation from photos ( for 3D product configurator )?
     *   TODO Increase performance in chrome?
