@@ -44,7 +44,7 @@
             super.render();
 
             // assign fps
-            const fps:number = Math.round( bz.Main.game.engine.babylonEngine.getFps() );
+            const fps:string = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 );
             this.fpsText.text = fps + ' fps';
 /*
             // rotate test chair

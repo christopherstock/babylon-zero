@@ -19,11 +19,12 @@
     export * from './game/engine/Engine';
     export * from './game/engine/Scene';
 
-    export * from './game/engine/ui/SpriteSystem';
     export * from './game/engine/ui/CanvasSystem';
+    export * from './game/engine/ui/GameHUD';
+    export * from './game/engine/ui/GuiFactory';
     export * from './game/engine/ui/LightFactory';
     export * from './game/engine/ui/LoadingScreen';
-    export * from './game/engine/ui/GuiFactory';
+    export * from './game/engine/ui/SpriteSystem';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
