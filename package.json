@@ -10,6 +10,7 @@
     "bugs": "https://github.com/christopherstock/babylon-zero/issues",
     "scripts": {
         "build:dev": "webpack --watch",
+        "build:devserver": "webpack-dev-server",
         "build:production": "webpack --optimize-minimize --watch",
         "typedoc:generate": "typedoc --out doc\\ --listInvalidSymbolLinks --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src",
         "tslint:check": "tslint --project ./tsconfig.json --config ./tslint.json \"src/**/*.{ts,tsx}\""
@@ -27,7 +28,8 @@
         "typedoc": "^0.11.1",
         "typescript": "^2.9.2",
         "webpack": "^4.12.0",
-        "webpack-cli": "^2.1.5"
+        "webpack-cli": "^2.1.5",
+        "webpack-dev-server": "^3.1.4"
     },
     "dependencies": {
         "babylon-zero-lib": "^0.1.0",

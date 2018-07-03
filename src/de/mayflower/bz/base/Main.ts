@@ -6,41 +6,38 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try webpack-dev-server --hot --progress --config ./webpack.config.js --port 1234 --host localhost
-    *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
-    *
-    *   TODO Check collisions via shooting.
     *   TODO Create shooting.
+    *   TODO Check collisions via shooting.
     *   TODO Create Bullet holes.
     *   TODO Create 3d gun as 2nd scene in front?
     *
     *   TODO Improve camera startup positions for all cameras and enable used cameras only.
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Preload all textures / textured materials?
-    *   TODO Move all body volume calculations to MathUtil functions.
-    *   TODO Different player objects: physics for car, etc?
     *
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
+    *   TODO Create HUD message queue.
     *
     *   TODO Remove importedModels from Stage! ( replace with game objects )
     *   TODO Complete MVP 'The Office'.
-    *   TODO Create HUD message queue.
     *
     *   TODO Smooth camera transfers / animation on changine active camera?
-    *   TODO Improve abstract stage system and make it more generic.
+    *
+    *   TODO Move all body volume calculations to MathUtil functions.
+    *   TODO Enable jumping?
     *   TODO decouple player and visibility change method from CameraSystem?
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
-    *   TODO Enable jumping?
     *   TODO Reduce static accesses to Main.game.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Alter the pivot for imported models?
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
+    *   TODO Different player objects: physics for car, etc?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   TODO Add player/camrera controls (turn, duck)
@@ -55,6 +52,7 @@
     *   TODO Try fog or smoke?
     *   TODO Created improved triangle / polygon drawing by xyz vertices?
     *   TODO Try fur.
+    *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
     *   TODO Check method for disposing all scene members (scene.dispose()) again ?
     *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
     *   TODO Create debug console on-screen?

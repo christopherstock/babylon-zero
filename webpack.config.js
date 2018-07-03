@@ -63,5 +63,13 @@ module.exports = {
                 ]
             }
         ]
+    },
+
+    devServer: {
+        host: 'localhost',
+        port: 1234,
+        watchContentBase: true,
+        publicPath: "/js/",
+        contentBase: __dirname + "/dist/"
     }
 };
