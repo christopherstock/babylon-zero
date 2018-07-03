@@ -5,6 +5,7 @@ Join this advanced workshop on Friday the 13th in our slacktime at Mayflower Gmb
 Topics include the new major 3 of TypeScript, cutting edge babylon.JS features and the web deployment tool netlify.
 
 Contact me for a personal invitation!
+
 Christopher
 
 ## 1. Install all Node.js packages
@@ -18,7 +19,6 @@ npm run build:devserver
 ```
 
 ## 3. Open the app on the Webpack Dev-Server
-
 ```
 http://localhost:1234
 ```
