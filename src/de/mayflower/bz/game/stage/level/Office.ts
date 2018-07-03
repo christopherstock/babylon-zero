@@ -111,6 +111,29 @@
                                 this.ambientColor
                             ),
                         ]
+                    ),
+                ),
+
+                new bz.Wall
+                (
+                    new bz.Model
+                    (
+                        [
+                            // test wall
+                            bz.MeshFactory.createBox
+                            (
+                                new BABYLON.Vector3( 3.0, 0.0, 1.0  ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.GRASS,
+                                null,
+                                this.scene,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
                     )
                 ),
             ];
@@ -189,8 +212,7 @@
         ***************************************************************************************************************/
         protected createImportedMeshes() : bz.Model[]
         {
-            bz.Debug.stage.log( 'Importing stage meshes' );
-
+/*
             // import mesh model
             this.chair = bz.MeshFactory.createImportedMesh
             (
@@ -199,9 +221,11 @@
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene
             );
-
+*/
             return [
+/*
                 this.chair
+*/
             ];
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
@@ -250,7 +274,7 @@
             testSprite.playAnimation( 0, 43, true, 100, () => {} );
 */
             return [
-
+/*
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
                     bz.Sprite.TREE,
@@ -268,6 +292,7 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
                 ),
+*/
 /*
                 testSprite,
 */

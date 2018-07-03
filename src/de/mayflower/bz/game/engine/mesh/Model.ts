@@ -33,8 +33,6 @@
         /** ************************************************************************************************************
         *   Returns all meshes this model consists of.
         *
-        *   TODO Replace with specific methods!
-        *
         *   @return All meshes that build up this model.
         ***************************************************************************************************************/
         public getMeshes() : BABYLON.AbstractMesh[]

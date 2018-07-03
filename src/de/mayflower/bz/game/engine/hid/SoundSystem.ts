@@ -39,7 +39,7 @@
         ***************************************************************************************************************/
         public loadSounds() : void
         {
-            bz.Debug.sound.log( 'Preloading [' + this.fileNames.length + '] sounds' );
+            bz.Debug.init.log( ' Preloading [' + this.fileNames.length + '] sounds' );
 
             for ( const fileName of this.fileNames )
             {
@@ -63,6 +63,8 @@
         {
             if ( !bz.SettingDebug.DISABLE_SOUND )
             {
+                bz.Debug.sound.log( 'Playing sound [' + id + ']' );
+
                 this.sounds[ id ].loop = loop;
                 this.sounds[ id ].play();
             }
@@ -75,7 +77,7 @@
         {
             if ( ++this.loadedSoundCount >= this.fileNames.length )
             {
-                bz.Debug.sound.log( 'All [' + this.fileNames.length + '] sounds loaded' );
+                bz.Debug.init.log( ' All [' + this.fileNames.length + '] sounds loaded' );
 
                 this.onLoadComplete();
             }

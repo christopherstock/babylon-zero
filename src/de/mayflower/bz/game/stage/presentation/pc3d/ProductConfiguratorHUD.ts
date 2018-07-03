@@ -229,7 +229,7 @@
                     20,
                     20,
                     ( checked:boolean ) => {
-                        bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
+                        bz.Debug.pc3d.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
                         if ( checked )
                         {
                             this.onCheckVisorColorRadioButton( i );
@@ -254,7 +254,7 @@
                     20,
                     BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                     () => {
-                        bz.Debug.gui.log( 'text clicked! [' + i + ' ]' );
+                        bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
                     }
                 );
@@ -310,7 +310,7 @@
                     20,
                     20,
                     ( checked:boolean ) => {
-                        bz.Debug.gui.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
+                        bz.Debug.pc3d.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
                         if ( checked )
                         {
                             this.onCheckHelmetColorRadioButton( i );
@@ -335,7 +335,7 @@
                     20,
                     BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
                     () => {
-                        bz.Debug.gui.log( 'text clicked! [' + i + ' ]' );
+                        bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
                     }
                 );
@@ -432,7 +432,7 @@
         ***************************************************************************************************************/
         private onCheckVisorColorRadioButton( checkboxId:number ) : void
         {
-            bz.Debug.gui.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
+            bz.Debug.pc3d.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
 
             // change visor color
             this.parent.requestVisorColorChange( ProductConfiguratorHUD.VISOR_COLORS[ checkboxId ] );
@@ -445,7 +445,7 @@
         ***************************************************************************************************************/
         private onCheckHelmetColorRadioButton( checkboxId:number ) : void
         {
-            bz.Debug.gui.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
+            bz.Debug.pc3d.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
 
             // change helmet color
             this.parent.requestHelmetColorChange( ProductConfiguratorHUD.HELMET_COLORS[ checkboxId ] );

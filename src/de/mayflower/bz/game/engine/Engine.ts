@@ -92,8 +92,8 @@
         ***************************************************************************************************************/
         private onSoundsLoaded=() : void =>
         {
-            // init mesh importer
-            bz.Debug.init.log( 'Init mesh importer' );
+            // init model importer
+            bz.Debug.init.log( 'Init model importer' );
             this.modelImportSystem = new bz.ModelImportSystem
             (
                 bz.ModelFile.ALL_MESH_FILES,

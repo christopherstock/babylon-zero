@@ -145,8 +145,6 @@
         ***************************************************************************************************************/
         protected createImportedMeshes() : bz.Model[]
         {
-            bz.Debug.stage.log( 'Importing stage meshes' );
-
             this.logo = bz.MeshFactory.createImportedMesh
             (
                 bz.ModelFile.MF_LOGO,

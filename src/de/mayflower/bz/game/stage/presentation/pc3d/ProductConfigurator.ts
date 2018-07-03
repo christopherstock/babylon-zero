@@ -77,12 +77,12 @@
         ***************************************************************************************************************/
         public requestVisorColorChange( color:BABYLON.Color3 ) : void
         {
-            bz.Debug.pc.log( 'Change visor color' );
+            bz.Debug.pc3d.log( 'Change visor color' );
 
             const visorMultiMaterial:BABYLON.MultiMaterial = this.visor.material as BABYLON.MultiMaterial;
             const subMaterials:BABYLON.Material[] = visorMultiMaterial.subMaterials;
 
-            bz.Debug.pc.log( 'Sub-Materials of visor: [' + subMaterials.length + ']' );
+            bz.Debug.pc3d.log( 'Sub-Materials of visor: [' + subMaterials.length + ']' );
 
             // pick 1st submaterial
             const visorMaterial:BABYLON.StandardMaterial = subMaterials[ 16 ] as BABYLON.StandardMaterial;
@@ -97,12 +97,12 @@
         ***************************************************************************************************************/
         public requestHelmetColorChange( color:BABYLON.Color3 ) : void
         {
-            bz.Debug.pc.log( 'Change helmet color' );
+            bz.Debug.pc3d.log( 'Change helmet color' );
 
             const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
             const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
 
-            bz.Debug.pc.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
+            bz.Debug.pc3d.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
 
             // pick affected submaterials
             const stripeMaterial :BABYLON.StandardMaterial = subMaterials[ 0 ] as BABYLON.StandardMaterial;
@@ -242,8 +242,6 @@
         ***************************************************************************************************************/
         protected createImportedMeshes() : bz.Model[]
         {
-            bz.Debug.stage.log( 'Importing stage meshes' );
-
             // import mesh model
             this.model = bz.MeshFactory.createImportedMesh
             (

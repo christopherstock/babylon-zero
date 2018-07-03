@@ -33,7 +33,7 @@
         ***************************************************************************************************************/
         public loadModels( scene:BABYLON.Scene ) : void
         {
-            bz.Debug.modelImport.log( 'Importing [' + this.fileNames.length + '] model files' );
+            bz.Debug.init.log( ' Importing [' + this.fileNames.length + '] model files' );
 
             for ( const fileName of this.fileNames )
             {
@@ -46,7 +46,7 @@
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 
-                        bz.Debug.modelImport.log( ' Imported [' + importedMeshes.length + '] meshes' );
+                        bz.Debug.init.log( '  Imported [' + importedMeshes.length + '] meshes' );
 
                         // hide all meshes
                         for ( const importedMesh of importedMeshes )
@@ -81,7 +81,7 @@
         {
             if ( ++this.loadedModelCount >= this.fileNames.length )
             {
-                bz.Debug.modelImport.log( 'All [' + this.fileNames.length + '] models loaded' );
+                bz.Debug.init.log( ' All [' + this.fileNames.length + '] models loaded' );
 
                 this.onLoadComplete();
             }

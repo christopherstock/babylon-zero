@@ -573,8 +573,6 @@
         ***************************************************************************************************************/
         protected createImportedMeshes() : bz.Model[]
         {
-            bz.Debug.stage.log( 'Importing stage meshes' );
-
             return [
 
                 bz.MeshFactory.createImportedMesh

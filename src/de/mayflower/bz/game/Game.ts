@@ -168,20 +168,20 @@
         ***************************************************************************************************************/
         private switchStage( targetStage:bz.StageId, scene:BABYLON.Scene ) : void
         {
-            bz.Debug.stage.log( 'Switch to target stage [' + targetStage + ']' );
+            bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
 
             // check existent stage unload
             if ( this.stage != null )
             {
                 // show loading UI
-                bz.Debug.stage.log( 'Showing loading UI.' );
+                bz.Debug.stage.log( ' Showing the loading UI.' );
                 this.engine.babylonEngine.displayLoadingUI();
 
-                bz.Debug.stage.log( 'Stopping the render loop.' );
+                bz.Debug.stage.log( ' Stopping the render loop.' );
                 this.engine.babylonEngine.stopRenderLoop( this.render );
 
                 // dispose existent stage
-                bz.Debug.stage.log( 'Dispose current stage.' );
+                bz.Debug.stage.log( ' Disposing the current stage.' );
                 this.stage.unload();
             }
 

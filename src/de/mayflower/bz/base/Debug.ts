@@ -16,14 +16,10 @@
         public      static      readonly    sound               :Debug              = new Debug( true  );
         /** Debugs stage system. */
         public      static      readonly    stage               :Debug              = new Debug( true  );
-        /** Debugs gui components. */
-        public      static      readonly    gui                 :Debug              = new Debug( true  );
-        /** Debugs model importer system. */
-        public      static      readonly    modelImport         :Debug              = new Debug( true  );
+        /** Debugs concernings for the 3D product configurator. */
+        public      static      readonly    pc3d                 :Debug              = new Debug( true  );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
-        /** Debugs the product configurator app. */
-        public      static      readonly    pc                  :Debug              = new Debug( true  );
         /** Debugs the game items. */
         public      static      readonly    item                :Debug              = new Debug( true  );
 
