@@ -1,6 +1,6 @@
 
     import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../../index';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Represents a Heads Up Display that is displayed in the foreground and in the background of the stage.
@@ -39,6 +39,11 @@
         {
             this.guiFg.dispose();
         }
+
+        /** ************************************************************************************************************
+        *   Inits all HUD components for the 3D Product Configurator..
+        ***************************************************************************************************************/
+        public abstract init() : void;
 
         /** ************************************************************************************************************
         *   Updates the HUD information for the current game tick.

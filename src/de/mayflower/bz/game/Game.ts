@@ -28,8 +28,8 @@
         public onInitGameEngineCompleted=() : void =>
         {
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
+            bz.Debug.init.log( '' );
 
-            bz.Debug.init.log( 'Launch startup stage' );
             this.switchStage( bz.SettingEngine.STAGE_STARTUP, this.engine.scene.getScene() );
         };
 

@@ -454,6 +454,8 @@
         *   @param filename    The name of the image file to display.
         *   @param x           Left edge of the image.
         *   @param y           Top edge of the image.
+        *   @param alignHorz   Horizontal alignment.
+        *   @param alignVert   Vertical alignment.
         *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
         *
         *   @return The specified image.
@@ -463,6 +465,8 @@
             filename    :string,
             x           :number,
             y           :number,
+            alignHorz   :number,
+            alignVert   :number,
             shadowColor :string
         )
         : BABYLON_GUI.Image
@@ -470,11 +474,11 @@
             const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
             (
                 GuiFactory.createNextGuiId(),
-                bz.SettingEngine.PATH_IMAGE_GUI + filename
+                bz.SettingEngine.PATH_IMAGE_HUD + filename
             );
 
-            image.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            image.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            image.horizontalAlignment = alignHorz;
+            image.verticalAlignment   = alignVert;
             image.autoScale           = true;
             image.stretch             = BABYLON_GUI.Image.STRETCH_NONE;
 

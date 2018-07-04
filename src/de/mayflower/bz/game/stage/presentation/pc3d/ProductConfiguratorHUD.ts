@@ -84,21 +84,21 @@
 
         /** ************************************************************************************************************
         *   Creates a new HUD for the Product Configurator.
-        ***************************************************************************************************************/
-        public constructor()
-        {
-            super();
-        }
-
-        /** ************************************************************************************************************
-        *   Inits all GUI components for the 3D Product Configurator.
         *
         *   @param parent The Product Configurator Stage.
         ***************************************************************************************************************/
-        public init( parent:bz.ProductConfigurator ) : void
+        public constructor( parent:bz.ProductConfigurator )
         {
-            this.parent = parent;
+            super();
 
+            this.parent = parent;
+        }
+
+        /** ************************************************************************************************************
+        *   Inits all HUD components for the 3D Product Configurator.
+        ***************************************************************************************************************/
+        public init() : void
+        {
             const rectangleOuter:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
             (
                 22,
@@ -134,9 +134,11 @@
 
             const logo:BABYLON_GUI.Image = bz.GuiFactory.createImage
             (
-                'mfLogo.png',
+                'pc3d/mfLogo.png',
                 50,
                 50,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 ProductConfiguratorHUD.GUI_COLOR_SHADOW
             );
             this.guiFg.addControl( logo );

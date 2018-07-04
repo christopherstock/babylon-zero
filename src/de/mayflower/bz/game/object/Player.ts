@@ -27,6 +27,8 @@
 
         /** Flags if rotZ view centering should occur this tick. */
         private                             centerRotZ              :boolean                            = false;
+        /** Flags if fire should be performed this tick. */
+        private                             fire                    :boolean                            = false;
 
         /** The referenced head of the player. */
         private                 readonly    head                    :BABYLON.AbstractMesh               = null;
@@ -108,24 +110,40 @@
         public handlePlayerKeys() : void
         {
             // move forewards and backwards
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
+            if
+            (
+                   bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W  )
+                || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
+            )
             {
                 this.moveDeltaX +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
                 this.moveDeltaZ +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
+            if
+            (
+                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S )
+                ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
+            )
             {
                 this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
                 this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
 
             // strave
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A ) )
+            if
+            (
+                   bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A    )
+                || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
+            )
             {
                 this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
                 this.moveDeltaZ += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
             }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D ) )
+            if
+            (
+                   bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D     )
+                || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
+            )
             {
                 this.moveDeltaX += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
                 this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
@@ -151,12 +169,13 @@
                 this.rotationDeltaZ = bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
             }
 
+            // fire
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_CTRL_LEFT ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_CTRL_LEFT );
 
-
-// TODO
-
-
-
+                this.fire = true;
+            }
         }
 
         /** ************************************************************************************************************
@@ -167,6 +186,7 @@
             this.movePlayer();
             this.rotatePlayerXYZ();
             this.checkCenteringRotZ();
+            this.checkFire();
 
             this.manipulateVelocities();
         }
@@ -322,6 +342,26 @@
                         this.rotZ = 0.0;
                     }
                 }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if the player is firing.
+        ***************************************************************************************************************/
+        private checkFire() : void
+        {
+            if ( this.fire )
+            {
+                bz.Debug.fire.log( 'Player is firing' );
+
+                this.fire = false;
+
+
+
+
+
+
+
             }
         }
 

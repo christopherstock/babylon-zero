@@ -349,8 +349,8 @@
         ***************************************************************************************************************/
         protected createHUD() : void
         {
-            this.hud = new bz.ProductConfiguratorHUD();
-            ( this.hud as bz.ProductConfiguratorHUD ).init( this );
+            this.hud = new bz.ProductConfiguratorHUD( this );
+            this.hud.init();
         }
 
         /** ************************************************************************************************************

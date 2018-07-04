@@ -28,7 +28,7 @@
         /** The relative path from index.html where all skybox images reside. */
         public  static  readonly    PATH_IMAGE_SKYBOX                       :string             = 'res/image/skybox/';
         /** The relative path from index.html where all GUI images reside. */
-        public  static  readonly    PATH_IMAGE_GUI                          :string             = 'res/image/gui/';
+        public  static  readonly    PATH_IMAGE_HUD                          :string             = 'res/image/hud/';
         /** The relative path from index.html where all effect sounds the app makes use of reside. */
         public  static  readonly    PATH_SOUND_FX                           :string             = 'res/sound/fx/';
         /** The relative path from index.html where all background sounds the app makes use of reside. */

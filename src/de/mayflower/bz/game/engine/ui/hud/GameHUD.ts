@@ -1,6 +1,5 @@
 
-    import * as bz          from '../../..';
-    import * as BABYLON     from 'babylonjs';
+    import * as bz          from '../../../..';
     import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
@@ -17,14 +16,18 @@
         protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
 
         /** ************************************************************************************************************
-        *   Creates a new Heads Up Display for one game level.
-        *
-        *   @param guiFg The babylon.JS GUI element to append all controls to.
+        *   Creates a new Heads Up Display for a game level.
         ***************************************************************************************************************/
         public constructor()
         {
             super();
+        }
 
+        /** ************************************************************************************************************
+        *   Initializes the Heads Up Display for a game level.
+        ***************************************************************************************************************/
+        public init() : void
+        {
             this.fpsText = bz.GuiFactory.createTextBlock
             (
                 '',
@@ -38,6 +41,17 @@
                 null
             );
             this.guiFg.addControl( this.fpsText );
+
+            const wearpon:BABYLON_GUI.Image = bz.GuiFactory.createImage
+            (
+                'wearpon/autoShotgun.png',
+                -GameHUD.HUD_BORDER_X,
+                0,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
+                null
+            );
+            this.guiFg.addControl( wearpon );
         }
 
         /** ************************************************************************************************************

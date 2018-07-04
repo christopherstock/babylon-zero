@@ -452,5 +452,6 @@
         protected createHUD() : void
         {
             this.hud = new bz.GameHUD();
+            this.hud.init();
         }
     }

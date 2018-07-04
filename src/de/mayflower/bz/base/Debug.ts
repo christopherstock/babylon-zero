@@ -17,11 +17,13 @@
         /** Debugs stage system. */
         public      static      readonly    stage               :Debug              = new Debug( true  );
         /** Debugs concernings for the 3D product configurator. */
-        public      static      readonly    pc3d                 :Debug              = new Debug( true  );
+        public      static      readonly    pc3d                :Debug              = new Debug( true  );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
         /** Debugs the game items. */
         public      static      readonly    item                :Debug              = new Debug( true  );
+        /** Debugs player fire. */
+        public      static      readonly    fire                :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;
