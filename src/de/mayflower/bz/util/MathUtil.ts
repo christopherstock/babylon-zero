@@ -1,6 +1,7 @@
-import * as bz from '../index';
 
-/** ****************************************************************************************************************
+    import * as bz from '../index';
+
+    /** ****************************************************************************************************************
     *   Offers additional mathematical functionality.
     *******************************************************************************************************************/
     export class MathUtil
@@ -78,13 +79,13 @@ import * as bz from '../index';
         *****************************************************************************/
         public static rotateVector
         (
-            sourceVector   :BABYLON.Vector3,
+            source   :BABYLON.Vector3,
             rotation :BABYLON.Vector3,
             distance :number
         )
         : BABYLON.Vector3
         {
-            const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( distance, 0.0, 0.0 );
+            const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, distance );
             const rotationMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
             (
                 bz.MathUtil.degreesToRad( rotation.y ),
@@ -98,7 +99,7 @@ import * as bz from '../index';
                 rotationMatrix
             );
 
-            const rotatedVector :BABYLON.Vector3 = sourceVector.add( rotatedDistantVector );
+            const rotatedVector :BABYLON.Vector3 = source.add( rotatedDistantVector );
 
             return rotatedVector;
         }
