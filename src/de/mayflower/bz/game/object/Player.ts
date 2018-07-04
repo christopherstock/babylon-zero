@@ -354,23 +354,33 @@
             {
                 bz.Debug.fire.log( 'Player is firing' );
 
-                const position:BABYLON.Vector3 = this.head.absolutePosition;
-                const rotation:BABYLON.Vector3 = new BABYLON.Vector3( 0.0, this.rotY, this.rotZ );
+                const source      :BABYLON.Vector3 = this.head.absolutePosition;
+                const rotation    :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, this.rotY, this.rotZ );
+                const range       :number          = 10.0;
 
-                bz.Debug.fire.log( 'Player position: ' + position );
-                bz.Debug.fire.log( 'Player rotation: ' + rotation );
+
+                const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector( source, rotation );
+
+
+
+                bz.Debug.fire.log( 'Player position:  ' + source      );
+                bz.Debug.fire.log( 'Player rotation:  ' + rotation    );
+                bz.Debug.fire.log( 'Shot range:       ' + range       );
+                bz.Debug.fire.log( 'Shot destination: ' + destination );
+
 
 
                 // add debug line
                 bz.MeshFactory.createLine
                 (
-                    position,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    source,
+                    destination,
                     bz.MeshPivotAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
                     bz.Main.game.engine.scene.getScene()
                 );
+
 
 
 

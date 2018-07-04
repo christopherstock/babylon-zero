@@ -1,5 +1,6 @@
+import * as bz from '../index';
 
-    /** ****************************************************************************************************************
+/** ****************************************************************************************************************
     *   Offers additional mathematical functionality.
     *******************************************************************************************************************/
     export class MathUtil
@@ -66,5 +67,33 @@
         public static cosDegrees( angleDegrees:number ) : number
         {
             return Math.cos( MathUtil.degreesToRad( angleDegrees ) );
+        }
+
+        /** **************************************************************************
+        *   Rotate the given vector around .
+        *
+        *   @param angleDegrees An angle to get the cosine for.
+        *
+        *   @return The cosine value for the specified angle.
+        *****************************************************************************/
+        public static rotateVector( vector:BABYLON.Vector3, rotation:BABYLON.Vector3 ) : BABYLON.Vector3
+        {
+            const rotationQuaternion:BABYLON.Quaternion = BABYLON.Quaternion.RotationYawPitchRoll
+            (
+                bz.MathUtil.degreesToRad( rotation.y ),
+                bz.MathUtil.degreesToRad( rotation.x ),
+                bz.MathUtil.degreesToRad( rotation.z )
+            );
+
+            const rotationMatrix:BABYLON.Matrix = new BABYLON.Matrix();
+            rotationQuaternion.toRotationMatrix( rotationMatrix );
+
+            const rotatedVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
+            (
+                vector,
+                rotationMatrix
+            );
+
+            return rotatedVector;
         }
     }
