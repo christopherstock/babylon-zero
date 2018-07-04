@@ -373,19 +373,12 @@
                 bz.Debug.fire.log( 'Shot range:       ' + range       );
                 bz.Debug.fire.log( 'Shot destination: ' + destination );
 
-                // add debug line
-                bz.MeshFactory.createLine
+                // check affected game objects
+                bz.Main.game.stage.applyShot
                 (
                     source,
-                    destination,
-                    bz.MeshPivotAnchor.LOWEST_XYZ,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
-                    bz.Main.game.engine.scene.getScene()
+                    destination
                 );
-
-                // check affected game objects
-                bz.Main.game.stage.applyShot();
             }
         }
 

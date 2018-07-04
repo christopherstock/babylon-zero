@@ -43,6 +43,8 @@
         protected                           cameraSystem            :bz.CameraSystem                        = null;
         /** A collection of all imported meshes in this stage. */
         protected                           importedModels          :bz.Model[]                             = [];
+        /** A collection of all debug lines in this stage. */
+        protected                           debugLines              :BABYLON.Mesh[]                         = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -185,6 +187,12 @@
                 model.dispose();
             }
 
+            // dispose all line meshes
+            for ( const debugLine of this.debugLines )
+            {
+                debugLine.dispose();
+            }
+
             // dispose skybox
             if ( this.skybox != null )
             {
@@ -244,9 +252,27 @@
 
         /** ************************************************************************************************************
         *   Applies a shot to the level.
+        *
+        *   @param src The shot source vector.
+        *   @param dst The shot destination vector.
         ***************************************************************************************************************/
-        public applyShot() : void
+        public applyShot( src:BABYLON.Vector3, dst:BABYLON.Vector3 ) : void
         {
+            // add debug line
+            this.debugLines.push
+            (
+                bz.MeshFactory.createLine
+                (
+                    src,
+                    dst,
+                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
+                    this.scene
+                )
+            );
+
+
 
 
 

@@ -19,12 +19,12 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns a random integer between given mininum and maximum.
+        *   Returns a random integer between the given mininum and maximum.
         *
-        *   @param min
-        *   @param max
+        *   @param min The minimum value to return by random.
+        *   @param max The maximum value to return by random.
         *
-        *   @return A random integer.
+        *   @return A random integer in the specified tange.
         ***************************************************************************************************************/
         public static getRandomInt( min:number, max:number ) : number
         {
@@ -46,37 +46,39 @@
             return angleDegrees;
         }
 
-        /** **************************************************************************
+        /** ************************************************************************************************************
         *   Delivers the sine value of the given angle in degrees.
         *
         *   @param angleDegrees An angle in degrees to get the sine for.
         *
         *   @return The sine value for the specified angle.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public static sinDegrees( angleDegrees:number ) : number
         {
             return Math.sin( MathUtil.degreesToRad( angleDegrees ) );
         }
 
-        /** **************************************************************************
+        /** ************************************************************************************************************
         *   Delivers the cosine value of the given angle in degrees.
         *
         *   @param angleDegrees An angle to get the cosine for.
         *
         *   @return The cosine value for the specified angle.
-        *****************************************************************************/
+        ***************************************************************************************************************/
         public static cosDegrees( angleDegrees:number ) : number
         {
             return Math.cos( MathUtil.degreesToRad( angleDegrees ) );
         }
 
-        /** **************************************************************************
-        *   Rotate the given vector around .. ?.
+        /** ************************************************************************************************************
+        *   Gets the distant point from the given source vector, rotated by the specified rotation.
         *
-        *   @param
+        *   @param source   The source vector.
+        *   @param rotation The desired rotation of the distant point.
+        *   @param distance The distance from the source point.
         *
-        *   @return
-        *****************************************************************************/
+        *   @return The rotated distant point.
+        ***************************************************************************************************************/
         public static rotateVector
         (
             source   :BABYLON.Vector3,
@@ -99,8 +101,6 @@
                 rotationMatrix
             );
 
-            const rotatedVector :BABYLON.Vector3 = source.add( rotatedDistantVector );
-
-            return rotatedVector;
+            return source.add( rotatedDistantVector );
         }
     }
