@@ -17,6 +17,7 @@
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
+    *   TODO Check 'gamelets' in the babylon.JS docs.
     *   TODO Create HUD message queue.
     *   TODO Remove importedModels from Stage! ( replace with game objects )
     *   TODO Complete MVP 'The Office'.

@@ -70,28 +70,66 @@ import * as bz from '../index';
         }
 
         /** **************************************************************************
-        *   Rotate the given vector around .
+        *   Rotate the given vector around .. ?.
         *
-        *   @param angleDegrees An angle to get the cosine for.
+        *   @param
         *
-        *   @return The cosine value for the specified angle.
+        *   @return
         *****************************************************************************/
-        public static rotateVector( vector:BABYLON.Vector3, rotation:BABYLON.Vector3 ) : BABYLON.Vector3
+        public static rotateVector
+        (
+            vector   :BABYLON.Vector3,
+            rotation :BABYLON.Vector3,
+            distance :number
+        )
+        : BABYLON.Vector3
         {
+/*
             const rotationQuaternion:BABYLON.Quaternion = BABYLON.Quaternion.RotationYawPitchRoll
             (
                 bz.MathUtil.degreesToRad( rotation.y ),
                 bz.MathUtil.degreesToRad( rotation.x ),
                 bz.MathUtil.degreesToRad( rotation.z )
             );
+*/
+/*
+            const matrix:BABYLON.Matrix = new BABYLON.Matrix();
+            //rotationQuaternion.toRotationMatrix( matrix );
+            matrix.setTranslation( new BABYLON.Vector3( 10.0, 0.0, 0.0 ) );
+*/
+/*
 
-            const rotationMatrix:BABYLON.Matrix = new BABYLON.Matrix();
-            rotationQuaternion.toRotationMatrix( rotationMatrix );
+
+            const test:BABYLON.Matrix = BABYLON.Matrix.Translation( 0.0, 3.0, 0.0 );
+
+
+*/
+            const matrixTranslate :BABYLON.Matrix = BABYLON.Matrix.Translation
+            (
+                distance,
+                0.0,
+                0.0
+            );
+            const matrixRotate    :BABYLON.Matrix = BABYLON.Matrix.RotationYawPitchRoll
+            (
+                bz.MathUtil.degreesToRad( rotation.y ),
+                bz.MathUtil.degreesToRad( rotation.x ),
+                bz.MathUtil.degreesToRad( rotation.z )
+            );
+
+
+            const finalMatrix:BABYLON.Matrix = matrixTranslate.multiply( matrixRotate );
+
+
+            // matrixRotate.setTranslation( new BABYLON.Vector3( distance, 0.0, 0.0 ) );
+
+
+
 
             const rotatedVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
             (
                 vector,
-                rotationMatrix
+finalMatrix
             );
 
             return rotatedVector;

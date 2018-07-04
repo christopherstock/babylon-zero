@@ -113,7 +113,7 @@
             if
             (
                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W  )
-                || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
+                // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
                 this.moveDeltaX +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
@@ -122,7 +122,7 @@
             if
             (
                     bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S )
-                ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
+                // ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
                 this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
@@ -133,7 +133,7 @@
             if
             (
                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A    )
-                || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
+                // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
             )
             {
                 this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
@@ -142,7 +142,7 @@
             if
             (
                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D     )
-                || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
+                // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
             )
             {
                 this.moveDeltaX += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
@@ -358,8 +358,12 @@
                 const rotation    :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, this.rotY, this.rotZ );
                 const range       :number          = 10.0;
 
-
-                const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector( source, rotation );
+                const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector
+                (
+                    source,
+                    rotation,
+                    range
+                );
 
 
 
@@ -377,7 +381,8 @@
                     destination,
                     bz.MeshPivotAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
+                    // bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
+                    bz.SettingColor.COLOR_RGBA_RED_OPAQUE,
                     bz.Main.game.engine.scene.getScene()
                 );
 
