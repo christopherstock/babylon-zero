@@ -361,6 +361,19 @@
                 bz.Debug.fire.log( 'Player rotation: ' + rotation );
 
 
+                // add debug line
+                bz.MeshFactory.createLine
+                (
+                    position,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
+                    bz.Main.game.engine.scene.getScene()
+                );
+
+
+
 
                 this.fire = false;
                 bz.Main.game.stage.applyShot();
