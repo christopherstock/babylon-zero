@@ -78,59 +78,27 @@ import * as bz from '../index';
         *****************************************************************************/
         public static rotateVector
         (
-            vector   :BABYLON.Vector3,
+            sourceVector   :BABYLON.Vector3,
             rotation :BABYLON.Vector3,
             distance :number
         )
         : BABYLON.Vector3
         {
-/*
-            const rotationQuaternion:BABYLON.Quaternion = BABYLON.Quaternion.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( rotation.y ),
-                bz.MathUtil.degreesToRad( rotation.x ),
-                bz.MathUtil.degreesToRad( rotation.z )
-            );
-*/
-/*
-            const matrix:BABYLON.Matrix = new BABYLON.Matrix();
-            //rotationQuaternion.toRotationMatrix( matrix );
-            matrix.setTranslation( new BABYLON.Vector3( 10.0, 0.0, 0.0 ) );
-*/
-/*
-
-
-            const test:BABYLON.Matrix = BABYLON.Matrix.Translation( 0.0, 3.0, 0.0 );
-
-
-*/
-            const matrixTranslate :BABYLON.Matrix = BABYLON.Matrix.Translation
-            (
-                distance,
-                0.0,
-                0.0
-            );
-            const matrixRotate    :BABYLON.Matrix = BABYLON.Matrix.RotationYawPitchRoll
+            const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( distance, 0.0, 0.0 );
+            const rotationMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
             (
                 bz.MathUtil.degreesToRad( rotation.y ),
                 bz.MathUtil.degreesToRad( rotation.x ),
                 bz.MathUtil.degreesToRad( rotation.z )
             );
 
-
-            const finalMatrix:BABYLON.Matrix = matrixTranslate.multiply( matrixRotate );
-
-
-            // matrixRotate.setTranslation( new BABYLON.Vector3( distance, 0.0, 0.0 ) );
-
-
-
-
-            const rotatedVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
+            const rotatedDistantVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
             (
-                vector,
-finalMatrix
+                distantVector,
+                rotationMatrix
             );
+
+            const rotatedVector :BABYLON.Vector3 = sourceVector.add( rotatedDistantVector );
 
             return rotatedVector;
         }
