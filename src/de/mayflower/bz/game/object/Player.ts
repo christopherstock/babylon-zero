@@ -354,14 +354,16 @@
             {
                 bz.Debug.fire.log( 'Player is firing' );
 
+                const position:BABYLON.Vector3 = this.head.absolutePosition;
+                const rotation:BABYLON.Vector3 = new BABYLON.Vector3( 0.0, this.rotY, this.rotZ );
+
+                bz.Debug.fire.log( 'Player position: ' + position );
+                bz.Debug.fire.log( 'Player rotation: ' + rotation );
+
+
+
                 this.fire = false;
-
-
-
-
-
-
-
+                bz.Main.game.stage.applyShot();
             }
         }
 

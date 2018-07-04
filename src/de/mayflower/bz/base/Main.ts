@@ -72,7 +72,7 @@
         ***************************************************************************************************************/
         public static main() : void
         {
-            bz.HTML.setTitle( bz.SettingEngine.TITLE );
+            bz.HTML.setTitle( bz.SettingEngine.TITLE + ', ' + bz.Version.getCurrent() );
             Main.acclaim();
 
             Main.game = new bz.Game();
@@ -84,7 +84,8 @@
         ***************************************************************************************************************/
         private static acclaim() : void
         {
-            bz.Debug.acclaim.log( bz.SettingEngine.TITLE );
+            bz.Debug.acclaim.log( bz.SettingEngine.TITLE  );
+            bz.Debug.acclaim.log( bz.Version.getCurrent() );
             bz.Debug.acclaim.log();
         }
     }

@@ -9,7 +9,7 @@
     export class SettingEngine
     {
         /** The application's internal name. */
-        public  static  readonly    TITLE                                   :string             = 'babylon-zero, (c) 2018 Mayflower GmbH, v. [' + bz.Version.getCurrent() + ']';
+        public  static  readonly    TITLE                                   :string             = 'babylon-zero, (c) 2018 Mayflower GmbH';
 
         /** The minimum canvas2D width. */
         public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;
