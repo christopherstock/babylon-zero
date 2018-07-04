@@ -227,31 +227,31 @@
         /** ************************************************************************************************************
         *   Creates a sphere.
         *
-        *   @param position        Where to place this mesh.
-        *   @param pivotAnchor     The anchor point of this mesh.
-        *   @param diameter        The diameter of the sphere.
-        *   @param rotation        The initial rotation for all axis.
-        *   @param texture         The texture to apply.
-        *   @param color           The solid color to apply.
-        *   @param scene           The scene where this mesh will be applied.
-        *   @param physic          The physical attributes to apply for this mesh.
-        *   @param materialAlpha   The opacity for this mesh.
-        *   @param emissiveColor   The emissive color for this material.
+        *   @param position      Where to place this mesh.
+        *   @param pivotAnchor   The anchor point of this mesh.
+        *   @param diameter      The diameter of the sphere.
+        *   @param rotation      The initial rotation for all axis.
+        *   @param texture       The texture to apply.
+        *   @param color         The solid color to apply.
+        *   @param scene         The scene where this mesh will be applied.
+        *   @param physic        The physical attributes to apply for this mesh.
+        *   @param materialAlpha The opacity for this mesh.
+        *   @param emissiveColor The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
         public static createSphere
         (
-            position        :BABYLON.Vector3,
-            pivotAnchor     :bz.MeshPivotAnchor,
-            diameter        :number,
-            rotation        :BABYLON.Vector3,
-            texture         :bz.Texture,
-            color           :BABYLON.Color3,
-            scene           :BABYLON.Scene,
-            physic          :bz.Physic,
-            materialAlpha   :number,
-            emissiveColor   :BABYLON.Color3
+            position      :BABYLON.Vector3,
+            pivotAnchor   :bz.MeshPivotAnchor,
+            diameter      :number,
+            rotation      :BABYLON.Vector3,
+            texture       :bz.Texture,
+            color         :BABYLON.Color3,
+            scene         :BABYLON.Scene,
+            physic        :bz.Physic,
+            materialAlpha :number,
+            emissiveColor :BABYLON.Color3
         )
         : BABYLON.Mesh
         {

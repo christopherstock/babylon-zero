@@ -272,11 +272,43 @@
                 )
             );
 
+            // create collision checking ray
+            const ray:BABYLON.Ray = BABYLON.Ray.CreateNewFromTo( src, dst );
 
+            // check collision with walls
+            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
+            for ( const wall of this.walls )
+            {
+                const pickingInfos:BABYLON.PickingInfo[] = ray.intersectsMeshes( wall.getModel().getMeshes() );
 
+                if ( pickingInfos.length > 0 )
+                {
+                    bz.Debug.fire.log( '  Collision detected! [' + pickingInfos.length + '] hitpoints on wall' );
 
+                    const pickingInfo  :BABYLON.PickingInfo = pickingInfos[ 0 ];
+                    const pickingPoint :BABYLON.Vector3     = pickingInfo.pickedPoint;
 
+                    // console.log( pickingInfos );
 
+                    // add debug hitpoint
+                    this.debugLines.push
+                    (
+                        bz.MeshFactory.createSphere
+                        (
+                            pickingPoint,
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            0.10,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                            null,
+                            bz.SettingColor.COLOR_RGB_ORANGE,
+                            this.scene,
+                            bz.Physic.STATIC,
+                            1.0,
+                            this.ambientColor
+                        )
+                    );
+                }
+            }
         }
 
         /** ************************************************************************************************************

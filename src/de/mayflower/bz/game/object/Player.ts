@@ -367,12 +367,12 @@
                     rotation,
                     range
                 );
-
-                bz.Debug.fire.log( 'Player position:  ' + source      );
-                bz.Debug.fire.log( 'Player rotation:  ' + rotation    );
-                bz.Debug.fire.log( 'Shot range:       ' + range       );
-                bz.Debug.fire.log( 'Shot destination: ' + destination );
-
+/*
+                bz.Debug.fire.log( ' Player position:  ' + source      );
+                bz.Debug.fire.log( ' Player rotation:  ' + rotation    );
+                bz.Debug.fire.log( ' Shot range:       ' + range       );
+                bz.Debug.fire.log( ' Shot destination: ' + destination );
+*/
                 // check affected game objects
                 bz.Main.game.stage.applyShot
                 (
