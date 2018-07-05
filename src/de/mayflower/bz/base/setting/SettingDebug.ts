@@ -21,6 +21,8 @@
         public      static      SHOW_COORDINATE_AXIS                        :boolean            = ( true  && SettingDebug.DEBUG_MODE );
         /** Show the babylon.JS scene debug panel. */
         public      static      SHOW_SCENE_DEBUG_PANEL                      :boolean            = ( false && SettingDebug.DEBUG_MODE );
+        /** Show the shot debug lines and collision spheres. */
+        public      static      SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS        :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 
         /** The length of the debug coordinate axis. */
         public      static      DEBUG_AXIS_LENGTH                           :number             = 25.0;

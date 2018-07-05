@@ -259,18 +259,21 @@
         public applyShot( src:BABYLON.Vector3, dst:BABYLON.Vector3 ) : void
         {
             // add debug line
-            this.debugLines.push
-            (
-                bz.MeshFactory.createLine
+            if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
+            {
+                this.debugLines.push
                 (
-                    src,
-                    dst,
-                    bz.MeshPivotAnchor.LOWEST_XYZ,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
-                    this.scene
-                )
-            );
+                    bz.MeshFactory.createLine
+                    (
+                        src,
+                        dst,
+                        bz.MeshPivotAnchor.LOWEST_XYZ,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
+                        this.scene
+                    )
+                );
+            }
 
             // create collision checking ray
             const ray:BABYLON.Ray = BABYLON.Ray.CreateNewFromTo( src, dst );
@@ -283,30 +286,35 @@
 
                 if ( pickingInfos.length > 0 )
                 {
-                    bz.Debug.fire.log( '  Collision detected! [' + pickingInfos.length + '] hitpoints on wall' );
+                    bz.Debug.fire.log( '  [' + pickingInfos.length + '] collision detected on this wall.' );
 
-                    const pickingInfo  :BABYLON.PickingInfo = pickingInfos[ 0 ];
-                    const pickingPoint :BABYLON.Vector3     = pickingInfo.pickedPoint;
+                    for ( const pickingInfo of pickingInfos )
+                    {
+                        const pickingPoint:BABYLON.Vector3 = pickingInfo.pickedPoint;
 
-                    // console.log( pickingInfos );
+                        // console.log( pickingInfos );
 
-                    // add debug hitpoint
-                    this.debugLines.push
-                    (
-                        bz.MeshFactory.createSphere
-                        (
-                            pickingPoint,
-                            bz.MeshPivotAnchor.CENTER_XYZ,
-                            0.10,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            null,
-                            bz.SettingColor.COLOR_RGB_ORANGE,
-                            this.scene,
-                            bz.Physic.NONE,
-                            1.0,
-                            bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
-                        )
-                    );
+                        // add debug hitpoint
+                        if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
+                        {
+                            this.debugLines.push
+                            (
+                                bz.MeshFactory.createSphere
+                                (
+                                    pickingPoint,
+                                    bz.MeshPivotAnchor.CENTER_XYZ,
+                                    0.10,
+                                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                    null,
+                                    bz.SettingColor.COLOR_RGB_ORANGE,
+                                    this.scene,
+                                    bz.Physic.NONE,
+                                    1.0,
+                                    bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
+                                )
+                            );
+                        }
+                    }
                 }
             }
         }
