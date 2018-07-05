@@ -6,8 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Check collisions via shooting.
-    *   TODO Create Bullet holes.
+    *   TODO Create textured and 3d aligned Bullet holes.
+    *   TODO Stick bullet holes to their carrier/parent.
+    *
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *

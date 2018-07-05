@@ -138,6 +138,32 @@
                         ]
                     )
                 ),
+
+                new bz.Wall
+                (
+                    new bz.Model
+                    (
+                        [
+                            // sphere
+                            bz.MeshFactory.createSphere
+                            (
+                                new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                3.0,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                null,
+                                bz.SettingColor.COLOR_RGB_RED,
+                                this.scene,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                bz.SettingColor.COLOR_RGB_RED // this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+
+
             ];
         }
 
@@ -431,9 +457,9 @@
                 this.scene,
                 this.player,
                 bz.Main.game.engine.canvas.getCanvas(),
-                new BABYLON.Vector3( 10.0, 20.0, 10.0 ),
+                new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
                 new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-                new BABYLON.Vector3( 10.0, 0.0,  10.0 ),
+                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getFirstPersonCameraTargetMesh(),

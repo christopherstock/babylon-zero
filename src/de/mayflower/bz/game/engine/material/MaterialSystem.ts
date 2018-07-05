@@ -1,6 +1,6 @@
 
+    import * as bz      from '../../..';
     import * as BABYLON from 'babylonjs';
-    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Specifies all textures and materials.
@@ -86,7 +86,7 @@
             }
             else if ( color != null )
             {
-                material.diffuseColor = color;
+                material.diffuseColor    = color;
                 material.backFaceCulling = false;
             }
 

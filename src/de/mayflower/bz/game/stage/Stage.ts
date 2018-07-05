@@ -1,6 +1,6 @@
 
-    import * as bz          from '../..';
-    import * as BABYLON     from 'babylonjs';
+    import * as bz      from '../..';
+    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   Represents a custom stage set.
@@ -302,9 +302,9 @@
                             null,
                             bz.SettingColor.COLOR_RGB_ORANGE,
                             this.scene,
-                            bz.Physic.STATIC,
+                            bz.Physic.NONE,
                             1.0,
-                            this.ambientColor
+                            bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
                         )
                     );
                 }
