@@ -138,8 +138,19 @@
                         ]
                     )
                 ),
+            ];
+        }
 
-                new bz.Wall
+        /** ************************************************************************************************************
+        *   Creates and returns all movables this stage consists of.
+        *
+        *   @return All movables of this stage.
+        ***************************************************************************************************************/
+        protected createMovables() : bz.Movable[]
+        {
+            return [
+
+                new bz.Movable
                 (
                     new bz.Model
                     (
@@ -162,19 +173,6 @@
                     )
                 ),
 
-
-
-            ];
-        }
-
-        /** ************************************************************************************************************
-        *   Creates and returns all movables this stage consists of.
-        *
-        *   @return All movables of this stage.
-        ***************************************************************************************************************/
-        protected createMovables() : bz.Movable[]
-        {
-            return [
             ];
         }
 

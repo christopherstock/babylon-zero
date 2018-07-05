@@ -7,6 +7,9 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
+        /** A collection of all debug meshes in this stage. */
+        public                              debugMeshes             :BABYLON.Mesh[]                         = [];
+
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
@@ -43,8 +46,6 @@
         protected                           cameraSystem            :bz.CameraSystem                        = null;
         /** A collection of all imported meshes in this stage. */
         protected                           importedModels          :bz.Model[]                             = [];
-        /** A collection of all debug lines in this stage. */
-        protected                           debugLines              :BABYLON.Mesh[]                         = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -188,7 +189,7 @@
             }
 
             // dispose all line meshes
-            for ( const debugLine of this.debugLines )
+            for ( const debugLine of this.debugMeshes )
             {
                 debugLine.dispose();
             }
@@ -261,7 +262,7 @@
             // add debug line
             if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
             {
-                this.debugLines.push
+                this.debugMeshes.push
                 (
                     bz.MeshFactory.createLine
                     (
@@ -282,40 +283,13 @@
             bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
             for ( const wall of this.walls )
             {
-                const pickingInfos:BABYLON.PickingInfo[] = ray.intersectsMeshes( wall.getModel().getMeshes() );
-
-                if ( pickingInfos.length > 0 )
-                {
-                    bz.Debug.fire.log( '  [' + pickingInfos.length + '] collision detected on this wall.' );
-
-                    for ( const pickingInfo of pickingInfos )
-                    {
-                        const pickingPoint:BABYLON.Vector3 = pickingInfo.pickedPoint;
-
-                        // console.log( pickingInfos );
-
-                        // add debug hitpoint
-                        if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
-                        {
-                            this.debugLines.push
-                            (
-                                bz.MeshFactory.createSphere
-                                (
-                                    pickingPoint,
-                                    bz.MeshPivotAnchor.CENTER_XYZ,
-                                    0.10,
-                                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                    null,
-                                    bz.SettingColor.COLOR_RGB_ORANGE,
-                                    this.scene,
-                                    bz.Physic.NONE,
-                                    1.0,
-                                    bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
-                                )
-                            );
-                        }
-                    }
-                }
+                wall.applyShot( ray );
+            }
+            // check collision with movables
+            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] movables' );
+            for ( const movable of this.movables )
+            {
+                movable.applyShot( ray );
             }
         }
 

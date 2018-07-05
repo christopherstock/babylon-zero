@@ -6,7 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Stick bullet holes to carrier.
     *   TODO Create textured and 3d aligned Bullet holes.
+    *   TODO Apply impulse on shooting.
     *   TODO Stick bullet holes to their carrier/parent.
     *
     *   TODO Create 3d gun as 2nd scene in front?
