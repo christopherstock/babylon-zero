@@ -59,31 +59,47 @@
 
                 for ( const pickingInfo of pickingInfos )
                 {
-                    const pickingPoint:BABYLON.Vector3 = pickingInfo.pickedPoint;
-
                     // console.log( pickingInfos );
 
-                    // add debug hitpoint to stage
-                    if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
-                    {
-                        bz.Main.game.stage.debugMeshes.push
-                        (
-                            bz.MeshFactory.createSphere
-                            (
-                                pickingPoint,
-                                bz.MeshPivotAnchor.CENTER_XYZ,
-                                0.10,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                null,
-                                bz.SettingColor.COLOR_RGB_ORANGE,
-                                bz.Main.game.engine.scene.getScene(),
-                                bz.Physic.NONE,
-                                1.0,
-                                bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
-                            )
-                        );
-                    }
+                    const pickedPoint :BABYLON.Vector3      = pickingInfo.pickedPoint;
+                    const pickedMesh  :BABYLON.AbstractMesh = pickingInfo.pickedMesh;
+
+                    this.appendBulletHole( pickedPoint, pickedMesh );
                 }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Applies a bullet hole onto this game object.
+        *
+        *   @param point The collision point where the bullet hole shall occur.
+        *   @param mesh  The mesh that carried this collision point.
+        ***************************************************************************************************************/
+        private appendBulletHole( point:BABYLON.Vector3, mesh:BABYLON.AbstractMesh )
+        {
+            // add debug hitpoint
+            if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
+            {
+                // create debug hitpoint
+                const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
+                (
+                    point,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    0.10,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    null,
+                    bz.SettingColor.COLOR_RGB_ORANGE,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physic.NONE,
+                    1.0,
+                    bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
+                );
+
+                // stick to game object
+                // debugBulletHole.parent = this.me
+
+                // add to debug meshes array
+                bz.Main.game.stage.debugMeshes.push( debugBulletHole );
             }
         }
     }
