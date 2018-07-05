@@ -72,18 +72,21 @@
         /** ************************************************************************************************************
         *   Applies a bullet hole onto this game object.
         *
-        *   @param point The collision point where the bullet hole shall occur.
-        *   @param mesh  The mesh that carried this collision point.
+        *   @param hitPoint The collision point where the bullet hole shall occur.
+        *   @param hitMesh  The mesh that carried this collision point.
         ***************************************************************************************************************/
-        private appendBulletHole( point:BABYLON.Vector3, mesh:BABYLON.AbstractMesh )
+        private appendBulletHole( hitPoint:BABYLON.Vector3, hitMesh:BABYLON.AbstractMesh ) : void
         {
+            // pick the hitpoint delta to the carrying mesh
+            const hitPointDelta:BABYLON.Vector3 = hitPoint.subtract( hitMesh.absolutePosition );
+
             // add debug hitpoint
             if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
             {
                 // create debug hitpoint
                 const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
                 (
-                    point,
+                    hitPointDelta,
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     0.10,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -96,7 +99,7 @@
                 );
 
                 // stick to game object
-                // debugBulletHole.parent = this.me
+                debugBulletHole.parent = hitMesh;
 
                 // add to debug meshes array
                 bz.Main.game.stage.debugMeshes.push( debugBulletHole );
