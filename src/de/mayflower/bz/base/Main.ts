@@ -6,6 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Stop the neverending rolling red sphere!
     *   TODO Only append the nearest bullet hole.
     *   TODO Create mode for appending all bullet holes.
     *   TODO Create textured and 3d aligned Bullet holes.

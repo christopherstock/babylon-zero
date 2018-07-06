@@ -83,9 +83,9 @@
                         (
                             new BABYLON.Vector3
                             (
-                                0.0,
-                                ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
-                                0.0
+                                position.x,
+                                position.y + bz.SettingGame.PLAYER_HEIGHT_Y - bz.SettingGame.PLAYER_RADIUS_HEAD,
+                                position.z
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
@@ -103,9 +103,9 @@
                         (
                             new BABYLON.Vector3
                             (
-                                -1.0,
-                                ( ( -bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) + bz.SettingGame.PLAYER_HAND_HEIGHT ),
-                                0.0
+                                position.x - 1.0,
+                                position.y + bz.SettingGame.PLAYER_HAND_HEIGHT,
+                                position.z
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
@@ -123,9 +123,9 @@
                         (
                             new BABYLON.Vector3
                             (
-                                1.0,
-                                ( ( -bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) + bz.SettingGame.PLAYER_HAND_HEIGHT ),
-                                0.0
+                                position.x + 1.0,
+                                position.y + bz.SettingGame.PLAYER_HAND_HEIGHT,
+                                position.z
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
@@ -151,9 +151,9 @@
             this.rightHand = this.model.getMeshes()[ Player.PLAYER_RIGHT_HAND_ID ];
 
             // stick limbs to body
-            this.head.parent      = this.body;
-            this.leftHand.parent  = this.body;
-            this.rightHand.parent = this.body;
+            this.head.setParent(      this.body );
+            this.leftHand.setParent(  this.body );
+            this.rightHand.setParent( this.body );
         }
 
         /** ************************************************************************************************************
