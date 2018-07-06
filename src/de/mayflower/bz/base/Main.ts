@@ -26,6 +26,7 @@
     *   TODO Remove importedModels from Stage! ( replace with game objects )
     *   TODO Complete MVP 'The Office'.
     *
+    *   TODO Create SettingPlayer with all player settings.
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Enable jumping?

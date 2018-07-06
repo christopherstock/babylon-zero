@@ -8,19 +8,21 @@
     export class Texture
     {
         /** The texture 'test'. */
-        public      static      TEST                :Texture                = new Texture( 'test.jpg',   bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE );
+        public      static      TEST                :Texture                = new Texture( 'test.jpg',     bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
         /** The texture 'mayflower logo'. */
-        public      static      MAYFLOWER_LOGO      :Texture                = new Texture( 'mfLogo.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE );
+        public      static      MAYFLOWER_LOGO      :Texture                = new Texture( 'mfLogo.jpg',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
         /** The texture 'amiga'. */
-        public      static      AMIGA               :Texture                = new Texture( 'amiga.jpg',  bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE );
+        public      static      AMIGA               :Texture                = new Texture( 'amiga.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
         /** The texture 'wood'. */
-        public      static      WOOD                :Texture                = new Texture( 'wood.jpg',   bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE );
+        public      static      WOOD                :Texture                = new Texture( 'wood.jpg',     bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
         /** The texture 'grass'. */
-        public      static      GRASS               :Texture                = new Texture( 'grass.jpg',  bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE );
+        public      static      GRASS               :Texture                = new Texture( 'grass.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
         /** The texture 'glas'. */
-        public      static      GLASS               :Texture                = new Texture( 'glass.jpg',  bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE );
+        public      static      GLASS               :Texture                = new Texture( 'glass.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
         /** The texture 'tree'. */
-        public      static      TREE                :Texture                = new Texture( 'tree.png',   bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE );
+        public      static      TREE                :Texture                = new Texture( 'tree.png',     bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE    );
+        /** The texture 'skin rosé'. */
+        public      static      SKIN_ROSE           :Texture                = new Texture( 'skinRose.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
 
         /** The filename of this texture's image. */
         public                  fileName            :string                 = null;

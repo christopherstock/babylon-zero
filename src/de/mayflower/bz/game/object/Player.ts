@@ -6,10 +6,10 @@
     *******************************************************************************************************************/
     export class Player extends bz.GameObject
     {
+        /** The id of the player's body mesh in the mesh array. */
+        private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
         /** The id of the player's head mesh in the mesh array. */
-        private     static  readonly    PLAYER_HEAD_ID              :number                             = 0;
-        /** The id of the player's body mesh in the mesh array. TODO switch with HEAD_ID */
-        private     static  readonly    PLAYER_BODY_ID              :number                             = 1;
+        private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
         /** The id of the player's left hand mesh in the mesh array. */
         private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
         /** The id of the player's left hand mesh in the mesh array. */
@@ -40,6 +40,8 @@
         private             readonly    head                        :BABYLON.AbstractMesh               = null;
         /** The referenced left hand mesh of the player. */
         private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
+        /** The referenced right hand mesh of the player. */
+        private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
         *   Creates a new player instance.
@@ -60,26 +62,6 @@
                 new bz.Model
                 (
                     [
-                        // Player.PLAYER_HEAD_ID
-                        bz.MeshFactory.createSphere
-                        (
-                            new BABYLON.Vector3
-                            (
-                                0.0,
-                                ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
-                                0.0
-                            ),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
-                            ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                            bz.Texture.GRASS,
-                            null,
-                            bz.Main.game.engine.scene.getScene(),
-                            bz.Physic.NONE,
-                            1.0,
-                            emissiveColor
-                        ),
-
                         // Player.PLAYER_BODY_ID
                         bz.MeshFactory.createCylinder
                         (
@@ -96,19 +78,59 @@
                             emissiveColor
                         ),
 
+                        // Player.PLAYER_HEAD_ID
+                        bz.MeshFactory.createSphere
+                        (
+                            new BABYLON.Vector3
+                            (
+                                0.0,
+                                ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                                0.0
+                            ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            bz.Texture.SKIN_ROSE,
+                            null,
+                            bz.Main.game.engine.scene.getScene(),
+                            bz.Physic.NONE,
+                            1.0,
+                            emissiveColor
+                        ),
+
                         // Player.PLAYER_LEFT_HAND_ID
                         bz.MeshFactory.createBox
                         (
                             new BABYLON.Vector3
                             (
-                                0.0,
-                                0.0, // ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                                -1.0,
+                                ( ( -bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) + bz.SettingGame.PLAYER_HAND_HEIGHT ),
                                 0.0
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                            bz.Texture.GRASS,
+                            bz.Texture.SKIN_ROSE,
+                            null,
+                            bz.Main.game.engine.scene.getScene(),
+                            bz.Physic.NONE,
+                            1.0,
+                            emissiveColor
+                        ),
+
+                        // Player.PLAYER_RIGHT_HAND_ID
+                        bz.MeshFactory.createBox
+                        (
+                            new BABYLON.Vector3
+                            (
+                                1.0,
+                                ( ( -bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) + bz.SettingGame.PLAYER_HAND_HEIGHT ),
+                                0.0
+                            ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            bz.Texture.SKIN_ROSE,
                             null,
                             bz.Main.game.engine.scene.getScene(),
                             bz.Physic.NONE,
@@ -122,14 +144,16 @@
             // assign initial rotation Y
             this.rotY = rotY;
 
-            // reference head and body
-            this.body     = this.model.getMeshes()[ Player.PLAYER_BODY_ID      ];
-            this.head     = this.model.getMeshes()[ Player.PLAYER_HEAD_ID      ];
-            this.leftHand = this.model.getMeshes()[ Player.PLAYER_LEFT_HAND_ID ];
+            // reference all limbs
+            this.body      = this.model.getMeshes()[ Player.PLAYER_BODY_ID       ];
+            this.head      = this.model.getMeshes()[ Player.PLAYER_HEAD_ID       ];
+            this.leftHand  = this.model.getMeshes()[ Player.PLAYER_LEFT_HAND_ID  ];
+            this.rightHand = this.model.getMeshes()[ Player.PLAYER_RIGHT_HAND_ID ];
 
             // stick limbs to body
-            this.head.parent     = this.body;
-            this.leftHand.parent = this.body;
+            this.head.parent      = this.body;
+            this.leftHand.parent  = this.body;
+            this.rightHand.parent = this.body;
         }
 
         /** ************************************************************************************************************
@@ -359,7 +383,7 @@
                 this.fire = false;
 
                 // calculate shot destination
-                const source      :BABYLON.Vector3 = this.head.absolutePosition;
+                const source      :BABYLON.Vector3 = this.rightHand.absolutePosition;
                 const rotation    :BABYLON.Vector3 = new BABYLON.Vector3( this.rotZ, this.rotY, 0.0 );
                 const range       :number          = 10.0;
                 const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector
