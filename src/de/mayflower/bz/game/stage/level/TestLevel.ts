@@ -571,7 +571,7 @@
         *
         *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected createImportedMeshes() : bz.Model[]
+        protected createImportedModels() : bz.Model[]
         {
             return [
 
@@ -795,6 +795,7 @@
             (
                 this.scene,
                 this.player,
+                this,
                 bz.Main.game.engine.canvas.getCanvas(),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
@@ -808,9 +809,15 @@
 
         /** ************************************************************************************************************
         *   Creates the HUD for this stage.
+        *
+        *   @return The created HUD.
         ***************************************************************************************************************/
-        protected createHUD() : void
+        protected createHUD() : bz.HUD
         {
+            const hud:bz.GameHUD = new bz.GameHUD();
+            hud.init();
+
+            return hud;
         }
 
         /** ************************************************************************************************************

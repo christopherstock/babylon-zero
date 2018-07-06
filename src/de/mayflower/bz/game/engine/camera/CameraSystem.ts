@@ -28,6 +28,7 @@
         *
         *   @param scene                           The babylon.JS scene.
         *   @param player                          The player that might change visibility by camera switch.
+        *   @param stage                           The stage that may hide or show HUD.
         *   @param canvas                          The HTML canvas that might change debug controls on camera switch.
         *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
@@ -44,6 +45,7 @@
         (
             scene                           :BABYLON.Scene,
             player                          :bz.Player,
+            stage                           :bz.Stage,
             canvas                          :HTMLCanvasElement,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
@@ -104,7 +106,7 @@
                 this.setFirstPersonCameraTo( firstPersonCameraTarget );
             }
 
-            this.setActiveCamera( scene, initialActiveCamera, player );
+            this.setActiveCamera( scene, initialActiveCamera, player, stage );
         }
 
         /** ************************************************************************************************************
@@ -113,12 +115,14 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
         *   @param player The player instance that will show or hide according to the currently set camera.
+        *   @param stage  The stage that may show or hide a HUD.
         ***************************************************************************************************************/
         public setActiveCamera
         (
             scene  :BABYLON.Scene,
             camera :bz.CameraType,
-            player :bz.Player
+            player :bz.Player,
+            stage  :bz.Stage
         )
         : void
         {
@@ -136,6 +140,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
+                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
                     }
                     break;
                 }
@@ -150,6 +155,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
+                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
                     }
                     break;
                 }
@@ -164,6 +170,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
+                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
                     }
                     break;
                 }
@@ -178,6 +185,7 @@
                     if ( player != null )
                     {
                         player.setVisible( false );
+                        ( stage.hud as bz.GameHUD ).setWearponVisibility( true );
                     }
                     break;
                 }
@@ -192,6 +200,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
+                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
                     }
                     break;
                 }

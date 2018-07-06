@@ -7,6 +7,8 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
+        /** The game HUD. */
+        public                              hud                     :bz.HUD                                 = null;
         /** A collection of all debug meshes in this stage. */
         public                              debugMeshes             :BABYLON.Mesh[]                         = [];
 
@@ -16,9 +18,6 @@
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
-
-        /** The game HUD. */
-        protected                           hud                     :bz.HUD                                 = null;
 
         /** A collection of the coordinate axis in this stage. */
         protected                           coordinateAxis          :BABYLON.Mesh[]                         = [];
@@ -84,12 +83,11 @@
             this.movables       = this.createMovables();
             this.items          = this.createItems();
             this.bots           = this.createBots();
-            this.importedModels = this.createImportedMeshes();
+            this.importedModels = this.createImportedModels();
             this.skybox         = this.createSkybox();
             this.sprites        = this.createSprites();
-
+            this.hud            = this.createHUD();
             this.cameraSystem   = this.createCameraSystem();
-
             this.lights         = this.createLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
@@ -98,7 +96,6 @@
                 this.setupShadows();
             }
 
-            this.createHUD();
             this.adjustGuiSizeToCanvasSize();
 
             this.onInitComplete();
@@ -247,7 +244,8 @@
             (
                 bz.Main.game.engine.scene.getScene(),
                 cameraId,
-                this.player
+                this.player,
+                this
             );
         }
 
@@ -348,7 +346,7 @@
         *
         *   @return All imported models of this stage.
         ***************************************************************************************************************/
-        protected abstract createImportedMeshes() : bz.Model[];
+        protected abstract createImportedModels() : bz.Model[];
 
         /** ************************************************************************************************************
         *   Sets up the skybox.
@@ -392,8 +390,10 @@
 
         /** ************************************************************************************************************
         *   Creates the HUD for this stage.
+        *
+        *   @return The created HUD.
         ***************************************************************************************************************/
-        protected abstract createHUD() : void;
+        protected abstract createHUD() : bz.HUD;
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.

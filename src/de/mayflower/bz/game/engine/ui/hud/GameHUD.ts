@@ -14,6 +14,8 @@
 
         /** The FPS text block. */
         protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
+        /** The wearpon image. */
+        protected                           wearponImage            :BABYLON_GUI.Image                      = null;
 
         /** ************************************************************************************************************
         *   Creates a new Heads Up Display for a game level.
@@ -42,7 +44,7 @@
             );
             this.guiFg.addControl( this.fpsText );
 
-            const wearpon:BABYLON_GUI.Image = bz.GuiFactory.createImage
+            this.wearponImage = bz.GuiFactory.createImage
             (
                 'wearpon/autoShotgun.png',
                 -GameHUD.HUD_BORDER_X,
@@ -51,7 +53,7 @@
                 BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
                 null
             );
-            this.guiFg.addControl( wearpon );
+            this.guiFg.addControl( this.wearponImage );
         }
 
         /** ************************************************************************************************************
@@ -61,7 +63,15 @@
         {
             // update and assign fps
             this.fpsText.text = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 ) + ' fps';
+        }
 
-
+        /** ************************************************************************************************************
+        *   Sets visibility for the wearpon.
+        *
+        *   @param visible If the wearpon should be visible or not.
+        ***************************************************************************************************************/
+        public setWearponVisibility( visible:boolean ) : void
+        {
+            this.wearponImage.isVisible = visible;
         }
     }

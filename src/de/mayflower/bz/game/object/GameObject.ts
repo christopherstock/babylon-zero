@@ -45,6 +45,21 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets visibility for all meshes of this game object.
+        *   Invisible game objects become non pickable.
+        *
+        *   @param visible The new visibility for this game object.
+        ***************************************************************************************************************/
+        public setVisible( visible:boolean ) : void
+        {
+            for ( const mesh of this.model.getMeshes() )
+            {
+                mesh.isVisible  = visible;
+                mesh.isPickable = visible;
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Applies a shot onto this game object.
         *
         *   @param ray The shot ray to apply.

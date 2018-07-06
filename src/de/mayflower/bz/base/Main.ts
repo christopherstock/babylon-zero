@@ -6,11 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Lower shot to hand height.
+    *   TODO Only append the lowest bullet hole.
+    *   TODO Create mode for appending all bullet holes.
     *   TODO Create textured and 3d aligned Bullet holes.
     *   TODO Apply impulse on shooting.
     *   TODO Stick bullet holes to their carrier/parent.
-    *   TODO Lower shot to hand height.
-    *
+    *   TODO Apply a bullet hole only to the nearest hitPoint!
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *

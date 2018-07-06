@@ -7,33 +7,39 @@
     export class Player extends bz.GameObject
     {
         /** The id of the player's head mesh in the mesh array. */
-        private     static      readonly    PLAYER_HEAD_ID          :number                             = 0;
-        /** The id of the player's body mesh in the mesh array. */
-        private     static      readonly    PLAYER_BODY_ID          :number                             = 1;
+        private     static  readonly    PLAYER_HEAD_ID              :number                             = 0;
+        /** The id of the player's body mesh in the mesh array. TODO switch with HEAD_ID */
+        private     static  readonly    PLAYER_BODY_ID              :number                             = 1;
+        /** The id of the player's left hand mesh in the mesh array. */
+        private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
+        /** The id of the player's left hand mesh in the mesh array. */
+        private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
         /** The player's current rotation on axis Y. */
-        protected                           rotY                    :number                             = 270.0;
+        protected                       rotY                        :number                             = 270.0;
         /** The player's current rotation on axis Z. */
-        protected                           rotZ                    :number                             = 0.0;
+        protected                       rotZ                        :number                             = 0.0;
 
         /** Current move delta X. */
-        protected                           moveDeltaX              :number                             = 0.0;
+        protected                       moveDeltaX                  :number                             = 0.0;
         /** Current move delta Z. */
-        protected                           moveDeltaZ              :number                             = 0.0;
+        protected                       moveDeltaZ                  :number                             = 0.0;
         /** Current rotation delta Y. */
-        protected                           rotationDeltaY          :number                             = 0.0;
+        protected                       rotationDeltaY              :number                             = 0.0;
         /** Current rotation delta Z. */
-        protected                           rotationDeltaZ          :number                             = 0.0;
+        protected                       rotationDeltaZ              :number                             = 0.0;
 
         /** Flags if rotZ view centering should occur this tick. */
-        private                             centerRotZ              :boolean                            = false;
+        private                         centerRotZ                  :boolean                            = false;
         /** Flags if fire should be performed this tick. */
-        private                             fire                    :boolean                            = false;
+        private                         fire                        :boolean                            = false;
 
-        /** The referenced head of the player. */
-        private                 readonly    head                    :BABYLON.AbstractMesh               = null;
-        /** The referenced body of the player. */
-        private                 readonly    body                    :BABYLON.AbstractMesh               = null;
+        /** The referenced body mesh of the player. */
+        private             readonly    body                        :BABYLON.AbstractMesh               = null;
+        /** The referenced head mesh of the player. */
+        private             readonly    head                        :BABYLON.AbstractMesh               = null;
+        /** The referenced left hand mesh of the player. */
+        private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
         *   Creates a new player instance.
@@ -89,6 +95,26 @@
                             0.25,
                             emissiveColor
                         ),
+
+                        // Player.PLAYER_LEFT_HAND_ID
+                        bz.MeshFactory.createBox
+                        (
+                            new BABYLON.Vector3
+                            (
+                                0.0,
+                                0.0, // ( ( bz.SettingGame.PLAYER_HEIGHT_Y / 2 ) - bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                                0.0
+                            ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            bz.Texture.GRASS,
+                            null,
+                            bz.Main.game.engine.scene.getScene(),
+                            bz.Physic.NONE,
+                            1.0,
+                            emissiveColor
+                        ),
                     ]
                 )
             );
@@ -97,11 +123,13 @@
             this.rotY = rotY;
 
             // reference head and body
-            this.head = this.model.getMeshes()[ Player.PLAYER_HEAD_ID ];
-            this.body = this.model.getMeshes()[ Player.PLAYER_BODY_ID ];
+            this.body     = this.model.getMeshes()[ Player.PLAYER_BODY_ID      ];
+            this.head     = this.model.getMeshes()[ Player.PLAYER_HEAD_ID      ];
+            this.leftHand = this.model.getMeshes()[ Player.PLAYER_LEFT_HAND_ID ];
 
-            // stick head to body
-            this.head.parent = this.body;
+            // stick limbs to body
+            this.head.parent     = this.body;
+            this.leftHand.parent = this.body;
         }
 
         /** ************************************************************************************************************
@@ -214,31 +242,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets visibility for all meshes the player consists of.
-        *
-        *   @param visible The new visibility for the player.
-        ***************************************************************************************************************/
-        public setVisible( visible:boolean ) : void
-        {
-            if ( visible )
-            {
-                this.head.isVisible  = true;
-                this.head.isPickable = true;
-
-                this.body.isVisible  = true;
-                this.body.isPickable = true;
-            }
-            else
-            {
-                this.head.isVisible  = false;
-                this.head.isPickable = false;
-
-                this.body.isVisible  = false;
-                this.body.isPickable = false;
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Moves all player's meshes by the current move deltas.
         ***************************************************************************************************************/
         private movePlayer() : void
@@ -252,10 +255,8 @@
                 );
 
                 // tslint:disable-next-line:max-line-length
-                // this.mesh.physicsImpostor.registerOnPhysicsCollide(bz.Main.game.engine.stage.test.physicsImpostor, (collider, collided) => { console.log("test 2"); } );
-                // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
-                // tslint:disable-next-line:max-line-length
                 // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
+                // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
                 // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
 
                 // reset move deltas
