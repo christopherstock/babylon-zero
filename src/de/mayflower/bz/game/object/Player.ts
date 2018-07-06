@@ -379,7 +379,7 @@
             {
                 bz.Debug.fire.log( 'Player is firing' );
 
-                // handle fire as processes
+                // handle fire as processed
                 this.fire = false;
 
                 // calculate shot destination

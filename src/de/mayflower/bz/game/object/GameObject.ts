@@ -92,16 +92,13 @@
         ***************************************************************************************************************/
         private appendBulletHole( hitPoint:BABYLON.Vector3, hitMesh:BABYLON.AbstractMesh ) : void
         {
-            // pick the hitpoint delta to the carrying mesh
-            const hitPointDelta:BABYLON.Vector3 = hitPoint.subtract( hitMesh.absolutePosition );
-
             // add debug hitpoint
             if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
             {
                 // create debug hitpoint
                 const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
                 (
-                    hitPointDelta,
+                    hitPoint,
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     0.10,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -113,8 +110,8 @@
                     bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
                 );
 
-                // stick to game object
-                debugBulletHole.parent = hitMesh;
+                // stick to parent
+                debugBulletHole.setParent( hitMesh );
 
                 // add to debug meshes array
                 bz.Main.game.stage.debugMeshes.push( debugBulletHole );

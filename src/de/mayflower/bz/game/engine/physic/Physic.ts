@@ -33,13 +33,22 @@
             bz.PhysicRestitution.NONE,
         );
 
+        /** Props for solid wood. */
+        public  static  readonly        SOLID_WOOD      :Physic                 = new Physic
+        (
+            bz.PhysicState.MOVABLE,
+            bz.PhysicDensity.SOLID_WOOD,
+            bz.PhysicFriction.MEDIUM,
+            bz.PhysicRestitution.MEDIUM,
+        );
+
         /** Physical properties for a non-moving and collidable body. */
         public  static  readonly        STATIC          :Physic                 = new Physic
         (
             bz.PhysicState.STATIC,
             bz.PhysicDensity.STATIC,
-            bz.PhysicFriction.HIGH,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicFriction.MEDIUM,
+            bz.PhysicRestitution.MEDIUM,
         );
 
         /** The general physic state of this physics setting. */

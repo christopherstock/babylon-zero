@@ -103,7 +103,7 @@
                             (
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 25.0, bz.MeshFactory.FACE_DEPTH, 25.0 ),
+                                new BABYLON.Vector3( 100.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.TEST,
                                 null,
@@ -165,14 +165,13 @@
                                 null,
                                 bz.SettingColor.COLOR_RGB_RED,
                                 this.scene,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.Physic.SOLID_WOOD,
                                 1.0,
                                 bz.SettingColor.COLOR_RGB_RED // this.ambientColor
                             ),
                         ]
                     )
                 ),
-
             ];
         }
 
@@ -277,7 +276,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( 1.0, 'bluesky', this.scene );
+            return bz.MeshFactory.createSkyBoxCube( 1.0, 'storm', this.scene );
         }
 
         /** ************************************************************************************************************
