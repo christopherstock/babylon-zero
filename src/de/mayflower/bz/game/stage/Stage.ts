@@ -277,17 +277,31 @@
             // create collision checking ray
             const ray:BABYLON.Ray = BABYLON.Ray.CreateNewFromTo( src, dst );
 
+            // collect all hitPoints
+            let hitPoints:bz.HitPoint[] = [];
+
             // check collision with walls
             bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
             for ( const wall of this.walls )
             {
-                wall.applyShot( ray );
+                hitPoints = hitPoints.concat( wall.applyShot( ray ) );
             }
             // check collision with movables
             bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] movables' );
             for ( const movable of this.movables )
             {
-                movable.applyShot( ray );
+                hitPoints = hitPoints.concat( movable.applyShot( ray ) );
+            }
+
+            // check nearest hitpoint
+            bz.Debug.fire.log( ' Gathered [' + hitPoints.length + '] hit points' );
+
+            // pick nearest hit point
+            const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
+            if ( nearestHitPoint != null )
+            {
+                // append a bullet hole
+                nearestHitPoint.appendBulletHole( this );
             }
         }
 

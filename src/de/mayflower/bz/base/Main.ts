@@ -6,11 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Only append the nearest bullet hole.
+    *   TODO Center shot source back to head (screen center)
     *   TODO Create mode for appending all bullet holes.
     *   TODO Create textured and 3d aligned Bullet holes.
     *   TODO Create enum for possible skyboxes!
     *   TODO Apply impulse on shooting.
+    *   TODO Enable multiple bullet holes that cover each other?
+    *   TODO Quick fire animation in bullet hole.
     *   TODO Stick bullet holes to their carrier/parent.
     *   TODO Apply a bullet hole only to the nearest hitPoint!
     *
@@ -40,6 +42,7 @@
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Alter the pivot for imported models?
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
+    *   TODO Enable wearpon that can fire through walls (magnum etc).
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Different player objects: physics for car, etc?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
@@ -64,7 +67,7 @@
     *   TODO Make sprites collidable?
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
     *   TODO Create main menu where player can reset stage etc.
-    *   TODO Enable wearpon zoom. (view angle / camera solution?)
+    *   TODO Enable !wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *   TODO Review babylon.JS tutorials, features and playground for gathering new features.

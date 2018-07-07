@@ -41,14 +41,26 @@
         }
 
         /** ************************************************************************************************************
-        *   Scales down the linear velocity by 10%.
+        *   Scales down the linear velocity by 10 %.
         *   This is mandatory for stopping squares from rolling endlessly.
         ***************************************************************************************************************/
         public lowerLinearVelocity() : void
         {
             for ( const mesh of this.meshes )
             {
-                mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.90 ) );
+                mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Scales down the angular velocity by 10 %.
+        *   This is mandatory for stopping squares from spinning endlessly.
+        ***************************************************************************************************************/
+        public lowerAngularVelocity() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
             }
         }
     }

@@ -60,13 +60,16 @@
         }
 
         /** ************************************************************************************************************
-        *   Applies a shot onto this game object.
+        *   Applies a shot onto this game object and returns all occurred hit points.
         *
         *   @param ray The shot ray to apply.
+        *
+        *   @return All hit points being hit in this game object.
         ***************************************************************************************************************/
-        public applyShot( ray:BABYLON.Ray ) : void
+        public applyShot( ray:BABYLON.Ray ) : bz.HitPoint[]
         {
-            const pickingInfos:BABYLON.PickingInfo[] = ray.intersectsMeshes( this.getModel().getMeshes() );
+            const hitPoints    :bz.HitPoint[]         = [];
+            const pickingInfos :BABYLON.PickingInfo[] = ray.intersectsMeshes( this.getModel().getMeshes() );
 
             if ( pickingInfos.length > 0 )
             {
@@ -76,45 +79,19 @@
                 {
                     // console.log( pickingInfos );
 
-                    const pickedPoint :BABYLON.Vector3      = pickingInfo.pickedPoint;
-                    const pickedMesh  :BABYLON.AbstractMesh = pickingInfo.pickedMesh;
-
-                    this.appendBulletHole( pickedPoint, pickedMesh );
+                    hitPoints.push
+                    (
+                        new bz.HitPoint
+                        (
+                            this,
+                            pickingInfo.pickedPoint,
+                            pickingInfo.pickedMesh,
+                            pickingInfo.distance
+                        )
+                    );
                 }
             }
-        }
 
-        /** ************************************************************************************************************
-        *   Applies a bullet hole onto this game object.
-        *
-        *   @param hitPoint The collision point where the bullet hole shall occur.
-        *   @param hitMesh  The mesh that carried this collision point.
-        ***************************************************************************************************************/
-        private appendBulletHole( hitPoint:BABYLON.Vector3, hitMesh:BABYLON.AbstractMesh ) : void
-        {
-            // add debug hitpoint
-            if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
-            {
-                // create debug hitpoint
-                const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
-                (
-                    hitPoint,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    0.10,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    null,
-                    bz.SettingColor.COLOR_RGB_ORANGE,
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.Physic.NONE,
-                    1.0,
-                    bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
-                );
-
-                // stick to parent
-                debugBulletHole.setParent( hitMesh );
-
-                // add to debug meshes array
-                bz.Main.game.stage.debugMeshes.push( debugBulletHole );
-            }
+            return hitPoints;
         }
     }
