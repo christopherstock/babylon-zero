@@ -36,6 +36,9 @@
 
             // update the game HUD information
             this.hud.update();
+
+            // stop the red sphere from rolling endlessly
+            this.movables[ 0 ].getModel().lowerLinearVelocity();
 /*
             // rotate test chair
             for ( const mesh of this.chair )

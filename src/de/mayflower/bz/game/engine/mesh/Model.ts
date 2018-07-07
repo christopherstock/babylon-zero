@@ -39,4 +39,16 @@
         {
             return this.meshes;
         }
+
+        /** ************************************************************************************************************
+        *   Scales down the linear velocity by 10%.
+        *   This is mandatory for stopping squares from rolling endlessly.
+        ***************************************************************************************************************/
+        public lowerLinearVelocity() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.90 ) );
+            }
+        }
     }

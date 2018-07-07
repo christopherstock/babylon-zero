@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Stop the neverending rolling red sphere!
     *   TODO Only append the nearest bullet hole.
     *   TODO Create mode for appending all bullet holes.
     *   TODO Create textured and 3d aligned Bullet holes.
@@ -15,6 +14,7 @@
     *   TODO Stick bullet holes to their carrier/parent.
     *   TODO Apply a bullet hole only to the nearest hitPoint!
     *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Create (different?) characters from primitives or mesh objects??
