@@ -8,9 +8,10 @@
     *
     *   TODO Apply impulse on shooting.
     *   TODO Center shot source back to head (screen center)
-    *   TODO Enable multiple bullet holes that cover each other?
+    *   TODO Enable multiple bullet holes that cover each other (without flickering!)
     *   TODO Quick fire animation in bullet hole.
     *
+    *   TODO Preload all textures / textured materials! Prevent Bullet hole images from popping up!!
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
@@ -30,7 +31,6 @@
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Enable jumping?
     *   TODO decouple player and visibility change method from CameraSystem?
-    *   TODO Preload all textures / textured materials?
     *   TODO Replace Model.getMeshes() with specific methods.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?

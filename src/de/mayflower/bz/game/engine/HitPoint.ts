@@ -78,12 +78,16 @@
                 stage.debugMeshes.push( debugBulletHole );
             }
 
+            const rotX:number = bz.MathUtil.radToDegrees( Math.asin( this.normal.y ) );
+            const rotY:number = bz.MathUtil.radToDegrees( Math.asin( this.normal.x ) );
+            const rotZ:number = bz.MathUtil.radToDegrees( Math.asin( this.normal.z ) );
+
             bz.Debug.fire.log
             (
                 'bullet hole normals in degrees: '
-                + '[' + bz.MathUtil.radToDegrees( Math.acos( this.normal.y ) ) + ']'
-                + '[' + bz.MathUtil.radToDegrees( Math.acos( this.normal.x ) ) + ']'
-                + '[' + bz.MathUtil.radToDegrees( Math.acos( this.normal.z ) ) + ']'
+                + '[' + rotX + ']'
+                + '[' + rotY + ']'
+                + '[' + rotZ + ']'
             );
 
             // add actual bullet hole
@@ -94,9 +98,9 @@
                 new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
                 new BABYLON.Vector3
                 (
-                    90.0 - bz.MathUtil.radToDegrees( Math.acos( this.normal.y ) ),
-                    90.0 - bz.MathUtil.radToDegrees( Math.acos( this.normal.x ) ),
-                    90.0 - bz.MathUtil.radToDegrees( Math.acos( this.normal.z ) ),
+                    rotX,
+                    rotY,
+                    rotZ
                 ),
                 bz.Texture.BULLET_HOLE_CONCRETE,
                 null,

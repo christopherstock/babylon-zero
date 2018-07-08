@@ -196,10 +196,10 @@
                             // plane - amiga plane 45° - FRONTSIDE
                             bz.MeshFactory.createBox
                             (
-                                new BABYLON.Vector3( 15.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 21.0, 0.0, 30.0 - bz.MeshFactory.FACE_DEPTH ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
+                                new BABYLON.Vector3( 0.0, 65.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
                                 this.scene,
@@ -233,6 +233,7 @@
                         ]
                     )
                 ),
+
                 new bz.Wall
                 (
                     new bz.Model
