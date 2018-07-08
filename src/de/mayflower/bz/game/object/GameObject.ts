@@ -77,7 +77,6 @@
 
                 for ( const pickingInfo of pickingInfos )
                 {
-                    // console.log( pickingInfos );
 
                     hitPoints.push
                     (
@@ -86,7 +85,8 @@
                             this,
                             pickingInfo.pickedPoint,
                             pickingInfo.pickedMesh,
-                            pickingInfo.distance
+                            pickingInfo.distance,
+                            pickingInfo.getNormal( true )
                         )
                     );
                 }

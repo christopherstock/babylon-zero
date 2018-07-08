@@ -7,29 +7,32 @@
     // tslint:disable:max-line-length
     export class Texture
     {
-        /** The texture 'test'. */
-        public      static      TEST                :Texture                = new Texture( 'test.jpg',     bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
-        /** The texture 'mayflower logo'. */
-        public      static      MAYFLOWER_LOGO      :Texture                = new Texture( 'mfLogo.jpg',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
-        /** The texture 'amiga'. */
-        public      static      AMIGA               :Texture                = new Texture( 'amiga.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
-        /** The texture 'wood'. */
-        public      static      WOOD                :Texture                = new Texture( 'wood.jpg',     bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
-        /** The texture 'grass'. */
-        public      static      GRASS               :Texture                = new Texture( 'grass.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
-        /** The texture 'glas'. */
-        public      static      GLASS               :Texture                = new Texture( 'glass.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
-        /** The texture 'tree'. */
-        public      static      TREE                :Texture                = new Texture( 'tree.png',     bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE    );
-        /** The texture 'skin rosé'. */
-        public      static      SKIN_ROSE           :Texture                = new Texture( 'skinRose.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall test'. */
+        public      static      WALL_TEST                    :Texture               = new Texture( 'wall/test.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall mayflower logo'. */
+        public      static      WALL_MAYFLOWER_LOGO          :Texture               = new Texture( 'wall/mfLogo.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall amiga'. */
+        public      static      WALL_AMIGA                   :Texture               = new Texture( 'wall/amiga.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall wood'. */
+        public      static      WALL_WOOD                    :Texture               = new Texture( 'wall/wood.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall grass'. */
+        public      static      WALL_GRASS                   :Texture               = new Texture( 'wall/grass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall glas'. */
+        public      static      WALL_GLASS                   :Texture               = new Texture( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+        /** The texture 'wall tree'. */
+        public      static      WALL_TREE                    :Texture               = new Texture( 'wall/tree.png',             bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE    );
+        /** The texture 'wall skin rosé'. */
+        public      static      WALL_SKIN_ROSE               :Texture               = new Texture( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+
+        /** The texture 'bullet hole concreate'. */
+        public      static      BULLET_HOLE_CONCRETE        :Texture                = new Texture( 'bulletHole/concrete.png',   bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE    );
 
         /** The filename of this texture's image. */
-        public                  fileName            :string                 = null;
+        public                  fileName                    :string                 = null;
         /** Specifies if this texture has an alpha channel. */
-        public                  textureHasAlpha     :bz.TextureHasAlpha     = null;
+        public                  textureHasAlpha             :bz.TextureHasAlpha     = null;
         /** The UV tiling strategy to apply for this texture. */
-        public                  textureUV           :bz.TextureUV           = null;
+        public                  textureUV                   :bz.TextureUV           = null;
 
         /** ************************************************************************************************************
         *   Creates a texture configuration.

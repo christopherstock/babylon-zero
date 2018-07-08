@@ -6,15 +6,10 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Center shot source back to head (screen center)
-    *   TODO Create mode for appending all bullet holes.
-    *   TODO Create textured and 3d aligned Bullet holes.
-    *   TODO Create enum for possible skyboxes!
     *   TODO Apply impulse on shooting.
+    *   TODO Center shot source back to head (screen center)
     *   TODO Enable multiple bullet holes that cover each other?
     *   TODO Quick fire animation in bullet hole.
-    *   TODO Stick bullet holes to their carrier/parent.
-    *   TODO Apply a bullet hole only to the nearest hitPoint!
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Create 3d gun as 2nd scene in front?
@@ -25,6 +20,7 @@
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.
+    *   TODO Create enum for possible skyboxes!
     *   TODO Create HUD message queue.
     *   TODO Remove importedModels from Stage! ( replace with game objects )
     *   TODO Complete MVP 'The Office'.
@@ -53,6 +49,8 @@
     *   TODO Create material system with unified parameters!
     *   TODO Create superclass for presentation stages?
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
+    *   TODO Create MVP-Tech-Demo with rotating logo intro etc.
+    *
     *   TODO Check 3D model creation from photos ( for 3D product configurator )?
     *   TODO Increase performance in chrome?
     *   TODO Rotating texture UVs for certain box sides? (may be obsolete though importing meshes!)
@@ -61,7 +59,6 @@
     *   TODO Try fur.
     *   TODO View 360 Photodome http://doc.babylonjs.com/how_to/360photodome
     *   TODO Check method for disposing all scene members (scene.dispose()) again ?
-    *   TODO Create MVP-Techn-Demo with rotating logo intro etc.
     *   TODO Create debug console on-screen?
     *   TODO Try video textures!
     *   TODO Make sprites collidable?

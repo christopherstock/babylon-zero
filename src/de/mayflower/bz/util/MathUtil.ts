@@ -19,6 +19,18 @@
         }
 
         /** ************************************************************************************************************
+        *   Converts an angle from radians to degrees.
+        *
+        *   @param angleRad The angle in radians.
+        *
+        *   @return The angle in degrees.
+        ***************************************************************************************************************/
+        public static radToDegrees( angleRad:number ) : number
+        {
+            return ( angleRad * 180.0 / Math.PI );
+        }
+
+        /** ************************************************************************************************************
         *   Returns a random integer between the given mininum and maximum.
         *
         *   @param min The minimum value to return by random.

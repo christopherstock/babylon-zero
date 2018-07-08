@@ -11,11 +11,13 @@
         public                              hud                     :bz.HUD                                 = null;
         /** A collection of all debug meshes in this stage. */
         public                              debugMeshes             :BABYLON.Mesh[]                         = [];
+        /** A collection of all bullet holes in this stage. */
+        public                              bulletHoles             :BABYLON.Mesh[]                         = [];
 
+        /** The ambient color of this stage is the emissive color of all mesh materials. */
+        public              readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
-        /** The ambient color of this stage is the emissive color of all mesh materials. */
-        protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
 
@@ -185,10 +187,16 @@
                 model.dispose();
             }
 
-            // dispose all line meshes
+            // dispose all debug meshes
             for ( const debugLine of this.debugMeshes )
             {
                 debugLine.dispose();
+            }
+
+            // dispose all bullet holes
+            for ( const bulletHole of this.bulletHoles )
+            {
+                bulletHole.dispose();
             }
 
             // dispose skybox
