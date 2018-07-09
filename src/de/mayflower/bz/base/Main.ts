@@ -7,11 +7,12 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Apply impulse on shooting.
-    *   TODO Center shot source back to head (screen center)
-    *   TODO Enable multiple bullet holes that cover each other (without flickering!)
+    *
+    *   TODO Enable multiple bullet holes that cover each other (without flickering!) Check mesh intersection of holes!
     *   TODO Quick fire animation in bullet hole.
     *
     *   TODO Preload all textures / textured materials! Prevent Bullet hole images from popping up!!
+    *   TODO Create new class Shot and createShot in Player.checkFire.
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music

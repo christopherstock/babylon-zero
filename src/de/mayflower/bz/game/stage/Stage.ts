@@ -265,7 +265,12 @@
         *   @param src The shot source vector.
         *   @param dst The shot destination vector.
         ***************************************************************************************************************/
-        public applyShot( src:BABYLON.Vector3, dst:BABYLON.Vector3 ) : void
+        public applyShot
+        (
+            src :BABYLON.Vector3,
+            dst :BABYLON.Vector3
+        )
+        : void
         {
             // add debug line
             if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )

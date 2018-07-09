@@ -383,7 +383,7 @@
                 this.fire = false;
 
                 // calculate shot destination
-                const source      :BABYLON.Vector3 = this.rightHand.absolutePosition;
+                const source      :BABYLON.Vector3 = this.head.absolutePosition;
                 const rotation    :BABYLON.Vector3 = new BABYLON.Vector3( this.rotZ, this.rotY, 0.0 );
                 const range       :number          = 10.0;
                 const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector
