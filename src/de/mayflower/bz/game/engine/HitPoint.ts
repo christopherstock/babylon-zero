@@ -21,6 +21,9 @@
         /** The normal of the face the hit point impacts. */
         private         readonly    normal                          :BABYLON.Vector3                = null;
 
+        /** The direction of the shot that caused this hit point. */
+        private         readonly    direction                       :BABYLON.Vector3                = null;
+
         /** ************************************************************************************************************
         *   Creates a new hit point that carries collision information.
         *
@@ -29,6 +32,7 @@
         *   @param mesh       The exact mesh of the game object that has been hit.
         *   @param distance   The distance from the shot source to this hit point.
         *   @param normal     The normal of the face the hit point impacts.
+        *   @param direction  The direction of the shot that caused this hit point.
         ***************************************************************************************************************/
         public constructor
         (
@@ -36,7 +40,8 @@
             point      :BABYLON.Vector3,
             mesh       :BABYLON.AbstractMesh,
             distance   :number,
-            normal     :BABYLON.Vector3
+            normal     :BABYLON.Vector3,
+            direction  :BABYLON.Vector3
         )
         {
             this.gameObject = gameObject;
@@ -44,6 +49,7 @@
             this.mesh       = mesh;
             this.distance   = distance;
             this.normal     = normal;
+            this.direction  = direction;
         }
 
         /** ************************************************************************************************************
@@ -106,6 +112,24 @@
 
             // add to debug meshes array of the stage
             return bulletHole;
+        }
+
+        /** ************************************************************************************************************
+        *   Applies the shot impulse to the affected mesh.
+        *
+        *   @param force The force to apply. Will be multiplied with the direction vertex.
+        ***************************************************************************************************************/
+        public applyImpulseToMesh( force:number ) : void
+        {
+            bz.Debug.fire.log
+            (
+                'shot impulse direction: '
+                + '[' + this.direction.x + ']'
+                + '[' + this.direction.y + ']'
+                + '[' + this.direction.z + ']'
+            );
+
+            this.mesh.applyImpulse( this.direction.scale( force ), this.point );
         }
 
         /** ************************************************************************************************************

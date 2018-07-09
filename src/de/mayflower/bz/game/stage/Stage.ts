@@ -331,6 +331,9 @@
                 // append a bullet hole
                 const bulletHole:BABYLON.Mesh = nearestHitPoint.createBulletHole( this.ambientColor );
                 this.bulletHoles.push( bulletHole );
+
+                // apply impulse
+                nearestHitPoint.applyImpulseToMesh( 10 );
             }
         }
 

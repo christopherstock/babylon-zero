@@ -85,7 +85,8 @@
                             pickingInfo.pickedPoint,
                             pickingInfo.pickedMesh,
                             pickingInfo.distance,
-                            pickingInfo.getNormal( true )
+                            pickingInfo.getNormal( true ),
+                            ray.direction
                         )
                     );
                 }
