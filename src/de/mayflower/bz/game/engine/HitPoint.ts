@@ -47,38 +47,42 @@
         }
 
         /** ************************************************************************************************************
+        *   Applies a debug bullet hole onto this hit point.
+        *
+        *   @param stage The stage where the debug bullet hole is appended to.
+        ***************************************************************************************************************/
+        public appendDebugBulletHole( stage:bz.Stage ) : void
+        {
+            // create debug bullet hole
+            const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
+            (
+                this.point.clone(),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                0.10,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                bz.SettingColor.COLOR_RGB_ORANGE,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Physic.NONE,
+                1.0,
+                bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
+            );
+
+            // stick to parent
+            debugBulletHole.setParent( this.mesh );
+
+            // add to debug meshes array of the stage
+            stage.debugMeshes.push( debugBulletHole );
+        }
+
+        /** ************************************************************************************************************
         *   Applies a bullet hole onto this hit point.
         *
         *   @param stage The stage where the bullet hole is appended to.
         ***************************************************************************************************************/
         public appendBulletHole( stage:bz.Stage ) : void
         {
-            // TODO outsource to separate method!
-
-            // add debug bullet hole
-            if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
-            {
-                // create debug bullet hole
-                const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
-                (
-                    this.point.clone(),
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    0.10,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    null,
-                    bz.SettingColor.COLOR_RGB_ORANGE,
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.Physic.NONE,
-                    1.0,
-                    bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
-                );
-
-                // stick to parent
-                debugBulletHole.setParent( this.mesh );
-
-                // add to debug meshes array of the stage
-                stage.debugMeshes.push( debugBulletHole );
-            }
+            // TODO outsource to static method if solved!
 
             bz.Debug.fire.log
             (
@@ -87,8 +91,6 @@
                 + '[' + this.normal.y + ']'
                 + '[' + this.normal.z + ']'
             );
-
-            // TODO outsource to static method if solved!
 
             // calculate bullet hole angles from face normals
             const newRotX:number = BABYLON.Angle.BetweenTwoPoints

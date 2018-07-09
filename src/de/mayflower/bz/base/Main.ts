@@ -17,16 +17,19 @@
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create air friction for all movables in render() of scene!
+    *   TODO Add particle system for bullet holes.
     *   TODO Use BABYLON.Angle instead of own implementation.
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.
+    *   TODO Outsource stage param from class HitPoint and return meshes. Make bulletHole and debugLines private again.
     *   TODO Create enum for possible skyboxes!
     *   TODO Create HUD message queue.
     *   TODO Remove importedModels from Stage! ( replace with game objects )
     *   TODO Enable ducking.
+    *   TODO Limit number of bullet holes to 256 ?.
     *   TODO Complete MVP 'The Office'.
     *
     *   TODO Create SettingPlayer with all player settings.

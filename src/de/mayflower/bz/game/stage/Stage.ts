@@ -266,7 +266,7 @@
         public applyShot( src:BABYLON.Vector3, dst:BABYLON.Vector3 ) : void
         {
             // add debug line
-            if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
+            if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )
             {
                 this.debugMeshes.push
                 (
@@ -308,6 +308,12 @@
             const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
             if ( nearestHitPoint != null )
             {
+                // appena a debug bullet hole
+                if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLES )
+                {
+                    nearestHitPoint.appendDebugBulletHole( this );
+                }
+
                 // append a bullet hole
                 nearestHitPoint.appendBulletHole( this );
             }
