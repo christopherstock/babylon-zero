@@ -9,13 +9,10 @@
     {
         /** The game HUD. */
         public                              hud                     :bz.HUD                                 = null;
-        /** A collection of all debug meshes in this stage. */
-        public                              debugMeshes             :BABYLON.Mesh[]                         = [];
-        /** A collection of all bullet holes in this stage. */
-        public                              bulletHoles             :BABYLON.Mesh[]                         = [];
 
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         public              readonly        ambientColor            :BABYLON.Color3                         = null;
+
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
         /** The clear color of this stage is the background color of all mesh materials. */
@@ -47,6 +44,11 @@
         protected                           cameraSystem            :bz.CameraSystem                        = null;
         /** A collection of all imported meshes in this stage. */
         protected                           importedModels          :bz.Model[]                             = [];
+
+        /** A collection of all debug meshes in this stage. */
+        protected                           debugMeshes             :BABYLON.Mesh[]                         = [];
+        /** A collection of all bullet holes in this stage. */
+        protected                           bulletHoles             :BABYLON.Mesh[]                         = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -311,11 +313,13 @@
                 // appena a debug bullet hole
                 if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLES )
                 {
-                    nearestHitPoint.appendDebugBulletHole( this );
+                    const debugBulletHole:BABYLON.Mesh = nearestHitPoint.createDebugBulletHole();
+                    this.debugMeshes.push( debugBulletHole );
                 }
 
                 // append a bullet hole
-                nearestHitPoint.appendBulletHole( this );
+                const bulletHole:BABYLON.Mesh = nearestHitPoint.createBulletHole( this.ambientColor );
+                this.bulletHoles.push( bulletHole );
             }
         }
 

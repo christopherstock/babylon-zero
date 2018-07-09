@@ -24,7 +24,6 @@
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.
-    *   TODO Outsource stage param from class HitPoint and return meshes. Make bulletHole and debugLines private again.
     *   TODO Create enum for possible skyboxes!
     *   TODO Create HUD message queue.
     *   TODO Remove importedModels from Stage! ( replace with game objects )

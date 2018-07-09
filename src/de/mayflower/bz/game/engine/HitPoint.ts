@@ -7,19 +7,19 @@
     export class HitPoint
     {
         /** The affected game object. */
-        public                      gameObject                      :bz.GameObject                  = null;
+        private         readonly    gameObject                      :bz.GameObject                  = null;
 
         /** The exact collision point. */
-        public                      point                           :BABYLON.Vector3                = null;
+        private         readonly    point                           :BABYLON.Vector3                = null;
 
         /** The affected mesh of the game object. */
-        public                      mesh                            :BABYLON.AbstractMesh           = null;
+        private         readonly    mesh                            :BABYLON.AbstractMesh           = null;
 
         /** The distance from the shot source to this hit point. */
-        public                      distance                        :number                         = null;
+        private         readonly    distance                        :number                         = null;
 
         /** The normal of the face the hit point impacts. */
-        public                      normal                          :BABYLON.Vector3                = null;
+        private         readonly    normal                          :BABYLON.Vector3                = null;
 
         /** ************************************************************************************************************
         *   Creates a new hit point that carries collision information.
@@ -47,11 +47,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Applies a debug bullet hole onto this hit point.
+        *   Creates a debug bullet hole onto this hit point.
         *
-        *   @param stage The stage where the debug bullet hole is appended to.
+        *   @return The created debug bullet hole mesh.
         ***************************************************************************************************************/
-        public appendDebugBulletHole( stage:bz.Stage ) : void
+        public createDebugBulletHole() : BABYLON.Mesh
         {
             // create debug bullet hole
             const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
@@ -72,15 +72,17 @@
             debugBulletHole.setParent( this.mesh );
 
             // add to debug meshes array of the stage
-            stage.debugMeshes.push( debugBulletHole );
+            return debugBulletHole;
         }
 
         /** ************************************************************************************************************
-        *   Applies a bullet hole onto this hit point.
+        *   Creates a bullet hole onto this hit point.
         *
-        *   @param stage The stage where the bullet hole is appended to.
+        *   @param emissiveColor The emissive color for the bullet hole mesh.
+        *
+        *   @return The created bullet hole mesh.
         ***************************************************************************************************************/
-        public appendBulletHole( stage:bz.Stage ) : void
+        public createBulletHole( emissiveColor:BABYLON.Color3 ) : BABYLON.Mesh
         {
             const bulletHoleRotation:BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormals( this.normal );
 
@@ -96,14 +98,14 @@
                 bz.Main.game.engine.scene.getScene(),
                 bz.Physic.NONE,
                 1.0,
-                stage.ambientColor
+                emissiveColor
             );
 
             // stick to parent
             bulletHole.setParent( this.mesh );
 
             // add to debug meshes array of the stage
-            stage.bulletHoles.push( bulletHole );
+            return bulletHole;
         }
 
         /** ************************************************************************************************************
