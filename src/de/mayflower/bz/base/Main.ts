@@ -6,6 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Add crosshair.
     *   TODO Apply impulse on shooting.
     *
     *   TODO Enable multiple bullet holes that cover each other (without flickering!) Check mesh intersection of holes!
@@ -36,7 +37,6 @@
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Enable jumping?
-    *   TODO Add crosshair.
     *   TODO decouple player and visibility change method from CameraSystem?
     *   TODO Replace Model.getMeshes() with specific methods.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)

@@ -140,7 +140,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
+                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
                     }
                     break;
                 }
@@ -155,7 +155,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
+                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
                     }
                     break;
                 }
@@ -170,7 +170,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
+                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
                     }
                     break;
                 }
@@ -185,7 +185,7 @@
                     if ( player != null )
                     {
                         player.setVisible( false );
-                        ( stage.hud as bz.GameHUD ).setWearponVisibility( true );
+                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( true );
                     }
                     break;
                 }
@@ -200,7 +200,7 @@
                     if ( player != null )
                     {
                         player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setWearponVisibility( false );
+                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
                     }
                     break;
                 }

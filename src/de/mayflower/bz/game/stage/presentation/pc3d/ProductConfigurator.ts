@@ -352,7 +352,7 @@
         ***************************************************************************************************************/
         protected createHUD() : bz.HUD
         {
-            let hud:bz.ProductConfiguratorHUD = new bz.ProductConfiguratorHUD( this );
+            const hud:bz.ProductConfiguratorHUD = new bz.ProductConfiguratorHUD( this );
             hud.init();
 
             return hud;

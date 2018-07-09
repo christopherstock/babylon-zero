@@ -16,6 +16,8 @@
         protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
         /** The wearpon image. */
         protected                           wearponImage            :BABYLON_GUI.Image                      = null;
+        /** The corsshair. */
+        protected                           crosshair               :BABYLON_GUI.Line[]                     = null;
 
         /** ************************************************************************************************************
         *   Creates a new Heads Up Display for a game level.
@@ -30,6 +32,9 @@
         ***************************************************************************************************************/
         public init() : void
         {
+            const CANVAS_WIDTH  :number = bz.Main.game.engine.canvas.getWidth();
+            const CANVAS_HEIGHT :number = bz.Main.game.engine.canvas.getHeight();
+
             this.fpsText = bz.GuiFactory.createTextBlock
             (
                 '',
@@ -54,6 +59,51 @@
                 null
             );
             this.guiFg.addControl( this.wearponImage );
+
+            this.crosshair =
+            [
+                bz.GuiFactory.createLine
+                (
+                    ( CANVAS_WIDTH  / 2 ),
+                    ( CANVAS_HEIGHT / 2 ) - 20,
+                    ( CANVAS_WIDTH  / 2 ),
+                    ( CANVAS_HEIGHT / 2 ) - 10,
+                    1,
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
+                ),
+                bz.GuiFactory.createLine
+                (
+                    ( CANVAS_WIDTH  / 2 ),
+                    ( CANVAS_HEIGHT / 2 ) + 20,
+                    ( CANVAS_WIDTH  / 2 ),
+                    ( CANVAS_HEIGHT / 2 ) + 10,
+                    1,
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
+                ),
+                bz.GuiFactory.createLine
+                (
+                    ( CANVAS_WIDTH  / 2 ) - 20,
+                    ( CANVAS_HEIGHT / 2 ),
+                    ( CANVAS_WIDTH  / 2 ) - 10,
+                    ( CANVAS_HEIGHT / 2 ),
+                    1,
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
+                ),
+                bz.GuiFactory.createLine
+                (
+                    ( CANVAS_WIDTH  / 2 ) + 10,
+                    ( CANVAS_HEIGHT / 2 ),
+                    ( CANVAS_WIDTH  / 2 ) + 20,
+                    ( CANVAS_HEIGHT / 2 ),
+                    1,
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
+                ),
+            ];
+            for ( const crosshairLine of this.crosshair ) this.guiFg.addControl( crosshairLine );
         }
 
         /** ************************************************************************************************************
@@ -66,12 +116,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets visibility for the wearpon.
+        *   Sets visibility for the first player view components.
         *
-        *   @param visible If the wearpon should be visible or not.
+        *   @param visible If the first player view components should be visible or not.
         ***************************************************************************************************************/
-        public setWearponVisibility( visible:boolean ) : void
+        public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
         {
             this.wearponImage.isVisible = visible;
+            for ( const crosshairLine of this.crosshair ) crosshairLine.isVisible = visible;
         }
     }

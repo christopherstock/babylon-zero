@@ -120,6 +120,12 @@
         ***************************************************************************************************************/
         public render() : void
         {
+            // render the hud if existent
+            if ( this.hud != null )
+            {
+                this.hud.update();
+            }
+
             // render player if existent
             if ( this.player != null )
             {

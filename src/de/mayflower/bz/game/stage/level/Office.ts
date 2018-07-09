@@ -34,9 +34,6 @@
             // invoke parent method
             super.render();
 
-            // update the game HUD information
-            this.hud.update();
-
             // stop the red sphere from rolling endlessly
             this.movables[ 0 ].getModel().lowerLinearVelocity();
             this.movables[ 0 ].getModel().lowerAngularVelocity();
