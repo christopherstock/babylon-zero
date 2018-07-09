@@ -77,7 +77,6 @@
 
                 for ( const pickingInfo of pickingInfos )
                 {
-
                     hitPoints.push
                     (
                         new bz.HitPoint

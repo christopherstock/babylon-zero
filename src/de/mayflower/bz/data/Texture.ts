@@ -26,6 +26,8 @@
 
         /** The texture 'bullet hole concreate'. */
         public      static      BULLET_HOLE_CONCRETE        :Texture                = new Texture( 'bulletHole/concrete.png',   bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE    );
+        /** The texture 'bullet hole wood'. */
+        public      static      BULLET_HOLE_WOOD            :Texture                = new Texture( 'bulletHole/wood.png',       bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE    );
 
         /** The filename of this texture's image. */
         public                  fileName                    :string                 = null;

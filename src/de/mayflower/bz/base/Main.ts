@@ -16,6 +16,8 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create and test spatial sound. https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Create (different?) characters from primitives or mesh objects??
+    *   TODO Create air friction for all movables in render() of scene!
+    *   TODO Use BABYLON.Angle instead of own implementation.
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
@@ -24,12 +26,14 @@
     *   TODO Create enum for possible skyboxes!
     *   TODO Create HUD message queue.
     *   TODO Remove importedModels from Stage! ( replace with game objects )
+    *   TODO Enable ducking.
     *   TODO Complete MVP 'The Office'.
     *
     *   TODO Create SettingPlayer with all player settings.
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Move all body volume calculations to MathUtil functions.
     *   TODO Enable jumping?
+    *   TODO Add crosshair.
     *   TODO decouple player and visibility change method from CameraSystem?
     *   TODO Replace Model.getMeshes() with specific methods.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
@@ -39,6 +43,7 @@
     *   TODO Alter the pivot for imported models?
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Enable wearpon that can fire through walls (magnum etc).
+    *   TODO Add wearpon zoom.
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Different player objects: physics for car, etc?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??

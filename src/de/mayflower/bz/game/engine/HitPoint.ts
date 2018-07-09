@@ -53,6 +53,8 @@
         ***************************************************************************************************************/
         public appendBulletHole( stage:bz.Stage ) : void
         {
+            // TODO outsource to separate method!
+
             // add debug bullet hole
             if ( bz.SettingDebug.SHOW_SHOT_DEBUG_LINES_AND_COLLISIONS )
             {
@@ -78,16 +80,37 @@
                 stage.debugMeshes.push( debugBulletHole );
             }
 
-            const rotX:number = bz.MathUtil.radToDegrees( Math.asin( this.normal.y ) );
-            const rotY:number = bz.MathUtil.radToDegrees( Math.asin( this.normal.x ) );
-            const rotZ:number = bz.MathUtil.radToDegrees( Math.asin( this.normal.z ) );
+            bz.Debug.fire.log
+            (
+                'bullet hole normal: '
+                + '[' + this.normal.x + ']'
+                + '[' + this.normal.y + ']'
+                + '[' + this.normal.z + ']'
+            );
+
+            // TODO outsource to static method if solved!
+
+            // calculate bullet hole angles from face normals
+            const newRotX:number = BABYLON.Angle.BetweenTwoPoints
+            (
+                BABYLON.Vector2.Zero(),
+                new BABYLON.Vector2( this.normal.z, this.normal.y )
+            ).degrees() - 0.0;
+
+            const newRotY:number = -BABYLON.Angle.BetweenTwoPoints
+            (
+                BABYLON.Vector2.Zero(),
+                new BABYLON.Vector2( this.normal.x, this.normal.z )
+            ).degrees() + 90.0;
+
+            const newRotZ:number = bz.MathUtil.getRandomInt( 0, 359 );
 
             bz.Debug.fire.log
             (
-                'bullet hole normals in degrees: '
-                + '[' + rotX + ']'
-                + '[' + rotY + ']'
-                + '[' + rotZ + ']'
+                'bullet hole rotation: '
+                + '[' + newRotX + ']'
+                + '[' + newRotY + ']'
+                + '[' + newRotZ + ']'
             );
 
             // add actual bullet hole
@@ -98,11 +121,11 @@
                 new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
                 new BABYLON.Vector3
                 (
-                    rotX,
-                    rotY,
-                    rotZ
+                    newRotX,
+                    newRotY,
+                    newRotZ
                 ),
-                bz.Texture.BULLET_HOLE_CONCRETE,
+                bz.Texture.BULLET_HOLE_WOOD,
                 null,
                 bz.Main.game.engine.scene.getScene(),
                 bz.Physic.NONE,
