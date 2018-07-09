@@ -82,38 +82,7 @@
         ***************************************************************************************************************/
         public appendBulletHole( stage:bz.Stage ) : void
         {
-            // TODO outsource to static method if solved!
-
-            bz.Debug.fire.log
-            (
-                'bullet hole normal: '
-                + '[' + this.normal.x + ']'
-                + '[' + this.normal.y + ']'
-                + '[' + this.normal.z + ']'
-            );
-
-            // calculate bullet hole angles from face normals
-            const newRotX:number = BABYLON.Angle.BetweenTwoPoints
-            (
-                BABYLON.Vector2.Zero(),
-                new BABYLON.Vector2( this.normal.z, this.normal.y )
-            ).degrees() - 0.0;
-
-            const newRotY:number = -BABYLON.Angle.BetweenTwoPoints
-            (
-                BABYLON.Vector2.Zero(),
-                new BABYLON.Vector2( this.normal.x, this.normal.z )
-            ).degrees() + 90.0;
-
-            const newRotZ:number = bz.MathUtil.getRandomInt( 0, 359 );
-
-            bz.Debug.fire.log
-            (
-                'bullet hole rotation: '
-                + '[' + newRotX + ']'
-                + '[' + newRotY + ']'
-                + '[' + newRotZ + ']'
-            );
+            const bulletHoleRotation:BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormals( this.normal );
 
             // add actual bullet hole
             const bulletHole:BABYLON.Mesh = bz.MeshFactory.createBox
@@ -121,12 +90,7 @@
                 this.point.clone(),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
-                new BABYLON.Vector3
-                (
-                    newRotX,
-                    newRotY,
-                    newRotZ
-                ),
+                bulletHoleRotation,
                 bz.Texture.BULLET_HOLE_WOOD,
                 null,
                 bz.Main.game.engine.scene.getScene(),
@@ -164,5 +128,50 @@
             }
 
             return nearestHitpoint;
+        }
+
+        /** ************************************************************************************************************
+        *   Calculates the rotation for the bullet hole mesh from the specified normal.
+        *
+        *   @param normal The normal of the face that was hit by the shot.
+        *
+        *   @return The normal of the bullet hole.
+        ***************************************************************************************************************/
+        private static getBulletHoleRotationFromNormals( normal:BABYLON.Vector3 ) : BABYLON.Vector3
+        {
+            bz.Debug.fire.log
+            (
+                'bullet hole normal: '
+                + '[' + normal.x + ']'
+                + '[' + normal.y + ']'
+                + '[' + normal.z + ']'
+            );
+
+            const rotation:BABYLON.Vector3 = BABYLON.Vector3.Zero();
+
+            // calculate bullet hole angles from face normals
+            rotation.x = BABYLON.Angle.BetweenTwoPoints
+            (
+                BABYLON.Vector2.Zero(),
+                new BABYLON.Vector2( normal.z, normal.y )
+            ).degrees();
+            rotation.y = -BABYLON.Angle.BetweenTwoPoints
+            (
+                BABYLON.Vector2.Zero(),
+                new BABYLON.Vector2( normal.x, normal.z )
+            ).degrees() + 90.0;
+
+            // choose a random angle for rotation Z
+            rotation.z = bz.MathUtil.getRandomInt( 0, 359 );
+
+            bz.Debug.fire.log
+            (
+                'bullet hole rotation: '
+                + '[' + rotation.x + ']'
+                + '[' + rotation.y + ']'
+                + '[' + rotation.z + ']'
+            );
+
+            return rotation;
         }
     }
