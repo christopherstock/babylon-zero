@@ -17,7 +17,7 @@
         /** The wearpon image. */
         protected                           wearponImage            :BABYLON_GUI.Image                      = null;
         /** The corsshair. */
-        protected                           crosshair               :BABYLON_GUI.Line[]                     = null;
+        protected                           crosshair               :BABYLON_GUI.Image                      = null;
 
         /** ************************************************************************************************************
         *   Creates a new Heads Up Display for a game level.
@@ -60,50 +60,16 @@
             );
             this.guiFg.addControl( this.wearponImage );
 
-            this.crosshair =
-            [
-                bz.GuiFactory.createLine
-                (
-                    ( CANVAS_WIDTH  / 2 ),
-                    ( CANVAS_HEIGHT / 2 ) - 20,
-                    ( CANVAS_WIDTH  / 2 ),
-                    ( CANVAS_HEIGHT / 2 ) - 10,
-                    1,
-                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
-                ),
-                bz.GuiFactory.createLine
-                (
-                    ( CANVAS_WIDTH  / 2 ),
-                    ( CANVAS_HEIGHT / 2 ) + 20,
-                    ( CANVAS_WIDTH  / 2 ),
-                    ( CANVAS_HEIGHT / 2 ) + 10,
-                    1,
-                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
-                ),
-                bz.GuiFactory.createLine
-                (
-                    ( CANVAS_WIDTH  / 2 ) - 20,
-                    ( CANVAS_HEIGHT / 2 ),
-                    ( CANVAS_WIDTH  / 2 ) - 10,
-                    ( CANVAS_HEIGHT / 2 ),
-                    1,
-                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
-                ),
-                bz.GuiFactory.createLine
-                (
-                    ( CANVAS_WIDTH  / 2 ) + 10,
-                    ( CANVAS_HEIGHT / 2 ),
-                    ( CANVAS_WIDTH  / 2 ) + 20,
-                    ( CANVAS_HEIGHT / 2 ),
-                    1,
-                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
-                ),
-            ];
-            for ( const crosshairLine of this.crosshair ) this.guiFg.addControl( crosshairLine );
+            this.crosshair = bz.GuiFactory.createImage
+            (
+                'crosshair/default.png',
+                0,
+                0,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER,
+                null
+            );
+            this.guiFg.addControl( this.crosshair );
         }
 
         /** ************************************************************************************************************
@@ -123,6 +89,6 @@
         public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
         {
             this.wearponImage.isVisible = visible;
-            for ( const crosshairLine of this.crosshair ) crosshairLine.isVisible = visible;
+            this.crosshair.isVisible    = visible;
         }
     }

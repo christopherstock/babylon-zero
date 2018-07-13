@@ -382,9 +382,20 @@
                 // handle fire as processed
                 this.fire = false;
 
+                // TODO create shot
+                // const shot :Shot = this.createShot( ... );
+
+                const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
+                const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
+
                 // calculate shot destination
                 const source      :BABYLON.Vector3 = this.head.absolutePosition;
-                const rotation    :BABYLON.Vector3 = new BABYLON.Vector3( this.rotZ, this.rotY, 0.0 );
+                const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
+                (
+                    this.rotZ + divergenceZ,
+                    this.rotY + divergenceY,
+                    0.0
+                );
                 const range       :number          = 50.0;
                 const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector
                 (

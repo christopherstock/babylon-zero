@@ -6,10 +6,14 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Enable x and y difference for shot.
     *   TODO Enable multiple bullet holes that cover each other (without flickering!) Check mesh intersection of holes!
+    *
+    *   TODO Create class Shot.
     *   TODO Quick fire animation in bullet hole.
     *   TODO Preload all textures / textured materials! Prevent Bullet hole images from popping up!!
     *   TODO Create new class Shot and createShot in Player.checkFire.
+    *   TODO Clip bullet hole to wall ( avoid bullet holes on edges )
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Try bullet holes and normals on 3ds meshes.
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
