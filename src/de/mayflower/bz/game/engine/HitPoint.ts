@@ -117,10 +117,14 @@
                 // stick to parent
                 bulletHole.setParent( this.mesh );
 
+
+if ( true ) break;
+
+
                 // check until this bullet holes no more collides with an existent bullet hole
                 if ( ++iteration < 100 && this.intersectsExistentBulletHoles( bulletHole, existentBulletHoles ) )
                 {
-                    bz.Main.game.engine.scene.getScene().removeMesh( bulletHole );
+                    bulletHole.dispose();
                 }
                 else
                 {
