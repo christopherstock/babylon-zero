@@ -84,31 +84,51 @@
         /** ************************************************************************************************************
         *   Creates a bullet hole onto this hit point.
         *
-        *   @param emissiveColor The emissive color for the bullet hole mesh.
+        *   @param emissiveColor       The emissive color for the bullet hole mesh.
+        *   @param existentBulletHoles All bullet holes that already exist in the stage.
         *
         *   @return The created bullet hole mesh.
         ***************************************************************************************************************/
-        public createBulletHole( emissiveColor:BABYLON.Color3 ) : BABYLON.Mesh
+        public createBulletHole( emissiveColor:BABYLON.Color3, existentBulletHoles:BABYLON.Mesh[] ) : BABYLON.Mesh
         {
             const bulletHoleRotation:BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormals( this.normal );
 
             // add actual bullet hole
-            const bulletHole:BABYLON.Mesh = bz.MeshFactory.createBox
-            (
-                this.point.clone(),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
-                bulletHoleRotation,
-                bz.Texture.BULLET_HOLE_WOOD,
-                null,
-                bz.Main.game.engine.scene.getScene(),
-                bz.Physic.NONE,
-                1.0,
-                emissiveColor
-            );
 
-            // stick to parent
-            bulletHole.setParent( this.mesh );
+            let iteration  :number       = 0;
+            let bulletHole :BABYLON.Mesh = null;
+
+            while ( true )
+            {
+                bulletHole = bz.MeshFactory.createBox
+                (
+                    this.point.clone().subtract( this.direction.scale( 0.001 * iteration ) ),
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
+                    bulletHoleRotation,
+                    bz.Texture.BULLET_HOLE_WOOD,
+                    null,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physic.NONE,
+                    1.0,
+                    emissiveColor
+                );
+
+                // stick to parent
+                bulletHole.setParent( this.mesh );
+
+                // check until this bullet holes no more collides with an existent bullet hole
+                if ( ++iteration < 100 && this.intersectsExistentBulletHoles( bulletHole, existentBulletHoles ) )
+                {
+                    bz.Main.game.engine.scene.getScene().removeMesh( bulletHole );
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            console.log( ">>>>>> ITERATION IS: " + iteration );
 
             // add to debug meshes array of the stage
             return bulletHole;
@@ -130,6 +150,27 @@
             );
 
             this.mesh.applyImpulse( this.direction.scale( force ), this.point );
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if the specified bullet hole collides with one of the existent bullet holes.
+        *
+        *   @param bulletHole          The bullet hole to check.
+        *   @param existentBulletHoles The existent bullet holes.
+        *
+        *   @return If a collision was detected.
+        ***************************************************************************************************************/
+        private intersectsExistentBulletHoles( bulletHole:BABYLON.Mesh, existentBulletHoles:BABYLON.Mesh[] ) : boolean
+        {
+            for ( const existentBulletHole of existentBulletHoles )
+            {
+                if ( bulletHole.intersectsMesh( existentBulletHole ) )
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /** ************************************************************************************************************
