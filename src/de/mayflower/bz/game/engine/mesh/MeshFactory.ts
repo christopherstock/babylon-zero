@@ -8,7 +8,7 @@
     export class MeshFactory
     {
         /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
-        public              static  readonly    FACE_DEPTH              :number                     = 0.001;
+        public              static  readonly    FACE_DEPTH              :number                     = 0.0001;
 
         /** Next ID to assign for mesh creation. */
         private             static              nextMeshId              :number                     = 0;

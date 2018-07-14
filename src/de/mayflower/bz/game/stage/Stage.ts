@@ -47,8 +47,6 @@
 
         /** A collection of all debug meshes in this stage. */
         protected                           debugMeshes             :BABYLON.Mesh[]                         = [];
-        /** A collection of all bullet holes in this stage. */
-        protected                           bulletHoles             :BABYLON.Mesh[]                         = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -201,12 +199,6 @@
                 debugLine.dispose();
             }
 
-            // dispose all bullet holes
-            for ( const bulletHole of this.bulletHoles )
-            {
-                bulletHole.dispose();
-            }
-
             // dispose skybox
             if ( this.skybox != null )
             {
@@ -329,12 +321,7 @@
                 }
 
                 // append a bullet hole
-                const bulletHole:BABYLON.Mesh = nearestHitPoint.createBulletHole
-                (
-                    this.ambientColor,
-                    this.bulletHoles
-                );
-                this.bulletHoles.push( bulletHole );
+                nearestHitPoint.createBulletHole( this.ambientColor );
 
                 // apply impulse
                 nearestHitPoint.applyImpulseToMesh( 10 );

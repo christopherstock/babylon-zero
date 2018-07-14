@@ -7,7 +7,10 @@
     export abstract class GameObject
     {
         /** All meshes this game object consists of. */
-        protected           readonly        model                  :bz.Model                    = null;
+        protected           readonly        model                   :bz.Model                   = null;
+
+        /** All bullet holes that are sticked to this game object. */
+        public              readonly        bulletHoles             :BABYLON.Mesh[]             = null;
 
         /** ************************************************************************************************************
         *   Creates a new game object.
@@ -16,7 +19,8 @@
         ***************************************************************************************************************/
         protected constructor( model:bz.Model )
         {
-            this.model = model;
+            this.model       = model;
+            this.bulletHoles = []
         }
 
         /** ************************************************************************************************************
@@ -42,6 +46,11 @@
         public dispose() : void
         {
             this.model.dispose();
+
+            for ( const bulletHole of this.bulletHoles )
+            {
+                bulletHole.dispose();
+            }
         }
 
         /** ************************************************************************************************************
