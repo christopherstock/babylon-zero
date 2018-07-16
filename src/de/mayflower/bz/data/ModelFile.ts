@@ -12,7 +12,9 @@
         /** The model 'office chair'. */
         public      static      SHELVES                 :string                 = 'furniture/shelves.babylon';
         /** The model 'office chair'. */
-        public      static      SKULL                   :string                 = 'furniture/skull.babylon';
+        // public      static      SKULL                   :string                 = 'furniture/skull.babylon';
+        /** The model 'sphere 1'. */
+        public      static      SPHERE_1                :string                 = 'furniture/sphere1.babylon';
         /** The model 'Mayflower Logo'. */
         public      static      MF_LOGO                 :string                 = 'presentation/mfLogo.babylon';
         /** The model 'knight helmet'. */
@@ -28,7 +30,8 @@
             ModelFile.OFFICE_CHAIR,
             ModelFile.OFFICE_CHAIR_2,
             ModelFile.SHELVES,
-            ModelFile.SKULL,
+            // ModelFile.SKULL,
+            ModelFile.SPHERE_1,
             ModelFile.MF_LOGO,
             // MeshImport.KNIGHT_HELMET,
             ModelFile.MOTORCYCLE_HELMET,

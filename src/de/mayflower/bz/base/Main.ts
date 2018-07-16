@@ -6,8 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
     *   TODO Try bullet holes and normals on 3ds meshes (spheres etc.)!
+    *
+    *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.

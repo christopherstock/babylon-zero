@@ -238,7 +238,6 @@
         ***************************************************************************************************************/
         protected createImportedModels() : bz.Model[]
         {
-/*
             // import mesh model
             this.chair = bz.MeshFactory.createImportedMesh
             (
@@ -247,11 +246,19 @@
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene
             );
-*/
+
             return [
-/*
+
+                bz.MeshFactory.createImportedMesh
+                (
+                    bz.ModelFile.SPHERE_1,
+                    new BABYLON.Vector3( 10.0, 10.0, 30.0 ),
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    this.scene
+                ),
+
                 this.chair
-*/
+
             ];
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox

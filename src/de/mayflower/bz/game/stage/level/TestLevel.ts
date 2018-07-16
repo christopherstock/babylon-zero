@@ -599,7 +599,6 @@
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     this.scene
                 ),
-
             ];
 /*
             const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
