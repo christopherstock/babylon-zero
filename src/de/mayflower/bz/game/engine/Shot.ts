@@ -8,15 +8,15 @@
     {
         /** The source point of the shot. */
         public                      source                          :BABYLON.Vector3                        = null;
+        /** The destination point of the shot. */
+        public                      destination                     :BABYLON.Vector3                        = null;
+        /** The ray that contains the mapped shot information for babylon.JS. */
+        public                      ray                             :BABYLON.Ray                            = null;
+
         /** The rotation of the shot source. */
         private                     rotation                        :BABYLON.Vector3                        = null;
         /** The maximum range of this shot. */
         private                     range                           :number                                 = 0.0;
-
-        /** The destination point of the shot. */
-        public                      destination                     :BABYLON.Vector3                        = null;
-        /** The ray that contains the mapped shot information for babylon.JS. */
-        private                     ray                             :BABYLON.Ray                            = null;
 
         /** ************************************************************************************************************
         *   Creates a new shot.
@@ -37,17 +37,19 @@
             this.range    = range;
 
             // calculate destination point
-            this.destination  = bz.MathUtil.rotateVector
+            this.destination = bz.MathUtil.rotateVector
             (
                 source,
                 rotation,
                 range
             );
+                        // create collision checking ray
+            this.ray = BABYLON.Ray.CreateNewFromTo( this.source, this.destination );
 /*
-            bz.Debug.fire.log( ' Shot source:          ' + source      );
-            bz.Debug.fire.log( ' Shot source rotation: ' + rotation    );
-            bz.Debug.fire.log( ' Shot range:           ' + range       );
-            bz.Debug.fire.log( ' Shot destination:     ' + destination );
+            bz.Debug.fire.log( ' Shot source:          ' + this.source      );
+            bz.Debug.fire.log( ' Shot source rotation: ' + this.rotation    );
+            bz.Debug.fire.log( ' Shot range:           ' + this.range       );
+            bz.Debug.fire.log( ' Shot destination:     ' + this.destination );
 */
         }
     }

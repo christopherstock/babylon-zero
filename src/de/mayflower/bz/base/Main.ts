@@ -6,9 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable multiple bullet holes that cover each other (without flickering!) Check mesh intersection of holes!
-    *
-    *   TODO Create new class Shot and createShot in Player.checkFire.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Preload all textures / textured materials! Prevent Bullet hole images from popping up!!
     *   TODO Clip bullet hole to wall ( avoid bullet holes on edges )

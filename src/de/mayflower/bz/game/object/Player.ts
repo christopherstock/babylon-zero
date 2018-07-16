@@ -386,11 +386,7 @@
                 const shot:bz.Shot = this.createShot();
 
                 // check affected game objects
-                bz.Main.game.stage.applyShot
-                (
-                    shot.source,
-                    shot.destination
-                );
+                bz.Main.game.stage.applyShot( shot );
             }
         }
 
@@ -429,7 +425,6 @@
             const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
             const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
 
-            // calculate shot destination
             const source      :BABYLON.Vector3 = this.head.absolutePosition;
             const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
             (
@@ -437,15 +432,13 @@
                 this.rotY + divergenceY,
                 0.0
             );
-            const range       :number          = 50.0;
+            const range :number = 50.0;
 
-            const shot:bz.Shot = new bz.Shot
+            return new bz.Shot
             (
                 source,
                 rotation,
                 range
             );
-
-            return shot;
         }
     }

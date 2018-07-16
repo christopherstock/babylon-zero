@@ -258,17 +258,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Applies a shot to the level.
+        *   Applies a shot to the stage.
         *
-        *   @param src The shot source vector.
-        *   @param dst The shot destination vector.
+        *   @param shot The shot to apply onto the stage.
         ***************************************************************************************************************/
-        public applyShot
-        (
-            src :BABYLON.Vector3,
-            dst :BABYLON.Vector3
-        )
-        : void
+        public applyShot( shot:bz.Shot ) : void
         {
             // add debug line
             if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )
@@ -277,8 +271,8 @@
                 (
                     bz.MeshFactory.createLine
                     (
-                        src,
-                        dst,
+                        shot.source,
+                        shot.destination,
                         bz.MeshPivotAnchor.LOWEST_XYZ,
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                         bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
@@ -287,9 +281,6 @@
                 );
             }
 
-            // create collision checking ray
-            const ray:BABYLON.Ray = BABYLON.Ray.CreateNewFromTo( src, dst );
-
             // collect all hitPoints
             let hitPoints:bz.HitPoint[] = [];
 
@@ -297,13 +288,13 @@
             bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
             for ( const wall of this.walls )
             {
-                hitPoints = hitPoints.concat( wall.applyShot( ray ) );
+                hitPoints = hitPoints.concat( wall.applyShot( shot.ray ) );
             }
             // check collision with movables
             bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] movables' );
             for ( const movable of this.movables )
             {
-                hitPoints = hitPoints.concat( movable.applyShot( ray ) );
+                hitPoints = hitPoints.concat( movable.applyShot( shot.ray ) );
             }
 
             // check nearest hitpoint
