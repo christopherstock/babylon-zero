@@ -35,7 +35,7 @@
         *   @param codename     The internal codename.
         *   @param date         The completion date.
         ***************************************************************************************************************/
-        constructor( version:string, codename:string, date:string )
+        private constructor( version:string, codename:string, date:string )
         {
             this.version  = version;
             this.codename = codename;

@@ -6,32 +6,32 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Preload all textures / textured materials! Prevent Bullet hole images from popping up!!
     *   TODO Clip bullet hole to wall ( avoid bullet holes on edges )
+    *   TODO Try bullet holes and normals on 3ds meshes (spheres etc.)!
+    *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
-    *   TODO Try bullet holes and normals on 3ds meshes.
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
+    *   TODO Enable ducking!
+    *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.) ?
     *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Create (different?) characters from primitives or mesh objects??
-    *   TODO Create air friction for all movables in render() of scene!
-    *   TODO Add particle system for bullet holes.
-    *   TODO Use BABYLON.Angle instead of own implementation.
+    *   TODO Create air friction for ALL movables in render() of scene!
+    *   TODO Add particle system (fx) for bullet holes' wall rubble.
+    *   TODO Use BABYLON.Angle instead of own implementation?
     *   TODO Add physical compound (link?) for imported mesh collections.
-    *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
-    *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.
     *   TODO Create enum for possible skyboxes!
     *   TODO Create HUD message queue.
-    *   TODO Remove importedModels from Stage! ( replace with game objects )
-    *   TODO Enable ducking.
-    *   TODO Limit number of bullet holes to 256 ?.
+    *   TODO Remove importedModels from Stage and replace with game objects.
     *   TODO Complete MVP 'The Office'.
     *
+    *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create SettingPlayer with all player settings.
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Move all body volume calculations to MathUtil functions.
+    *   TODO Load all 3d objects into a tmp scene and copy to separate staged scene?
+    *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Enable jumping?
     *   TODO decouple player and visibility change method from CameraSystem?
     *   TODO Replace Model.getMeshes() with specific methods.
