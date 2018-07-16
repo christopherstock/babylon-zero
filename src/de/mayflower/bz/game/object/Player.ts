@@ -382,38 +382,14 @@
                 // handle fire as processed
                 this.fire = false;
 
-                // TODO create shot
-                // const shot :Shot = this.createShot( ... );
+                // create shot
+                const shot:bz.Shot = this.createShot();
 
-                const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
-                const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
-
-                // calculate shot destination
-                const source      :BABYLON.Vector3 = this.head.absolutePosition;
-                const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
-                (
-                    this.rotZ + divergenceZ,
-                    this.rotY + divergenceY,
-                    0.0
-                );
-                const range       :number          = 50.0;
-                const destination :BABYLON.Vector3 = bz.MathUtil.rotateVector
-                (
-                    source,
-                    rotation,
-                    range
-                );
-/*
-                bz.Debug.fire.log( ' Player position:  ' + source      );
-                bz.Debug.fire.log( ' Player rotation:  ' + rotation    );
-                bz.Debug.fire.log( ' Shot range:       ' + range       );
-                bz.Debug.fire.log( ' Shot destination: ' + destination );
-*/
                 // check affected game objects
                 bz.Main.game.stage.applyShot
                 (
-                    source,
-                    destination
+                    shot.source,
+                    shot.destination
                 );
             }
         }
@@ -443,5 +419,33 @@
             (
                 BABYLON.Vector3.Zero()
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a shot that contains all according fire information.
+        ***************************************************************************************************************/
+        private createShot() : bz.Shot
+        {
+            const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
+            const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
+
+            // calculate shot destination
+            const source      :BABYLON.Vector3 = this.head.absolutePosition;
+            const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
+            (
+                this.rotZ + divergenceZ,
+                this.rotY + divergenceY,
+                0.0
+            );
+            const range       :number          = 50.0;
+
+            const shot:bz.Shot = new bz.Shot
+            (
+                source,
+                rotation,
+                range
+            );
+
+            return shot;
         }
     }

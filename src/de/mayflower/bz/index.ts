@@ -18,6 +18,7 @@
 
     export * from './game/engine/Engine';
     export * from './game/engine/HitPoint';
+    export * from './game/engine/Shot';
     export * from './game/engine/Scene';
 
     export * from './game/engine/ui/CanvasSystem';
