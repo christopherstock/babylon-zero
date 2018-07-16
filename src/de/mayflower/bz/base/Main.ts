@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Preload all textures / textured materials! Prevent Bullet hole images from popping up!!
     *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
     *   TODO Try bullet holes and normals on 3ds meshes (spheres etc.)!
     *   TODO Quick fire animation in bullet hole (for certain materials..)?

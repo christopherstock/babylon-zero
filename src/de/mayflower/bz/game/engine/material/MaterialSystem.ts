@@ -12,9 +12,16 @@
 
         /** ************************************************************************************************************
         *   Inits all materials being used in the game.
+        *
+        *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public init() : void
+        public init( scene:BABYLON.Scene ) : void
         {
+            // load all texture images
+            for ( const texture of bz.Texture.ALL_TEXTURES )
+            {
+                texture.loadTexture( scene );
+            }
         }
 
         /** ************************************************************************************************************
@@ -75,11 +82,9 @@
 
                 material.diffuseTexture = this.createTexture
                 (
-                    texture.fileName,
+                    texture,
                     textureU,
-                    textureV,
-                    alpha,
-                    texture.textureHasAlpha
+                    textureV
                 );
 
                 material.backFaceCulling = ( texture.textureHasAlpha === bz.TextureHasAlpha.YES );
@@ -99,44 +104,36 @@
         /** ************************************************************************************************************
         *   Creates a textured material.
         *
-        *   @param fileName        The filename of the image to load for this material.
-        *   @param repeatU         The amount for U repeating this texture.
-        *   @param repeatV         The amount for V repeating this texture.
-        *   @param alpha           Alpha for this texture.
-        *   @param textureHasAlpha Specifies alpha occurance in texture image.
+        *   @param texture The texture to create.
+        *   @param repeatU The amount for U repeating this texture.
+        *   @param repeatV The amount for V repeating this texture.
         ***************************************************************************************************************/
         private createTexture
         (
-            fileName        :string,
-            repeatU         :number,
-            repeatV         :number,
-            alpha           :number,
-            textureHasAlpha :bz.TextureHasAlpha
+            texture :bz.Texture,
+            repeatU :number,
+            repeatV :number
         )
         : BABYLON.Texture
         {
-            const texture:BABYLON.Texture = new BABYLON.Texture
-            (
-                bz.SettingEngine.PATH_IMAGE_TEXTURE + fileName,
-                bz.Main.game.engine.scene.getScene()
-            );
+            const newTexture:BABYLON.Texture = texture.texture.clone();
 
-            texture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
-            texture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
+            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
             if ( repeatU !== -1 )
             {
-                ( texture as any ).uScale = repeatU;
+                ( newTexture as any ).uScale = repeatU;
             }
             if ( repeatV !== -1 )
             {
-                ( texture as any ).vScale = repeatV;
+                ( newTexture as any ).vScale = repeatV;
             }
 
-            texture.hasAlpha = ( textureHasAlpha === bz.TextureHasAlpha.YES );
+            newTexture.hasAlpha = ( texture.textureHasAlpha === bz.TextureHasAlpha.YES );
 
-            return texture;
+            return newTexture;
         }
 
         /** ************************************************************************************************************

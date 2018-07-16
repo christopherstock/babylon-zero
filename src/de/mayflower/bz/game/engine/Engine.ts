@@ -74,7 +74,7 @@
             // init materials
             bz.Debug.init.log( 'Init materials' );
             this.materialSystem = new bz.MaterialSystem();
-            this.materialSystem.init();
+            this.materialSystem.init( this.scene.getScene() );
 
             // init sprites
             bz.Debug.init.log( 'Init sprites' );
