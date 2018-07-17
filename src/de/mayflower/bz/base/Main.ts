@@ -9,10 +9,16 @@
     *   TODO Fix rotation assignment for bullet holes (on chair etc.).
     *
     *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
+    *
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
+    *
+    *   TODO Introduce physics attribute param to createImportedModel().
+    *
+    *   TODO Create enum for possible skyboxes!
     *   TODO Enable player ducking!
+    *
     *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.) ?
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create air friction for ALL movables in render() of scene!
@@ -21,10 +27,9 @@
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.
-    *   TODO Create enum for possible skyboxes!
     *   TODO Create HUD message queue.
     *   TODO Remove importedModels from Stage and replace with game objects.
-    *   TODO Complete MVP 'The Office'.
+    *   TODO Complete MVP Tech-Demo 'The Office'.
     *
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create SettingPlayer with all player settings.
@@ -53,7 +58,6 @@
     *   TODO Create material system with unified parameters!
     *   TODO Create superclass for presentation stages?
     *   TODO try dynamic textures ( video in texture in front of screen for company presentation site .. )
-    *   TODO Create MVP-Tech-Demo with rotating logo intro etc.
     *
     *   TODO Check 3D model creation from photos ( for 3D product configurator )?
     *   TODO Increase performance in chrome?

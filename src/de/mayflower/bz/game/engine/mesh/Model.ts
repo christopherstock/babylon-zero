@@ -48,7 +48,10 @@
         {
             for ( const mesh of this.meshes )
             {
-                mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
+                if ( mesh.physicsImpostor != null )
+                {
+                    mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
+                }
             }
         }
 
@@ -60,7 +63,10 @@
         {
             for ( const mesh of this.meshes )
             {
-                mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
+                if ( mesh.physicsImpostor != null )
+                {
+                    mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
+                }
             }
         }
     }

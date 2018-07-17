@@ -156,7 +156,7 @@
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
-                true
+                false
             );
 
             return [
@@ -170,7 +170,7 @@
                         new BABYLON.Vector3( 10.0, 10.0, 30.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
-                        true
+                        false
                     )
                 ),
 
@@ -195,7 +195,7 @@
                                 null,
                                 bz.SettingColor.COLOR_RGB_RED,
                                 this.scene,
-                                bz.Physic.SOLID_WOOD,
+                                bz.Physic.NONE,
                                 1.0,
                                 bz.SettingColor.COLOR_RGB_RED // this.ambientColor
                             ),
