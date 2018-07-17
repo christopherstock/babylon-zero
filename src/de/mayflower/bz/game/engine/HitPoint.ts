@@ -113,7 +113,7 @@
         ***************************************************************************************************************/
         public createBulletHole( emissiveColor:BABYLON.Color3 ) : void
         {
-            bz.Debug.fire.log( 'Existent bullet holes on this game object: [' + this.gameObject.bulletHoles.length + ']' );
+            bz.Debug.fire.log( 'Existent bullet holes on this model: [' + this.gameObject.bulletHoles.length + ']' );
             const distanceFromModel :BABYLON.Vector3 = this.direction.scale
             (
                 bz.MeshFactory.FACE_DEPTH * this.gameObject.bulletHoles.length
@@ -200,32 +200,11 @@
                 + '[' + normal.z + ']'
             );
 
-            const rotation:BABYLON.Vector3 = BABYLON.Vector3.Zero();
-/*
-            // calculate bullet hole angles from face normals
-            rotation.x = BABYLON.Angle.BetweenTwoPoints
+            const rotation:BABYLON.Vector3 = new BABYLON.Vector3
             (
-                BABYLON.Vector2.Zero(),
-                new BABYLON.Vector2( normal.z, normal.y )
-            ).degrees();
-*/
-/*
-            rotation.y = -BABYLON.Angle.BetweenTwoPoints
-            (
-                BABYLON.Vector2.Zero(),
-                new BABYLON.Vector2( normal.x, normal.z )
-            ).degrees() + 90.0;
-*/
-/*
-            // choose a random angle for rotation Z
-            rotation.z = bz.MathUtil.getRandomInt( 0, 359 );
-*/
-            bz.Debug.fire.log
-            (
-                'bullet hole rotation: '
-                + '[' + rotation.x + ']'
-                + '[' + rotation.y + ']'
-                + '[' + rotation.z + ']'
+                bz.MathUtil.radToDegrees( Math.acos( normal.y ) ),
+                bz.MathUtil.radToDegrees( Math.acos( normal.x ) ),
+                bz.MathUtil.radToDegrees( Math.acos( normal.z ) )
             );
 
             return rotation;
