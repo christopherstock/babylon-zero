@@ -119,7 +119,7 @@
                 bz.MeshFactory.FACE_DEPTH * this.gameObject.bulletHoles.length
             );
             const position   :BABYLON.Vector3 = this.point.clone().subtract( distanceFromModel );
-            const rotation   :BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormals( this.normal );
+            const rotation   :BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormal( this.normal );
             const bulletHole :BABYLON.Mesh = bz.MeshFactory.createBox
             (
                 position,
@@ -133,16 +133,6 @@
                 1.0,
                 emissiveColor
             );
-
-
-/*
-bulletHole.addRotation
-(
-    bz.MathUtil.degreesToRad( 0.0 ),
-    bz.MathUtil.degreesToRad( 90.0 ),
-    bz.MathUtil.degreesToRad( 0.0 )
-);
-*/
 
             // stick to parent
             bulletHole.setParent( this.mesh );
@@ -198,9 +188,9 @@ bulletHole.addRotation
         *
         *   @param normal The normal of the face that was hit by the shot.
         *
-        *   @return The normal of the bullet hole.
+        *   @return The rotation of the bullet hole.
         ***************************************************************************************************************/
-        private static getBulletHoleRotationFromNormals( normal:BABYLON.Vector3 ) : BABYLON.Vector3
+        private static getBulletHoleRotationFromNormal( normal:BABYLON.Vector3 ) : BABYLON.Vector3
         {
             bz.Debug.fire.log
             (
@@ -210,23 +200,12 @@ bulletHole.addRotation
                 + '[' + normal.z + ']'
             );
 
-/*
-            const rotationMatrixX :BABYLON.Matrix = BABYLON.Matrix.RotationAxis( BABYLON.Axis.X, bz.MathUtil.degreesToRad( 90.0  ) );
-            const rotationMatrixY :BABYLON.Matrix = BABYLON.Matrix.RotationAxis( BABYLON.Axis.Y, bz.MathUtil.degreesToRad( 0.0  ) );
-            const rotationMatrixZ :BABYLON.Matrix = BABYLON.Matrix.RotationAxis( BABYLON.Axis.Z, bz.MathUtil.degreesToRad( 90.0 ) );
-*/
-/*
-            const rotatedNormal1  :BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( normal,         rotationMatrixX );
-            const rotatedNormal2  :BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( rotatedNormal1, rotationMatrixY );
-            const rotatedNormal3  :BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( rotatedNormal2, rotationMatrixZ );
-*/
-            // const rotatedNormal      :BABYLON.Vector3 = normal;
-
             const bulletHoleRotation :BABYLON.Vector3 = new BABYLON.Vector3
             (
                 bz.MathUtil.radToDegrees( -Math.acos( normal.y ) ) - 90.0,
                 bz.MathUtil.radToDegrees( -Math.acos( normal.x ) ) - 90.0,
-                0.0 // bz.MathUtil.radToDegrees( -Math.acos( normal.z ) )
+                bz.MathUtil.getRandomInt( 0, 359 )
+                // bz.MathUtil.radToDegrees( -Math.acos( normal.z ) )
             );
 
             return bulletHoleRotation;
