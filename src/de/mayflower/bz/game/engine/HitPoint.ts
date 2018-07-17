@@ -200,13 +200,23 @@
                 + '[' + normal.z + ']'
             );
 
-            const rotation:BABYLON.Vector3 = new BABYLON.Vector3
+            const rotationMatrixX :BABYLON.Matrix = BABYLON.Matrix.RotationAxis( BABYLON.Axis.X, bz.MathUtil.degreesToRad( 90.0 ) );
+            const rotationMatrixY :BABYLON.Matrix = BABYLON.Matrix.RotationAxis( BABYLON.Axis.Y, bz.MathUtil.degreesToRad( 90.0 ) );
+            const rotationMatrixZ :BABYLON.Matrix = BABYLON.Matrix.RotationAxis( BABYLON.Axis.Z, bz.MathUtil.degreesToRad( 90.0 ) );
+
+            const rotatedNormal1  :BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( normal,         rotationMatrixX );
+            const rotatedNormal2  :BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( rotatedNormal1, rotationMatrixY );
+            const rotatedNormal3  :BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( rotatedNormal2, rotationMatrixZ );
+
+            // const rotatedNormal      :BABYLON.Vector3 = normal;
+
+            const bulletHoleRotation :BABYLON.Vector3 = new BABYLON.Vector3
             (
-                bz.MathUtil.radToDegrees( Math.acos( normal.y ) ),
-                bz.MathUtil.radToDegrees( Math.acos( normal.x ) ),
-                bz.MathUtil.radToDegrees( Math.acos( normal.z ) )
+                bz.MathUtil.radToDegrees( Math.acos( rotatedNormal3.y ) ),
+                bz.MathUtil.radToDegrees( Math.acos( rotatedNormal3.x ) ),
+                bz.MathUtil.radToDegrees( Math.acos( rotatedNormal3.z ) )
             );
 
-            return rotation;
+            return bulletHoleRotation;
         }
     }
