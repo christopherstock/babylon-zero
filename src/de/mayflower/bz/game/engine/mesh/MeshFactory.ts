@@ -687,7 +687,7 @@
                 bz.MeshManipulation.translatePosition( clonedMesh, position );
 
                 // specify physics for the cloned mesh
-                const enablePhysics :boolean = true;
+                const enablePhysics:boolean = true;
                 if ( enablePhysics )
                 {
                     clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor

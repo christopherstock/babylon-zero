@@ -759,7 +759,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up shadows for all meshes.
+        *   Sets up shadows for all meshes that shall cast a shadow.
         ***************************************************************************************************************/
         protected setupShadows() : void
         {
@@ -778,6 +778,16 @@
             {
                 // set shadows for all meshes
                 for ( const mesh of wall.getModel().getMeshes() )
+                {
+                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
+                }
+            }
+
+            // set shadows for all models
+            for ( const model of this.importedModels )
+            {
+                // set shadows for all meshes
+                for ( const mesh of model.getMeshes() )
                 {
                     this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
                 }

@@ -281,23 +281,8 @@
                 );
             }
 
-            // collect all hitPoints
-            let hitPoints:bz.HitPoint[] = [];
-
-            // check collision with walls
-            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
-            for ( const wall of this.walls )
-            {
-                hitPoints = hitPoints.concat( wall.applyShot( shot.ray ) );
-            }
-            // check collision with movables
-            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] movables' );
-            for ( const movable of this.movables )
-            {
-                hitPoints = hitPoints.concat( movable.applyShot( shot.ray ) );
-            }
-
-            // check nearest hitpoint
+            // gather all hit points
+            const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot );
             bz.Debug.fire.log( ' Gathered [' + hitPoints.length + '] hit points' );
 
             // pick nearest hit point
@@ -470,5 +455,40 @@
                     this.scene
                 ),
             ];
+        }
+
+        /** ************************************************************************************************************
+        *   Returns all hit points on all game objects of this stage on applying the specified shot.
+        *
+        *   @param shot The shot to apply onto all game objects of this stage.
+        *
+        *   @return All hit points this shot collides to.
+        ***************************************************************************************************************/
+        private determineAllHitPoints( shot:bz.Shot ) : bz.HitPoint[]
+        {
+            // collect all hitPoints
+            let hitPoints:bz.HitPoint[] = [];
+
+            // check collision with walls
+            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
+            for ( const wall of this.walls )
+            {
+                hitPoints = hitPoints.concat( wall.applyShot( shot.ray ) );
+            }
+            // check collision with movables
+            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] movables' );
+            for ( const movable of this.movables )
+            {
+                hitPoints = hitPoints.concat( movable.applyShot( shot.ray ) );
+            }
+/*
+            // check collision with models
+            bz.Debug.fire.log( ' Checking shot collision with [' + this.importedModels.length + '] models' );
+            for ( const model of this.importedModels )
+            {
+                hitPoints = hitPoints.concat( model.applyShot( shot.ray ) );
+            }
+*/
+            return hitPoints;
         }
     }
