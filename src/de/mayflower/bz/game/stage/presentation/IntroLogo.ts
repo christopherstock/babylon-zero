@@ -252,9 +252,6 @@
         ***************************************************************************************************************/
         protected createHUD() : bz.HUD
         {
-            const hud:bz.GameHUD = new bz.GameHUD();
-            hud.init();
-
-            return hud;
+            return null;
         }
     }
