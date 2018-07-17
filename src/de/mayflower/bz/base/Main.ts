@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix rotation assignment for bullet holes (on chair etc.).
+    *   TODO Fix rotation assignment for bullet holes (on chair etc.). https://stackoverflow.com/questions/26907686/babylon-js-place-a-plane-normal-to-the-clicked-surface
     *
     *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
     *
