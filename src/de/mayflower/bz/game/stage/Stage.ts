@@ -280,11 +280,18 @@
             const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
             if ( nearestHitPoint != null )
             {
-                // appena a debug bullet hole
+                // append a debug bullet hole
                 if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLES )
                 {
                     const debugBulletHole:BABYLON.Mesh = nearestHitPoint.createDebugBulletHole();
                     this.debugMeshes.push( debugBulletHole );
+                }
+
+                // append the debug hit face normal
+                if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
+                {
+                    const debugBulletHoleNormal:BABYLON.Mesh = nearestHitPoint.createDebugBulletHoleNormalLine();
+                    this.debugMeshes.push( debugBulletHoleNormal );
                 }
 
                 // append a bullet hole

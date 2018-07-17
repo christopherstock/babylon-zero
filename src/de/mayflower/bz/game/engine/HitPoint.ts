@@ -82,23 +82,44 @@
         }
 
         /** ************************************************************************************************************
+        *   Creates a debug bullet hole normal line onto this hit point.
+        *
+        *   @return The created debug bullet hole normal line.
+        ***************************************************************************************************************/
+        public createDebugBulletHoleNormalLine() : BABYLON.Mesh
+        {
+            // create debug bullet hole
+            const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createLine
+            (
+                this.point.clone(),
+                this.point.clone().add( this.normal ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE,
+                bz.Main.game.engine.scene.getScene()
+            );
+
+            // stick to parent
+            debugBulletHole.setParent( this.mesh );
+
+            // add to debug meshes array of the stage
+            return debugBulletHole;
+        }
+
+        /** ************************************************************************************************************
         *   Creates a bullet hole onto this hit point.
         *
         *   @param emissiveColor The emissive color for the bullet hole mesh.
-        *
-        *   @return The created bullet hole mesh.
         ***************************************************************************************************************/
-        public createBulletHole( emissiveColor:BABYLON.Color3 ) : BABYLON.Mesh
+        public createBulletHole( emissiveColor:BABYLON.Color3 ) : void
         {
-            const position:BABYLON.Vector3 = this.point.clone().subtract
+            bz.Debug.fire.log( 'Existent bullet holes on this game object: [' + this.gameObject.bulletHoles.length + ']' );
+            const distanceFromModel :BABYLON.Vector3 = this.direction.scale
             (
-                // distance from game object according to existent bullet holes
-                this.direction.scale( bz.MeshFactory.FACE_DEPTH * this.gameObject.bulletHoles.length )
+                bz.MeshFactory.FACE_DEPTH * this.gameObject.bulletHoles.length
             );
-            const rotation:BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormals( this.normal );
-
-            bz.Debug.fire.log( 'Existent bullet holes on this mesh: [' + this.gameObject.bulletHoles.length + ']' );
-
+            const position   :BABYLON.Vector3 = this.point.clone().subtract( distanceFromModel );
+            const rotation   :BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormals( this.normal );
             const bulletHole :BABYLON.Mesh = bz.MeshFactory.createBox
             (
                 position,
@@ -118,9 +139,6 @@
 
             // add to game object
             this.gameObject.bulletHoles.push( bulletHole );
-
-            // add to debug meshes array of the stage
-            return bulletHole;
         }
 
         /** ************************************************************************************************************
@@ -183,22 +201,25 @@
             );
 
             const rotation:BABYLON.Vector3 = BABYLON.Vector3.Zero();
-
+/*
             // calculate bullet hole angles from face normals
             rotation.x = BABYLON.Angle.BetweenTwoPoints
             (
                 BABYLON.Vector2.Zero(),
                 new BABYLON.Vector2( normal.z, normal.y )
             ).degrees();
+*/
+/*
             rotation.y = -BABYLON.Angle.BetweenTwoPoints
             (
                 BABYLON.Vector2.Zero(),
                 new BABYLON.Vector2( normal.x, normal.z )
             ).degrees() + 90.0;
-
+*/
+/*
             // choose a random angle for rotation Z
             rotation.z = bz.MathUtil.getRandomInt( 0, 359 );
-
+*/
             bz.Debug.fire.log
             (
                 'bullet hole rotation: '
