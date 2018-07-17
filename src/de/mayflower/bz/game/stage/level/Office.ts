@@ -149,14 +149,41 @@
         ***************************************************************************************************************/
         protected createMovables() : bz.Movable[]
         {
+            // import mesh model
+            this.chair = bz.MeshFactory.createImportedMesh
+            (
+                bz.ModelFile.OFFICE_CHAIR_2,
+                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene
+            );
+
             return [
 
+                // babylon.JS sphere
+                new bz.Movable
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.ModelFile.SPHERE_1,
+                        new BABYLON.Vector3( 10.0, 10.0, 30.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
+                // 3ds chair
+                new bz.Movable
+                (
+                    this.chair,
+                ),
+
+                // 3ds sphere
                 new bz.Movable
                 (
                     new bz.Model
                     (
                         [
-                            // sphere
                             bz.MeshFactory.createSphere
                             (
                                 new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
@@ -229,52 +256,6 @@
         protected createBots() : bz.Bot[]
         {
             return [];
-        }
-
-        /** ************************************************************************************************************
-        *   Creates and returns all imported models this stage consists of.
-        *
-        *   @return All imported models of this stage.
-        ***************************************************************************************************************/
-        protected createImportedModels() : bz.Model[]
-        {
-            // import mesh model
-            this.chair = bz.MeshFactory.createImportedMesh
-            (
-                bz.ModelFile.OFFICE_CHAIR_2,
-                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene
-            );
-
-            return [
-
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.ModelFile.SPHERE_1,
-                    new BABYLON.Vector3( 10.0, 10.0, 30.0 ),
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    this.scene
-                ),
-
-                this.chair
-
-            ];
-/*
-            const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.PivotAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                null,
-                this.scene,
-                bz.Physic.NONE,
-                0.0,
-                this.ambientColor
-            );
-*/
         }
 
         /** ************************************************************************************************************

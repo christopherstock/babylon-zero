@@ -42,8 +42,6 @@
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
-        /** A collection of all imported meshes in this stage. */
-        protected                           importedModels          :bz.Model[]                             = [];
 
         /** A collection of all debug meshes in this stage. */
         protected                           debugMeshes             :BABYLON.Mesh[]                         = [];
@@ -81,16 +79,15 @@
                 this.coordinateAxis = this.createCoordinalAxis();
             }
 
-            this.walls          = this.createWalls();
-            this.movables       = this.createMovables();
-            this.items          = this.createItems();
-            this.bots           = this.createBots();
-            this.importedModels = this.createImportedModels();
-            this.skybox         = this.createSkybox();
-            this.sprites        = this.createSprites();
-            this.hud            = this.createHUD();
-            this.cameraSystem   = this.createCameraSystem();
-            this.lights         = this.createLights();
+            this.walls        = this.createWalls();
+            this.movables     = this.createMovables();
+            this.items        = this.createItems();
+            this.bots         = this.createBots();
+            this.skybox       = this.createSkybox();
+            this.sprites      = this.createSprites();
+            this.hud          = this.createHUD();
+            this.cameraSystem = this.createCameraSystem();
+            this.lights       = this.createLights();
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
             {
@@ -185,12 +182,6 @@
             for ( const bot of this.bots )
             {
                 bot.dispose();
-            }
-
-            // dispose all imported meshes
-            for ( const model of this.importedModels )
-            {
-                model.dispose();
             }
 
             // dispose all debug meshes
@@ -353,13 +344,6 @@
         *   @return All bots of this stage.
         ***************************************************************************************************************/
         protected abstract createBots() : bz.Bot[];
-
-        /** ************************************************************************************************************
-        *   Creates and returns all imported models this stage consists of.
-        *
-        *   @return All imported models of this stage.
-        ***************************************************************************************************************/
-        protected abstract createImportedModels() : bz.Model[];
 
         /** ************************************************************************************************************
         *   Sets up the skybox.

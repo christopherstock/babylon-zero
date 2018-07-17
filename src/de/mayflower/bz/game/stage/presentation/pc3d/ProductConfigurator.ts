@@ -202,7 +202,27 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            return [];
+            // import mesh model
+            this.model = bz.MeshFactory.createImportedMesh
+            (
+                bz.ModelFile.MOTORCYCLE_HELMET,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene
+            );
+
+            // reference single meshes
+            this.helmet = this.model.getMeshes()[ 0 ];
+            this.visor  = this.model.getMeshes()[ 1 ];
+
+            return [
+
+                new bz.Wall
+                (
+                    this.model
+                ),
+
+            ];
         }
 
         /** ************************************************************************************************************
@@ -233,29 +253,6 @@
         protected createBots() : bz.Bot[]
         {
             return [];
-        }
-
-        /** ************************************************************************************************************
-        *   Creates and returns all imported models this stage consists of.
-        *
-        *   @return All imported models of this stage.
-        ***************************************************************************************************************/
-        protected createImportedModels() : bz.Model[]
-        {
-            // import mesh model
-            this.model = bz.MeshFactory.createImportedMesh
-            (
-                bz.ModelFile.MOTORCYCLE_HELMET,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene
-            );
-
-            // reference single meshes
-            this.helmet = this.model.getMeshes()[ 0 ];
-            this.visor  = this.model.getMeshes()[ 1 ];
-
-            return [ this.model ];
         }
 
         /** ************************************************************************************************************

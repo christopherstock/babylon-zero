@@ -79,16 +79,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all imported models this stage consists of.
-        *
-        *   @return All imported models of this stage.
-        ***************************************************************************************************************/
-        protected createImportedModels() : bz.Model[]
-        {
-            return [];
-        }
-
-        /** ************************************************************************************************************
         *   Sets up the skybox.
         *
         *   @return The created skybox for this stage.

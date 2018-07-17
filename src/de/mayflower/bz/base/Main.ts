@@ -6,8 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Wrap imported models to walls or movables!
+    *   TODO Physics param for importel models!
+    *
     *   TODO Try bullet holes and normals on 3ds meshes (spheres etc.)!
+    *
+    *   TODO Disable HUD for 3d room viewer (null or concrete empty HUD class)
     *
     *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
     *   TODO Quick fire animation in bullet hole (for certain materials..)?

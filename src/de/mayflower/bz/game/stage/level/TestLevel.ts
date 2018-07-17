@@ -544,6 +544,40 @@
                         ]
                     )
                 ),
+
+                new bz.Movable
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.ModelFile.OFFICE_CHAIR,
+                        new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
+                new bz.Movable
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.ModelFile.OFFICE_CHAIR,
+                        new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
+                new bz.Movable
+                (
+                    bz.MeshFactory.createImportedMesh
+                    (
+                        bz.ModelFile.OFFICE_CHAIR,
+                        new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene
+                    )
+                ),
+
             ];
         }
 
@@ -565,56 +599,6 @@
         protected createBots() : bz.Bot[]
         {
             return [];
-        }
-
-        /** ************************************************************************************************************
-        *   Creates and returns all imported models this stage consists of.
-        *
-        *   @return All imported models of this stage.
-        ***************************************************************************************************************/
-        protected createImportedModels() : bz.Model[]
-        {
-            return [
-
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.ModelFile.OFFICE_CHAIR,
-                    new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    this.scene
-                ),
-
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.ModelFile.OFFICE_CHAIR,
-                    new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    this.scene
-                ),
-
-                bz.MeshFactory.createImportedMesh
-                (
-                    bz.ModelFile.OFFICE_CHAIR,
-                    new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    this.scene
-                ),
-            ];
-/*
-            const centerMesh:BABYLON.Mesh = bz.MeshFactory.createBox
-            (
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.PivotAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                null,
-                this.scene,
-                bz.Physic.NONE,
-                0.0,
-                this.ambientColor
-            );
-*/
         }
 
         /** ************************************************************************************************************
@@ -778,16 +762,6 @@
             {
                 // set shadows for all meshes
                 for ( const mesh of wall.getModel().getMeshes() )
-                {
-                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
-                }
-            }
-
-            // set shadows for all models
-            for ( const model of this.importedModels )
-            {
-                // set shadows for all meshes
-                for ( const mesh of model.getMeshes() )
                 {
                     this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
                 }

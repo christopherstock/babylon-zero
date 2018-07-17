@@ -105,7 +105,22 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            return [];
+            this.logo = bz.MeshFactory.createImportedMesh
+            (
+                bz.ModelFile.MF_LOGO,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene
+            );
+
+            return [
+
+                new bz.Wall
+                (
+                    this.logo
+                ),
+
+            ];
         }
 
         /** ************************************************************************************************************
@@ -136,24 +151,6 @@
         protected createBots() : bz.Bot[]
         {
             return [];
-        }
-
-        /** ************************************************************************************************************
-        *   Creates and returns all imported models this stage consists of.
-        *
-        *   @return All imported models of this stage.
-        ***************************************************************************************************************/
-        protected createImportedModels() : bz.Model[]
-        {
-            this.logo = bz.MeshFactory.createImportedMesh
-            (
-                bz.ModelFile.MF_LOGO,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene
-            );
-
-            return [ this.logo ];
         }
 
         /** ************************************************************************************************************
