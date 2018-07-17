@@ -150,12 +150,13 @@
         protected createMovables() : bz.Movable[]
         {
             // import mesh model
-            this.chair = bz.MeshFactory.createImportedMesh
+            this.chair = bz.MeshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_2,
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene
+                this.scene,
+                true
             );
 
             return [
@@ -163,12 +164,13 @@
                 // babylon.JS sphere
                 new bz.Movable
                 (
-                    bz.MeshFactory.createImportedMesh
+                    bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SPHERE_1,
                         new BABYLON.Vector3( 10.0, 10.0, 30.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
-                        this.scene
+                        this.scene,
+                        true
                     )
                 ),
 

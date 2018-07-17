@@ -630,21 +630,23 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns a clone of the imported mesh with the specified filename.
+        *   Returns a clone of the imported model with the specified filename.
         *
-        *   @param fileName    The filename of the imported mesh to return a clone for.
-        *   @param position    The position for this mesh to show up.
-        *   @param pivotAnchor The pivot anchor specification for the imported model.
-        *   @param scene       The scene where this imported mesh is cloned into.
+        *   @param fileName      The filename of the imported mesh to return a clone for.
+        *   @param position      The position for this mesh to show up.
+        *   @param pivotAnchor   The pivot anchor specification for the imported model.
+        *   @param scene         The scene where this imported mesh is cloned into.
+        *   @param enablePhysics Specifies if physics shall be enabled for this model.
         *
         *   @return A clone of the model with the specified filename.
         ***************************************************************************************************************/
-        public static createImportedMesh
+        public static createImportedModel
         (
-            fileName    :string,
-            position    :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPivotAnchor,
-            scene       :BABYLON.Scene
+            fileName      :string,
+            position      :BABYLON.Vector3,
+            pivotAnchor   :bz.MeshPivotAnchor,
+            scene         :BABYLON.Scene,
+            enablePhysics :boolean
         )
         : bz.Model
         {
@@ -687,7 +689,6 @@
                 bz.MeshManipulation.translatePosition( clonedMesh, position );
 
                 // specify physics for the cloned mesh
-                const enablePhysics:boolean = true;
                 if ( enablePhysics )
                 {
                     clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
@@ -695,8 +696,8 @@
                         clonedMesh,
                         BABYLON.PhysicsImpostor.BoxImpostor,
                         {
-                            mass: 1.0,
-                            friction: 1.0,
+                            mass:        1.0,
+                            friction:    1.0,
                             restitution: 1.0,
                         },
                         scene

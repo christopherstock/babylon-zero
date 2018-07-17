@@ -105,12 +105,13 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            this.logo = bz.MeshFactory.createImportedMesh
+            this.logo = bz.MeshFactory.createImportedModel
             (
                 bz.ModelFile.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene
+                this.scene,
+                false
             );
 
             return [
