@@ -377,6 +377,7 @@
         {
             if ( this.fire )
             {
+                bz.Debug.fire.log();
                 bz.Debug.fire.log( 'Player is firing' );
 
                 // handle fire as processed
