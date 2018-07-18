@@ -472,14 +472,7 @@
             {
                 hitPoints = hitPoints.concat( movable.applyShot( shot.ray ) );
             }
-/*
-            // check collision with models
-            bz.Debug.fire.log( ' Checking shot collision with [' + this.importedModels.length + '] models' );
-            for ( const model of this.importedModels )
-            {
-                hitPoints = hitPoints.concat( model.applyShot( shot.ray ) );
-            }
-*/
+
             return hitPoints;
         }
     }

@@ -559,7 +559,11 @@
                 emissiveColor
             );
             material.zOffset = ( -1 - indexZ );
-
+/*
+            // why is the 1st bullet hole always flickering?
+            console.log( '>> parentMesh material z: ' + parentMesh.material.zOffset );
+            console.log( '>>>>>> bullet hole z: '     + material.zOffset );
+*/
             return MeshFactory.decorateMesh
             (
                 decal,

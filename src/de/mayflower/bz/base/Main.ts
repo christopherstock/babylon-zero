@@ -6,28 +6,31 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix decals flickering in certain view angles ?
+    *   TODO Create enum for possible skyboxes!
+    *   TODO Enable player ducking!
     *
+    *   TODO Create class Bullet Hole (for changing texture etc.)?
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
+    *
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *
     *   TODO Introduce physics attribute param to createImportedModel().
-    *
-    *   TODO Create enum for possible skyboxes!
-    *   TODO Enable player ducking!
+    *   TODO Use BABYLON.Angle instead of own implementation for degree-rad?
     *
     *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.) ?
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create air friction for ALL movables in render() of scene!
+    *
     *   TODO Add particle system (fx) for bullet holes' wall rubble.
-    *   TODO Use BABYLON.Angle instead of own implementation?
+    *
     *   TODO Add physical compound (link?) for imported mesh collections.
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.
     *   TODO Create HUD message queue.
-    *   TODO Remove importedModels from Stage and replace with game objects.
-    *   TODO Complete MVP Tech-Demo 'The Office'.
+    *
+    *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
+    *
     *
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create SettingPlayer with all player settings.
@@ -50,6 +53,7 @@
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Different player objects: physics for car, etc?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
+    *   TODO Fix decals flickering in certain view angles ?
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   TODO Add player/camrera controls (turn, duck)
     *   TODO Check Perfect Dark and Goldeneye sound board.
@@ -70,6 +74,7 @@
     *   TODO Try video textures!
     *   TODO Make sprites collidable?
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
+    *   TODO Merge all game objects to one array in Stage?
     *   TODO Create main menu where player can reset stage etc.
     *   TODO Enable !wearpon zoom. (view angle / camera solution?)
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
