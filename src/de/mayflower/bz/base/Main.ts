@@ -7,7 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Enable player ducking!
-    *   TODO Create SettingPlayer with all player settings.
+    *
     *   TODO Create class Bullet Hole (for changing texture etc.)?
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music

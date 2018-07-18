@@ -67,9 +67,9 @@
                         (
                             position,
                             bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                            ( 2 * bz.SettingGame.PLAYER_RADIUS_BODY_XZ ),
-                            bz.SettingGame.PLAYER_HEIGHT_Y,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            ( 2 * bz.SettingPlayer.PLAYER_RADIUS_BODY_XZ ),
+                            bz.SettingPlayer.PLAYER_HEIGHT_Y,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WALL_GLASS,
                             null,
                             bz.Main.game.engine.scene.getScene(),
@@ -84,11 +84,11 @@
                             new BABYLON.Vector3
                             (
                                 position.x,
-                                position.y + bz.SettingGame.PLAYER_HEIGHT_Y - bz.SettingGame.PLAYER_RADIUS_HEAD,
+                                position.y + bz.SettingPlayer.PLAYER_HEIGHT_Y - bz.SettingPlayer.PLAYER_RADIUS_HEAD,
                                 position.z
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
-                            ( 2 * bz.SettingGame.PLAYER_RADIUS_HEAD ),
+                            ( 2 * bz.SettingPlayer.PLAYER_RADIUS_HEAD ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
@@ -104,7 +104,7 @@
                             new BABYLON.Vector3
                             (
                                 position.x - 1.0,
-                                position.y + bz.SettingGame.PLAYER_HAND_HEIGHT,
+                                position.y + bz.SettingPlayer.PLAYER_HAND_HEIGHT,
                                 position.z
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
@@ -124,7 +124,7 @@
                             new BABYLON.Vector3
                             (
                                 position.x + 1.0,
-                                position.y + bz.SettingGame.PLAYER_HAND_HEIGHT,
+                                position.y + bz.SettingPlayer.PLAYER_HAND_HEIGHT,
                                 position.z
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
@@ -168,8 +168,8 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
-                this.moveDeltaX +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ +=  bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
             if
             (
@@ -177,8 +177,8 @@
                 // ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
-                this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaZ -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
             }
 
             // strave
@@ -188,8 +188,8 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
             )
             {
-                this.moveDeltaX -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
             }
             if
             (
@@ -197,28 +197,28 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
             )
             {
-                this.moveDeltaX += bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ -= bz.SettingGame.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaZ -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
             }
 
             // turn Y
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
-                this.rotationDeltaY = -bz.SettingGame.PLAYER_SPEED_TURN;
+                this.rotationDeltaY = -bz.SettingPlayer.PLAYER_SPEED_TURN;
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_E ) )
             {
-                this.rotationDeltaY = bz.SettingGame.PLAYER_SPEED_TURN;
+                this.rotationDeltaY = bz.SettingPlayer.PLAYER_SPEED_TURN;
             }
 
             // look up / down
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_R ) )
             {
-                this.rotationDeltaZ = -bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
+                this.rotationDeltaZ = -bz.SettingPlayer.PLAYER_SPEED_LOOK_UP_DOWN;
             }
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F ) )
             {
-                this.rotationDeltaZ = bz.SettingGame.PLAYER_SPEED_LOOK_UP_DOWN;
+                this.rotationDeltaZ = bz.SettingPlayer.PLAYER_SPEED_LOOK_UP_DOWN;
             }
 
             // fire
@@ -311,13 +311,13 @@
             {
                 this.rotZ += this.rotationDeltaZ;
 
-                if ( this.rotZ > bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN )
+                if ( this.rotZ > bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN )
                 {
-                    this.rotZ = bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN;
+                    this.rotZ = bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN;
                 }
-                else if ( this.rotZ < -bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN )
+                else if ( this.rotZ < -bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN )
                 {
-                    this.rotZ = -bz.SettingGame.PLAYER_MAX_LOOK_UP_DOWN;
+                    this.rotZ = -bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN;
                 }
 
                 this.rotationDeltaZ = 0.0;
@@ -351,7 +351,7 @@
             {
                 if ( this.rotZ > 0.0 )
                 {
-                    this.rotZ -= bz.SettingGame.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
+                    this.rotZ -= bz.SettingPlayer.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
 
                     if ( this.rotZ <= 0.0 )
                     {
@@ -360,7 +360,7 @@
                 }
                 else if ( this.rotZ < 0.0 )
                 {
-                    this.rotZ += bz.SettingGame.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
+                    this.rotZ += bz.SettingPlayer.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
 
                     if ( this.rotZ >= 0.0 )
                     {
