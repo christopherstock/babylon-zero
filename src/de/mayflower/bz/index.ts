@@ -58,8 +58,9 @@
     export * from './game/object/Wall';
 
     export * from './data/ModelFile';
-    export * from './data/Sprite';
+    export * from './data/SkyBox';
     export * from './data/Sound';
+    export * from './data/Sprite';
     export * from './data/Texture';
 
     export * from './ui/Draw2D';
