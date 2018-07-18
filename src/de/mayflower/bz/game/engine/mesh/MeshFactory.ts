@@ -504,6 +504,75 @@
         }
 
         /** ************************************************************************************************************
+        *   Creates a decal.
+        *
+        *   @param position      Where to place this mesh.
+        *   @param parentMesh    The mesh to apply this decal to.
+        *   @param normal        The normal of the mesh to apply the decal to.
+        *   @param size          The dimensions of this mesh for all axis.
+        *   @param rotation      The initial rotation for all axis.
+        *   @param texture       The texture to apply.
+        *   @param color         The solid color to apply.
+        *   @param indexZ        The z index for this material that prevents overlapping materials.
+        *   @param scene         The scene where this mesh will be applied.
+        *   @param materialAlpha The opacity for this mesh.
+        *   @param emissiveColor The emissive color for this material.
+        *
+        *   @return The created mesh.
+        ***************************************************************************************************************/
+        public static createDecal
+        (
+            position        :BABYLON.Vector3,
+            parentMesh      :BABYLON.AbstractMesh,
+            normal          :BABYLON.Vector3,
+            size            :BABYLON.Vector3,
+            rotation        :number,
+            texture         :bz.Texture,
+            color           :BABYLON.Color3,
+            indexZ          :number,
+            scene           :BABYLON.Scene,
+            materialAlpha   :number,
+            emissiveColor   :BABYLON.Color3
+        )
+        : BABYLON.Mesh
+        {
+            const decal:BABYLON.Mesh = BABYLON.MeshBuilder.CreateDecal
+            (
+                MeshFactory.createNextMeshId(),
+                parentMesh,
+                {
+                    position: position,
+                    normal:   normal,
+                    size:     size,
+                    angle:    rotation,
+                }
+            );
+
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            (
+                texture,
+                true,
+                size.x,
+                size.y,
+                color,
+                materialAlpha,
+                emissiveColor
+            );
+            material.zOffset = -( indexZ + 1 );
+
+            return MeshFactory.decorateMesh
+            (
+                decal,
+                null,
+                material,
+                scene,
+                bz.Physic.NONE,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                0.0
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Creates a skybox mesh from a cube texture ( six images ).
         *
         *   @param opacity     The alpha value for the skybox texture.

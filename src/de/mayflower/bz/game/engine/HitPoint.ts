@@ -114,22 +114,18 @@
         public createBulletHole( emissiveColor:BABYLON.Color3 ) : void
         {
             bz.Debug.fire.log( 'Existent bullet holes on this model: [' + this.gameObject.bulletHoles.length + ']' );
-            const distanceFromModel :BABYLON.Vector3 = this.direction.scale
+
+            const bulletHole :BABYLON.Mesh = bz.MeshFactory.createDecal
             (
-                bz.MeshFactory.FACE_DEPTH * this.gameObject.bulletHoles.length
-            );
-            const position   :BABYLON.Vector3 = this.point.clone().subtract( distanceFromModel );
-            const rotation   :BABYLON.Vector3 = HitPoint.getBulletHoleRotationFromNormal( this.normal );
-            const bulletHole :BABYLON.Mesh = bz.MeshFactory.createBox
-            (
-                position,
-                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.point.clone(),
+                this.mesh,
+                this.normal,
                 new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
-                rotation,
+                bz.MathUtil.getRandomInt( 0, 359 ),
                 bz.Texture.BULLET_HOLE_WOOD,
                 null,
+                this.gameObject.bulletHoles.length,
                 bz.Main.game.engine.scene.getScene(),
-                bz.Physic.NONE,
                 1.0,
                 emissiveColor
             );
@@ -181,33 +177,5 @@
             }
 
             return nearestHitpoint;
-        }
-
-        /** ************************************************************************************************************
-        *   Calculates the rotation for the bullet hole mesh from the specified normal.
-        *
-        *   @param normal The normal of the face that was hit by the shot.
-        *
-        *   @return The rotation of the bullet hole.
-        ***************************************************************************************************************/
-        private static getBulletHoleRotationFromNormal( normal:BABYLON.Vector3 ) : BABYLON.Vector3
-        {
-            bz.Debug.fire.log
-            (
-                'bullet hole normal: '
-                + '[' + normal.x + ']'
-                + '[' + normal.y + ']'
-                + '[' + normal.z + ']'
-            );
-
-            const bulletHoleRotation :BABYLON.Vector3 = new BABYLON.Vector3
-            (
-                bz.MathUtil.radToDegrees( -Math.acos( normal.y ) ) - 90.0,
-                bz.MathUtil.radToDegrees( -Math.acos( normal.x ) ) - 90.0,
-                bz.MathUtil.getRandomInt( 0, 359 )
-                // bz.MathUtil.radToDegrees( -Math.acos( normal.z ) )
-            );
-
-            return bulletHoleRotation;
         }
     }
