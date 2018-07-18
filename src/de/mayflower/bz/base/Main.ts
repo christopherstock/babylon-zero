@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix decals on spheres??
+    *   TODO Fix decals on corners!
     *
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music

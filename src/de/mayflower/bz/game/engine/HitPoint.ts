@@ -120,7 +120,7 @@
                 this.point.clone(),
                 this.mesh,
                 this.normal,
-                new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
+                new BABYLON.Vector3( 0.2, 0.2, 0.2 ),
                 bz.MathUtil.getRandomInt( 0, 359 ),
                 this.gameObject.bulletHoles.length,
                 bz.Texture.BULLET_HOLE_WOOD,
