@@ -1,9 +1,24 @@
 
     /** ****************************************************************************************************************
-    *   Specifies all sky boxes that can be used by stages.
+    *   Specifies all skyboxes that can be used by stages.
     *******************************************************************************************************************/
     export enum SkyBox
     {
-        /** The sky box ''. */
-        MEADOW_1                        = '',
+        /** The skybox 'blue sky'. */
+        BLUE_SKY                        = 'blueSky',
+
+        /** The skybox 'dark sky'. */
+        DARK_SKY                        = 'darkSky',
+
+        /** The skybox 'dining room'. */
+        DINING_ROOM                     = 'diningRoom',
+
+        /** The skybox 'harbour'. */
+        HARBOUR                         = 'harbour',
+
+        /** The skybox 'outside'. */
+        OUTSIDE                         = 'outside',
+
+        /** The skybox 'storm'. */
+        STORM                           = 'storm',
     }

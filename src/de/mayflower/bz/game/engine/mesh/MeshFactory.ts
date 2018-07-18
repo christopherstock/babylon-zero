@@ -579,24 +579,25 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh from a cube texture ( six images ).
         *
-        *   @param opacity     The alpha value for the skybox texture.
-        *   @param textureName The name of the file the contains the skybox texture.
-        *   @param scene       The scene where this mesh will be applied.
+        *   @param skyBox  The skybox to create.
+        *   @param opacity The alpha value for the skybox texture.
+        *   @param scene   The scene to apply this mesh to.
         *
-        *   @return The created mesh.
+        *   @return The created skybox mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxCube( opacity:number, textureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBoxCube( skyBox:bz.SkyBox, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
             const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
                 bz.MaterialSystem.createNextMaterialId(),
                 scene
             );
+            const skyBoxName:string = skyBox.toString();
 
             skyboxMaterial.backFaceCulling   = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
             (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + textureName + '/' + textureName,
+                bz.SettingEngine.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName,
                 scene
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
@@ -624,51 +625,59 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh from a sphere texture ( single spherical image ).
         *
-        *   @param opacity     The alpha value for the skybox texture.
-        *   @param textureName The name of the file the contains the skybox texture.
-        *   @param scene       The scene where this mesh will be applied.
+        *   @param skyBox  The skybox to use.
+        *   @param opacity The alpha value for the skybox texture.
+        *   @param scene   The scene where this mesh will be applied.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxSphere( opacity:number, textureName:string, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBoxSphere( skyBox:bz.SkyBox, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
-            const vertexShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
-            vertexShaderCodeScript.type = 'application/vertexShader';
-            vertexShaderCodeScript.id   = 'vertexShaderCode';
-            vertexShaderCodeScript.innerHTML = '                                    ' +
-            '   precision highp float;                                              ' +
-            '   attribute vec3 position;                                            ' +
-            '   uniform mat4 world;                                                 ' +
-            '   uniform mat4 viewProjection;                                        ' +
-            '   varying vec3 vDirectionW;                                           ' +
-            '   void main(void) {                                                   ' +
-            '           gl_Position =  viewProjection * world * vec4(position, 1.0);' +
-            '           vDirectionW = normalize(vec3(world * vec4(position, 0.0))); ' +
-            '   }';
-            document.head.appendChild( vertexShaderCodeScript );
+            if ( document.getElementById( 'vertexShaderCode' ) === null )
+            {
+                const vertexShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
+                vertexShaderCodeScript.type = 'application/vertexShader';
+                vertexShaderCodeScript.id   = 'vertexShaderCode';
+                vertexShaderCodeScript.innerHTML = '                                    ' +
+                '   precision highp float;                                              ' +
+                '   attribute vec3 position;                                            ' +
+                '   uniform mat4 world;                                                 ' +
+                '   uniform mat4 viewProjection;                                        ' +
+                '   varying vec3 vDirectionW;                                           ' +
+                '   void main(void) {                                                   ' +
+                '           gl_Position =  viewProjection * world * vec4(position, 1.0);' +
+                '           vDirectionW = normalize(vec3(world * vec4(position, 0.0))); ' +
+                '   }';
+                document.head.appendChild( vertexShaderCodeScript );
+            }
 
-            const fragmentShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
-            fragmentShaderCodeScript.type = 'application/fragmentShader';
-            fragmentShaderCodeScript.id   = 'fragmentShaderCode';
-            fragmentShaderCodeScript.innerHTML = '                                ' +
-            '    precision highp float;                                           ' +
-            '    uniform sampler2D textureSampler;                                ' +
-            '    varying vec3 vDirectionW;                                        ' +
-            '    void main(void) {                                                ' +
-            '        vec3 direction = normalize(vDirectionW);                     ' +
-            '        float t = clamp(direction.y * -0.5 + 0.5, 0.0, 1.0);         ' +
-            '        float s = atan(direction.z, direction.x) * 0.15915494 + 0.5; ' +
-            '        vec3 vReflectionUVW = vec3(s, t, 0);                         ' +
-            '        vec2 coords = vReflectionUVW.xy;                             ' +
-            '        coords.x = 1.0 - coords.x;                                   ' +
-            '        coords.y = 1.0 - coords.y;                                   ' +
-            '        gl_FragColor = texture2D(textureSampler, coords);            ' +
-            '    }';
-            document.head.appendChild( fragmentShaderCodeScript );
+            if ( document.getElementById( 'fragmentShaderCode' ) === null )
+            {
+                const fragmentShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
+                fragmentShaderCodeScript.type = 'application/fragmentShader';
+                fragmentShaderCodeScript.id   = 'fragmentShaderCode';
+                fragmentShaderCodeScript.innerHTML = '                                ' +
+                '    precision highp float;                                           ' +
+                '    uniform sampler2D textureSampler;                                ' +
+                '    varying vec3 vDirectionW;                                        ' +
+                '    void main(void) {                                                ' +
+                '        vec3 direction = normalize(vDirectionW);                     ' +
+                '        float t = clamp(direction.y * -0.5 + 0.5, 0.0, 1.0);         ' +
+                '        float s = atan(direction.z, direction.x) * 0.15915494 + 0.5; ' +
+                '        vec3 vReflectionUVW = vec3(s, t, 0);                         ' +
+                '        vec2 coords = vReflectionUVW.xy;                             ' +
+                '        coords.x = 1.0 - coords.x;                                   ' +
+                '        coords.y = 1.0 - coords.y;                                   ' +
+                '        gl_FragColor = texture2D(textureSampler, coords);            ' +
+                '    }';
+                document.head.appendChild( fragmentShaderCodeScript );
+            }
+
+            const skyBoxName:string = skyBox.toString();
 
             const texture:BABYLON.Texture = new BABYLON.Texture
             (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + textureName + '/' + textureName + '.jpg',
+                bz.SettingEngine.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName + '.jpg',
                 scene
             );
 

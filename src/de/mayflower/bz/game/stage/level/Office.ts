@@ -267,7 +267,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( 1.0, 'storm', this.scene );
+            return bz.MeshFactory.createSkyBoxCube( bz.SkyBox.STORM, 1.0, this.scene );
         }
 
         /** ************************************************************************************************************

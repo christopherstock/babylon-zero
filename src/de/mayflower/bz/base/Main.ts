@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create enum for possible skyboxes!
     *   TODO Enable player ducking!
     *   TODO Create SettingPlayer with all player settings.
     *   TODO Create class Bullet Hole (for changing texture etc.)?

@@ -611,7 +611,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( 0.15, 'darksky', this.scene );
+            return bz.MeshFactory.createSkyBoxCube( bz.SkyBox.DARK_SKY, 0.15, this.scene );
         }
 
         /** ************************************************************************************************************
