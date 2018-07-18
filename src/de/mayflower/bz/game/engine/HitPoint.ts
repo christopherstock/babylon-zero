@@ -115,12 +115,15 @@
         {
             bz.Debug.fire.log( 'Existent bullet holes on this model: [' + this.gameObject.bulletHoles.length + ']' );
 
+            // this depth asserts being drawn correctly on spheres and not be too scaled around corners!
+            const BULLET_HOLE_DEPTH:number = 0.025;
+
             const bulletHole :BABYLON.Mesh = bz.MeshFactory.createDecal
             (
                 this.point.clone(),
                 this.mesh,
                 this.normal,
-                new BABYLON.Vector3( 0.2, 0.2, 0.2 ),
+                new BABYLON.Vector3( 0.2, 0.2, BULLET_HOLE_DEPTH ),
                 bz.MathUtil.getRandomInt( 0, 359 ),
                 this.gameObject.bulletHoles.length,
                 bz.Texture.BULLET_HOLE_WOOD,
