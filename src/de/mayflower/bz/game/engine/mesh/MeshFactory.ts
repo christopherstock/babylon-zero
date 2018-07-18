@@ -511,9 +511,9 @@
         *   @param normal        The normal of the mesh to apply the decal to.
         *   @param size          The dimensions of this mesh for all axis.
         *   @param rotation      The initial rotation for all axis.
+        *   @param indexZ        The z index for this material that prevents overlapping materials.
         *   @param texture       The texture to apply.
         *   @param color         The solid color to apply.
-        *   @param indexZ        The z index for this material that prevents overlapping materials.
         *   @param scene         The scene where this mesh will be applied.
         *   @param materialAlpha The opacity for this mesh.
         *   @param emissiveColor The emissive color for this material.
@@ -527,9 +527,9 @@
             normal          :BABYLON.Vector3,
             size            :BABYLON.Vector3,
             rotation        :number,
+            indexZ          :number,
             texture         :bz.Texture,
             color           :BABYLON.Color3,
-            indexZ          :number,
             scene           :BABYLON.Scene,
             materialAlpha   :number,
             emissiveColor   :BABYLON.Color3
@@ -558,7 +558,7 @@
                 materialAlpha,
                 emissiveColor
             );
-            material.zOffset = -( indexZ + 1 );
+            material.zOffset = ( -1 - indexZ );
 
             return MeshFactory.decorateMesh
             (

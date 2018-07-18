@@ -6,11 +6,11 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
-        /** All meshes this game object consists of. */
-        protected           readonly        model                   :bz.Model                   = null;
-
         /** All bullet holes that are sticked to this game object. */
         public              readonly        bulletHoles             :BABYLON.Mesh[]             = null;
+
+        /** All meshes this game object consists of. */
+        protected           readonly        model                   :bz.Model                   = null;
 
         /** ************************************************************************************************************
         *   Creates a new game object.

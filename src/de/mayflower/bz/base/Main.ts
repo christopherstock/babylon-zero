@@ -6,9 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix rotation assignment for bullet holes (on chair etc.). https://stackoverflow.com/questions/26907686/babylon-js-place-a-plane-normal-to-the-clicked-surface
-    *
-    *   TODO Clip bullet hole to wall ( avoid bullet holes on edges ) https://github.com/CraigFeldspar/BabylonCSG
+    *   TODO Fix decals on spheres??
     *
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
@@ -39,6 +37,7 @@
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? )
     *   TODO Enable jumping?
     *   TODO decouple player and visibility change method from CameraSystem?
+    *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Replace Model.getMeshes() with specific methods.
     *   TODO Check control delay gap in firefox. (edge, chrome?) check KeySystem! (babylon-engine is running smoothly!)
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?

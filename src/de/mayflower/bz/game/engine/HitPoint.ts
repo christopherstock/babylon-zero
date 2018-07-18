@@ -122,9 +122,9 @@
                 this.normal,
                 new BABYLON.Vector3( 0.2, 0.2, bz.MeshFactory.FACE_DEPTH ),
                 bz.MathUtil.getRandomInt( 0, 359 ),
+                this.gameObject.bulletHoles.length,
                 bz.Texture.BULLET_HOLE_WOOD,
                 null,
-                this.gameObject.bulletHoles.length,
                 bz.Main.game.engine.scene.getScene(),
                 1.0,
                 emissiveColor
