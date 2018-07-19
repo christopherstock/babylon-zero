@@ -66,9 +66,9 @@
                         // Player.PLAYER_BODY_ID
                         bz.MeshFactory.createCylinder
                         (
-                            position,
+                            position.clone(),
                             bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                            ( 2 * bz.SettingPlayer.PLAYER_RADIUS_BODY_XZ ),
+                            bz.SettingPlayer.PLAYER_DIAMETER_BODY_XZ,
                             bz.SettingPlayer.PLAYER_HEIGHT_Y,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WALL_GLASS,
@@ -82,14 +82,9 @@
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
                         (
-                            new BABYLON.Vector3
-                            (
-                                position.x,
-                                position.y + bz.SettingPlayer.PLAYER_HEIGHT_Y - bz.SettingPlayer.PLAYER_RADIUS_HEAD,
-                                position.z
-                            ),
+                            BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
-                            ( 2 * bz.SettingPlayer.PLAYER_RADIUS_HEAD ),
+                            bz.SettingPlayer.PLAYER_DIAMETER_HEAD,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
@@ -102,12 +97,7 @@
                         // Player.PLAYER_LEFT_HAND_ID
                         bz.MeshFactory.createBox
                         (
-                            new BABYLON.Vector3
-                            (
-                                position.x - 1.0,
-                                position.y + bz.SettingPlayer.PLAYER_HAND_HEIGHT,
-                                position.z
-                            ),
+                            BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
@@ -122,12 +112,7 @@
                         // Player.PLAYER_RIGHT_HAND_ID
                         bz.MeshFactory.createBox
                         (
-                            new BABYLON.Vector3
-                            (
-                                position.x + 1.0,
-                                position.y + bz.SettingPlayer.PLAYER_HAND_HEIGHT,
-                                position.z
-                            ),
+                            BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
@@ -493,6 +478,26 @@
         ***************************************************************************************************************/
         private scaleAndPositionPlayerLimbs() : void
         {
+            const halfPlayerHeight:number = ( bz.SettingPlayer.PLAYER_HEIGHT_Y / 2 );
 
+            // position limbs relative to parent body
+            this.head.position = new BABYLON.Vector3
+            (
+                0.0,
+                ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD / 2 ) ),
+                0.0
+            );
+            this.leftHand.position = new BABYLON.Vector3
+            (
+                -1.0,
+                ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
+                0.0
+            );
+            this.rightHand.position = new BABYLON.Vector3
+            (
+                +1.0,
+                ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
+                0.0
+            );
         }
     }
