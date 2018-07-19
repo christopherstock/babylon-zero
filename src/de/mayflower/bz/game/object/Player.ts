@@ -490,22 +490,24 @@
         {
             if ( this.duck )
             {
+                const halfPlayerHeight:number = ( bz.SettingPlayer.PLAYER_HEIGHT_Y / 2 );
+
                 this.head.position = new BABYLON.Vector3
                 (
                     0.0,
-                    0.0,
+                    ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD ) ),
                     0.0
                 );
                 this.leftHand.position = new BABYLON.Vector3
                 (
-                    0.0,
-                    0.0,
+                    -1.0,
+                    ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
                     0.0
                 );
                 this.rightHand.position = new BABYLON.Vector3
                 (
-                    0.0,
-                    0.0,
+                    1.0,
+                    ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
                     0.0
                 );
             }
