@@ -308,29 +308,13 @@
             {
                 bz.Debug.player.log( 'Player is ducking' );
 
-                // TODO create .scaleHeight()
-
-                const scaleFactor:number = 0.5;
-
-                this.body.scaling      = new BABYLON.Vector3( 1.0, scaleFactor, 1.0 );
-
-                this.head.scaling      = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
-                this.leftHand.scaling  = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
-                this.rightHand.scaling = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
+                this.scaleHeight( 0.5 );
             }
             else
             {
                 bz.Debug.player.log( 'Player returns from ducking' );
 
-                // TODO create .scaleHeight()
-
-                const scaleFactor:number = 1.0;
-
-                this.body.scaling      = new BABYLON.Vector3( 1.0, scaleFactor, 1.0 );
-
-                this.head.scaling      = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
-                this.leftHand.scaling  = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
-                this.rightHand.scaling = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
+                this.scaleHeight( 1.0 );
             }
 
             this.positionPlayerLimbs();
@@ -484,6 +468,22 @@
         }
 
         /** ************************************************************************************************************
+        *   Scales the height of the body and all limbs according to the specified scale factor.
+        *
+        *   @param scaleFactor The factor to scale the height.
+        ***************************************************************************************************************/
+        private scaleHeight( scaleFactor:number ) : void
+        {
+            // scale body
+            this.body.scaling      = new BABYLON.Vector3( 1.0, scaleFactor, 1.0 );
+
+            // all limbs are scaled inverse to the body scale factor!
+            this.head.scaling      = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
+            this.leftHand.scaling  = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
+            this.rightHand.scaling = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
+        }
+
+        /** ************************************************************************************************************
         *   Sets scaling and position for all player limbs.
         ***************************************************************************************************************/
         private positionPlayerLimbs() : void
@@ -528,7 +528,7 @@
                 );
                 this.rightHand.position = new BABYLON.Vector3
                 (
-                    +1.0,
+                    1.0,
                     ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
                     0.0
                 );
