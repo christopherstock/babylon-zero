@@ -8,7 +8,8 @@
     *
     *   TODO Enable player ducking!
     *
-    *   TODO Create class Bullet Hole (for changing texture etc.)?
+    *   TODO Bundle player rot move and rotDelta to Vector3!
+    *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
@@ -50,6 +51,8 @@
     *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
     *
     *   TODO Create (different?) characters from primitives or mesh objects??
+    *   TODO Create class Bot that represents an enemy with one field for attitude.
+    *   TODO Create class Character, the abstract class of Player and Bot.
     *   TODO Load all 3d objects into a separate scene and copy to separate staged scene?
     *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Make sprites collidable?

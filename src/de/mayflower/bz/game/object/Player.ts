@@ -16,23 +16,24 @@
         private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
         /** The player's current rotation on axis Y. */
-        protected                       rotY                        :number                             = 270.0;
+        protected                       rotationY                   :number                             = 270.0;
         /** The player's current rotation on axis Z. */
-        protected                       rotZ                        :number                             = 0.0;
-
-        /** Current move delta X. */
-        protected                       moveDeltaX                  :number                             = 0.0;
-        /** Current move delta Z. */
-        protected                       moveDeltaZ                  :number                             = 0.0;
+        protected                       rotationZ                   :number                             = 0.0;
         /** Current rotation delta Y. */
         protected                       rotationDeltaY              :number                             = 0.0;
         /** Current rotation delta Z. */
         protected                       rotationDeltaZ              :number                             = 0.0;
+        /** Current move delta X. */
+        protected                       moveDeltaX                  :number                             = 0.0;
+        /** Current move delta Z. */
+        protected                       moveDeltaZ                  :number                             = 0.0;
 
         /** Flags if rotZ view centering should occur this tick. */
         private                         centerRotZ                  :boolean                            = false;
         /** Flags if fire should be performed this tick. */
         private                         fire                        :boolean                            = false;
+        /** Flags if the player currently wants to duck. */
+        private                         duck                        :boolean                            = false;
 
         /** The referenced body mesh of the player. */
         private             readonly    body                        :BABYLON.AbstractMesh               = null;
@@ -142,7 +143,7 @@
             );
 
             // assign initial rotation Y
-            this.rotY = rotY;
+            this.rotationY = rotY;
 
             // reference all limbs
             this.body      = this.model.getMeshes()[ Player.PLAYER_BODY_ID       ];
@@ -154,6 +155,9 @@
             this.head.setParent(      this.body );
             this.leftHand.setParent(  this.body );
             this.rightHand.setParent( this.body );
+
+            // set initial scale and position for limbs
+            this.scaleAndPositionPlayerLimbs();
         }
 
         /** ************************************************************************************************************
@@ -168,8 +172,8 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
-                this.moveDeltaX +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotationY );
+                this.moveDeltaZ +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotationY );
             }
             if
             (
@@ -177,8 +181,8 @@
                 // ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
-                this.moveDeltaX -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotY );
-                this.moveDeltaZ -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotY );
+                this.moveDeltaX -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotationY );
+                this.moveDeltaZ -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotationY );
             }
 
             // strave
@@ -188,8 +192,8 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
             )
             {
-                this.moveDeltaX -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotationY );
+                this.moveDeltaZ += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotationY );
             }
             if
             (
@@ -197,8 +201,8 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
             )
             {
-                this.moveDeltaX += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotY );
-                this.moveDeltaZ -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotY );
+                this.moveDeltaX += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotationY );
+                this.moveDeltaZ -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotationY );
             }
 
             // turn Y
@@ -228,6 +232,14 @@
 
                 this.fire = true;
             }
+
+            // duck
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Y ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_Y );
+
+                this.toggleDuck();
+            }
         }
 
         /** ************************************************************************************************************
@@ -235,12 +247,14 @@
         ***************************************************************************************************************/
         public render() : void
         {
+            // move and rotate
             this.movePlayer();
             this.rotatePlayerXYZ();
             this.checkCenteringRotZ();
-            this.checkFire();
-
             this.manipulateVelocities();
+
+            // interact
+            this.checkFire();
         }
 
         /** ************************************************************************************************************
@@ -297,27 +311,58 @@
         }
 
         /** ************************************************************************************************************
+        *   Toggles player ducking.
+        ***************************************************************************************************************/
+        private toggleDuck() : void
+        {
+            this.duck = !this.duck;
+
+            if ( this.duck )
+            {
+                bz.Debug.player.log( 'Player is ducking' );
+
+                // TODO create .scaleHeight()
+
+                this.body.scaling      = new BABYLON.Vector3( 1.0, 0.5, 1.0 );
+
+                this.head.scaling      = new BABYLON.Vector3( 1.0, 2.0, 1.0 );
+                this.leftHand.scaling  = new BABYLON.Vector3( 1.0, 2.0, 1.0 );
+                this.rightHand.scaling = new BABYLON.Vector3( 1.0, 2.0, 1.0 );
+            }
+            else
+            {
+                bz.Debug.player.log( 'Player returns from ducking' );
+
+                this.body.scaling = new BABYLON.Vector3( 1.0, 1.0, 1.0 );
+
+                this.head.scaling      = new BABYLON.Vector3( 1.0, 1.0, 1.0 );
+                this.leftHand.scaling  = new BABYLON.Vector3( 1.0, 1.0, 1.0 );
+                this.rightHand.scaling = new BABYLON.Vector3( 1.0, 1.0, 1.0 );
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Applies the current rotations for all axis to the according player body parts.
         ***************************************************************************************************************/
         private rotatePlayerXYZ() : void
         {
             if ( this.rotationDeltaY !== 0.0 )
             {
-                this.rotY = bz.MathUtil.normalizeAngle( this.rotY + this.rotationDeltaY );
+                this.rotationY = bz.MathUtil.normalizeAngle( this.rotationY + this.rotationDeltaY );
                 this.rotationDeltaY = 0.0;
             }
 
             if ( this.rotationDeltaZ !== 0.0 )
             {
-                this.rotZ += this.rotationDeltaZ;
+                this.rotationZ += this.rotationDeltaZ;
 
-                if ( this.rotZ > bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN )
+                if ( this.rotationZ > bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN )
                 {
-                    this.rotZ = bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN;
+                    this.rotationZ = bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN;
                 }
-                else if ( this.rotZ < -bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN )
+                else if ( this.rotationZ < -bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN )
                 {
-                    this.rotZ = -bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN;
+                    this.rotationZ = -bz.SettingPlayer.PLAYER_MAX_LOOK_UP_DOWN;
                 }
 
                 this.rotationDeltaZ = 0.0;
@@ -328,7 +373,7 @@
             (
                 this.body,
                 0.0,
-                this.rotY,
+                this.rotationY,
                 0.0
             );
 
@@ -336,7 +381,7 @@
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
                 this.head,
-                this.rotZ,
+                this.rotationZ,
                 0.0,
                 0.0
             );
@@ -349,22 +394,22 @@
         {
             if ( this.centerRotZ )
             {
-                if ( this.rotZ > 0.0 )
+                if ( this.rotationZ > 0.0 )
                 {
-                    this.rotZ -= bz.SettingPlayer.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
+                    this.rotationZ -= bz.SettingPlayer.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
 
-                    if ( this.rotZ <= 0.0 )
+                    if ( this.rotationZ <= 0.0 )
                     {
-                        this.rotZ = 0.0;
+                        this.rotationZ = 0.0;
                     }
                 }
-                else if ( this.rotZ < 0.0 )
+                else if ( this.rotationZ < 0.0 )
                 {
-                    this.rotZ += bz.SettingPlayer.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
+                    this.rotationZ += bz.SettingPlayer.PLAYER_SPEED_CENTER_LOOK_UP_DOWN;
 
-                    if ( this.rotZ >= 0.0 )
+                    if ( this.rotationZ >= 0.0 )
                     {
-                        this.rotZ = 0.0;
+                        this.rotationZ = 0.0;
                     }
                 }
             }
@@ -429,8 +474,8 @@
             const source      :BABYLON.Vector3 = this.head.absolutePosition;
             const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
             (
-                this.rotZ + divergenceZ,
-                this.rotY + divergenceY,
+                this.rotationZ + divergenceZ,
+                this.rotationY + divergenceY,
                 0.0
             );
             const range :number = 50.0;
@@ -441,5 +486,13 @@
                 rotation,
                 range
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Sets scaling and position for all player limbs.
+        ***************************************************************************************************************/
+        private scaleAndPositionPlayerLimbs() : void
+        {
+
         }
     }

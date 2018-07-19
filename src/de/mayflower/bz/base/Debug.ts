@@ -24,6 +24,8 @@
         public      static      readonly    item                :Debug              = new Debug( true  );
         /** Debugs player fire. */
         public      static      readonly    fire                :Debug              = new Debug( true  );
+        /** Debugs player move, rotate, ducking. */
+        public      static      readonly    player              :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

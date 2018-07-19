@@ -32,6 +32,9 @@
         /** The keycode that represents the 'R' key. */
         public      static  readonly    KEY_R                   :string                         = 'KeyR';
 
+        /** The keycode that represents the 'Y' key. This is affected by the EN keyboard scheme. */
+        public      static  readonly    KEY_Y                   :string                         = 'KeyZ';
+
         /** The keycode that represents the 'ENTER' key. */
         public      static  readonly    KEY_ENTER               :string                         = 'Enter';
         /** The keycode that represents the 'ESCAPE' key. */
