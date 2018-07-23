@@ -6,22 +6,23 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Bundle player rot, move and rotDelta to Vector3!
     *   TODO Enable smooth player ducking!
-    *
-    *   TODO Bundle player rot move and rotDelta to Vector3!
     *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
+    *   TODO Create different bullet holes for different materials.
+    *
+    *   TODO Add moccha / chai tests.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
+    *   TODO Add particle system (fx) for bullet holes' wall rubble.
     *   TODO Introduce physics attribute param to createImportedModel().
     *   TODO Use BABYLON.Angle instead of own implementation for degree-rad?
     *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.!!) ?
-    *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Create air friction for ALL movables in render() of scene!
-    *   TODO Create different bullet holes for different materials.
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? ) decouple "active change":
     *   TODO decouple player and visibility change method from CameraSystem?
-    *   TODO Add particle system (fx) for bullet holes' wall rubble.
+    *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Add physical compound (link/joint?) for imported mesh collections.
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Check 'gamelets' in the babylon.JS docs.

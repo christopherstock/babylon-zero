@@ -16,17 +16,19 @@
         private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
         /** The player's current rotation on axis Y. */
-        protected                       rotationY                   :number                             = 270.0;
+        private                         rotationY                   :number                             = 270.0;
         /** The player's current rotation on axis Z. */
-        protected                       rotationZ                   :number                             = 0.0;
+        private                         rotationZ                   :number                             = 0.0;
+
         /** Current rotation delta Y. */
-        protected                       rotationDeltaY              :number                             = 0.0;
+        private                         rotationDeltaY              :number                             = 0.0;
         /** Current rotation delta Z. */
-        protected                       rotationDeltaZ              :number                             = 0.0;
+        private                         rotationDeltaZ              :number                             = 0.0;
+
         /** Current move delta X. */
-        protected                       moveDeltaX                  :number                             = 0.0;
+        private                         moveDeltaX                  :number                             = 0.0;
         /** Current move delta Z. */
-        protected                       moveDeltaZ                  :number                             = 0.0;
+        private                         moveDeltaZ                  :number                             = 0.0;
 
         /** Flags if rotZ view centering should occur this tick. */
         private                         centerRotZ                  :boolean                            = false;
