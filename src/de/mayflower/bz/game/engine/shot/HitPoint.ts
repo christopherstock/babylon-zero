@@ -54,10 +54,8 @@
 
         /** ************************************************************************************************************
         *   Creates a debug bullet hole onto this hit point.
-        *
-        *   @return The created debug bullet hole mesh.
         ***************************************************************************************************************/
-        public createDebugBulletHole() : BABYLON.Mesh
+        public createDebugBulletHole() : void
         {
             // create debug bullet hole
             const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
@@ -77,19 +75,17 @@
             // stick to parent
             debugBulletHole.setParent( this.mesh );
 
-            // add to debug meshes array of the stage
-            return debugBulletHole;
+            // add to game object
+            this.gameObject.bulletHoles.push( debugBulletHole );
         }
 
         /** ************************************************************************************************************
         *   Creates a debug bullet hole normal line onto this hit point.
-        *
-        *   @return The created debug bullet hole normal line.
         ***************************************************************************************************************/
-        public createDebugBulletHoleNormalLine() : BABYLON.Mesh
+        public createDebugBulletHoleNormalLine() : void
         {
             // create debug bullet hole
-            const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createLine
+            const debugNormalLine:BABYLON.Mesh = bz.MeshFactory.createLine
             (
                 this.point.clone(),
                 this.point.clone().add( this.normal ),
@@ -100,10 +96,10 @@
             );
 
             // stick to parent
-            debugBulletHole.setParent( this.mesh );
+            debugNormalLine.setParent( this.mesh );
 
-            // add to debug meshes array of the stage
-            return debugBulletHole;
+            // add to game object
+            this.gameObject.bulletHoles.push( debugNormalLine );
         }
 
         /** ************************************************************************************************************
