@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Bundle player rot, move and rotDelta to Vector3!
     *   TODO Enable smooth player ducking!
     *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
     *   TODO Create different bullet holes for different materials.
@@ -25,6 +24,7 @@
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Add physical compound (link/joint?) for imported mesh collections.
     *   TODO Minor jitter bug improvements on colliding walls?
+    *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Check 'gamelets' in the babylon.JS docs.
     *   TODO Create HUD message queue.
     *   TODO Enable jumping?
