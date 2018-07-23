@@ -15,13 +15,6 @@
         /** The id of the player's left hand mesh in the mesh array. */
         private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
-        /** Current rotation. */
-        private                         rotation                    :BABYLON.Vector3                    = null;
-        /** Current rotation delta. */
-        private                         rotationDelta               :BABYLON.Vector3                    = null;
-        /** Current move delta. */
-        private                         moveDelta                   :BABYLON.Vector3                    = null;
-
         /** Flags if rotZ view centering should occur this tick. */
         private                         centerRotZ                  :boolean                            = false;
         /** Flags if fire should be performed this tick. */
@@ -30,6 +23,13 @@
         private                         duck                        :boolean                            = false;
         /** The current height of the player. Changes on ducking. */
         // private                         playerHeight                :number                             = 0.0;
+
+        /** Current rotation. */
+        private                         rotation                    :BABYLON.Vector3                    = null;
+        /** Current rotation delta. */
+        private                         rotationDelta               :BABYLON.Vector3                    = null;
+        /** Current move delta. */
+        private                         moveDelta                   :BABYLON.Vector3                    = null;
 
         /** The referenced body mesh of the player. */
         private             readonly    body                        :BABYLON.AbstractMesh               = null;

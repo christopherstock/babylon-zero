@@ -18,8 +18,6 @@
     export * from './game/Game';
 
     export * from './game/engine/Engine';
-    export * from './game/engine/HitPoint';
-    export * from './game/engine/Shot';
     export * from './game/engine/Scene';
 
     export * from './game/engine/ui/CanvasSystem';
@@ -29,6 +27,10 @@
     export * from './game/engine/ui/LightFactory';
     export * from './game/engine/ui/LoadingScreen';
     export * from './game/engine/ui/SpriteSystem';
+
+    export * from './game/engine/shot/BulletHole';
+    export * from './game/engine/shot/HitPoint';
+    export * from './game/engine/shot/Shot';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';

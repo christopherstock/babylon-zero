@@ -1,25 +1,16 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   Represents a shot into the stage.
+    *   Represents a bullet hole on a hit point.
     *******************************************************************************************************************/
-    export class Shot
+    export class BulletHole
     {
         /** The source point of the shot. */
-        public                      source                          :BABYLON.Vector3                        = null;
-        /** The destination point of the shot. */
-        public                      destination                     :BABYLON.Vector3                        = null;
-        /** The ray that contains the mapped shot information for babylon.JS. */
-        public                      ray                             :BABYLON.Ray                            = null;
-
-        /** The rotation of the shot source. */
-        private                     rotation                        :BABYLON.Vector3                        = null;
-        /** The maximum range of this shot. */
-        private                     range                           :number                                 = 0.0;
+//        public                      source                          :BABYLON.Vector3                        = null;
 
         /** ************************************************************************************************************
-        *   Creates a new shot.
+        *   Creates a new bullet hole.
         *
         *   @param source   The shot source point.
         *   @param rotation The rotation of the shot source.
@@ -32,6 +23,7 @@
             range    :number
         )
         {
+/*
             this.source   = source;
             this.rotation = rotation;
             this.range    = range;
@@ -45,6 +37,7 @@
             );
                         // create collision checking ray
             this.ray = BABYLON.Ray.CreateNewFromTo( this.source, this.destination );
+*/
 /*
             bz.Debug.fire.log( ' Shot source:          ' + this.source      );
             bz.Debug.fire.log( ' Shot source rotation: ' + this.rotation    );

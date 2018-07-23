@@ -1,5 +1,5 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   A hit point is a shot collision on a specific game object.
