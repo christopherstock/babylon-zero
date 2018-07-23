@@ -9,6 +9,7 @@
     *   TODO Enable smooth player ducking!
     *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
     *   TODO Create different bullet holes for different materials.
+    *   TODO Create subpackage 'shot'.
     *
     *   TODO Add moccha / chai tests.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
