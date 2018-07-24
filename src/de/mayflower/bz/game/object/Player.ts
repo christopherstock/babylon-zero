@@ -313,33 +313,33 @@
         ***************************************************************************************************************/
         private checkHeightChange() : void
         {
-            let heightChangeDetected:boolean = false;
-
             if ( this.duck )
             {
-                if ( this.heightScale > 0.5 )
+                if ( this.heightScale > bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO )
                 {
-                    this.heightScale -= 0.05;
-                    if ( this.heightScale < 0.5 ) this.heightScale = 0.5;
+                    this.heightScale -= bz.SettingPlayer.PLAYER_SPEED_DUCKING;
 
-                    heightChangeDetected = true;
+                    if ( this.heightScale < bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO )
+                    {
+                        this.heightScale = bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO;
+                    }
+
+                    this.scaleHeight();
                 }
             }
             else
             {
                 if ( this.heightScale < 1.0 )
                 {
-                    this.heightScale += 0.05;
-                    if ( this.heightScale > 1.0 ) this.heightScale = 1.0;
+                    this.heightScale += bz.SettingPlayer.PLAYER_SPEED_STANDING_UP;
 
-                    heightChangeDetected = true;
+                    if ( this.heightScale > 1.0 )
+                    {
+                        this.heightScale = 1.0;
+                    }
+
+                    this.scaleHeight();
                 }
-            }
-
-            if ( heightChangeDetected )
-            {
-                this.scaleHeight();
-                this.positionPlayerLimbs();
             }
         }
 

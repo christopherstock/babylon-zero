@@ -6,14 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable smooth player ducking!
-    *
     *   TODO Create different bullet holes for different materials.
     *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
     *
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
+    *   TODO Add bullet drop out after fire.
     *   TODO Add particle system (fx) for bullet holes' wall rubble.
     *   TODO Introduce physics attribute param to createImportedModel().
     *   TODO Use BABYLON.Angle instead of own implementation for degree-rad?
