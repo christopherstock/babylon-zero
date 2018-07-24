@@ -66,7 +66,7 @@
                             bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
                             bz.SettingPlayer.PLAYER_DIAMETER_BODY_XZ,
                             bz.SettingPlayer.PLAYER_HEIGHT_Y,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                            BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_GLASS,
                             null,
                             bz.Main.game.engine.scene.getScene(),
@@ -81,7 +81,7 @@
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             bz.SettingPlayer.PLAYER_DIAMETER_HEAD,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
                             bz.Main.game.engine.scene.getScene(),
@@ -96,7 +96,7 @@
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
                             bz.Main.game.engine.scene.getScene(),
@@ -111,7 +111,7 @@
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                            BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
                             bz.Main.game.engine.scene.getScene(),
@@ -140,6 +140,7 @@
             this.rightHand.setParent( this.body );
 
             // set initial scale and position for limbs
+            this.scaleHeight();
             this.positionPlayerLimbs();
         }
 
@@ -300,19 +301,9 @@
         {
             this.duck = !this.duck;
 
-            if ( this.duck )
-            {
-                bz.Debug.player.log( 'Player is ducking' );
+            bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
 
-                this.scaleHeight( 0.5 );
-            }
-            else
-            {
-                bz.Debug.player.log( 'Player returns from ducking' );
-
-                this.scaleHeight( 1.0 );
-            }
-
+            this.scaleHeight();
             this.positionPlayerLimbs();
         }
 
@@ -464,23 +455,32 @@
         }
 
         /** ************************************************************************************************************
-        *   Scales the height of the body and all limbs according to the specified scale factor.
-        *
-        *   @param scaleFactor The factor to scale the height.
+        *   Scales the player's body and limbs according to the current ducking state.
         ***************************************************************************************************************/
-        private scaleHeight( scaleFactor:number ) : void
+        private scaleHeight() : void
         {
+            let scaleFactor:number = 0.0;
+
+            if ( this.duck )
+            {
+                scaleFactor = 0.5;
+            }
+            else
+            {
+                scaleFactor = 1.0;
+            }
+
             // scale body
             this.body.scaling      = new BABYLON.Vector3( 1.0, scaleFactor, 1.0 );
 
-            // all limbs are scaled inverse to the body scale factor!
+            // all (child) limbs are scaled inverse to the body
             this.head.scaling      = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
             this.leftHand.scaling  = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
             this.rightHand.scaling = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
         }
 
         /** ************************************************************************************************************
-        *   Sets scaling and position for all player limbs.
+        *   Positions all player limbs according to the current ducking state.
         ***************************************************************************************************************/
         private positionPlayerLimbs() : void
         {

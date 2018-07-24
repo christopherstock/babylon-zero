@@ -6,9 +6,9 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Add moccha / chai tests.
-    *   TODO Create different bullet holes for different materials.
     *   TODO Enable smooth player ducking!
+    *
+    *   TODO Create different bullet holes for different materials.
     *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
     *
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
