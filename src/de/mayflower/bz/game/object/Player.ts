@@ -21,8 +21,8 @@
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
-        /** The current height of the player. Changes on ducking. */
-        // private                         playerHeight                :number                             = 0.0;
+        /** The current height scale of the player. Changes on ducking. */
+        private                         heightScale                 :number                             = 0.0;
 
         /** Current rotation. */
         private                         rotation                    :BABYLON.Vector3                    = null;
@@ -140,6 +140,7 @@
             this.rightHand.setParent( this.body );
 
             // set initial scale and position for limbs
+            this.heightScale = 1.0;
             this.scaleHeight();
             this.positionPlayerLimbs();
         }
@@ -237,6 +238,9 @@
             this.checkCenteringRotZ();
             this.manipulateVelocities();
 
+            // change size
+            this.checkHeightChange();
+
             // interact
             this.checkFire();
         }
@@ -302,9 +306,41 @@
             this.duck = !this.duck;
 
             bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
+        }
 
-            this.scaleHeight();
-            this.positionPlayerLimbs();
+        /** ************************************************************************************************************
+        *   Checks if a height scale is required and alters the height scale.
+        ***************************************************************************************************************/
+        private checkHeightChange() : void
+        {
+            let heightChangeDetected:boolean = false;
+
+            if ( this.duck )
+            {
+                if ( this.heightScale > 0.5 )
+                {
+                    this.heightScale -= 0.05;
+                    if ( this.heightScale < 0.5 ) this.heightScale = 0.5;
+
+                    heightChangeDetected = true;
+                }
+            }
+            else
+            {
+                if ( this.heightScale < 1.0 )
+                {
+                    this.heightScale += 0.05;
+                    if ( this.heightScale > 1.0 ) this.heightScale = 1.0;
+
+                    heightChangeDetected = true;
+                }
+            }
+
+            if ( heightChangeDetected )
+            {
+                this.scaleHeight();
+                this.positionPlayerLimbs();
+            }
         }
 
         /** ************************************************************************************************************
@@ -459,24 +495,13 @@
         ***************************************************************************************************************/
         private scaleHeight() : void
         {
-            let scaleFactor:number = 0.0;
-
-            if ( this.duck )
-            {
-                scaleFactor = 0.5;
-            }
-            else
-            {
-                scaleFactor = 1.0;
-            }
-
             // scale body
-            this.body.scaling      = new BABYLON.Vector3( 1.0, scaleFactor, 1.0 );
+            this.body.scaling      = new BABYLON.Vector3( 1.0, this.heightScale, 1.0 );
 
             // all (child) limbs are scaled inverse to the body
-            this.head.scaling      = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
-            this.leftHand.scaling  = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
-            this.rightHand.scaling = new BABYLON.Vector3( 1.0, ( 1.0 / scaleFactor ), 1.0 );
+            this.head.scaling      = new BABYLON.Vector3( 1.0, ( 1.0 / this.heightScale ), 1.0 );
+            this.leftHand.scaling  = new BABYLON.Vector3( 1.0, ( 1.0 / this.heightScale ), 1.0 );
+            this.rightHand.scaling = new BABYLON.Vector3( 1.0, ( 1.0 / this.heightScale ), 1.0 );
         }
 
         /** ************************************************************************************************************
@@ -484,52 +509,26 @@
         ***************************************************************************************************************/
         private positionPlayerLimbs() : void
         {
-            if ( this.duck )
-            {
-                const halfPlayerHeight:number = ( bz.SettingPlayer.PLAYER_HEIGHT_Y / 2 );
+            const halfPlayerHeight:number = ( bz.SettingPlayer.PLAYER_HEIGHT_Y / 2 );
 
-                this.head.position = new BABYLON.Vector3
-                (
-                    0.0,
-                    ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD ) ),
-                    0.0
-                );
-                this.leftHand.position = new BABYLON.Vector3
-                (
-                    -1.0,
-                    ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
-                    0.0
-                );
-                this.rightHand.position = new BABYLON.Vector3
-                (
-                    1.0,
-                    ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
-                    0.0
-                );
-            }
-            else
-            {
-                const halfPlayerHeight:number = ( bz.SettingPlayer.PLAYER_HEIGHT_Y / 2 );
-
-                // position limbs relative to parent body
-                this.head.position = new BABYLON.Vector3
-                (
-                    0.0,
-                    ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD / 2 ) ),
-                    0.0
-                );
-                this.leftHand.position = new BABYLON.Vector3
-                (
-                    -1.0,
-                    ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
-                    0.0
-                );
-                this.rightHand.position = new BABYLON.Vector3
-                (
-                    1.0,
-                    ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
-                    0.0
-                );
-            }
+            // position limbs relative to parent body
+            this.head.position = new BABYLON.Vector3
+            (
+                0.0,
+                ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD / 2 ) ),
+                0.0
+            );
+            this.leftHand.position = new BABYLON.Vector3
+            (
+                -1.0,
+                ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
+                0.0
+            );
+            this.rightHand.position = new BABYLON.Vector3
+            (
+                1.0,
+                ( -halfPlayerHeight + bz.SettingPlayer.PLAYER_HAND_HEIGHT ),
+                0.0
+            );
         }
     }
