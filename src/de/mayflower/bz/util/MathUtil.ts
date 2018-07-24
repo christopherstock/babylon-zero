@@ -1,5 +1,5 @@
 
-    import * as bz from '../index';
+    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   Offers additional mathematical functionality.
@@ -102,9 +102,9 @@
             const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, distance );
             const rotationMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
             (
-                bz.MathUtil.degreesToRad( rotation.y ),
-                bz.MathUtil.degreesToRad( rotation.x ),
-                bz.MathUtil.degreesToRad( rotation.z )
+                MathUtil.degreesToRad( rotation.y ),
+                MathUtil.degreesToRad( rotation.x ),
+                MathUtil.degreesToRad( rotation.z )
             );
 
             const rotatedDistantVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates

@@ -6,12 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Add moccha / chai tests.
+    *   TODO Create different bullet holes for different materials.
     *   TODO Enable smooth player ducking!
     *   TODO Create class Bullet Hole (for changing texture, fire effect, .. etc.)?
-    *   TODO Create different bullet holes for different materials.
-    *   TODO Create subpackage 'shot'.
     *
-    *   TODO Add moccha / chai tests.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
