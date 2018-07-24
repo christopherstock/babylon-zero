@@ -6,43 +6,129 @@
     *******************************************************************************************************************/
     export class BulletHole
     {
-        /** The source point of the shot. */
-//        public                      source                          :BABYLON.Vector3                        = null;
+        /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
+        private     static  readonly    BULLET_HOLE_DEPTH               :number                             = 0.025;
+
+        /** The hit point this bullet hole is created for. */
+        public              readonly    hitPoint                        :bz.HitPoint                        = null;
+        /** The emissive color of the level where this bullet hole is created. */
+        public              readonly    emissiveColor                   :BABYLON.Color3                     = null;
+
+        /** The decal mesh of this bullet hole. */
+        public                          holeMesh                        :BABYLON.Mesh                       = null;
+        /** The debug sphere mesh of this bullet hole. */
+        public                          debugSphereMesh                 :BABYLON.Mesh                       = null;
+        /** The debug normal line of the hit face. */
+        public                          debugNormalLine                 :BABYLON.Mesh                       = null;
 
         /** ************************************************************************************************************
         *   Creates a new bullet hole.
         *
-        *   @param source   The shot source point.
-        *   @param rotation The rotation of the shot source.
-        *   @param range    The maximum range of this shot.
+        *   @param hitPoint      The hit pooint to create this bullet hole for.
+        *   @param emissiveColor The emissive color of the level where this bullet hole is applied.
         ***************************************************************************************************************/
         public constructor
         (
-            source   :BABYLON.Vector3,
-            rotation :BABYLON.Vector3,
-            range    :number
+            hitPoint      :bz.HitPoint,
+            emissiveColor :BABYLON.Color3,
         )
         {
-/*
-            this.source   = source;
-            this.rotation = rotation;
-            this.range    = range;
+            this.hitPoint      = hitPoint;
+            this.emissiveColor = emissiveColor;
 
-            // calculate destination point
-            this.destination = bz.MathUtil.rotateVector
+            // append a bullet hole
+            this.createHoleMesh();
+
+            // append a debug bullet hole
+            if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLES )
+            {
+                this.createDebugHoleSphere();
+            }
+
+            // append the debug hit face normal
+            if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
+            {
+                this.createDebugBulletHoleNormalLine();
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Disposes all meshes of this bullet hole.
+        ***************************************************************************************************************/
+        public dispose() : void
+        {
+            this.holeMesh.dispose();
+
+            if ( this.debugSphereMesh != null ) this.debugSphereMesh.dispose();
+
+            if ( this.debugNormalLine != null ) this.debugNormalLine.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a bullet hole mesh onto the hit point.
+        ***************************************************************************************************************/
+        private createHoleMesh() : void
+        {
+            this.holeMesh = bz.MeshFactory.createDecal
             (
-                source,
-                rotation,
-                range
+                this.hitPoint.point.clone(),
+                this.hitPoint.mesh,
+                this.hitPoint.normal,
+                new BABYLON.Vector3( 0.2, 0.2, BulletHole.BULLET_HOLE_DEPTH ),
+                bz.MathUtil.getRandomInt( 0, 359 ),
+                this.hitPoint.gameObject.bulletHoles.length,
+                bz.Texture.BULLET_HOLE_WOOD,
+                null,
+                bz.Main.game.engine.scene.getScene(),
+                1.0,
+                this.emissiveColor
             );
-                        // create collision checking ray
-            this.ray = BABYLON.Ray.CreateNewFromTo( this.source, this.destination );
-*/
-/*
-            bz.Debug.fire.log( ' Shot source:          ' + this.source      );
-            bz.Debug.fire.log( ' Shot source rotation: ' + this.rotation    );
-            bz.Debug.fire.log( ' Shot range:           ' + this.range       );
-            bz.Debug.fire.log( ' Shot destination:     ' + this.destination );
-*/
+
+            // stick to parent
+            this.holeMesh.setParent( this.hitPoint.mesh );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a debug bullet hole sphere onto this hit point.
+        ***************************************************************************************************************/
+        private createDebugHoleSphere() : void
+        {
+            // create debug bullet hole
+            const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
+            (
+                this.hitPoint.point.clone(),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                0.10,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                bz.SettingColor.COLOR_RGB_ORANGE,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Physic.NONE,
+                1.0,
+                bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
+            );
+
+            // stick to parent
+            debugBulletHole.setParent( this.hitPoint.mesh );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a debug bullet hole normal line onto this hit point.
+        ***************************************************************************************************************/
+        private createDebugBulletHoleNormalLine() : void
+        {
+            // create debug bullet hole
+            const debugNormalLine:BABYLON.Mesh = bz.MeshFactory.createLine
+            (
+                this.hitPoint.point.clone(),
+                this.hitPoint.point.clone().add( this.hitPoint.normal ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE,
+                bz.Main.game.engine.scene.getScene()
+            );
+
+            // stick to parent
+            debugNormalLine.setParent( this.hitPoint.mesh );
         }
     }

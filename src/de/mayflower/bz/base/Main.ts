@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create class Bullet Hole that also contains the debug meshes (for changing texture, fire effect, .. etc.)?
     *   TODO Create different bullet holes for different materials.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *

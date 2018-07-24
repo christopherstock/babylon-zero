@@ -280,20 +280,15 @@
             const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
             if ( nearestHitPoint != null )
             {
-                // append a debug bullet hole
-                if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLES )
-                {
-                    nearestHitPoint.createDebugBulletHole();
-                }
+                // create a bullet hole
+                const bulletHole:bz.BulletHole = new bz.BulletHole
+                (
+                    nearestHitPoint,
+                    this.ambientColor
+                );
 
-                // append the debug hit face normal
-                if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
-                {
-                    nearestHitPoint.createDebugBulletHoleNormalLine();
-                }
-
-                // append a bullet hole
-                nearestHitPoint.createBulletHole( this.ambientColor );
+                // add bullet hole to game object
+                nearestHitPoint.gameObject.bulletHoles.push( bulletHole );
 
                 // apply impulse
                 nearestHitPoint.applyImpulseToMesh( 10 );
