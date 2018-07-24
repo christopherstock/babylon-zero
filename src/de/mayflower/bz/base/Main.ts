@@ -15,6 +15,7 @@
     *   TODO Add bullet drop out after fire.
     *   TODO Add particle system (fx) for bullet holes' wall rubble.
     *   TODO Introduce physics attribute param to createImportedModel().
+    *   TODO Add muzzle flash to gun on firing.
     *   TODO Use BABYLON.Angle instead of own implementation for degree-rad?
     *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.!!) ?
     *   TODO Create air friction for ALL movables in render() of scene!

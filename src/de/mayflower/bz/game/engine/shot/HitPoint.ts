@@ -8,19 +8,14 @@
     {
         /** The affected game object. */
         private         readonly    gameObject                      :bz.GameObject                  = null;
-
         /** The exact collision point. */
         private         readonly    point                           :BABYLON.Vector3                = null;
-
         /** The affected mesh of the game object. */
         private         readonly    mesh                            :BABYLON.AbstractMesh           = null;
-
         /** The distance from the shot source to this hit point. */
         private         readonly    distance                        :number                         = null;
-
-        /** The normal of the face the hit point impacts. */
+        /** The normal of the face this hit point impacts. */
         private         readonly    normal                          :BABYLON.Vector3                = null;
-
         /** The direction of the shot that caused this hit point. */
         private         readonly    direction                       :BABYLON.Vector3                = null;
 
