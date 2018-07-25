@@ -1,6 +1,6 @@
 
     import * as chai from 'chai';
-    import { MathUtil } from '../../../../../src/de/mayflower/bz/util/MathUtil';
+    import { MathUtil } from '../../../../../typescript/de/mayflower/bz/util/MathUtil';
 
     describe( 'MathUtil', () =>
     {
