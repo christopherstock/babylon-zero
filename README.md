@@ -1,9 +1,7 @@
-![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSETS/promo/promoBadge6_1920x1037.jpg)
-#### Twisted Dreams - A joyride with the babylon.JS engine!
+![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSETS/promo/promoBadge7_1920x1037.jpg)
+#### Twisted Dreams - A joyride with the babylon.JS simple and powerful WebGL library!
 
-Join this advanced workshop on Friday the 13th in our slacktime at Mayflower GmbH! 
-Topics include the new major 3 of TypeScript, cutting edge babylon.JS features and the web deployment tool netlify.
-
+Join this advanced workshop on Friday the 28th in our slacktime at Mayflower GmbH! 
 Contact me for a personal invitation!
 
 Christopher
@@ -13,7 +11,7 @@ Christopher
 npm install
 ```
 
-## 2. Compile and run the project
+## 2. Start Webpack Dev-Server
 ```
 npm run build:devserver
 ```
