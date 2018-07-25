@@ -6,8 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create different bullet holes for different materials.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
+    *   TODO src/ts and src/test ?
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Add bullet drop out after fire.

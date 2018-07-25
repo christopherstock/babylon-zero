@@ -69,6 +69,8 @@
         ***************************************************************************************************************/
         private createHoleMesh() : void
         {
+            const meshTexture:bz.Texture = bz.Texture.getTextureFromMeshByName( this.hitPoint.mesh );
+
             this.holeMesh = bz.MeshFactory.createDecal
             (
                 this.hitPoint.point.clone(),
@@ -77,7 +79,7 @@
                 new BABYLON.Vector3( 0.2, 0.2, BulletHole.BULLET_HOLE_DEPTH ),
                 bz.MathUtil.getRandomInt( 0, 359 ),
                 this.hitPoint.gameObject.bulletHoles.length,
-                bz.Texture.BULLET_HOLE_WOOD,
+                meshTexture,
                 null,
                 bz.Main.game.engine.scene.getScene(),
                 1.0,
