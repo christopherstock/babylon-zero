@@ -44,6 +44,7 @@
         *   Logs a line of output to the default console. Will only generate output
         *   if the debug for this debug group is enabled.
         *
+        *   @param msg The message to log to the output console. Defaults to an empty string.
         ***************************************************************************************************************/
         public log( msg:string = '' ) : void
         {

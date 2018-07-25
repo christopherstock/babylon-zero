@@ -8,7 +8,6 @@
     *
     *   TODO Create different bullet holes for different materials.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
-    *
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Add bullet drop out after fire.
@@ -27,6 +26,7 @@
     *   TODO Check 'gamelets' in the babylon.JS docs.
     *   TODO Create HUD message queue.
     *   TODO Enable jumping?
+    *   TODO Merge all game objects to one array in Stage?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Replace Model.getMeshes() with specific methods.
     *   TODO Fix decals flickering in certain view angles ?
@@ -47,7 +47,8 @@
     *   TODO Enable !wearpon zoom. (view angle / camera solution?)
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
-    *   TODO Merge all game objects to one array in Stage?
+    *   TODO Enable different wearpon shoot angles.
+    *   TODO Add wearpon panning.
     *   TODO Add wearpon zoom.
     *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
     *
@@ -67,11 +68,10 @@
     *   TODO try dynamic textures: ( video in texture in front of screen for company presentation site .. )
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
     *   TODO Try fog or smoke?
-    *   TODO Rotating texture UVs for certain box sides? (may be obsolete though importing meshes!)
     *   TODO Try fur.
     *   TODO Try video textures!
-    *   TODO Review babylon.JS tutorials, features and playground for gathering new features.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
+    *   TODO Review babylon.JS tutorials, features and playground for gathering new features.
     *******************************************************************************************************************/
     export class Main
     {
