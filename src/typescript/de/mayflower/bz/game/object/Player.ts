@@ -486,7 +486,8 @@
             (
                 source,
                 rotation,
-                range
+                range,
+                false
             );
         }
 

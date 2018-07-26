@@ -6,6 +6,8 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
+        // TODO private
+
         /** All bullet holes that are sticked to this game object. */
         public              readonly        bulletHoles             :bz.BulletHole[]            = null;
 

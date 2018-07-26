@@ -6,6 +6,9 @@
     *******************************************************************************************************************/
     export class HitPoint
     {
+        // TODO private!
+        // TODO Add shot instance!
+
         /** The affected game object. */
         public          readonly    gameObject                      :bz.GameObject                  = null;
         /** The exact collision point. */
@@ -45,6 +48,27 @@
             this.distance   = distance;
             this.normal     = normal;
             this.direction  = direction;
+        }
+
+        /** ************************************************************************************************************
+        *   Causes a physical shot impact to this hit point and sets a bullet hole onto it.
+        *
+        *   @param emissiveColor The emissive color for the bullet hole to set.
+        ***************************************************************************************************************/
+        public createImpact( emissiveColor:BABYLON.Color3 ) : void
+        {
+            // create a bullet hole
+            const bulletHole:bz.BulletHole = new bz.BulletHole
+            (
+                this,
+                emissiveColor
+            );
+
+            // add bullet hole to game object
+            this.gameObject.bulletHoles.push( bulletHole );
+
+            // apply impulse
+            this.applyImpulseToMesh( 10 );
         }
 
         /** ************************************************************************************************************

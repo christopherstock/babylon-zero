@@ -276,22 +276,27 @@
             const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot );
             bz.Debug.fire.log( ' Gathered [' + hitPoints.length + '] hit points' );
 
-            // pick nearest hit point
-            const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
-            if ( nearestHitPoint != null )
+            // determine impact hit points
+            let impactHitPoints:bz.HitPoint[] = [];
+
+            if ( shot.wallBreaking )
             {
-                // create a bullet hole
-                const bulletHole:bz.BulletHole = new bz.BulletHole
-                (
-                    nearestHitPoint,
-                    this.ambientColor
-                );
+                impactHitPoints = hitPoints;
+            }
+            else
+            {
+                const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
 
-                // add bullet hole to game object
-                nearestHitPoint.gameObject.bulletHoles.push( bulletHole );
+                if ( nearestHitPoint != null )
+                {
+                    impactHitPoints.push( nearestHitPoint );
+                }
+            }
 
-                // apply impulse
-                nearestHitPoint.applyImpulseToMesh( 10 );
+            // impact all hit points
+            for ( const impactHitPoint of impactHitPoints )
+            {
+                impactHitPoint.createImpact( this.ambientColor );
             }
         }
 
