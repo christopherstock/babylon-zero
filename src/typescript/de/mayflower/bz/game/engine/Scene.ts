@@ -20,7 +20,7 @@
             // enable physics engine
             this.babylonScene.enablePhysics
             (
-                bz.SettingGame.STAGE_GRAVITY_GLOBAL,
+                bz.SettingStage.STAGE_GRAVITY_GLOBAL,
                 new BABYLON.CannonJSPlugin( true, 30 )
             );
 

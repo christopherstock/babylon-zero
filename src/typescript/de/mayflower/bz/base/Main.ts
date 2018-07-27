@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? ) decouple "active change":
     *   TODO decouple player and visibility change method from CameraSystem?
     *   TODO Replace Model.getMeshes() with specific methods.
