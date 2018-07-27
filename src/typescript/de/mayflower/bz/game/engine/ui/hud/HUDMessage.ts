@@ -18,13 +18,11 @@
         *
         *   @param gui The gui to append this message text block to.
         *   @param msg The message to display in this text block.
-        *   @param y   Draw position Y of the message.
         ***************************************************************************************************************/
         public constructor
         (
             gui :BABYLON_GUI.AdvancedDynamicTexture,
-            msg :string,
-            y   :number
+            msg :string
         )
         {
             this.lifetimeTicks = bz.SettingGame.HUD_MESSAGE_LIFETIME;
@@ -35,7 +33,7 @@
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
                 bz.GameHUD.HUD_BORDER_X,
-                y,
+                0,
                 500,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
@@ -71,5 +69,23 @@
         public dispose() : void
         {
             this.messageText.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Relocates this HUD message text concerning to the Y location.
+        *
+        *   @param index The index of this HUD message.
+        *   @param total The total nuber of HUD messages.
+        ***************************************************************************************************************/
+        public setPositionY( index:number, total:number ) : void
+        {
+            const HUD_MESSAGE_LINE_HEIGHT:number = 25;
+
+            this.messageText.top =
+            (
+                -bz.GameHUD.HUD_BORDER_Y
+                - ( ( total - 1 ) * HUD_MESSAGE_LINE_HEIGHT )
+                + ( index         * HUD_MESSAGE_LINE_HEIGHT )
+            );
         }
     }

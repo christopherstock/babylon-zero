@@ -87,19 +87,17 @@
             }
 
             // dispose all obsolete HUD messages
-            for (let index:number = this.messageQueue.length - 1; index >= 0; --index )
+            for ( let index:number = this.messageQueue.length - 1; index >= 0; --index )
             {
                 if ( this.messageQueue[ index ].checkLifetimeOver() )
                 {
                     this.messageQueue[ index ].dispose();
                     this.messageQueue.splice( index, 1 );
-
-
-
-
-console.log( '>>>>> Message Queue Text length: ' + this.messageQueue.length );
                 }
             }
+
+            // relocate all HUD messages
+            this.relocateAllHudMessages();
         }
 
         /** ************************************************************************************************************
@@ -126,8 +124,20 @@ console.log( '>>>>> Message Queue Text length: ' + this.messageQueue.length );
                 (
                     this.guiFg,
                     msg,
-                    ( -bz.GameHUD.HUD_BORDER_Y - ( this.messageQueue.length * 25 ) )
                 )
             );
+
+            this.relocateAllHudMessages();
+        }
+
+        /** ************************************************************************************************************
+        *   Relocates all HUD messages concerning the Y location.
+        ***************************************************************************************************************/
+        public relocateAllHudMessages() : void
+        {
+            for ( let index:number = 0; index < this.messageQueue.length; ++index )
+            {
+                this.messageQueue[ index ].setPositionY( index, this.messageQueue.length );
+            }
         }
     }
