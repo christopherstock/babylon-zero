@@ -127,7 +127,7 @@
             // render the hud if existent
             if ( this.hud != null )
             {
-                this.hud.update();
+                this.hud.render();
             }
 
             // render player if existent

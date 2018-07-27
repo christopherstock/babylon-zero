@@ -13,7 +13,7 @@
         public      static  readonly        HUD_BORDER_Y            :number                                 = 50.0;
 
         /** The text block of the message queue . */
-        protected                           messageQueueTexts       :bz.HUDMessage[]                        = [];
+        protected                           messageQueue            :bz.HUDMessage[]                        = [];
         /** The FPS text block. */
         protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
         /** The wearpon image. */
@@ -73,12 +73,33 @@
         }
 
         /** ************************************************************************************************************
-        *   Updates the HUD information for the current game tick.
+        *   Updates the HUD for the current game tick.
         ***************************************************************************************************************/
-        public update() : void
+        public render() : void
         {
             // update and assign fps
             this.fpsText.text = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 ) + ' fps';
+
+            // update all HUD messages
+            for ( const hudMessage of this.messageQueue )
+            {
+                hudMessage.render();
+            }
+
+            // dispose all obsolete HUD messages
+            for (let index:number = this.messageQueue.length - 1; index >= 0; --index )
+            {
+                if ( this.messageQueue[ index ].checkLifetimeOver() )
+                {
+                    this.messageQueue[ index ].dispose();
+                    this.messageQueue.splice( index, 1 );
+
+
+
+
+console.log( '>>>>> Message Queue Text length: ' + this.messageQueue.length );
+                }
+            }
         }
 
         /** ************************************************************************************************************
@@ -99,13 +120,13 @@
         ***************************************************************************************************************/
         public addHudMessage( msg:string ) : void
         {
-            this.messageQueueTexts.push
+            this.messageQueue.push
             (
                 new bz.HUDMessage
                 (
                     this.guiFg,
                     msg,
-                    ( -bz.GameHUD.HUD_BORDER_Y - ( this.messageQueueTexts.length * 25 ) )
+                    ( -bz.GameHUD.HUD_BORDER_Y - ( this.messageQueue.length * 25 ) )
                 )
             );
         }

@@ -10,6 +10,7 @@
     *
     *   TODO Introduce physics attribute param to createImportedModel().
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
+    *   TODO Sounds for shot, bullet hit and bullet drop.
     *
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Let models crash into their separate elements/meshes on being destroyed?
@@ -18,7 +19,6 @@
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Create material system with unified parameters!?
     *   TODO Enable jumping? Determine player floor collision ...
-    *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Add physical compound (link/joint?) for imported mesh collections?

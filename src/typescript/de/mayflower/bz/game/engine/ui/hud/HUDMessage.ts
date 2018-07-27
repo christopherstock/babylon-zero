@@ -7,6 +7,9 @@
     *******************************************************************************************************************/
     export class HUDMessage
     {
+        /** The number of ticks this message is still visible. */
+        private                             lifetimeTicks               :number                             = 0;
+
         /** The text block that contains this single message. */
         private             readonly        messageText                 :BABYLON_GUI.TextBlock              = null;
 
@@ -24,6 +27,8 @@
             y   :number
         )
         {
+            this.lifetimeTicks = bz.SettingGame.HUD_MESSAGE_LIFETIME;
+
             this.messageText = bz.GuiFactory.createTextBlock
             (
                 msg,
@@ -39,5 +44,32 @@
             );
 
             gui.addControl( this.messageText );
+        }
+
+        /** ************************************************************************************************************
+        *   Renders this HUD message for one game tick.
+        ***************************************************************************************************************/
+        public render() : void
+        {
+            // decrease number of lifetime ticks
+            --this.lifetimeTicks;
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if the lifetime is over for this HUD message.
+        *
+        *   @return If this HUD message's lifetime is over.
+        ***************************************************************************************************************/
+        public checkLifetimeOver() : boolean
+        {
+            return ( this.lifetimeTicks <= 0 );
+        }
+
+        /** ************************************************************************************************************
+        *   Disposes this HUD messages text block.
+        ***************************************************************************************************************/
+        public dispose() : void
+        {
+            this.messageText.dispose();
         }
     }

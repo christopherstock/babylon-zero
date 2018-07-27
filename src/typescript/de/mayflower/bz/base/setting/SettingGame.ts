@@ -7,4 +7,6 @@
     // tslint:disable:max-line-length
     export class SettingGame
     {
+        /** The number of ticks for a HUD message to be displayed. */
+        public      static  readonly        HUD_MESSAGE_LIFETIME                :number         = 50;
     }
