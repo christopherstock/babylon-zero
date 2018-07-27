@@ -64,8 +64,10 @@
             );
             this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera
             (
-                scene
+                scene,
+                bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW
             );
+
             this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera
             (
                 scene,
@@ -232,6 +234,16 @@
         public getArcRotateCamera() : BABYLON.ArcRotateCamera
         {
             return this.arcRotateCamera;
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the field of view for the first person camera.
+        *
+        *   @param fov The field of view to set for the first person camera.
+        ***************************************************************************************************************/
+        public setFirstPersonCameraFieldOfView( fov:number ) : void
+        {
+            this.firstPersonCamera.fov = fov;
         }
 
         /** ************************************************************************************************************

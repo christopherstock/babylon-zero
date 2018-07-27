@@ -34,6 +34,8 @@
 
         /** The keycode that represents the 'Y' key. This is affected by the EN keyboard scheme. */
         public      static  readonly    KEY_Y                   :string                         = 'KeyZ';
+        /** The keycode that represents the 'X' key. */
+        public      static  readonly    KEY_X                   :string                         = 'KeyX';
 
         /** The keycode that represents the 'ENTER' key. */
         public      static  readonly    KEY_ENTER               :string                         = 'Enter';

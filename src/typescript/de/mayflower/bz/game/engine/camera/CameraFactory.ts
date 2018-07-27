@@ -1,5 +1,6 @@
 
-    import * as bz from '../../..';
+    import * as bz      from '../../..';
+    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   Creates instances for all scene cameras.
@@ -100,18 +101,22 @@
         /** ************************************************************************************************************
         *   Creates the first person camera.
         *
-        *   @param scene The babylon.JS scene.
+        *   @param scene       The babylon.JS scene.
+        *   @param fieldOfView The initial field of view for the camera.
         *
         *   @return A free camera.
         ***************************************************************************************************************/
-        public static createFirstPersonCamera( scene:BABYLON.Scene ) : BABYLON.FreeCamera
+        public static createFirstPersonCamera( scene:BABYLON.Scene, fieldOfView:number ) : BABYLON.FreeCamera
         {
-            return new BABYLON.FreeCamera
+            const freeCamera:BABYLON.FreeCamera = new BABYLON.FreeCamera
             (
                 bz.CameraFactory.getNextCameraId(),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 scene
             );
+            freeCamera.fov = fieldOfView;
+
+            return freeCamera;
         }
 
         /** ************************************************************************************************************

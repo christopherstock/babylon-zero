@@ -29,6 +29,9 @@
         /** The player's speed for standing up. */
         public  static  readonly    PLAYER_SPEED_STANDING_UP                    :number             = 0.05;
 
+        /** The default field of view of the player's 1st person camera. */
+        public  static  readonly    PLAYER_DEFAULT_FIELD_OF_VIEW                :number             = 1.0;
+
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
 

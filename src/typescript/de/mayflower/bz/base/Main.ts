@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable wearpon zoom. (view angle / camera solution?)
+    *   TODO Add smooth wearpon zoom.
     *   TODO Fix view angle if ducking (revise scaling ..).
     *
     *   TODO Introduce physics attribute param to createImportedModel().
@@ -21,8 +21,7 @@
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Create material system with unified parameters!?
-    *   TODO Enable jumping?
-    *   TODO Add wearpon zoom.
+    *   TODO Enable jumping? Determine player floor collision ...
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
@@ -32,7 +31,7 @@
     *   TODO Add muzzle flash to gun on firing.
     *   TODO Add wearpon panning?
     *   TODO Merge all game objects to one array in Stage?
-    *   TODO Enable wearpon system with different wearpons: magazine size, shoot angles, range ..
+    *   TODO Enable wearpon system with different wearpons: magazine size, shoot angles, range, zoom ..
     *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.!!) ?
     *   TODO Create air friction for ALL movables in render() of scene!
     *   TODO Quick fire animation in bullet hole (for certain materials..)?

@@ -21,6 +21,8 @@
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
+        /** Flags if the player currently wants to zoom. */
+        private                         zoom                        :boolean                            = false;
         /** The current height scale of the player. Changes on ducking. */
         private                         heightScale                 :number                             = 0.0;
 
@@ -225,6 +227,14 @@
 
                 this.toggleDuck();
             }
+
+            // zoom
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_X ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_X );
+
+                this.toggleZoom();
+            }
         }
 
         /** ************************************************************************************************************
@@ -306,6 +316,25 @@
             this.duck = !this.duck;
 
             bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
+        }
+
+        /** ************************************************************************************************************
+        *   Toggles player zooming.
+        ***************************************************************************************************************/
+        private toggleZoom() : void
+        {
+            this.zoom = !this.zoom;
+
+            if ( this.zoom )
+            {
+                bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( 0.5 );
+            }
+            else
+            {
+                bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW );
+            }
+
+            bz.Debug.player.log( 'Player zooming: [' + this.zoom + ']' );
         }
 
         /** ************************************************************************************************************
