@@ -24,8 +24,6 @@
         *   Sets up all scene cameras.
         *
         *   @param scene                           The babylon.JS scene.
-        *   @param player                          The player that might change visibility by camera switch.
-        *   @param stage                           The stage that may hide or show HUD.
         *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
@@ -38,8 +36,6 @@
         constructor
         (
             scene                           :BABYLON.Scene,
-            player                          :bz.Player,
-            stage                           :bz.Stage,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
@@ -99,19 +95,19 @@
         /** ************************************************************************************************************
         *   Sets the specified camera as the scene's active camera.
         *
-        *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param camera The type of camera to set as the scene's active camera.
+        *   @param scene  The babylon.JS scene to set the active camera for.
+        *   @param canvas The HTML canvas that might change debug controls on camera switch.
         *   @param player The player instance that will show or hide according to the currently set camera.
         *   @param stage  The stage that may show or hide a HUD.
-        *   @param canvas The HTML canvas that might change debug controls on camera switch.
         ***************************************************************************************************************/
         public setActiveCamera
         (
-            scene  :BABYLON.Scene,
             camera :bz.CameraType,
+            scene  :BABYLON.Scene,
+            canvas :HTMLCanvasElement,
             player :bz.Player,
-            stage  :bz.Stage,
-            canvas :HTMLCanvasElement
+            stage  :bz.Stage
         )
         : void
         {

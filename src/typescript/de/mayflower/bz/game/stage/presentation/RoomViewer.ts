@@ -136,11 +136,11 @@
             return new bz.CameraSystem
             (
                 this.scene,
-                this.player,
-                this,
+
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 1.0, 0.0, 0.0 ),
+
                 null,
                 null,
                 null

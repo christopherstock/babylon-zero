@@ -249,11 +249,11 @@
         {
             this.cameraSystem.setActiveCamera
             (
-                bz.Main.game.engine.scene.getScene(),
                 cameraId,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Main.game.engine.canvas.getCanvas(),
                 this.player,
-                this,
-                bz.Main.game.engine.canvas.getCanvas()
+                this
             );
         }
 

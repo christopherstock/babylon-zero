@@ -444,11 +444,11 @@
             return new bz.CameraSystem
             (
                 this.scene,
-                this.player,
-                this,
+
                 new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
                 new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
                 new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getFirstPersonCameraTargetMesh()
