@@ -234,6 +234,17 @@
 
             // zoom
             this.zoom = bz.Main.game.engine.keySystem.isPressed(bz.KeyCodes.KEY_X);
+
+            // test HUD message queue
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+
+                ( bz.Main.game.stage.hud as bz.GameHUD ).addHudMessage
+                (
+                    'test-Message [' + bz.String.getDateTimeString() + ']'
+                );
+            }
         }
 
         /** ************************************************************************************************************

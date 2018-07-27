@@ -6,11 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create HUD message queue.
-    *   TODO Fix view angle if ducking (revise scaling ..).
-    *
-    *   TODO Reduce static accesses to Main.game?
     *
     *   TODO Introduce physics attribute param to createImportedModel().
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
@@ -33,16 +29,20 @@
     *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
-    *   TODO Add bullet drop out after fire.
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *
     *   TODO Advanced topics:
+    *   =====================
+    *   TODO Add physically correct bullet drop out after fire.
+    *   TODO Fix view angle if ducking (revise scaling ..).
+    *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *   TODO Smooth edges for bullet holes? Certain bullet hole shapes look white?
     *   TODO Zoom HUD wearpon on zooming?
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check 'gamelets' in the babylon.JS docs.
+    *   TODO Reduce static accesses to Main.game?
     *   TODO Fix decals flickering in certain view angles ?
     *   TODO Add muzzle flash to gun on firing.
     *

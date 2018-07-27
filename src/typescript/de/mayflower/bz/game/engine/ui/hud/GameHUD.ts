@@ -12,6 +12,8 @@
         /** The height of the horizontal border for all HUD elements. */
         private     static  readonly        HUD_BORDER_Y            :number                                 = 50.0;
 
+        /** The text block of the message queue . */
+        protected                           messageQueueTexts       :BABYLON_GUI.TextBlock[]                = [];
         /** The FPS text block. */
         protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
         /** The wearpon image. */
@@ -32,9 +34,6 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            const CANVAS_WIDTH  :number = bz.Main.game.engine.canvas.getWidth();
-            const CANVAS_HEIGHT :number = bz.Main.game.engine.canvas.getHeight();
-
             this.fpsText = bz.GuiFactory.createTextBlock
             (
                 '',
@@ -90,5 +89,29 @@
         {
             this.wearponImage.isVisible = visible;
             this.crosshair.isVisible    = visible;
+        }
+
+        /** ************************************************************************************************************
+        *   Adds a message to the message queue.
+        *
+        *   @param msg The message to add to the message queue.
+        ***************************************************************************************************************/
+        public addHudMessage( msg:string ) : void
+        {
+            const newHudMessage:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            (
+                msg,
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+                GameHUD.HUD_BORDER_X,
+                GameHUD.HUD_BORDER_Y + ( this.messageQueueTexts.length * 35 ),
+                250,
+                25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                null
+            );
+            this.guiFg.addControl( newHudMessage );
+
+            this.messageQueueTexts.push( newHudMessage );
         }
     }
