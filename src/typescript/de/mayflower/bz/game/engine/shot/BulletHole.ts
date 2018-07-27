@@ -95,7 +95,7 @@
         private createDebugHoleSphere() : void
         {
             // create debug bullet hole
-            const debugBulletHole:BABYLON.Mesh = bz.MeshFactory.createSphere
+            this.debugSphereMesh = bz.MeshFactory.createSphere
             (
                 this.hitPoint.point.clone(),
                 bz.MeshPivotAnchor.CENTER_XYZ,
@@ -110,7 +110,7 @@
             );
 
             // stick to parent
-            debugBulletHole.setParent( this.hitPoint.mesh );
+            this.debugSphereMesh.setParent( this.hitPoint.mesh );
         }
 
         /** ************************************************************************************************************
@@ -119,7 +119,7 @@
         private createDebugBulletHoleNormalLine() : void
         {
             // create debug bullet hole
-            const debugNormalLine:BABYLON.Mesh = bz.MeshFactory.createLine
+            this.debugNormalLine = bz.MeshFactory.createLine
             (
                 this.hitPoint.point.clone(),
                 this.hitPoint.point.clone().add( this.hitPoint.normal ),
@@ -130,6 +130,6 @@
             );
 
             // stick to parent
-            debugNormalLine.setParent( this.hitPoint.mesh );
+            this.debugNormalLine.setParent( this.hitPoint.mesh );
         }
     }

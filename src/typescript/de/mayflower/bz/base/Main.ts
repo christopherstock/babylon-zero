@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.!!) ?
-    *
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Create HUD message queue.
     *   TODO Fix view angle if ducking (revise scaling ..).

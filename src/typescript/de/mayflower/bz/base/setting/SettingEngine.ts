@@ -58,4 +58,6 @@
 
         /** Maximum instances of concurrent sprites. */
         public  static  readonly    MAX_SPRITE_INSTANCES                    :number             = 255;
+        /** Maximum instances of bullet holes in one stage. */
+        public  static  readonly    MAX_BULLET_HOLES                        :number             = 255;
     }

@@ -307,7 +307,7 @@
             for ( const impactHitPoint of impactHitPoints )
             {
                 const bulletHole:bz.BulletHole = impactHitPoint.createImpact( this.ambientColor );
-                this.bulletHoles.push( bulletHole );
+                this.addBulletHole( bulletHole );
             }
         }
 
@@ -483,5 +483,22 @@
             }
 
             return hitPoints;
+        }
+
+        /** ************************************************************************************************************
+        *   Adds the specified bullet hole to the bullet hole stack.
+        *   If the maximum number of bullet holes is reached, the oldest bullet hole will be disposed.
+        *
+        *   @param bulletHole The bullet hole to add to this stage.
+        ***************************************************************************************************************/
+        private addBulletHole( bulletHole:bz.BulletHole ) : void
+        {
+            if ( this.bulletHoles.length > bz.SettingEngine.MAX_BULLET_HOLES )
+            {
+                this.bulletHoles[ 0 ].dispose();
+                this.bulletHoles.shift();
+            }
+
+            this.bulletHoles.push( bulletHole );
         }
     }
