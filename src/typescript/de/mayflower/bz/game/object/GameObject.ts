@@ -56,18 +56,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets visibility for all meshes of this game object.
-        *   Invisible game objects become non pickable.
+        *   Sets visibility for the model of this game object.
         *
         *   @param visible The new visibility for this game object.
         ***************************************************************************************************************/
         public setVisible( visible:boolean ) : void
         {
-            for ( const mesh of this.model.getMeshes() )
-            {
-                mesh.isVisible  = visible;
-                mesh.isPickable = visible;
-            }
+            this.model.setVisible( visible );
         }
 
         /** ************************************************************************************************************

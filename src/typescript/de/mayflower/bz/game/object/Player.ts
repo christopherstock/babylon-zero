@@ -129,10 +129,10 @@
             this.moveDelta     = new BABYLON.Vector3( 0.0, 0.0,  0.0 );
 
             // reference all limbs
-            this.body      = this.model.getMeshes()[ Player.PLAYER_BODY_ID       ];
-            this.head      = this.model.getMeshes()[ Player.PLAYER_HEAD_ID       ];
-            this.leftHand  = this.model.getMeshes()[ Player.PLAYER_LEFT_HAND_ID  ];
-            this.rightHand = this.model.getMeshes()[ Player.PLAYER_RIGHT_HAND_ID ];
+            this.body      = this.model.getMesh( Player.PLAYER_BODY_ID       );
+            this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
+            this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
+            this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
 
             // stick limbs to body
             this.head.setParent(      this.body );

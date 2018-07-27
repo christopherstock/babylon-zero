@@ -45,16 +45,12 @@
             super.render();
 
             // rotate logo
-            for ( const mesh of this.logo.getMeshes() )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    270.0,
-                    this.rotY,
-                    90.0
-                );
-            }
+            this.logo.setAbsoluteRotationXYZ
+            (
+                270.0,
+                this.rotY,
+                90.0
+            );
 
             // increase logo rotation
             this.rotY += IntroLogo.ROTATION_SPEED;

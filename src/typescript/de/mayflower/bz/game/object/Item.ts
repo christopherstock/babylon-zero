@@ -31,16 +31,12 @@
             super.render();
 
             // testwise rotate this item
-            for ( const mesh of this.model.getMeshes() )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    0.0,
-                    this.rotY,
-                    0.0
-                );
-            }
+            this.model.setAbsoluteRotationXYZ
+            (
+                0.0,
+                this.rotY,
+                0.0
+            );
 
             this.rotY += 0.5;
         }
@@ -54,17 +50,9 @@
         {
             if ( !this.picked )
             {
-                out:
-                for ( const meshToCheck of modelToCheck.getMeshes() )
+                if ( this.model.intersects( modelToCheck ) )
                 {
-                    for ( const mesh of this.model.getMeshes() )
-                    {
-                        if ( mesh.intersectsMesh( meshToCheck ) )
-                        {
-                            this.pick();
-                            break out;
-                        }
-                    }
+                    this.pick();
                 }
             }
         }
@@ -78,9 +66,6 @@
 
             this.picked = true;
 
-            for ( const mesh of this.model.getMeshes() )
-            {
-                mesh.isVisible = false;
-            }
+            this.model.setVisible( false );
         }
     }

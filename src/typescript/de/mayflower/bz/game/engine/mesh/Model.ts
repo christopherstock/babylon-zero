@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export class Model
     {
-        /** All meshes that belong to this model. */
+        /** All meshes belonging to this model. */
         private             readonly            meshes                  :BABYLON.AbstractMesh[]             = null;
 
         /** ************************************************************************************************************
@@ -38,6 +38,33 @@
         public getMeshes() : BABYLON.AbstractMesh[]
         {
             return this.meshes;
+        }
+
+        /** ************************************************************************************************************
+        *   Sets visibility for all meshes of this model.
+        *   Invisible meshes become non pickable.
+        *
+        *   @param visible The new visibility for this model.
+        ***************************************************************************************************************/
+        public setVisible( visible:boolean ) : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                mesh.isVisible  = visible;
+                mesh.isPickable = visible;
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the mesh with the specified index.
+        *
+        *   @param index The index of the mesh to return.
+        *
+        *   @return The mesh with the specified index.
+        ***************************************************************************************************************/
+        public getMesh( index:number ) : BABYLON.AbstractMesh
+        {
+            return this.meshes[ index ];
         }
 
         /** ************************************************************************************************************
@@ -85,5 +112,49 @@
                     mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
                 }
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Rotates all meshes if this model.
+        *
+        *   @param rotX The rotation X in degrees.
+        *   @param rotY The rotation Y in degrees.
+        *   @param rotZ The rotation Z in degrees.
+        ***************************************************************************************************************/
+        public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number ) : void
+        {
+            for ( const mesh of this.getMeshes() )
+            {
+                bz.MeshManipulation.setAbsoluteRotationXYZ
+                (
+                    mesh,
+                    rotX,
+                    rotY,
+                    rotZ
+                );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Checks an intersection with the specified model.
+        *
+        *   @param otherModel The model to check intersection with.
+        *
+        *   @return If any mesh of this model collides with the specified model.
+        ***************************************************************************************************************/
+        public intersects( otherModel:Model ) : boolean
+        {
+            for ( const otherMesh of otherModel.meshes )
+            {
+                for ( const ownMesh of this.meshes )
+                {
+                    if ( ownMesh.intersectsMesh( otherMesh ) )
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }

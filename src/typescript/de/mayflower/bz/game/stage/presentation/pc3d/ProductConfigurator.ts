@@ -214,8 +214,8 @@
             );
 
             // reference single meshes
-            this.helmet = this.model.getMeshes()[ 0 ];
-            this.visor  = this.model.getMeshes()[ 1 ];
+            this.helmet = this.model.getMesh( 0 );
+            this.visor  = this.model.getMesh( 1 );
 
             return [
 

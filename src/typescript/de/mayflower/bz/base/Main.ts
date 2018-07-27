@@ -7,7 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Replace Model.getMeshes() with specific methods.
-    *   TODO Fix view angle if ducking.
+    *   TODO Fix view angle if ducking (revise scaling ..).
     *   TODO Enable different wearpon shoot angles (modifiers).
     *   TODO Introduce physics attribute param to createImportedModel().
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
