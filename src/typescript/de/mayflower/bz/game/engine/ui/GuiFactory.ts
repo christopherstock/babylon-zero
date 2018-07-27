@@ -89,8 +89,9 @@
         *   @param x             Position of the left edge.
         *   @param y             Position of the top edge.
         *   @param width         The horizontal dimension.
-        *   @param height        The vertical dimension.
+        *   @param height        The vertical   dimension.
         *   @param alignmentHorz The horizontal alignment.
+        *   @param alignmentVert The vertical   alignment.
         *   @param onPointerDown A callback to invoke when the pointer is down.
         *
         *   @return The specified text block.
@@ -105,6 +106,7 @@
             width         :number,
             height        :number,
             alignmentHorz :number,
+            alignmentVert :number,
             onPointerDown :() => void
         )
         : BABYLON_GUI.TextBlock
@@ -127,9 +129,9 @@
             }
 
             textBlock.horizontalAlignment     = alignmentHorz;
-            textBlock.verticalAlignment       = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            textBlock.verticalAlignment       = alignmentVert;
             textBlock.textHorizontalAlignment = alignmentHorz;
-            textBlock.textVerticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+            textBlock.textVerticalAlignment   = alignmentVert;
 
             if ( onPointerDown )
             {

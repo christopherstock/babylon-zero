@@ -153,6 +153,7 @@
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( titleRow1 );
@@ -166,6 +167,7 @@
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( titleRow2 );
@@ -179,6 +181,7 @@
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( titleRow3 );
@@ -205,6 +208,7 @@
                 300,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( textColorChoserVisor );
@@ -255,6 +259,7 @@
                     300,
                     20,
                     BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                    BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                     () => {
                         bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
@@ -286,6 +291,7 @@
                 300,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( textColorChoserHelmet );
@@ -336,6 +342,7 @@
                     300,
                     20,
                     BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                    BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                     () => {
                         bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
@@ -367,6 +374,7 @@
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( textCameraZoom );

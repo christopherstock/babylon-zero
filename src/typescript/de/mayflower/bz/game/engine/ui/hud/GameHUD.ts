@@ -44,6 +44,7 @@
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( this.fpsText );
@@ -104,10 +105,11 @@
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
                 GameHUD.HUD_BORDER_X,
-                GameHUD.HUD_BORDER_Y + ( this.messageQueueTexts.length * 35 ),
-                250,
+                -GameHUD.HUD_BORDER_Y - ( this.messageQueueTexts.length * 25 ),
+                500,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
                 null
             );
             this.guiFg.addControl( newHudMessage );
