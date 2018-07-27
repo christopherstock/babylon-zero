@@ -60,7 +60,6 @@
             this.holeMesh.dispose();
 
             if ( this.debugSphereMesh != null ) this.debugSphereMesh.dispose();
-
             if ( this.debugNormalLine != null ) this.debugNormalLine.dispose();
         }
 
@@ -78,7 +77,7 @@
                 this.hitPoint.normal,
                 new BABYLON.Vector3( 0.2, 0.2, BulletHole.BULLET_HOLE_DEPTH ),
                 bz.MathUtil.getRandomInt( 0, 359 ),
-                this.hitPoint.gameObject.bulletHoles.length,
+                this.hitPoint.gameObject.getNextBulletHoleIndexZ(),
                 meshTexture,
                 null,
                 bz.Main.game.engine.scene.getScene(),

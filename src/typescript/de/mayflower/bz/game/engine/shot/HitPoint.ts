@@ -54,8 +54,10 @@
         *   Causes a physical shot impact to this hit point and sets a bullet hole onto it.
         *
         *   @param emissiveColor The emissive color for the bullet hole to set.
+        *
+        *   @return The bullet hole being caused by this impact.
         ***************************************************************************************************************/
-        public createImpact( emissiveColor:BABYLON.Color3 ) : void
+        public createImpact( emissiveColor:BABYLON.Color3 ) : bz.BulletHole
         {
             // create a bullet hole
             const bulletHole:bz.BulletHole = new bz.BulletHole
@@ -64,11 +66,10 @@
                 emissiveColor
             );
 
-            // add bullet hole to game object
-            this.gameObject.bulletHoles.push( bulletHole );
-
             // apply impulse
             this.applyImpulseToMesh( 10 );
+
+            return bulletHole;
         }
 
         /** ************************************************************************************************************

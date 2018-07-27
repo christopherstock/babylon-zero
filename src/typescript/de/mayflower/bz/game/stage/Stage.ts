@@ -21,8 +21,6 @@
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
 
-        /** A collection of the coordinate axis in this stage. */
-        protected                           coordinateAxis          :BABYLON.Mesh[]                         = [];
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                           = null;
 
@@ -45,6 +43,9 @@
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
+
+        /** A collection of all bullet holes in this stage. */
+        protected                           bulletHoles             :bz.BulletHole[]                        = [];
 
         /** A collection of all debug meshes in this stage. */
         protected                           debugMeshes             :BABYLON.Mesh[]                         = [];
@@ -82,7 +83,7 @@
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
             {
-                this.coordinateAxis = this.createCoordinalAxis();
+                this.createCoordinalAxis();
             }
 
             this.walls        = this.createWalls();
@@ -162,12 +163,6 @@
                 this.player.dispose();
             }
 
-            // dispose coordinate axis
-            for ( const mesh of this.coordinateAxis )
-            {
-                mesh.dispose();
-            }
-
             // dispose all walls
             for ( const wall of this.walls )
             {
@@ -190,6 +185,12 @@
             for ( const bot of this.bots )
             {
                 bot.dispose();
+            }
+
+            // dispose all bullet holes
+            for ( const bulletHole of this.bulletHoles )
+            {
+                bulletHole.dispose();
             }
 
             // dispose all debug meshes
@@ -305,7 +306,8 @@
             // impact all hit points
             for ( const impactHitPoint of impactHitPoints )
             {
-                impactHitPoint.createImpact( this.ambientColor );
+                const bulletHole:bz.BulletHole = impactHitPoint.createImpact( this.ambientColor );
+                this.bulletHoles.push( bulletHole );
             }
         }
 
@@ -416,10 +418,10 @@
         *
         *   @return A collection of all meshes that build the coordinal axis lines.
         ***************************************************************************************************************/
-        private createCoordinalAxis() : BABYLON.Mesh[]
+        private createCoordinalAxis() : void
         {
-            return [
-
+            this.debugMeshes.push
+            (
                 // axis x
                 bz.MeshFactory.createLine
                 (
@@ -451,8 +453,8 @@
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE,
                     this.scene
-                ),
-            ];
+                )
+            );
         }
 
         /** ************************************************************************************************************

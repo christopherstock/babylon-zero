@@ -6,13 +6,11 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
-        // TODO private
-
-        /** All bullet holes that are sticked to this game object. */
-        public              readonly        bulletHoles             :bz.BulletHole[]            = null;
+        /** The next z-index for the bullet hole to assign. */
+        private                     nextBulletHoleZIndex        :number                     = 0;
 
         /** All meshes this game object consists of. */
-        protected           readonly        model                   :bz.Model                   = null;
+        protected   readonly        model                       :bz.Model                   = null;
 
         /** ************************************************************************************************************
         *   Creates a new game object.
@@ -22,13 +20,23 @@
         protected constructor( model:bz.Model )
         {
             this.model       = model;
-            this.bulletHoles = []
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next z-index for the next bullet hole to append onto this mesh.
+        *   The internal index is increased by one in this step.
+        *
+        *   @return The z-index for the next bullet hole to append onto this mesh.
+        ***************************************************************************************************************/
+        public getNextBulletHoleIndexZ() : number
+        {
+            return this.nextBulletHoleZIndex++;
         }
 
         /** ************************************************************************************************************
         *   Returns the model of this game object.
         *
-        *   @return model The physical representation of this game object.
+        *   @return The physical representation of this game object.
         ***************************************************************************************************************/
         public getModel() : bz.Model
         {
@@ -48,11 +56,6 @@
         public dispose() : void
         {
             this.model.dispose();
-
-            for ( const bulletHole of this.bulletHoles )
-            {
-                bulletHole.dispose();
-            }
         }
 
         /** ************************************************************************************************************
