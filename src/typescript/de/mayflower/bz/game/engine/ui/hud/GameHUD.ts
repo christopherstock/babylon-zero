@@ -8,12 +8,12 @@
     export class GameHUD extends bz.HUD
     {
         /** The width of the horizontal border for all HUD elements. */
-        private     static  readonly        HUD_BORDER_X            :number                                 = 50.0;
+        public      static  readonly        HUD_BORDER_X            :number                                 = 50.0;
         /** The height of the horizontal border for all HUD elements. */
-        private     static  readonly        HUD_BORDER_Y            :number                                 = 50.0;
+        public      static  readonly        HUD_BORDER_Y            :number                                 = 50.0;
 
         /** The text block of the message queue . */
-        protected                           messageQueueTexts       :BABYLON_GUI.TextBlock[]                = [];
+        protected                           messageQueueTexts       :bz.HUDMessage[]                        = [];
         /** The FPS text block. */
         protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
         /** The wearpon image. */
@@ -99,21 +99,14 @@
         ***************************************************************************************************************/
         public addHudMessage( msg:string ) : void
         {
-            const newHudMessage:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            this.messageQueueTexts.push
             (
-                msg,
-                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                GameHUD.HUD_BORDER_X,
-                -GameHUD.HUD_BORDER_Y - ( this.messageQueueTexts.length * 25 ),
-                500,
-                25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
-                null
+                new bz.HUDMessage
+                (
+                    this.guiFg,
+                    msg,
+                    ( -bz.GameHUD.HUD_BORDER_Y - ( this.messageQueueTexts.length * 25 ) )
+                )
             );
-            this.guiFg.addControl( newHudMessage );
-
-            this.messageQueueTexts.push( newHudMessage );
         }
     }
