@@ -21,10 +21,12 @@
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
-        /** Flags if the player currently wants to zoom. */
-        private                         zoom                        :boolean                            = false;
         /** The current height scale of the player. Changes on ducking. */
         private                         heightScale                 :number                             = 0.0;
+        /** Flags if the player currently wants to zoom. */
+        private                         zoom                        :boolean                            = false;
+        /** The current field of view of the player. Changes on zooming. */
+        private                         fieldOfView                 :number                             = 0.0;
 
         /** Current rotation. */
         private                         rotation                    :BABYLON.Vector3                    = null;
@@ -143,6 +145,8 @@
 
             // set initial scale and position for limbs
             this.heightScale = 1.0;
+            this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
+
             this.scaleHeight();
             this.positionPlayerLimbs();
         }
@@ -229,12 +233,7 @@
             }
 
             // zoom
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_X ) )
-            {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_X );
-
-                this.toggleZoom();
-            }
+            this.zoom = bz.Main.game.engine.keySystem.isPressed(bz.KeyCodes.KEY_X);
         }
 
         /** ************************************************************************************************************
@@ -242,13 +241,16 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // move and rotate
+            // move
             this.movePlayer();
-            this.rotatePlayerXYZ();
-            this.checkCenteringRotZ();
             this.manipulateVelocities();
 
-            // change size
+            // view
+            this.rotatePlayerXYZ();
+            this.checkCenteringRotZ();
+            this.checkFieldOfViewChange();
+
+            // morph
             this.checkHeightChange();
 
             // interact
@@ -316,25 +318,6 @@
             this.duck = !this.duck;
 
             bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
-        }
-
-        /** ************************************************************************************************************
-        *   Toggles player zooming.
-        ***************************************************************************************************************/
-        private toggleZoom() : void
-        {
-            this.zoom = !this.zoom;
-
-            if ( this.zoom )
-            {
-                bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( 0.5 );
-            }
-            else
-            {
-                bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW );
-            }
-
-            bz.Debug.player.log( 'Player zooming: [' + this.zoom + ']' );
         }
 
         /** ************************************************************************************************************
@@ -416,6 +399,44 @@
                 0.0,
                 0.0
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if the player's field of view changes.
+        ***************************************************************************************************************/
+        private checkFieldOfViewChange() : void
+        {
+            const CURRENT_WEARPON_MAX_ZOOM   :number = 0.5;
+            const CURRENT_WEARPON_ZOOM_SPEED :number = 0.05;
+
+            if ( this.zoom )
+            {
+                if ( this.fieldOfView > CURRENT_WEARPON_MAX_ZOOM )
+                {
+                    this.fieldOfView -= CURRENT_WEARPON_ZOOM_SPEED;
+
+                    if ( this.fieldOfView < CURRENT_WEARPON_MAX_ZOOM )
+                    {
+                        this.fieldOfView = CURRENT_WEARPON_MAX_ZOOM;
+                    }
+
+                    bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
+                }
+            }
+            else
+            {
+                if ( this.fieldOfView < bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW )
+                {
+                    this.fieldOfView += CURRENT_WEARPON_ZOOM_SPEED;
+
+                    if ( this.fieldOfView > bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW )
+                    {
+                        this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
+                    }
+
+                    bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
+                }
+            }
         }
 
         /** ************************************************************************************************************

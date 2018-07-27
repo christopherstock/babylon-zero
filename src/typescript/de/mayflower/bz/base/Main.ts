@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Add smooth wearpon zoom.
     *   TODO Fix view angle if ducking (revise scaling ..).
     *
     *   TODO Introduce physics attribute param to createImportedModel().
