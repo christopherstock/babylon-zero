@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export class CameraSystem
     {
-        /** The currently active scene camera type. */
+        /** The currently active camera type. */
         private                         activeCameraType                :bz.CameraType                          = null;
 
         /** The free controllable babylon.JS camera. */
@@ -38,8 +38,6 @@
         *   @param stationaryCameraTarget          The target node for the starionary camera.
         *   @param followCameraTarget              The target node for the follow camera.
         *   @param firstPersonCameraTarget         The target mesh for the first person camera.
-        *
-        *   @param initialActiveCamera             The initial camera to set as the active camera.
         ***************************************************************************************************************/
         constructor
         (
@@ -54,9 +52,7 @@
 
             stationaryCameraTarget          :any,
             followCameraTarget              :any,
-            firstPersonCameraTarget         :BABYLON.AbstractMesh,
-
-            initialActiveCamera             :bz.CameraType
+            firstPersonCameraTarget         :BABYLON.AbstractMesh
         )
         {
             this.canvas = canvas;
@@ -105,8 +101,6 @@
             {
                 this.setFirstPersonCameraTo( firstPersonCameraTarget );
             }
-
-            this.setActiveCamera( scene, initialActiveCamera, player, stage );
         }
 
         /** ************************************************************************************************************

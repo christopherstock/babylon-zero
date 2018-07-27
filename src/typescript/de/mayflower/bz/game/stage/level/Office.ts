@@ -22,7 +22,8 @@
             (
                 scene,
                 bz.SettingColor.COLOR_RGB_WHITE,
-                bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE
+                bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE,
+                bz.CameraType.FIRST_PERSON
             );
         }
 
@@ -451,8 +452,7 @@
                 new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
-                this.player.getFirstPersonCameraTargetMesh(),
-                bz.CameraType.FIRST_PERSON
+                this.player.getFirstPersonCameraTargetMesh()
             );
         }
 

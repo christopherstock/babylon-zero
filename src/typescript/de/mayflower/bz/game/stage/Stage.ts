@@ -18,6 +18,9 @@
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
 
+        /** The initial camera to set for this stage. */
+        protected           readonly        initialCamera           :bz.CameraType                          = null;
+
         /** A collection of the coordinate axis in this stage. */
         protected                           coordinateAxis          :BABYLON.Mesh[]                         = [];
         /** The skybox that surrounds the whole stage. */
@@ -49,20 +52,23 @@
         /** ************************************************************************************************************
         *   Creates a new custom stage.
         *
-        *   @param scene        The babylon.JS scene reference.
-        *   @param ambientColor The ambient color of the stage is the emissive color for all faces.
-        *   @param clearColor   The clear color of the stage is the background color of the scene.
+        *   @param scene         The babylon.JS scene reference.
+        *   @param ambientColor  The ambient color of the stage is the emissive color for all faces.
+        *   @param clearColor    The clear color of the stage is the background color of the scene.
+        *   @param initialCamera The initial camera for this stage.
         ***************************************************************************************************************/
         protected constructor
         (
-            scene        :BABYLON.Scene,
-            ambientColor :BABYLON.Color3,
-            clearColor   :BABYLON.Color4
+            scene         :BABYLON.Scene,
+            ambientColor  :BABYLON.Color3,
+            clearColor    :BABYLON.Color4,
+            initialCamera :bz.CameraType
         )
         {
-            this.scene        = scene;
-            this.ambientColor = ambientColor;
-            this.clearColor   = clearColor;
+            this.scene         = scene;
+            this.ambientColor  = ambientColor;
+            this.clearColor    = clearColor;
+            this.initialCamera = initialCamera;
         }
 
         /** ************************************************************************************************************
@@ -88,6 +94,8 @@
             this.hud          = this.createHUD();
             this.cameraSystem = this.createCameraSystem();
             this.lights       = this.createLights();
+
+            this.setActiveCamera( this.initialCamera );
 
             if ( bz.SettingEngine.ENABLE_SHADOWS )
             {

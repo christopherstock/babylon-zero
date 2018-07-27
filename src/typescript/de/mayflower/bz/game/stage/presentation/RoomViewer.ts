@@ -17,7 +17,8 @@
             (
                 scene,
                 bz.SettingColor.COLOR_RGB_BLACK,
-                bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE
+                bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
+                bz.CameraType.FREE_DEBUG
             );
         }
 
@@ -143,8 +144,7 @@
                 new BABYLON.Vector3( 1.0, 0.0, 0.0 ),
                 null,
                 null,
-                null,
-                bz.CameraType.FREE_DEBUG
+                null
             );
         }
 

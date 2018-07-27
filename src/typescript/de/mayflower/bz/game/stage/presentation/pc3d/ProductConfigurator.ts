@@ -31,7 +31,8 @@
             (
                 scene,
                 bz.SettingColor.COLOR_RGB_GREY_QUARTER,
-                new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 )
+                new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 ),
+                bz.CameraType.ARC_ROTATE
             );
         }
 
@@ -337,9 +338,7 @@
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
                 null,
-                null,
-
-                bz.CameraType.ARC_ROTATE
+                null
             );
         }
 

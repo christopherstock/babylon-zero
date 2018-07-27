@@ -29,7 +29,8 @@
             (
                 scene,
                 bz.SettingColor.COLOR_RGB_BLACK,
-                bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE
+                bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
+                bz.CameraType.STATIONARY
             );
 
             this.rotY = 270.0;
@@ -232,9 +233,7 @@
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
                 null,
-                null,
-
-                bz.CameraType.STATIONARY
+                null
             );
         }
 
