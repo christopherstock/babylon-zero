@@ -2,7 +2,7 @@
     import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   Manages all scene cameras.
+    *   Offers different scene cameras.
     *******************************************************************************************************************/
     export class CameraSystem
     {
@@ -20,16 +20,12 @@
         /** The babylon.JS axis camera. */
         private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
 
-        /** The HTML canvas that might change debug controls on camera switch. */
-        private         readonly        canvas                          :HTMLCanvasElement                      = null;
-
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
         *
         *   @param scene                           The babylon.JS scene.
         *   @param player                          The player that might change visibility by camera switch.
         *   @param stage                           The stage that may hide or show HUD.
-        *   @param canvas                          The HTML canvas that might change debug controls on camera switch.
         *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
@@ -44,7 +40,6 @@
             scene                           :BABYLON.Scene,
             player                          :bz.Player,
             stage                           :bz.Stage,
-            canvas                          :HTMLCanvasElement,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
@@ -55,8 +50,6 @@
             firstPersonCameraTarget         :BABYLON.AbstractMesh
         )
         {
-            this.canvas = canvas;
-
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (
                 scene,
@@ -110,13 +103,15 @@
         *   @param camera The type of camera to set as the scene's active camera.
         *   @param player The player instance that will show or hide according to the currently set camera.
         *   @param stage  The stage that may show or hide a HUD.
+        *   @param canvas The HTML canvas that might change debug controls on camera switch.
         ***************************************************************************************************************/
         public setActiveCamera
         (
             scene  :BABYLON.Scene,
             camera :bz.CameraType,
             player :bz.Player,
-            stage  :bz.Stage
+            stage  :bz.Stage,
+            canvas :HTMLCanvasElement
         )
         : void
         {
@@ -128,8 +123,8 @@
                 {
                     scene.activeCamera = this.freeCamera;
 
-                    this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      true,  canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null )
                     {
@@ -143,8 +138,8 @@
                 {
                     scene.activeCamera = this.stationaryCamera;
 
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null )
                     {
@@ -158,8 +153,8 @@
                 {
                     scene.activeCamera = this.followCamera;
 
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null )
                     {
@@ -173,8 +168,8 @@
                 {
                     scene.activeCamera = this.firstPersonCamera;
 
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null )
                     {
@@ -188,8 +183,8 @@
                 {
                     scene.activeCamera = this.arcRotateCamera;
 
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  canvas );
 
                     if ( player != null )
                     {

@@ -252,7 +252,8 @@
                 bz.Main.game.engine.scene.getScene(),
                 cameraId,
                 this.player,
-                this
+                this,
+                bz.Main.game.engine.canvas.getCanvas()
             );
         }
 

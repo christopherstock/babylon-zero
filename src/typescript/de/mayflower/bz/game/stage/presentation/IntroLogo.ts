@@ -225,7 +225,6 @@
                 this.scene,
                 this.player,
                 this,
-                bz.Main.game.engine.canvas.getCanvas(),
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
