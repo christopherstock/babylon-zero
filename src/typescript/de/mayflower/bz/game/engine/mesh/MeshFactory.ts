@@ -732,24 +732,16 @@
         )
         : bz.Model
         {
-            const originalModel:bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel
-            (
-                fileName
-            );
-            const originalMeshes :BABYLON.AbstractMesh[] = originalModel.getMeshes();
-            const clonedMeshes   :BABYLON.AbstractMesh[] = [];
+            const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const clonedMeshes  :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
 
-            let minTotal :BABYLON.Vector3 = null;
-            let maxTotal :BABYLON.Vector3 = null;
+            let minTotal        :BABYLON.Vector3 = null;
+            let maxTotal        :BABYLON.Vector3 = null;
 
             // clone all meshes
-            for ( const originalMesh of originalMeshes )
+            for ( const clonedMesh of clonedMeshes )
             {
-                const clonedMesh:BABYLON.AbstractMesh = originalMesh.clone
-                (
-                    bz.MeshFactory.createNextMeshId(),
-                    null // newParent
-                );
+                clonedMesh.id = bz.MeshFactory.createNextMeshId();
 
                 {
                     // get bounding info and update min and max vector points
@@ -792,15 +784,11 @@
                 clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
-
-                // append to array of cloned meshes
-                clonedMeshes.push( clonedMesh );
             }
-
 /*
-console.log( '>>> MIN TOTAL ' + ( minTotal ) );
-console.log( '>>> MAX TOTAL ' + ( maxTotal ) );
-console.log( '>>> DIST Y ' + ( maxTotal.y - minTotal.y ) );
+            console.log( '>>> MIN TOTAL ' + ( minTotal ) );
+            console.log( '>>> MAX TOTAL ' + ( maxTotal ) );
+            console.log( '>>> DIST Y ' + ( maxTotal.y - minTotal.y ) );
 */
 
 /*

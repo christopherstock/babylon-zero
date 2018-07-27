@@ -41,6 +41,23 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns a cloned collection of this models' meshes.
+        *
+        *   @return All cloned meshes from this model.
+        ***************************************************************************************************************/
+        public cloneMeshes() : BABYLON.AbstractMesh[]
+        {
+            const clonedMeshes:BABYLON.AbstractMesh[] = [];
+
+            for ( const mesh of this.meshes )
+            {
+                clonedMeshes.push( mesh.clone( '', null ) );
+            }
+
+            return clonedMeshes;
+        }
+
+        /** ************************************************************************************************************
         *   Scales down the linear velocity by 10 %.
         *   This is mandatory for stopping squares from rolling endlessly.
         ***************************************************************************************************************/
