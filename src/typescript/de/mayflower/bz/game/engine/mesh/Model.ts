@@ -1,5 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
+    import * as bz from '../../../index';
 
     /** ****************************************************************************************************************
     *   Represents a compund collection of meshes.
@@ -142,7 +143,7 @@
         *
         *   @return If any mesh of this model collides with the specified model.
         ***************************************************************************************************************/
-        public intersects( otherModel:Model ) : boolean
+        public intersects( otherModel:bz.Model ) : boolean
         {
             for ( const otherMesh of otherModel.meshes )
             {
