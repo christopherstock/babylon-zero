@@ -8,6 +8,7 @@
     {
         /** ************************************************************************************************************
         *   Converts an angle from degrees to radians.
+        *   The formula is: ( angleInDegrees * Math.PI / 180.0 )
         *
         *   @param angleInDegrees The angle in degrees.
         *
@@ -15,11 +16,12 @@
         ***************************************************************************************************************/
         public static degreesToRad( angleInDegrees:number ) : number
         {
-            return ( angleInDegrees * Math.PI / 180.0 );
+            return BABYLON.Angle.FromDegrees( angleInDegrees ).radians();
         }
 
         /** ************************************************************************************************************
         *   Converts an angle from radians to degrees.
+        *   The formula is: ( angleInRad * 180.0 / Math.PI )
         *
         *   @param angleInRad The angle in radians.
         *
@@ -27,7 +29,7 @@
         ***************************************************************************************************************/
         public static radToDegrees( angleInRad:number ) : number
         {
-            return ( angleInRad * 180.0 / Math.PI );
+            return BABYLON.Angle.FromRadians( angleInRad ).degrees();
         }
 
         /** ************************************************************************************************************
@@ -50,7 +52,7 @@
         *
         *   @return The normalized angle.
         ***************************************************************************************************************/
-        public static normalizeAngle( angleDegrees:number ) : number
+        public static normalizeAngleDegrees( angleDegrees:number ) : number
         {
             while ( angleDegrees > 360.0 ) angleDegrees -= 360.0;
             while ( angleDegrees < 0.0   ) angleDegrees += 360.0;

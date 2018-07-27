@@ -6,12 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Replace Model.getMeshes() with specific methods.
-    *   TODO Fix view angle if ducking (revise scaling ..).
-    *   TODO Enable different wearpon shoot angles (modifiers).
-    *   TODO Introduce physics attribute param to createImportedModel().
     *   TODO Enable wearpon zoom. (view angle / camera solution?)
-    *   TODO Use BABYLON.Angle instead of own implementation for degree-rad?
+    *   TODO Fix view angle if ducking (revise scaling ..).
+    *
+    *   TODO Introduce physics attribute param to createImportedModel().
+    *
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Let models crash into their separate elements/meshes on being destroyed?
     *   TODO Create 3d gun as 2nd scene in front?
@@ -33,6 +32,7 @@
     *   TODO Add muzzle flash to gun on firing.
     *   TODO Add wearpon panning?
     *   TODO Merge all game objects to one array in Stage?
+    *   TODO Enable wearpon system with different wearpons: magazine size, shoot angles, range ..
     *   TODO Limit number of bullet holes to 256 etc. (check performance on 1000 etc.!!) ?
     *   TODO Create air friction for ALL movables in render() of scene!
     *   TODO Quick fire animation in bullet hole (for certain materials..)?

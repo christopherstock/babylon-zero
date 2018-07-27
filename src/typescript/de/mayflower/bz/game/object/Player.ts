@@ -350,7 +350,7 @@
         {
             if ( this.rotationDelta.y !== 0.0 )
             {
-                this.rotation.y = bz.MathUtil.normalizeAngle( this.rotation.y + this.rotationDelta.y );
+                this.rotation.y = bz.MathUtil.normalizeAngleDegrees( this.rotation.y + this.rotationDelta.y );
                 this.rotationDelta.y = 0.0;
             }
 
