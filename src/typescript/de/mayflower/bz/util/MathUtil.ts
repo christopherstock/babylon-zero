@@ -9,25 +9,25 @@
         /** ************************************************************************************************************
         *   Converts an angle from degrees to radians.
         *
-        *   @param angleDegrees The angle in degrees.
+        *   @param angleInDegrees The angle in degrees.
         *
         *   @return The angle in radians.
         ***************************************************************************************************************/
-        public static degreesToRad( angleDegrees:number ) : number
+        public static degreesToRad( angleInDegrees:number ) : number
         {
-            return ( angleDegrees * Math.PI / 180.0 );
+            return ( angleInDegrees * Math.PI / 180.0 );
         }
 
         /** ************************************************************************************************************
         *   Converts an angle from radians to degrees.
         *
-        *   @param angleRad The angle in radians.
+        *   @param angleInRad The angle in radians.
         *
         *   @return The angle in degrees.
         ***************************************************************************************************************/
-        public static radToDegrees( angleRad:number ) : number
+        public static radToDegrees( angleInRad:number ) : number
         {
-            return ( angleRad * 180.0 / Math.PI );
+            return ( angleInRad * 180.0 / Math.PI );
         }
 
         /** ************************************************************************************************************
@@ -61,25 +61,64 @@
         /** ************************************************************************************************************
         *   Delivers the sine value of the given angle in degrees.
         *
-        *   @param angleDegrees An angle in degrees to get the sine for.
+        *   @param angleInDegrees An angle in degrees to get the sine for.
         *
         *   @return The sine value for the specified angle.
         ***************************************************************************************************************/
-        public static sinDegrees( angleDegrees:number ) : number
+        public static sinDegrees( angleInDegrees:number ) : number
         {
-            return Math.sin( MathUtil.degreesToRad( angleDegrees ) );
+            return Math.sin( MathUtil.degreesToRad( angleInDegrees ) );
         }
 
         /** ************************************************************************************************************
         *   Delivers the cosine value of the given angle in degrees.
         *
-        *   @param angleDegrees An angle to get the cosine for.
+        *   @param angleInDegrees An angle to get the cosine for.
         *
         *   @return The cosine value for the specified angle.
         ***************************************************************************************************************/
-        public static cosDegrees( angleDegrees:number ) : number
+        public static cosDegrees( angleInDegrees:number ) : number
         {
-            return Math.cos( MathUtil.degreesToRad( angleDegrees ) );
+            return Math.cos( MathUtil.degreesToRad( angleInDegrees ) );
+        }
+
+        /** ************************************************************************************************************
+        *   Calculates the volume of a cube.
+        *
+        *   @param width  Width  of the cube.
+        *   @param height Height of the cube.
+        *   @param depth  Depth  of the cube.
+        *
+        *   @return The volume of the cube.
+        ***************************************************************************************************************/
+        public static getCubeVolume( width:number, height:number, depth:number ) : number
+        {
+            return ( width * height * depth );
+        }
+
+        /** ************************************************************************************************************
+        *   Calculates the volume of a cylinder.
+        *
+        *   @param diameter Diameter of the cylinder.
+        *   @param height   The height of the cylinder.
+        *
+        *   @return The volume of the cylinder.
+        ***************************************************************************************************************/
+        public static getCylinderVolume( diameter:number, height:number ) : number
+        {
+            return ( ( Math.pow( ( diameter / 2 ), 2 ) * Math.PI ) * height );
+        }
+
+        /** ************************************************************************************************************
+        *   Calculates the volume of a sphere.
+        *
+        *   @param diameter Diameter of the sphere.
+        *
+        *   @return The volume of the sphere.
+        ***************************************************************************************************************/
+        public static getSphereVolume( diameter:number ) : number
+        {
+            return ( ( Math.pow( ( diameter / 2 ), 3 ) * Math.PI ) * 4 / 3 );
         }
 
         /** ************************************************************************************************************

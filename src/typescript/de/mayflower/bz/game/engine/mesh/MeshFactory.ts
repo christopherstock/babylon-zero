@@ -109,7 +109,7 @@
                 emissiveColor
             );
 
-            const volume:number = ( size.x * size.y * size.z );
+            const volume:number = bz.MathUtil.getCubeVolume( size.x, size.y, size.z );
 
             return MeshFactory.decorateMesh
             (
@@ -210,7 +210,7 @@
                 emissiveColor
             );
 
-            const volume:number = ( Math.pow( ( diameter / 2 ), 2 ) * Math.PI * height );
+            const volume:number = bz.MathUtil.getCylinderVolume( diameter, height );
 
             return MeshFactory.decorateMesh
             (
@@ -276,7 +276,7 @@
                 emissiveColor
             );
 
-            const volume:number = ( Math.pow( ( diameter / 2 ), 3 ) * Math.PI * 4 / 3 );
+            const volume:number = bz.MathUtil.getSphereVolume( diameter );
 
             return MeshFactory.decorateMesh
             (
@@ -354,7 +354,7 @@
                 emissiveColor
             );
 
-            const volume:number = ( width * height * MeshFactory.FACE_DEPTH );
+            const volume:number = bz.MathUtil.getCubeVolume( width, height, MeshFactory.FACE_DEPTH );
 
             return MeshFactory.decorateMesh
             (
@@ -875,7 +875,13 @@ console.log( '>>> DIST Y ' + ( maxTotal.y - minTotal.y ) );
             mesh.material       = material;
             mesh.receiveShadows = bz.SettingEngine.ENABLE_SHADOWS;
 
-            physic.applyPhysicToMesh( mesh, volume, physicsImpostor, scene );
+            physic.applyPhysicToMesh
+            (
+                mesh,
+                volume,
+                physicsImpostor,
+                scene
+            );
 
             if ( rotation != null )
             {

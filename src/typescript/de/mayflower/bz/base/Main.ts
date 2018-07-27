@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Add player/camrera controls (turn, duck)
-    *   TODO Move all body volume calculations to MathUtil functions? or replace by explicit mass setting etc?
     *   TODO Create SettingPlayer, SettingColor and SettingStage.
     *   TODO Improve camera system for actual usage. ( remove non-required cameras? ) decouple "active change":
     *   TODO decouple player and visibility change method from CameraSystem?
