@@ -7,7 +7,7 @@
     export class Office extends bz.Stage
     {
         /** A testwise mesh 'chair'. */
-        protected                           chair                   :bz.Model                               = null;
+        protected                           chairSingle             :bz.Model                               = null;
         /** A testwise mesh 'chair'. */
         protected                           chairMulti              :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
@@ -153,7 +153,7 @@
         protected createMovables() : bz.Movable[]
         {
             // import mesh model
-            this.chair = bz.MeshFactory.createImportedModel
+            this.chairSingle = bz.MeshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_2,
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
@@ -187,7 +187,7 @@
                 // 3ds chair single-meshed
                 new bz.Movable
                 (
-                    this.chair,
+                    this.chairSingle,
                 ),
 
                 // 3ds chair - multi-meshes
