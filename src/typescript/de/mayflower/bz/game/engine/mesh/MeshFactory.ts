@@ -735,27 +735,16 @@
             const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
             const clonedMeshes  :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
 
-            let minTotal        :BABYLON.Vector3 = null;
-            let maxTotal        :BABYLON.Vector3 = null;
-
             // clone all meshes
             for ( const clonedMesh of clonedMeshes )
             {
                 clonedMesh.id = bz.MeshFactory.createNextMeshId();
-
-                {
-                    // get bounding info and update min and max vector points
-                    const boundingInfo :BABYLON.BoundingInfo = clonedMesh.getBoundingInfo();
-                    const minimum      :BABYLON.Vector3      = boundingInfo.minimum;
-                    const maximum      :BABYLON.Vector3      = boundingInfo.maximum;
 /*
-                    console.log( 'minimum ', minimum );
-                    console.log( 'maximum ', maximum );
+                // get bounding info
+                const boundingInfo :BABYLON.BoundingInfo = clonedMesh.getBoundingInfo();
+                const minimum      :BABYLON.Vector3      = boundingInfo.minimum;
+                const maximum      :BABYLON.Vector3      = boundingInfo.maximum;
 */
-                    minTotal = ( minTotal == null ? minimum : BABYLON.Vector3.Minimize( minimum, minTotal ) );
-                    maxTotal = ( maxTotal == null ? maximum : BABYLON.Vector3.Maximize( maximum, maxTotal ) );
-                }
-
                 // show this mesh
                 clonedMesh.visibility = 1.0;
 
@@ -778,55 +767,7 @@
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
             }
-/*
-            console.log( '>>> MIN TOTAL ' + ( minTotal ) );
-            console.log( '>>> MAX TOTAL ' + ( maxTotal ) );
-            console.log( '>>> DIST Y ' + ( maxTotal.y - minTotal.y ) );
-*/
 
-/*
-            // apply anchor for all meshes
-            for ( const clonedMesh of clonedMeshes )
-            {
-                switch ( pivotAnchor )
-                {
-                    case bz.MeshPivotAnchor.CENTER_XYZ:
-                    {
-                        // no handling
-/*
-                        clonedMesh.position.y -= 2.0; // ( maxTotal.y - minTotal.y );
-*/
-/*
-                        break;
-                    }
-
-                    case bz.MeshPivotAnchor.LOWEST_XYZ:
-                    {
-*/
-/*
-                        bz.MeshManipulation.setPositionAndPivot
-                        (
-                            clonedMesh,
-                            position,
-                            pivotAnchor,
-                            maxTotal.x - minTotal.y,
-                            maxTotal.y - minTotal.y,
-                            maxTotal.z - minTotal.z,
-                        );
-*/
-/*
-                        break;
-                    }
-*/
-/*
-                }
-            }
-*/
-
-/*
-            console.log( '> minTotal ', minTotal );
-            console.log( '> maxTotal ', maxTotal );
-*/
             return new bz.Model( clonedMeshes );
         }
 

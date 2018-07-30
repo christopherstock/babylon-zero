@@ -10,16 +10,16 @@
         private     static  readonly    BULLET_HOLE_DEPTH               :number                             = 0.025;
 
         /** The hit point this bullet hole is created for. */
-        public              readonly    hitPoint                        :bz.HitPoint                        = null;
+        private             readonly    hitPoint                        :bz.HitPoint                        = null;
         /** The emissive color of the level where this bullet hole is created. */
-        public              readonly    emissiveColor                   :BABYLON.Color3                     = null;
+        private             readonly    emissiveColor                   :BABYLON.Color3                     = null;
 
         /** The decal mesh of this bullet hole. */
-        public                          holeMesh                        :BABYLON.Mesh                       = null;
+        private                         holeMesh                        :BABYLON.Mesh                       = null;
         /** The debug sphere mesh of this bullet hole. */
-        public                          debugSphereMesh                 :BABYLON.Mesh                       = null;
+        private                         debugSphereMesh                 :BABYLON.Mesh                       = null;
         /** The debug normal line of the hit face. */
-        public                          debugNormalLine                 :BABYLON.Mesh                       = null;
+        private                         debugNormalLine                 :BABYLON.Mesh                       = null;
 
         /** ************************************************************************************************************
         *   Creates a new bullet hole.
