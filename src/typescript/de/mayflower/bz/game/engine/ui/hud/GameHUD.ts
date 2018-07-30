@@ -87,17 +87,23 @@
             }
 
             // dispose all obsolete HUD messages
+            let relocationRequired:boolean = false;
             for ( let index:number = this.messageQueue.length - 1; index >= 0; --index )
             {
-                if ( this.messageQueue[ index ].checkLifetimeOver() )
+                if ( this.messageQueue[ index ].isLifetimeOver() )
                 {
                     this.messageQueue[ index ].dispose();
                     this.messageQueue.splice( index, 1 );
+
+                    relocationRequired = true;
                 }
             }
 
-            // relocate all HUD messages
-            this.relocateAllHudMessages();
+            // relocate all HUD messages if required
+            if ( relocationRequired )
+            {
+                this.relocateAllHudMessages();
+            }
         }
 
         /** ************************************************************************************************************

@@ -51,6 +51,12 @@
         {
             // decrease number of lifetime ticks
             --this.lifetimeTicks;
+
+            // assign opacity according to lifetime ticks
+            if ( this.lifetimeTicks < bz.SettingGame.HUD_MESSAGE_FADE_OUT_TICKS )
+            {
+                this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGame.HUD_MESSAGE_FADE_OUT_TICKS );
+            }
         }
 
         /** ************************************************************************************************************
@@ -58,7 +64,7 @@
         *
         *   @return If this HUD message's lifetime is over.
         ***************************************************************************************************************/
-        public checkLifetimeOver() : boolean
+        public isLifetimeOver() : boolean
         {
             return ( this.lifetimeTicks <= 0 );
         }
