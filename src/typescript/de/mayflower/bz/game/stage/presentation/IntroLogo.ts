@@ -108,7 +108,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
-                false
+                bz.Physic.NONE
             );
 
             return [

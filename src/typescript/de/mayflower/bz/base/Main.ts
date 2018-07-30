@@ -6,7 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Introduce physics attribute param to createImportedModel().
+    *   TODO Separate decorateMesh to material setting and physic setting?
+    *
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *

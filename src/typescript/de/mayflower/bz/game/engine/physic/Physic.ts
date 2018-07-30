@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export class Physic
     {
-        /** The player has very special physical attributes with the primal goal to keep the user entertained. */
+        /** A non-collidable and non-gravitational affected physical state. */
         public  static  readonly        NONE            :Physic                 = new Physic
         (
             bz.PhysicState.NONE,
@@ -92,7 +92,7 @@
         ***************************************************************************************************************/
         public applyPhysicToMesh
         (
-            mesh         :BABYLON.Mesh,
+            mesh         :BABYLON.AbstractMesh,
             volume       :number,
             impostorType :number,
             scene        :BABYLON.Scene
