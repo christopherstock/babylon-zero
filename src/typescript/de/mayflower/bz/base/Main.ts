@@ -6,30 +6,31 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Separate decorateMesh to material setting and physic setting?
+    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *
-    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
-    *   TODO Sounds for shot, bullet hit and bullet drop.
-    *
-    *   TODO Darken faces / submeshes if being shot and damaged?
+    *   TODO Stick meshes of an imported model together without stiffness so they act as one unit.
     *   TODO Let models crash into their separate elements/meshes on being destroyed?
     *
+    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
+    *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Add particle system (fx) for bullet holes' wall rubble.
+    *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *
+    *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
+    *   TODO Sounds for shot, bullet hit and bullet drop.
+    *
+    *   TODO Enable wearpon system with different wearpons: magazine size, shoot angles, range, zoom ..
+    *
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
-    *   TODO Create material system with unified parameters!?
     *   TODO Enable jumping? Determine player floor collision ...
-    *   TODO Let HUD messages fade out..
-    *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
-    *   TODO Add physical compound (link/joint?) for imported mesh collections?
+    *
     *   TODO Create air friction for ALL movables in render() of scene!
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Merge all game objects to one array in Stage?
-    *   TODO Enable wearpon system with different wearpons: magazine size, shoot angles, range, zoom ..
-    *   TODO Create and test spatial sound (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values.
-    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
-    *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
+    *
+    *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *
     *   TODO Advanced topics:
@@ -37,6 +38,7 @@
     *   TODO Add physically correct bullet drop out after fire.
     *   TODO Fix view angle if ducking (revise scaling ..).
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
+    *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *   TODO Smooth edges for bullet holes? Certain bullet hole shapes look white?
     *   TODO Zoom HUD wearpon on zooming?
@@ -45,7 +47,6 @@
     *   TODO Reduce static accesses to Main.game?
     *   TODO Fix decals flickering in certain view angles ?
     *   TODO Add muzzle flash to gun on firing.
-    *
     *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
     *
     *   TODO Create (different?) characters from primitives or mesh objects??

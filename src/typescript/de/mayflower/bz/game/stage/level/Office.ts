@@ -8,6 +8,8 @@
     {
         /** A testwise mesh 'chair'. */
         protected                           chair                   :bz.Model                               = null;
+        /** A testwise mesh 'chair'. */
+        protected                           chairMulti              :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
         protected                           chairRotX               :number                                 = 0.0;
 
@@ -159,6 +161,14 @@
                 this.scene,
                 bz.Physic.SOLID_WOOD
             );
+            this.chairMulti = bz.MeshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR,
+                new BABYLON.Vector3( 10.0, 0.0, 5.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene,
+                bz.Physic.SOLID_WOOD
+            );
 
             return [
 
@@ -174,10 +184,16 @@
                     )
                 ),
 
-                // 3ds chair
+                // 3ds chair single-meshed
                 new bz.Movable
                 (
                     this.chair,
+                ),
+
+                // 3ds chair - multi-meshes
+                new bz.Movable
+                (
+                    this.chairMulti,
                 ),
 
                 // 3ds sphere
