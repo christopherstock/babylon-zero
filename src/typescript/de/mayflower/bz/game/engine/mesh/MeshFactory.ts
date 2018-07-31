@@ -714,23 +714,23 @@
         /** ************************************************************************************************************
         *   Returns a clone of the imported model with the specified filename.
         *
-        *   @param fileName           The filename of the imported mesh to return a clone for.
-        *   @param position           The position for this mesh to show up.
-        *   @param pivotAnchor        The pivot anchor specification for the imported model.
-        *   @param scene              The scene where this imported mesh is cloned into.
-        *   @param physic             Specifies the physicsl behaviour of this imported model.
-        *   @param tryCompoundPhysics If compound physics shall be tested on this model.
+        *   @param fileName          The filename of the imported mesh to return a clone for.
+        *   @param position          The position for this mesh to show up.
+        *   @param pivotAnchor       The pivot anchor specification for the imported model.
+        *   @param scene             The scene where this imported mesh is cloned into.
+        *   @param physic            Specifies the physicsl behaviour of this imported model.
+        *   @param useCompoundParent If a parent compound mesh should be set for all meshes.
         *
         *   @return A clone of the model with the specified filename.
         ***************************************************************************************************************/
         public static createImportedModel
         (
-            fileName           :string,
-            position           :BABYLON.Vector3,
-            pivotAnchor        :bz.MeshPivotAnchor,
-            scene              :BABYLON.Scene,
-            physic             :bz.Physic,
-            tryCompoundPhysics :boolean
+            fileName          :string,
+            position          :BABYLON.Vector3,
+            pivotAnchor       :bz.MeshPivotAnchor,
+            scene             :BABYLON.Scene,
+            physic            :bz.Physic,
+            useCompoundParent :boolean
         )
         : bz.Model
         {
@@ -739,16 +739,14 @@
 
             let compoundParent :BABYLON.Mesh = null;
 
-            if ( tryCompoundPhysics )
+            if ( useCompoundParent )
             {
                 compoundParent = bz.MeshFactory.createBox
                 (
                     position,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-
+                    new BABYLON.Vector3( 0.01, 0.01, 0.01 ),
+                    new BABYLON.Vector3( 90.0, 0.0, 0.0 ),
                     bz.Texture.WALL_GRASS,
                     null,
                     bz.Main.game.engine.scene.getScene(),
@@ -771,22 +769,20 @@
                 // show this mesh
                 clonedMesh.visibility = 1.0;
 
-                // transform this mesh
-                if ( compoundParent == null )
-                {
-                    bz.MeshManipulation.translatePosition( clonedMesh, position );
-                }
-
-                // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
-
                 // specify debug settings for the cloned mesh
                 clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
 
-                if ( compoundParent != null )
+                if ( useCompoundParent )
                 {
+                    // set compound mesh as parent
                     clonedMesh.parent = compoundParent;
+                }
+                else
+                {
+                    // transform cloned meshes
+                    bz.MeshManipulation.translatePosition( clonedMesh, position );
                 }
             }
 
@@ -803,7 +799,7 @@
             }
 
             // apply physics to the compound parent
-            if ( compoundParent != null )
+            if ( useCompoundParent )
             {
                 physic.applyPhysicToMesh
                 (

@@ -165,7 +165,7 @@
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR,
-                new BABYLON.Vector3( 10.0, 2.0, 10.0 ),
+                new BABYLON.Vector3( 20.0, 0.1, 20.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
                 bz.Physic.SOLID_WOOD,
