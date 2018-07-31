@@ -745,7 +745,9 @@
                 (
                     position,
                     bz.MeshPivotAnchor.CENTER_XYZ,
+
                     new BABYLON.Vector3( 0.01, 0.01, 0.01 ),
+
                     new BABYLON.Vector3( 90.0, 0.0, 0.0 ),
                     bz.Texture.WALL_GRASS,
                     null,
@@ -784,11 +786,8 @@
                     // transform cloned meshes
                     bz.MeshManipulation.translatePosition( clonedMesh, position );
                 }
-            }
 
-            // apply physics to all cloned meshes
-            for ( const clonedMesh of clonedMeshes )
-            {
+                // apply physics to all cloned meshes
                 physic.applyPhysicToMesh
                 (
                     clonedMesh,
