@@ -166,7 +166,7 @@
             (
                 bz.ModelFile.OFFICE_CHAIR,
 
-                new BABYLON.Vector3( 20.0, 0.5, 20.0 ),
+                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
 
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,

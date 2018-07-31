@@ -746,9 +746,9 @@
                     position,
                     bz.MeshPivotAnchor.CENTER_XYZ,
 
-                    new BABYLON.Vector3( 0.01, 0.01, 0.01 ),
+                    new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
 
-                    new BABYLON.Vector3( 90.0, 0.0, 0.0 ),
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.Texture.WALL_GRASS,
                     null,
                     bz.Main.game.engine.scene.getScene(),
