@@ -714,26 +714,47 @@
         /** ************************************************************************************************************
         *   Returns a clone of the imported model with the specified filename.
         *
-        *   @param fileName    The filename of the imported mesh to return a clone for.
-        *   @param position    The position for this mesh to show up.
-        *   @param pivotAnchor The pivot anchor specification for the imported model.
-        *   @param scene       The scene where this imported mesh is cloned into.
-        *   @param physic      Specifies the physicsl behaviour of this imported model.
+        *   @param fileName           The filename of the imported mesh to return a clone for.
+        *   @param position           The position for this mesh to show up.
+        *   @param pivotAnchor        The pivot anchor specification for the imported model.
+        *   @param scene              The scene where this imported mesh is cloned into.
+        *   @param physic             Specifies the physicsl behaviour of this imported model.
+        *   @param tryCompoundPhysics If compound physics shall be tested on this model.
         *
         *   @return A clone of the model with the specified filename.
         ***************************************************************************************************************/
         public static createImportedModel
         (
-            fileName    :string,
-            position    :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPivotAnchor,
-            scene       :BABYLON.Scene,
-            physic      :bz.Physic
+            fileName           :string,
+            position           :BABYLON.Vector3,
+            pivotAnchor        :bz.MeshPivotAnchor,
+            scene              :BABYLON.Scene,
+            physic             :bz.Physic,
+            tryCompoundPhysics :boolean
         )
         : bz.Model
         {
             const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
             const clonedMeshes  :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
+
+            let compoundParent :BABYLON.Mesh = null;
+
+            if ( tryCompoundPhysics )
+            {
+                compoundParent = bz.MeshFactory.createBox
+                (
+                    new BABYLON.Vector3( 10.0, 2.0, 2.5 ),
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                    BABYLON.Vector3.Zero(),
+                    bz.Texture.WALL_GRASS,
+                    null,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physic.NONE,
+                    1.0,
+                    BABYLON.Color3.Red()
+                );
+            }
 
             // clone all meshes
             for ( const clonedMesh of clonedMeshes )
@@ -751,7 +772,22 @@
                 // transform this mesh
                 bz.MeshManipulation.translatePosition( clonedMesh, position );
 
-                // specify physics for the cloned mesh
+                // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
+
+                // specify debug settings for the cloned mesh
+                clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                clonedMesh.isPickable = true;
+
+                if ( compoundParent != null )
+                {
+                    clonedMesh.parent = compoundParent;
+                }
+            }
+
+            // apply physics to all cloned meshes
+            for ( const clonedMesh of clonedMeshes )
+            {
                 physic.applyPhysicToMesh
                 (
                     clonedMesh,
@@ -759,13 +795,21 @@
                     BABYLON.PhysicsImpostor.BoxImpostor,
                     scene
                 );
+            }
 
-                // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
+            // apply physics to the compound parent
+            if ( compoundParent != null )
+            {
+                physic.applyPhysicToMesh
+                (
+                    compoundParent,
+                    1.0,
+                    BABYLON.PhysicsImpostor.BoxImpostor,
+                    scene
+                );
 
-                // specify debug settings for the cloned mesh
-                clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                clonedMesh.isPickable = true;
+                // add the compound parent to the mesh collection
+                clonedMeshes.push( compoundParent );
             }
 
             return new bz.Model( clonedMeshes );

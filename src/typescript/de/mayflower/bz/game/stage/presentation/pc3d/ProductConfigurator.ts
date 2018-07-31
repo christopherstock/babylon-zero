@@ -210,7 +210,8 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
-                bz.Physic.NONE
+                bz.Physic.NONE,
+                false
             );
 
             // reference single meshes

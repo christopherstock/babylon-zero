@@ -2,6 +2,7 @@
     "extends": [
         "tslint:recommended"
     ],
+    "defaultSeverity": "warning",
     "rules": {
         "arrow-parens": false,
         "ban-comma-operator": true,

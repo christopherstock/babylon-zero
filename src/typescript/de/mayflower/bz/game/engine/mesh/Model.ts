@@ -1,9 +1,9 @@
 
     import * as BABYLON from 'babylonjs';
-    import * as bz from '../../../index';
+    import * as bz      from '../../../index';
 
     /** ****************************************************************************************************************
-    *   Represents a compund collection of meshes.
+    *   Represents a collection of meshes that may be compound.
     *******************************************************************************************************************/
     export class Model
     {
@@ -27,6 +27,7 @@
         {
             for ( const mesh of this.meshes )
             {
+                mesh.parent = null;
                 mesh.dispose();
             }
         }

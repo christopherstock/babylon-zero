@@ -159,7 +159,8 @@
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
-                bz.Physic.SOLID_WOOD
+                bz.Physic.SOLID_WOOD,
+                false
             );
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
@@ -167,7 +168,8 @@
                 new BABYLON.Vector3( 10.0, 0.0, 5.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
-                bz.Physic.SOLID_WOOD
+                bz.Physic.SOLID_WOOD,
+                true
             );
 
             return [
@@ -180,7 +182,8 @@
                         new BABYLON.Vector3( 10.0, 10.0, 30.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
-                        bz.Physic.SOLID_WOOD
+                        bz.Physic.SOLID_WOOD,
+                        false
                     )
                 ),
 
