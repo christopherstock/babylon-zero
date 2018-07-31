@@ -743,10 +743,12 @@
             {
                 compoundParent = bz.MeshFactory.createBox
                 (
-                    new BABYLON.Vector3( 10.0, 2.0, 2.5 ),
+                    position,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
-                    BABYLON.Vector3.Zero(),
+                    new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
+
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+
                     bz.Texture.WALL_GRASS,
                     null,
                     bz.Main.game.engine.scene.getScene(),
@@ -770,7 +772,10 @@
                 clonedMesh.visibility = 1.0;
 
                 // transform this mesh
-                bz.MeshManipulation.translatePosition( clonedMesh, position );
+                if ( compoundParent == null )
+                {
+                    bz.MeshManipulation.translatePosition( clonedMesh, position );
+                }
 
                 // mesh.setPhysicsLinkWith(centerMesh,BABYLON.Vector3.Zero(),BABYLON.Vector3.Zero());
 
@@ -791,7 +796,7 @@
                 physic.applyPhysicToMesh
                 (
                     clonedMesh,
-                    1.0,
+                    ( 1.0 / clonedMeshes.length ),
                     BABYLON.PhysicsImpostor.BoxImpostor,
                     scene
                 );
@@ -803,7 +808,7 @@
                 physic.applyPhysicToMesh
                 (
                     compoundParent,
-                    1.0,
+                    ( 1.0 / clonedMeshes.length ),
                     BABYLON.PhysicsImpostor.BoxImpostor,
                     scene
                 );
