@@ -6,11 +6,11 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
-        /** The next z-index for the bullet hole to assign. */
-        private                     nextBulletHoleZIndex        :number                     = 0;
-
         /** All meshes this game object consists of. */
         protected   readonly        model                       :bz.Model                   = null;
+
+        /** The next z-index for the bullet hole to assign. */
+        private                     nextBulletHoleZIndex        :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new game object.

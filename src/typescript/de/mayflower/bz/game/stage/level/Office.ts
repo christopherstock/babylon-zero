@@ -11,7 +11,7 @@
         /** A testwise mesh 'chair'. */
         protected                           chairMulti              :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
-        protected                           chairRotX               :number                                 = 0.0;
+        protected                           chairRot               :number                                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new test office.
@@ -41,19 +41,11 @@
             this.movables[ 0 ].getModel().lowerLinearVelocity();
             this.movables[ 0 ].getModel().lowerAngularVelocity();
 /*
-            // rotate test chair
-            for ( const mesh of this.chair )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    this.chairRotX,
-                    0.0,
-                    0.0
-                );
-            }
+            // rotate test chairs
+            this.chairSingle.setAbsoluteRotationXYZ( 0.0, this.chairRot, 0.0 );
+            this.chairMulti.setAbsoluteRotationXYZ(  0.0, this.chairRot, 0.0 );
 
-            this.chairRotX += 0.5;
+            this.chairRot += 0.5;
 */
         }
 

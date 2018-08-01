@@ -135,15 +135,16 @@
         ***************************************************************************************************************/
         public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number ) : void
         {
-            for ( const mesh of this.getMeshes() )
+            if ( this.compoundParent != null )
             {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    rotX,
-                    rotY,
-                    rotZ
-                );
+                bz.MeshManipulation.setAbsoluteRotationXYZ( this.compoundParent, rotX, rotY, rotZ );
+            }
+            else
+            {
+                for ( const mesh of this.meshes )
+                {
+                    bz.MeshManipulation.setAbsoluteRotationXYZ( mesh, rotX, rotY, rotZ );
+                }
             }
         }
 

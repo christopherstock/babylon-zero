@@ -6,10 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Rotate default and compound models! (only rotate compound mesh in 2nd case)
-    *   TODO Separate bottom meshes of office chair for improved physics.
-    *   TODO Debug mode for showing all meshes of a model in different colors!
-    *
+    *   TODO Remove getMeshes() from Model and replace with discreet functions.
     *   TODO Stick meshes of an imported model together without stiffness so they act as one unit.
     *   TODO Let models crash into their separate elements/meshes on being destroyed?
     *   TODO Darken faces / submeshes if being shot and damaged?
