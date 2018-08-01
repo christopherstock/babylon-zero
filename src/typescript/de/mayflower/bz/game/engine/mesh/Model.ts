@@ -43,16 +43,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns all meshes this model consists of.
-        *
-        *   @return All meshes that build up this model.
-        ***************************************************************************************************************/
-        public getMeshes() : BABYLON.AbstractMesh[]
-        {
-            return this.meshes;
-        }
-
-        /** ************************************************************************************************************
         *   Sets visibility for all meshes of this model.
         *   Invisible meshes become non pickable.
         *
@@ -65,6 +55,28 @@
                 mesh.isVisible  = visible;
                 mesh.isPickable = visible;
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns all meshes this model consists of.
+        *
+        *   @return All meshes that build up this model.
+        ***************************************************************************************************************/
+        public getMeshes() : BABYLON.AbstractMesh[]
+        {
+            return this.meshes;
+        }
+
+        /** ************************************************************************************************************
+        *   Performs a ray collision check on all meshes and returns the babylon.JS picking information.
+        *
+        *   @param ray The ray to check for intersections on all meshes.
+        *
+        *   @return The babylon.JS picking data that contains the collision information.
+        ***************************************************************************************************************/
+        public applyRayCollision( ray:BABYLON.Ray ) : BABYLON.PickingInfo[]
+        {
+            return ray.intersectsMeshes( this.meshes );
         }
 
         /** ************************************************************************************************************

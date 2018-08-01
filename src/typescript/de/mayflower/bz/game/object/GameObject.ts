@@ -78,7 +78,7 @@
         public applyShot( ray:BABYLON.Ray ) : bz.HitPoint[]
         {
             const hitPoints    :bz.HitPoint[]         = [];
-            const pickingInfos :BABYLON.PickingInfo[] = ray.intersectsMeshes( this.getModel().getMeshes() );
+            const pickingInfos :BABYLON.PickingInfo[] = this.getModel().applyRayCollision( ray );
 
             if ( pickingInfos.length > 0 )
             {
