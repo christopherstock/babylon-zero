@@ -10,14 +10,19 @@
         /** All meshes belonging to this model. */
         private             readonly            meshes                  :BABYLON.AbstractMesh[]             = null;
 
+        /** The compound mesh for all meshes. */
+        private                                 compoundParent          :BABYLON.AbstractMesh               = null;
+
         /** ************************************************************************************************************
         *   Creates a new model.
         *
-        *   @param meshes All meshes that belong to this model.
+        *   @param meshes         All meshes that belong to this model.
+        *   @param compoundParent The parent mesh of all meshes.
         ***************************************************************************************************************/
-        public constructor( meshes:BABYLON.AbstractMesh[] )
+        public constructor( meshes:BABYLON.AbstractMesh[], compoundParent:BABYLON.AbstractMesh = null )
         {
-            this.meshes = meshes;
+            this.meshes         = meshes;
+            this.compoundParent = compoundParent;
         }
 
         /** ************************************************************************************************************
@@ -29,6 +34,11 @@
             {
                 mesh.parent = null;
                 mesh.dispose();
+            }
+
+            if ( this.compoundParent != null )
+            {
+                this.compoundParent.dispose();
             }
         }
 
@@ -161,26 +171,36 @@
         }
 
         /** ************************************************************************************************************
-        *   Removed all parent meshes from all meshes this model consists of.
+        *   Removed the parent compound mesh from all meshes. This will cause all meshes to collapse.
         ***************************************************************************************************************/
-        public removeAllParentCompounds() : void
+        public removeCompoundParent() : void
         {
-            for ( const mesh of this.meshes )
+            if ( this.compoundParent != null )
             {
-                mesh.setParent( null );
+                bz.Debug.stage.log( 'Removing compound parent from model' );
 
-                // apply physics to all cloned meshes
-                bz.Physic.SOLID_WOOD.applyPhysicToMesh
-                (
-                    mesh,
-                    1.0,
-                    BABYLON.PhysicsImpostor.BoxImpostor,
-                    bz.Main.game.engine.scene.getScene()
-                );
+                // free all meshes
+                for ( const mesh of this.meshes )
+                {
+                    // free mesh from parent
+                    mesh.setParent( null );
+
+                    // apply physics to all cloned meshes
+                    bz.Physic.SOLID_WOOD.applyPhysicToMesh
+                    (
+                        mesh,
+                        1.0,
+                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        bz.Main.game.engine.scene.getScene()
+                    );
+                    mesh.physicsImpostor.forceUpdate();
+                }
+
+                // this.compoundParent.physicsImpostor.forceUpdate();
+
+                // dispose the compound mesh
+                this.compoundParent.dispose();
+                this.compoundParent = null;
             }
-
-            // this.meshes[ this.meshes.length - 1 ].dispose();
-
-            // this.meshes.splice( this.meshes.length - 1, 1 );
         }
     }

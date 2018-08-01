@@ -6,6 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Rotate default and compound models! (only rotate compound mesh in 2nd case)
     *   TODO Separate bottom meshes of office chair for improved physics.
     *   TODO Debug mode for showing all meshes of a model in different colors!
     *

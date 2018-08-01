@@ -734,8 +734,9 @@
         )
         : bz.Model
         {
-            const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
-            const clonedMeshes  :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
+            const originalModel  :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const clonedMeshes   :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
+            let   compoundParent :BABYLON.Mesh = null;
 
             // setup all cloned meshes
             for ( const clonedMesh of clonedMeshes )
@@ -751,10 +752,7 @@
                 clonedMesh.isPickable = true;
 
                 // transform cloned meshes
-                if ( !useCompoundParent )
-                {
-                    bz.MeshManipulation.translatePosition( clonedMesh, position );
-                }
+                bz.MeshManipulation.translatePosition( clonedMesh, position );
 
                 // apply physics to each cloned mesh
                 physic.applyPhysicToMesh
@@ -770,7 +768,7 @@
             if ( useCompoundParent )
             {
                 // create compound parent
-                const compoundParent:BABYLON.Mesh = bz.MeshFactory.createBox
+                compoundParent = bz.MeshFactory.createBox
                 (
                     position,
                     bz.MeshPivotAnchor.CENTER_XYZ,
@@ -787,7 +785,7 @@
                 // set compound mesh as parent
                 for ( const clonedMesh of clonedMeshes )
                 {
-                    clonedMesh.parent = compoundParent;
+                    clonedMesh.setParent( compoundParent );
                 }
 
                 physic.applyPhysicToMesh
@@ -797,12 +795,9 @@
                     BABYLON.PhysicsImpostor.BoxImpostor,
                     scene
                 );
-
-                // add the compound parent to the mesh collection
-                clonedMeshes.push( compoundParent );
             }
 
-            return new bz.Model( clonedMeshes );
+            return new bz.Model( clonedMeshes, compoundParent );
         }
 
         /** ************************************************************************************************************

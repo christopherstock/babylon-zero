@@ -66,7 +66,7 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                this.chairMulti.removeAllParentCompounds();
+                this.chairMulti.removeCompoundParent();
             }
         }
 
