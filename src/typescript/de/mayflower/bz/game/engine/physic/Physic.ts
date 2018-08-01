@@ -42,6 +42,15 @@
             bz.PhysicRestitution.MEDIUM,
         );
 
+        /** Props for office chair. */
+        public  static  readonly        CHAIR           :Physic                 = new Physic
+        (
+            bz.PhysicState.MOVABLE,
+            bz.PhysicDensity.CONCRETE,
+            bz.PhysicFriction.HIGH,
+            bz.PhysicRestitution.NONE,
+        );
+
         /** Physical properties for a non-moving and collidable body. */
         public  static  readonly        STATIC          :Physic                 = new Physic
         (

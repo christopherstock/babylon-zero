@@ -159,4 +159,28 @@
 
             return false;
         }
+
+        /** ************************************************************************************************************
+        *   Removed all parent meshes from all meshes this model consists of.
+        ***************************************************************************************************************/
+        public removeAllParentCompounds() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                mesh.setParent( null );
+
+                // apply physics to all cloned meshes
+                bz.Physic.SOLID_WOOD.applyPhysicToMesh
+                (
+                    mesh,
+                    1.0,
+                    BABYLON.PhysicsImpostor.BoxImpostor,
+                    bz.Main.game.engine.scene.getScene()
+                );
+            }
+
+            // this.meshes[ this.meshes.length - 1 ].dispose();
+
+            // this.meshes.splice( this.meshes.length - 1, 1 );
+        }
     }

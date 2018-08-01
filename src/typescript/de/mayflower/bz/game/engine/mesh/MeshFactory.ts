@@ -745,9 +745,7 @@
                 (
                     position,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-
                     new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
-
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.Texture.WALL_GRASS,
                     null,

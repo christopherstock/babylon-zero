@@ -79,15 +79,22 @@
         ***************************************************************************************************************/
         public applyImpulseToMesh( force:number ) : void
         {
-            bz.Debug.fire.log
-            (
-                'shot impulse direction: '
-                + '[' + this.direction.x + ']'
-                + '[' + this.direction.y + ']'
-                + '[' + this.direction.z + ']'
-            );
+            if ( this.mesh.physicsImpostor != null && this.mesh.physicsImpostor.physicsBody != null )
+            {
+                bz.Debug.fire.log
+                (
+                    'apply impulse - shot impulse direction: '
+                    + '[' + this.direction.x + ']'
+                    + '[' + this.direction.y + ']'
+                    + '[' + this.direction.z + ']'
+                );
 
-            this.mesh.applyImpulse( this.direction.scale( force ), this.point );
+                this.mesh.applyImpulse( this.direction.scale( force ), this.point );
+            }
+            else
+            {
+                bz.Debug.fire.log( 'apply impulse - mesh has no physics.' );
+            }
         }
 
         /** ************************************************************************************************************

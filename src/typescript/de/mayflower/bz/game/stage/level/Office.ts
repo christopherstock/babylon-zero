@@ -62,15 +62,12 @@
         ***************************************************************************************************************/
         public handleLevelKeys() : void
         {
-/*
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                bz.Main.game.engine.soundSystem.playSound( bz.Sound.TEST_FX_1 );
-                bz.Main.game.engine.soundSystem.playSound( bz.Sound.TEST_BG_STONE_AGE_THE_GOLDEN_VALLEY, true );
+                this.chairMulti.removeAllParentCompounds();
             }
-*/
         }
 
         /** ************************************************************************************************************
@@ -83,7 +80,7 @@
             return new bz.Player
             (
                 new BABYLON.Vector3( 5.0, 0.0, 10.0 ),
-                180.0,
+                45.0,
                 this.ambientColor
             );
         }
@@ -166,11 +163,11 @@
             (
                 bz.ModelFile.OFFICE_CHAIR,
 
-                new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
+                new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
 
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
-                bz.Physic.SOLID_WOOD,
+                bz.Physic.CHAIR,
                 true
             );
 
