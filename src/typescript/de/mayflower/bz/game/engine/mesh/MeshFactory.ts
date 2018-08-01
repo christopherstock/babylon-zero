@@ -737,35 +737,11 @@
             const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
             const clonedMeshes  :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
 
-            let compoundParent :BABYLON.Mesh = null;
-
-            if ( useCompoundParent )
-            {
-                compoundParent = bz.MeshFactory.createBox
-                (
-                    position,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.Texture.WALL_GRASS,
-                    null,
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.Physic.NONE,
-                    1.0,
-                    BABYLON.Color3.Red()
-                );
-            }
-
-            // clone all meshes
+            // setup all cloned meshes
             for ( const clonedMesh of clonedMeshes )
             {
                 clonedMesh.id = bz.MeshFactory.createNextMeshId();
-/*
-                // get bounding info
-                const boundingInfo :BABYLON.BoundingInfo = clonedMesh.getBoundingInfo();
-                const minimum      :BABYLON.Vector3      = boundingInfo.minimum;
-                const maximum      :BABYLON.Vector3      = boundingInfo.maximum;
-*/
+
                 // show this mesh
                 clonedMesh.visibility = 1.0;
 
@@ -774,18 +750,13 @@
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
 
-                if ( useCompoundParent )
+                // transform cloned meshes
+                if ( !useCompoundParent )
                 {
-                    // set compound mesh as parent
-                    clonedMesh.parent = compoundParent;
-                }
-                else
-                {
-                    // transform cloned meshes
                     bz.MeshManipulation.translatePosition( clonedMesh, position );
                 }
 
-                // apply physics to all cloned meshes
+                // apply physics to each cloned mesh
                 physic.applyPhysicToMesh
                 (
                     clonedMesh,
@@ -795,9 +766,30 @@
                 );
             }
 
-            // apply physics to the compound parent
+            // create compound parent if requested
             if ( useCompoundParent )
             {
+                // create compound parent
+                const compoundParent:BABYLON.Mesh = bz.MeshFactory.createBox
+                (
+                    position,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    new BABYLON.Vector3( 2.001, 2.001, 2.001 ),
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    bz.Texture.WALL_GRASS,
+                    null,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physic.NONE,
+                    1.0,
+                    BABYLON.Color3.Red()
+                );
+
+                // set compound mesh as parent
+                for ( const clonedMesh of clonedMeshes )
+                {
+                    clonedMesh.parent = compoundParent;
+                }
+
                 physic.applyPhysicToMesh
                 (
                     compoundParent,
