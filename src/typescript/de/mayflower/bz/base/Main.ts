@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Remove getMeshes() from Model and replace with discreet functions.
     *   TODO Stick meshes of an imported model together without stiffness so they act as one unit.
     *   TODO Let models crash into their separate elements/meshes on being destroyed?
     *   TODO Darken faces / submeshes if being shot and damaged?

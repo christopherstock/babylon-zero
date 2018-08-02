@@ -58,16 +58,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns all meshes this model consists of.
-        *
-        *   @return All meshes that build up this model.
-        ***************************************************************************************************************/
-        public getMeshes() : BABYLON.AbstractMesh[]
-        {
-            return this.meshes;
-        }
-
-        /** ************************************************************************************************************
         *   Performs a ray collision check on all meshes and returns the babylon.JS picking information.
         *
         *   @param ray The ray to check for intersections on all meshes.
@@ -77,6 +67,19 @@
         public applyRayCollision( ray:BABYLON.Ray ) : BABYLON.PickingInfo[]
         {
             return ray.intersectsMeshes( this.meshes );
+        }
+
+        /** ************************************************************************************************************
+        *   Applies the specified shadow generator to all of this model's meshes.
+        *
+        *   @param shadowGenerator The shadow generator to add all meshes to.
+        ***************************************************************************************************************/
+        public applyShadowGenerator( shadowGenerator:BABYLON.ShadowGenerator ) : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                shadowGenerator.getShadowMap().renderList.push( mesh );
+            }
         }
 
         /** ************************************************************************************************************

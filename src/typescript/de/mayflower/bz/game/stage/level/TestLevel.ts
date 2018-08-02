@@ -757,21 +757,13 @@
             // set shadows for all movables
             for ( const movable of this.movables )
             {
-                // set shadows for all meshes
-                for ( const mesh of movable.getModel().getMeshes() )
-                {
-                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
-                }
+                movable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
             }
 
             // set shadows for all walls
             for ( const wall of this.walls )
             {
-                // set shadows for all meshes
-                for ( const mesh of wall.getModel().getMeshes() )
-                {
-                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
-                }
+                wall.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
             }
         }
 
