@@ -1,6 +1,6 @@
 {
     "name": "babylon-zero",
-    "version": "0.0.1",
+    "version": "0.0.7",
     "description": "A babylon.JS joyride",
     "author": "Christopher Stock <email@christopherstock.de>",
     "license": "MIT",
@@ -31,12 +31,12 @@
         "source-map-loader": "^0.2.3",
         "style-loader": "^0.20.3",
         "ts-node": "^7.0.0",
-        "tslint": "^5.10.0",
+        "tslint": "^5.11.0",
         "typedoc": "^0.11.1",
-        "typescript": "^2.9.2",
-        "webpack": "^4.12.0",
-        "webpack-cli": "^2.1.5",
-        "webpack-dev-server": "^3.1.4"
+        "typescript": "^3.0.1",
+        "webpack": "^4.16.4",
+        "webpack-cli": "^3.1.0",
+        "webpack-dev-server": "^3.1.5"
     },
     "dependencies": {
         "babylon-zero-lib": "^0.1.0",
