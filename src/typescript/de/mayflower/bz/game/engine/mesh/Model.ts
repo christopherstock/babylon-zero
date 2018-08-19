@@ -10,6 +10,8 @@
         /** All meshes belonging to this model. */
         private             readonly            meshes                  :BABYLON.AbstractMesh[]             = null;
 
+        /** The physical impostors for all meshes of this model. */
+        private                                 impostors               :bz.PhysicImpostorParams[]          = null;
         /** The compound mesh for all meshes. */
         private                                 compoundParent          :BABYLON.AbstractMesh               = null;
 
@@ -23,6 +25,8 @@
         {
             this.meshes         = meshes;
             this.compoundParent = compoundParent;
+
+            this.extractImpostorParams();
         }
 
         /** ************************************************************************************************************
@@ -105,7 +109,16 @@
 
             for ( const mesh of this.meshes )
             {
-                clonedMeshes.push( mesh.clone( '', null ) );
+                // remove physical impostors of all meshes if still present
+                if ( mesh.physicsImpostor != null )
+                {
+                    mesh.physicsImpostor.dispose();
+                    mesh.physicsImpostor = null;
+                }
+
+                // clone this mesh ( without a physics impostor )
+                const clonedMesh:BABYLON.AbstractMesh = mesh.clone( '', null );
+                clonedMeshes.push( clonedMesh );
             }
 
             return clonedMeshes;
@@ -201,7 +214,7 @@
                     // free mesh from parent
                     mesh.setParent( null );
 
-                    // apply physics to all cloned meshes
+                    // apply physics to all cloned meshes TODO apply impostors!
                     bz.Physic.SOLID_WOOD.applyPhysicToMesh
                     (
                         mesh,
@@ -217,6 +230,67 @@
                 // dispose the compound mesh
                 this.compoundParent.dispose();
                 this.compoundParent = null;
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Applies all physical impostors onto the specified meshes.
+        *
+        *   @param clonedMeshes The meshes where the physical impostors of this model shall be applied.
+        *   @param scene        The scene where a new physical impostor may be added to.
+        ***************************************************************************************************************/
+        public applyImpostors( clonedMeshes:BABYLON.AbstractMesh[], scene:BABYLON.Scene ) : void
+        {
+            bz.Debug.physic.log( 'Applying impostors to cloned meshes ..' );
+
+            for ( let i:number = 0; i < clonedMeshes.length; ++i )
+            {
+                const clonedMesh :BABYLON.AbstractMesh    = clonedMeshes[ i ];
+                const impostor   :bz.PhysicImpostorParams = this.impostors[ i ];
+
+                if ( impostor != null )
+                {
+                    bz.Debug.physic.log
+                    (
+                        ' Applying impostor to cloned mesh '
+                        + '[' + impostor.type        + ']'
+                        + '[' + impostor.mass        + ']'
+                        + '[' + impostor.friction    + ']'
+                        + '[' + impostor.restitution + ']'
+                    );
+
+                    clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        clonedMesh,
+                        impostor.type,
+                        {
+                            mass:        impostor.mass,
+                            friction:    impostor.friction,
+                            restitution: impostor.restitution,
+                        },
+                        scene
+                    );
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Extracts all impostor parameters for all meshes of this model.
+        ***************************************************************************************************************/
+        private extractImpostorParams() : void
+        {
+            this.impostors = [];
+
+            for ( const mesh of this.meshes )
+            {
+                if ( mesh.physicsImpostor != null )
+                {
+                    this.impostors.push( new bz.PhysicImpostorParams( mesh.physicsImpostor ) );
+                }
+                else
+                {
+                    this.impostors.push( null );
+                }
             }
         }
     }

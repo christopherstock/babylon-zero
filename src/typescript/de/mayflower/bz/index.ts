@@ -52,8 +52,9 @@
 
     export * from './game/engine/physic/PhysicDensity';
     export * from './game/engine/physic/PhysicFriction';
-    export * from './game/engine/physic/PhysicState';
+    export * from './game/engine/physic/PhysicImpostorParams';
     export * from './game/engine/physic/PhysicRestitution';
+    export * from './game/engine/physic/PhysicState';
     export * from './game/engine/physic/Physic';
 
     export * from './game/object/GameObject';

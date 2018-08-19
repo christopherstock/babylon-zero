@@ -38,8 +38,8 @@
             super.render();
 
             // stop the red sphere from rolling endlessly
-            this.movables[ 0 ].getModel().lowerLinearVelocity();
-            this.movables[ 0 ].getModel().lowerAngularVelocity();
+            this.movables[ 3 ].getModel().lowerLinearVelocity();
+            this.movables[ 3 ].getModel().lowerAngularVelocity();
 /*
             // rotate test chairs
             this.chairSingle.setAbsoluteRotationXYZ( 0.0, this.chairRot, 0.0 );
@@ -165,6 +165,7 @@
 
             return [
 
+                // black sphere from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Movable
                 (
                     bz.MeshFactory.createImportedModel
@@ -173,7 +174,7 @@
                         new BABYLON.Vector3( 20.0, 10.0, 50.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
-                        bz.Physic.SOLID_WOOD,
+                        null,
                         false
                     )
                 ),
@@ -190,7 +191,7 @@
                     this.chairMulti,
                 ),
 
-                // 3ds sphere
+                // red sphere from own model
                 new bz.Movable
                 (
                     new bz.Model

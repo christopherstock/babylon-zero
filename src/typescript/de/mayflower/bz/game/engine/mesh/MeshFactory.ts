@@ -719,6 +719,7 @@
         *   @param pivotAnchor       The pivot anchor specification for the imported model.
         *   @param scene             The scene where this imported mesh is cloned into.
         *   @param physic            Specifies the physicsl behaviour of this imported model.
+        *                            <code>null</code> to use the native physical attributes from the imported model.
         *   @param useCompoundParent If a parent compound mesh should be set for all meshes.
         *
         *   @return A clone of the model with the specified filename.
@@ -754,14 +755,23 @@
                 // transform cloned meshes
                 bz.MeshManipulation.translatePosition( clonedMesh, position );
 
-                // apply physics to each cloned mesh
-                physic.applyPhysicToMesh
-                (
-                    clonedMesh,
-                    ( 1.0 / clonedMeshes.length ),
-                    BABYLON.PhysicsImpostor.BoxImpostor,
-                    scene
-                );
+                // apply physics to each cloned mesh if present
+                if ( physic != null )
+                {
+                    physic.applyPhysicToMesh
+                    (
+                        clonedMesh,
+                        ( 1.0 / clonedMeshes.length ),
+                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        scene
+                    );
+                }
+            }
+
+            // apply original impostors if desired
+            if ( physic == null )
+            {
+                originalModel.applyImpostors( clonedMeshes, scene );
             }
 
             // create compound parent if requested
@@ -788,7 +798,7 @@
                     clonedMesh.setParent( compoundParent );
                 }
 
-                physic.applyPhysicToMesh
+                bz.Physic.SOLID_WOOD.applyPhysicToMesh
                 (
                     compoundParent,
                     ( 1.0 / clonedMeshes.length ),

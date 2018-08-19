@@ -307,6 +307,7 @@
                 // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
                 // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
                 // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
+                // ( this.body as BABYLON.Mesh ) .updatePhysicsBodyPosition();
 
                 // reset move deltas
                 this.moveDelta.x = 0.0;
