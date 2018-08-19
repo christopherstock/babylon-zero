@@ -10,8 +10,10 @@
         protected                           chairSingle             :bz.Model                               = null;
         /** A testwise mesh 'chair'. */
         protected                           chairMulti              :bz.Model                               = null;
+        /** A testwise mesh 'chair'. */
+        protected                           chairMultiPhysics       :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
-        protected                           chairRot               :number                                 = 0.0;
+        protected                           chairRot                :number                                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new test office.
@@ -154,9 +156,16 @@
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR,
-
                 new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
-
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene,
+                bz.Physic.CHAIR,
+                true
+            );
+            this.chairMultiPhysics = bz.MeshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR,
+                new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
                 bz.Physic.CHAIR,
@@ -185,10 +194,16 @@
                     this.chairSingle,
                 ),
 
-                // 3ds chair - multi-meshes
+                // 3ds chair - multi-meshes with same physics
                 new bz.Movable
                 (
                     this.chairMulti,
+                ),
+
+                // 3ds chair - multi-meshes with specific physics
+                new bz.Movable
+                (
+                    this.chairMultiPhysics,
                 ),
 
                 // red sphere from own model
