@@ -7,11 +7,6 @@
     *******************************************************************************************************************/
     export class GameHUD extends bz.HUD
     {
-        /** The width of the horizontal border for all HUD elements. */
-        public      static  readonly        HUD_BORDER_X            :number                                 = 50.0;
-        /** The height of the horizontal border for all HUD elements. */
-        public      static  readonly        HUD_BORDER_Y            :number                                 = 50.0;
-
         /** The text block of the message queue . */
         protected                           messageQueue            :bz.HUDMessage[]                        = [];
         /** The FPS text block. */
@@ -39,8 +34,8 @@
                 '',
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                -GameHUD.HUD_BORDER_X,
-                GameHUD.HUD_BORDER_Y,
+                -bz.SettingHUD.HUD_BORDER_X,
+                bz.SettingHUD.HUD_BORDER_Y,
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
@@ -52,7 +47,7 @@
             this.wearponImage = bz.GuiFactory.createImage
             (
                 'wearpon/autoShotgun.png',
-                -GameHUD.HUD_BORDER_X,
+                -bz.SettingHUD.HUD_BORDER_X,
                 0,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
                 BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,

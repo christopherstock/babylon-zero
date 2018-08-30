@@ -25,14 +25,14 @@
             msg :string
         )
         {
-            this.lifetimeTicks = bz.SettingGame.HUD_MESSAGE_LIFETIME;
+            this.lifetimeTicks = bz.SettingHUD.HUD_MESSAGE_LIFETIME;
 
             this.messageText = bz.GuiFactory.createTextBlock
             (
                 msg,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                bz.GameHUD.HUD_BORDER_X,
+                bz.SettingHUD.HUD_BORDER_X,
                 0,
                 500,
                 25,
@@ -53,9 +53,9 @@
             --this.lifetimeTicks;
 
             // assign opacity according to lifetime ticks
-            if ( this.lifetimeTicks < bz.SettingGame.HUD_MESSAGE_FADE_OUT_TICKS )
+            if ( this.lifetimeTicks < bz.SettingHUD.HUD_MESSAGE_FADE_OUT_TICKS )
             {
-                this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGame.HUD_MESSAGE_FADE_OUT_TICKS );
+                this.messageText.alpha = ( this.lifetimeTicks / bz.SettingHUD.HUD_MESSAGE_FADE_OUT_TICKS );
             }
         }
 
@@ -78,7 +78,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Relocates this HUD message text concerning to the Y location.
+        *   Assigns this HUD message's location Y according to its index and the total number of HUD messages.
         *
         *   @param index The index of this HUD message.
         *   @param total The total nuber of HUD messages.
@@ -89,7 +89,7 @@
 
             this.messageText.top =
             (
-                -bz.GameHUD.HUD_BORDER_Y
+                -bz.SettingHUD.HUD_BORDER_Y
                 - ( ( total - 1 ) * HUD_MESSAGE_LINE_HEIGHT )
                 + ( index         * HUD_MESSAGE_LINE_HEIGHT )
             );

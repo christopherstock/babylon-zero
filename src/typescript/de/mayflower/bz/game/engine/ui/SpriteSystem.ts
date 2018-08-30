@@ -24,8 +24,8 @@
                 this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
                 (
                     'spriteManager' + i,
-                    bz.SettingEngine.PATH_IMAGE_SPRITE + spriteFile.fileName,
-                    bz.SettingEngine.MAX_SPRITE_INSTANCES,
+                    bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
+                    bz.SettingResource.MAX_SPRITE_INSTANCES,
                     spriteFile.frameSize,
                     bz.Main.game.engine.scene.getScene()
                 );

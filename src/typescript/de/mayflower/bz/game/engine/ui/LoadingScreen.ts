@@ -31,7 +31,7 @@
             this.loadingDiv.style.backgroundImage =
             (
                 'url( '
-                + bz.SettingEngine.PATH_IMAGE_LOADING
+                + bz.SettingResource.PATH_IMAGE_LOADING
                 + 'loading.png'
                 + ' )'
             );

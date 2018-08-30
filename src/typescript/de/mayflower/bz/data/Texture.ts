@@ -73,7 +73,7 @@
             bulletHoleTexture :bz.Texture
         )
         {
-            this.fileName          = bz.SettingEngine.PATH_IMAGE_TEXTURE + fileName;
+            this.fileName          = bz.SettingResource.PATH_IMAGE_TEXTURE + fileName;
             this.textureHasAlpha   = textureHasAlpha;
             this.textureUV         = textureUV;
             this.bulletHoleTexture = bulletHoleTexture;

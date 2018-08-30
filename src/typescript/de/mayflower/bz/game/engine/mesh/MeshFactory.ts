@@ -597,7 +597,7 @@
             skyboxMaterial.backFaceCulling   = false;
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
             (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName,
+                bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName,
                 scene
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
@@ -677,7 +677,7 @@
 
             const texture:BABYLON.Texture = new BABYLON.Texture
             (
-                bz.SettingEngine.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName + '.jpg',
+                bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName + '.jpg',
                 scene
             );
 

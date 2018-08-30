@@ -41,7 +41,7 @@
                 (
                     // first parameter specifies the name of the mesh to import - an empty string will import all meshes
                     '',
-                    bz.SettingEngine.PATH_MODEL,
+                    bz.SettingResource.PATH_MODEL,
                     fileName,
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {

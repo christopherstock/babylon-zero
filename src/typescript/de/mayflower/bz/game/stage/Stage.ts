@@ -493,7 +493,7 @@
         ***************************************************************************************************************/
         private addBulletHole( bulletHole:bz.BulletHole ) : void
         {
-            if ( this.bulletHoles.length > bz.SettingEngine.MAX_BULLET_HOLES )
+            if ( this.bulletHoles.length > bz.SettingResource.MAX_BULLET_HOLES )
             {
                 this.bulletHoles[ 0 ].dispose();
                 this.bulletHoles.shift();
