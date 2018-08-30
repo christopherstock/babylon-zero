@@ -9,7 +9,7 @@
         /** The game engine. */
         public                      engine                      :bz.Engine                  = null;
 
-        /** The current stage instance. */
+        /** The current stage. */
         public                      stage                       :bz.Stage                   = null;
 
         /** ************************************************************************************************************
@@ -37,7 +37,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the scene is set up.
         ***************************************************************************************************************/
-        public initSceneCompleted=() : void =>
+        private initSceneCompleted=() : void =>
         {
             bz.Debug.init.log( 'System callback: Scene initialization completed' );
 
@@ -53,7 +53,7 @@
         /** ************************************************************************************************************
         *   The render loop being invoked each game tick.
         ***************************************************************************************************************/
-        public render=() : void =>
+        private render=() : void =>
         {
             // handle level specific keys
             this.stage.handleLevelKeys();
@@ -71,7 +71,7 @@
         /** ************************************************************************************************************
         *   Handles all keys for the menu.
         ***************************************************************************************************************/
-        public handleMenuKeys() : void
+        private handleMenuKeys() : void
         {
             if ( bz.SettingDebug.ENABLE_MENU_DEBUG_KEYS )
             {

@@ -8,7 +8,7 @@
     export abstract class CameraFactory
     {
         /** The ID for the next created camera to assign. */
-        private     static      nextCameraId            :number                         = 0;
+        private     static              nextCameraId                    :number                         = 0;
 
         /** ************************************************************************************************************
         *   Creates the free debug camera.

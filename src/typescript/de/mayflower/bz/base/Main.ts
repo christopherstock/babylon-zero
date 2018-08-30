@@ -6,6 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Refactor package 'game'.
     *   TODO Try different imposter props for chair foot.
     *
     *   TODO Darken faces / submeshes if being shot and damaged?
