@@ -6,14 +6,14 @@
     export class Sprite
     {
         /** The sprite 'tree'. */
-        public      static      TREE                    :Sprite             = new Sprite( 'tree.png',       357 );
+        public      static  readonly    TREE                    :Sprite             = new Sprite( 'tree.png',       357 );
         /** The sprite 'tree white'. */
-        public      static      TREE_WHITE              :Sprite             = new Sprite( 'treeWhite.png',  357 );
+        public      static  readonly    TREE_WHITE              :Sprite             = new Sprite( 'treeWhite.png',  357 );
         /** The sprite 'test'. */
-        public      static      TEST                    :Sprite             = new Sprite( 'test.png',       64  );
+        public      static  readonly    TEST                    :Sprite             = new Sprite( 'test.png',       64  );
 
         /** Lists all sprite files in an array. */
-        public      static      ALL_SPRITE_FILES        :Sprite[]           =
+        public      static  readonly    ALL_SPRITE_FILES        :Sprite[]           =
         [
             Sprite.TREE,
             Sprite.TREE_WHITE,
@@ -21,9 +21,9 @@
         ];
 
         /** The filename of this texture's image. */
-        public                  fileName            :string                 = null;
-        /** Specifies the size of a square frame in pixels in this sprite. */
-        public                  frameSize           :number                 = 0;
+        public              readonly    fileName                :string             = null;
+        /** Specifies the width and height of one square frame inside this sprite. */
+        public              readonly    frameSize               :number             = 0;
 
         /** ************************************************************************************************************
         *   Creates a sprite configuration.

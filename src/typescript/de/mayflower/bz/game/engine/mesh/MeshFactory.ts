@@ -48,7 +48,7 @@
 
             if ( texture != null )
             {
-                switch ( texture.textureUV )
+                switch ( texture.getStrategyUV() )
                 {
                     case bz.TextureUV.ALL_TO_ONE:
                     {
@@ -160,7 +160,7 @@
 
             if ( texture != null )
             {
-                switch ( texture.textureUV )
+                switch ( texture.getStrategyUV() )
                 {
                     case bz.TextureUV.ALL_TO_ONE:
                     {

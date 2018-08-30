@@ -18,6 +18,7 @@
         public init() : void
         {
             bz.Debug.init.log( 'Init game engine' );
+
             this.engine = new bz.Engine();
             this.engine.init();
         }

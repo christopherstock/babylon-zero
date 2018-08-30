@@ -62,7 +62,7 @@
 
                 if ( !ommitTextureTiling )
                 {
-                    switch ( texture.textureUV )
+                    switch ( texture.getStrategyUV() )
                     {
                         case bz.TextureUV.TILED_BY_SIZE:
                         {
@@ -87,7 +87,7 @@
                     textureV
                 );
 
-                material.backFaceCulling = ( texture.textureHasAlpha === bz.TextureHasAlpha.YES );
+                material.backFaceCulling = texture.hasAlpha();
             }
             else if ( color != null )
             {
@@ -116,7 +116,7 @@
         )
         : BABYLON.Texture
         {
-            const newTexture:BABYLON.Texture = texture.texture.clone();
+            const newTexture:BABYLON.Texture = texture.cloneTextureData();
 
             newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
             newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
@@ -131,7 +131,7 @@
                 ( newTexture as any ).vScale = repeatV;
             }
 
-            newTexture.hasAlpha = ( texture.textureHasAlpha === bz.TextureHasAlpha.YES );
+            newTexture.hasAlpha = texture.hasAlpha();
 
             return newTexture;
         }
