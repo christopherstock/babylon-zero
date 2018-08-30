@@ -239,9 +239,9 @@
         *   @param clonedMeshes The meshes where the physical impostors of this model shall be applied.
         *   @param scene        The scene where a new physical impostor may be added to.
         ***************************************************************************************************************/
-        public applyImpostors( clonedMeshes:BABYLON.AbstractMesh[], scene:BABYLON.Scene ) : void
+        public applyImpostorsTo( clonedMeshes:BABYLON.AbstractMesh[], scene:BABYLON.Scene ) : void
         {
-            bz.Debug.physic.log( 'Applying impostors to cloned meshes ..' );
+            bz.Debug.physic.log( 'Applying impostors to cloned meshes..' );
 
             for ( let i:number = 0; i < clonedMeshes.length; ++i )
             {

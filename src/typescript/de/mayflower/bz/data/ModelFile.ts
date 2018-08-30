@@ -15,6 +15,8 @@
         // public      static      SKULL                   :string                 = 'furniture/skull.babylon';
         /** The model 'sphere 1'. */
         public      static      SPHERE_1                :string                 = 'furniture/sphere1.babylon';
+        /** The model 'double sphere 1'. */
+        public      static      DOUBLE_SPHERE_1         :string                 = 'furniture/doubleSphere1.babylon';
         /** The model 'Mayflower Logo'. */
         public      static      MF_LOGO                 :string                 = 'presentation/mfLogo.babylon';
         /** The model 'knight helmet'. */
@@ -32,6 +34,7 @@
             ModelFile.SHELVES,
             // ModelFile.SKULL,
             ModelFile.SPHERE_1,
+            ModelFile.DOUBLE_SPHERE_1,
             ModelFile.MF_LOGO,
             // MeshImport.KNIGHT_HELMET,
             ModelFile.MOTORCYCLE_HELMET,

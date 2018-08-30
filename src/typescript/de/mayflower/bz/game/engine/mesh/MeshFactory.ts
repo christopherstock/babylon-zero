@@ -768,10 +768,10 @@
                 }
             }
 
-            // apply original impostors if desired
+            // apply original impostor onto cloned meshes if desired
             if ( physic == null )
             {
-                originalModel.applyImpostors( clonedMeshes, scene );
+                originalModel.applyImpostorsTo( clonedMeshes, scene );
             }
 
             // create compound parent if requested

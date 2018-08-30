@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try different physical properties for different meshes of an imported model.
+    *   TODO Try different imposter props for chair foot.
     *
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Let models crash into their separate meshes on being destroyed?

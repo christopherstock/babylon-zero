@@ -179,8 +179,8 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
-                        bz.ModelFile.SPHERE_1,
-                        new BABYLON.Vector3( 20.0, 10.0, 50.0 ),
+                        bz.ModelFile.DOUBLE_SPHERE_1,
+                        new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
