@@ -8,6 +8,16 @@
     export class String
     {
         /** ************************************************************************************************************
+        *   Returns a formatted timestamp of the current system date and time.
+        *
+        *   @return string A formatted timestamp of the current system date and time.
+        ***************************************************************************************************************/
+        public static getDateTimeString():string
+        {
+            return new moment().format( 'DD.MM.YYYY HH:mm:ss' );
+        }
+
+        /** ************************************************************************************************************
         *   Returns an array of all found regular expression matches.
         *   The subject will need the 'multiple' modifier for this method to work as expected.
         *   e.g. /[a-z]+/g
@@ -31,15 +41,5 @@
             }
 
             return ret;
-        }
-
-        /** ************************************************************************************************************
-        *   Returns a formatted timestamp of the current system date and time.
-        *
-        *   @return string A formatted timestamp of the current system date and time.
-        ***************************************************************************************************************/
-        public static getDateTimeString():string
-        {
-            return new moment().format( 'DD.MM.YYYY HH:mm:ss' );
         }
     }

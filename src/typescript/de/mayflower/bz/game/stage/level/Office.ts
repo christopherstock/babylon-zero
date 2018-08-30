@@ -60,7 +60,12 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
+                // explode chair
                 this.chairMulti.removeCompoundParent();
+
+                // add HUD message to queue
+                const hudMessage:string = 'test-Message [' + bz.String.getDateTimeString() + ']';
+                ( bz.Main.game.stage.hud as bz.GameHUD ).addHudMessage( hudMessage );
             }
         }
 

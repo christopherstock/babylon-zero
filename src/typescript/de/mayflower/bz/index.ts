@@ -71,10 +71,7 @@
     export * from './data/Sprite';
     export * from './data/Texture';
 
-    export * from './ui/Draw2D';
-
     export * from './util/HTML';
-    export * from './util/IO';
     export * from './util/MathUtil';
     export * from './util/String';
 
