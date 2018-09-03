@@ -101,7 +101,7 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param canvas The HTML canvas that might change debug controls on camera switch.
         *   @param player The player instance that will show or hide according to the currently set camera.
-        *   @param stage  The stage that may show or hide a HUD.
+        *   @param hud    The stage HUD that may be shown or hidden according to the selected camera.
         ***************************************************************************************************************/
         public setActiveCamera
         (
@@ -109,7 +109,7 @@
             scene  :BABYLON.Scene,
             canvas :HTMLCanvasElement,
             player :bz.Player,
-            stage  :bz.Stage
+            hud    :bz.HUD
         )
         : void
         {
@@ -124,11 +124,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      true,  canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
-                    if ( player != null )
-                    {
-                        player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
-                    }
+                    if ( player != null ) player.setVisible( true );
+                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+
                     break;
                 }
 
@@ -139,11 +137,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
-                    if ( player != null )
-                    {
-                        player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
-                    }
+                    if ( player != null ) player.setVisible( true );
+                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+
                     break;
                 }
 
@@ -154,11 +150,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
-                    if ( player != null )
-                    {
-                        player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
-                    }
+                    if ( player != null ) player.setVisible( true );
+                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+
                     break;
                 }
 
@@ -169,11 +163,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
-                    if ( player != null )
-                    {
-                        player.setVisible( false );
-                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( true );
-                    }
+                    if ( player != null ) player.setVisible( false );
+                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( true );
+
                     break;
                 }
 
@@ -184,11 +176,9 @@
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, true,  canvas );
 
-                    if ( player != null )
-                    {
-                        player.setVisible( true );
-                        ( stage.hud as bz.GameHUD ).setFirstPlayerViewComponentsVisibility( false );
-                    }
+                    if ( player != null ) player.setVisible( true );
+                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+
                     break;
                 }
             }

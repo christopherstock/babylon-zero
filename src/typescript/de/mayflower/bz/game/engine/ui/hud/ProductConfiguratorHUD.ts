@@ -436,6 +436,15 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets visibility for the first player view components.
+        *
+        *   @param visible If the first player view components should be visible or not.
+        ***************************************************************************************************************/
+        public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
+        {
+        }
+
+        /** ************************************************************************************************************
         *   Being invoked when a visor color checkbox is clicked.
         *
         *   @param checkboxId The ID of the visir color checkbox being clicked.

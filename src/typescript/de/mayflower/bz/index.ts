@@ -25,6 +25,7 @@
     export * from './game/engine/ui/hud/HUD';
     export * from './game/engine/ui/hud/GameHUD';
     export * from './game/engine/ui/hud/HUDMessage';
+    export * from './game/engine/ui/hud/ProductConfiguratorHUD';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/GuiFactory';
@@ -82,4 +83,3 @@
     export * from './game/stage/presentation/RoomViewer';
     export * from './game/stage/presentation/pc3d/HelmetState';
     export * from './game/stage/presentation/pc3d/ProductConfigurator';
-    export * from './game/stage/presentation/pc3d/ProductConfiguratorHUD';

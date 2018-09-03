@@ -3,7 +3,7 @@
     import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
-    *   Represents a Heads Up Display that is displayed in the foreground and in the background of the stage.
+    *   Represents a Heads Up Display that is displayed in the foreground of the stage.
     *******************************************************************************************************************/
     export abstract class HUD
     {
@@ -49,4 +49,11 @@
         *   Updates the HUD information for the current game tick.
         ***************************************************************************************************************/
         public abstract render() : void;
+
+        /** ************************************************************************************************************
+        *   Sets visibility for the first player view components.
+        *
+        *   @param visible If the first player view components should be visible or not.
+        ***************************************************************************************************************/
+        public abstract setFirstPlayerViewComponentsVisibility( visible:boolean ) : void;
     }

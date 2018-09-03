@@ -254,7 +254,7 @@
                 bz.Main.game.engine.scene.getScene(),
                 bz.Main.game.engine.canvas.getCanvas(),
                 this.player,
-                this
+                this.hud
             );
         }
 
