@@ -7,10 +7,12 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Refactor package 'game/engine'.
-    *   TODO Refactor package 'game/object'.
+    *   TODO Refactor package 'game/object/Player'.
     *   TODO Refactor package 'game/stage'.
+    *
     *   TODO Try different imposter props for chair foot.
     *
+    *   TODO Merge classes 'Wall' and 'Movable'!
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Set the original physical impostors if a model crashes into its separate meshes.

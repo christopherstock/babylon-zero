@@ -243,40 +243,46 @@
         protected createItems() : bz.Item[]
         {
             return [
-/*
+
                 new bz.Item
                 (
-                    bz.MeshFactory.createImportedMesh
+                    bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
+                        new BABYLON.Vector3( 20.0, 10.0, 10.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
-                        this.scene
+                        this.scene,
+                        null,
+                        false
                     )
                 ),
 
                 new bz.Item
                 (
-                    bz.MeshFactory.createImportedMesh
+                    bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 15.0, 0.0, 10.0 ),
+                        new BABYLON.Vector3( 25.0, 10.0, 10.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
-                        this.scene
+                        this.scene,
+                        null,
+                        false
                     )
                 ),
 
                 new bz.Item
                 (
-                    bz.MeshFactory.createImportedMesh
+                    bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 20.0, 0.0, 10.0 ),
+                        new BABYLON.Vector3( 30.0, 10.0, 10.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
-                        this.scene
+                        this.scene,
+                        null,
+                        false
                     )
                 ),
-*/
+
             ];
         }
 
