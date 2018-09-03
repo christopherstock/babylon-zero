@@ -11,11 +11,13 @@
 
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
+        *
+        *   @param engine The babylon.JS engine instance.
         ***************************************************************************************************************/
-        public init() : void
+        public init( engine:BABYLON.Engine ) : void
         {
             // create babylon.JS scene
-            this.babylonScene = new BABYLON.Scene( bz.Main.game.engine.babylonEngine );
+            this.babylonScene = new BABYLON.Scene( engine );
 
             // enable physics engine
             this.babylonScene.enablePhysics

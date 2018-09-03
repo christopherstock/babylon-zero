@@ -93,7 +93,7 @@
             }
             else
             {
-                bz.Debug.fire.log( 'apply impulse - mesh has no physics.' );
+                bz.Debug.fire.log( 'applying impulse not suitable: mesh has no physics impostor' );
             }
         }
 

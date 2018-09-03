@@ -6,15 +6,10 @@
     *******************************************************************************************************************/
     export class Engine
     {
-        /** The babylon.JS engine. */
-        public                      babylonEngine               :BABYLON.Engine                     = null;
-
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem                    = null;
         /** The singleton scene. */
         public                      scene                       :bz.Scene                           = null;
-        /** The custom loading screen. */
-        public                      loadingScreen               :bz.LoadingScreen                   = null;
 
         /** The material system. */
         public                      materialSystem              :bz.MaterialSystem                  = null;
@@ -29,6 +24,11 @@
         /** The sound system. */
         public                      soundSystem                 :bz.SoundSystem                     = null;
 
+        /** The babylon.JS engine. */
+        private                     babylonEngine               :BABYLON.Engine                     = null;
+        /** The custom loading screen. */
+        private                     loadingScreen               :bz.LoadingScreen                   = null;
+
         /** ************************************************************************************************************
         *   Inits all components of the game engine.
         ***************************************************************************************************************/
@@ -42,7 +42,7 @@
             this.loadingScreen = new bz.LoadingScreen( this.canvas.getCanvas() );
 
             // init babylon.JS engine, set and show custom loading screen
-            bz.Debug.init.log( 'Init babylon.JS engine.' );
+            bz.Debug.init.log( 'Init babylon.JS engine' );
             this.babylonEngine = new BABYLON.Engine( this.canvas.getCanvas(), true );
             if ( bz.SettingEngine.CUSTOM_LOADING_SCREEN )
             {
@@ -65,7 +65,7 @@
             // create the scene singleton
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
-            this.scene.init();
+            this.scene.init( this.babylonEngine );
 
             // assign pointer debug controls to scene
             bz.Debug.init.log( 'Assign controls to camera' );
@@ -85,6 +85,59 @@
             bz.Debug.init.log( 'Init sounds' );
             this.soundSystem = new bz.SoundSystem( bz.Sound.ALL_SOUND_FILES, this.onSoundsLoaded );
             this.soundSystem.loadSounds();
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the current FPS of the babylon.JS engine.
+        *
+        *   @return The current Frames Per Second as a floating number.
+        ***************************************************************************************************************/
+        public getFps() : number
+        {
+            return this.babylonEngine.getFps();
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the visibility for the babylon.JS engine's loading UI.
+        *
+        *   @param visible Whether to show or to hide the loading UI.
+        ***************************************************************************************************************/
+        public setLoadingUiVisibility( visible:boolean ) : void
+        {
+            if ( visible )
+            {
+                bz.Debug.stage.log( 'Showing loading UI' );
+
+                this.babylonEngine.displayLoadingUI();
+            }
+            else
+            {
+                bz.Debug.init.log( 'Hiding loading UI' );
+
+                this.babylonEngine.hideLoadingUI();
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the execution for the babylon.JS engine's render loop.
+        *
+        *   @param active     Whether to start or to stop the render loop.
+        *   @param renderLoop The method to execute as the render loop.
+        ***************************************************************************************************************/
+        public setRenderLoopExecution( active:boolean, renderLoop:() => void ) : void
+        {
+            if ( active )
+            {
+                bz.Debug.init.log( 'Starting render loop' );
+
+                this.babylonEngine.runRenderLoop( renderLoop );
+            }
+            else
+            {
+                bz.Debug.stage.log( 'Stopping render loop' );
+
+                this.babylonEngine.stopRenderLoop( renderLoop );
+            }
         }
 
         /** ************************************************************************************************************
@@ -131,7 +184,7 @@
         ***************************************************************************************************************/
         private onWindowBlur=() : void =>
         {
-            bz.Debug.canvas.log( 'Detected window focus lost. Releasing all keys.' );
+            bz.Debug.canvas.log( 'Detected window focus lost - Releasing all keys' );
             this.keySystem.releaseAllKeys();
         }
     }

@@ -8,7 +8,6 @@
     {
         /** The game engine. */
         public                      engine                      :bz.Engine                  = null;
-
         /** The current stage. */
         public                      stage                       :bz.Stage                   = null;
 
@@ -29,7 +28,6 @@
         public onInitGameEngineCompleted=() : void =>
         {
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
-            bz.Debug.init.log( '' );
 
             this.switchStage( bz.SettingStage.STAGE_STARTUP, this.engine.scene.getScene() );
         };
@@ -41,13 +39,8 @@
         {
             bz.Debug.init.log( 'System callback: Scene initialization completed' );
 
-            // hide the loading UI
-            bz.Debug.init.log( 'Hide loading UI' );
-            this.engine.babylonEngine.hideLoadingUI();
-
-            // launch render loop
-            bz.Debug.init.log( 'Starting the render loop.' );
-            this.engine.babylonEngine.runRenderLoop( this.render );
+            this.engine.setLoadingUiVisibility( false );
+            this.engine.setRenderLoopExecution( true, this.render );
         };
 
         /** ************************************************************************************************************
@@ -169,20 +162,17 @@
         ***************************************************************************************************************/
         private switchStage( targetStage:bz.StageId, scene:BABYLON.Scene ) : void
         {
+            bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
 
             // check existent stage unload
             if ( this.stage != null )
             {
-                // show loading UI
-                bz.Debug.stage.log( ' Showing the loading UI.' );
-                this.engine.babylonEngine.displayLoadingUI();
-
-                bz.Debug.stage.log( ' Stopping the render loop.' );
-                this.engine.babylonEngine.stopRenderLoop( this.render );
+                this.engine.setLoadingUiVisibility( true );
+                this.engine.setRenderLoopExecution( false, this.render );
 
                 // dispose existent stage
-                bz.Debug.stage.log( ' Disposing the current stage.' );
+                bz.Debug.stage.log( 'Disposing the current stage' );
                 this.stage.unload();
             }
 

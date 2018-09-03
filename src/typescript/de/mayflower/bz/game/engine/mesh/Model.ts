@@ -241,7 +241,7 @@
         ***************************************************************************************************************/
         public applyImpostorsTo( clonedMeshes:BABYLON.AbstractMesh[], scene:BABYLON.Scene ) : void
         {
-            bz.Debug.physic.log( 'Applying impostors to cloned meshes..' );
+            bz.Debug.physic.log( 'Applying impostors to cloned meshes:' );
 
             for ( let i:number = 0; i < clonedMeshes.length; ++i )
             {
