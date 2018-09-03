@@ -7,10 +7,6 @@
     *******************************************************************************************************************/
     export class GameHUD extends bz.HUD
     {
-        /** The text block of the message queue . */
-        protected                           messageQueue            :bz.HUDMessage[]                        = [];
-        /** The FPS text block. */
-        protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
         /** The wearpon image. */
         protected                           wearponImage            :BABYLON_GUI.Image                      = null;
         /** The corsshair. */
@@ -29,21 +25,6 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            this.fpsText = bz.GuiFactory.createTextBlock
-            (
-                '',
-                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                -bz.SettingHUD.HUD_BORDER_X,
-                bz.SettingHUD.HUD_BORDER_Y,
-                250,
-                25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
-                null
-            );
-            this.guiFg.addControl( this.fpsText );
-
             this.wearponImage = bz.GuiFactory.createImage
             (
                 'wearpon/autoShotgun.png',
@@ -72,8 +53,7 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // update and assign fps
-            this.fpsText.text = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 ) + ' fps';
+            super.render();
 
             // update all HUD messages
             for ( const hudMessage of this.messageQueue )

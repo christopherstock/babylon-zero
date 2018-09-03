@@ -9,6 +9,10 @@
     {
         /** The fullscreen gui in foreground. */
         protected                           guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+        /** The FPS text block. */
+        protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
+        /** The text block of the message queue . */
+        protected                           messageQueue            :bz.HUDMessage[]                        = [];
 
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
@@ -16,7 +20,34 @@
         protected constructor()
         {
             this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
+
+            this.fpsText = bz.GuiFactory.createTextBlock
+            (
+                '',
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+                -bz.SettingHUD.HUD_BORDER_X,
+                bz.SettingHUD.HUD_BORDER_Y,
+                250,
+                25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                null
+            );
+            this.guiFg.addControl( this.fpsText );
         }
+
+        /** ************************************************************************************************************
+        *   Inits all HUD components for the 3D Product Configurator..
+        ***************************************************************************************************************/
+        public abstract init() : void;
+
+        /** ************************************************************************************************************
+        *   Sets visibility for the first player view components.
+        *
+        *   @param visible If the first player view components should be visible or not.
+        ***************************************************************************************************************/
+        public abstract setFirstPlayerViewComponentsVisibility( visible:boolean ) : void;
 
         /** ************************************************************************************************************
         *   Updates the GUIs to the specified dimensions.
@@ -41,19 +72,19 @@
         }
 
         /** ************************************************************************************************************
-        *   Inits all HUD components for the 3D Product Configurator..
-        ***************************************************************************************************************/
-        public abstract init() : void;
-
-        /** ************************************************************************************************************
         *   Updates the HUD information for the current game tick.
         ***************************************************************************************************************/
-        public abstract render() : void;
+        public render() : void
+        {
+            this.updateFps();
+        }
 
         /** ************************************************************************************************************
-        *   Sets visibility for the first player view components.
-        *
-        *   @param visible If the first player view components should be visible or not.
+        *   Updated the Frames Per Second counter.
         ***************************************************************************************************************/
-        public abstract setFirstPlayerViewComponentsVisibility( visible:boolean ) : void;
+        private updateFps() : void
+        {
+            // update and assign fps
+            this.fpsText.text = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 ) + ' fps';
+        }
     }
