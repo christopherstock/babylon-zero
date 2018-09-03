@@ -259,40 +259,15 @@
             // add debug line
             if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )
             {
-                this.debugMeshes.push
-                (
-                    bz.MeshFactory.createLine
-                    (
-                        shot.source,
-                        shot.destination,
-                        bz.MeshPivotAnchor.LOWEST_XYZ,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                        bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
-                        this.scene
-                    )
-                );
+                this.debugMeshes.push( shot.createDebugLine( this.scene ) );
             }
 
-            // gather all hit points
+            // determine all hit points without hurting the game objects
             const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot );
             bz.Debug.fire.log( ' Gathered [' + hitPoints.length + '] hit points' );
 
             // determine impact hit points
-            let impactHitPoints:bz.HitPoint[] = [];
-
-            if ( shot.wallBreaking )
-            {
-                impactHitPoints = hitPoints;
-            }
-            else
-            {
-                const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
-
-                if ( nearestHitPoint != null )
-                {
-                    impactHitPoints.push( nearestHitPoint );
-                }
-            }
+            const impactHitPoints:bz.HitPoint[] = this.determineImpactHitPoints( hitPoints, shot );
 
             // impact all hit points
             for ( const impactHitPoint of impactHitPoints )
@@ -443,6 +418,7 @@
 
         /** ************************************************************************************************************
         *   Returns all hit points on all game objects of this stage on applying the specified shot.
+        *   Game objects will not be damaged or hit by the shot!
         *
         *   @param shot The shot to apply onto all game objects of this stage.
         *
@@ -457,10 +433,37 @@
             bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] walls' );
             for ( const wall of this.walls )
             {
-                hitPoints = hitPoints.concat( wall.applyShot( shot.ray ) );
+                hitPoints = hitPoints.concat( wall.determineHitPoints( shot ) );
             }
 
             return hitPoints;
+        }
+
+        /** ************************************************************************************************************
+        *   Determines all hit points of the given array of hit points that will be impacted by the specified shot.
+        *
+        *   @param hitPoints All hit points that possibly collide with the shot.
+        *   @param shot      The shot that caused all hit points.
+        ***************************************************************************************************************/
+        private determineImpactHitPoints( hitPoints:bz.HitPoint[], shot:bz.Shot ) : bz.HitPoint[]
+        {
+            let impactHitPoints:bz.HitPoint[] = [];
+
+            if ( shot.isWallBreaking() )
+            {
+                impactHitPoints = hitPoints;
+            }
+            else
+            {
+                const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
+
+                if ( nearestHitPoint != null )
+                {
+                    impactHitPoints.push( nearestHitPoint );
+                }
+            }
+
+            return impactHitPoints;
         }
 
         /** ************************************************************************************************************

@@ -6,21 +6,19 @@
     *******************************************************************************************************************/
     export class Shot
     {
-        // TODO all private?
-
         /** The source point of the shot. */
-        public                      source                          :BABYLON.Vector3                        = null;
-        /** The destination point of the shot. */
-        public                      destination                     :BABYLON.Vector3                        = null;
-        /** The ray that contains the mapped shot information for babylon.JS. */
-        public                      ray                             :BABYLON.Ray                            = null;
-        /** Specifies if this shot is wall breaking. */
-        public                      wallBreaking                    :boolean                                = false;
-
+        private             readonly    source              :BABYLON.Vector3                        = null;
         /** The rotation of the shot source. */
-        private                     rotation                        :BABYLON.Vector3                        = null;
+        private             readonly    rotation            :BABYLON.Vector3                        = null;
         /** The maximum range of this shot. */
-        private                     range                           :number                                 = 0.0;
+        private             readonly    range               :number                                 = 0.0;
+        /** Specifies if this shot is wall breaking. */
+        private             readonly    wallBreaking        :boolean                                = false;
+
+        /** The destination point of the shot. */
+        private             readonly    destination         :BABYLON.Vector3                        = null;
+        /** The ray that contains the mapped shot information for babylon.JS. */
+        private             readonly    ray                 :BABYLON.Ray                            = null;
 
         /** ************************************************************************************************************
         *   Creates a new shot.
@@ -55,9 +53,45 @@
             this.ray = BABYLON.Ray.CreateNewFromTo( this.source, this.destination );
 /*
             bz.Debug.fire.log( ' Shot source:          ' + this.source      );
-            bz.Debug.fire.log( ' Shot source rotation: ' + this.rotation    );
-            bz.Debug.fire.log( ' Shot range:           ' + this.range       );
             bz.Debug.fire.log( ' Shot destination:     ' + this.destination );
 */
+        }
+
+        /** ************************************************************************************************************
+        *   Returns this shot's native babylon.JS ray.
+        *
+        *   @return The native babylon.JS raycasting instance.
+        ***************************************************************************************************************/
+        public getRay() : BABYLON.Ray
+        {
+            return this.ray;
+        }
+
+        /** ************************************************************************************************************
+        *   Determines if this shot is wall breaking.
+        *
+        *   @return <code>true</code> if this shot is wall breaking.
+        ***************************************************************************************************************/
+        public isWallBreaking() : boolean
+        {
+            return this.wallBreaking;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a debug line from this shot.
+        *
+        *   @return The debug line mesh that represents this shot.
+        ***************************************************************************************************************/
+        public createDebugLine( scene:BABYLON.Scene ) : BABYLON.Mesh
+        {
+            return bz.MeshFactory.createLine
+            (
+                this.source,
+                this.destination,
+                bz.MeshPivotAnchor.LOWEST_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
+                scene
+            );
         }
     }

@@ -7,7 +7,7 @@
     export class HitPoint
     {
         // TODO private!
-        // TODO Add shot instance!
+        // TODO Add shot instance?
 
         /** The affected game object. */
         public          readonly    gameObject                      :bz.GameObject                  = null;

@@ -71,14 +71,14 @@
         /** ************************************************************************************************************
         *   Applies a shot onto this game object and returns all occurred hit points.
         *
-        *   @param ray The shot ray to apply.
+        *   @param shot The shot to apply onto this wall.
         *
         *   @return All hit points being hit in this game object.
         ***************************************************************************************************************/
-        public applyShot( ray:BABYLON.Ray ) : bz.HitPoint[]
+        public determineHitPoints( shot:bz.Shot ) : bz.HitPoint[]
         {
             const hitPoints    :bz.HitPoint[]         = [];
-            const pickingInfos :BABYLON.PickingInfo[] = this.getModel().applyRayCollision( ray );
+            const pickingInfos :BABYLON.PickingInfo[] = this.getModel().applyRayCollision( shot.getRay() );
 
             if ( pickingInfos.length > 0 )
             {
@@ -95,7 +95,7 @@
                             pickingInfo.pickedMesh,
                             pickingInfo.distance,
                             pickingInfo.getNormal( true ),
-                            ray.direction
+                            shot.getRay().direction
                         )
                     );
                 }
