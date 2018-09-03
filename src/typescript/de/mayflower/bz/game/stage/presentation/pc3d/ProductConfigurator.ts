@@ -67,6 +67,8 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
+                this.hud.addHudMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
+
                 this.requestVisorAnimationToggle();
             }
         }

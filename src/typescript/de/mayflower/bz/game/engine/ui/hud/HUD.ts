@@ -77,14 +77,76 @@
         public render() : void
         {
             this.updateFps();
+            this.updateHudMessages();
         }
 
         /** ************************************************************************************************************
-        *   Updated the Frames Per Second counter.
+        *   Adds a message to the message queue.
+        *
+        *   @param msg The message to add to the message queue.
+        ***************************************************************************************************************/
+        public addHudMessage( msg:string ) : void
+        {
+            this.messageQueue.push
+            (
+                new bz.HUDMessage
+                (
+                    this.guiFg,
+                    msg,
+                )
+            );
+
+            this.relocateAllHudMessages();
+        }
+
+        /** ************************************************************************************************************
+        *   Updates the Frames Per Second counter.
         ***************************************************************************************************************/
         private updateFps() : void
         {
             // update and assign fps
             this.fpsText.text = bz.Main.game.engine.babylonEngine.getFps().toFixed( 2 ) + ' fps';
+        }
+
+        /** ************************************************************************************************************
+        *   Updates the displayed HUD messages.
+        ***************************************************************************************************************/
+        private updateHudMessages() : void
+        {
+            // render HUD messages
+            for ( const hudMessage of this.messageQueue )
+            {
+                hudMessage.render();
+            }
+
+            // dispose obsolete HUD messages
+            let relocationRequired:boolean = false;
+            for ( let index:number = this.messageQueue.length - 1; index >= 0; --index )
+            {
+                if ( this.messageQueue[ index ].isLifetimeOver() )
+                {
+                    this.messageQueue[ index ].dispose();
+                    this.messageQueue.splice( index, 1 );
+
+                    relocationRequired = true;
+                }
+            }
+
+            // relocate HUD messages if required
+            if ( relocationRequired )
+            {
+                this.relocateAllHudMessages();
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Relocates all HUD messages concerning the Y location.
+        ***************************************************************************************************************/
+        private relocateAllHudMessages() : void
+        {
+            for ( let index:number = 0; index < this.messageQueue.length; ++index )
+            {
+                this.messageQueue[ index ].setPositionY( index, this.messageQueue.length );
+            }
         }
     }

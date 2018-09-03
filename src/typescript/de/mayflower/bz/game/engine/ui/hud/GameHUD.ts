@@ -54,31 +54,6 @@
         public render() : void
         {
             super.render();
-
-            // update all HUD messages
-            for ( const hudMessage of this.messageQueue )
-            {
-                hudMessage.render();
-            }
-
-            // dispose all obsolete HUD messages
-            let relocationRequired:boolean = false;
-            for ( let index:number = this.messageQueue.length - 1; index >= 0; --index )
-            {
-                if ( this.messageQueue[ index ].isLifetimeOver() )
-                {
-                    this.messageQueue[ index ].dispose();
-                    this.messageQueue.splice( index, 1 );
-
-                    relocationRequired = true;
-                }
-            }
-
-            // relocate all HUD messages if required
-            if ( relocationRequired )
-            {
-                this.relocateAllHudMessages();
-            }
         }
 
         /** ************************************************************************************************************
@@ -90,35 +65,5 @@
         {
             this.wearponImage.isVisible = visible;
             this.crosshair.isVisible    = visible;
-        }
-
-        /** ************************************************************************************************************
-        *   Adds a message to the message queue.
-        *
-        *   @param msg The message to add to the message queue.
-        ***************************************************************************************************************/
-        public addHudMessage( msg:string ) : void
-        {
-            this.messageQueue.push
-            (
-                new bz.HUDMessage
-                (
-                    this.guiFg,
-                    msg,
-                )
-            );
-
-            this.relocateAllHudMessages();
-        }
-
-        /** ************************************************************************************************************
-        *   Relocates all HUD messages concerning the Y location.
-        ***************************************************************************************************************/
-        public relocateAllHudMessages() : void
-        {
-            for ( let index:number = 0; index < this.messageQueue.length; ++index )
-            {
-                this.messageQueue[ index ].setPositionY( index, this.messageQueue.length );
-            }
         }
     }
