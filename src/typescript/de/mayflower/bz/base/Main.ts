@@ -7,12 +7,10 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Refactor package 'game/engine'.
-    *   TODO Refactor package 'game/object/Player'.
     *   TODO Refactor package 'game/stage'.
     *
     *   TODO Try different imposter props for chair foot.
     *
-    *   TODO Merge classes 'Wall' and 'Movable'!
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Set the original physical impostors if a model crashes into its separate meshes.
@@ -23,6 +21,7 @@
     *   TODO Add particle system (fx) for bullet holes' wall rubble.
     *   TODO Checkout babylon.JS bones and skeletons?
     *   TODO Create wearpons with projectiles.
+    *   TODO Also zoom the wearpon in the HUD on zooming with the wearpon.
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..

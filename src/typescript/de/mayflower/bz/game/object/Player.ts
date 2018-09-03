@@ -35,20 +35,20 @@
         /** Current move delta. */
         private                         moveDelta                   :BABYLON.Vector3                    = null;
 
-        /** The referenced body mesh of the player. */
+        /** The referenced body mesh. */
         private             readonly    body                        :BABYLON.AbstractMesh               = null;
-        /** The referenced head mesh of the player. */
+        /** The referenced head mesh. */
         private             readonly    head                        :BABYLON.AbstractMesh               = null;
-        /** The referenced left hand mesh of the player. */
+        /** The referenced left hand mesh. */
         private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
-        /** The referenced right hand mesh of the player. */
+        /** The referenced right hand mesh. */
         private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
-        *   @param position      The startup position for the player.
-        *   @param rotY          Initial rotation Y.
+        *   @param position      The initial position.
+        *   @param rotY          The initial rotation Y.
         *   @param emissiveColor The emissive color of all mesh faces.
         ***************************************************************************************************************/
         public constructor
@@ -129,16 +129,16 @@
 
             // assign initial rotation, rotation delta and move delta
             this.rotation      = new BABYLON.Vector3( 0.0, rotY, 0.0 );
-            this.rotationDelta = new BABYLON.Vector3( 0.0, 0.0,  0.0 );
-            this.moveDelta     = new BABYLON.Vector3( 0.0, 0.0,  0.0 );
+            this.rotationDelta = BABYLON.Vector3.Zero();
+            this.moveDelta     = BABYLON.Vector3.Zero();
 
-            // reference all limbs
+            // reference the body and all limbs
             this.body      = this.model.getMesh( Player.PLAYER_BODY_ID       );
             this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
             this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
             this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
 
-            // stick limbs to body
+            // stick all limbs to body
             this.head.setParent(      this.body );
             this.leftHand.setParent(  this.body );
             this.rightHand.setParent( this.body );
@@ -233,11 +233,11 @@
             }
 
             // zoom
-            this.zoom = bz.Main.game.engine.keySystem.isPressed(bz.KeyCodes.KEY_X);
+            this.zoom = bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_X );
         }
 
         /** ************************************************************************************************************
-        *   Renders the player for one tick of the game loop.
+        *   Renders one tick of the player's game loop.
         ***************************************************************************************************************/
         public render() : void
         {
@@ -312,51 +312,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Toggles player ducking.
-        ***************************************************************************************************************/
-        private toggleDuck() : void
-        {
-            this.duck = !this.duck;
-
-            bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
-        }
-
-        /** ************************************************************************************************************
-        *   Checks if a height scale is required and alters the height scale.
-        ***************************************************************************************************************/
-        private checkHeightChange() : void
-        {
-            if ( this.duck )
-            {
-                if ( this.heightScale > bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO )
-                {
-                    this.heightScale -= bz.SettingPlayer.PLAYER_SPEED_DUCKING;
-
-                    if ( this.heightScale < bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO )
-                    {
-                        this.heightScale = bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO;
-                    }
-
-                    this.scaleHeight();
-                }
-            }
-            else
-            {
-                if ( this.heightScale < 1.0 )
-                {
-                    this.heightScale += bz.SettingPlayer.PLAYER_SPEED_STANDING_UP;
-
-                    if ( this.heightScale > 1.0 )
-                    {
-                        this.heightScale = 1.0;
-                    }
-
-                    this.scaleHeight();
-                }
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Applies the current rotations for all axis to the according player body parts.
         ***************************************************************************************************************/
         private rotatePlayerXYZ() : void
@@ -400,6 +355,51 @@
                 0.0,
                 0.0
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Toggles player ducking.
+        ***************************************************************************************************************/
+        private toggleDuck() : void
+        {
+            this.duck = !this.duck;
+
+            bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if a height scale is required and alters the height scale.
+        ***************************************************************************************************************/
+        private checkHeightChange() : void
+        {
+            if ( this.duck )
+            {
+                if ( this.heightScale > bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO )
+                {
+                    this.heightScale -= bz.SettingPlayer.PLAYER_SPEED_DUCKING;
+
+                    if ( this.heightScale < bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO )
+                    {
+                        this.heightScale = bz.SettingPlayer.PLAYER_DUCK_HEIGHT_SCALE_RATIO;
+                    }
+
+                    this.scaleHeight();
+                }
+            }
+            else
+            {
+                if ( this.heightScale < 1.0 )
+                {
+                    this.heightScale += bz.SettingPlayer.PLAYER_SPEED_STANDING_UP;
+
+                    if ( this.heightScale > 1.0 )
+                    {
+                        this.heightScale = 1.0;
+                    }
+
+                    this.scaleHeight();
+                }
+            }
         }
 
         /** ************************************************************************************************************
@@ -517,7 +517,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates a shot that contains all according fire information.
+        *   Creates a shot that contains all information about this shot.
+        *
+        *   @return The shot that is currently fired from the player.
         ***************************************************************************************************************/
         private createShot() : bz.Shot
         {
