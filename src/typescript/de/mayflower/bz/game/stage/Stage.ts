@@ -30,8 +30,6 @@
         protected                           walls                   :bz.Wall[]                              = [];
         /** A collection of all items in this stage. */
         protected                           items                   :bz.Item[]                              = [];
-        /** A collection of all movables in this stage. */
-        protected                           movables                :bz.Movable[]                           = [];
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                               = [];
 
@@ -87,7 +85,6 @@
             }
 
             this.walls        = this.createWalls();
-            this.movables     = this.createMovables();
             this.items        = this.createItems();
             this.bots         = this.createBots();
             this.skybox       = this.createSkybox();
@@ -167,12 +164,6 @@
             for ( const wall of this.walls )
             {
                 wall.dispose();
-            }
-
-            // dispose all movables
-            for ( const movable of this.movables )
-            {
-                movable.dispose();
             }
 
             // dispose all items
@@ -341,13 +332,6 @@
         protected abstract createWalls() : bz.Wall[];
 
         /** ************************************************************************************************************
-        *   Creates and returns all movables this stage consists of.
-        *
-        *   @return All movables of this stage.
-        ***************************************************************************************************************/
-        protected abstract createMovables() : bz.Movable[];
-
-        /** ************************************************************************************************************
         *   Creates and returns all items this stage consists of.
         *
         *   @return All items of this stage.
@@ -474,12 +458,6 @@
             for ( const wall of this.walls )
             {
                 hitPoints = hitPoints.concat( wall.applyShot( shot.ray ) );
-            }
-            // check collision with movables
-            bz.Debug.fire.log( ' Checking shot collision with [' + this.walls.length + '] movables' );
-            for ( const movable of this.movables )
-            {
-                hitPoints = hitPoints.concat( movable.applyShot( shot.ray ) );
             }
 
             return hitPoints;

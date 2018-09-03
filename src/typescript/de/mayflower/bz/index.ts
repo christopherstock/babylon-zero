@@ -62,7 +62,6 @@
     export * from './game/object/GameObject';
     export * from './game/object/Bot';
     export * from './game/object/Item';
-    export * from './game/object/Movable';
     export * from './game/object/Player';
     export * from './game/object/Wall';
 

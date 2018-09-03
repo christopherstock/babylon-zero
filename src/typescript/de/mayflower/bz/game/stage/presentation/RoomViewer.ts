@@ -50,16 +50,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all movables this stage consists of.
-        *
-        *   @return All movables of this stage.
-        ***************************************************************************************************************/
-        protected createMovables() : bz.Movable[]
-        {
-            return [];
-        }
-
-        /** ************************************************************************************************************
         *   Creates and returns all items this stage consists of.
         *
         *   @return All items of this stage.

@@ -350,19 +350,8 @@
                         ]
                     )
                 ),
-            ];
-        }
 
-        /** ************************************************************************************************************
-        *   Creates and returns all movables this stage consists of.
-        *
-        *   @return All movables of this stage.
-        ***************************************************************************************************************/
-        protected createMovables() : bz.Movable[]
-        {
-            return [
-
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -385,7 +374,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -408,7 +397,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -431,7 +420,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -454,7 +443,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -477,7 +466,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -500,7 +489,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -523,7 +512,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     new bz.Model
                     (
@@ -546,7 +535,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     bz.MeshFactory.createImportedModel
                     (
@@ -559,7 +548,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     bz.MeshFactory.createImportedModel
                     (
@@ -572,7 +561,7 @@
                     )
                 ),
 
-                new bz.Movable
+                new bz.Wall
                 (
                     bz.MeshFactory.createImportedModel
                     (
@@ -584,7 +573,6 @@
                         false
                     )
                 ),
-
             ];
         }
 
@@ -754,12 +742,6 @@
         ***************************************************************************************************************/
         protected setupShadows() : void
         {
-            // set shadows for all movables
-            for ( const movable of this.movables )
-            {
-                movable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
-            }
-
             // set shadows for all walls
             for ( const wall of this.walls )
             {

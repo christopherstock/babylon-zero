@@ -40,8 +40,8 @@
             super.render();
 
             // stop the red sphere from rolling endlessly
-            this.movables[ 3 ].getModel().lowerLinearVelocity();
-            this.movables[ 3 ].getModel().lowerAngularVelocity();
+            this.walls[ 4 ].getModel().lowerLinearVelocity();
+            this.walls[ 4 ].getModel().lowerAngularVelocity();
 /*
             // rotate test chairs
             this.chairSingle.setAbsoluteRotationXYZ( 0.0, this.chairRot, 0.0 );
@@ -90,7 +90,91 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
+            // import mesh model
+            this.chairSingle = bz.MeshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR_2,
+                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene,
+                bz.Physic.SOLID_WOOD,
+                false
+            );
+            this.chairMulti = bz.MeshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR,
+                new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene,
+                bz.Physic.CHAIR,
+                true
+            );
+            this.chairMultiPhysics = bz.MeshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR,
+                new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene,
+                bz.Physic.CHAIR,
+                true
+            );
+
             return [
+
+                // black sphere from imported model ( uses physic impostor from 3dsmax file! )
+                new bz.Wall
+                (
+                    bz.MeshFactory.createImportedModel
+                    (
+                        bz.ModelFile.DOUBLE_SPHERE_1,
+                        new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
+                        bz.MeshPivotAnchor.CENTER_XYZ,
+                        this.scene,
+                        null,
+                        false
+                    )
+                ),
+
+                // 3ds chair single-meshed
+                new bz.Wall
+                (
+                    this.chairSingle,
+                ),
+
+                // 3ds chair - multi-meshes with same physics
+                new bz.Wall
+                (
+                    this.chairMulti,
+                ),
+
+                // 3ds chair - multi-meshes with specific physics
+                new bz.Wall
+                (
+                    this.chairMultiPhysics,
+                ),
+
+                // red sphere from own model
+                new bz.Wall
+                (
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createSphere
+                            (
+                                new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                3.0,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                null,
+                                bz.SettingColor.COLOR_RGB_RED,
+                                this.scene,
+                                bz.Physic.SOLID_WOOD,
+                                1.0,
+                                bz.SettingColor.COLOR_RGB_RED // this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
 
                 new bz.Wall
                 (
@@ -141,101 +225,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and returns all movables this stage consists of.
-        *
-        *   @return All movables of this stage.
-        ***************************************************************************************************************/
-        protected createMovables() : bz.Movable[]
-        {
-            // import mesh model
-            this.chairSingle = bz.MeshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_2,
-                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene,
-                bz.Physic.SOLID_WOOD,
-                false
-            );
-            this.chairMulti = bz.MeshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR,
-                new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene,
-                bz.Physic.CHAIR,
-                true
-            );
-            this.chairMultiPhysics = bz.MeshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR,
-                new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                this.scene,
-                bz.Physic.CHAIR,
-                true
-            );
-
-            return [
-
-                // black sphere from imported model ( uses physic impostor from 3dsmax file! )
-                new bz.Movable
-                (
-                    bz.MeshFactory.createImportedModel
-                    (
-                        bz.ModelFile.DOUBLE_SPHERE_1,
-                        new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
-                        this.scene,
-                        null,
-                        false
-                    )
-                ),
-
-                // 3ds chair single-meshed
-                new bz.Movable
-                (
-                    this.chairSingle,
-                ),
-
-                // 3ds chair - multi-meshes with same physics
-                new bz.Movable
-                (
-                    this.chairMulti,
-                ),
-
-                // 3ds chair - multi-meshes with specific physics
-                new bz.Movable
-                (
-                    this.chairMultiPhysics,
-                ),
-
-                // red sphere from own model
-                new bz.Movable
-                (
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createSphere
-                            (
-                                new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                3.0,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                null,
-                                bz.SettingColor.COLOR_RGB_RED,
-                                this.scene,
-                                bz.Physic.SOLID_WOOD,
-                                1.0,
-                                bz.SettingColor.COLOR_RGB_RED // this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-            ];
-        }
-
-        /** ************************************************************************************************************
         *   Creates and returns all items this stage consists of.
         *
         *   @return All items of this stage.
@@ -249,7 +238,7 @@
                     bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 20.0, 10.0, 10.0 ),
+                        new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
@@ -262,7 +251,7 @@
                     bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 25.0, 10.0, 10.0 ),
+                        new BABYLON.Vector3( 25.0, 0.0, 20.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
@@ -275,7 +264,7 @@
                     bz.MeshFactory.createImportedModel
                     (
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 30.0, 10.0, 10.0 ),
+                        new BABYLON.Vector3( 30.0, 0.0, 20.0 ),
                         bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
