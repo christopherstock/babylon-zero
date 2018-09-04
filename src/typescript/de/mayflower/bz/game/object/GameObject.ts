@@ -90,12 +90,12 @@
                     (
                         new bz.HitPoint
                         (
-                            this,
                             pickingInfo.pickedPoint,
                             pickingInfo.pickedMesh,
-                            pickingInfo.distance,
                             pickingInfo.getNormal( true ),
-                            shot.getRay().direction
+                            pickingInfo.distance,
+                            shot.getRay().direction,
+                            this
                         )
                     );
                 }

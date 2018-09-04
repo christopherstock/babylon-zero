@@ -202,19 +202,22 @@
         /** ************************************************************************************************************
         *   Removed the parent compound mesh from all meshes. This will cause all meshes to collapse.
         ***************************************************************************************************************/
-        public removeCompoundParent() : void
+        public removeCompoundParent( scene:BABYLON.Scene ) : void
         {
             if ( this.compoundParent != null )
             {
-                bz.Debug.stage.log( 'Removing compound parent from model' );
+                bz.Debug.physic.log( 'Removing compound parent from model' );
 
-                // free all meshes
+                // free all meshes from parent compound
                 for ( const mesh of this.meshes )
                 {
                     // free mesh from parent
                     mesh.setParent( null );
+                }
 
-                    // apply physics to all cloned meshes TODO apply impostors!
+                // apply physics to all cloned meshes TODO apply ORIGINAL impostors???
+                for ( const mesh of this.meshes )
+                {
                     bz.Physic.SOLID_WOOD.applyPhysicToMesh
                     (
                         mesh,
@@ -222,8 +225,20 @@
                         BABYLON.PhysicsImpostor.BoxImpostor,
                         bz.Main.game.engine.scene.getScene()
                     );
+                }
+
+
+                // TODO apply original impostors - how?
+                // this.applyImpostorsTo( this.meshes, scene );
+
+
+
+                // update physics for all meshes
+                for ( const mesh of this.meshes )
+                {
                     mesh.physicsImpostor.forceUpdate();
                 }
+
 
                 // this.compoundParent.physicsImpostor.forceUpdate();
 

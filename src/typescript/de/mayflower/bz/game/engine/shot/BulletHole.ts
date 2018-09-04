@@ -48,7 +48,7 @@
             // append the debug hit face normal
             if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
             {
-                this.createDebugBulletHoleNormalLine();
+                this.createDebugHoleNormalLine();
             }
         }
 
@@ -68,16 +68,16 @@
         ***************************************************************************************************************/
         private createHoleMesh() : void
         {
-            const meshTexture:bz.Texture = bz.Texture.getTextureFromMeshByName( this.hitPoint.mesh );
+            const meshTexture:bz.Texture = bz.Texture.getTextureFromMeshByName( this.hitPoint.getMesh() );
 
             this.holeMesh = bz.MeshFactory.createDecal
             (
-                this.hitPoint.point.clone(),
-                this.hitPoint.mesh,
-                this.hitPoint.normal,
+                this.hitPoint.getPoint().clone(),
+                this.hitPoint.getMesh(),
+                this.hitPoint.getNormal(),
                 new BABYLON.Vector3( 0.2, 0.2, BulletHole.BULLET_HOLE_DEPTH ),
                 bz.MathUtil.getRandomInt( 0, 359 ),
-                this.hitPoint.gameObject.getNextBulletHoleIndexZ(),
+                this.hitPoint.getGameObjectNextBulletHoleIndexZ(),
                 meshTexture,
                 null,
                 bz.Main.game.engine.scene.getScene(),
@@ -86,7 +86,7 @@
             );
 
             // stick to parent
-            this.holeMesh.setParent( this.hitPoint.mesh );
+            this.holeMesh.setParent( this.hitPoint.getMesh() );
         }
 
         /** ************************************************************************************************************
@@ -97,7 +97,7 @@
             // create debug bullet hole
             this.debugSphereMesh = bz.MeshFactory.createSphere
             (
-                this.hitPoint.point.clone(),
+                this.hitPoint.getPoint().clone(),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 0.10,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -110,19 +110,19 @@
             );
 
             // stick to parent
-            this.debugSphereMesh.setParent( this.hitPoint.mesh );
+            this.debugSphereMesh.setParent( this.hitPoint.getMesh() );
         }
 
         /** ************************************************************************************************************
         *   Creates a debug bullet hole normal line onto this hit point.
         ***************************************************************************************************************/
-        private createDebugBulletHoleNormalLine() : void
+        private createDebugHoleNormalLine() : void
         {
             // create debug bullet hole
             this.debugNormalLine = bz.MeshFactory.createLine
             (
-                this.hitPoint.point.clone(),
-                this.hitPoint.point.clone().add( this.hitPoint.normal ),
+                this.hitPoint.getPoint().clone(),
+                this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE,
@@ -130,6 +130,6 @@
             );
 
             // stick to parent
-            this.debugNormalLine.setParent( this.hitPoint.mesh );
+            this.debugNormalLine.setParent( this.hitPoint.getMesh() );
         }
     }

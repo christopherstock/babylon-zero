@@ -6,8 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Set correct (ORIGINAL!) physics impostors for all single meshes after an object exploded.
+    *   TODO Set all impostors for all meshes in one place in MeshFactory.
+    *
     *   TODO Refactor package 'game/engine'.
     *   TODO Refactor package 'game/stage'.
+    *
+    *   TODO Create package 'engine/model'?
     *
     *   TODO Try different imposter props for chair foot.
     *

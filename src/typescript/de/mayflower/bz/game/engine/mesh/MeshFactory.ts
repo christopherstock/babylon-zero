@@ -758,6 +758,8 @@
                 // apply physics to each cloned mesh if present
                 if ( physic != null )
                 {
+                    // TODO #1 save as mesh physics impostors?
+
                     physic.applyPhysicToMesh
                     (
                         clonedMesh,
@@ -767,6 +769,8 @@
                     );
                 }
             }
+
+            // TODO #2 always assign impostors here .. see #1
 
             // apply original impostor onto cloned meshes if desired
             if ( physic == null )

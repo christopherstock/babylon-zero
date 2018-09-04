@@ -12,6 +12,8 @@
         protected                           chairMulti              :bz.Model                               = null;
         /** A testwise mesh 'chair'. */
         protected                           chairMultiPhysics       :bz.Model                               = null;
+        /** A testwise mesh 'compound spheres'. */
+        protected                           compoundSpheres         :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
         protected                           chairRot                :number                                 = 0.0;
 
@@ -64,7 +66,10 @@
                 this.hud.addHudMessage( 'explode chair [' + bz.String.getDateTimeString() + ']' );
 
                 // explode chair
-                this.chairMulti.removeCompoundParent();
+                this.chairMulti.removeCompoundParent( this.scene );
+
+                // explode compound spheres
+                this.compoundSpheres.removeCompoundParent( this.scene );
             }
         }
 
@@ -118,10 +123,19 @@
                 bz.Physic.CHAIR,
                 true
             );
+            this.compoundSpheres = bz.MeshFactory.createImportedModel
+            (
+                bz.ModelFile.DOUBLE_SPHERE_1,
+                new BABYLON.Vector3( 60.0, 10.0, 50.0 ),
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                this.scene,
+                null,
+                true
+            );
 
             return [
 
-                // black sphere from imported model ( uses physic impostor from 3dsmax file! )
+                // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
                 (
                     bz.MeshFactory.createImportedModel
@@ -133,6 +147,12 @@
                         null,
                         false
                     )
+                ),
+
+                // black sphere COMPOUND from imported model ( uses physic impostor from 3dsmax file! )
+                new bz.Wall
+                (
+                    this.compoundSpheres,
                 ),
 
                 // 3ds chair single-meshed
@@ -186,7 +206,7 @@
                             (
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 100.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
+                                new BABYLON.Vector3( 200.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
