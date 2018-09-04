@@ -25,8 +25,6 @@
         {
             this.meshes         = meshes;
             this.compoundParent = compoundParent;
-
-            this.extractImpostorParams();
         }
 
         /** ************************************************************************************************************
@@ -201,6 +199,9 @@
 
         /** ************************************************************************************************************
         *   Removed the parent compound mesh from all meshes. This will cause all meshes to collapse.
+        *   All meshes will be equipped with their original physics impostor.
+        *
+        *   @param scene The scene to create the new physics impostor in.
         ***************************************************************************************************************/
         public removeCompoundParent( scene:BABYLON.Scene ) : void
         {
@@ -216,30 +217,49 @@
                 }
 
                 // apply physics to all cloned meshes TODO apply ORIGINAL impostors???
-                for ( const mesh of this.meshes )
+                for ( let i:number = 0; i < this.meshes.length; ++i )
                 {
-                    bz.Physic.SOLID_WOOD.applyPhysicToMesh
-                    (
-                        mesh,
-                        1.0,
-                        BABYLON.PhysicsImpostor.BoxImpostor,
-                        bz.Main.game.engine.scene.getScene()
-                    );
+                    if ( this.impostors[ i ] == null )
+                    {
+                        bz.Debug.physic.log( ' Applying DEFAULT impostor to SCATTERED mesh ' );
+
+                        bz.Physic.SOLID_WOOD.applyPhysicToMesh
+                        (
+                            this.meshes[ i ],
+                            1.0,
+                            BABYLON.PhysicsImpostor.BoxImpostor,
+                            bz.Main.game.engine.scene.getScene()
+                        );
+                    }
+                    else
+                    {
+                        bz.Debug.physic.log
+                        (
+                            ' Applying impostor to SCATTERED mesh '
+                            + '[' + this.impostors[ i ].type        + ']'
+                            + '[' + this.impostors[ i ].mass        + ']'
+                            + '[' + this.impostors[ i ].friction    + ']'
+                            + '[' + this.impostors[ i ].restitution + ']'
+                        );
+
+                        this.meshes[ i ].physicsImpostor = new BABYLON.PhysicsImpostor
+                        (
+                            this.meshes[ i ],
+                            this.impostors[ i ].type,
+                            {
+                                mass:        this.impostors[ i ].mass,
+                                friction:    this.impostors[ i ].friction,
+                                restitution: this.impostors[ i ].restitution,
+                            },
+                            scene
+                        );
+                    }
+
+                    // update physics for all meshes
+                    this.meshes[ i ].physicsImpostor.forceUpdate();
                 }
 
-
-                // TODO apply original impostors - how?
-                // this.applyImpostorsTo( this.meshes, scene );
-
-
-
-                // update physics for all meshes
-                for ( const mesh of this.meshes )
-                {
-                    mesh.physicsImpostor.forceUpdate();
-                }
-
-
+                // compound parent doesn't need to be updated
                 // this.compoundParent.physicsImpostor.forceUpdate();
 
                 // dispose the compound mesh
@@ -248,51 +268,15 @@
             }
         }
 
-        /** ************************************************************************************************************
-        *   Applies all physical impostors onto the specified meshes.
-        *
-        *   @param clonedMeshes The meshes where the physical impostors of this model shall be applied.
-        *   @param scene        The scene where a new physical impostor may be added to.
-        ***************************************************************************************************************/
-        public applyImpostorsTo( clonedMeshes:BABYLON.AbstractMesh[], scene:BABYLON.Scene ) : void
+        public saveImpostors( impostors:bz.PhysicImpostorParams[] ) : void
         {
-            bz.Debug.physic.log( 'Applying impostors to cloned meshes:' );
-
-            for ( let i:number = 0; i < clonedMeshes.length; ++i )
-            {
-                const clonedMesh :BABYLON.AbstractMesh    = clonedMeshes[ i ];
-                const impostor   :bz.PhysicImpostorParams = this.impostors[ i ];
-
-                if ( impostor != null )
-                {
-                    bz.Debug.physic.log
-                    (
-                        ' Applying impostor to cloned mesh '
-                        + '[' + impostor.type        + ']'
-                        + '[' + impostor.mass        + ']'
-                        + '[' + impostor.friction    + ']'
-                        + '[' + impostor.restitution + ']'
-                    );
-
-                    clonedMesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        clonedMesh,
-                        impostor.type,
-                        {
-                            mass:        impostor.mass,
-                            friction:    impostor.friction,
-                            restitution: impostor.restitution,
-                        },
-                        scene
-                    );
-                }
-            }
+            this.impostors = impostors;
         }
 
         /** ************************************************************************************************************
         *   Extracts all impostor parameters for all meshes of this model.
         ***************************************************************************************************************/
-        private extractImpostorParams() : void
+        public extractPhysicsImpostors() : void
         {
             this.impostors = [];
 
@@ -305,6 +289,64 @@
                 else
                 {
                     this.impostors.push( null );
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the physics impostors of all meshes of this model.
+        *
+        *   @return The physics impostor parameters of all meshes.
+        ***************************************************************************************************************/
+        public getImpostors() : bz.PhysicImpostorParams[]
+        {
+            return this.impostors;
+        }
+
+        /** ************************************************************************************************************
+        *   Assigns all physical impostors onto the specified meshes.
+        *
+        *   @param meshes    The meshes where the physical impostors shall be applied.
+        *   @param impostors The impostors to assign to the specified meshes
+        *   @param scene     The scene where a new physical impostor may be added to.
+        ***************************************************************************************************************/
+        public static assignImpostors
+        (
+            meshes    :BABYLON.AbstractMesh[],
+            impostors :bz.PhysicImpostorParams[],
+            scene     :BABYLON.Scene
+        )
+        : void
+        {
+            bz.Debug.physic.log( 'Applying impostors to cloned meshes:' );
+
+            for ( let i:number = 0; i < meshes.length; ++i )
+            {
+                const mesh     :BABYLON.AbstractMesh    = meshes[ i ];
+                const impostor :bz.PhysicImpostorParams = impostors[ i ];
+
+                if ( impostor != null )
+                {
+                    bz.Debug.physic.log
+                    (
+                        ' Applying impostor to mesh '
+                        + '[' + impostor.type        + ']'
+                        + '[' + impostor.mass        + ']'
+                        + '[' + impostor.friction    + ']'
+                        + '[' + impostor.restitution + ']'
+                    );
+
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        mesh,
+                        impostor.type,
+                        {
+                            mass:        impostor.mass,
+                            friction:    impostor.friction,
+                            restitution: impostor.restitution,
+                        },
+                        scene
+                    );
                 }
             }
         }

@@ -735,9 +735,10 @@
         )
         : bz.Model
         {
-            const originalModel  :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
-            const clonedMeshes   :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
-            let   compoundParent :BABYLON.Mesh = null;
+            const originalModel     :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const clonedMeshes      :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
+            let   compoundParent    :BABYLON.Mesh = null;
+            const originalImpostors :bz.PhysicImpostorParams[] = originalModel.getImpostors();
 
             // setup all cloned meshes
             for ( const clonedMesh of clonedMeshes )
@@ -775,7 +776,7 @@
             // apply original impostor onto cloned meshes if desired
             if ( physic == null )
             {
-                originalModel.applyImpostorsTo( clonedMeshes, scene );
+                bz.Model.assignImpostors( clonedMeshes, originalImpostors, scene );
             }
 
             // create compound parent if requested
@@ -811,7 +812,10 @@
                 );
             }
 
-            return new bz.Model( clonedMeshes, compoundParent );
+            const clonedModel:bz.Model = new bz.Model( clonedMeshes, compoundParent );
+            clonedModel.saveImpostors( originalImpostors );
+
+            return clonedModel;
         }
 
         /** ************************************************************************************************************

@@ -56,6 +56,7 @@
 
                         // save in meshes array
                         this.models[ fileName ] = new bz.Model( importedMeshes );
+                        this.models[ fileName ].extractPhysicsImpostors();
 
                         // notify load
                         this.onLoadModel();
