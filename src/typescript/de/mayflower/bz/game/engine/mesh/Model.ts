@@ -136,6 +136,8 @@
         /** ************************************************************************************************************
         *   Returns a cloned collection of this models' meshes.
         *
+        *   TODO to private!
+        *
         *   @return All cloned meshes from this model.
         ***************************************************************************************************************/
         public cloneMeshes() : BABYLON.AbstractMesh[]
@@ -380,6 +382,19 @@
                         scene
                     );
                 }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Translates all meshes of the model.
+        *
+        *   @param translation The translation to apply onto this model.
+        ***************************************************************************************************************/
+        public translatePosition( translation:BABYLON.Vector3 ) : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                bz.MeshManipulation.translatePosition( mesh, translation )
             }
         }
     }

@@ -716,7 +716,6 @@
         *
         *   @param fileName          The filename of the imported mesh to return a clone for.
         *   @param position          The position for this mesh to show up.
-        *   @param pivotAnchor       The pivot anchor specification for the imported model.
         *   @param scene             The scene where this imported mesh is cloned into.
         *   @param physic            Specifies the physicsl behaviour of this imported model.
         *                            <code>null</code> to use the native physical attributes from the imported model.
@@ -728,7 +727,6 @@
         (
             fileName          :string,
             position          :BABYLON.Vector3,
-            pivotAnchor       :bz.MeshPivotAnchor,
             scene             :BABYLON.Scene,
             physic            :bz.Physic,
             useCompoundParent :boolean
@@ -736,6 +734,15 @@
         : bz.Model
         {
             const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+
+
+
+            // TODO move this functionality to Model.clone() !
+            //originalModel.clone
+
+
+
+
             const clonedMeshes  :BABYLON.AbstractMesh[]    = originalModel.cloneMeshes();
             let   impostors     :bz.PhysicImpostorParams[] = null;
 
@@ -765,13 +772,15 @@
                 clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
-
-                // transform cloned meshes
-                bz.MeshManipulation.translatePosition( clonedMesh, position );
             }
 
             // create new model
             const clonedModel:bz.Model = new bz.Model( clonedMeshes );
+
+            // translate model by position
+            clonedModel.translatePosition( position );
+
+            // assign physic impostors
             clonedModel.assignImpostors( impostors, scene );
 
             // create compound parent if requested

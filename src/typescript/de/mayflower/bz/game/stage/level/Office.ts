@@ -100,7 +100,6 @@
             (
                 bz.ModelFile.OFFICE_CHAIR_2,
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
                 bz.Physic.SOLID_WOOD,
                 false
@@ -109,7 +108,6 @@
             (
                 bz.ModelFile.OFFICE_CHAIR,
                 new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
                 bz.Physic.CHAIR,
                 true
@@ -118,7 +116,6 @@
             (
                 bz.ModelFile.OFFICE_CHAIR,
                 new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
                 bz.Physic.CHAIR,
                 true
@@ -127,7 +124,6 @@
             (
                 bz.ModelFile.DOUBLE_SPHERE_1,
                 new BABYLON.Vector3( 60.0, 10.0, 50.0 ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
                 this.scene,
                 null,
                 true
@@ -142,7 +138,6 @@
                     (
                         bz.ModelFile.DOUBLE_SPHERE_1,
                         new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
                         false
@@ -259,7 +254,6 @@
                     (
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
                         false
@@ -272,7 +266,6 @@
                     (
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( 25.0, 0.0, 20.0 ),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
                         false
@@ -285,7 +278,6 @@
                     (
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( 30.0, 0.0, 20.0 ),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
                         this.scene,
                         null,
                         false
