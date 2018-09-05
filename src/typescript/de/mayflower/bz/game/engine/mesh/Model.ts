@@ -16,17 +16,13 @@
         private                                 compoundParent          :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
-        *   Creates a new model.
+        *   Creates a new model consisting of the specified meshes.
         *
-        *   TODO remove second parameter in constructor!
-        *
-        *   @param meshes         All meshes that belong to this model.
-        *   @param compoundParent The parent mesh of all meshes.
+        *   @param meshes All meshes that belong to this model.
         ***************************************************************************************************************/
-        public constructor( meshes:BABYLON.AbstractMesh[], compoundParent:BABYLON.AbstractMesh = null )
+        public constructor( meshes:BABYLON.AbstractMesh[] )
         {
-            this.meshes         = meshes;
-            this.compoundParent = compoundParent;
+            this.meshes = meshes;
         }
 
         // TODO Add typedoc
@@ -305,6 +301,8 @@
 
         /** ************************************************************************************************************
         *   Returns the physics impostors of all meshes of this model.
+        *
+        *   TODO merge with extractImpostors !!
         *
         *   @return The physics impostor parameters of all meshes.
         ***************************************************************************************************************/

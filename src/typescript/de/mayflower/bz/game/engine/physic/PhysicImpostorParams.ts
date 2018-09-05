@@ -18,6 +18,8 @@
         *   Creates the impostor params object from the specified babylon.JS physics impostor.
         *
         *   @param impostor The babylon.JS impostor to create the impostor params from.
+        *
+        *   @return The physical parameter compound object.
         ***************************************************************************************************************/
         public static createFromImpostor( impostor:BABYLON.PhysicsImpostor ) : PhysicImpostorParams
         {
@@ -31,8 +33,24 @@
             return ret;
         }
 
-        // TODO create tsdoc
-        public static createFromParams( type:number, mass:number, friction:number, restitution:number ) : PhysicImpostorParams
+        /** ************************************************************************************************************
+        *   Creates the impostor params object from the specified primitive physical values.
+        *
+        *   @param type        The impostor type ( box or sphere ).
+        *   @param mass        The physical mass.
+        *   @param friction    The physical friction.
+        *   @param restitution The physical restitution.
+        *
+        *   @return The physical parameter compound object.
+        ***************************************************************************************************************/
+        public static createFromParams
+        (
+            type        :number,
+            mass        :number,
+            friction    :number,
+            restitution :number
+        )
+        : PhysicImpostorParams
         {
             const ret:PhysicImpostorParams = new PhysicImpostorParams();
 

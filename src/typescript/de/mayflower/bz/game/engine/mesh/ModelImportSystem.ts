@@ -56,6 +56,7 @@
 
                         // save in meshes array
                         this.models[ fileName ] = new bz.Model( importedMeshes );
+                        // TODO do NOT automatically extract all physics impostors here ..
                         this.models[ fileName ].extractPhysicsImpostors();
 
                         // notify load

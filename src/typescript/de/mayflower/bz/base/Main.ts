@@ -22,6 +22,8 @@
     *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Set the original physical impostors if a model crashes into its separate meshes.
     *
+    *   TODO Particle FX (physics) for wall rubble!
+    *
     *   TODO Add class 'HUDMessageManager'?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
