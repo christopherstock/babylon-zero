@@ -339,6 +339,12 @@
             return this.impostors;
         }
 
+        // TODO typedoc
+        public getMeshCount() : number
+        {
+            return this.meshes.length;
+        }
+
         /** ************************************************************************************************************
         *   Assigns all physical impostors onto the meshes of this model.
         *

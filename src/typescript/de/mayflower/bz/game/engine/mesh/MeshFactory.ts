@@ -14,6 +14,16 @@
         private             static              nextMeshId              :number                     = 0;
 
         /** ************************************************************************************************************
+        *   Returns the next id for a new mesh to create.
+        *
+        *   @return The next free unique id for a new mesh to create.
+        ***************************************************************************************************************/
+        public static createNextMeshId() : string
+        {
+            return 'mesh' + MeshFactory.nextMeshId++;
+        }
+
+        /** ************************************************************************************************************
         *   Creates a box mesh.
         *
         *   @param position        Where to place this mesh.
@@ -743,10 +753,12 @@
 
 
 
-            const clonedMeshes  :BABYLON.AbstractMesh[]    = originalModel.cloneMeshes();
-            let   impostors     :bz.PhysicImpostorParams[] = null;
 
-            // extract or create physics impostors
+
+
+
+            // extract or create physics impostors TODO to separate function
+            let impostors :bz.PhysicImpostorParams[] = null;
             if ( physic == null )
             {
                 impostors = originalModel.getImpostors()
@@ -754,11 +766,19 @@
             else
             {
                 impostors = [];
-                for ( const clonedMesh of clonedMeshes )
+                for ( let i:number = 0; i < originalModel.getMeshCount(); ++i )
                 {
-                    impostors.push( physic.createPhysicImpostorParams( ( 1.0 / clonedMeshes.length ) ) );
+                    impostors.push( physic.createPhysicImpostorParams( ( 1.0 / originalModel.getMeshCount() ) ) );
                 }
             }
+
+
+
+
+
+            // TODO to Model.clone()
+
+            const clonedMeshes:BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
 
             // setup all cloned meshes
             for ( const clonedMesh of clonedMeshes )
@@ -777,11 +797,23 @@
             // create new model
             const clonedModel:bz.Model = new bz.Model( clonedMeshes );
 
+
+
+
+
+
+
+
+
             // translate model by position
             clonedModel.translatePosition( position );
 
             // assign physic impostors
             clonedModel.assignImpostors( impostors, scene );
+
+
+
+
 
             // create compound parent if requested
             if ( useCompoundParent )
@@ -832,15 +864,5 @@
             }
 
             return mesh;
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the next id for a new mesh to create.
-        *
-        *   @return The next free unique id for a new mesh to create.
-        ***************************************************************************************************************/
-        private static createNextMeshId() : string
-        {
-            return 'mesh' + MeshFactory.nextMeshId++;
         }
     }
