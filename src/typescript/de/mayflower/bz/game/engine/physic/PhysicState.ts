@@ -1,6 +1,8 @@
 
     /** ****************************************************************************************************************
     *   The general physic state of a mesh.
+    *
+    *   TODO This enum makes no sence! STATIC and MOVABLE are equivalent and NONE may be replaced by null!
     *******************************************************************************************************************/
     export enum PhysicState
     {

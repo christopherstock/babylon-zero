@@ -143,6 +143,24 @@
         *
         *   @return The impostor parameters for these physical settings.
         ***************************************************************************************************************/
+        public createPhysicImpostorParams( volume:number ) : bz.PhysicImpostorParams
+        {
+            return bz.PhysicImpostorParams.createFromParams
+            (
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                ( volume * this.density ),
+                this.friction,
+                this.restitution
+            );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates the physical impostor parameters for these physic set.
+        *
+        *   @param volume The volume of the mesh to create the impostor parameters for.
+        *
+        *   @return The impostor parameters for these physical settings.
+        ***************************************************************************************************************/
         private createImpostorParams( volume:number ) : BABYLON.PhysicsImpostorParameters
         {
             let mass:number = 0.0;

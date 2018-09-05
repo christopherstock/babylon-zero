@@ -6,6 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Replace and simplify Physics System.
+    *
     *   TODO Set correct (ORIGINAL!) physics impostors for all single meshes after an object exploded.
     *   TODO Set all impostors for all meshes in one place in MeshFactory.
     *

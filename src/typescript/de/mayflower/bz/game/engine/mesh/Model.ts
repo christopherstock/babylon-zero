@@ -284,7 +284,7 @@
             {
                 if ( mesh.physicsImpostor != null )
                 {
-                    this.impostors.push( new bz.PhysicImpostorParams( mesh.physicsImpostor ) );
+                    this.impostors.push( bz.PhysicImpostorParams.createFromImpostor( mesh.physicsImpostor ) );
                 }
                 else
                 {
@@ -305,6 +305,8 @@
 
         /** ************************************************************************************************************
         *   Assigns all physical impostors onto the specified meshes.
+        *
+        *   TODO to non-static version?
         *
         *   @param meshes    The meshes where the physical impostors shall be applied.
         *   @param impostors The impostors to assign to the specified meshes

@@ -19,11 +19,28 @@
         *
         *   @param impostor The babylon.JS impostor to create the impostor params from.
         ***************************************************************************************************************/
-        public constructor( impostor:BABYLON.PhysicsImpostor )
+        public static createFromImpostor( impostor:BABYLON.PhysicsImpostor ) : PhysicImpostorParams
         {
-            this.type        = impostor.type;
-            this.mass        = impostor.mass;
-            this.friction    = impostor.friction;
-            this.restitution = impostor.restitution;
+            const ret:PhysicImpostorParams = new PhysicImpostorParams();
+
+            ret.type        = impostor.type;
+            ret.mass        = impostor.mass;
+            ret.friction    = impostor.friction;
+            ret.restitution = impostor.restitution;
+
+            return ret;
+        }
+
+        // TODO create tsdoc
+        public static createFromParams( type:number, mass:number, friction:number, restitution:number ) : PhysicImpostorParams
+        {
+            const ret:PhysicImpostorParams = new PhysicImpostorParams();
+
+            ret.type        = type;
+            ret.mass        = mass;
+            ret.friction    = friction;
+            ret.restitution = restitution;
+
+            return ret;
         }
     }

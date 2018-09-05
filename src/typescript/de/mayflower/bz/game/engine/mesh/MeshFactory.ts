@@ -735,10 +735,25 @@
         )
         : bz.Model
         {
-            const originalModel     :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
-            const clonedMeshes      :BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
-            let   compoundParent    :BABYLON.Mesh = null;
-            const originalImpostors :bz.PhysicImpostorParams[] = originalModel.getImpostors();
+            const originalModel  :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const clonedMeshes   :BABYLON.AbstractMesh[]    = originalModel.cloneMeshes();
+            let   compoundParent :BABYLON.Mesh              = null;
+            let   impostors      :bz.PhysicImpostorParams[] = null;
+
+            // apply physics to each cloned mesh if present
+            if ( physic == null )
+            {
+                impostors = originalModel.getImpostors()
+            }
+            else
+            {
+                impostors = [];
+
+                for ( const clonedMesh of clonedMeshes )
+                {
+                    impostors.push( physic.createPhysicImpostorParams( ( 1.0 / clonedMeshes.length ) ) );
+                }
+            }
 
             // setup all cloned meshes
             for ( const clonedMesh of clonedMeshes )
@@ -755,29 +770,12 @@
 
                 // transform cloned meshes
                 bz.MeshManipulation.translatePosition( clonedMesh, position );
-
-                // apply physics to each cloned mesh if present
-                if ( physic != null )
-                {
-                    // TODO #1 save as mesh physics impostors?
-
-                    physic.applyPhysicToMesh
-                    (
-                        clonedMesh,
-                        ( 1.0 / clonedMeshes.length ),
-                        BABYLON.PhysicsImpostor.BoxImpostor,
-                        scene
-                    );
-                }
             }
 
-            // TODO #2 always assign impostors here .. see #1
+            // TODO Replace by non-static version?
 
             // apply original impostor onto cloned meshes if desired
-            if ( physic == null )
-            {
-                bz.Model.assignImpostors( clonedMeshes, originalImpostors, scene );
-            }
+            bz.Model.assignImpostors( clonedMeshes, impostors, scene );
 
             // create compound parent if requested
             if ( useCompoundParent )
@@ -812,8 +810,9 @@
                 );
             }
 
+            // TODO move up ?
             const clonedModel:bz.Model = new bz.Model( clonedMeshes, compoundParent );
-            clonedModel.saveImpostors( originalImpostors );
+            clonedModel.saveImpostors( impostors );
 
             return clonedModel;
         }
