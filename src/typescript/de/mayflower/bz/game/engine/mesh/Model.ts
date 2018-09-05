@@ -18,12 +18,21 @@
         /** ************************************************************************************************************
         *   Creates a new model.
         *
+        *   TODO remove second parameter in constructor!
+        *
         *   @param meshes         All meshes that belong to this model.
         *   @param compoundParent The parent mesh of all meshes.
         ***************************************************************************************************************/
         public constructor( meshes:BABYLON.AbstractMesh[], compoundParent:BABYLON.AbstractMesh = null )
         {
             this.meshes         = meshes;
+            this.compoundParent = compoundParent;
+        }
+
+        // TODO Add typedoc
+        // TODO Add code for applying compound parent to all meshes!
+        public setCompoundParent( compoundParent:BABYLON.AbstractMesh ) : void
+        {
             this.compoundParent = compoundParent;
         }
 
@@ -268,6 +277,7 @@
             }
         }
 
+        // TODO add tsdoc
         public saveImpostors( impostors:bz.PhysicImpostorParams[] ) : void
         {
             this.impostors = impostors;
