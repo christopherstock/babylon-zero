@@ -735,10 +735,9 @@
         )
         : bz.Model
         {
-            const originalModel  :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
-            const clonedMeshes   :BABYLON.AbstractMesh[]    = originalModel.cloneMeshes();
-            let   compoundParent :BABYLON.Mesh              = null;
-            let   impostors      :bz.PhysicImpostorParams[] = null;
+            const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const clonedMeshes  :BABYLON.AbstractMesh[]    = originalModel.cloneMeshes();
+            let   impostors     :bz.PhysicImpostorParams[] = null;
 
             // extract or create physics impostors
             if ( physic == null )
@@ -775,43 +774,10 @@
             const clonedModel:bz.Model = new bz.Model( clonedMeshes );
             clonedModel.assignImpostors( impostors, scene );
 
-
-
-            // TODO move to Model !!
-
             // create compound parent if requested
             if ( useCompoundParent )
             {
-                // create compound parent
-                compoundParent = bz.MeshFactory.createBox
-                (
-                    position,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.Texture.WALL_GRASS,
-                    null,
-                    bz.Main.game.engine.scene.getScene(),
-                    bz.Physic.NONE,
-                    1.0,
-                    BABYLON.Color3.Red()
-                );
-
-                // set compound mesh as parent
-                for ( const clonedMesh of clonedMeshes )
-                {
-                    clonedMesh.setParent( compoundParent );
-                }
-
-                bz.Physic.SOLID_WOOD.applyPhysicToMesh
-                (
-                    compoundParent,
-                    ( 1.0 / clonedMeshes.length ),
-                    BABYLON.PhysicsImpostor.BoxImpostor,
-                    scene
-                );
-
-                clonedModel.setCompoundParent( compoundParent );
+                clonedModel.addCompoundParent( position, scene );
             }
 
             return clonedModel;

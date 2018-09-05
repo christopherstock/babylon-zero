@@ -25,11 +25,43 @@
             this.meshes = meshes;
         }
 
-        // TODO Add typedoc
-        // TODO Add code for applying compound parent to all meshes!
-        public setCompoundParent( compoundParent:BABYLON.AbstractMesh ) : void
+        /** ************************************************************************************************************
+        *   Creates and applies a compound parent to this model.
+        *
+        *   @param position The position for the compound parent to appear.
+        *   @param scene    The scene for the new compound parent to be created in.
+        ***************************************************************************************************************/
+        public addCompoundParent( position:BABYLON.Vector3, scene:BABYLON.Scene ) : void
         {
-            this.compoundParent = compoundParent;
+            // create compound parent
+            this.compoundParent = bz.MeshFactory.createBox
+            (
+                position,
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Texture.WALL_GRASS,
+                null,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Physic.NONE,
+                1.0,
+                BABYLON.Color3.Red()
+            );
+
+            // set compound mesh as parent
+            for ( const mesh of this.meshes )
+            {
+                mesh.setParent( this.compoundParent );
+            }
+
+            // TODO specify physics for compound
+            bz.Physic.SOLID_WOOD.applyPhysicToMesh
+            (
+                this.compoundParent,
+                ( 1.0 / this.meshes.length ),
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                scene
+            );
         }
 
         /** ************************************************************************************************************
