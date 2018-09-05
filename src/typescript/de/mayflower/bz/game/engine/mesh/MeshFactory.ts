@@ -746,12 +746,10 @@
             const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
             const clonedModel   :bz.Model = originalModel.clone();
 
-            // translate model by position
+            // translate cloned model by position
             clonedModel.translatePosition( position );
 
-
-
-            // extract or create physics impostors and reassign them to the model
+            // extract or create physics impostors and assign them to the cloned model
             let impostors :bz.PhysicImpostorParams[] = [];
             if ( physic == null )
             {
@@ -765,8 +763,6 @@
                 }
             }
             clonedModel.assignImpostors( impostors, scene );
-
-
 
             // create compound parent if requested
             if ( useCompoundParent )
