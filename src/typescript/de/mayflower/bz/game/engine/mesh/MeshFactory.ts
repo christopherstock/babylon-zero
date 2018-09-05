@@ -744,74 +744,27 @@
         : bz.Model
         {
             const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const clonedModel   :bz.Model = originalModel.clone();
+
+            // translate model by position
+            clonedModel.translatePosition( position );
 
 
 
-            // TODO move this functionality to Model.clone() !
-            //originalModel.clone
-
-
-
-
-
-
-
-
-            // extract or create physics impostors TODO to separate function
-            let impostors :bz.PhysicImpostorParams[] = null;
+            // extract or create physics impostors and reassign them to the model
+            let impostors :bz.PhysicImpostorParams[] = [];
             if ( physic == null )
             {
                 impostors = originalModel.getImpostors()
             }
             else
             {
-                impostors = [];
                 for ( let i:number = 0; i < originalModel.getMeshCount(); ++i )
                 {
                     impostors.push( physic.createPhysicImpostorParams( ( 1.0 / originalModel.getMeshCount() ) ) );
                 }
             }
-
-
-
-
-
-            // TODO to Model.clone()
-
-            const clonedMeshes:BABYLON.AbstractMesh[] = originalModel.cloneMeshes();
-
-            // setup all cloned meshes
-            for ( const clonedMesh of clonedMeshes )
-            {
-                clonedMesh.id = bz.MeshFactory.createNextMeshId();
-
-                // show this mesh
-                clonedMesh.visibility = 1.0;
-
-                // specify debug settings for the cloned mesh
-                clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-                clonedMesh.isPickable = true;
-            }
-
-            // create new model
-            const clonedModel:bz.Model = new bz.Model( clonedMeshes );
-
-
-
-
-
-
-
-
-
-            // translate model by position
-            clonedModel.translatePosition( position );
-
-            // assign physic impostors
             clonedModel.assignImpostors( impostors, scene );
-
-
 
 
 

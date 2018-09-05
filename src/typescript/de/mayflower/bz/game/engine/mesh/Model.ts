@@ -134,34 +134,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns a cloned collection of this models' meshes.
-        *
-        *   TODO to private!
-        *
-        *   @return All cloned meshes from this model.
-        ***************************************************************************************************************/
-        public cloneMeshes() : BABYLON.AbstractMesh[]
-        {
-            const clonedMeshes:BABYLON.AbstractMesh[] = [];
-
-            for ( const mesh of this.meshes )
-            {
-                // remove physical impostors of all meshes if still present
-                if ( mesh.physicsImpostor != null )
-                {
-                    mesh.physicsImpostor.dispose();
-                    mesh.physicsImpostor = null;
-                }
-
-                // clone this mesh ( without a physics impostor )
-                const clonedMesh:BABYLON.AbstractMesh = mesh.clone( '', null );
-                clonedMeshes.push( clonedMesh );
-            }
-
-            return clonedMeshes;
-        }
-
-        /** ************************************************************************************************************
         *   Scales down the linear velocity by 10 %.
         *   This is mandatory for stopping squares from rolling endlessly.
         ***************************************************************************************************************/
@@ -402,5 +374,59 @@
             {
                 bz.MeshManipulation.translatePosition( mesh, translation )
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns a cloned instance of this model.
+        *   The cloned model does NOT contain any physical impostors!
+        *
+        *   @return A cloned instance of this model.
+        ***************************************************************************************************************/
+        public clone() : Model
+        {
+            const clonedMeshes:BABYLON.AbstractMesh[] = this.cloneMeshes();
+
+            // setup all cloned meshes
+            for ( const clonedMesh of clonedMeshes )
+            {
+                clonedMesh.id = bz.MeshFactory.createNextMeshId();
+
+                // show this mesh
+                clonedMesh.visibility = 1.0;
+
+                // specify debug settings for the cloned mesh
+                clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+                clonedMesh.isPickable = true;
+            }
+
+            return new bz.Model( clonedMeshes );
+        }
+
+        /** ************************************************************************************************************
+        *   Returns a cloned collection of this models' meshes.
+        *   All physic impostors are gone on all cloned meshes.
+        *
+        *   @return All cloned meshes from this model.
+        ***************************************************************************************************************/
+        private cloneMeshes() : BABYLON.AbstractMesh[]
+        {
+            const clonedMeshes:BABYLON.AbstractMesh[] = [];
+
+            for ( const mesh of this.meshes )
+            {
+                // remove physical impostors of all meshes if still present
+                if ( mesh.physicsImpostor != null )
+                {
+                    mesh.physicsImpostor.dispose();
+                    mesh.physicsImpostor = null;
+                }
+
+                // clone this mesh ( without a physics impostor )
+                const clonedMesh:BABYLON.AbstractMesh = mesh.clone( '', null );
+                clonedMeshes.push( clonedMesh );
+            }
+
+            return clonedMeshes;
         }
     }
