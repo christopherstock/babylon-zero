@@ -771,18 +771,9 @@
                 bz.MeshManipulation.translatePosition( clonedMesh, position );
             }
 
-            // TODO Replace by non-static version?
-
-
-
-
             // create new model
             const clonedModel:bz.Model = new bz.Model( clonedMeshes );
-            clonedModel.saveImpostors( impostors );
-            // apply original impostor onto cloned meshes if desired TODO non static!
-            bz.Model.assignImpostors( clonedMeshes, impostors, scene );
-
-
+            clonedModel.assignImpostors( impostors, scene );
 
 
 

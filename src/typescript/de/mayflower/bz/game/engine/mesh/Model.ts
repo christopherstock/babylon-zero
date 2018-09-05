@@ -273,12 +273,6 @@
             }
         }
 
-        // TODO add tsdoc
-        public saveImpostors( impostors:bz.PhysicImpostorParams[] ) : void
-        {
-            this.impostors = impostors;
-        }
-
         /** ************************************************************************************************************
         *   Extracts all impostor parameters for all meshes of this model.
         ***************************************************************************************************************/
@@ -312,27 +306,22 @@
         }
 
         /** ************************************************************************************************************
-        *   Assigns all physical impostors onto the specified meshes.
+        *   Assigns all physical impostors onto the meshes of this model.
         *
-        *   TODO to non-static version?
-        *
-        *   @param meshes    The meshes where the physical impostors shall be applied.
-        *   @param impostors The impostors to assign to the specified meshes
-        *   @param scene     The scene where a new physical impostor may be added to.
+        *   @param impostors The impostors to assign to this model's meshes
+        *   @param scene     The scene where the new physical impostors are added to.
         ***************************************************************************************************************/
-        public static assignImpostors
-        (
-            meshes    :BABYLON.AbstractMesh[],
-            impostors :bz.PhysicImpostorParams[],
-            scene     :BABYLON.Scene
-        )
-        : void
+        public assignImpostors( impostors:bz.PhysicImpostorParams[], scene:BABYLON.Scene ) : void
         {
             bz.Debug.physic.log( 'Applying impostors to cloned meshes:' );
 
-            for ( let i:number = 0; i < meshes.length; ++i )
+            // save impostors for later use ( e.g. when the model scatters )
+            this.impostors = impostors;
+
+            // browse all meshes and apply impostors to each mesh
+            for ( let i:number = 0; i < this.meshes.length; ++i )
             {
-                const mesh     :BABYLON.AbstractMesh    = meshes[ i ];
+                const mesh     :BABYLON.AbstractMesh    = this.meshes[ i ];
                 const impostor :bz.PhysicImpostorParams = impostors[ i ];
 
                 if ( impostor != null )
@@ -346,6 +335,7 @@
                         + '[' + impostor.restitution + ']'
                     );
 
+                    // TODO add impostor.toPhysicsImpostor
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
