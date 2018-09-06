@@ -109,7 +109,7 @@
                 bz.ModelFile.OFFICE_CHAIR,
                 new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
                 this.scene,
-                bz.Physic.CHAIR,
+                bz.Physic.CONCRETE,
                 true
             );
             this.chairMultiPhysics = bz.MeshFactory.createImportedModel
@@ -117,7 +117,7 @@
                 bz.ModelFile.OFFICE_CHAIR,
                 new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
                 this.scene,
-                bz.Physic.CHAIR,
+                bz.Physic.CONCRETE,
                 true
             );
             this.compoundSpheres = bz.MeshFactory.createImportedModel

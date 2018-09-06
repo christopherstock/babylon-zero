@@ -13,7 +13,7 @@
         /** The physical impostors for all meshes of this model. */
         private                                 impostors               :bz.PhysicImpostorParams[]          = null;
         /** The compound mesh for all meshes. */
-        private                                 compoundParent          :BABYLON.AbstractMesh               = null;
+        private                                 compoundMesh            :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
         *   Creates a new model consisting of the specified meshes.
@@ -33,8 +33,8 @@
         ***************************************************************************************************************/
         public addCompoundParent( position:BABYLON.Vector3, scene:BABYLON.Scene ) : void
         {
-            // create compound parent
-            this.compoundParent = bz.MeshFactory.createBox
+            // create compound mesh
+            this.compoundMesh = bz.MeshFactory.createBox
             (
                 position,
                 bz.MeshPivotAnchor.CENTER_XYZ,
@@ -48,17 +48,17 @@
                 BABYLON.Color3.Red()
             );
 
-            // set compound mesh as parent
+            // set compound as parent
             for ( const mesh of this.meshes )
             {
-                mesh.setParent( this.compoundParent );
+                mesh.setParent( this.compoundMesh );
             }
 
-            // TODO specify physics for compound
+            // set physics for compound
             bz.Physic.SOLID_WOOD.applyPhysicToMesh
             (
-                this.compoundParent,
-                ( 1.0 / this.meshes.length ),
+                this.compoundMesh,
+                1.0,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 scene
             );
@@ -75,9 +75,9 @@
                 mesh.dispose();
             }
 
-            if ( this.compoundParent != null )
+            if ( this.compoundMesh != null )
             {
-                this.compoundParent.dispose();
+                this.compoundMesh.dispose();
             }
         }
 
@@ -172,9 +172,9 @@
         ***************************************************************************************************************/
         public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number ) : void
         {
-            if ( this.compoundParent != null )
+            if ( this.compoundMesh != null )
             {
-                bz.MeshManipulation.setAbsoluteRotationXYZ( this.compoundParent, rotX, rotY, rotZ );
+                bz.MeshManipulation.setAbsoluteRotationXYZ( this.compoundMesh, rotX, rotY, rotZ );
             }
             else
             {
@@ -216,7 +216,7 @@
         ***************************************************************************************************************/
         public removeCompoundParent( scene:BABYLON.Scene ) : void
         {
-            if ( this.compoundParent != null )
+            if ( this.compoundMesh != null )
             {
                 bz.Debug.physic.log( 'Removing compound parent from model' );
 
@@ -274,8 +274,8 @@
                 // this.compoundParent.physicsImpostor.forceUpdate();
 
                 // dispose the compound mesh
-                this.compoundParent.dispose();
-                this.compoundParent = null;
+                this.compoundMesh.dispose();
+                this.compoundMesh = null;
             }
         }
 

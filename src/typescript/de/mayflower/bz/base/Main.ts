@@ -6,25 +6,18 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Replace and simplify Physics System.
-    *
     *   TODO Set correct (ORIGINAL!) physics impostors for all single meshes after an object exploded.
     *   TODO Set all impostors for all meshes in one place in MeshFactory.
-    *
     *   TODO Refactor package 'game/engine'.
+    *   TODO Fix invisible faces for office chair?
     *   TODO Refactor package 'game/stage'.
-    *
     *   TODO Create package 'engine/model'?
-    *
     *   TODO Try different imposter props for chair foot.
-    *
     *   TODO Darken faces / submeshes if being shot and damaged?
+    *   TODO Add class 'HUDMessageManager'?
     *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Set the original physical impostors if a model crashes into its separate meshes.
-    *
     *   TODO Particle FX (physics) for wall rubble!
-    *
-    *   TODO Add class 'HUDMessageManager'?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Add particle system (fx) for bullet holes' wall rubble.
@@ -48,6 +41,7 @@
     *   =====================
     *   TODO Add physically correct bullet drop out after fire.
     *   TODO Fix view angle if ducking (revise scaling ..).
+    *   TODO Add head shaking on walking.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Add wearpon panning (pan view/angle on moving crosshair to the screen border)?

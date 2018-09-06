@@ -43,12 +43,21 @@
         );
 
         /** Props for office chair. */
-        public  static  readonly        CHAIR           :Physic                 = new Physic
+        public  static  readonly        CONCRETE           :Physic                 = new Physic
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.CONCRETE,
             bz.PhysicFriction.HIGH,
             bz.PhysicRestitution.NONE,
+        );
+
+        /** Props for a physical compound object. */
+        public  static  readonly        COMPOUND            :Physic                 = new Physic
+        (
+            bz.PhysicState.MOVABLE,
+            bz.PhysicDensity.DEFAULT,
+            bz.PhysicFriction.MEDIUM,
+            bz.PhysicRestitution.MEDIUM,
         );
 
         /** Physical properties for a non-moving and collidable body. */
