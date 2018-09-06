@@ -227,7 +227,7 @@
                     mesh.setParent( null );
                 }
 
-                // apply physics to all cloned meshes TODO apply ORIGINAL impostors???
+                // apply physics to all cloned meshes
                 for ( let i:number = 0; i < this.meshes.length; ++i )
                 {
                     if ( this.impostors[ i ] == null )
@@ -290,7 +290,7 @@
             {
                 if ( mesh.physicsImpostor != null )
                 {
-                    this.impostors.push( bz.PhysicImpostorParams.createFromImpostor( mesh.physicsImpostor ) );
+                    this.impostors.push( bz.PhysicImpostorParams.fromImpostor( mesh.physicsImpostor ) );
                 }
                 else
                 {
@@ -302,8 +302,6 @@
         /** ************************************************************************************************************
         *   Returns the physics impostors of all meshes of this model.
         *
-        *   TODO merge with extractImpostors !!
-        *
         *   @return The physics impostor parameters of all meshes.
         ***************************************************************************************************************/
         public getImpostors() : bz.PhysicImpostorParams[]
@@ -311,7 +309,11 @@
             return this.impostors;
         }
 
-        // TODO typedoc
+        /** ************************************************************************************************************
+        *   Returns the number of meshes this model consists of.
+        *
+        *   @return The mesh count of this model.
+        ***************************************************************************************************************/
         public getMeshCount() : number
         {
             return this.meshes.length;
@@ -347,18 +349,7 @@
                         + '[' + impostor.restitution + ']'
                     );
 
-                    // TODO add impostor.toPhysicsImpostor
-                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        mesh,
-                        impostor.type,
-                        {
-                            mass:        impostor.mass,
-                            friction:    impostor.friction,
-                            restitution: impostor.restitution,
-                        },
-                        scene
-                    );
+                    impostor.applyPhysicsImpostor( mesh, scene );
                 }
             }
         }

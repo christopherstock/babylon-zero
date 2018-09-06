@@ -145,7 +145,7 @@
         ***************************************************************************************************************/
         public createPhysicImpostorParams( volume:number ) : bz.PhysicImpostorParams
         {
-            return bz.PhysicImpostorParams.createFromParams
+            return bz.PhysicImpostorParams.fromParams
             (
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 ( volume * this.density ),

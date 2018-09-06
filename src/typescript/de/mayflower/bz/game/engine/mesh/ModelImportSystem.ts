@@ -54,9 +54,8 @@
                             importedMesh.visibility = 0.0;
                         }
 
-                        // save in meshes array
+                        // save in models array
                         this.models[ fileName ] = new bz.Model( importedMeshes );
-                        // TODO do NOT automatically extract all physics impostors here ..
                         this.models[ fileName ].extractPhysicsImpostors();
 
                         // notify load

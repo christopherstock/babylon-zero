@@ -15,13 +15,34 @@
         public                  restitution                 :number                     = 0;
 
         /** ************************************************************************************************************
+        *   Creates a babylon.JS physics impostor from this params object and applies it onto the specified mesh.
+        *
+        *   @param mesh  The mesh to apply the babylon.JS physics impostor onto.
+        *   @param scene The scene where the created physics impostor will be added to.
+        ***************************************************************************************************************/
+        public applyPhysicsImpostor( mesh:BABYLON.AbstractMesh, scene:BABYLON.Scene ) : void
+        {
+            mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+            (
+                mesh,
+                this.type,
+                {
+                    mass:        this.mass,
+                    friction:    this.friction,
+                    restitution: this.restitution,
+                },
+                scene
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Creates the impostor params object from the specified babylon.JS physics impostor.
         *
         *   @param impostor The babylon.JS impostor to create the impostor params from.
         *
         *   @return The physical parameter compound object.
         ***************************************************************************************************************/
-        public static createFromImpostor( impostor:BABYLON.PhysicsImpostor ) : PhysicImpostorParams
+        public static fromImpostor( impostor:BABYLON.PhysicsImpostor ) : PhysicImpostorParams
         {
             const ret:PhysicImpostorParams = new PhysicImpostorParams();
 
@@ -43,7 +64,7 @@
         *
         *   @return The physical parameter compound object.
         ***************************************************************************************************************/
-        public static createFromParams
+        public static fromParams
         (
             type        :number,
             mass        :number,
