@@ -7,22 +7,14 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The game HUD. */
-        public                              hud                     :bz.HUD                                 = null;
-
-        /** The ambient color of this stage is the emissive color of all mesh materials. */
-        public              readonly        ambientColor            :BABYLON.Color3                         = null;
-
         /** The reference to the babylon.JS Scene. */
         protected           readonly        scene                   :BABYLON.Scene                          = null;
+        /** The ambient color of this stage is the emissive color of all mesh materials. */
+        protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
-
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
-
-        /** The skybox that surrounds the whole stage. */
-        protected                           skybox                  :BABYLON.Mesh                           = null;
 
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -32,21 +24,23 @@
         protected                           items                   :bz.Item[]                              = [];
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                               = [];
-
+        /** The skybox that surrounds the whole stage. */
+        protected                           skybox                  :BABYLON.Mesh                           = null;
         /** A collection of all sprites that appear in this stage. */
         protected                           sprites                 :BABYLON.Sprite[]                       = [];
+        /** The game HUD. */
+        protected                           hud                     :bz.HUD                                 = null;
+        /** The camera system that manages all scene cameras. */
+        protected                           cameraSystem            :bz.CameraSystem                        = null;
         /** A collection of all lights that appear in this stage. */
         protected                           lights                  :BABYLON.Light[]                        = [];
         /** A collection of all shadowGenerators that appear in this stage. */
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
-        /** The camera system that manages all scene cameras. */
-        protected                           cameraSystem            :bz.CameraSystem                        = null;
 
         /** A collection of all bullet holes in this stage. */
-        protected                           bulletHoles             :bz.BulletHole[]                        = [];
-
+        private                             bulletHoles             :bz.BulletHole[]                        = [];
         /** A collection of all debug meshes in this stage. */
-        protected                           debugMeshes             :BABYLON.Mesh[]                         = [];
+        private                             debugMeshes             :BABYLON.Mesh[]                         = [];
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
@@ -77,6 +71,7 @@
         {
             this.scene.ambientColor = this.ambientColor;
             this.scene.clearColor   = this.clearColor;
+
             this.player             = this.createPlayer();
 
             if ( bz.SettingDebug.SHOW_COORDINATE_AXIS )
@@ -117,6 +112,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns this stage's camera system.
+        *
+        *   @return The camera system of this stage.
+        ***************************************************************************************************************/
+        public getCameraSystem() : bz.CameraSystem
+        {
+            return this.cameraSystem;
+        }
+
+        /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
         ***************************************************************************************************************/
         public render() : void
@@ -145,14 +150,9 @@
         }
 
         /** ************************************************************************************************************
-        *   Handles level specific keys.
+        *   Disposes all babylon.JS resources of this level.
         ***************************************************************************************************************/
-        public abstract handleLevelKeys() : void;
-
-        /** ************************************************************************************************************
-        *   Removes all meshes of this level.
-        ***************************************************************************************************************/
-        public unload() : void
+        public dispose() : void
         {
             // dispose player
             if ( this.player != null )
@@ -225,16 +225,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns this stage's camera system.
-        *
-        *   @return The camera system of this stage.
-        ***************************************************************************************************************/
-        public getCameraSystem() : bz.CameraSystem
-        {
-            return this.cameraSystem;
-        }
-
-        /** ************************************************************************************************************
         *   Sets the active camera for this stage.
         ***************************************************************************************************************/
         public setActiveCamera( cameraId:bz.CameraType ) : void
@@ -291,6 +281,11 @@
                 );
             }
         }
+
+        /** ************************************************************************************************************
+        *   Handles level specific keys.
+        ***************************************************************************************************************/
+        public abstract handleLevelKeys() : void;
 
         /** ************************************************************************************************************
         *   Sets up the player for this stage.

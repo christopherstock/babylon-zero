@@ -16,6 +16,6 @@
         /** The product configurator. */
         STAGE_PRODUCT_CONFIGURATOR,
 
-        /** Mayflower logo */
+        /** The rotating Mayflower logo. */
         STAGE_INTRO_LOGO,
     }

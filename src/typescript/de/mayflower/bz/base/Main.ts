@@ -7,9 +7,10 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Refactor package 'game/engine'.
-    *   TODO Refactor package 'game/stage'.
     *
-    *   TODO Try different imposter props for chair foot.
+    *   TODO Fix test suite imports!
+    *
+    *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Add class 'HUDMessageManager'?
     *   TODO Fix invisible faces for office chair?

@@ -662,7 +662,9 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            const lights:BABYLON.Light[] = [
+            // const lights:BABYLON.Light[] = [
+
+            return [
 
                 // hemispheric light
                 bz.LightFactory.createHemispheric
@@ -713,8 +715,6 @@
                     true
                 ),
             ];
-
-            return lights;
         }
 
         /** ************************************************************************************************************

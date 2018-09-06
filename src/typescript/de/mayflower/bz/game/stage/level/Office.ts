@@ -368,7 +368,7 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            const lights:BABYLON.Light[] = [
+            // const lights:BABYLON.Light[] = [
 /*
                 // hemispheric light
                 bz.LightFactory.createHemispheric
@@ -413,14 +413,14 @@
                     new BABYLON.Color3( 0.0, 0.0, 0.0 )
                 ),
 */
-            ];
+            // ];
 /*
             lights[ 0 ].setEnabled( false );
             lights[ 1 ].setEnabled( false );
             lights[ 2 ].setEnabled( false );
             lights[ 3 ].setEnabled( true  );
 */
-            return lights;
+            return [];
         }
 
         /** ************************************************************************************************************
@@ -430,16 +430,16 @@
         ***************************************************************************************************************/
         protected createShadowGenerators() : BABYLON.ShadowGenerator[]
         {
-            const shadowGenerators:BABYLON.ShadowGenerator[] = [
+            // const shadowGenerators:BABYLON.ShadowGenerator[] = [
 /*
                 new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) ),
 */
-            ];
+            // ];
 /*
             shadowGenerators[ 0 ].useExponentialShadowMap = true;
             shadowGenerators[ 0 ].usePoissonSampling      = true;
 */
-            return shadowGenerators;
+            return [];
         }
 
         /** ************************************************************************************************************

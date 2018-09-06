@@ -173,7 +173,7 @@
 
                 // dispose existent stage
                 bz.Debug.stage.log( 'Disposing the current stage' );
-                this.stage.unload();
+                this.stage.dispose();
             }
 
             switch ( targetStage )
