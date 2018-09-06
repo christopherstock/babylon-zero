@@ -5,7 +5,7 @@
     /** ****************************************************************************************************************
     *   Manages the Heads Up Display that contains all GUI elements for one game level.
     *******************************************************************************************************************/
-    export class GameHUD extends bz.HUD
+    export class HUDGame extends bz.HUD
     {
         /** The wearpon image. */
         protected                           wearponImage            :BABYLON_GUI.Image                      = null;

@@ -8,11 +8,11 @@
     export abstract class HUD
     {
         /** The fullscreen gui in foreground. */
-        protected                           guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+        protected           readonly        guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
         /** The FPS text block. */
-        protected                           fpsText                 :BABYLON_GUI.TextBlock                  = null;
-        /** The text block of the message queue . */
-        protected                           messageQueue            :bz.HUDMessage[]                        = [];
+        private             readonly        fpsText                 :BABYLON_GUI.TextBlock                  = null;
+        /** All HUD messages currently displayed. */
+        private             readonly        messageQueue            :bz.HUDMessage[]                        = [];
 
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
@@ -69,6 +69,11 @@
         public dispose() : void
         {
             this.guiFg.dispose();
+
+            for ( const hudMessage of this.messageQueue )
+            {
+                hudMessage.dispose();
+            }
         }
 
         /** ************************************************************************************************************

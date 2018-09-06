@@ -23,9 +23,9 @@
     export * from './game/engine/Scene';
 
     export * from './game/engine/ui/hud/HUD';
-    export * from './game/engine/ui/hud/GameHUD';
+    export * from './game/engine/ui/hud/HUDGame';
     export * from './game/engine/ui/hud/HUDMessage';
-    export * from './game/engine/ui/hud/ProductConfiguratorHUD';
+    export * from './game/engine/ui/hud/HUDProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/GuiFactory';

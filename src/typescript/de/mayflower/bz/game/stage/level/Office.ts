@@ -503,7 +503,7 @@
         ***************************************************************************************************************/
         protected createHUD() : bz.HUD
         {
-            const hud:bz.GameHUD = new bz.GameHUD();
+            const hud:bz.HUDGame = new bz.HUDGame();
             hud.init();
 
             return hud;

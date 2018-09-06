@@ -6,9 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Refactor package 'game/engine'.
-    *
     *   TODO Add class 'HUDMessageManager'.
+    *   TODO Refactor package 'game/engine'.
     *
     *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!
     *   TODO Darken faces / submeshes if being shot and damaged?
@@ -33,6 +32,7 @@
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Merge all game objects to one array in Stage?
     *   TODO Minor jitter bug improvements on colliding walls?
+    *   TODO Add explosion sprites.
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *
     *   TODO Advanced topics:

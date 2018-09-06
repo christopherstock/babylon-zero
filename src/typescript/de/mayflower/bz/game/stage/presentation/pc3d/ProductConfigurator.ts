@@ -130,7 +130,7 @@
                     this.animationState = bz.HelmetState.OPENING;
                     bz.GuiFactory.setVisorToggleButtonText
                     (
-                        ( this.hud as bz.ProductConfiguratorHUD ).visorToggleButton,
+                        ( this.hud as bz.HUDProductConfigurator ).visorToggleButton,
                         'Close Visor'
                     );
 
@@ -162,7 +162,7 @@
                     this.animationState = bz.HelmetState.CLOSING;
                     bz.GuiFactory.setVisorToggleButtonText
                     (
-                        ( this.hud as bz.ProductConfiguratorHUD ).visorToggleButton,
+                        ( this.hud as bz.HUDProductConfigurator ).visorToggleButton,
                         'Open Visor'
                     );
 
@@ -338,7 +338,7 @@
         ***************************************************************************************************************/
         protected createHUD() : bz.HUD
         {
-            const hud:bz.ProductConfiguratorHUD = new bz.ProductConfiguratorHUD( this );
+            const hud:bz.HUDProductConfigurator = new bz.HUDProductConfigurator( this );
             hud.init();
 
             return hud;
@@ -353,7 +353,7 @@
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
                 () => {
 
-                    ( this.hud as bz.ProductConfiguratorHUD ).cameraZoomSlider.value =
+                    ( this.hud as bz.HUDProductConfigurator ).cameraZoomSlider.value =
                     (
 //                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
                         400.0 + 100.0 - this.getCameraSystem().getArcRotateCamera().radius
