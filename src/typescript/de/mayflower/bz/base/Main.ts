@@ -8,11 +8,10 @@
     *
     *   TODO Refactor package 'game/engine'.
     *
-    *   TODO Fix test suite imports!
+    *   TODO Add class 'HUDMessageManager'.
     *
     *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!
     *   TODO Darken faces / submeshes if being shot and damaged?
-    *   TODO Add class 'HUDMessageManager'?
     *   TODO Fix invisible faces for office chair?
     *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Set the original physical impostors if a model crashes into its separate meshes.
