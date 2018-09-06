@@ -11,6 +11,7 @@
         protected           readonly        guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
         /** The FPS text block. */
         private             readonly        fpsText                 :BABYLON_GUI.TextBlock                  = null;
+
         /** All HUD messages currently displayed. */
         private             readonly        messageQueue            :bz.HUDMessage[]                        = [];
 

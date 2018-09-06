@@ -25,6 +25,7 @@
     export * from './game/engine/ui/hud/HUD';
     export * from './game/engine/ui/hud/HUDGame';
     export * from './game/engine/ui/hud/HUDMessage';
+    export * from './game/engine/ui/hud/HUDMessageManager';
     export * from './game/engine/ui/hud/HUDProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';
