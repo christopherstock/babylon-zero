@@ -6,15 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Set correct (ORIGINAL!) physics impostors for all single meshes after an object exploded.
-    *   TODO Set all impostors for all meshes in one place in MeshFactory.
     *   TODO Refactor package 'game/engine'.
-    *   TODO Fix invisible faces for office chair?
     *   TODO Refactor package 'game/stage'.
-    *   TODO Create package 'engine/model'?
+    *
     *   TODO Try different imposter props for chair foot.
     *   TODO Darken faces / submeshes if being shot and damaged?
     *   TODO Add class 'HUDMessageManager'?
+    *   TODO Fix invisible faces for office chair?
     *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Set the original physical impostors if a model crashes into its separate meshes.
     *   TODO Particle FX (physics) for wall rubble!

@@ -47,10 +47,11 @@
     export * from './game/engine/material/MaterialSystem';
 
     export * from './game/engine/mesh/MeshFactory';
-    export * from './game/engine/mesh/Model';
-    export * from './game/engine/mesh/ModelImportSystem';
     export * from './game/engine/mesh/MeshManipulation';
     export * from './game/engine/mesh/MeshPivotAnchor';
+
+    export * from './game/engine/model/Model';
+    export * from './game/engine/model/ModelImportSystem';
 
     export * from './game/engine/physic/PhysicDensity';
     export * from './game/engine/physic/PhysicFriction';
