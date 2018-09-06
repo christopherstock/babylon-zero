@@ -6,38 +6,45 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!
-    *   TODO Darken faces / submeshes if being shot and damaged?
-    *   TODO Fix invisible faces for office chair?
     *   TODO Let models crash into their separate meshes on being destroyed?
-    *   TODO Set the original physical impostors if a model crashes into its separate meshes.
-    *   TODO Particle FX (physics) for wall rubble!
+    *   TODO Darken faces / submeshes if being shot and damaged?
+    *
+    *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!
+    *   TODO Fix invisible faces for office chair?
+    *
+    *   TODO Particle FX (physics) for wall rubble! Add particle system (fx) for bullet holes' wall rubble.
+    *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
-    *   TODO Add particle system (fx) for bullet holes' wall rubble.
-    *   TODO Checkout babylon.JS bones and skeletons?
-    *   TODO Create wearpons with projectiles.
+    *   TODO Create wearpons with projectiles (exploding or non-exploding)..
     *   TODO Also zoom the wearpon in the HUD on zooming with the wearpon.
+    *
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
+    *
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
+    *   TODO Checkout babylon.JS bones and skeletons?
+    *
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Enable jumping? Determine player floor collision ...
+    *
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
+    *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
+    *   TODO Minor jitter bug improvements on colliding walls?
+    *
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   TODO Create air friction for ALL movables in render() of scene! (like red square)
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Merge all game objects to one array in Stage?
-    *   TODO Minor jitter bug improvements on colliding walls?
-    *   TODO Add explosion sprites.
-    *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *
     *   TODO Advanced topics:
     *   =====================
-    *   TODO Add physically correct bullet drop out after fire.
-    *   TODO Fix view angle if ducking (revise scaling ..).
+    *   TODO Add explosion sprites.
     *   TODO Add head shaking on walking.
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
+    *   TODO Add physically correct bullet drop out after fire.
+    *   TODO Fix view angle if ducking (revise scaling ..).
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *   TODO Smooth edges for bullet holes? Certain bullet hole shapes look white?

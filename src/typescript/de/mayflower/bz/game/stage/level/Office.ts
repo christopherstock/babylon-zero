@@ -63,10 +63,7 @@
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
                 // add HUD message to queue
-                this.hud.addHudMessage( 'explode chair [' + bz.String.getDateTimeString() + ']' );
-
-                // explode chair
-                this.chairMulti.removeCompoundParent( this.scene );
+                this.hud.addHudMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
 
                 // explode compound spheres
                 this.compoundSpheres.removeCompoundParent( this.scene );
@@ -147,19 +144,20 @@
                 // black sphere COMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
                 (
-                    this.compoundSpheres,
+                    this.compoundSpheres
                 ),
 
                 // 3ds chair single-meshed
                 new bz.Wall
                 (
-                    this.chairSingle,
+                    this.chairSingle
                 ),
 
                 // 3ds chair - multi-meshes with same physics
                 new bz.Wall
                 (
                     this.chairMulti,
+                    5
                 ),
 
                 // 3ds chair - multi-meshes with specific physics

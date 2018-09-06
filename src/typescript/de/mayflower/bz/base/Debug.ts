@@ -11,23 +11,23 @@
         /** Debugs initialization process. */
         public      static      readonly    init                :Debug              = new Debug( true  );
         /** Debugs canvas setup and resizing. */
-        public      static      readonly    canvas              :Debug              = new Debug( true  );
+        public      static      readonly    canvas              :Debug              = new Debug( false );
         /** Debugs sound system. */
-        public      static      readonly    sound               :Debug              = new Debug( true  );
+        public      static      readonly    sound               :Debug              = new Debug( false );
         /** Debugs stage system. */
-        public      static      readonly    stage               :Debug              = new Debug( true  );
+        public      static      readonly    stage               :Debug              = new Debug( false );
         /** Debugs concernings for the 3D product configurator. */
-        public      static      readonly    pc3d                :Debug              = new Debug( true  );
+        public      static      readonly    pc3d                :Debug              = new Debug( false );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
         /** Debugs the game items. */
-        public      static      readonly    item                :Debug              = new Debug( true  );
+        public      static      readonly    item                :Debug              = new Debug( false );
         /** Debugs player fire. */
         public      static      readonly    fire                :Debug              = new Debug( true  );
         /** Debugs player move, rotate, ducking. */
-        public      static      readonly    player              :Debug              = new Debug( true  );
+        public      static      readonly    player              :Debug              = new Debug( false );
         /** Debugs physic calculations. */
-        public      static      readonly    physic              :Debug              = new Debug( true  );
+        public      static      readonly    physic              :Debug              = new Debug( false );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

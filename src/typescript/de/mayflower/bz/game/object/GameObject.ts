@@ -23,6 +23,11 @@
         }
 
         /** ************************************************************************************************************
+        *   Being invoked when this game object is hurt by a shot or any other impact source.
+        ***************************************************************************************************************/
+        public abstract hurt() : void;
+
+        /** ************************************************************************************************************
         *   Returns the next z-index for the next bullet hole to append onto this mesh.
         *   The internal index is increased by one in this step.
         *

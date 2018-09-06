@@ -55,7 +55,7 @@
         *
         *   @return The bullet hole being caused by this impact.
         ***************************************************************************************************************/
-        public createImpact( emissiveColor:BABYLON.Color3 ) : bz.BulletHole
+        public causeImpact( emissiveColor:BABYLON.Color3 ) : bz.BulletHole
         {
             // create a bullet hole
             const bulletHole:bz.BulletHole = new bz.BulletHole
@@ -66,6 +66,9 @@
 
             // apply impulse
             this.applyImpulseToMesh( 10 );
+
+            // hurt the game object
+            this.gameObject.hurt();
 
             return bulletHole;
         }
