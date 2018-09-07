@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Let models crash into their separate meshes on being destroyed?
     *   TODO Darken faces / submeshes if being shot and damaged?
     *
     *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!

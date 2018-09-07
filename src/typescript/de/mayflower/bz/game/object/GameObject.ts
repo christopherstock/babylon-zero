@@ -6,26 +6,31 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
+        /** An energy amount that represents that this will is unbreakable. */
+        public      static  readonly        UNBREAKABLE                 :number                         = -1;
+
         /** All meshes this game object consists of. */
-        protected   readonly        model                       :bz.Model                   = null;
+        protected           readonly        model                       :bz.Model                       = null;
 
         /** The next z-index for the bullet hole to assign. */
-        private                     nextBulletHoleZIndex        :number                     = 0;
+        private                             nextBulletHoleZIndex        :number                         = 0;
+
+        /** The current energy of this wall. */
+        private                             energy                      :number                         = 0;
+        /** Flags if this wall is broken. */
+        private                             destroyed                   :boolean                        = false;
 
         /** ************************************************************************************************************
         *   Creates a new game object.
         *
-        *   @param model The model for this game object.
+        *   @param model  The model for this game object.
+        *   @param energy The initial energy of this game object.
         ***************************************************************************************************************/
-        protected constructor( model:bz.Model )
+        protected constructor( model:bz.Model, energy:number )
         {
-            this.model       = model;
+            this.model  = model;
+            this.energy = energy;
         }
-
-        /** ************************************************************************************************************
-        *   Being invoked when this game object is hurt by a shot or any other impact source.
-        ***************************************************************************************************************/
-        public abstract hurt() : void;
 
         /** ************************************************************************************************************
         *   Returns the next z-index for the next bullet hole to append onto this mesh.
@@ -107,5 +112,40 @@
             }
 
             return hitPoints;
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when this game object is hurt by a shot or any other impact source.
+        ***************************************************************************************************************/
+        public hurt() : void
+        {
+            // exit if unbreakable
+            if ( this.energy === GameObject.UNBREAKABLE )
+            {
+                bz.Debug.fire.log( 'Object is unbreakable.' );
+                return;
+            }
+
+            // exit if already destroyed
+            if ( this.destroyed )
+            {
+                bz.Debug.fire.log( 'Object is already destroyed.' );
+                return;
+            }
+
+            // lower energy
+            this.energy -= 1;
+            bz.Debug.fire.log( 'Object got hurt - new energy is [' + this.energy + ']' );
+
+            // check if the object is destoyed now
+            if ( this.energy <= 0 )
+            {
+                // flag as destroyed
+                this.destroyed = true;
+                bz.Debug.fire.log( 'Object is destroyed.' );
+
+                // scatter the model
+                this.model.removeCompoundParent( bz.Main.game.engine.scene.getScene() );
+            }
         }
     }

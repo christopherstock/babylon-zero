@@ -124,7 +124,8 @@
                             emissiveColor
                         ),
                     ]
-                )
+                ),
+                bz.GameObject.UNBREAKABLE
             );
 
             // assign initial rotation, rotation delta and move delta
@@ -277,13 +278,6 @@
         public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
             return this.body;
-        }
-
-        /** ************************************************************************************************************
-        *   Being invoked when this game object is hurt by a shot or any other impact source.
-        ***************************************************************************************************************/
-        public hurt() : void
-        {
         }
 
         /** ************************************************************************************************************
