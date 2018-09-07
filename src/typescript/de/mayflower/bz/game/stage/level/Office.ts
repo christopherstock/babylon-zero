@@ -66,7 +66,7 @@
                 this.hud.addHudMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
 
                 // explode compound spheres
-                this.compoundSpheres.removeCompoundParent( this.scene );
+                this.compoundSpheres.removeCompoundMesh( this.scene );
             }
         }
 

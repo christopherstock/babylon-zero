@@ -137,6 +137,12 @@
             this.energy -= 1;
             bz.Debug.fire.log( 'Object got hurt - new energy is [' + this.energy + ']' );
 
+
+            // try mesh face darkening
+            this.model.darkenMeshFaces();
+
+
+
             // check if the object is destoyed now
             if ( this.energy <= 0 )
             {
@@ -145,7 +151,7 @@
                 bz.Debug.fire.log( 'Object is destroyed.' );
 
                 // scatter the model
-                this.model.removeCompoundParent( bz.Main.game.engine.scene.getScene() );
+                this.model.removeCompoundMesh( bz.Main.game.engine.scene.getScene() );
             }
         }
     }

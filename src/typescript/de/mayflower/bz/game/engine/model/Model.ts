@@ -10,10 +10,10 @@
         /** All meshes belonging to this model. */
         private             readonly            meshes                  :BABYLON.AbstractMesh[]             = null;
 
-        /** The physical impostors for all meshes of this model. */
-        private                                 impostors               :bz.PhysicImpostorParams[]          = null;
         /** The compound mesh for all meshes. */
         private                                 compoundMesh            :BABYLON.AbstractMesh               = null;
+        /** The physical impostors for all meshes of this model. */
+        private                                 impostors               :bz.PhysicImpostorParams[]          = null;
 
         /** ************************************************************************************************************
         *   Creates a new model consisting of the specified meshes.
@@ -26,42 +26,35 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates and applies a compound parent to this model.
+        *   Returns the mesh with the specified index.
         *
-        *   @param position The position for the compound parent to appear.
-        *   @param scene    The scene for the new compound parent to be created in.
+        *   @param index The index of the mesh to return.
+        *
+        *   @return The mesh with the specified index.
         ***************************************************************************************************************/
-        public addCompoundParent( position:BABYLON.Vector3, scene:BABYLON.Scene ) : void
+        public getMesh( index:number ) : BABYLON.AbstractMesh
         {
-            // create compound mesh
-            this.compoundMesh = bz.MeshFactory.createBox
-            (
-                position,
-                bz.MeshPivotAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.Texture.WALL_GRASS,
-                null,
-                bz.Main.game.engine.scene.getScene(),
-                bz.Physic.NONE,
-                1.0,
-                BABYLON.Color3.Red()
-            );
+            return this.meshes[ index ];
+        }
 
-            // set compound as parent
-            for ( const mesh of this.meshes )
-            {
-                mesh.setParent( this.compoundMesh );
-            }
+        /** ************************************************************************************************************
+        *   Returns the physics impostors of all meshes of this model.
+        *
+        *   @return The physics impostor parameters of all meshes.
+        ***************************************************************************************************************/
+        public getImpostors() : bz.PhysicImpostorParams[]
+        {
+            return this.impostors;
+        }
 
-            // set physics for compound
-            bz.Physic.SOLID_WOOD.applyPhysicToMesh
-            (
-                this.compoundMesh,
-                1.0,
-                BABYLON.PhysicsImpostor.BoxImpostor,
-                scene
-            );
+        /** ************************************************************************************************************
+        *   Returns the number of meshes this model consists of.
+        *
+        *   @return The mesh count of this model.
+        ***************************************************************************************************************/
+        public getMeshCount() : number
+        {
+            return this.meshes.length;
         }
 
         /** ************************************************************************************************************
@@ -109,7 +102,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Applies the specified shadow generator to all of this model's meshes.
+        *   Applies the specified shadow generator onto all meshes of this model.
         *
         *   @param shadowGenerator The shadow generator to add all meshes to.
         ***************************************************************************************************************/
@@ -119,18 +112,6 @@
             {
                 shadowGenerator.getShadowMap().renderList.push( mesh );
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the mesh with the specified index.
-        *
-        *   @param index The index of the mesh to return.
-        *
-        *   @return The mesh with the specified index.
-        ***************************************************************************************************************/
-        public getMesh( index:number ) : BABYLON.AbstractMesh
-        {
-            return this.meshes[ index ];
         }
 
         /** ************************************************************************************************************
@@ -160,6 +141,19 @@
                 {
                     mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
                 }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Translates all meshes of the model by the given delta.
+        *
+        *   @param delta The translation to apply onto this model.
+        ***************************************************************************************************************/
+        public translatePosition( delta:BABYLON.Vector3 ) : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                bz.MeshManipulation.translatePosition( mesh, delta )
             }
         }
 
@@ -209,12 +203,50 @@
         }
 
         /** ************************************************************************************************************
+        *   Creates and applies a compound parent to all meshes of this model.
+        *
+        *   @param position The position for the compound parent to appear.
+        *   @param scene    The scene for the new compound parent to be created in.
+        ***************************************************************************************************************/
+        public addCompoundMesh( position:BABYLON.Vector3, scene:BABYLON.Scene ) : void
+        {
+            this.compoundMesh = bz.MeshFactory.createBox
+            (
+                position,
+                bz.MeshPivotAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.Texture.WALL_GRASS,
+                null,
+                bz.Main.game.engine.scene.getScene(),
+                bz.Physic.NONE,
+                1.0,
+                BABYLON.Color3.Red()
+            );
+
+            // set the compound mesh as parent for all meshes
+            for ( const mesh of this.meshes )
+            {
+                mesh.setParent( this.compoundMesh );
+            }
+
+            // set physics for compound
+            bz.Physic.COMPOUND.applyPhysicToMesh
+            (
+                this.compoundMesh,
+                1.0,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                scene
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Removed the parent compound mesh from all meshes. This will cause all meshes to collapse.
         *   All meshes will be equipped with their original physics impostor.
         *
         *   @param scene The scene to create the new physics impostor in.
         ***************************************************************************************************************/
-        public removeCompoundParent( scene:BABYLON.Scene ) : void
+        public removeCompoundMesh( scene:BABYLON.Scene ) : void
         {
             if ( this.compoundMesh != null )
             {
@@ -300,26 +332,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the physics impostors of all meshes of this model.
-        *
-        *   @return The physics impostor parameters of all meshes.
-        ***************************************************************************************************************/
-        public getImpostors() : bz.PhysicImpostorParams[]
-        {
-            return this.impostors;
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the number of meshes this model consists of.
-        *
-        *   @return The mesh count of this model.
-        ***************************************************************************************************************/
-        public getMeshCount() : number
-        {
-            return this.meshes.length;
-        }
-
-        /** ************************************************************************************************************
         *   Assigns all physical impostors onto the meshes of this model.
         *
         *   @param impostors The impostors to assign to this model's meshes
@@ -355,19 +367,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Translates all meshes of the model.
-        *
-        *   @param translation The translation to apply onto this model.
-        ***************************************************************************************************************/
-        public translatePosition( translation:BABYLON.Vector3 ) : void
-        {
-            for ( const mesh of this.meshes )
-            {
-                bz.MeshManipulation.translatePosition( mesh, translation )
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Returns a cloned instance of this model.
         *   The cloned model does NOT contain any physical impostors!
         *
@@ -392,6 +391,53 @@
             }
 
             return new bz.Model( clonedMeshes );
+        }
+
+        /** ************************************************************************************************************
+        *   Darkens all meshes testwise.
+        ***************************************************************************************************************/
+        public darkenMeshFaces() : void
+        {
+            console.log( '>> darken [' + this.meshes.length + '] meshes' );
+
+            for ( const mesh of this.meshes )
+            {
+                if ( mesh.material instanceof BABYLON.StandardMaterial )
+                {
+                    const oldStandardMaterial :BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial );
+                    const newStandardMaterial :BABYLON.StandardMaterial = new BABYLON.StandardMaterial
+                    (
+                        bz.MaterialSystem.createNextMaterialId(),
+                        bz.Main.game.engine.scene.getScene()
+                    );
+
+                    console.log( ' > old ambient [' + oldStandardMaterial.ambientColor  + ']' );
+
+                    newStandardMaterial.ambientColor = oldStandardMaterial.ambientColor;
+
+                    const numberToSubtract = 0.025 * bz.MathUtil.getRandomInt( 1, 10 );
+
+                    newStandardMaterial.ambientColor = newStandardMaterial.ambientColor.subtract
+                    (
+                        new BABYLON.Color3
+                        (
+                            numberToSubtract,
+                            numberToSubtract,
+                            numberToSubtract
+                        )
+                    );
+
+                    console.log( ' > new ambient [' + newStandardMaterial.ambientColor  + ']' );
+
+                    mesh.material = newStandardMaterial;
+                }
+/*
+                let multiMaterial:BABYLON.MultiMaterial = ( mesh.material as BABYLON.MultiMaterial );
+                var blackMaterial = new BABYLON.StandardMaterial( 'mat2', bz.Main.game.engine.scene.getScene() );
+                blackMaterial.emissiveColor = new BABYLON.Color3( 0.0, 0, 0.0 );
+                multiMaterial.subMaterials.push( blackMaterial );
+*/
+            }
         }
 
         /** ************************************************************************************************************
