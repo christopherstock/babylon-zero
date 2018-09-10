@@ -11,14 +11,15 @@
 
         /** All meshes this game object consists of. */
         protected           readonly        model                       :bz.Model                       = null;
-
-        /** The next z-index for the bullet hole to assign. */
-        private                             nextBulletHoleZIndex        :number                         = 0;
+        /** The initial energy of this wall. */
+        private             readonly        initialEnergy               :number                         = 0;
 
         /** The current energy of this wall. */
         private                             energy                      :number                         = 0;
         /** Flags if this wall is broken. */
         private                             destroyed                   :boolean                        = false;
+        /** The next z-index for the bullet hole to assign. */
+        private                             nextBulletHoleZIndex        :number                         = 0;
 
         /** ************************************************************************************************************
         *   Creates a new game object.
@@ -28,8 +29,9 @@
         ***************************************************************************************************************/
         protected constructor( model:bz.Model, energy:number )
         {
-            this.model  = model;
-            this.energy = energy;
+            this.model         = model;
+            this.initialEnergy = energy;
+            this.energy        = energy;
         }
 
         /** ************************************************************************************************************
@@ -116,8 +118,10 @@
 
         /** ************************************************************************************************************
         *   Being invoked when this game object is hurt by a shot or any other impact source.
+        *
+        *   @param damage The damage to apply onto this game object.
         ***************************************************************************************************************/
-        public hurt() : void
+        public hurt( damage:number ) : void
         {
             // exit if unbreakable
             if ( this.energy === GameObject.UNBREAKABLE )
@@ -133,18 +137,28 @@
                 return;
             }
 
-            // lower energy
-            this.energy -= 1;
-            bz.Debug.fire.log( 'Object got hurt - new energy is [' + this.energy + ']' );
+            // exit if no damage occurred
+            if ( damage === 0 )
+            {
+                bz.Debug.fire.log( 'No damage to apply onto this object.' );
+                return;
+            }
 
+            // lower energy
+            this.energy -= damage;
+            bz.Debug.fire.log( 'Object got hurt with [' + damage + '] damage - new energy is [' + this.energy + ']' );
+
+            // clip lowest energy value
+            if ( this.energy <= 0 )
+            {
+                this.energy = 0;
+            }
 
             // try mesh face darkening
-            this.model.darkenMeshFaces();
-
-
+            this.model.darkenMeshes( ( damage / this.initialEnergy ) );
 
             // check if the object is destoyed now
-            if ( this.energy <= 0 )
+            if ( this.energy === 0 )
             {
                 // flag as destroyed
                 this.destroyed = true;

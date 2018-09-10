@@ -7,7 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Try different imposter props for chair foot - test different physical behaviour in this case!
-    *   TODO Fix invisible faces for office chair?
+    *   TODO Fix invisible (back face culled) faces for office chair?
     *   TODO Fix view angle on ducking (revise (or remove!) scaling ..).
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?

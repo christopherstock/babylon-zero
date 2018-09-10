@@ -33,4 +33,7 @@
 
         /** Specifies if the custom loading screen shall be used. */
         public  static  readonly    CUSTOM_LOADING_SCREEN                   :boolean            = true;
+
+        /** The multiplier from the hit damage to the physical impact force to apply. */
+        public  static  readonly    DAMAGE_IMPULSE_MULTIPLIER               :number             = 10;
     }

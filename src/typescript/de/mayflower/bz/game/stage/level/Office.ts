@@ -157,7 +157,7 @@
                 new bz.Wall
                 (
                     this.chairMulti,
-                    5
+                    10
                 ),
 
                 // 3ds chair - multi-meshes with specific physics

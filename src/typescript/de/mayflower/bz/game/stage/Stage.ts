@@ -242,6 +242,8 @@
         /** ************************************************************************************************************
         *   Applies a shot to the stage.
         *
+        *   TODO encapsulate to class Shot
+        *
         *   @param shot The shot to apply onto the stage.
         ***************************************************************************************************************/
         public applyShot( shot:bz.Shot ) : void
@@ -262,7 +264,8 @@
             // impact all hit points
             for ( const impactHitPoint of impactHitPoints )
             {
-                const bulletHole:bz.BulletHole = impactHitPoint.causeImpact( this.ambientColor );
+                // TODO variable damage!
+                const bulletHole:bz.BulletHole = impactHitPoint.causeImpact( this.ambientColor, 1 );
                 this.addBulletHole( bulletHole );
             }
         }
