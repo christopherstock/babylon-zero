@@ -112,7 +112,7 @@
             this.chairMultiPhysics = bz.MeshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_3,
-                new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
+                new BABYLON.Vector3( 20.0, 4.0, 30.0 ),
                 this.scene,
                 bz.Physic.CONCRETE,
                 true
