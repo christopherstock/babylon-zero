@@ -6,9 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix invisible (back face culled) faces for office chair?
     *   TODO Fix view angle on ducking (revise (or remove!) scaling ..).
     *
+    *   TODO Try to keep original physic imposter parameters after the compound has been set ..!
+    *
+    *   TODO Fix invisible (back face culled) faces for office chair?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/

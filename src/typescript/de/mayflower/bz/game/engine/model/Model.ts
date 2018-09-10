@@ -122,7 +122,7 @@
         {
             for ( const mesh of this.meshes )
             {
-                if ( mesh.physicsImpostor != null )
+                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
                 {
                     mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
                 }
@@ -137,7 +137,7 @@
         {
             for ( const mesh of this.meshes )
             {
-                if ( mesh.physicsImpostor != null )
+                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
                 {
                     mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
                 }

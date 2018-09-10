@@ -91,6 +91,12 @@
                     + '[' + this.direction.z + ']'
                 );
 
+                bz.Debug.fire.log
+                (
+                    'affected mesh has mass: '
+                    + '[' + this.mesh.physicsImpostor.mass + ']'
+                );
+
                 this.mesh.applyImpulse( this.direction.scale( force ), this.point );
             }
             else
