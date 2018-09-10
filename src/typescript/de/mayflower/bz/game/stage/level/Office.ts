@@ -103,7 +103,7 @@
             );
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
-                bz.ModelFile.OFFICE_CHAIR,
+                bz.ModelFile.OFFICE_CHAIR_1,
                 new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
                 this.scene,
                 bz.Physic.CONCRETE,
@@ -111,7 +111,7 @@
             );
             this.chairMultiPhysics = bz.MeshFactory.createImportedModel
             (
-                bz.ModelFile.OFFICE_CHAIR,
+                bz.ModelFile.OFFICE_CHAIR_3,
                 new BABYLON.Vector3( 20.0, 3.75, 30.0 ),
                 this.scene,
                 bz.Physic.CONCRETE,
@@ -157,13 +157,14 @@
                 new bz.Wall
                 (
                     this.chairMulti,
-                    10
+                    5
                 ),
 
                 // 3ds chair - multi-meshes with specific physics
                 new bz.Wall
                 (
                     this.chairMultiPhysics,
+                    5
                 ),
 
                 // red sphere from own model

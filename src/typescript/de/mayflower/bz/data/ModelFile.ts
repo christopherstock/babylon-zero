@@ -6,9 +6,11 @@
     export abstract class ModelFile
     {
         /** The model 'office chair'. */
-        public      static  readonly    OFFICE_CHAIR            :string                 = 'furniture/officeChair.babylon';
+        public      static  readonly    OFFICE_CHAIR_1          :string                 = 'furniture/officeChair1.babylon';
         /** The model 'office chair 2'. */
         public      static  readonly    OFFICE_CHAIR_2          :string                 = 'furniture/officeChair2.babylon';
+        /** The model 'office chair 3'. */
+        public      static  readonly    OFFICE_CHAIR_3          :string                 = 'furniture/officeChair3.babylon';
         /** The model 'office chair'. */
         public      static  readonly    SHELVES                 :string                 = 'furniture/shelves.babylon';
         /** The model 'sphere 1'. */
@@ -25,8 +27,9 @@
         /** All filenames for all meshes. */
         public      static  readonly    ALL_MESH_FILES          :string[]               =
         [
-            ModelFile.OFFICE_CHAIR,
+            ModelFile.OFFICE_CHAIR_1,
             ModelFile.OFFICE_CHAIR_2,
+            ModelFile.OFFICE_CHAIR_3,
             ModelFile.SHELVES,
             ModelFile.SPHERE_1,
             ModelFile.DOUBLE_SPHERE_1,
