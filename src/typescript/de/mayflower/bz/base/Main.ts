@@ -6,9 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Fix view angle on ducking (revise (or remove!) scaling ..).
-    *
-    *   TODO Try to keep original physic imposter parameters after the compound has been set ..!
+    *   TODO Try to keep original physic imposter parameters after the compound has been set ..! [https://doc.babylonjs.com/how_to/using_advanced_physics_features#ignoreparent]
     *
     *   TODO Fix invisible (back face culled) faces for office chair?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
