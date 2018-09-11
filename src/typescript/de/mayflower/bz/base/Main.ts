@@ -27,7 +27,6 @@
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   TODO Create air friction for ALL movables in render() of scene! (like red square)
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
-    *   TODO Merge all game objects to one array in Stage? NO!
     *
     *   TODO Advanced topics:
     *   =====================

@@ -14,6 +14,8 @@
         private             readonly    range               :number                                 = 0.0;
         /** Specifies if this shot is wall breaking. */
         private             readonly    wallBreaking        :boolean                                = false;
+        /** The damage this shot causes onto game objects. */
+        private             readonly    damage              :number                                 = 0;
 
         /** The destination point of the shot. */
         private             readonly    destination         :BABYLON.Vector3                        = null;
@@ -27,19 +29,22 @@
         *   @param rotation     The rotation of the shot source.
         *   @param range        The maximum range of this shot.
         *   @param wallBreaking Specifies if this shot will break walls.
+        *   @param damage       Specifies the damage that this shot causes onto game objects.
         ***************************************************************************************************************/
         public constructor
         (
             source       :BABYLON.Vector3,
             rotation     :BABYLON.Vector3,
             range        :number,
-            wallBreaking :boolean
+            wallBreaking :boolean,
+            damage       :number
         )
         {
             this.source       = source;
             this.rotation     = rotation;
             this.range        = range;
             this.wallBreaking = wallBreaking;
+            this.damage       = damage;
 
             // calculate destination point
             this.destination = bz.MathUtil.rotateVector
@@ -93,5 +98,15 @@
                 bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE,
                 scene
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the damage that this shot impacts onto game objects.
+        *
+        *   @return The damage caused by this shot.
+        ***************************************************************************************************************/
+        public getDamage() : number
+        {
+            return this.damage;
         }
     }

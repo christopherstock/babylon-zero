@@ -24,6 +24,7 @@
         protected                           items                   :bz.Item[]                              = [];
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                               = [];
+
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                           = null;
         /** A collection of all sprites that appear in this stage. */
@@ -240,9 +241,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Applies a shot to the stage.
-        *
-        *   TODO encapsulate to class Shot
+        *   Applies a shot onto the stage.
         *
         *   @param shot The shot to apply onto the stage.
         ***************************************************************************************************************/
@@ -264,8 +263,7 @@
             // impact all hit points
             for ( const impactHitPoint of impactHitPoints )
             {
-                // TODO variable damage!
-                const bulletHole:bz.BulletHole = impactHitPoint.causeImpact( this.ambientColor, 1 );
+                const bulletHole:bz.BulletHole = impactHitPoint.causeImpact( this.ambientColor, shot.getDamage() );
                 this.addBulletHole( bulletHole );
             }
         }

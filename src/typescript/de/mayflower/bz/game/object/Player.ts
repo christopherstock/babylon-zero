@@ -542,7 +542,8 @@
                 source,
                 rotation,
                 range,
-                false
+                false,
+                1
             );
         }
 
