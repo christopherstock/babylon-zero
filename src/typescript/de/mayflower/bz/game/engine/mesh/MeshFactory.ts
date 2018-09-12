@@ -724,22 +724,22 @@
         /** ************************************************************************************************************
         *   Returns a clone of the imported model with the specified filename.
         *
-        *   @param fileName          The filename of the imported mesh to return a clone for.
-        *   @param position          The position for this mesh to show up.
-        *   @param scene             The scene where this imported mesh is cloned into.
-        *   @param physic            Specifies the physicsl behaviour of this imported model.
-        *                            <code>null</code> to use the native physical attributes from the imported model.
-        *   @param useCompoundParent If a parent compound mesh should be set for all meshes.
+        *   @param fileName     The filename of the imported mesh to return a clone for.
+        *   @param position     The position for this mesh to show up.
+        *   @param scene        The scene where this imported mesh is cloned into.
+        *   @param physic       Specifies the physicsl behaviour of this imported model.
+        *                       <code>null</code> to use the native physical attributes from the imported model.
+        *   @param compoundType Specifies the mesh compound type for this imported model.
         *
         *   @return A clone of the model with the specified filename.
         ***************************************************************************************************************/
         public static createImportedModel
         (
-            fileName          :string,
-            position          :BABYLON.Vector3,
-            scene             :BABYLON.Scene,
-            physic            :bz.Physic,
-            useCompoundParent :boolean
+            fileName     :string,
+            position     :BABYLON.Vector3,
+            scene        :BABYLON.Scene,
+            physic       :bz.Physic,
+            compoundType :bz.ModelCompoundType
         )
         : bz.Model
         {
@@ -765,9 +765,24 @@
             clonedModel.assignImpostors( impostors, scene );
 
             // create compound parent if requested
-            if ( useCompoundParent )
+            switch ( compoundType )
             {
-                clonedModel.addCompoundMesh( position, scene, true );
+                case bz.ModelCompoundType.NONE:
+                {
+                    break;
+                }
+
+                case bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED:
+                {
+                    clonedModel.addCompoundMesh( position, scene, false );
+                    break;
+                }
+
+                case bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED:
+                {
+                    clonedModel.addCompoundMesh( position, scene, true );
+                    break;
+                }
             }
 
             return clonedModel;

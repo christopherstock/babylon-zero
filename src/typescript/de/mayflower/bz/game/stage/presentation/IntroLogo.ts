@@ -108,7 +108,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene,
                 bz.Physic.NONE,
-                false
+                bz.ModelCompoundType.NONE
             );
 
             return [

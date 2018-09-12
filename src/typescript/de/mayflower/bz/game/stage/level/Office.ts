@@ -99,7 +99,7 @@
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
                 this.scene,
                 bz.Physic.SOLID_WOOD,
-                false
+                bz.ModelCompoundType.NONE
             );
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
@@ -107,7 +107,7 @@
                 new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
                 this.scene,
                 bz.Physic.CONCRETE,
-                true
+                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
             this.chairMultiPhysics = bz.MeshFactory.createImportedModel
             (
@@ -115,7 +115,7 @@
                 new BABYLON.Vector3( 20.0, 4.0, 30.0 ),
                 this.scene,
                 null,
-                true
+                bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             );
             this.compoundSpheres = bz.MeshFactory.createImportedModel
             (
@@ -123,7 +123,7 @@
                 new BABYLON.Vector3( 60.0, 10.0, 50.0 ),
                 this.scene,
                 null,
-                true
+                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
 
             return [
@@ -137,7 +137,7 @@
                         new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
                         this.scene,
                         null,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
 
@@ -255,7 +255,7 @@
                         new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
                         this.scene,
                         null,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
 
@@ -267,7 +267,7 @@
                         new BABYLON.Vector3( 25.0, 0.0, 20.0 ),
                         this.scene,
                         null,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
 
@@ -279,7 +279,7 @@
                         new BABYLON.Vector3( 30.0, 0.0, 20.0 ),
                         this.scene,
                         null,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
 
