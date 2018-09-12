@@ -120,8 +120,10 @@
         *   Being invoked when this game object is hurt by a shot or any other impact source.
         *
         *   @param damage The damage to apply onto this game object.
+        *   @param mesh   The mesh that received the damage.
+        *                 May be <code>null</code> if the game object received global damage.
         ***************************************************************************************************************/
-        public hurt( damage:number ) : void
+        public hurt( damage:number, mesh:BABYLON.AbstractMesh ) : void
         {
             // exit if unbreakable
             if ( this.energy === GameObject.UNBREAKABLE )
@@ -156,6 +158,9 @@
 
             // try mesh face darkening
             this.model.darkenMeshes( ( damage / this.initialEnergy ) );
+
+            // shot off this mesh from the compound - if enabled by the model
+            this.model.shotOffCompound( mesh );
 
             // check if the object is destoyed now
             if ( this.energy === 0 )

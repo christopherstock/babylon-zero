@@ -52,6 +52,7 @@
     export * from './game/engine/mesh/MeshPivotAnchor';
 
     export * from './game/engine/model/Model';
+    export * from './game/engine/model/ModelCompoundType';
     export * from './game/engine/model/ModelImportSystem';
 
     export * from './game/engine/physic/PhysicDensity';

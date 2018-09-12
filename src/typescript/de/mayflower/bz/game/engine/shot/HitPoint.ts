@@ -69,7 +69,7 @@
             this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
 
             // hurt the game object
-            this.gameObject.hurt( damage );
+            this.gameObject.hurt( damage, this.mesh );
 
             return bulletHole;
         }

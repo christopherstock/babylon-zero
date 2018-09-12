@@ -767,7 +767,7 @@
             // create compound parent if requested
             if ( useCompoundParent )
             {
-                clonedModel.addCompoundMesh( position, scene, false );
+                clonedModel.addCompoundMesh( position, scene, true );
             }
 
             return clonedModel;
