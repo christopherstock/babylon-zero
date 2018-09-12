@@ -6,24 +6,16 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
-    *
-    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO Enable compound Models where single Meshes can be shot off the compound?
-    *
-    *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
-    *   TODO Sounds for shot, bullet hit and bullet drop.
-    *
-    *
-    *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
-    *   TODO Minor jitter bug improvements on colliding walls?
-    *
-    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
-    *   TODO Create air friction for ALL movables in render() of scene! (like red square)
-    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
+    *   TODO Create air friction for ALL movables (with a sphere phyyics impostor) in render() of scene! (s. red square)
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
     *   TODO Advanced topics:
     *   =====================
+    *   TODO Enable running via SHIFT key.
+    *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
+    *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
+    *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Also zoom the wearpon in the HUD on zooming with the wearpon.
     *   TODO Particle FX (physics) for wall rubble! Add particle system (fx) for bullet holes' wall rubble.
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
@@ -37,26 +29,30 @@
     *   TODO Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *   TODO Smooth edges for bullet holes? Certain bullet hole shapes look white?
     *   TODO Check and fix control delay gap in firefox. (edge, chrome?) (babylon-engine is running smoothly!)
+    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns etc.
     *   TODO Zoom HUD wearpon on zooming?
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Check 'gamelets' in the babylon.JS docs.
     *   TODO Reduce static accesses to Main.game?
-    *   TODO Fix decals flickering in certain view angles ?
     *   TODO Add muzzle flash to gun on firing.
     *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
     *   =====================
     *
     *   TODO Issues
     *   =====================
+    *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
+    *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
+    *   TODO Fix decals flickering in certain view angles ?
     *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
+    *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *   =====================
     *
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create class Bot that represents an enemy with one field for attitude.
     *   TODO Create class Character, the abstract class of Player and Bot.
     *   TODO Checkout babylon.JS bones and skeletons?
-    *   TODO Try to keep original physic imposter parameters after the compound has been set.
+    *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *
     *   TODO Load all 3d objects into a separate scene and copy to separate staged scene?
     *   TODO Smooth camera transfers / animation on changine active camera?

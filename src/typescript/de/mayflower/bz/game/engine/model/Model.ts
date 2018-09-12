@@ -15,6 +15,9 @@
         /** The physical impostors for all meshes of this model. */
         private                                 impostors               :bz.PhysicImpostorParams[]          = null;
 
+        /** Specifies if the compound enables single meshes to be shot off. */
+        private                                 enableSingleShotOffs    :boolean                            = false;
+
         /** ************************************************************************************************************
         *   Creates a new model consisting of the specified meshes.
         *
@@ -205,11 +208,14 @@
         /** ************************************************************************************************************
         *   Creates and applies a compound parent to all meshes of this model.
         *
-        *   @param position The position for the compound parent to appear.
-        *   @param scene    The scene for the new compound parent to be created in.
+        *   @param position             The position for the compound parent to appear.
+        *   @param scene                The scene for the new compound parent to be created in.
+        *   @param enableSingleShotOffs Specifies if the compound enables single meshes to be shot off.
         ***************************************************************************************************************/
-        public addCompoundMesh( position:BABYLON.Vector3, scene:BABYLON.Scene ) : void
+        public addCompoundMesh( position:BABYLON.Vector3, scene:BABYLON.Scene, enableSingleShotOffs:boolean ) : void
         {
+            this.enableSingleShotOffs = enableSingleShotOffs;
+
             this.compoundMesh = bz.MeshFactory.createBox
             (
                 position,
@@ -252,54 +258,10 @@
             {
                 bz.Debug.physic.log( 'Removing compound parent from model' );
 
-                // free all meshes from parent compound
-                for ( const mesh of this.meshes )
-                {
-                    // free mesh from parent
-                    mesh.setParent( null );
-                }
-
                 // apply physics to all cloned meshes
                 for ( let i:number = 0; i < this.meshes.length; ++i )
                 {
-                    if ( this.impostors[ i ] == null )
-                    {
-                        bz.Debug.physic.log( ' Applying DEFAULT impostor to SCATTERED mesh ' );
-
-                        bz.Physic.SOLID_WOOD.applyPhysicToMesh
-                        (
-                            this.meshes[ i ],
-                            1.0,
-                            BABYLON.PhysicsImpostor.BoxImpostor,
-                            bz.Main.game.engine.scene.getScene()
-                        );
-                    }
-                    else
-                    {
-                        bz.Debug.physic.log
-                        (
-                            ' Applying impostor to SCATTERED mesh '
-                            + '[' + this.impostors[ i ].type        + ']'
-                            + '[' + this.impostors[ i ].mass        + ']'
-                            + '[' + this.impostors[ i ].friction    + ']'
-                            + '[' + this.impostors[ i ].restitution + ']'
-                        );
-
-                        this.meshes[ i ].physicsImpostor = new BABYLON.PhysicsImpostor
-                        (
-                            this.meshes[ i ],
-                            this.impostors[ i ].type,
-                            {
-                                mass:        this.impostors[ i ].mass,
-                                friction:    this.impostors[ i ].friction,
-                                restitution: this.impostors[ i ].restitution,
-                            },
-                            scene
-                        );
-                    }
-
-                    // update physics for all meshes
-                    this.meshes[ i ].physicsImpostor.forceUpdate();
+                    this.removeCompoundMeshFromMesh( i, scene );
                 }
 
                 // compound parent doesn't need to be updated
@@ -465,5 +427,61 @@
             }
 
             return clonedMeshes;
+        }
+
+        /** ************************************************************************************************************
+        *   Frees the mesh with the specified index from the compound parent
+        *   and reassigns its original physical impostor.
+        *
+        *   @param index The index of the mesh to free from the compound.
+        *   @param scene The babylon.JS scene where a new impostor is potentially created.
+        ***************************************************************************************************************/
+        private removeCompoundMeshFromMesh( index:number, scene:BABYLON.Scene ) : void
+        {
+            const mesh:     BABYLON.AbstractMesh    = this.meshes[    index ];
+            const impostor: bz.PhysicImpostorParams = this.impostors[ index ];
+
+            // free mesh from parent
+            mesh.setParent( null );
+
+            // apply impostor
+            if ( impostor == null )
+            {
+                bz.Debug.physic.log( ' Applying DEFAULT impostor to SCATTERED mesh ' );
+
+                bz.Physic.SOLID_WOOD.applyPhysicToMesh
+                (
+                    mesh,
+                    1.0,
+                    BABYLON.PhysicsImpostor.BoxImpostor,
+                    bz.Main.game.engine.scene.getScene()
+                );
+            }
+            else
+            {
+                bz.Debug.physic.log
+                (
+                    ' Applying impostor to SCATTERED mesh '
+                    + '[' + impostor.type        + ']'
+                    + '[' + impostor.mass        + ']'
+                    + '[' + impostor.friction    + ']'
+                    + '[' + impostor.restitution + ']'
+                );
+
+                mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                (
+                    mesh,
+                    impostor.type,
+                    {
+                        mass:        impostor.mass,
+                        friction:    impostor.friction,
+                        restitution: impostor.restitution,
+                    },
+                    scene
+                );
+            }
+
+            // update physics for all meshes
+            mesh.physicsImpostor.forceUpdate();
         }
     }
