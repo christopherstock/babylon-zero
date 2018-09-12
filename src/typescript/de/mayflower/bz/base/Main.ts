@@ -6,21 +6,15 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Try to keep original physic imposter parameters after the compound has been set ..! [https://doc.babylonjs.com/how_to/using_advanced_physics_features#ignoreparent]
-    *
-    *   TODO Fix invisible (back face culled) faces for office chair?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
     *   TODO Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
-    *
     *   TODO Enable compound Models where single Meshes can be shot off the compound?
     *
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *
-    *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *
-    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
     *   TODO Minor jitter bug improvements on colliding walls?
     *
@@ -52,10 +46,17 @@
     *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
     *   =====================
     *
+    *   TODO Issues
+    *   =====================
+    *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
+    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
+    *   =====================
+    *
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create class Bot that represents an enemy with one field for attitude.
     *   TODO Create class Character, the abstract class of Player and Bot.
     *   TODO Checkout babylon.JS bones and skeletons?
+    *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *
     *   TODO Load all 3d objects into a separate scene and copy to separate staged scene?
     *   TODO Smooth camera transfers / animation on changine active camera?

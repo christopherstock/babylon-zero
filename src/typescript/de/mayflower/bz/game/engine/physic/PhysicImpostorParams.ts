@@ -27,10 +27,10 @@
                 mesh,
                 this.type,
                 {
-                    mass:        this.mass,
-                    friction:    this.friction,
-                    restitution: this.restitution,
-                    // ignoreParent: true,
+                    mass:         this.mass,
+                    friction:     this.friction,
+                    restitution:  this.restitution,
+                    ignoreParent: false,
                 },
                 scene
             );

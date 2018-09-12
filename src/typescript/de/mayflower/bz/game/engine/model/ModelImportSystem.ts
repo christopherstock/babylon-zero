@@ -52,6 +52,12 @@
                         for ( const importedMesh of importedMeshes )
                         {
                             importedMesh.visibility = 0.0;
+
+                            // disable backface culling by default
+                            if ( importedMesh.material != null )
+                            {
+                                importedMesh.material.backFaceCulling = false;
+                            }
                         }
 
                         // save in models array

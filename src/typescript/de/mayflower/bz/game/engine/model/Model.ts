@@ -422,7 +422,8 @@
                         bz.MaterialSystem.createNextMaterialId(),
                         bz.Main.game.engine.scene.getScene()
                     );
-                    newStandardMaterial.ambientColor = newAmbientColor;
+                    newStandardMaterial.ambientColor    = newAmbientColor;
+                    newStandardMaterial.backFaceCulling = false;
 
                     // console.log( ' > old ambient [' + oldStandardMaterial.ambientColor  + ']' );
                     // console.log( ' > number to substract [' + numberToSubtract + ']' );
