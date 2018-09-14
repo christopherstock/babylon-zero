@@ -118,36 +118,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Scales down the linear velocity by 10 %.
-        *   This is mandatory for stopping squares from rolling endlessly.
-        ***************************************************************************************************************/
-        public lowerLinearVelocity() : void
-        {
-            for ( const mesh of this.meshes )
-            {
-                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
-                {
-                    mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
-                }
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Scales down the angular velocity by 10 %.
-        *   This is mandatory for stopping squares from spinning endlessly.
-        ***************************************************************************************************************/
-        public lowerAngularVelocity() : void
-        {
-            for ( const mesh of this.meshes )
-            {
-                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
-                {
-                    mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
-                }
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Translates all meshes of the model by the given delta.
         *
         *   @param delta The translation to apply onto this model.
@@ -424,6 +394,54 @@
 
                         break;
                     }
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Scales down the linear and angular velocities of all SPHERICAL meshes this model consists of by one percent.
+        ***************************************************************************************************************/
+        public lowerSphereVelocities() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                if
+                (
+                       mesh.physicsImpostor             !=  null
+                    && mesh.physicsImpostor.physicsBody !=  null
+                    && mesh.physicsImpostor.type        === BABYLON.PhysicsImpostor.SphereImpostor
+                )
+                {
+                    mesh.physicsImpostor.setLinearVelocity(  mesh.physicsImpostor.getLinearVelocity().scale(  0.99 ) );
+                    mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Scales down the linear velocity of all meshes this model consists of by one percent.
+        ***************************************************************************************************************/
+        public lowerLinearVelocity() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
+                {
+                    mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Scales down the angular velocity of all meshes this model consists of by one percent.
+        ***************************************************************************************************************/
+        public lowerAngularVelocity() : void
+        {
+            for ( const mesh of this.meshes )
+            {
+                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
+                {
+                    mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
                 }
             }
         }

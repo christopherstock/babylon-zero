@@ -140,10 +140,22 @@
                 this.player.render();
             }
 
+            // TODO to wall.render()
+
+            // stop all sphere impostory from rolling endlessly
+            for ( const wall of this.walls )
+            {
+                wall.getModel().lowerSphereVelocities();
+            }
+
+
+
             // render all items
             for ( const item of this.items )
             {
                 item.render();
+
+                // TODO to item!
 
                 // check item pick by player
                 item.checkPick( this.player.getModel() );

@@ -40,17 +40,6 @@
         {
             // invoke parent method
             super.render();
-
-            // stop the red sphere from rolling endlessly
-            this.walls[ 4 ].getModel().lowerLinearVelocity();
-            this.walls[ 4 ].getModel().lowerAngularVelocity();
-/*
-            // rotate test chairs
-            this.chairSingle.setAbsoluteRotationXYZ( 0.0, this.chairRot, 0.0 );
-            this.chairMulti.setAbsoluteRotationXYZ(  0.0, this.chairRot, 0.0 );
-
-            this.chairRot += 0.5;
-*/
         }
 
         /** ************************************************************************************************************
