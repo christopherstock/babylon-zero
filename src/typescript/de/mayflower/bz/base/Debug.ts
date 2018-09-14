@@ -19,7 +19,7 @@
         /** Debugs concernings for the 3D product configurator. */
         public      static      readonly    pc3d                :Debug              = new Debug( false );
         /** Debugs key system. */
-        public      static      readonly    key                 :Debug              = new Debug( false );
+        public      static      readonly    key                 :Debug              = new Debug( true  );
         /** Debugs the game items. */
         public      static      readonly    item                :Debug              = new Debug( false );
         /** Debugs player fire. */

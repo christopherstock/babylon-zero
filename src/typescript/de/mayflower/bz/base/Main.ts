@@ -7,6 +7,7 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   TODO Create air friction for ALL movables (with a sphere phyyics impostor) in render() of scene! (s. red square)
+    *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
     *   TODO Check and fix control delay gap in firefox. (edge, chrome?) (babylon-engine is running smoothly!)
@@ -22,7 +23,6 @@
     *
     *   TODO Player physics
     *   =====================
-    *   TODO Enable running via SHIFT key.
     *   TODO Add head shaking on walking.
     *   TODO Enable jumping? Determine player floor collision ...
     *   =====================

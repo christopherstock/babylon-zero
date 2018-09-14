@@ -17,6 +17,8 @@
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.25;
+        /** The player's running speed in world coordinate per tick. */
+        public  static  readonly    PLAYER_SPEED_RUN                            :number             = 0.45;
         /** The player's straving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_STRAVE                         :number             = 0.35;
         /** The player's turning speed in degrees per tick. */

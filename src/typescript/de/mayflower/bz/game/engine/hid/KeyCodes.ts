@@ -45,6 +45,8 @@
         public      static  readonly    KEY_SPACE               :string                         = 'Space';
         /** The keycode that represents the 'LEFT CONTROL' key. */
         public      static  readonly    KEY_CTRL_LEFT           :string                         = 'ControlLeft';
+        /** The keycode that represents the 'LEFT SHIFT' key. */
+        public      static  readonly    KEY_SHIFT_LEFT          :string                         = 'ShiftLeft';
 
         /** The keycode that represents the '1' key. */
         public      static  readonly    KEY_1                   :string                         = 'Digit1';

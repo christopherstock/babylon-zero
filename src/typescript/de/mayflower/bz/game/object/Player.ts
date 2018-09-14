@@ -165,8 +165,20 @@
                 // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
-                this.moveDelta.x +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotation.y );
-                this.moveDelta.z +=  bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotation.y );
+                let speedForward:number = 0;
+
+                // probably run
+                if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )
+                {
+                    speedForward = bz.SettingPlayer.PLAYER_SPEED_RUN;
+                }
+                else
+                {
+                    speedForward = bz.SettingPlayer.PLAYER_SPEED_MOVE;
+                }
+
+                this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
+                this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.rotation.y );
             }
             if
             (
