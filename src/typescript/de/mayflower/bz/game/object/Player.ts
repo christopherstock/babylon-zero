@@ -154,9 +154,56 @@
         }
 
         /** ************************************************************************************************************
+        *   Renders one tick of the player's game loop.
+        ***************************************************************************************************************/
+        public render() : void
+        {
+            // handle keys
+            this.handleKeys();
+
+            // move
+            this.movePlayer();
+            this.manipulateVelocities();
+
+            // view
+            this.rotatePlayerXYZ();
+            this.checkCenteringRotZ();
+            this.checkFieldOfViewChange();
+
+            // morph
+            this.checkHeightChange();
+
+            // interact
+            this.checkFire();
+        }
+
+
+        /** ************************************************************************************************************
+        *   Returns the player's target mesh for the first person camera.
+        *
+        *   @return The player's head mesh.
+        *           This is the right mesh to set the first person camera into.
+        ***************************************************************************************************************/
+        public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
+        {
+            return this.head;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the player's target mesh for the third person camera.
+        *
+        *   @return The player's body mesh.
+        *           This is the right mesh to set as a target for the third person camera.
+        ***************************************************************************************************************/
+        public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
+        {
+            return this.body;
+        }
+
+        /** ************************************************************************************************************
         *   Handles all keys for the player.
         ***************************************************************************************************************/
-        public handlePlayerKeys() : void
+        private handleKeys() : void
         {
             // move forewards and backwards
             if
@@ -248,49 +295,6 @@
 
             // zoom
             this.zoom = bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_X );
-        }
-
-        /** ************************************************************************************************************
-        *   Renders one tick of the player's game loop.
-        ***************************************************************************************************************/
-        public render() : void
-        {
-            // move
-            this.movePlayer();
-            this.manipulateVelocities();
-
-            // view
-            this.rotatePlayerXYZ();
-            this.checkCenteringRotZ();
-            this.checkFieldOfViewChange();
-
-            // morph
-            this.checkHeightChange();
-
-            // interact
-            this.checkFire();
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the player's target mesh for the first person camera.
-        *
-        *   @return The player's head mesh.
-        *           This is the right mesh to set the first person camera into.
-        ***************************************************************************************************************/
-        public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
-        {
-            return this.head;
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the player's target mesh for the third person camera.
-        *
-        *   @return The player's body mesh.
-        *           This is the right mesh to set as a target for the third person camera.
-        ***************************************************************************************************************/
-        public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
-        {
-            return this.body;
         }
 
         /** ************************************************************************************************************

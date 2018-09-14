@@ -127,16 +127,15 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // render the hud if existent
+            // render hud
             if ( this.hud != null )
             {
                 this.hud.render();
             }
 
-            // render player if existent
+            // render player
             if ( this.player != null )
             {
-                this.player.handlePlayerKeys();
                 this.player.render();
             }
 
