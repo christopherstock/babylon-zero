@@ -543,7 +543,7 @@
                         new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
                         this.scene,
                         bz.Physic.SOLID_WOOD,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
 
@@ -555,7 +555,7 @@
                         new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
                         this.scene,
                         bz.Physic.SOLID_WOOD,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
 
@@ -567,7 +567,7 @@
                         new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
                         this.scene,
                         bz.Physic.SOLID_WOOD,
-                        false
+                        bz.ModelCompoundType.NONE
                     )
                 ),
             ];

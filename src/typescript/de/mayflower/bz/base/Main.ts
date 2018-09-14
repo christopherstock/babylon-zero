@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable compound Models where single Meshes can be shot off the compound?
     *   TODO Create air friction for ALL movables (with a sphere phyyics impostor) in render() of scene! (s. red square)
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
