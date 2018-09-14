@@ -16,4 +16,13 @@
         {
             super( model, energy );
         }
+
+        /** ************************************************************************************************************
+        *   Renders one tick of the game loop for this game object.
+        ***************************************************************************************************************/
+        public render() : void
+        {
+            // lower velocities for sphere impostered meshes
+            this.getModel().lowerSphereVelocities();
+        }
     }

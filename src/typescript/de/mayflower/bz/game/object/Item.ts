@@ -30,6 +30,9 @@
             // invoke parent method
             super.render();
 
+            // check if picked by player
+            this.checkPick( bz.Main.game.stage.getPlayer().getModel() );
+
             // testwise rotate this item
             this.model.setAbsoluteRotationXYZ
             (
@@ -37,7 +40,6 @@
                 this.rotY,
                 0.0
             );
-
             this.rotY += 0.5;
         }
 
@@ -46,7 +48,7 @@
         *
         *   @param modelToCheck The model to check for collision with this item.
         ***************************************************************************************************************/
-        public checkPick( modelToCheck:bz.Model ) : void
+        private checkPick( modelToCheck:bz.Model ) : void
         {
             if ( !this.picked )
             {
