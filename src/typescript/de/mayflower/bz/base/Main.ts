@@ -6,18 +6,15 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
-    *   TODO Improve performance in chrome? Try explicitly setting 'webGL 1.0'??
-    *   TODO Check and fix control delay gap in firefox. (edge, chrome?) (babylon-engine is running smoothly!)
-    *   TODO Smooth edges for bullet holes? Certain bullet hole shapes look white?
-    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
-    *   TODO Reduce static accesses to Main.game?
-    *   TODO Load all 3d objects into a separate scene and copy to separate staged scene?
-    *   TODO Smooth camera transfers / animation on changine active camera?
     *   TODO Make sprites collidable?
+    *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
-    *   TODO Create main menu where player can reset stage etc.
-    *   TODO Enable altering the pivot for imported models?
+    *
+    *   TODO Unsorted ..
+    *   =====================
+    *   TODO Smooth camera transfers / animation on changing active camera?
+    *   TODO Create camera paths (runs/transfers).
     *
     *   TODO Player physics
     *   =====================
@@ -58,8 +55,13 @@
     *   =====================
     *
     *   =====================
-    *   TODO Complete MVP Tech-Demo 'The Office', 1st minor, still life etc.
+    *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
+    *
+    *   TODO Game improvements
+    *   =====================
+    *   TODO Create main menu where player can reset stage etc.
+    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
     *
     *   TODO Issues
     *   =====================

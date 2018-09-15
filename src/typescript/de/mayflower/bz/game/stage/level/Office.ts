@@ -302,50 +302,30 @@
         ***************************************************************************************************************/
         protected createSprites() : BABYLON.Sprite[]
         {
-/*
+
             // test an animated sprite
             const testSprite:BABYLON.Sprite = bz.Main.game.engine.spriteSystem.createSprite
             (
                 bz.Sprite.TEST,
-                new BABYLON.Vector3( 0.0, 0.0, 10.0  ),
-                15.0,
-                30.0,
+                new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
+                10.0,
+                20.0,
                 bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
             );
             testSprite.playAnimation( 0, 43, true, 100, () => {} );
-*/
+
             return [
-/*
-                bz.Main.game.engine.spriteSystem.createSprite
-                (
-                    bz.Sprite.TREE,
-                    new BABYLON.Vector3( 20.0, 0.0, 10.0 ),
-                    15.0,
-                    30.0,
-                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
-                ),
+
+                testSprite,
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE_WHITE,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
+                    bz.Sprite.TREE,
+                    new BABYLON.Vector3( 45.0, 0.0, 20.0  ),
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
                 ),
-*/
-/*
-                testSprite,
-*/
-/*
-                bz.Main.game.engine.spriteSystem.createSprite
-                (
-                    bz.Main.game.engine.spriteSystem.managerTreeSprite,
-                    new BABYLON.Vector3( 45.0, 5.0, 10.0  ),
-                    10.0,
-                    20.0
-                ),
-*/
             ];
         }
 
