@@ -24,6 +24,8 @@
 
         /** The current height of the player. Changes on ducking. */
         private                         heightY                     :number                             = 0.0;
+        /** The current angle for the sinus calculation of the head shaking. */
+        private                         headShakingAngle            :number                             = 0.0;
 
         /** Flags if the player currently wants to zoom. */
         private                         zoom                        :boolean                            = false;
@@ -226,6 +228,12 @@
 
                 this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
                 this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.rotation.y );
+
+                // shake head if enabled
+                if ( bz.SettingPlayer.PLAYER_HEAD_SHAKING )
+                {
+                    this.alterHeadShakeAngle( speedForward );
+                }
             }
             if
             (
@@ -235,6 +243,12 @@
             {
                 this.moveDelta.x -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotation.y );
                 this.moveDelta.z -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotation.y );
+
+                // shake head if enabled
+                if ( bz.SettingPlayer.PLAYER_HEAD_SHAKING )
+                {
+                    this.alterHeadShakeAngle( -bz.SettingPlayer.PLAYER_SPEED_MOVE );
+                }
             }
 
             // strave
@@ -571,10 +585,19 @@
             // get half player height
             const halfPlayerHeight:number = ( this.heightY / 2 );
 
+            // get current modifier Y
+            const headShakingModifierY:number =
+            (
+                bz.MathUtil.sinDegrees( this.headShakingAngle )
+                * bz.SettingPlayer.PLAYER_HEAD_SHAKING_RANGE_Y
+            );
+
+            // bz.Debug.player.log( ' Head Shaking modifierY is [' + headShakingModifierY + ']' );
+
             this.head.position = new BABYLON.Vector3
             (
                 0.0,
-                ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD / 2 ) ),
+                ( halfPlayerHeight - ( bz.SettingPlayer.PLAYER_DIAMETER_HEAD / 2 ) ) - headShakingModifierY,
                 0.0
             );
 
@@ -590,5 +613,22 @@
                 halfPlayerHeight - ( bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING / 2 ),
                 0.0
             );
+        }
+
+        /** ************************************************************************************************************
+        *   Alters the angle that simulates the head shaking on walking forwards and backwards.
+        *
+        *   @param delta The moving delta to apply on head shaking.
+        ***************************************************************************************************************/
+        private alterHeadShakeAngle( delta:number ) : void
+        {
+            // apply delta and normalize angle
+            this.headShakingAngle += ( delta * bz.SettingPlayer.PLAYER_HEAD_SHAKING_SPEED_MULTIPLIER );
+            this.headShakingAngle = bz.MathUtil.normalizeAngleDegrees( this.headShakingAngle );
+
+            // bz.Debug.player.log( 'Head shake angle delta [' + delta + '] total [' + this.headShakingAngle + ']' );
+
+            // update player limbs positions
+            this.positionPlayerLimbs();
         }
     }
