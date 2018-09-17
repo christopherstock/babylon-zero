@@ -179,7 +179,6 @@
             this.checkFire();
         }
 
-
         /** ************************************************************************************************************
         *   Returns the player's target mesh for the first person camera.
         *

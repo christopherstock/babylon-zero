@@ -15,7 +15,7 @@
         /** A testwise mesh 'compound spheres'. */
         protected                           compoundSpheres         :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
-        protected                           chairRot                :number                                 = 0.0;
+        // protected                        chairRot                :number                                 = 0.0;
 
         /** ************************************************************************************************************
         *   Creates a new test office.
@@ -221,6 +221,29 @@
                                 1.0,
                                 this.ambientColor
                             ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    new bz.Model
+                    (
+                        [
+                            // static elevated ground
+                            bz.MeshFactory.createBox
+                            (
+                                new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
+                                bz.Texture.WALL_GRASS,
+                                null,
+                                this.scene,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            )
                         ]
                     )
                 ),

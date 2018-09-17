@@ -6,11 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Make sprites collidable?
+    *
     *   TODO PLAYER: Enable player jumping. Determine player floor collision ...
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
-    *   TODO Make sprites collidable?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *
@@ -46,7 +47,7 @@
     *
     *   TODO Game improvements
     *   =====================
-    *   TODO Create main menu where player can reset stage etc.
+    *   TODO Create main menu (special Stage) where player can reset stage etc.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
     *   TODO Smooth camera transfers / animation on changing active camera?
     *   TODO Create camera paths (runs/transfers).
