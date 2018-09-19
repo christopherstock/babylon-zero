@@ -121,29 +121,9 @@
             {
                 case bz.PhysicState.STATIC:
                 case bz.PhysicState.MOVABLE:
-                {
-                    const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
-
-                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
-                    (
-                        mesh,
-                        impostorType,
-                        impostorParams,
-                        scene
-                    );
-                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
-
-                    break;
-                }
-
                 case bz.PhysicState.PLAYER:
                 {
-                    const impostorParams:BABYLON.PhysicsImpostorParameters = {
-                        mass:        10.0,
-                        friction:    0.0,
-                        restitution: 0.0,
-                    };
+                    const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
 
                     mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
@@ -207,6 +187,15 @@
                 {
                     mass = ( volume * this.density );
                     break;
+                }
+
+                case bz.PhysicState.PLAYER:
+                {
+                    return {
+                        mass:        10.0,
+                        friction:    0.0,
+                        restitution: 0.0,
+                    };
                 }
 
                 case bz.PhysicState.NONE:
