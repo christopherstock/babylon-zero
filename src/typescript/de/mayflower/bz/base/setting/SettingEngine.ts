@@ -36,4 +36,7 @@
 
         /** The multiplier from the hit damage to the physical impact force to apply. */
         public  static  readonly    DAMAGE_IMPULSE_MULTIPLIER               :number             = 10;
+
+        /** The diameter of the collison epsilon used for all collision detections. */
+        public  static  readonly    COLLISION_EPSILON_SIZE                  :number             = 0.01
     }

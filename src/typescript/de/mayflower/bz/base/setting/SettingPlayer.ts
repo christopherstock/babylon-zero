@@ -7,13 +7,13 @@
     {
         /** The player's diameter on the XZ axis. */
         public  static  readonly    PLAYER_DIAMETER_BODY_XZ                     :number             = 2.35;
+        /** The player's head diameter on all axis. */
+        public  static  readonly    PLAYER_DIAMETER_HEAD                        :number             = 1.0;
+
         /** The player's height on the Y axis. */
         public  static  readonly    PLAYER_HEIGHT_Y_STANDING                    :number             = 4.0;
         /** The player's height on ducking. */
         public  static  readonly    PLAYER_HEIGHT_Y_DUCKED                      :number             = 2.0;
-
-        /** The player's head diameter on all axis. */
-        public  static  readonly    PLAYER_DIAMETER_HEAD                        :number             = 1.0;
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.25;

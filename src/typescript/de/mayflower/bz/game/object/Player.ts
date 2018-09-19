@@ -525,7 +525,8 @@
         ***************************************************************************************************************/
         private manipulateVelocities() : void
         {
-            // filter linear velocity Y
+            // suppress linear velocities except Y
+
             const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
             this.body.physicsImpostor.setLinearVelocity
             (
@@ -540,7 +541,7 @@
                 )
             );
 
-            // suppress angular velocity
+            // suppress angular velocities
             this.body.physicsImpostor.setAngularVelocity
             (
                 BABYLON.Vector3.Zero()

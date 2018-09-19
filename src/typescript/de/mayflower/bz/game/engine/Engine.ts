@@ -50,6 +50,9 @@
             }
             this.babylonEngine.displayLoadingUI();
 
+            // set collision epsilon
+            BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.COLLISION_EPSILON_SIZE;
+
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );
             window.addEventListener( 'resize', this.onWindowResize );

@@ -6,13 +6,20 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Make sprites collidable?
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *
+    *
+    *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
+    *   TODO Minor jitter bug improvements on colliding walls?
+    *
     *
     *   TODO PLAYER: Enable player jumping. Determine player floor collision ...
+    *
+    *   TODO Make sprites collidable?
+    *
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *
     *   TODO Sounds
@@ -54,11 +61,8 @@
     *
     *   TODO Issues
     *   =====================
-    *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
-    *   TODO Minor jitter bug improvements on colliding walls?
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Fix decals flickering in certain view angles ?
-    *   TODO Find a way to control sink amount for colliding meshes in Cannon.js?
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *   =====================
     *
