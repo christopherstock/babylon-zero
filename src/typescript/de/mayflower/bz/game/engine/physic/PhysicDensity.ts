@@ -17,7 +17,4 @@
 
         /** The density value for 'concrete'. */
         CONCRETE   = 1.5,
-
-        /** The density value for the player. */
-        PLAYER     = 2.5,
     }

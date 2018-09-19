@@ -322,13 +322,19 @@
                 (
                     new BABYLON.Vector3( this.moveDelta.x, 0.0, this.moveDelta.z )
                 );
-
-                // tslint:disable-next-line:max-line-length
-                // this.mesh.physicsImpostor.applyForce( new BABYLON.Vector3( deltaX, 0.0, deltaZ ), this.mesh.position );
-                // bz.Main.game.engine.scene.getScene().collisionCoordinator.getNewPosition
-                // this.mesh.applyImpulse( new BABYLON.Vector3( 50 * deltaX, 0.0, 50 * deltaZ ), this.mesh.position );
-                // ( this.body as BABYLON.Mesh ) .updatePhysicsBodyPosition();
-
+/*
+                // apply impulse
+                this.body.physicsImpostor.applyImpulse // applyForce
+                (
+                    new BABYLON.Vector3
+                    (
+                        ( 10 * this.moveDelta.x ),
+                        0.0,
+                        ( 10 * this.moveDelta.z )
+                    ),
+                    this.body.position
+                );
+*/
                 // reset move deltas
                 this.moveDelta.x = 0.0;
                 this.moveDelta.z = 0.0;

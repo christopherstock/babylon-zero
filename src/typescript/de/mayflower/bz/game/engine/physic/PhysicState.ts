@@ -12,4 +12,7 @@
 
         /** Specifies a non-collidable object. */
         NONE,
+
+        /** Special magic physic attributes. */
+        PLAYER,
     }

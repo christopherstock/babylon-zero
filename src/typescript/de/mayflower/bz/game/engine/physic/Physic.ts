@@ -18,10 +18,10 @@
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
         public  static  readonly        PLAYER          :Physic                 = new Physic
         (
-            bz.PhysicState.MOVABLE,
-            bz.PhysicDensity.PLAYER,
-            bz.PhysicFriction.NONE,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicState.PLAYER,
+            null,
+            null,
+            null,
         );
 
         /** Props for light wood. */
@@ -123,6 +123,27 @@
                 case bz.PhysicState.MOVABLE:
                 {
                     const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
+
+                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                    mesh.physicsImpostor = new BABYLON.PhysicsImpostor
+                    (
+                        mesh,
+                        impostorType,
+                        impostorParams,
+                        scene
+                    );
+                    mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+
+                    break;
+                }
+
+                case bz.PhysicState.PLAYER:
+                {
+                    const impostorParams:BABYLON.PhysicsImpostorParameters = {
+                        mass:        10.0,
+                        friction:    0.0,
+                        restitution: 0.0,
+                    };
 
                     mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor

@@ -6,12 +6,10 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
-    *
-    *
     *   TODO Specify how deep the player rect may sink into colliding objects. (0 would solve!) Try impulse again?
-    *   TODO Minor jitter bug improvements on colliding walls?
+    *   TODO 'Jitter bug' improvements on colliding walls?
     *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
     *   TODO PLAYER: Enable player jumping. Determine player floor collision ...
     *
@@ -58,6 +56,7 @@
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
     *   TODO Smooth camera transfers / animation on changing active camera?
     *   TODO Create camera paths (runs/transfers).
+    *   TODO Use 'worker thread collisions'?
     *
     *   TODO Issues
     *   =====================
