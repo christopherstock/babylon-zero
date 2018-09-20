@@ -15,17 +15,17 @@
         /** The id of the player's left hand mesh in the mesh array. */
         private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
+        /** The current height of the player. Changes on ducking. */
+        private                         heightY                     :number                             = 0.0;
         /** Flags if rotZ view centering should occur this tick. */
         private                         centerRotZ                  :boolean                            = false;
+        /** The current angle for the sinus calculation of the head shaking. */
+        private                         headShakingAngle            :number                             = 0.0;
+
         /** Flags if fire should be performed this tick. */
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
-
-        /** The current height of the player. Changes on ducking. */
-        private                         heightY                     :number                             = 0.0;
-        /** The current angle for the sinus calculation of the head shaking. */
-        private                         headShakingAngle            :number                             = 0.0;
 
         /** Flags if the player currently wants to zoom. */
         private                         zoom                        :boolean                            = false;
@@ -320,7 +320,12 @@
                 // apply move delta
                 this.body.moveWithCollisions
                 (
-                    new BABYLON.Vector3( this.moveDelta.x, 0.0, this.moveDelta.z )
+                    new BABYLON.Vector3
+                    (
+                        this.moveDelta.x,
+                        0.0,
+                        this.moveDelta.z
+                    )
                 );
 /*
                 // apply impulse
@@ -346,6 +351,33 @@
             {
                 this.centerRotZ = false;
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Overrides the player's linear and angular velocities for improved player controls and user experience.
+        ***************************************************************************************************************/
+        private manipulateVelocities() : void
+        {
+            // suppress linear velocities except Y
+            const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
+            this.body.physicsImpostor.setLinearVelocity
+            (
+                new BABYLON.Vector3
+                (
+                    0.0,
+
+                    // allow falling but not jumping ..?
+                    ( velocity.y < 0.0 ? velocity.y * 0.95 : 0.0 ),
+
+                    0.0,
+                )
+            );
+
+            // suppress angular velocities
+            this.body.physicsImpostor.setAngularVelocity
+            (
+                BABYLON.Vector3.Zero()
+            );
         }
 
         /** ************************************************************************************************************
@@ -524,34 +556,6 @@
                 // check affected game objects
                 bz.Main.game.stage.applyShot( shot );
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Overrides the player's linear and angular velocities for improved player controls and user experience.
-        ***************************************************************************************************************/
-        private manipulateVelocities() : void
-        {
-            // suppress linear velocities except Y
-
-            const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
-            this.body.physicsImpostor.setLinearVelocity
-            (
-                new BABYLON.Vector3
-                (
-                    0.0,
-
-                    // allow falling but not jumping ..?
-                    ( velocity.y < 0.0 ? velocity.y * 0.95 : 0.0 ),
-
-                    0.0,
-                )
-            );
-
-            // suppress angular velocities
-            this.body.physicsImpostor.setAngularVelocity
-            (
-                BABYLON.Vector3.Zero()
-            );
         }
 
         /** ************************************************************************************************************
