@@ -26,6 +26,8 @@
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
+        /** The number of jump ticks to perform. */
+        private                         jumpTicks                   :number                             = 0;
 
         /** Flags if the player currently wants to zoom. */
         private                         zoom                        :boolean                            = false;
@@ -162,6 +164,9 @@
         {
             // handle keys
             this.handleKeys();
+
+            // jump
+            this.checkJump();
 
             // move
             this.movePlayer();
@@ -306,6 +311,14 @@
                 this.toggleDuck();
             }
 
+            // jump
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
+
+                this.assignJump();
+            }
+
             // zoom
             this.zoom = bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_X );
         }
@@ -315,7 +328,13 @@
         ***************************************************************************************************************/
         private movePlayer() : void
         {
-            if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
+            // check if moving occurred
+            if
+            (
+                this.moveDelta.x !== 0.0
+                || this.moveDelta.y !== 0.0
+                || this.moveDelta.z !== 0.0
+            )
             {
                 // apply move delta
                 this.body.moveWithCollisions
@@ -323,7 +342,7 @@
                     new BABYLON.Vector3
                     (
                         this.moveDelta.x,
-                        0.0,
+                        this.moveDelta.y,
                         this.moveDelta.z
                     )
                 );
@@ -340,12 +359,14 @@
                     this.body.position
                 );
 */
-                // reset move deltas
-                this.moveDelta.x = 0.0;
-                this.moveDelta.z = 0.0;
+                // force rotZ centering on horizontal movements
+                if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
+                {
+                    this.centerRotZ = true;
+                }
 
-                // force rotZ centering
-                this.centerRotZ = true;
+                // reset move deltas
+                this.moveDelta = BABYLON.Vector3.Zero();
             }
             else
             {
@@ -366,7 +387,7 @@
                 (
                     0.0,
 
-                    // allow falling but not jumping ..?
+                    // allow descending but not ascending
                     ( velocity.y < 0.0 ? velocity.y : 0.0 ),
 
                     0.0,
@@ -434,6 +455,27 @@
             this.duck = !this.duck;
 
             bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
+        }
+
+        /** ************************************************************************************************************
+        *   Assigns player jumping.
+        ***************************************************************************************************************/
+        private assignJump() : void
+        {
+            // TODO check falling!
+
+            // deny jumping if already jumping or currently falling
+            if ( this.jumpTicks === 0 )
+            {
+                bz.Debug.player.log( 'Player jumps' );
+
+                // TODO add constant
+                this.jumpTicks = 20;
+            }
+            else
+            {
+                bz.Debug.player.log( 'Player jumping denied cause already jumping' );
+            }
         }
 
         /** ************************************************************************************************************
@@ -555,6 +597,20 @@
 
                 // check affected game objects
                 bz.Main.game.stage.applyShot( shot );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if the player is jumping.
+        ***************************************************************************************************************/
+        private checkJump() : void
+        {
+            if ( this.jumpTicks > 0 )
+            {
+                // TODO add constant
+                this.moveDelta.y = ( this.jumpTicks * 0.1 );
+
+                --this.jumpTicks;
             }
         }
 
