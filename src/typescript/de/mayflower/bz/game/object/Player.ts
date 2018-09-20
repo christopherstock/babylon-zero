@@ -367,7 +367,7 @@
                     0.0,
 
                     // allow falling but not jumping ..?
-                    ( velocity.y < 0.0 ? velocity.y * 0.95 : 0.0 ),
+                    ( velocity.y < 0.0 ? velocity.y : 0.0 ),
 
                     0.0,
                 )

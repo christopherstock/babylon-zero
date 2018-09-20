@@ -38,5 +38,5 @@
         public  static  readonly    DAMAGE_IMPULSE_MULTIPLIER               :number             = 10;
 
         /** The diameter of the collison epsilon used for all collision detections. */
-        public  static  readonly    COLLISION_EPSILON_SIZE                  :number             = 0.01
+        public  static  readonly    COLLISION_EPSILON_SIZE                  :number             = 0.01;
     }
