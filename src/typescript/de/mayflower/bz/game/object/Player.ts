@@ -462,20 +462,26 @@
         ***************************************************************************************************************/
         private assignJump() : void
         {
-            // TODO check falling!
-
-            // deny jumping if already jumping or currently falling
-            if ( this.jumpTicks === 0 )
-            {
-                bz.Debug.player.log( 'Player jumps' );
-
-                // TODO add constant
-                this.jumpTicks = 20;
-            }
-            else
+            // deny jumping if already jumping
+            if ( this.jumpTicks > 0 )
             {
                 bz.Debug.player.log( 'Player jumping denied cause already jumping' );
+                return;
             }
+
+            // TODO add isFalling()
+
+            // deny jumping if currently falling
+            if ( this.body.physicsImpostor.getLinearVelocity().y < -1.0 )
+            {
+                bz.Debug.player.log( 'Player jumping denied caused by falling' );
+                return;
+            }
+
+            bz.Debug.player.log( 'Player jumps' );
+
+            // TODO add constant
+            this.jumpTicks = 20;
         }
 
         /** ************************************************************************************************************
