@@ -44,4 +44,13 @@
 
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
+
+        /** Number of ticks for the player to ascend on jumping. */
+        public  static  readonly    PLAYER_JUMP_ASCEND_TICKS                    :number             = 20.0;
+        /** The ascend distance multiplied by remaining jump ascending ticks. */
+        public  static  readonly    PLAYER_JUMP_ASCEND_DISTANCE_Y               :number             = 0.02;
+        /** The falling multiplier per tick. */
+        public  static  readonly    PLAYER_FALLING_MULTIPLIER                   :number             = 1.025;
+        /** The velocity y that determines falling. */
+        public  static  readonly    PLAYER_FALLING_VELOCITY_Y                   :number             = -1.0;
     }

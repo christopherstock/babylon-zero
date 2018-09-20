@@ -387,14 +387,20 @@
                 (
                     0.0,
 
-                    // allow descending but not ascending
-                    ( velocity.y < 0.0 ? velocity.y : 0.0 ),
+                    (
+                        ( this.isFalling() && this.jumpTicks === 0 )
 
+                        // increase descending on falling
+                        ? ( velocity.y * bz.SettingPlayer.PLAYER_FALLING_MULTIPLIER )
+
+                        // allow descending but not ascending
+                        : ( velocity.y < 0.0 ? velocity.y : 0.0 )
+                    ),
                     0.0,
                 )
             );
 
-            // suppress angular velocities
+            // completely suppress angular velocities
             this.body.physicsImpostor.setAngularVelocity
             (
                 BABYLON.Vector3.Zero()
@@ -469,19 +475,15 @@
                 return;
             }
 
-            // TODO add isFalling()
-
             // deny jumping if currently falling
-            if ( this.body.physicsImpostor.getLinearVelocity().y < -1.0 )
+            if ( this.isFalling() )
             {
                 bz.Debug.player.log( 'Player jumping denied caused by falling' );
                 return;
             }
 
             bz.Debug.player.log( 'Player jumps' );
-
-            // TODO add constant
-            this.jumpTicks = 20;
+            this.jumpTicks = bz.SettingPlayer.PLAYER_JUMP_ASCEND_TICKS;
         }
 
         /** ************************************************************************************************************
@@ -613,8 +615,7 @@
         {
             if ( this.jumpTicks > 0 )
             {
-                // TODO add constant
-                this.moveDelta.y = ( this.jumpTicks * 0.1 );
+                this.moveDelta.y = ( this.jumpTicks * bz.SettingPlayer.PLAYER_JUMP_ASCEND_DISTANCE_Y );
 
                 --this.jumpTicks;
             }
@@ -702,5 +703,15 @@
 
             // update player limbs positions
             this.positionPlayerLimbs();
+        }
+
+        /** ************************************************************************************************************
+        *   Determines if the player is currently falling.
+        *
+        *   @return <code>true</code> if the player is currently falling.
+        ***************************************************************************************************************/
+        private isFalling() : boolean
+        {
+            return ( this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.PLAYER_FALLING_VELOCITY_Y );
         }
     }
