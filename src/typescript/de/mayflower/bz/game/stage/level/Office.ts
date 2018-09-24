@@ -325,8 +325,8 @@
         ***************************************************************************************************************/
         protected createSprites() : bz.Sprite[]
         {
-            // test an animated sprite
-            const testSprite:bz.Sprite = new bz.Sprite
+            // create and animate a sprite
+            const animatedTestSprite:bz.Sprite = new bz.Sprite
             (
                 bz.SpriteFile.TEST,
                 new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
@@ -334,13 +334,11 @@
                 20.0,
                 bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
             );
-
-            // TODO wrap!
-            testSprite.getSprite().playAnimation( 0, 43, true, 100, () => {} );
+            animatedTestSprite.animate( 0, 43, true );
 
             return [
 
-                testSprite,
+                animatedTestSprite,
 
                 new bz.Sprite
                 (

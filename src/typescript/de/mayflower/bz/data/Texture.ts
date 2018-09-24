@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Specifies all textures to load.
     *
-    *   TODO split into Texture and TextureFile !
+    *   TODO split into Texture and TextureFile ?
     *******************************************************************************************************************/
     // tslint:disable:max-line-length
     export class Texture

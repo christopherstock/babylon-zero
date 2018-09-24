@@ -43,21 +43,23 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the native wrapped babylon.JS sprite object.
-        *
-        *   @return The sprite object wrapped by this instance.
-        ***************************************************************************************************************/
-        public getSprite() : BABYLON.Sprite
-        {
-            return this.sprite;
-        }
-
-        /** ************************************************************************************************************
         *   Disposes the wrapped babylon.JS sprite object.
         ***************************************************************************************************************/
         public dispose() : void
         {
             this.sprite.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Animates the frames in the wrapped sprite.
+        *
+        *   @param from Start frame id.
+        *   @param to   End frame id.
+        *   @param loop If the animation shall be looped
+        ***************************************************************************************************************/
+        public animate( from:number, to:number, loop:boolean ) : void
+        {
+            this.sprite.playAnimation( from, to, loop, bz.SettingEngine.SPRITE_FRAME_DELAY, () => {} )
         }
 
         /** ************************************************************************************************************

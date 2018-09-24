@@ -39,4 +39,7 @@
 
         /** The diameter of the collison epsilon used for all collision detections. */
         public  static  readonly    COLLISION_EPSILON_SIZE                  :number             = 0.01;
+
+        /** The delay between each sprite animation frame change in ms. */
+        public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
     }
