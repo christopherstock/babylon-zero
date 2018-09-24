@@ -1,6 +1,6 @@
 
     import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Represents a Heads Up Display that is displayed in the foreground of the stage.

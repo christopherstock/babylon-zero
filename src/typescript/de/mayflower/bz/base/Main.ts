@@ -6,11 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
-    *
-    *   TODO PLAYER: Enable player jumping. Determine player floor collision ...
-    *
+    *   TODO Wrap Sprites in an own class.
     *   TODO Make sprites collidable?
+    *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *   TODO Create main menu (access via ESC special Stage) where player can reset stage etc.
+    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
     *
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
@@ -49,8 +50,6 @@
     *
     *   TODO Game improvements
     *   =====================
-    *   TODO Create main menu (special Stage) where player can reset stage etc.
-    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
     *   TODO Smooth camera transfers / animation on changing active camera?
     *   TODO Create camera paths (runs/transfers).
     *   TODO Use 'worker thread collisions'?
@@ -60,6 +59,7 @@
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Fix decals flickering in certain view angles ?
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
+    *   TODO Smoothen player collisions on walls.
     *   =====================
     *
     *   TODO Characters
@@ -82,7 +82,7 @@
     *   TODO Try fur.
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
-    *   TODO Review babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
+    *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
     *   =====================
     *
     *******************************************************************************************************************/

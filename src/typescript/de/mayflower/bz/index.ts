@@ -22,17 +22,17 @@
     export * from './game/engine/Engine';
     export * from './game/engine/Scene';
 
-    export * from './game/engine/ui/hud/HUD';
-    export * from './game/engine/ui/hud/HUDGame';
-    export * from './game/engine/ui/hud/HUDMessage';
-    export * from './game/engine/ui/hud/HUDMessageManager';
-    export * from './game/engine/ui/hud/HUDProductConfigurator';
+    export * from './game/engine/hud/HUD';
+    export * from './game/engine/hud/HUDGame';
+    export * from './game/engine/hud/HUDMessage';
+    export * from './game/engine/hud/HUDMessageManager';
+    export * from './game/engine/hud/HUDProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/GuiFactory';
     export * from './game/engine/ui/LightFactory';
     export * from './game/engine/ui/LoadingScreen';
-    export * from './game/engine/ui/SpriteSystem';
+    export * from './game/engine/sprite/SpriteSystem';
 
     export * from './game/engine/shot/BulletHole';
     export * from './game/engine/shot/HitPoint';
