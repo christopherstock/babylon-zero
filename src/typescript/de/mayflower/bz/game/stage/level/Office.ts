@@ -315,7 +315,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( bz.SkyBox.STORM, 1.0, this.scene );
+            return bz.MeshFactory.createSkyBoxCube( bz.SkyBoxFile.STORM, 1.0, this.scene );
         }
 
         /** ************************************************************************************************************
@@ -325,11 +325,10 @@
         ***************************************************************************************************************/
         protected createSprites() : BABYLON.Sprite[]
         {
-
             // test an animated sprite
             const testSprite:BABYLON.Sprite = bz.Main.game.engine.spriteSystem.createSprite
             (
-                bz.Sprite.TEST,
+                bz.SpriteFile.TEST,
                 new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
                 10.0,
                 20.0,
@@ -343,7 +342,7 @@
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 0.0, 20.0  ),
                     10.0,
                     20.0,

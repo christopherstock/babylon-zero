@@ -595,7 +595,7 @@
         *
         *   @return The created skybox mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxCube( skyBox:bz.SkyBox, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBoxCube(skyBox:bz.SkyBoxFile, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
             const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
@@ -641,7 +641,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxSphere( skyBox:bz.SkyBox, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBoxSphere(skyBox:bz.SkyBoxFile, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
         {
             if ( document.getElementById( 'vertexShaderCode' ) === null )
             {

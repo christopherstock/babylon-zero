@@ -86,7 +86,7 @@
 
             // init sounds
             bz.Debug.init.log( 'Init sounds' );
-            this.soundSystem = new bz.SoundSystem( bz.Sound.ALL_SOUND_FILES, this.onSoundsLoaded );
+            this.soundSystem = new bz.SoundSystem( bz.SoundFile.ALL_SOUND_FILES, this.onSoundsLoaded );
             this.soundSystem.loadSounds();
         }
 

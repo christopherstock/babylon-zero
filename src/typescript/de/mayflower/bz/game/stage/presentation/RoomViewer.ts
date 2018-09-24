@@ -76,7 +76,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxSphere( bz.SkyBox.DINING_ROOM, 1.0, this.scene );
+            return bz.MeshFactory.createSkyBoxSphere( bz.SkyBoxFile.DINING_ROOM, 1.0, this.scene );
         }
 
         /** ************************************************************************************************************

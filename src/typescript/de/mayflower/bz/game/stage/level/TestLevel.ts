@@ -600,7 +600,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( bz.SkyBox.DARK_SKY, 0.15, this.scene );
+            return bz.MeshFactory.createSkyBoxCube( bz.SkyBoxFile.DARK_SKY, 0.15, this.scene );
         }
 
         /** ************************************************************************************************************
@@ -614,7 +614,7 @@
 
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -35.0  ),
                     10.0,
                     20.0,
@@ -622,7 +622,7 @@
                 ),
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -20.0  ),
                     10.0,
                     20.0,
@@ -630,7 +630,7 @@
                 ),
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -5.0  ),
                     10.0,
                     20.0,
@@ -638,7 +638,7 @@
                 ),
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, 10.0  ),
                     10.0,
                     20.0,
@@ -646,7 +646,7 @@
                 ),
                 bz.Main.game.engine.spriteSystem.createSprite
                 (
-                    bz.Sprite.TREE,
+                    bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -25.0  ),
                     10.0,
                     20.0,

@@ -32,11 +32,13 @@
     export * from './game/engine/ui/GuiFactory';
     export * from './game/engine/ui/LightFactory';
     export * from './game/engine/ui/LoadingScreen';
-    export * from './game/engine/sprite/SpriteSystem';
 
     export * from './game/engine/shot/BulletHole';
     export * from './game/engine/shot/HitPoint';
     export * from './game/engine/shot/Shot';
+
+    export * from './game/engine/sprite/Sprite';
+    export * from './game/engine/sprite/SpriteSystem';
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
@@ -69,9 +71,9 @@
     export * from './game/object/Wall';
 
     export * from './data/ModelFile';
-    export * from './data/SkyBox';
-    export * from './data/Sound';
-    export * from './data/Sprite';
+    export * from './data/SkyBoxFile';
+    export * from './data/SoundFile';
+    export * from './data/SpriteFile';
     export * from './data/Texture';
 
     export * from './util/HTML';
