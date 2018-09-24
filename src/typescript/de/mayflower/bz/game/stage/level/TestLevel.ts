@@ -608,11 +608,11 @@
         *
         *   @return All sprites that appear in this stage.
         ***************************************************************************************************************/
-        protected createSprites() : BABYLON.Sprite[]
+        protected createSprites() : bz.Sprite[]
         {
             return [
 
-                bz.Main.game.engine.spriteSystem.createSprite
+                new bz.Sprite
                 (
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -35.0  ),
@@ -620,7 +620,7 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ
                 ),
-                bz.Main.game.engine.spriteSystem.createSprite
+                new bz.Sprite
                 (
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -20.0  ),
@@ -628,7 +628,7 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ
                 ),
-                bz.Main.game.engine.spriteSystem.createSprite
+                new bz.Sprite
                 (
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -5.0  ),
@@ -636,7 +636,7 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ
                 ),
-                bz.Main.game.engine.spriteSystem.createSprite
+                new bz.Sprite
                 (
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, 10.0  ),
@@ -644,7 +644,7 @@
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ
                 ),
-                bz.Main.game.engine.spriteSystem.createSprite
+                new bz.Sprite
                 (
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -25.0  ),

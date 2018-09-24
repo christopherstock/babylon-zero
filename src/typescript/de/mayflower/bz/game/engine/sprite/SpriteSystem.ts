@@ -7,13 +7,13 @@
     export class SpriteSystem
     {
         /** Next ID to assign for sprite creation. */
-        private         static          nextSpriteId                    :number                     = 0;
+        private                         nextSpriteId                    :number                     = 0;
 
         /** Holds all sprite managers - one for each sprite file. */
         private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
 
         /** ************************************************************************************************************
-        *   Creates a sprite manager for each sprite file.
+        *   Creates one sprite manager for each sprite file.
         ***************************************************************************************************************/
         public init() : void
         {
@@ -33,81 +33,24 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates an assembled sprite instance from the given sprite file.
-        *
-        *   @param spriteFile The sprite file to create an instance from.
-        *   @param position   The vector to place the sprite.
-        *   @param width      The width of the sprite.
-        *   @param height     The height of the sprite.
-        *   @param anchor     The anchor for displaying this sprite.
-        *
-        *   @return The created sprite instance.
-        ***************************************************************************************************************/
-        public createSprite
-        (
-            spriteFile :bz.SpriteFile,
-            position   :BABYLON.Vector3,
-            width      :number,
-            height     :number,
-            anchor     :bz.MeshPivotAnchor
-        )
-        : BABYLON.Sprite
-        {
-            const sprite:BABYLON.Sprite = new BABYLON.Sprite
-            (
-                SpriteSystem.createNextSpriteId(),
-                this.spriteManagers[ spriteFile.fileName ]
-            );
-
-            sprite.position = position;
-            sprite.width    = width;
-            sprite.height   = height;
-
-            this.translateSpriteByAnchor( sprite, anchor );
-
-            return sprite;
-        }
-
-        /** ************************************************************************************************************
-        *   Translates a sprite according to the specified anchor.
-        *
-        *   @param sprite The sprite to translate.
-        *   @param anchor The anchor that specifies the translation.
-        ***************************************************************************************************************/
-        private translateSpriteByAnchor( sprite:BABYLON.Sprite, anchor:bz.MeshPivotAnchor ) : void
-        {
-            switch ( anchor )
-            {
-                case bz.MeshPivotAnchor.NONE:
-                case bz.MeshPivotAnchor.CENTER_XYZ:
-                {
-                    // this is the default bahaviour
-                    break;
-                }
-
-                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
-                {
-                    sprite.position.y += ( sprite.height / 2 );
-                    break;
-                }
-
-                case bz.MeshPivotAnchor.LOWEST_XYZ:
-                {
-                    sprite.position.x += ( sprite.width  / 2 );
-                    sprite.position.z += ( sprite.width  / 2 );
-                    sprite.position.y += ( sprite.height / 2 );
-                    break;
-                }
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Returns the next id for a new sprite to create.
         *
         *   @return The next free unique id for a new sprite to create.
         ***************************************************************************************************************/
-        private static createNextSpriteId() : string
+        public createNextSpriteId() : string
         {
-            return 'sprite' + SpriteSystem.nextSpriteId++;
+            return 'sprite' + this.nextSpriteId++;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the sprite manager for the specified sprite file.
+        *
+        *   @param spriteFile The sprite file to receive the sprite manager for.
+        *
+        *   @return The sprite manager that was created for the speicified sprite file.
+        ***************************************************************************************************************/
+        public getSpriteManager( spriteFile:string ) : BABYLON.SpriteManager
+        {
+            return this.spriteManagers[ spriteFile ];
         }
     }

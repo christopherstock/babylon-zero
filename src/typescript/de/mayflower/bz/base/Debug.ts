@@ -15,7 +15,7 @@
         /** Debugs sound system. */
         public      static      readonly    sound               :Debug              = new Debug( false );
         /** Debugs stage system. */
-        public      static      readonly    stage               :Debug              = new Debug( false );
+        public      static      readonly    stage               :Debug              = new Debug( true  );
         /** Debugs concernings for the 3D product configurator. */
         public      static      readonly    pc3d                :Debug              = new Debug( false );
         /** Debugs key system. */

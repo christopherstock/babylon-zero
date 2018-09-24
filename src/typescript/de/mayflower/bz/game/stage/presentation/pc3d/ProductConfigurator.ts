@@ -264,7 +264,7 @@
         *
         *   @return All sprites that appear in this stage.
         ***************************************************************************************************************/
-        protected createSprites() : BABYLON.Sprite[]
+        protected createSprites() : bz.Sprite[]
         {
             return [];
         }

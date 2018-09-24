@@ -323,10 +323,10 @@
         *
         *   @return All sprites that appear in this stage.
         ***************************************************************************************************************/
-        protected createSprites() : BABYLON.Sprite[]
+        protected createSprites() : bz.Sprite[]
         {
             // test an animated sprite
-            const testSprite:BABYLON.Sprite = bz.Main.game.engine.spriteSystem.createSprite
+            const testSprite:bz.Sprite = new bz.Sprite
             (
                 bz.SpriteFile.TEST,
                 new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
@@ -334,13 +334,15 @@
                 20.0,
                 bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
             );
-            testSprite.playAnimation( 0, 43, true, 100, () => {} );
+
+            // TODO wrap!
+            testSprite.getSprite().playAnimation( 0, 43, true, 100, () => {} );
 
             return [
 
                 testSprite,
 
-                bz.Main.game.engine.spriteSystem.createSprite
+                new bz.Sprite
                 (
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 0.0, 20.0  ),

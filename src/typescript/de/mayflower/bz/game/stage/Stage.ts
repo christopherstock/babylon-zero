@@ -28,7 +28,7 @@
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                           = null;
         /** A collection of all sprites that appear in this stage. */
-        protected                           sprites                 :BABYLON.Sprite[]                       = [];
+        protected                           sprites                 :bz.Sprite[]                            = [];
         /** The game HUD. */
         protected                           hud                     :bz.HUD                                 = null;
         /** The camera system that manages all scene cameras. */
@@ -198,7 +198,7 @@
             {
                 this.skybox.dispose();
             }
-
+console.log('>> dispose sprites .. ' + this.sprites.length);
             // dispose sprites
             for ( const sprite of this.sprites )
             {
@@ -330,7 +330,7 @@
         *
         *   @return All sprites that appear in this stage.
         ***************************************************************************************************************/
-        protected abstract createSprites() : BABYLON.Sprite[];
+        protected abstract createSprites() : bz.Sprite[];
 
         /** ************************************************************************************************************
         *   Creates all lights that appear in this level.

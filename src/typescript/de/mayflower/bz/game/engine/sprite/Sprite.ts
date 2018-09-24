@@ -6,31 +6,89 @@
     *******************************************************************************************************************/
     export class Sprite
     {
-        /** Next ID to assign for sprite creation. */
-//        private         static          nextSpriteId                    :number                     = 0;
-
-        /** Holds all sprite managers - one for each sprite file. */
-//        private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
+        /** The wrapped native babylon.JS sprite instanmce. */
+        private             readonly            sprite                          :BABYLON.Sprite             = null;
 
         /** ************************************************************************************************************
-        *   Creates a sprite manager for each sprite file.
+        *   Creates a new wrapped sprite object from the specified sprite file.
+        *
+        *   @param spriteFile The sprite file to create an instance from.
+        *   @param position   The vector to place the sprite.
+        *   @param width      The width of the sprite.
+        *   @param height     The height of the sprite.
+        *   @param anchor     The anchor for displaying this sprite.
+        *
+        *   @return The created sprite instance.
         ***************************************************************************************************************/
-/*
-        public init() : void
+        public constructor
+        (
+            spriteFile :bz.SpriteFile,
+            position   :BABYLON.Vector3,
+            width      :number,
+            height     :number,
+            anchor     :bz.MeshPivotAnchor
+        )
         {
-            for (let i:number = 0; i < bz.Sprite.ALL_SPRITE_FILES.length; ++i )
-            {
-                const spriteFile:bz.Sprite = bz.Sprite.ALL_SPRITE_FILES[ i ];
+            this.sprite = new BABYLON.Sprite
+            (
+                bz.Main.game.engine.spriteSystem.createNextSpriteId(),
+                bz.Main.game.engine.spriteSystem.getSpriteManager( spriteFile.fileName )
+            );
 
-                this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
-                (
-                    'spriteManager' + i,
-                    bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
-                    bz.SettingResource.MAX_SPRITE_INSTANCES,
-                    spriteFile.frameSize,
-                    bz.Main.game.engine.scene.getScene()
-                );
+            this.sprite.position = position;
+            this.sprite.width    = width;
+            this.sprite.height   = height;
+
+            this.translateByAnchor( anchor );
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the native wrapped babylon.JS sprite object.
+        *
+        *   @return The sprite object wrapped by this instance.
+        ***************************************************************************************************************/
+        public getSprite() : BABYLON.Sprite
+        {
+            return this.sprite;
+        }
+
+        /** ************************************************************************************************************
+        *   Disposes the wrapped babylon.JS sprite object.
+        ***************************************************************************************************************/
+        public dispose() : void
+        {
+            this.sprite.dispose();
+        }
+
+        /** ************************************************************************************************************
+        *   Translates a sprite according to the specified anchor.
+        *
+        *   @param anchor The anchor that specifies the translation.
+        ***************************************************************************************************************/
+        private translateByAnchor( anchor:bz.MeshPivotAnchor ) : void
+        {
+            switch ( anchor )
+            {
+                case bz.MeshPivotAnchor.NONE:
+                case bz.MeshPivotAnchor.CENTER_XYZ:
+                {
+                    // this is the default bahaviour
+                    break;
+                }
+
+                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
+                {
+                    this.sprite.position.y += ( this.sprite.height / 2 );
+                    break;
+                }
+
+                case bz.MeshPivotAnchor.LOWEST_XYZ:
+                {
+                    this.sprite.position.x += ( this.sprite.width  / 2 );
+                    this.sprite.position.z += ( this.sprite.width  / 2 );
+                    this.sprite.position.y += ( this.sprite.height / 2 );
+                    break;
+                }
             }
         }
-*/
     }

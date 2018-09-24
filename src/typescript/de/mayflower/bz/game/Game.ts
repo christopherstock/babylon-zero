@@ -176,6 +176,8 @@
                 this.stage.dispose();
             }
 
+            bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
+
             switch ( targetStage )
             {
                 case bz.StageId.STAGE_TEST_OFFICE:
