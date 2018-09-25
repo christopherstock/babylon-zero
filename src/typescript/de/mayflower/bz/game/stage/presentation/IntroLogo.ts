@@ -228,11 +228,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the HUD for this stage.
+        *   Creates the GUI for this stage.
         *
-        *   @return The created HUD.
+        *   @return The created GUI.
         ***************************************************************************************************************/
-        protected createHUD() : bz.HUD
+        protected createGUI() : bz.GUI
         {
             return null;
         }

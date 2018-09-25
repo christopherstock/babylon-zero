@@ -476,7 +476,7 @@
             const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
             (
                 GuiFactory.createNextGuiId(),
-                bz.SettingResource.PATH_IMAGE_HUD + filename
+                bz.SettingResource.PATH_IMAGE_GUI + filename
             );
 
             image.horizontalAlignment = alignHorz;

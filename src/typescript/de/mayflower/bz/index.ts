@@ -12,7 +12,7 @@
     export * from './base/setting/SettingColor';
     export * from './base/setting/SettingDebug';
     export * from './base/setting/SettingEngine';
-    export * from './base/setting/SettingHUD';
+    export * from './base/setting/SettingGUI';
     export * from './base/setting/SettingPlayer';
     export * from './base/setting/SettingResource';
     export * from './base/setting/SettingStage';
@@ -22,11 +22,11 @@
     export * from './game/engine/Engine';
     export * from './game/engine/Scene';
 
-    export * from './game/engine/hud/HUD';
-    export * from './game/engine/hud/HUDGame';
-    export * from './game/engine/hud/HUDMessage';
-    export * from './game/engine/hud/HUDMessageManager';
-    export * from './game/engine/hud/HUDProductConfigurator';
+    export * from './game/engine/gui/GUI';
+    export * from './game/engine/gui/GUIGame';
+    export * from './game/engine/gui/GUIMessage';
+    export * from './game/engine/gui/GUIMessageManager';
+    export * from './game/engine/gui/GUIProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/GuiFactory';

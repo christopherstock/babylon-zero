@@ -6,12 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
-    *   TODO Create main menu (access via ESC special Stage) where player can reset stage etc.
+    *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
+    *   TODO Create paws screen (access via ESC special Stage) where player can reset stage etc.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
+    *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
-    *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *
     *   TODO Sounds
     *   =====================
@@ -33,7 +34,7 @@
     *
     *   TODO Wearpons
     *   =====================
-    *   TODO Also zoom the wearpon in the HUD on zooming with the wearpon.
+    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up.
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..

@@ -29,8 +29,8 @@
         protected                           skybox                  :BABYLON.Mesh                           = null;
         /** A collection of all sprites that appear in this stage. */
         protected                           sprites                 :bz.Sprite[]                            = [];
-        /** The game HUD. */
-        protected                           hud                     :bz.HUD                                 = null;
+        /** The game GUI. */
+        protected                           gui                     :bz.GUI                                 = null;
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
         /** A collection of all lights that appear in this stage. */
@@ -85,7 +85,7 @@
             this.bots         = this.createBots();
             this.skybox       = this.createSkybox();
             this.sprites      = this.createSprites();
-            this.hud          = this.createHUD();
+            this.gui          = this.createGUI();
             this.cameraSystem = this.createCameraSystem();
             this.lights       = this.createLights();
 
@@ -127,10 +127,10 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // render hud
-            if ( this.hud != null )
+            // render gui
+            if ( this.gui != null )
             {
-                this.hud.render();
+                this.gui.render();
             }
 
             // render player
@@ -220,10 +220,10 @@ console.log('>> dispose sprites .. ' + this.sprites.length);
             // dispose camera system
             this.cameraSystem.dispose();
 
-            // dispose HUD
-            if ( this.hud != null )
+            // dispose GUI
+            if ( this.gui != null )
             {
-                this.hud.dispose();
+                this.gui.dispose();
             }
         }
 
@@ -238,7 +238,7 @@ console.log('>> dispose sprites .. ' + this.sprites.length);
                 bz.Main.game.engine.scene.getScene(),
                 bz.Main.game.engine.canvas.getCanvas(),
                 this.player,
-                this.hud
+                this.gui
             );
         }
 
@@ -275,9 +275,9 @@ console.log('>> dispose sprites .. ' + this.sprites.length);
         ***************************************************************************************************************/
         public adjustGuiSizeToCanvasSize() : void
         {
-            if ( this.hud != null )
+            if ( this.gui != null )
             {
-                this.hud.updateSize
+                this.gui.updateSize
                 (
                     bz.Main.game.engine.canvas.getWidth(),
                     bz.Main.game.engine.canvas.getHeight()
@@ -359,11 +359,11 @@ console.log('>> dispose sprites .. ' + this.sprites.length);
         protected abstract createCameraSystem() : bz.CameraSystem;
 
         /** ************************************************************************************************************
-        *   Creates the HUD for this stage.
+        *   Creates the GUI for this stage.
         *
-        *   @return The created HUD.
+        *   @return The created GUI.
         ***************************************************************************************************************/
-        protected abstract createHUD() : bz.HUD;
+        protected abstract createGUI() : bz.GUI;
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.

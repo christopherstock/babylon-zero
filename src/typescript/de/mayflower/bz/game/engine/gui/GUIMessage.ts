@@ -3,9 +3,9 @@
     import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
-    *   Represents one HUD message that's displayed in the HUD message queue and disappearing after some time.
+    *   Represents one GUI message that's displayed in the GUI message queue and disappearing after some time.
     *******************************************************************************************************************/
-    export class HUDMessage
+    export class GUIMessage
     {
         /** The number of ticks this message is still visible. */
         private                             lifetimeTicks               :number                             = 0;
@@ -25,14 +25,14 @@
             msg :string
         )
         {
-            this.lifetimeTicks = bz.SettingHUD.HUD_MESSAGE_LIFETIME;
+            this.lifetimeTicks = bz.SettingGUI.GUI_MESSAGE_LIFETIME;
 
             this.messageText = bz.GuiFactory.createTextBlock
             (
                 msg,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                bz.SettingHUD.HUD_BORDER_X,
+                bz.SettingGUI.GUI_BORDER_X,
                 0,
                 500,
                 25,
@@ -45,7 +45,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Renders this HUD message for one game tick.
+        *   Renders this GUI message for one game tick.
         ***************************************************************************************************************/
         public render() : void
         {
@@ -53,16 +53,16 @@
             --this.lifetimeTicks;
 
             // assign opacity according to lifetime ticks
-            if ( this.lifetimeTicks < bz.SettingHUD.HUD_MESSAGE_FADE_OUT_TICKS )
+            if ( this.lifetimeTicks < bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS )
             {
-                this.messageText.alpha = ( this.lifetimeTicks / bz.SettingHUD.HUD_MESSAGE_FADE_OUT_TICKS );
+                this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS );
             }
         }
 
         /** ************************************************************************************************************
-        *   Checks if the lifetime is over for this HUD message.
+        *   Checks if the lifetime is over for this GUI message.
         *
-        *   @return If this HUD message's lifetime is over.
+        *   @return If this GUI message's lifetime is over.
         ***************************************************************************************************************/
         public isLifetimeOver() : boolean
         {
@@ -70,7 +70,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Disposes this HUD message's text block.
+        *   Disposes this GUI message's text block.
         ***************************************************************************************************************/
         public dispose() : void
         {
@@ -78,20 +78,20 @@
         }
 
         /** ************************************************************************************************************
-        *   Assigns this HUD message's location Y according to its index and the total number of HUD messages.
+        *   Assigns this GUI message's location Y according to its index and the total number of GUI messages.
         *
-        *   @param index The index of this HUD message.
-        *   @param total The total nuber of HUD messages.
+        *   @param index The index of this GUI message.
+        *   @param total The total nuber of GUI messages.
         ***************************************************************************************************************/
         public setPositionY( index:number, total:number ) : void
         {
-            const HUD_MESSAGE_LINE_HEIGHT:number = 25;
+            const MESSAGE_LINE_HEIGHT:number = 25;
 
             this.messageText.top =
             (
-                -bz.SettingHUD.HUD_BORDER_Y
-                - ( ( total - 1 ) * HUD_MESSAGE_LINE_HEIGHT )
-                + ( index         * HUD_MESSAGE_LINE_HEIGHT )
+                -bz.SettingGUI.GUI_BORDER_Y
+                - ( ( total - 1 ) * MESSAGE_LINE_HEIGHT )
+                + ( index         * MESSAGE_LINE_HEIGHT )
             );
         }
     }

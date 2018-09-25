@@ -67,7 +67,7 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                this.hud.addHudMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
+                this.gui.addGuiMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
 
                 this.requestVisorAnimationToggle();
             }
@@ -130,7 +130,7 @@
                     this.animationState = bz.HelmetState.OPENING;
                     bz.GuiFactory.setVisorToggleButtonText
                     (
-                        ( this.hud as bz.HUDProductConfigurator ).visorToggleButton,
+                        ( this.gui as bz.GUIProductConfigurator ).visorToggleButton,
                         'Close Visor'
                     );
 
@@ -162,7 +162,7 @@
                     this.animationState = bz.HelmetState.CLOSING;
                     bz.GuiFactory.setVisorToggleButtonText
                     (
-                        ( this.hud as bz.HUDProductConfigurator ).visorToggleButton,
+                        ( this.gui as bz.GUIProductConfigurator ).visorToggleButton,
                         'Open Visor'
                     );
 
@@ -332,16 +332,16 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the HUD for this stage.
+        *   Creates the GUI for this stage.
         *
-        *   @return The created HUD.
+        *   @return The created GUI.
         ***************************************************************************************************************/
-        protected createHUD() : bz.HUD
+        protected createGUI() : bz.GUI
         {
-            const hud:bz.HUDProductConfigurator = new bz.HUDProductConfigurator( this );
-            hud.init();
+            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this );
+            gui.init();
 
-            return hud;
+            return gui;
         }
 
         /** ************************************************************************************************************
@@ -353,7 +353,7 @@
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
                 () => {
 
-                    ( this.hud as bz.HUDProductConfigurator ).cameraZoomSlider.value =
+                    ( this.gui as bz.GUIProductConfigurator ).cameraZoomSlider.value =
                     (
 //                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
                         400.0 + 100.0 - this.getCameraSystem().getArcRotateCamera().radius

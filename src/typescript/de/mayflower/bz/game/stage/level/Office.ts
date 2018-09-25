@@ -51,8 +51,8 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                // add HUD message to queue
-                this.hud.addHudMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
+                // add GUI message to queue
+                this.gui.addGuiMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
 
                 // explode compound spheres
                 this.compoundSpheres.removeCompoundMesh( this.scene );
@@ -491,13 +491,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the HUD for this stage.
+        *   Creates the GUI for this stage.
         ***************************************************************************************************************/
-        protected createHUD() : bz.HUD
+        protected createGUI() : bz.GUI
         {
-            const hud:bz.HUDGame = new bz.HUDGame();
-            hud.init();
+            const gui:bz.GUIGame = new bz.GUIGame();
+            gui.init();
 
-            return hud;
+            return gui;
         }
     }

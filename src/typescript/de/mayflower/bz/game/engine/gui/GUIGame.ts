@@ -3,9 +3,9 @@
     import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
-    *   Manages the Heads Up Display that contains all GUI elements for one game level.
+    *   Manages the Graphical User Interface that contains all GUI elements for one game level.
     *******************************************************************************************************************/
-    export class HUDGame extends bz.HUD
+    export class GUIGame extends bz.GUI
     {
         /** The wearpon image. */
         protected                           wearponImage            :BABYLON_GUI.Image                      = null;
@@ -28,7 +28,7 @@
             this.wearponImage = bz.GuiFactory.createImage
             (
                 'wearpon/autoShotgun.png',
-                -bz.SettingHUD.HUD_BORDER_X,
+                -bz.SettingGUI.GUI_BORDER_X,
                 0,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
                 BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
@@ -49,7 +49,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Updates the HUD for the current game tick.
+        *   Updates the GUI for the current game tick.
         ***************************************************************************************************************/
         public render() : void
         {

@@ -101,7 +101,7 @@
         *   @param scene  The babylon.JS scene to set the active camera for.
         *   @param canvas The HTML canvas that might change debug controls on camera switch.
         *   @param player The player instance that will show or hide according to the currently set camera.
-        *   @param hud    The stage HUD that may be shown or hidden according to the selected camera.
+        *   @param gui    The stage GUI that may be shown or hidden according to the selected camera.
         ***************************************************************************************************************/
         public setActiveCamera
         (
@@ -109,7 +109,7 @@
             scene  :BABYLON.Scene,
             canvas :HTMLCanvasElement,
             player :bz.Player,
-            hud    :bz.HUD
+            gui    :bz.GUI
         )
         : void
         {
@@ -125,7 +125,7 @@
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null ) player.setVisible( true );
-                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
 
                     break;
                 }
@@ -138,7 +138,7 @@
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null ) player.setVisible( true );
-                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
 
                     break;
                 }
@@ -151,7 +151,7 @@
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null ) player.setVisible( true );
-                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
 
                     break;
                 }
@@ -164,7 +164,7 @@
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
                     if ( player != null ) player.setVisible( false );
-                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( true );
+                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( true );
 
                     break;
                 }
@@ -177,7 +177,7 @@
                     this.setCameraControlsEnabled( this.arcRotateCamera, true,  canvas );
 
                     if ( player != null ) player.setVisible( true );
-                    if ( hud    != null ) hud.setFirstPlayerViewComponentsVisibility( false );
+                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
 
                     break;
                 }

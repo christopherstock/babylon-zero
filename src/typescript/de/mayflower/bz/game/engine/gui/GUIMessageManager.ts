@@ -3,26 +3,26 @@
     import * as BABYLON_GUI from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
-    *   Manages all HUD messages shown in the HUD.
+    *   Manages all GUI messages shown in the GUI.
     *******************************************************************************************************************/
-    export class HUDMessageManager
+    export class GUIMessageManager
     {
-        /** All HUD messages currently displayed. */
-        private             readonly        messageQueue            :bz.HUDMessage[]                        = [];
+        /** All GUI messages currently displayed. */
+        private             readonly        messageQueue            :bz.GUIMessage[]                        = [];
 
         /** ************************************************************************************************************
-        *   Creates a new HUD message manager.
+        *   Creates a new GUI message manager.
         ***************************************************************************************************************/
         public constructor()
         {
         }
 
         /** ************************************************************************************************************
-        *   Renders this HUD message manager for one game tick.
+        *   Renders this GUI message manager for one game tick.
         ***************************************************************************************************************/
         public render() : void
         {
-            this.updateHudMessages();
+            this.updateMessageQueue();
         }
 
         /** ************************************************************************************************************
@@ -31,33 +31,33 @@
         *   @param gui The gui to add the text message to.
         *   @param msg The message to add to the message queue.
         ***************************************************************************************************************/
-        public addHudMessage( gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string ) : void
+        public addGuiMessage( gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string ) : void
         {
             this.messageQueue.push
             (
-                new bz.HUDMessage
+                new bz.GUIMessage
                 (
                     gui,
                     msg,
                 )
             );
 
-            this.relocateAllHudMessages();
+            this.relocateAllMessages();
         }
 
         /** ************************************************************************************************************
-        *   Updates the displayed HUD messages.
+        *   Updates the displayed GUI messages.
         *   Outdated messages are disposed, causing all remaining messages to relocate.
         ***************************************************************************************************************/
-        private updateHudMessages() : void
+        private updateMessageQueue() : void
         {
-            // render HUD messages
-            for ( const hudMessage of this.messageQueue )
+            // render GUI messages
+            for ( const message of this.messageQueue )
             {
-                hudMessage.render();
+                message.render();
             }
 
-            // dispose obsolete HUD messages
+            // dispose obsolete GUI messages
             let relocationRequired:boolean = false;
             for ( let index:number = this.messageQueue.length - 1; index >= 0; --index )
             {
@@ -70,17 +70,17 @@
                 }
             }
 
-            // relocate HUD messages if required
+            // relocate GUI messages if required
             if ( relocationRequired )
             {
-                this.relocateAllHudMessages();
+                this.relocateAllMessages();
             }
         }
 
         /** ************************************************************************************************************
-        *   Relocates all HUD messages concerning the Y location.
+        *   Relocates all GUI messages concerning the Y location.
         ***************************************************************************************************************/
-        private relocateAllHudMessages() : void
+        private relocateAllMessages() : void
         {
             for ( let index:number = 0; index < this.messageQueue.length; ++index )
             {

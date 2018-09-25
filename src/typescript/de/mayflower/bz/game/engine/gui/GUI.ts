@@ -3,16 +3,16 @@
     import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   Represents a Heads Up Display that is displayed in the foreground of the stage.
+    *   Represents a Graphical User Interface that is displayed in the foreground of the screen.
     *******************************************************************************************************************/
-    export abstract class HUD
+    export abstract class GUI
     {
         /** The fullscreen gui in foreground. */
         protected           readonly        guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
         /** The FPS text block. */
         private             readonly        fpsText                 :BABYLON_GUI.TextBlock                  = null;
-        /** The manager for HUD messages. */
-        private             readonly        messageManager          :bz.HUDMessageManager                   = null;
+        /** The manager for GUI messages. */
+        private             readonly        messageManager          :bz.GUIMessageManager                   = null;
 
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
@@ -26,8 +26,8 @@
                 '',
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                -bz.SettingHUD.HUD_BORDER_X,
-                bz.SettingHUD.HUD_BORDER_Y,
+                -bz.SettingGUI.GUI_BORDER_X,
+                bz.SettingGUI.GUI_BORDER_Y,
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
@@ -36,11 +36,11 @@
             );
             this.guiFg.addControl( this.fpsText );
 
-            this.messageManager = new bz.HUDMessageManager();
+            this.messageManager = new bz.GUIMessageManager();
         }
 
         /** ************************************************************************************************************
-        *   Inits all HUD components for the 3D Product Configurator..
+        *   Inits all GUI components for the 3D Product Configurator..
         ***************************************************************************************************************/
         public abstract init() : void;
 
@@ -66,7 +66,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Disposes all elements of this HUD.
+        *   Disposes all elements of this GUI.
         ***************************************************************************************************************/
         public dispose() : void
         {
@@ -74,7 +74,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Updates the HUD information for the current game tick.
+        *   Updates the GUI information for the current game tick.
         ***************************************************************************************************************/
         public render() : void
         {
@@ -87,9 +87,9 @@
         *
         *   @param msg The message to add to the message queue.
         ***************************************************************************************************************/
-        public addHudMessage( msg:string ) : void
+        public addGuiMessage( msg:string ) : void
         {
-            this.messageManager.addHudMessage( this.guiFg, msg );
+            this.messageManager.addGuiMessage( this.guiFg, msg );
         }
 
         /** ************************************************************************************************************
