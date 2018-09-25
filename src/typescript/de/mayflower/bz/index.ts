@@ -23,13 +23,13 @@
     export * from './game/engine/Scene';
 
     export * from './game/engine/gui/GUI';
+    export * from './game/engine/gui/GUIFactory';
     export * from './game/engine/gui/GUIGame';
     export * from './game/engine/gui/GUIMessage';
     export * from './game/engine/gui/GUIMessageManager';
     export * from './game/engine/gui/GUIProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';
-    export * from './game/engine/ui/GuiFactory';
     export * from './game/engine/ui/LightFactory';
     export * from './game/engine/ui/LoadingScreen';
 

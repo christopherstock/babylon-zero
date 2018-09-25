@@ -27,7 +27,7 @@
         {
             this.lifetimeTicks = bz.SettingGUI.GUI_MESSAGE_LIFETIME;
 
-            this.messageText = bz.GuiFactory.createTextBlock
+            this.messageText = bz.GUIFactory.createTextBlock
             (
                 msg,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,

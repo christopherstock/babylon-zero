@@ -25,7 +25,7 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            this.wearponImage = bz.GuiFactory.createImage
+            this.wearponImage = bz.GUIFactory.createImage
             (
                 'wearpon/autoShotgun.png',
                 -bz.SettingGUI.GUI_BORDER_X,
@@ -36,7 +36,7 @@
             );
             this.guiFg.addControl( this.wearponImage );
 
-            this.crosshair = bz.GuiFactory.createImage
+            this.crosshair = bz.GUIFactory.createImage
             (
                 'crosshair/default.png',
                 0,

@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   Creates all types of GUI components.
     *******************************************************************************************************************/
-    export abstract class GuiFactory
+    export abstract class GUIFactory
     {
         /** Next ID to assign for GUI component creation. */
         private         static          nextGuiId                           :number                 = 0;
@@ -29,7 +29,7 @@
         {
             const gui:BABYLON_GUI.AdvancedDynamicTexture = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
             (
-                GuiFactory.createNextGuiId(),
+                GUIFactory.createNextGuiId(),
                 foreground,
                 scene,
                 BABYLON.Texture.NEAREST_SAMPLINGMODE
@@ -65,7 +65,7 @@
         )
         : BABYLON_GUI.Rectangle
         {
-            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( GuiFactory.createNextGuiId() );
+            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( GUIFactory.createNextGuiId() );
 
             rectangle.left       = x;
             rectangle.top        = y;
@@ -111,7 +111,7 @@
         )
         : BABYLON_GUI.TextBlock
         {
-            const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  GuiFactory.createNextGuiId()  );
+            const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  GUIFactory.createNextGuiId()  );
 
             textBlock.text   = text;
             textBlock.left   = x;
@@ -171,7 +171,7 @@
         )
         : BABYLON_GUI.InputText
         {
-            const inputField:BABYLON_GUI.InputText = new BABYLON_GUI.InputText( GuiFactory.createNextGuiId() );
+            const inputField:BABYLON_GUI.InputText = new BABYLON_GUI.InputText( GUIFactory.createNextGuiId() );
 
             inputField.text       = text;
             inputField.color      = colorFg;
@@ -216,7 +216,7 @@
         {
             const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton
             (
-                GuiFactory.createNextGuiId(),
+                GUIFactory.createNextGuiId(),
                 text
             );
 
@@ -269,7 +269,7 @@
         {
             const checkbox:BABYLON_GUI.Checkbox = new BABYLON_GUI.Checkbox
             (
-                GuiFactory.createNextGuiId()
+                GUIFactory.createNextGuiId()
             );
 
             checkbox.isChecked  = isChecked;
@@ -322,7 +322,7 @@
         {
             const radioButton:BABYLON_GUI.RadioButton = new BABYLON_GUI.RadioButton
             (
-                GuiFactory.createNextGuiId()
+                GUIFactory.createNextGuiId()
             );
 
             radioButton.group      = group;
@@ -379,7 +379,7 @@
         {
             const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider
             (
-                GuiFactory.createNextGuiId()
+                GUIFactory.createNextGuiId()
             );
 
             slider.value       = value;
@@ -428,7 +428,7 @@
         {
             const line:BABYLON_GUI.Line = new BABYLON_GUI.Line
             (
-                GuiFactory.createNextGuiId()
+                GUIFactory.createNextGuiId()
             );
 
             line.x1 = x1;
@@ -475,7 +475,7 @@
         {
             const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
             (
-                GuiFactory.createNextGuiId(),
+                GUIFactory.createNextGuiId(),
                 bz.SettingResource.PATH_IMAGE_GUI + filename
             );
 
@@ -545,6 +545,6 @@
         ***************************************************************************************************************/
         private static createNextGuiId() : string
         {
-            return 'gui' + GuiFactory.nextGuiId++;
+            return 'gui' + GUIFactory.nextGuiId++;
         }
     }

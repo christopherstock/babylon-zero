@@ -99,7 +99,7 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            const rectangleOuter:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
+            const rectangleOuter:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
             (
                 22,
                 22,
@@ -110,7 +110,7 @@
             );
             this.guiFg.addControl( rectangleOuter );
 
-            const rectangleOuter2:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
+            const rectangleOuter2:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
             (
                 23,
                 23,
@@ -121,7 +121,7 @@
             );
             this.guiFg.addControl( rectangleOuter2 );
 
-            const rectangleInner:BABYLON_GUI.Rectangle = bz.GuiFactory.createRectangle
+            const rectangleInner:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
             (
                 25,
                 25,
@@ -132,7 +132,7 @@
             );
             this.guiFg.addControl( rectangleInner );
 
-            const logo:BABYLON_GUI.Image = bz.GuiFactory.createImage
+            const logo:BABYLON_GUI.Image = bz.GUIFactory.createImage
             (
                 'pc3d/mfLogo.png',
                 50,
@@ -143,7 +143,7 @@
             );
             this.guiFg.addControl( logo );
 
-            const titleRow1:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const titleRow1:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 '3D Product',
                 GUIProductConfigurator.GUI_COLOR_TEXT,
@@ -157,7 +157,7 @@
                 null
             );
             this.guiFg.addControl( titleRow1 );
-            const titleRow2:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const titleRow2:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Configurator',
                 GUIProductConfigurator.GUI_COLOR_TEXT,
@@ -171,7 +171,7 @@
                 null
             );
             this.guiFg.addControl( titleRow2 );
-            const titleRow3:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const titleRow3:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'v.0.4.1, MVP',
                 GUIProductConfigurator.GUI_COLOR_TEXT,
@@ -186,7 +186,7 @@
             );
             this.guiFg.addControl( titleRow3 );
 
-            const line1:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            const line1:BABYLON_GUI.Line = bz.GUIFactory.createLine
             (
                 50,
                 160,
@@ -198,7 +198,7 @@
             );
             this.guiFg.addControl( line1 );
 
-            const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Visor',
                 GUIProductConfigurator.GUI_COLOR_TEXT,
@@ -225,7 +225,7 @@
                     + ( visorColor.b * 255 )
                     + ' )'
                 );
-                const radioButton:BABYLON_GUI.RadioButton = bz.GuiFactory.createRadioButton
+                const radioButton:BABYLON_GUI.RadioButton = bz.GUIFactory.createRadioButton
                 (
                     'visorColorSelect',
                     bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
@@ -242,14 +242,14 @@
                         }
                         else
                         {
-                            bz.GuiFactory.checkRadioButtonIfAllAreUnchecked( this.visorColorRadioButtons, i );
+                            bz.GUIFactory.checkRadioButtonIfAllAreUnchecked( this.visorColorRadioButtons, i );
                         }
                     }
                 );
                 this.visorColorRadioButtons.push( radioButton );
                 this.guiFg.addControl( radioButton );
 
-                const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+                const colorCaption:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
                 (
                     GUIProductConfigurator.VISOR_COLOR_NAMES[ i ],
                     colorCss,
@@ -269,7 +269,7 @@
             }
             this.visorColorRadioButtons[ 0 ].isChecked = true;
 
-            const line2:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            const line2:BABYLON_GUI.Line = bz.GUIFactory.createLine
             (
                 50,
                 330,
@@ -281,7 +281,7 @@
             );
             this.guiFg.addControl( line2 );
 
-            const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Helmet',
                 GUIProductConfigurator.GUI_COLOR_TEXT,
@@ -308,7 +308,7 @@
                     + ( helmetColor.b * 255 )
                     + ' )'
                 );
-                const radioButton:BABYLON_GUI.RadioButton = bz.GuiFactory.createRadioButton
+                const radioButton:BABYLON_GUI.RadioButton = bz.GUIFactory.createRadioButton
                 (
                     'helmetColorSelect',
                     bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
@@ -325,14 +325,14 @@
                         }
                         else
                         {
-                            bz.GuiFactory.checkRadioButtonIfAllAreUnchecked( this.helmetColorRadioButtons, i );
+                            bz.GUIFactory.checkRadioButtonIfAllAreUnchecked( this.helmetColorRadioButtons, i );
                         }
                     }
                 );
                 this.helmetColorRadioButtons.push( radioButton );
                 this.guiFg.addControl( radioButton );
 
-                const colorCaption:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+                const colorCaption:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
                 (
                     GUIProductConfigurator.HELMET_COLOR_NAMES[ i ],
                     colorCss,
@@ -352,7 +352,7 @@
             }
             this.helmetColorRadioButtons[ 0 ].isChecked = true;
 
-            const line3:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            const line3:BABYLON_GUI.Line = bz.GUIFactory.createLine
             (
                 50,
                 500,
@@ -364,7 +364,7 @@
             );
             this.guiFg.addControl( line3 );
 
-            const textCameraZoom:BABYLON_GUI.TextBlock = bz.GuiFactory.createTextBlock
+            const textCameraZoom:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Zoom',
                 GUIProductConfigurator.GUI_COLOR_TEXT,
@@ -379,7 +379,7 @@
             );
             this.guiFg.addControl( textCameraZoom );
 
-            this.cameraZoomSlider = bz.GuiFactory.createSlider
+            this.cameraZoomSlider = bz.GUIFactory.createSlider
             (
                 175.0,
                 175.0,
@@ -400,7 +400,7 @@
             );
             this.guiFg.addControl( this.cameraZoomSlider );
 
-            const line4:BABYLON_GUI.Line = bz.GuiFactory.createLine
+            const line4:BABYLON_GUI.Line = bz.GUIFactory.createLine
             (
                 50,
                 580,
@@ -412,7 +412,7 @@
             );
             this.guiFg.addControl( line4 );
 
-            this.visorToggleButton = bz.GuiFactory.createButton
+            this.visorToggleButton = bz.GUIFactory.createButton
             (
                 'Open Visor',
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,

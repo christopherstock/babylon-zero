@@ -128,7 +128,7 @@
                 case bz.HelmetState.CLOSED:
                 {
                     this.animationState = bz.HelmetState.OPENING;
-                    bz.GuiFactory.setVisorToggleButtonText
+                    bz.GUIFactory.setVisorToggleButtonText
                     (
                         ( this.gui as bz.GUIProductConfigurator ).visorToggleButton,
                         'Close Visor'
@@ -160,7 +160,7 @@
                 case bz.HelmetState.OPEN:
                 {
                     this.animationState = bz.HelmetState.CLOSING;
-                    bz.GuiFactory.setVisorToggleButtonText
+                    bz.GUIFactory.setVisorToggleButtonText
                     (
                         ( this.gui as bz.GUIProductConfigurator ).visorToggleButton,
                         'Open Visor'

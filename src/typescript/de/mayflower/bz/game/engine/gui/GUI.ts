@@ -19,9 +19,9 @@
         ***************************************************************************************************************/
         protected constructor()
         {
-            this.guiFg = bz.GuiFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
+            this.guiFg = bz.GUIFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
-            this.fpsText = bz.GuiFactory.createTextBlock
+            this.fpsText = bz.GUIFactory.createTextBlock
             (
                 '',
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
