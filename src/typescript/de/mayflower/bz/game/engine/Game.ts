@@ -51,14 +51,18 @@
         ***************************************************************************************************************/
         private render=() : void =>
         {
-            // handle level specific keys
-            this.stage.handleLevelKeys();
+            // perform if unpaused
+            if ( !this.pause )
+            {
+                // handle level specific keys
+                this.stage.handleLevelKeys();
 
-            // render stage
-            this.stage.render();
+                // render stage
+                this.stage.render();
 
-            // render babylon.JS scene
-            this.engine.scene.renderScene();
+                // render babylon.JS scene
+                this.engine.scene.renderScene();
+            }
 
             // handle global keys ( perform level switches here! )
             this.handleMenuKeys();
@@ -87,11 +91,10 @@
         ***************************************************************************************************************/
         private togglePause() : void
         {
+            // toggle pause
+            this.pause = !this.pause;
 
-
-            bz.Debug.game.log( 'Toggle pause state.');
-
-
+            bz.Debug.game.log( 'Toggle pause state. Pause is now [' + this.pause + ']');
         }
 
         /** ************************************************************************************************************
@@ -186,6 +189,9 @@
         {
             bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
+
+            // unpause
+            this.pause = false;
 
             // check existent stage unload
             if ( this.stage != null )
