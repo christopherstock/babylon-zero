@@ -619,7 +619,7 @@
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    false
+                    bz.SpriteCollidable.NO
                 ),
                 new bz.Sprite
                 (
@@ -628,7 +628,7 @@
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    false
+                    bz.SpriteCollidable.NO
                 ),
                 new bz.Sprite
                 (
@@ -637,7 +637,7 @@
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    false
+                    bz.SpriteCollidable.NO
                 ),
                 new bz.Sprite
                 (
@@ -646,7 +646,7 @@
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    false
+                    bz.SpriteCollidable.NO
                 ),
                 new bz.Sprite
                 (
@@ -655,7 +655,7 @@
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XYZ,
-                    false
+                    bz.SpriteCollidable.NO
                 ),
             ];
         }

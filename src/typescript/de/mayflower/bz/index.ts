@@ -38,6 +38,7 @@
     export * from './game/engine/shot/Shot';
 
     export * from './game/engine/sprite/Sprite';
+    export * from './game/engine/sprite/SpriteCollidable';
     export * from './game/engine/sprite/SpriteSystem';
 
     export * from './game/engine/hid/KeyCodes';

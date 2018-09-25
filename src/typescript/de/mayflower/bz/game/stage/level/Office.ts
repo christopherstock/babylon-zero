@@ -333,7 +333,7 @@
                 10.0,
                 20.0,
                 bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                false
+                bz.SpriteCollidable.NO
             );
             animatedTestSprite.animate( 0, 43, true );
 
@@ -348,7 +348,7 @@
                     10.0,
                     20.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                    true
+                    bz.SpriteCollidable.YES
                 ),
             ];
         }

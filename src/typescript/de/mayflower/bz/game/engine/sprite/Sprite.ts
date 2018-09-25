@@ -31,7 +31,7 @@
             width      :number,
             height     :number,
             anchor     :bz.MeshPivotAnchor,
-            collidable :boolean
+            collidable :bz.SpriteCollidable
         )
         {
             // create native sprite
@@ -45,7 +45,7 @@
             this.sprite.height   = height;
 
             // create collider if desired
-            if ( collidable )
+            if ( collidable === bz.SpriteCollidable.YES )
             {
                 const collisionWidth:number = ( width / 2 );
                 this.collider = bz.MeshFactory.createCylinder
