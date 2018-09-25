@@ -10,6 +10,8 @@
         public      static      readonly    acclaim             :Debug              = new Debug( true  );
         /** Debugs initialization process. */
         public      static      readonly    init                :Debug              = new Debug( true  );
+        /** Debugs game states. */
+        public      static      readonly    game                :Debug              = new Debug( true  );
         /** Debugs canvas setup and resizing. */
         public      static      readonly    canvas              :Debug              = new Debug( false );
         /** Debugs sound system. */

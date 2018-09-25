@@ -1,5 +1,5 @@
 
-    import * as bz from '..';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Manages the game logic.
@@ -10,6 +10,9 @@
         public                      engine                      :bz.Engine                  = null;
         /** The current stage. */
         public                      stage                       :bz.Stage                   = null;
+
+        /** Indicates pause state. */
+        private                     pause                       :boolean                    = false;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -66,10 +69,29 @@
         ***************************************************************************************************************/
         private handleMenuKeys() : void
         {
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
+
+                this.togglePause();
+            }
+
             if ( bz.SettingDebug.ENABLE_MENU_DEBUG_KEYS )
             {
                 this.handleDebugMenuKeys()
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Toggles the game to the pause state or vice versa.
+        ***************************************************************************************************************/
+        private togglePause() : void
+        {
+
+
+            bz.Debug.game.log( 'Toggle pause state.');
+
+
         }
 
         /** ************************************************************************************************************

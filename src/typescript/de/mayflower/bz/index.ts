@@ -17,9 +17,8 @@
     export * from './base/setting/SettingResource';
     export * from './base/setting/SettingStage';
 
-    export * from './game/Game';
-
     export * from './game/engine/Engine';
+    export * from './game/engine/Game';
     export * from './game/engine/Scene';
 
     export * from './game/engine/gui/GUI';

@@ -6,8 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create paws screen (access via ESC special Stage) where player can reset stage etc.
-    *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
+    *   TODO Create paws screen (access via ESC special Stage) that pauses the game.
+    *   TODO Enable stage change / reset in paws screen.
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
