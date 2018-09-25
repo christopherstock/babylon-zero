@@ -6,9 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Wrap Sprites in an own class.
-    *   TODO Make sprites collidable?
-    *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Create main menu (access via ESC special Stage) where player can reset stage etc.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.

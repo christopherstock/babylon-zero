@@ -6,8 +6,11 @@
     *******************************************************************************************************************/
     export class Sprite
     {
-        /** The wrapped native babylon.JS sprite instanmce. */
+        /** The wrapped native babylon.JS sprite instance. */
         private             readonly            sprite                          :BABYLON.Sprite             = null;
+
+        /** The possible collider - A cylinder body for this sprite. */
+        private             readonly            collider                        :BABYLON.AbstractMesh       = null;
 
         /** ************************************************************************************************************
         *   Creates a new wrapped sprite object from the specified sprite file.
@@ -17,6 +20,7 @@
         *   @param width      The width of the sprite.
         *   @param height     The height of the sprite.
         *   @param anchor     The anchor for displaying this sprite.
+        *   @param collidable Specifies if this sprite should be collidable for the player and other game objects.
         *
         *   @return The created sprite instance.
         ***************************************************************************************************************/
@@ -26,28 +30,41 @@
             position   :BABYLON.Vector3,
             width      :number,
             height     :number,
-            anchor     :bz.MeshPivotAnchor
+            anchor     :bz.MeshPivotAnchor,
+            collidable :boolean
         )
         {
+            // create native sprite
             this.sprite = new BABYLON.Sprite
             (
                 bz.Main.game.engine.spriteSystem.createNextSpriteId(),
                 bz.Main.game.engine.spriteSystem.getSpriteManager( spriteFile.fileName )
             );
-
-            this.sprite.position = position;
+            this.sprite.position = position.clone();
             this.sprite.width    = width;
             this.sprite.height   = height;
 
-            this.translateByAnchor( anchor );
-        }
+            // create collider if desired
+            if ( collidable )
+            {
+                const collisionWidth:number = ( width / 2 );
+                this.collider = bz.MeshFactory.createCylinder
+                (
+                    position.clone(),
+                    anchor,
+                    collisionWidth,
+                    height,
+                    BABYLON.Vector3.Zero(),
+                    bz.Texture.WALL_GLASS,
+                    null,
+                    bz.Main.game.engine.scene.getScene(),
+                    bz.Physic.STATIC,
+                    0.25,
+                    bz.SettingColor.COLOR_RGB_WHITE
+                );
+            }
 
-        /** ************************************************************************************************************
-        *   Disposes the wrapped babylon.JS sprite object.
-        ***************************************************************************************************************/
-        public dispose() : void
-        {
-            this.sprite.dispose();
+            this.translateByAnchor( anchor );
         }
 
         /** ************************************************************************************************************
@@ -60,6 +77,19 @@
         public animate( from:number, to:number, loop:boolean ) : void
         {
             this.sprite.playAnimation( from, to, loop, bz.SettingEngine.SPRITE_FRAME_DELAY, () => {} )
+        }
+
+        /** ************************************************************************************************************
+        *   Disposes the wrapped babylon.JS sprite object.
+        ***************************************************************************************************************/
+        public dispose() : void
+        {
+            this.sprite.dispose();
+
+            if ( this.collider != null )
+            {
+                this.collider.dispose();
+            }
         }
 
         /** ************************************************************************************************************

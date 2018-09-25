@@ -332,7 +332,8 @@
                 new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
                 10.0,
                 20.0,
-                bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
+                bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                false
             );
             animatedTestSprite.animate( 0, 43, true );
 
@@ -346,7 +347,8 @@
                     new BABYLON.Vector3( 45.0, 0.0, 20.0  ),
                     10.0,
                     20.0,
-                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y
+                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    true
                 ),
             ];
         }
