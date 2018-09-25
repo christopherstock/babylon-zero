@@ -84,6 +84,7 @@
         *   Creates a text block for the GUI.
         *
         *   @param text          The text to set into the block.
+        *   @param fontSize      The font size of the text to display.
         *   @param color         A css value for the text color.
         *   @param shadowColor   A css value for the text's shadow color.
         *   @param x             Position of the left edge.
@@ -99,6 +100,7 @@
         public static createTextBlock
         (
             text          :string,
+            fontSize      :number,
             color         :string,
             shadowColor   :string,
             x             :number,
@@ -113,12 +115,13 @@
         {
             const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  GUIFactory.createNextGuiId()  );
 
-            textBlock.text   = text;
-            textBlock.left   = x;
-            textBlock.top    = y;
-            textBlock.width  = width  + 'px';
-            textBlock.height = height + 'px';
-            textBlock.color  = color;
+            textBlock.text     = text;
+            textBlock.left     = x;
+            textBlock.top      = y;
+            textBlock.width    = width  + 'px';
+            textBlock.height   = height + 'px';
+            textBlock.fontSize = fontSize + 'px';
+            textBlock.color    = color;
 
             if ( shadowColor != null )
             {
@@ -137,7 +140,7 @@
             {
                 textBlock.onPointerDownObservable.add
                 (
-                    () => {
+                    () : void => {
                         onPointerDown();
                     }
                 );

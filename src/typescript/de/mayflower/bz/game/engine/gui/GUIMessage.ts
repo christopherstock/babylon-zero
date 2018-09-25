@@ -30,6 +30,7 @@
             this.messageText = bz.GUIFactory.createTextBlock
             (
                 msg,
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
                 bz.SettingGUI.GUI_BORDER_X,
@@ -85,7 +86,10 @@
         ***************************************************************************************************************/
         public setPositionY( index:number, total:number ) : void
         {
-            const MESSAGE_LINE_HEIGHT:number = 25;
+            const MESSAGE_LINE_HEIGHT:number =
+            (
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_MESSAGE_LINES_DISTANCE_Y
+            );
 
             this.messageText.top =
             (

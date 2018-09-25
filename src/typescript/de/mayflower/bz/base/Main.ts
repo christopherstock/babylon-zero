@@ -6,7 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *   TODO Create paws screen (access via ESC special Stage) where player can reset stage etc.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
     *

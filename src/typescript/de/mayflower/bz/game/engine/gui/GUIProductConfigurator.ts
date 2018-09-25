@@ -146,6 +146,7 @@
             const titleRow1:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 '3D Product',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIProductConfigurator.GUI_COLOR_TEXT,
                 GUIProductConfigurator.GUI_COLOR_SHADOW,
                 160,
@@ -160,6 +161,7 @@
             const titleRow2:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Configurator',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIProductConfigurator.GUI_COLOR_TEXT,
                 GUIProductConfigurator.GUI_COLOR_SHADOW,
                 160,
@@ -174,6 +176,7 @@
             const titleRow3:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'v.0.4.1, MVP',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIProductConfigurator.GUI_COLOR_TEXT,
                 GUIProductConfigurator.GUI_COLOR_SHADOW,
                 160,
@@ -201,6 +204,7 @@
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Visor',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIProductConfigurator.GUI_COLOR_TEXT,
                 GUIProductConfigurator.GUI_COLOR_SHADOW,
                 50,
@@ -252,6 +256,7 @@
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
                 (
                     GUIProductConfigurator.VISOR_COLOR_NAMES[ i ],
+                    bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                     colorCss,
                     GUIProductConfigurator.VISOR_COLOR_SHADOWS[ i ],
                     80,
@@ -284,6 +289,7 @@
             const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Helmet',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIProductConfigurator.GUI_COLOR_TEXT,
                 GUIProductConfigurator.GUI_COLOR_SHADOW,
                 50,
@@ -335,6 +341,7 @@
                 const colorCaption:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
                 (
                     GUIProductConfigurator.HELMET_COLOR_NAMES[ i ],
+                    bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                     colorCss,
                     GUIProductConfigurator.HELMET_COLOR_SHADOWS[ i ],
                     80,
@@ -367,6 +374,7 @@
             const textCameraZoom:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Zoom',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIProductConfigurator.GUI_COLOR_TEXT,
                 GUIProductConfigurator.GUI_COLOR_SHADOW,
                 50,

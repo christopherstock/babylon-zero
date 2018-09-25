@@ -24,6 +24,7 @@
             this.fpsText = bz.GUIFactory.createTextBlock
             (
                 '',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
                 -bz.SettingGUI.GUI_BORDER_X,
