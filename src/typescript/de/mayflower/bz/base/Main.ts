@@ -9,10 +9,8 @@
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Create main menu (access via ESC special Stage) where player can reset stage etc.
     *   TODO Improve Scene selection and cam selection (replace F1-F5, 1-5) with dropdowns/debug console etc.
-    *
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
-    *
     *   TODO Solve different GUI text sizes that keep their constant size on canvas resize?
     *
     *   TODO Sounds
@@ -47,16 +45,16 @@
     *
     *   TODO Game improvements
     *   =====================
-    *   TODO Smooth camera transfers / animation on changing active camera?
-    *   TODO Create camera paths (runs/transfers).
     *   TODO Use 'worker thread collisions'?
+    *   TODO Create camera paths (runs/transfers).
+    *   TODO Smooth camera transfers / animation on changing active camera?
     *
     *   TODO Issues
     *   =====================
+    *   TODO Smoothen player collisions on walls.
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Fix decals flickering in certain view angles ?
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
-    *   TODO Smoothen player collisions on walls.
     *   =====================
     *
     *   TODO Characters
