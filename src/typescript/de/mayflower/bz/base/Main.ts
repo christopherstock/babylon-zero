@@ -48,6 +48,7 @@
     *   TODO Use 'worker thread collisions'?
     *   TODO Create camera paths (runs/transfers).
     *   TODO Smooth camera transfers / animation on changing active camera?
+    *   TODO Go fullscreen.
     *
     *   TODO Issues
     *   =====================

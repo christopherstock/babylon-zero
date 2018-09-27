@@ -42,4 +42,10 @@
 
         /** The delay between each sprite animation frame change in ms. */
         public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
+
+        /** The calculating time step amount for one tick of the physical engine. */
+        public  static  readonly    PHYSICS_TIME_STEP_DEFAULT               :number             = ( 1 / 60 );
+
+        /** The calculating time step amount for one paused tick of the physical engine. 0 is not working! */
+        public  static  readonly    PHYSICS_TIME_STEP_PAUSED                :number             = 0.00000000000000000000000000000000000001;
     }

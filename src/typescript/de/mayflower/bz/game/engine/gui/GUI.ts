@@ -14,6 +14,9 @@
         /** The manager for GUI messages. */
         private             readonly        messageManager          :bz.GUIMessageManager                   = null;
 
+        /** The PAUSE text block. */
+        private             readonly        pauseText               :BABYLON_GUI.TextBlock                  = null;
+
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
         ***************************************************************************************************************/
@@ -21,6 +24,7 @@
         {
             this.guiFg = bz.GUIFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
 
+            // FPS text
             this.fpsText = bz.GUIFactory.createTextBlock
             (
                 '',
@@ -37,6 +41,26 @@
             );
             this.guiFg.addControl( this.fpsText );
 
+            // pause text
+            this.pauseText = bz.GUIFactory.createTextBlock
+            (
+                'PAUSED!',
+                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+                bz.SettingGUI.GUI_BORDER_X,
+                bz.SettingGUI.GUI_BORDER_Y,
+                250,
+                25,
+                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                null
+            );
+            this.guiFg.addControl( this.pauseText );
+
+            this.pauseText.isVisible = false;
+
+            // create the message manager
             this.messageManager = new bz.GUIMessageManager();
         }
 
@@ -91,6 +115,16 @@
         public addGuiMessage( msg:string ) : void
         {
             this.messageManager.addGuiMessage( this.guiFg, msg );
+        }
+
+        /** ************************************************************************************************************
+        *   Shows or hides the pause GUI.
+        *
+        *   @param visible The visibility to set for the pause GUI.
+        ***************************************************************************************************************/
+        public setPauseGuiVisibility( visible:boolean ) : void
+        {
+            this.pauseText.isVisible = visible;
         }
 
         /** ************************************************************************************************************

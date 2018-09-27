@@ -51,27 +51,24 @@
         ***************************************************************************************************************/
         private render=() : void =>
         {
-            // perform if unpaused
+            // render if unpaused
             if ( !this.pause )
             {
-                // handle level specific keys
-                this.stage.handleLevelKeys();
-
                 // render stage
                 this.stage.render();
-
-                // render babylon.JS scene
-                this.engine.scene.renderScene();
             }
 
-            // handle global keys ( perform level switches here! )
-            this.handleMenuKeys();
+            // render babylon.JS scene
+            this.engine.scene.renderScene();
+
+            // handle global keys ( pause, level switches etc. )
+            this.handleGlobalKeys();
         };
 
         /** ************************************************************************************************************
         *   Handles all keys for the menu.
         ***************************************************************************************************************/
-        private handleMenuKeys() : void
+        private handleGlobalKeys() : void
         {
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
             {
@@ -94,7 +91,20 @@
             // toggle pause
             this.pause = !this.pause;
 
-            bz.Debug.game.log( 'Toggle pause state. Pause is now [' + this.pause + ']');
+            bz.Debug.game.log( 'Toggle pause to [' + this.pause + ']');
+
+            // stop or resume physics engine
+            if ( this.pause )
+            {
+                bz.Main.game.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
+            }
+            else
+            {
+                bz.Main.game.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
+            }
+
+            // propagate pause state to gui
+            this.stage.setGuiPause( this.pause );
         }
 
         /** ************************************************************************************************************
@@ -190,8 +200,11 @@
             bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
 
-            // unpause
-            this.pause = false;
+            // unpause if paused
+            if ( this.pause )
+            {
+                this.togglePause();
+            }
 
             // check existent stage unload
             if ( this.stage != null )

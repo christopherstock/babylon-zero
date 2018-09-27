@@ -127,6 +127,9 @@
         ***************************************************************************************************************/
         public render() : void
         {
+            // handle level specific keys
+            this.handleLevelKeys();
+
             // render gui
             if ( this.gui != null )
             {
@@ -286,9 +289,22 @@ console.log('>> dispose sprites .. ' + this.sprites.length);
         }
 
         /** ************************************************************************************************************
+        *   Alters the pause state for the GUI.
+        *
+        *   @param pause The pause state to set for the GUI.
+        ***************************************************************************************************************/
+        public setGuiPause( pause:boolean ) : void
+        {
+            if ( this.gui != null )
+            {
+                this.gui.setPauseGuiVisibility( pause );
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Handles level specific keys.
         ***************************************************************************************************************/
-        public abstract handleLevelKeys() : void;
+        protected abstract handleLevelKeys() : void;
 
         /** ************************************************************************************************************
         *   Sets up the player for this stage.

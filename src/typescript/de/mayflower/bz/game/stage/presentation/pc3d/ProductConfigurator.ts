@@ -61,7 +61,7 @@
         /** ************************************************************************************************************
         *   Handles level specific keys.
         ***************************************************************************************************************/
-        public handleLevelKeys() : void
+        protected handleLevelKeys() : void
         {
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {

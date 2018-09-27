@@ -2,12 +2,15 @@
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
-    *   Specifies the game scene.
+    *   Wraps the native babylon.JS scene and physics engine and represents the game scene.
     *******************************************************************************************************************/
     export class Scene
     {
         /** The current babylon.JS scene. */
         private                     babylonScene                :BABYLON.Scene              = null;
+
+        /** The physics plugin for the cannon.js physics engine. */
+        private                     physicsPlugin               :BABYLON.CannonJSPlugin     = null;
 
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
@@ -19,12 +22,16 @@
             // create babylon.JS scene
             this.babylonScene = new BABYLON.Scene( engine );
 
+            // create physics plugin
+            this.physicsPlugin = new BABYLON.CannonJSPlugin( true, 30 );
+
             // enable physics engine
             this.babylonScene.enablePhysics
             (
                 bz.SettingStage.STAGE_GRAVITY_GLOBAL,
-                new BABYLON.CannonJSPlugin( true, 30 )
+                this.physicsPlugin
             );
+            this.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
 
             // set default scene clear color
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
@@ -63,5 +70,15 @@
         public renderScene() : void
         {
             this.babylonScene.render();
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the time step for the physical engine.
+        *
+        *   @param timeStep The time step to set.
+        ***************************************************************************************************************/
+        public setPhysicalTimeStep( timeStep:number ) : void
+        {
+            this.physicsPlugin.setTimeStep( timeStep );
         }
     }
