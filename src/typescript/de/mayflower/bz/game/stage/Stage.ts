@@ -130,12 +130,6 @@
             // handle level specific keys
             this.handleLevelKeys();
 
-            // render gui
-            if ( this.gui != null )
-            {
-                this.gui.render();
-            }
-
             // render player
             if ( this.player != null )
             {
@@ -152,6 +146,18 @@
             for ( const item of this.items )
             {
                 item.render();
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Renders the GUI.
+        ***************************************************************************************************************/
+        public renderGui() : void
+        {
+            // render gui if present
+            if ( this.gui != null )
+            {
+                this.gui.render();
             }
         }
 

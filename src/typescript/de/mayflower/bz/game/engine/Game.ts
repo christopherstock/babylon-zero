@@ -51,12 +51,15 @@
         ***************************************************************************************************************/
         private render=() : void =>
         {
-            // render if unpaused
+            // render stage if unpaused
             if ( !this.pause )
             {
                 // render stage
                 this.stage.render();
             }
+
+            // render GUI
+            this.stage.renderGui();
 
             // render babylon.JS scene
             this.engine.scene.renderScene();
