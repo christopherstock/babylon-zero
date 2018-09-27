@@ -108,6 +108,9 @@
 
             // propagate pause state to gui
             this.stage.setGuiPause( this.pause );
+
+            // propagate pause state to all stage sprites
+            this.stage.setSpritePause( this.pause );
         }
 
         /** ************************************************************************************************************

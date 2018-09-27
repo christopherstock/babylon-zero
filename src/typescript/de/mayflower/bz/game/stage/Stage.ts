@@ -207,7 +207,7 @@
             {
                 this.skybox.dispose();
             }
-console.log('>> dispose sprites .. ' + this.sprites.length);
+
             // dispose sprites
             for ( const sprite of this.sprites )
             {
@@ -304,6 +304,19 @@ console.log('>> dispose sprites .. ' + this.sprites.length);
             if ( this.gui != null )
             {
                 this.gui.setPauseGuiVisibility( pause );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Alters the pause state for all sprites.
+        *
+        *   @param pause The pause state to set for all sprites.
+        ***************************************************************************************************************/
+        public setSpritePause( pause:boolean ) : void
+        {
+            for ( const sprite of this.sprites )
+            {
+                sprite.setPause( pause );
             }
         }
 

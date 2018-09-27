@@ -12,6 +12,18 @@
         /** The possible collider - A cylinder body for this sprite. */
         private             readonly            collider                        :BABYLON.AbstractMesh       = null;
 
+        /** Saves if this sprite is animated. */
+        private                                 isAnimated                      :boolean                    = false;
+        /** Saves current animation's start frame. */
+        private                                 animationFrameFrom              :number                     = 0;
+        /** Saves current animation's end frame. */
+        private                                 animationFrameTo                :number                     = 0;
+        /** Saves current animation's looping property. */
+        private                                 animationFrameLooped            :boolean                    = false;
+
+        /** Saves the last visible sprite animation frame index. */
+        private                                 lastSpriteAnimationIndex        :number                     = -1;
+
         /** ************************************************************************************************************
         *   Creates a new wrapped sprite object from the specified sprite file.
         *
@@ -76,7 +88,56 @@
         ***************************************************************************************************************/
         public animate( from:number, to:number, loop:boolean ) : void
         {
-            this.sprite.playAnimation( from, to, loop, bz.SettingEngine.SPRITE_FRAME_DELAY, () => {} )
+            this.isAnimated           = true;
+
+            this.animationFrameFrom   = from;
+            this.animationFrameTo     = to;
+            this.animationFrameLooped = loop;
+
+            this.sprite.playAnimation
+            (
+                from,
+                to,
+                loop,
+                bz.SettingEngine.SPRITE_FRAME_DELAY,
+                () => {
+                    this.isAnimated = false;
+                }
+            )
+        }
+
+        /** ************************************************************************************************************
+        *   Alters the pause state for this sprite.
+        *
+        *   @param pause The pause state to set for this sprite.
+        ***************************************************************************************************************/
+        public setPause( pause:boolean ) : void
+        {
+            // only affects if animated
+            if ( this.isAnimated )
+            {
+                if ( pause )
+                {
+                    // save last animation index
+                    this.lastSpriteAnimationIndex = this.sprite.cellIndex;
+
+                    // stop animating
+                    this.sprite.stopAnimation();
+                }
+                else
+                {
+                    // resume animation
+                    this.animate
+                    (
+                        this.animationFrameFrom,
+                        this.animationFrameTo,
+                        this.animationFrameLooped
+                    );
+
+                    // assign last sprite animation index
+                    this.sprite.cellIndex = this.lastSpriteAnimationIndex;
+                }
+            }
         }
 
         /** ************************************************************************************************************
