@@ -6,7 +6,7 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable stage change / reset in paws screen.
+    *   TODO Enable paws menu in all stages.
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *

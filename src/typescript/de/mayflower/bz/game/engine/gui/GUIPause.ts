@@ -11,10 +11,23 @@
         // tslint:disable-next-line:max-line-length
         private     static  readonly        GUI_COLOR_BG            :string                                 = 'rgba( 100, 100, 100, 0.25 )';
 
+        /** All items of the GUI menu. */
+        private     static  readonly        GUI_MENU_ITEMS          :string[]                               =
+        [
+            'Resume Game',
+            'Level 1 - Office',
+            'Level 2 - Test Level',
+            'Level 3 - Room Viewer',
+            'Level 4 - 3D Product Configurator',
+            'Level 5 - Intro Logo',
+        ];
+
         /** The translucent background. */
         private             readonly        bg                      :BABYLON_GUI.Rectangle                  = null;
         /** The 'pause' headline text. */
         private             readonly        headline                :BABYLON_GUI.TextBlock                  = null;
+        /** The menu items texts. */
+        private             readonly        menuItems               :BABYLON_GUI.TextBlock[]                = [];
 
         /** The index of the current selected item of the pause menu. */
         private                             currentSelectedItem     :number                                 = 0;
@@ -55,11 +68,30 @@
             );
             guiFg.addControl( this.headline );
 
+            // browse all menu items
+            for ( let index:number = 0; index < GUIPause.GUI_MENU_ITEMS.length; ++index )
+            {
+                // add menu item text
+                const newMenuItemText:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+                (
+                    GUIPause.GUI_MENU_ITEMS[ index ],
+                    bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+                    0,
+                    ( bz.SettingGUI.GUI_BORDER_Y + 100 + index * 35 ),
+                    500,
+                    25,
+                    BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                    BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                    null
+                );
+                guiFg.addControl( newMenuItemText );
 
-
-
-
-
+                // append to array
+                this.menuItems.push( newMenuItemText );
+            }
+            this.updateMenuItems();
 
             // initially hide all components
             this.setVisibility( false );
@@ -74,6 +106,11 @@
         {
             this.headline.isVisible = visible;
             this.bg.isVisible       = visible;
+
+            for ( const menuItem of this.menuItems )
+            {
+                menuItem.isVisible = visible;
+            }
         }
 
         /** ************************************************************************************************************
@@ -89,31 +126,107 @@
         ***************************************************************************************************************/
         private handlePauseKeys() : void
         {
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
+            if
+            (
+                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W  )
+                ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
+            )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_W );
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_W  );
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_UP );
 
-                // this.headline.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
-
-
+                if ( this.currentSelectedItem > 0 )
+                {
+                    --this.currentSelectedItem;
+                }
+                this.updateMenuItems();
             }
 
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
+            if
+            (
+                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S    )
+                ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
+            )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_S );
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_S    );
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_DOWN );
 
-                // this.headline.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
-
-
+                if ( this.currentSelectedItem < bz.GUIPause.GUI_MENU_ITEMS.length - 1 )
+                {
+                    ++this.currentSelectedItem;
+                }
+                this.updateMenuItems();
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                // this.headline.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
+                this.performMenuItem();
+            }
+        }
 
+        /** ************************************************************************************************************
+        *   Updates the selected and unselected states of all menu items.
+        ***************************************************************************************************************/
+        private updateMenuItems() : void
+        {
+            // browse all menu items
+            for ( let index:number = 0; index < GUIPause.GUI_MENU_ITEMS.length; ++index )
+            {
+                if ( index === this.currentSelectedItem )
+                {
+                    this.menuItems[ index ].color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
+                }
+                else
+                {
+                    this.menuItems[ index ].color = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
+                }
+            }
+        }
 
+        /** ************************************************************************************************************
+        *   Performs the action for the current selected menu item.
+        ***************************************************************************************************************/
+        private performMenuItem() : void
+        {
+            switch ( this.currentSelectedItem )
+            {
+                case 0:
+                {
+                    bz.Main.game.togglePause();
+                    break;
+                }
+
+                case 1:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_OFFICE );
+                    break;
+                }
+
+                case 2:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_LEVEL );
+                    break;
+                }
+
+                case 3:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_ROOM_VIEWER );
+                    break;
+                }
+
+                case 4:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_PRODUCT_CONFIGURATOR );
+                    break;
+                }
+
+                case 5:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_INTRO_LOGO );
+                    break;
+                }
             }
         }
     }
