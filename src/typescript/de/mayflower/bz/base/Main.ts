@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Create paws screen (access via ESC special Stage) that pauses the game.
-    *   TODO Pause sprite (mesh?) animations on PAWS screen.
     *   TODO Enable stage change / reset in paws screen.
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
@@ -51,6 +49,7 @@
     *   TODO Smooth camera transfers / animation on changing active camera?
     *   TODO Go fullscreen.
     *   TODO Try black outlined texts.
+    *   TODO Add full HUD effects ( red for energy lost, white or energy gain etc. )
     *
     *   TODO Issues
     *   =====================

@@ -7,16 +7,36 @@
     *******************************************************************************************************************/
     export class GUIPause
     {
-        /** The PAUSE text block. */
-        private             readonly        pauseText               :BABYLON_GUI.TextBlock                  = null;
+        /** The bg color for the GUI. */
+        // tslint:disable-next-line:max-line-length
+        private     static  readonly        GUI_COLOR_BG            :string                                 = 'rgba( 100, 100, 100, 0.25 )';
+
+        /** The translucent background. */
+        private             readonly        bg                      :BABYLON_GUI.Rectangle                  = null;
+        /** The 'pause' headline text. */
+        private             readonly        headline               :BABYLON_GUI.TextBlock                   = null;
 
         /** ************************************************************************************************************
-        *   Initializes all components of the pause screen.
+        *   Initializes all components of the pause screen and adds them to the given component.
+        *
+        *   @param guiFg The gui to append all components to.
         ***************************************************************************************************************/
         public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture )
         {
+            // bg
+            this.bg = bz.GUIFactory.createRectangle
+            (
+                0,
+                0,
+                bz.Main.game.engine.canvas.getWidth(),
+                bz.Main.game.engine.canvas.getHeight(),
+                bz.SettingColor.COLOR_CSS_TRANSPARENT,
+                GUIPause.GUI_COLOR_BG
+            );
+            guiFg.addControl( this.bg );
+
             // pause text
-            this.pauseText = bz.GUIFactory.createTextBlock
+            this.headline = bz.GUIFactory.createTextBlock
             (
                 'PAUSE MENU',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -30,7 +50,9 @@
                 BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
-            guiFg.addControl( this.pauseText );
+            guiFg.addControl( this.headline );
+
+
 
 
 
@@ -47,6 +69,7 @@
         ***************************************************************************************************************/
         public setVisibility( visible:boolean ) : void
         {
-            this.pauseText.isVisible = visible;
+            this.headline.isVisible = visible;
+            this.bg.isVisible       = visible;
         }
     }

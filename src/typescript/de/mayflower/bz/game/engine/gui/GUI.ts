@@ -22,7 +22,11 @@
         ***************************************************************************************************************/
         protected constructor()
         {
+            // create foreground GUI
             this.guiFg = bz.GUIFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
+
+            // pause GUI
+            this.pauseGui = new bz.GUIPause( this.guiFg );
 
             // FPS text
             this.fpsText = bz.GUIFactory.createTextBlock
@@ -40,9 +44,6 @@
                 null
             );
             this.guiFg.addControl( this.fpsText );
-
-            // pause GUI
-            this.pauseGui = new bz.GUIPause( this.guiFg );
 
             // create the message manager
             this.messageManager = new bz.GUIMessageManager();
