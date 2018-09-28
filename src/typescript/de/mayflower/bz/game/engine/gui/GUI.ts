@@ -14,8 +14,8 @@
         /** The manager for GUI messages. */
         private             readonly        messageManager          :bz.GUIMessageManager                   = null;
 
-        /** The PAUSE text block. */
-        private             readonly        pauseText               :BABYLON_GUI.TextBlock                  = null;
+        /** The pause GUI. */
+        private             readonly        pauseGui                :bz.GUIPause                            = null;
 
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
@@ -41,24 +41,8 @@
             );
             this.guiFg.addControl( this.fpsText );
 
-            // pause text
-            this.pauseText = bz.GUIFactory.createTextBlock
-            (
-                'PAUSED!',
-                bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
-                bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                bz.SettingGUI.GUI_BORDER_X,
-                bz.SettingGUI.GUI_BORDER_Y,
-                250,
-                25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
-                null
-            );
-            this.guiFg.addControl( this.pauseText );
-
-            this.pauseText.isVisible = false;
+            // pause GUI
+            this.pauseGui = new bz.GUIPause( this.guiFg );
 
             // create the message manager
             this.messageManager = new bz.GUIMessageManager();
@@ -124,7 +108,7 @@
         ***************************************************************************************************************/
         public setPauseGuiVisibility( visible:boolean ) : void
         {
-            this.pauseText.isVisible = visible;
+            this.pauseGui.setVisibility( visible );
         }
 
         /** ************************************************************************************************************

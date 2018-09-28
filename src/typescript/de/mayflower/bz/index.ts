@@ -26,6 +26,7 @@
     export * from './game/engine/gui/GUIGame';
     export * from './game/engine/gui/GUIMessage';
     export * from './game/engine/gui/GUIMessageManager';
+    export * from './game/engine/gui/GUIPause';
     export * from './game/engine/gui/GUIProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';

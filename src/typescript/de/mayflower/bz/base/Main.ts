@@ -50,6 +50,7 @@
     *   TODO Create camera paths (runs/transfers).
     *   TODO Smooth camera transfers / animation on changing active camera?
     *   TODO Go fullscreen.
+    *   TODO Try black outlined texts.
     *
     *   TODO Issues
     *   =====================
