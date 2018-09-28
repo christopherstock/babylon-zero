@@ -51,20 +51,13 @@
         ***************************************************************************************************************/
         private render=() : void =>
         {
-            // render stage if unpaused
-            if ( !this.pause )
-            {
-                // render stage
-                this.stage.render();
-            }
-
-            // render GUI
-            this.stage.renderGui();
+            // render stage
+            this.stage.render( this.pause );
 
             // render babylon.JS scene
             this.engine.scene.renderScene();
 
-            // handle global keys ( pause, level switches etc. )
+            // handle global keys ( pause, camera changes, level switches etc. )
             this.handleGlobalKeys();
         };
 

@@ -77,13 +77,27 @@
         }
 
         /** ************************************************************************************************************
-        *   Handles a key in the pause menu.
+        *   Updates the pause GUI information for the current game tick.
         ***************************************************************************************************************/
-        public handlePauseKeys()
+        public render() : void
+        {
+            this.handlePauseKeys();
+        }
+
+        /** ************************************************************************************************************
+        *   Handles pressed keys in the pause menu.
+        ***************************************************************************************************************/
+        private handlePauseKeys() : void
         {
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
             {
-                console.log( 'pause key W pressed' );
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_W );
+
+
+
+
+
+
             }
 
 

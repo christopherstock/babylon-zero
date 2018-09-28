@@ -85,11 +85,18 @@
 
         /** ************************************************************************************************************
         *   Updates the GUI information for the current game tick.
+        *
+        *   @param pause Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render() : void
+        public render( pause:boolean ) : void
         {
             this.updateFps();
             this.messageManager.render();
+
+            if ( pause )
+            {
+                this.pauseGui.render();
+            }
         }
 
         /** ************************************************************************************************************

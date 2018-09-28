@@ -38,11 +38,13 @@
 
         /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
+        *
+        *   @param pause Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render() : void
+        public render( pause:boolean ) : void
         {
             // invoke parent method
-            super.render();
+            super.render( pause );
 /*
             // rotate whole model
             for ( const mesh of this.model )

@@ -124,40 +124,40 @@
 
         /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
+        *
+        *   @param pause Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render() : void
+        public render( pause:boolean ) : void
         {
-            // handle level specific keys
-            this.handleLevelKeys();
-
-            // render player
-            if ( this.player != null )
+            // consider pause
+            if ( !pause )
             {
-                this.player.render();
+                // handle level specific keys
+                this.handleLevelKeys();
+
+                // render player
+                if ( this.player != null )
+                {
+                    this.player.render();
+                }
+
+                // render walls
+                for ( const wall of this.walls )
+                {
+                    wall.render();
+                }
+
+                // render items
+                for ( const item of this.items )
+                {
+                    item.render();
+                }
             }
 
-            // render walls
-            for ( const wall of this.walls )
-            {
-                wall.render();
-            }
-
-            // render items
-            for ( const item of this.items )
-            {
-                item.render();
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Renders the GUI.
-        ***************************************************************************************************************/
-        public renderGui() : void
-        {
-            // render gui if present
+            // render GUI if present
             if ( this.gui != null )
             {
-                this.gui.render();
+                this.gui.render( pause );
             }
         }
 
@@ -309,6 +309,8 @@
 
         /** ************************************************************************************************************
         *   Alters the pause state for all sprites.
+        *
+        *   TODO unify with setGuiPause().
         *
         *   @param pause The pause state to set for all sprites.
         ***************************************************************************************************************/
