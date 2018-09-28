@@ -14,7 +14,10 @@
         /** The translucent background. */
         private             readonly        bg                      :BABYLON_GUI.Rectangle                  = null;
         /** The 'pause' headline text. */
-        private             readonly        headline               :BABYLON_GUI.TextBlock                   = null;
+        private             readonly        headline                :BABYLON_GUI.TextBlock                  = null;
+
+        /** The index of the current selected item of the pause menu. */
+        private                             currentSelectedItem     :number                                 = 0;
 
         /** ************************************************************************************************************
         *   Initializes all components of the pause screen and adds them to the given component.
@@ -71,5 +74,20 @@
         {
             this.headline.isVisible = visible;
             this.bg.isVisible       = visible;
+        }
+
+        /** ************************************************************************************************************
+        *   Handles a key in the pause menu.
+        ***************************************************************************************************************/
+        public handlePauseKeys()
+        {
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W ) )
+            {
+                console.log( 'pause key W pressed' );
+            }
+
+
+
+
         }
     }

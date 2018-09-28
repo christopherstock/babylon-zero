@@ -9,6 +9,7 @@
     *   TODO Enable stage change / reset in paws screen.
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
