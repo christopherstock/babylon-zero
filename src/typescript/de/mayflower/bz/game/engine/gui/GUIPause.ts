@@ -93,15 +93,27 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_W );
 
-
-
-
+                // this.headline.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
 
 
             }
 
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_S );
+
+                // this.headline.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
 
 
+            }
 
+            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+            {
+                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+
+                // this.headline.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
+
+
+            }
         }
     }
