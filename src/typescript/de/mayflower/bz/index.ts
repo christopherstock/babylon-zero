@@ -24,6 +24,7 @@
     export * from './game/engine/gui/GUI';
     export * from './game/engine/gui/GUIFactory';
     export * from './game/engine/gui/GUIGame';
+    export * from './game/engine/gui/GUIMenu';
     export * from './game/engine/gui/GUIMenuItem';
     export * from './game/engine/gui/GUIMessage';
     export * from './game/engine/gui/GUIMessageManager';
