@@ -26,11 +26,8 @@
         private             readonly        bg                      :BABYLON_GUI.Rectangle                  = null;
         /** The 'pause' headline text. */
         private             readonly        headline                :BABYLON_GUI.TextBlock                  = null;
-        /** The menu items texts. */
-        private             readonly        menuItems               :BABYLON_GUI.TextBlock[]                = [];
-
-        /** The index of the current selected item of the pause menu. */
-        private                             currentSelectedItem     :number                                 = 0;
+        /** The GUI menu. */
+        private             readonly        menu                    :bz.GUIMenu                             = null;
 
         /** ************************************************************************************************************
         *   Initializes all components of the pause screen and adds them to the given component.
@@ -51,7 +48,7 @@
             );
             guiFg.addControl( this.bg );
 
-            // pause text
+            // headline
             this.headline = bz.GUIFactory.createTextBlock
             (
                 'PAUSE MENU',
@@ -68,20 +65,13 @@
             );
             guiFg.addControl( this.headline );
 
-            // browse all menu items
-            for ( let index:number = 0; index < GUIPause.GUI_MENU_ITEMS.length; ++index )
-            {
-                // add menu item text
-                const newMenuItemText:BABYLON_GUI.TextBlock = GUIPause.GUI_MENU_ITEMS[ index ].createTextBlock
-                (
-                    ( bz.SettingGUI.GUI_BORDER_Y + 100 + index * 35 )
-                );
-                guiFg.addControl( newMenuItemText );
-
-                // append to array
-                this.menuItems.push( newMenuItemText );
-            }
-            this.updateMenuItems();
+            // create GUI menu
+            this.menu = new bz.GUIMenu
+            (
+                guiFg,
+                GUIPause.GUI_MENU_ITEMS,
+                ( bz.SettingGUI.GUI_BORDER_Y + 100 )
+            );
 
             // initially hide all components
             this.setVisibility( false );
@@ -97,10 +87,7 @@
             this.headline.isVisible = visible;
             this.bg.isVisible       = visible;
 
-            for ( const menuItem of this.menuItems )
-            {
-                menuItem.isVisible = visible;
-            }
+            this.menu.setVisibility( visible );
         }
 
         /** ************************************************************************************************************
@@ -125,11 +112,7 @@
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_W  );
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_UP );
 
-                if ( this.currentSelectedItem > 0 )
-                {
-                    --this.currentSelectedItem;
-                }
-                this.updateMenuItems();
+                this.menu.selectPreviousItem();
             }
 
             if
@@ -141,82 +124,14 @@
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_S    );
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_DOWN );
 
-                if ( this.currentSelectedItem < bz.GUIPause.GUI_MENU_ITEMS.length - 1 )
-                {
-                    ++this.currentSelectedItem;
-                }
-                this.updateMenuItems();
+                this.menu.selectNextItem();
             }
 
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                this.performMenuItem();
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Updates the selected and unselected states of all menu items.
-        ***************************************************************************************************************/
-        private updateMenuItems() : void
-        {
-            // browse all menu items
-            for ( let index:number = 0; index < GUIPause.GUI_MENU_ITEMS.length; ++index )
-            {
-                if ( index === this.currentSelectedItem )
-                {
-                    this.menuItems[ index ].color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
-                }
-                else
-                {
-                    this.menuItems[ index ].color = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
-                }
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Performs the action for the current selected menu item.
-        ***************************************************************************************************************/
-        private performMenuItem() : void
-        {
-            switch ( this.currentSelectedItem )
-            {
-                case 0:
-                {
-                    bz.Main.game.togglePause();
-                    break;
-                }
-
-                case 1:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_OFFICE );
-                    break;
-                }
-
-                case 2:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_LEVEL );
-                    break;
-                }
-
-                case 3:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_ROOM_VIEWER );
-                    break;
-                }
-
-                case 4:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_PRODUCT_CONFIGURATOR );
-                    break;
-                }
-
-                case 5:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_INTRO_LOGO );
-                    break;
-                }
+                this.menu.performMenuItem();
             }
         }
     }

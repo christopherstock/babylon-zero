@@ -10,8 +10,8 @@
         /** The label of this menu item. */
         private             readonly        label                       :string                         = null;
 
-        /** Flags if this menu item is currently selected. */
-        private             readonly        selected                    :boolean                        = false;
+        /** The text block that represents this menu item in the GUI. */
+        private                             textBlock                   :BABYLON_GUI.TextBlock          = null;
 
         /** ************************************************************************************************************
         *   Creates a new menu item.
@@ -26,11 +26,12 @@
         /** ************************************************************************************************************
         *   Creates a text block for this menu item.
         *
-        *   @param y The position Y for this menu item's text block.
+        *   @param guiFg The GUI to append this menu item text block to.
+        *   @param y     The position Y for this menu item's text block.
         ***************************************************************************************************************/
-        public createTextBlock( y:number ) : BABYLON_GUI.TextBlock
+        public createTextBlock( guiFg:BABYLON_GUI.AdvancedDynamicTexture, y:number ) : void
         {
-            return bz.GUIFactory.createTextBlock
+            this.textBlock = bz.GUIFactory.createTextBlock
             (
                 this.label,
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -44,5 +45,33 @@
                 BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
+
+            guiFg.addControl( this.textBlock );
+        }
+
+        /** ************************************************************************************************************
+        *   Shows or hides the pause GUI.
+        *
+        *   @param visible The visibility to set for the pause GUI.
+        ***************************************************************************************************************/
+        public setVisibility( visible:boolean ) : void
+        {
+            this.textBlock.isVisible = visible;
+        }
+
+        /** ************************************************************************************************************
+        *   Selects this menu item and highlights the text block.
+        ***************************************************************************************************************/
+        public select() : void
+        {
+            this.textBlock.color = bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE;
+        }
+
+        /** ************************************************************************************************************
+        *   Unselectes this menu item and blurs the text block.
+        ***************************************************************************************************************/
+        public unselect() : void
+        {
+            this.textBlock.color = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
         }
     }
