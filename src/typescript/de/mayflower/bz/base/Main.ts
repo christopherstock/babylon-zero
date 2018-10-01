@@ -6,12 +6,13 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Enable paws menu in all stages.
+    *   TODO Create class GUIMenuItem for menu items.
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
+    *   TODO New Class GUIWearpon that extends GUIGame? Or make class GUI non abstract?
     *
     *   TODO Sounds
     *   =====================

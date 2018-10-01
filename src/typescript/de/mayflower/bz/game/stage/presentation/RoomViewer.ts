@@ -151,6 +151,9 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            return null;
+            const gui:bz.GUIGame = new bz.GUIGame();
+            gui.init();
+
+            return gui;
         }
     }
