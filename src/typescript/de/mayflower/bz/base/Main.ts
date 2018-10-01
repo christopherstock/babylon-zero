@@ -6,6 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO Create class GUIMenu for GUI menu.
+    *   TODO Create class GUIAction for menu item actions.
     *   TODO Create class GUIMenuItem for menu items.
     *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?

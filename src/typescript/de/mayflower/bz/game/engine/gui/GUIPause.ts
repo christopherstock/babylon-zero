@@ -12,14 +12,14 @@
         private     static  readonly        GUI_COLOR_BG            :string                                 = 'rgba( 100, 100, 100, 0.25 )';
 
         /** All items of the GUI menu. */
-        private     static  readonly        GUI_MENU_ITEMS          :string[]                               =
+        private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
         [
-            'Resume Game',
-            'Level 1 - Office',
-            'Level 2 - Test Level',
-            'Level 3 - Room Viewer',
-            'Level 4 - 3D Product Configurator',
-            'Level 5 - Intro Logo',
+            new bz.GUIMenuItem( 'Resume Game'                       ),
+            new bz.GUIMenuItem( 'Level 1 - Office'                  ),
+            new bz.GUIMenuItem( 'Level 2 - Test Level'              ),
+            new bz.GUIMenuItem( 'Level 3 - Room Viewer'             ),
+            new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator' ),
+            new bz.GUIMenuItem( 'Level 5 - Intro Logo'              ),
         ];
 
         /** The translucent background. */
@@ -72,19 +72,9 @@
             for ( let index:number = 0; index < GUIPause.GUI_MENU_ITEMS.length; ++index )
             {
                 // add menu item text
-                const newMenuItemText:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+                const newMenuItemText:BABYLON_GUI.TextBlock = GUIPause.GUI_MENU_ITEMS[ index ].createTextBlock
                 (
-                    GUIPause.GUI_MENU_ITEMS[ index ],
-                    bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
-                    bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
-                    bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-                    0,
-                    ( bz.SettingGUI.GUI_BORDER_Y + 100 + index * 35 ),
-                    500,
-                    25,
-                    BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
-                    BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
-                    null
+                    ( bz.SettingGUI.GUI_BORDER_Y + 100 + index * 35 )
                 );
                 guiFg.addControl( newMenuItemText );
 
