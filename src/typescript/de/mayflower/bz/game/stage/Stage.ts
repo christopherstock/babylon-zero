@@ -310,8 +310,6 @@
         /** ************************************************************************************************************
         *   Alters the pause state for all sprites.
         *
-        *   TODO unify with setGuiPause().
-        *
         *   @param pause The pause state to set for all sprites.
         ***************************************************************************************************************/
         public setSpritePause( pause:boolean ) : void

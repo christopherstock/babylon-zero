@@ -1,6 +1,6 @@
 
     import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Represents a menu shown in the GUI.
@@ -75,44 +75,7 @@
         ***************************************************************************************************************/
         public performMenuItem() : void
         {
-            switch ( this.currentSelectedItem )
-            {
-                case 0:
-                {
-                    bz.Main.game.togglePause();
-                    break;
-                }
-
-                case 1:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_OFFICE );
-                    break;
-                }
-
-                case 2:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_LEVEL );
-                    break;
-                }
-
-                case 3:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_ROOM_VIEWER );
-                    break;
-                }
-
-                case 4:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_PRODUCT_CONFIGURATOR );
-                    break;
-                }
-
-                case 5:
-                {
-                    bz.Main.game.switchStage( bz.StageId.STAGE_INTRO_LOGO );
-                    break;
-                }
-            }
+            this.menuItems[ this.currentSelectedItem ].perform();
         }
 
         /** ************************************************************************************************************

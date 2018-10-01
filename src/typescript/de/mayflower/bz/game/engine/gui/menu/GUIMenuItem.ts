@@ -1,6 +1,6 @@
 
     import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Represents one menu item shown in the GUI menu.
@@ -9,6 +9,8 @@
     {
         /** The label of this menu item. */
         private             readonly        label                       :string                         = null;
+        /** The action to execute on performing this menu item. */
+        private             readonly        action                      :bz.GUIAction                   = null;
 
         /** The text block that represents this menu item in the GUI. */
         private                             textBlock                   :BABYLON_GUI.TextBlock          = null;
@@ -16,11 +18,13 @@
         /** ************************************************************************************************************
         *   Creates a new menu item.
         *
-        *   @param label The caption for this menu item to display.
+        *   @param label  The caption for this menu item to display.
+        *   @param action The GUI action to perform on executing this menu item.
         ***************************************************************************************************************/
-        public constructor( label:string )
+        public constructor( label:string, action:bz.GUIAction )
         {
-            this.label = label;
+            this.label  = label;
+            this.action = action;
         }
 
         /** ************************************************************************************************************
@@ -73,5 +77,50 @@
         public unselect() : void
         {
             this.textBlock.color = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
+        }
+
+        /** ************************************************************************************************************
+        *   Performs this menu item's associated action.
+        ***************************************************************************************************************/
+        public perform() : void
+        {
+            switch ( this.action )
+            {
+                case bz.GUIAction.RESUME_GAME:
+                {
+                    bz.Main.game.togglePause();
+                    break;
+                }
+
+                case bz.GUIAction.SWITCH_TO_LEVEL_1:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_OFFICE );
+                    break;
+                }
+
+                case bz.GUIAction.SWITCH_TO_LEVEL_2:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_TEST_LEVEL );
+                    break;
+                }
+
+                case bz.GUIAction.SWITCH_TO_LEVEL_3:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_ROOM_VIEWER );
+                    break;
+                }
+
+                case bz.GUIAction.SWITCH_TO_LEVEL_4:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_PRODUCT_CONFIGURATOR );
+                    break;
+                }
+
+                case bz.GUIAction.SWITCH_TO_LEVEL_5:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_INTRO_LOGO );
+                    break;
+                }
+            }
         }
     }
