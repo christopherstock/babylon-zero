@@ -66,7 +66,8 @@
                 this.getCameraSystem().startJourney
                 (
                     bz.CameraType.STATIONARY,
-                    ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) )
+                    ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
+                    0.05
                 );
                 this.camTarget = !this.camTarget;
             }

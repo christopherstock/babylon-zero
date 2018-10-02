@@ -24,6 +24,8 @@
         private                         journeyCamera                   :BABYLON.Camera                         = null;
         /** The current target point for the journey camera. */
         private                         journeyTargetPosition           :BABYLON.Vector3                        = null;
+        /** The current speed for the journey camera. */
+        private                         journeySpeed                    :number                                 = 0;
 
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
@@ -246,8 +248,15 @@
         *
         *   @param cameraType     The camera type to perform a journey with.
         *   @param targetPosition The target position for the specified journey camera.
+        *   @param speed          The speed of the journey camera.
         ***************************************************************************************************************/
-        public startJourney( cameraType:bz.CameraType, targetPosition:BABYLON.Vector3 ) : void
+        public startJourney
+        (
+            cameraType     :bz.CameraType,
+            targetPosition :BABYLON.Vector3,
+            speed          :number
+        )
+        : void
         {
             // TODO to separate function getFromType()
             switch ( cameraType )
@@ -284,6 +293,7 @@
             }
 
             this.journeyTargetPosition = targetPosition;
+            this.journeySpeed          = speed;
         }
 
         /** ************************************************************************************************************
@@ -302,25 +312,25 @@
             // only if a journey camera is assigned
             if ( this.journeyCamera != null )
             {
-                // TODO outsource to settings or param!
-                const MIN_CAMERA_MOVE :BABYLON.Vector3 = new BABYLON.Vector3( 0.05, 0.05, 0.05 );
-                const MOVING_SPEED    :number          = 0.05;
+                // the minimum camera move distance that determines the end of the journey
+                const MIN_CAMERA_MOVE:BABYLON.Vector3 = new BABYLON.Vector3( 0.05, 0.05, 0.05 );
 
                 const diff:BABYLON.Vector3 = this.journeyCamera.position.subtract( this.journeyTargetPosition );
-                diff.scaleInPlace( MOVING_SPEED );
+                diff.scaleInPlace( this.journeySpeed );
 
                 this.journeyCamera.position.subtractInPlace( diff );
 
                 // check target reach
                 if
                 (
-                       Math.abs( diff.x ) < MIN_CAMERA_MOVE.x
-                    && Math.abs( diff.y ) < MIN_CAMERA_MOVE.y
-                    && Math.abs( diff.z ) < MIN_CAMERA_MOVE.z
+                       Math.abs( diff.x as number ) < MIN_CAMERA_MOVE.x
+                    && Math.abs( diff.y as number ) < MIN_CAMERA_MOVE.y
+                    && Math.abs( diff.z as number ) < MIN_CAMERA_MOVE.z
                 )
                 {
                     bz.Debug.camera.log( 'Target reached' );
 
+                    // unassign journey camera
                     this.journeyCamera = null;
                 }
             }
