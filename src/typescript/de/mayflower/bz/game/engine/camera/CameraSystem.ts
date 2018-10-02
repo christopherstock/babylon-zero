@@ -104,30 +104,29 @@
         /** ************************************************************************************************************
         *   Sets the specified camera as the scene's active camera.
         *
-        *   @param camera The type of camera to set as the scene's active camera.
-        *   @param scene  The babylon.JS scene to set the active camera for.
-        *   @param canvas The HTML canvas that might change debug controls on camera switch.
-        *   @param player The player instance that will show or hide according to the currently set camera.
-        *   @param gui    The stage GUI that may be shown or hidden according to the selected camera.
+        *   @param cameraType The type of camera to set as the scene's active camera.
+        *   @param scene      The babylon.JS scene to set the active camera for.
+        *   @param canvas     The HTML canvas that might change debug controls on camera switch.
+        *   @param player     The player instance that will show or hide according to the currently set camera.
+        *   @param gui        The stage GUI that may be shown or hidden according to the selected camera.
         ***************************************************************************************************************/
         public setActiveCamera
         (
-            camera :bz.CameraType,
-            scene  :BABYLON.Scene,
-            canvas :HTMLCanvasElement,
-            player :bz.Player,
-            gui    :bz.GUI
+            cameraType :bz.CameraType,
+            scene      :BABYLON.Scene,
+            canvas     :HTMLCanvasElement,
+            player     :bz.Player,
+            gui        :bz.GUI
         )
         : void
         {
-            this.activeCameraType = camera;
+            this.activeCameraType = cameraType;
+            scene.activeCamera    = this.getCameraFromType( cameraType );
 
-            switch ( camera )
+            switch ( cameraType )
             {
                 case bz.CameraType.FREE_DEBUG:
                 {
-                    scene.activeCamera = this.freeCamera;
-
                     this.setCameraControlsEnabled( this.freeCamera,      true,  canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
@@ -139,8 +138,6 @@
 
                 case bz.CameraType.STATIONARY:
                 {
-                    scene.activeCamera = this.stationaryCamera;
-
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
@@ -152,8 +149,6 @@
 
                 case bz.CameraType.FOLLOW:
                 {
-                    scene.activeCamera = this.followCamera;
-
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
@@ -165,8 +160,6 @@
 
                 case bz.CameraType.FIRST_PERSON:
                 {
-                    scene.activeCamera = this.firstPersonCamera;
-
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
 
@@ -178,8 +171,6 @@
 
                 case bz.CameraType.ARC_ROTATE:
                 {
-                    scene.activeCamera = this.arcRotateCamera;
-
                     this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, true,  canvas );
 
@@ -258,40 +249,7 @@
         )
         : void
         {
-            // TODO to separate function getFromType()
-            switch ( cameraType )
-            {
-                case bz.CameraType.ARC_ROTATE:
-                {
-                    this.journeyCamera = this.arcRotateCamera;
-                    break;
-                }
-
-                case bz.CameraType.FIRST_PERSON:
-                {
-                    this.journeyCamera = this.firstPersonCamera;
-                    break;
-                }
-
-                case bz.CameraType.FOLLOW:
-                {
-                    this.journeyCamera = this.followCamera;
-                    break;
-                }
-
-                case bz.CameraType.FREE_DEBUG:
-                {
-                    this.journeyCamera = this.freeCamera;
-                    break;
-                }
-
-                case bz.CameraType.STATIONARY:
-                {
-                    this.journeyCamera = this.stationaryCamera;
-                    break;
-                }
-            }
-
+            this.journeyCamera         = this.getCameraFromType( cameraType );
             this.journeyTargetPosition = targetPosition;
             this.journeySpeed          = speed;
         }
@@ -302,6 +260,46 @@
         public render() : void
         {
             this.animateJourneyCamera();
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the according camera for the specified camera type.
+        *
+        *   @param cameraType The camera type to deliver the according camera for.
+        *
+        *   @return The concrete camera instance for the asked camera type.
+        ***************************************************************************************************************/
+        private getCameraFromType( cameraType:bz.CameraType ) : BABYLON.Camera
+        {
+            switch ( cameraType )
+            {
+                case bz.CameraType.ARC_ROTATE:
+                {
+                    return this.arcRotateCamera;
+                }
+
+                case bz.CameraType.FIRST_PERSON:
+                {
+                    return this.firstPersonCamera;
+                }
+
+                case bz.CameraType.FOLLOW:
+                {
+                    return this.followCamera;
+                }
+
+                case bz.CameraType.FREE_DEBUG:
+                {
+                    return this.freeCamera;
+                }
+
+                case bz.CameraType.STATIONARY:
+                {
+                    return this.stationaryCamera;
+                }
+            }
+
+            return null;
         }
 
         /** ************************************************************************************************************
