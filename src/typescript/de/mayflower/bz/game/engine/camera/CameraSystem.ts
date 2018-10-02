@@ -9,16 +9,21 @@
         /** The currently active camera type. */
         private                         activeCameraType                :bz.CameraType                          = null;
 
-        /** The free controllable babylon.JS camera. */
+        /** The free controllable babylon.JS (debug) camera. */
         private         readonly        freeCamera                      :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
-        private         readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
+        public          readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
         /** The follow babylon.JS camera. */
         private         readonly        followCamera                    :BABYLON.FollowCamera                   = null;
         /** The first person babylon.JS camera. */
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
         /** The babylon.JS axis camera. */
         private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+
+        /** The current camera that is on a journey. */
+        private                         journeyCamera                   :BABYLON.Camera                         = null;
+        /** The current target point for the journey camera. */
+        private                         journeyTargetPosition           :BABYLON.Vector3                        = null;
 
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
@@ -33,7 +38,7 @@
         *   @param followCameraTarget              The target node for the follow camera.
         *   @param firstPersonCameraTarget         The target mesh for the first person camera.
         ***************************************************************************************************************/
-        constructor
+        public constructor
         (
             scene                           :BABYLON.Scene,
 
@@ -234,6 +239,49 @@
         public setFirstPersonCameraFieldOfView( fov:number ) : void
         {
             this.firstPersonCamera.fov = fov;
+        }
+
+        /** ************************************************************************************************************
+        *   Starts a camera journey for the specified camera.
+        *
+        *   @param camera         The camera to perform a journey with.
+        *   @param targetPosition The target position for the specified journey camera.
+        ***************************************************************************************************************/
+        public startJourney( camera:BABYLON.Camera, targetPosition:BABYLON.Vector3 ) : void
+        {
+            this.journeyCamera         = camera;
+            this.journeyTargetPosition = targetPosition;
+        }
+
+        /** ************************************************************************************************************
+        *   Renders the camera system for one tick of the game loop.
+        ***************************************************************************************************************/
+        public render() : void
+        {
+            this.animateJourneyCamera();
+        }
+
+        /** ************************************************************************************************************
+        *   Animates the journey camera for one tick if the game loop.
+        ***************************************************************************************************************/
+        private animateJourneyCamera() : void
+        {
+            if ( this.journeyCamera != null )
+            {
+                console.log( 'Perform camera journey' );
+
+                const diff:BABYLON.Vector3 = this.journeyCamera.position.subtract( this.journeyTargetPosition );
+
+                console.log( 'Difference: ', diff );
+
+
+
+
+
+
+
+
+            }
         }
 
         /** ************************************************************************************************************

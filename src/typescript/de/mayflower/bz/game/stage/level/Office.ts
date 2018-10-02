@@ -53,11 +53,19 @@
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                // add GUI message to queue
-                this.gui.addGuiMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
+                // add GUI messages to queue and start various debug actions
 
                 // explode compound spheres
+                this.gui.addGuiMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
                 this.compoundSpheres.removeCompoundMesh( this.scene );
+
+                // try a camera journey for the stationary target camera
+                this.gui.addGuiMessage( 'start camera journey [' + bz.String.getDateTimeString() + ']' );
+                this.getCameraSystem().startJourney
+                (
+                    this.getCameraSystem().stationaryCamera,
+                    BABYLON.Vector3.Zero()
+                );
             }
         }
 

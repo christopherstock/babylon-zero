@@ -9,6 +9,8 @@
     {
         /** The menu items texts. */
         private             readonly        menuItems                   :bz.GUIMenuItem[]               = [];
+        /** Specifies if selection wrapping is enabled by selecting items out of bounds. */
+        private             readonly        wrapSelection               :boolean                        = false;
 
         /** The index of the current selected item of the pause menu. */
         private                             currentSelectedItem         :number                         = 0;
@@ -16,13 +18,21 @@
         /** ************************************************************************************************************
         *   Creates a new GUI menu.
         *
-        *   @param guiFg     The GUI to append the menu item text blocks to.
-        *   @param menuItems The menu items to create for the menu.
-        *   @param y         The position Y for this GUI menu.
+        *   @param guiFg         The GUI to append the menu item text blocks to.
+        *   @param menuItems     The menu items to create for the menu.
+        *   @param y             The position Y for this GUI menu.
+        *   @param wrapSelection Allows selection wrapping on selecting items out of bounds.
         ***************************************************************************************************************/
-        public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture, menuItems:bz.GUIMenuItem[], y:number )
+        public constructor
+        (
+            guiFg         :BABYLON_GUI.AdvancedDynamicTexture,
+            menuItems     :bz.GUIMenuItem[],
+            y             :number,
+            wrapSelection :boolean
+        )
         {
-            this.menuItems = menuItems;
+            this.menuItems     = menuItems;
+            this.wrapSelection = wrapSelection;
 
             // create all menu item text blocks
             for ( let index:number = 0; index < this.menuItems.length; ++index )
@@ -56,6 +66,11 @@
                 --this.currentSelectedItem;
                 this.updateMenuItems();
             }
+            else if ( this.wrapSelection )
+            {
+                this.currentSelectedItem = ( this.menuItems.length - 1 );
+                this.updateMenuItems();
+            }
         }
 
         /** ************************************************************************************************************
@@ -63,9 +78,14 @@
         ***************************************************************************************************************/
         public selectNextItem() : void
         {
-            if ( this.currentSelectedItem < this.menuItems.length - 1 )
+            if ( this.currentSelectedItem < ( this.menuItems.length - 1 ) )
             {
                 ++this.currentSelectedItem;
+                this.updateMenuItems();
+            }
+            else if ( this.wrapSelection )
+            {
+                this.currentSelectedItem = 0;
                 this.updateMenuItems();
             }
         }

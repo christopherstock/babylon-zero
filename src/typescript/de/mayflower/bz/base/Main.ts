@@ -6,10 +6,28 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   =====================
+    *   TODO Game improvements
+    *   =====================
+    *   TODO Create camera paths (runs/transfers).
+    *   TODO Smooth camera transfers / animation on changing active camera?
+    *   TODO Go fullscreen.
+    *   TODO Add full HUD effects ( red for energy lost, white or energy gain etc. )
+    *
+    *   =====================
+    *   TODO Issues
+    *   =====================
+    *   TODO Smoothen player collisions on walls.
+    *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
+    *   TODO Fix decals flickering in certain view angles ?
+    *   TODO Try to keep original physic imposter parameters after the compound has been set.
+    *   =====================
+    *
     *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
+    *   =====================
     *   TODO Sounds
     *   =====================
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
@@ -17,6 +35,7 @@
     *   TODO Check Perfect Dark and Goldeneye sound board.
     *   =====================
     *
+    *   =====================
     *   TODO FX
     *   =====================
     *   TODO Add physically correct bullet drop out after fire.
@@ -28,6 +47,7 @@
     *   TODO Add muzzle flash to gun on firing.
     *   =====================
     *
+    *   =====================
     *   TODO Wearpons
     *   =====================
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
@@ -40,23 +60,7 @@
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *
-    *   TODO Game improvements
     *   =====================
-    *   TODO Use 'worker thread collisions'?
-    *   TODO Create camera paths (runs/transfers).
-    *   TODO Smooth camera transfers / animation on changing active camera?
-    *   TODO Go fullscreen.
-    *   TODO Try black outlined texts.
-    *   TODO Add full HUD effects ( red for energy lost, white or energy gain etc. )
-    *
-    *   TODO Issues
-    *   =====================
-    *   TODO Smoothen player collisions on walls.
-    *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
-    *   TODO Fix decals flickering in certain view angles ?
-    *   TODO Try to keep original physic imposter parameters after the compound has been set.
-    *   =====================
-    *
     *   TODO Characters
     *   =====================
     *   TODO Create (different?) characters from primitives or mesh objects??
@@ -66,11 +70,13 @@
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   =====================
     *
+    *   =====================
     *   TODO The Lab
     *   =====================
     *   TODO Try PostProcessing (camera.setPostProcess ?)
     *   TODO Try video textures (pc screen etc.)!
     *   TODO Try dynamic textures: ( video in texture in front of screen for company presentation site .. )
+    *   TODO Try 'worker thread collisions'?
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
     *   TODO Try fog or smoke?
     *   TODO Try player objects: physics for car, etc?

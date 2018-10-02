@@ -524,7 +524,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets a new caption for the button that toggles the visor.
+        *   Sets a new caption for the specified button.
         *
         *   @param button  The button to set a new text for.
         *   @param newText The text to set as the button's caption.

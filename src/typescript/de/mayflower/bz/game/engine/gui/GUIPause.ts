@@ -14,12 +14,12 @@
         /** All items of the GUI menu. */
         private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
         [
-            new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
             new bz.GUIMenuItem( 'Level 1 - Office',                  bz.GUIAction.SWITCH_TO_LEVEL_1 ),
             new bz.GUIMenuItem( 'Level 2 - Test Level',              bz.GUIAction.SWITCH_TO_LEVEL_2 ),
             new bz.GUIMenuItem( 'Level 3 - Room Viewer',             bz.GUIAction.SWITCH_TO_LEVEL_3 ),
             new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_LEVEL_4 ),
             new bz.GUIMenuItem( 'Level 5 - Intro Logo',              bz.GUIAction.SWITCH_TO_LEVEL_5 ),
+            new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
         ];
 
         /** The translucent background. */
@@ -70,7 +70,8 @@
             (
                 guiFg,
                 GUIPause.GUI_MENU_ITEMS,
-                ( bz.SettingGUI.GUI_BORDER_Y + 100 )
+                ( bz.SettingGUI.GUI_BORDER_Y + 100 ),
+                true
             );
 
             // initially hide all components

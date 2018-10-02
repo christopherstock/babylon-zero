@@ -152,6 +152,9 @@
                 {
                     item.render();
                 }
+
+                // render camera system if present
+                this.cameraSystem.render();
             }
 
             // render GUI if present
