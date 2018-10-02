@@ -16,6 +16,8 @@
         protected                           compoundSpheres         :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
         // protected                        chairRot                :number                                 = 0.0;
+        /** Testwise camera target toggle. */
+        private                             camTarget               :boolean                                = false;
 
         /** ************************************************************************************************************
         *   Creates a new test office.
@@ -63,9 +65,10 @@
                 this.gui.addGuiMessage( 'start camera journey [' + bz.String.getDateTimeString() + ']' );
                 this.getCameraSystem().startJourney
                 (
-                    this.getCameraSystem().stationaryCamera,
-                    BABYLON.Vector3.Zero()
+                    bz.CameraType.STATIONARY,
+                    ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) )
                 );
+                this.camTarget = !this.camTarget;
             }
         }
 

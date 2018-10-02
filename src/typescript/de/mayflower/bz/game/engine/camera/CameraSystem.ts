@@ -12,7 +12,7 @@
         /** The free controllable babylon.JS (debug) camera. */
         private         readonly        freeCamera                      :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
-        public          readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
+        private         readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
         /** The follow babylon.JS camera. */
         private         readonly        followCamera                    :BABYLON.FollowCamera                   = null;
         /** The first person babylon.JS camera. */
@@ -244,12 +244,45 @@
         /** ************************************************************************************************************
         *   Starts a camera journey for the specified camera.
         *
-        *   @param camera         The camera to perform a journey with.
+        *   @param cameraType     The camera type to perform a journey with.
         *   @param targetPosition The target position for the specified journey camera.
         ***************************************************************************************************************/
-        public startJourney( camera:BABYLON.Camera, targetPosition:BABYLON.Vector3 ) : void
+        public startJourney( cameraType:bz.CameraType, targetPosition:BABYLON.Vector3 ) : void
         {
-            this.journeyCamera         = camera;
+            // TODO to separate function getFromType()
+            switch ( cameraType )
+            {
+                case bz.CameraType.ARC_ROTATE:
+                {
+                    this.journeyCamera = this.arcRotateCamera;
+                    break;
+                }
+
+                case bz.CameraType.FIRST_PERSON:
+                {
+                    this.journeyCamera = this.firstPersonCamera;
+                    break;
+                }
+
+                case bz.CameraType.FOLLOW:
+                {
+                    this.journeyCamera = this.followCamera;
+                    break;
+                }
+
+                case bz.CameraType.FREE_DEBUG:
+                {
+                    this.journeyCamera = this.freeCamera;
+                    break;
+                }
+
+                case bz.CameraType.STATIONARY:
+                {
+                    this.journeyCamera = this.stationaryCamera;
+                    break;
+                }
+            }
+
             this.journeyTargetPosition = targetPosition;
         }
 
@@ -266,21 +299,30 @@
         ***************************************************************************************************************/
         private animateJourneyCamera() : void
         {
+            // only if a journey camera is assigned
             if ( this.journeyCamera != null )
             {
-                console.log( 'Perform camera journey' );
+                // TODO outsource to settings or param!
+                const MIN_CAMERA_MOVE :BABYLON.Vector3 = new BABYLON.Vector3( 0.05, 0.05, 0.05 );
+                const MOVING_SPEED    :number          = 0.05;
 
                 const diff:BABYLON.Vector3 = this.journeyCamera.position.subtract( this.journeyTargetPosition );
+                diff.scaleInPlace( MOVING_SPEED );
 
-                console.log( 'Difference: ', diff );
+                this.journeyCamera.position.subtractInPlace( diff );
 
+                // check target reach
+                if
+                (
+                       Math.abs( diff.x ) < MIN_CAMERA_MOVE.x
+                    && Math.abs( diff.y ) < MIN_CAMERA_MOVE.y
+                    && Math.abs( diff.z ) < MIN_CAMERA_MOVE.z
+                )
+                {
+                    bz.Debug.camera.log( 'Target reached' );
 
-
-
-
-
-
-
+                    this.journeyCamera = null;
+                }
             }
         }
 

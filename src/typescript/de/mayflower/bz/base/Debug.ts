@@ -30,6 +30,8 @@
         public      static      readonly    player              :Debug              = new Debug( true  );
         /** Debugs physic calculations. */
         public      static      readonly    physic              :Debug              = new Debug( false );
+        /** Debugs camera behaviours and journeys. */
+        public      static      readonly    camera              :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;
