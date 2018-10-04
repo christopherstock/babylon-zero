@@ -51,7 +51,13 @@
 
             this.keysPressed[     keyCode ] = false;
             this.keysNeedRelease[ keyCode ] = false;
-
+/*
+            // try fullscreen mode and pointer lock
+            if ( keyCode === bz.KeyCodes.KEY_ENTER )
+            {
+                bz.Main.game.engine.babylonEngine.switchFullscreen( true );
+            }
+*/
             bz.Debug.key.log( 'key released ['  + keyCode + ']' );
         };
 

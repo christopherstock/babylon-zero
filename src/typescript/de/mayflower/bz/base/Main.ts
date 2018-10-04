@@ -9,8 +9,7 @@
     *   =====================
     *   TODO Game improvements
     *   =====================
-    *   TODO Go fullscreen.
-    *   TODO Add full HUD effects ( red for energy lost, white or energy gain etc. )
+    *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )
     *   TODO Try babylon.JS animation system for camera journeys.
     *
     *   =====================
@@ -22,7 +21,6 @@
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *   =====================
     *
-    *   TODO HID: Catch mouse in window in browser?? https://www.html5rocks.com/en/tutorials/pointerlock/intro/
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *
