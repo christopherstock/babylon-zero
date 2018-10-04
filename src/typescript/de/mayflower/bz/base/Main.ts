@@ -9,8 +9,10 @@
     *   =====================
     *   TODO Game improvements
     *   =====================
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )
     *   TODO Try babylon.JS animation system for camera journeys.
+    *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
     *   =====================
     *   TODO Issues
@@ -19,10 +21,7 @@
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Fix decals flickering in certain view angles ?
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
-    *   =====================
-    *
-    *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *
     *   =====================
     *   TODO Sounds
@@ -30,7 +29,6 @@
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Check Perfect Dark and Goldeneye sound board.
-    *   =====================
     *
     *   =====================
     *   TODO FX
@@ -42,7 +40,6 @@
     *   TODO Add explosion sprites.
     *   TODO Create 3d gun as 2nd scene in front?
     *   TODO Add muzzle flash to gun on firing.
-    *   =====================
     *
     *   =====================
     *   TODO Wearpons
@@ -51,7 +48,6 @@
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up.
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..
-    *   =====================
     *
     *   =====================
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
@@ -65,7 +61,6 @@
     *   TODO Create class Character, the abstract class of Player and Bot.
     *   TODO Checkout babylon.JS bones and skeletons?
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
-    *   =====================
     *
     *   =====================
     *   TODO The Lab
@@ -81,7 +76,6 @@
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
     *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
-    *   =====================
     *
     *******************************************************************************************************************/
     export class Main
