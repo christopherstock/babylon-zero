@@ -16,7 +16,12 @@
 
         /** The pause GUI. */
         private             readonly        pauseGui                :bz.GUIPause                            = null;
-
+/*
+        // The GUI fx 'heal'
+        private             readonly        fxHeal                  :bz.GUIFx                               = null;
+        // The GUI fx 'pain'
+        private             readonly        fxPain                  :bz.GUIFx                               = null;
+*/
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
         ***************************************************************************************************************/

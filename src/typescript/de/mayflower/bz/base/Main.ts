@@ -9,10 +9,10 @@
     *   =====================
     *   TODO Game improvements
     *   =====================
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )
+    *
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Try babylon.JS animation system for camera journeys.
-    *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
     *   =====================
     *   TODO Issues
@@ -22,6 +22,8 @@
     *   TODO Fix decals flickering in certain view angles ?
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
+    *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
+    *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
     *   =====================
     *   TODO Sounds
