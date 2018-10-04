@@ -9,10 +9,9 @@
     *   =====================
     *   TODO Game improvements
     *   =====================
-    *   TODO Create camera paths (runs/transfers).
-    *   TODO Smooth camera transfers / animation on changing active camera?
     *   TODO Go fullscreen.
     *   TODO Add full HUD effects ( red for energy lost, white or energy gain etc. )
+    *   TODO Try babylon.JS animation system for camera journeys.
     *
     *   =====================
     *   TODO Issues
