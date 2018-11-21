@@ -19,6 +19,7 @@
             new bz.GUIMenuItem( 'Level 3 - Room Viewer',             bz.GUIAction.SWITCH_TO_LEVEL_3 ),
             new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_LEVEL_4 ),
             new bz.GUIMenuItem( 'Level 5 - Intro Logo',              bz.GUIAction.SWITCH_TO_LEVEL_5 ),
+            new bz.GUIMenuItem( 'Level 6 - Human Body Partitions',   bz.GUIAction.SWITCH_TO_LEVEL_6 ),
             new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
         ];
 

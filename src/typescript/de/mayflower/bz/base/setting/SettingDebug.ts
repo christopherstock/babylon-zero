@@ -16,7 +16,7 @@
         public      static      ENABLE_MENU_DEBUG_KEYS                      :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 
         /** Show the bounding boxes for all meshes. */
-        public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = ( true  && SettingDebug.DEBUG_MODE );
+        public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = ( false && SettingDebug.DEBUG_MODE );
         /** Show the babylon.JS scene debug panel. */
         public      static      SHOW_SCENE_DEBUG_PANEL                      :boolean            = ( false && SettingDebug.DEBUG_MODE );
         /** Show the shot debug lines. */

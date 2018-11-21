@@ -18,4 +18,7 @@
 
         /** The rotating Mayflower logo. */
         STAGE_INTRO_LOGO,
+
+        /** The human body partitions. */
+        STAGE_HUMAN_BODY_PARTITIONS,
     }

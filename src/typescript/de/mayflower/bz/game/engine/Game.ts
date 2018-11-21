@@ -129,6 +129,13 @@
                     this.stage.init();
                     break;
                 }
+
+                case bz.StageId.STAGE_HUMAN_BODY_PARTITIONS:
+                {
+                    this.stage = new bz.HumanBodyPartitions( scene );
+                    this.stage.init();
+                    break;
+                }
             }
 
             scene.executeWhenReady( this.initSceneCompleted );

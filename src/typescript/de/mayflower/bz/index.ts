@@ -32,6 +32,7 @@
     export * from './game/engine/gui/GUIFactory';
     export * from './game/engine/gui/GUIGame';
     export * from './game/engine/gui/GUIPause';
+    export * from './game/engine/gui/GUIHumanBodyPartitions';
     export * from './game/engine/gui/GUIProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';
@@ -91,5 +92,6 @@
     export * from './game/stage/level/TestLevel';
     export * from './game/stage/presentation/IntroLogo';
     export * from './game/stage/presentation/RoomViewer';
+    export * from './game/stage/presentation/hbp/HumanBodyPartitions';
     export * from './game/stage/presentation/pc3d/HelmetState';
     export * from './game/stage/presentation/pc3d/ProductConfigurator';

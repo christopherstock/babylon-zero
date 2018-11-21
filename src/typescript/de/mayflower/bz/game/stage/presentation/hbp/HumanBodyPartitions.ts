@@ -3,10 +3,10 @@
     import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
-    *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
-    *   Aditionally, predefined animations of the product can be triggered.
+    *   The 'human body partitions' stage offers an interactive body model where
+    *   specific partitions can be selected. Various information shall be displayed after picking one body partition.
     *******************************************************************************************************************/
-    export class ProductConfigurator extends bz.Stage
+    export class HumanBodyPartitions extends bz.Stage
     {
         /** Referenced imported helmet. */
         private                         model                   :bz.Model                   = null;
@@ -30,8 +30,8 @@
             super
             (
                 scene,
-                bz.SettingColor.COLOR_RGB_GREY_QUARTER,
-                new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 ),
+                bz.SettingColor.COLOR_RGB_GREY_HALF,
+                new BABYLON.Color4( 0.75, 0.75, 0.75, 1.0 ),
                 bz.CameraType.ARC_ROTATE
             );
         }
@@ -117,7 +117,7 @@
                     this.animationState = bz.HelmetState.OPENING;
                     bz.GUIFactory.setVisorToggleButtonText
                     (
-                        ( this.gui as bz.GUIProductConfigurator ).visorToggleButton,
+                        ( this.gui as bz.GUIHumanBodyPartitions ).visorToggleButton,
                         'Close Visor'
                     );
 
@@ -149,7 +149,7 @@
                     this.animationState = bz.HelmetState.CLOSING;
                     bz.GUIFactory.setVisorToggleButtonText
                     (
-                        ( this.gui as bz.GUIProductConfigurator ).visorToggleButton,
+                        ( this.gui as bz.GUIHumanBodyPartitions ).visorToggleButton,
                         'Open Visor'
                     );
 
@@ -340,7 +340,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this );
+            const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions( this );
             gui.init();
 
             return gui;
@@ -351,11 +351,12 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
+
             // link arc rotate camera zoom to slider
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
                 () => {
 
-                    ( this.gui as bz.GUIProductConfigurator ).cameraZoomSlider.value =
+                    ( this.gui as bz.GUIHumanBodyPartitions ).cameraZoomSlider.value =
                     (
 //                        400.0 + 100.0 - Math.floor( this.getCameraSystem().arcRotateCamera.radius )
                         400.0 + 100.0 - this.getCameraSystem().getArcRotateCamera().radius

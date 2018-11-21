@@ -121,6 +121,12 @@
                     bz.Main.game.switchStage( bz.StageId.STAGE_INTRO_LOGO );
                     break;
                 }
+
+                case bz.GUIAction.SWITCH_TO_LEVEL_6:
+                {
+                    bz.Main.game.switchStage( bz.StageId.STAGE_HUMAN_BODY_PARTITIONS );
+                    break;
+                }
             }
         }
     }
