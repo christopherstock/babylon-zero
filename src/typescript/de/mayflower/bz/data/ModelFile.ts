@@ -23,6 +23,8 @@
         public      static  readonly    MOTORCYCLE_HELMET       :string                 = 'presentation/motorcycleHelmet.babylon';
         /** The model 'shells'. */
         public      static  readonly    SHELLS                  :string                 = 'item/shells.babylon';
+        /** The model 'human body'. */
+        public      static  readonly    HUMAN_BODY              :string                 = 'presentation/man1.babylon';
 
         /** All filenames for all meshes. */
         public      static  readonly    ALL_MESH_FILES          :string[]               =
@@ -36,5 +38,6 @@
             ModelFile.MF_LOGO,
             ModelFile.MOTORCYCLE_HELMET,
             ModelFile.SHELLS,
+            ModelFile.HUMAN_BODY,
         ];
     }

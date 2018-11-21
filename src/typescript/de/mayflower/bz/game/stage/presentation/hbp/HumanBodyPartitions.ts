@@ -10,10 +10,6 @@
     {
         /** Referenced imported helmet. */
         private                         model                   :bz.Model                   = null;
-        /** Referenced visir of the helmet. */
-        private                         visor                   :BABYLON.AbstractMesh       = null;
-        /** Referenced helmet of the helmet. */
-        private                         helmet                  :BABYLON.AbstractMesh       = null;
 
         /** Referenced product presentation light. */
         private                         directionalLight        :BABYLON.DirectionalLight   = null;
@@ -68,7 +64,7 @@
         public requestVisorColorChange( color:BABYLON.Color3 ) : void
         {
             bz.Debug.pc3d.log( 'Change visor color' );
-
+/*
             const visorMultiMaterial:BABYLON.MultiMaterial = this.visor.material as BABYLON.MultiMaterial;
             const subMaterials:BABYLON.Material[] = visorMultiMaterial.subMaterials;
 
@@ -78,6 +74,7 @@
             const visorMaterial:BABYLON.StandardMaterial = subMaterials[ 16 ] as BABYLON.StandardMaterial;
 
             visorMaterial.diffuseColor  = color;
+*/
         }
 
         /** ************************************************************************************************************
@@ -88,7 +85,7 @@
         public requestHelmetColorChange( color:BABYLON.Color3 ) : void
         {
             bz.Debug.pc3d.log( 'Change helmet color' );
-
+/*
             const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
             const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
 
@@ -102,6 +99,7 @@
             stripeMaterial.diffuseColor = color;
             frontMaterial.diffuseColor  = color;
             helmetMaterial.diffuseColor = color;
+*/
         }
 
         /** ************************************************************************************************************
@@ -110,6 +108,7 @@
         ***************************************************************************************************************/
         public requestVisorAnimationToggle() : void
         {
+/*
             switch ( this.animationState )
             {
                 case bz.HelmetState.CLOSED:
@@ -173,6 +172,7 @@
                     break;
                 }
             }
+*/
         }
 
         /** ************************************************************************************************************
@@ -183,10 +183,11 @@
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
-
+/*
                 this.gui.addGuiMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
 
                 this.requestVisorAnimationToggle();
+*/
             }
         }
 
@@ -210,17 +211,17 @@
             // import mesh model
             this.model = bz.MeshFactory.createImportedModel
             (
-                bz.ModelFile.MOTORCYCLE_HELMET,
+                bz.ModelFile.HUMAN_BODY,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 this.scene,
                 bz.Physic.NONE,
                 bz.ModelCompoundType.NONE
             );
-
+/*
             // reference single meshes
             this.helmet = this.model.getMesh( 0 );
             this.visor  = this.model.getMesh( 1 );
-
+*/
             return [
 
                 new bz.Wall
@@ -323,11 +324,10 @@
             (
                 this.scene,
 
-                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-                new BABYLON.Vector3( 250.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-
-                new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
                 null
             );
@@ -351,6 +351,9 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
+            // position arc rotate camera
+            this.cameraSystem.getArcRotateCamera().alpha = bz.MathUtil.degreesToRad( -60.0 );
+            this.cameraSystem.getArcRotateCamera().beta  = bz.MathUtil.degreesToRad( 90.0  );
 
             // link arc rotate camera zoom to slider
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(

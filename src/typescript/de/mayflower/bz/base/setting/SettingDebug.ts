@@ -27,7 +27,7 @@
         public      static      SHOW_DEBUG_BULLET_HOLE_NORMAL               :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 
         /** Show the world coordinate axis. */
-        public      static      SHOW_COORDINATE_AXIS                        :boolean            = ( true  && SettingDebug.DEBUG_MODE );
+        public      static      SHOW_COORDINATE_AXIS                        :boolean            = ( false && SettingDebug.DEBUG_MODE );
         /** The length of the debug coordinate axis. */
         public      static      DEBUG_AXIS_LENGTH                           :number             = 25.0;
     }

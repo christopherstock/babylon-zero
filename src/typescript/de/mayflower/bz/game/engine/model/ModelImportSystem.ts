@@ -37,12 +37,17 @@
 
             for ( const fileName of this.fileNames )
             {
+                const fullPath      :string = ( bz.SettingResource.PATH_MODEL + fileName );
+                const lastSeparator :number = fullPath.lastIndexOf( '/' );
+                const directory     :string = fullPath.substr( 0, lastSeparator + 1 );
+                const file          :string = fullPath.substr( lastSeparator    + 1 );
+
                 BABYLON.SceneLoader.ImportMesh
                 (
                     // first parameter specifies the name of the mesh to import - an empty string will import all meshes
                     '',
-                    bz.SettingResource.PATH_MODEL,
-                    fileName,
+                    directory,
+                    file,
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 

@@ -351,6 +351,10 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
+            // position arc rotate camera
+            this.cameraSystem.getArcRotateCamera().alpha = bz.MathUtil.degreesToRad( -110.0 );
+            this.cameraSystem.getArcRotateCamera().beta  = bz.MathUtil.degreesToRad( 70.0   );
+
             // link arc rotate camera zoom to slider
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
                 () => {
