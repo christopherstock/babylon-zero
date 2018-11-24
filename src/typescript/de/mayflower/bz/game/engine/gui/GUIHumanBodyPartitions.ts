@@ -145,7 +145,7 @@
 
             const titleRow1:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
-                '3D Product',
+                'Human Body',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIHumanBodyPartitions.GUI_COLOR_TEXT,
                 GUIHumanBodyPartitions.GUI_COLOR_SHADOW,
@@ -160,7 +160,7 @@
             this.guiFg.addControl( titleRow1 );
             const titleRow2:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
-                'Configurator',
+                'Partitions',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIHumanBodyPartitions.GUI_COLOR_TEXT,
                 GUIHumanBodyPartitions.GUI_COLOR_SHADOW,
@@ -175,7 +175,7 @@
             this.guiFg.addControl( titleRow2 );
             const titleRow3:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
-                'v.0.4.1, MVP',
+                'v.0.0.1, PoC',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
                 GUIHumanBodyPartitions.GUI_COLOR_TEXT,
                 GUIHumanBodyPartitions.GUI_COLOR_SHADOW,
@@ -200,7 +200,7 @@
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.guiFg.addControl( line1 );
-
+/*
             const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Visor',
@@ -370,7 +370,7 @@
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.guiFg.addControl( line3 );
-
+*/
             const textCameraZoom:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Zoom',
@@ -378,7 +378,7 @@
                 GUIHumanBodyPartitions.GUI_COLOR_TEXT,
                 GUIHumanBodyPartitions.GUI_COLOR_SHADOW,
                 50,
-                510,
+                180,
                 250,
                 25,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
@@ -390,12 +390,12 @@
             this.cameraZoomSlider = bz.GUIFactory.createSlider
             (
                 175.0,
-                175.0,
+                145.0,
                 400.0,
                 bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE,
                 '#707070',
                 50,
-                545,
+                215,
                 250,
                 20,
                 ( value:number ) =>
@@ -407,7 +407,7 @@
                 }
             );
             this.guiFg.addControl( this.cameraZoomSlider );
-
+/*
             const line4:BABYLON_GUI.Line = bz.GUIFactory.createLine
             (
                 50,
@@ -419,7 +419,8 @@
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
             this.guiFg.addControl( line4 );
-
+*/
+/*
             this.visorToggleButton = bz.GUIFactory.createButton
             (
                 'Open Visor',
@@ -434,6 +435,7 @@
                 }
             );
             this.guiFg.addControl( this.visorToggleButton );
+*/
         }
 
         /** ************************************************************************************************************

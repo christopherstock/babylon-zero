@@ -752,6 +752,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up the pointer callback.
+        *
+        *   @return The pointer callback method to invoke or <code>null</code> if not supported.
+        ***************************************************************************************************************/
+        protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
+        {
+            return new bz.PointerSystem().defaultPointerDown;
+        }
+
+        /** ************************************************************************************************************
         *   Creates the camera system that manages all cameras that appear in this level.
         *
         *   @return The camera system for this stage.

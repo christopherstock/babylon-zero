@@ -6,11 +6,19 @@
     *   The 'human body partitions' stage offers an interactive body model where
     *   specific partitions can be selected. Various information shall be displayed after picking one body partition.
     *******************************************************************************************************************/
+    // tslint:disable:max-line-length
     export class HumanBodyPartitions extends bz.Stage
     {
+        /** The overlay color for selected meshes. */
+        private     static  readonly    MESH_HIGHLIGHT_COLOR    :BABYLON.Color3             = bz.SettingColor.COLOR_RGB_RED;
+
+        /** The current highlighted mesh. */
+        private                         currentSelectedMesh     :BABYLON.AbstractMesh       = null;
+
+        // obsolete
+
         /** Referenced imported helmet. */
         private                         model                   :bz.Model                   = null;
-
         /** Referenced product presentation light. */
         private                         directionalLight        :BABYLON.DirectionalLight   = null;
         /** Flags if the helmet animation is currently running. */
@@ -53,52 +61,6 @@
                     0.0
                 );
             }
-*/
-        }
-
-        /** ************************************************************************************************************
-        *   Changes the visir color.
-        *
-        *   @param color The color to set as the visor color.
-        ***************************************************************************************************************/
-        public requestVisorColorChange( color:BABYLON.Color3 ) : void
-        {
-            bz.Debug.pc3d.log( 'Change visor color' );
-/*
-            const visorMultiMaterial:BABYLON.MultiMaterial = this.visor.material as BABYLON.MultiMaterial;
-            const subMaterials:BABYLON.Material[] = visorMultiMaterial.subMaterials;
-
-            bz.Debug.pc3d.log( 'Sub-Materials of visor: [' + subMaterials.length + ']' );
-
-            // pick 1st submaterial
-            const visorMaterial:BABYLON.StandardMaterial = subMaterials[ 16 ] as BABYLON.StandardMaterial;
-
-            visorMaterial.diffuseColor  = color;
-*/
-        }
-
-        /** ************************************************************************************************************
-        *   Changes the helmet color.
-        *
-        *   @param color The color to set as the helmet color.
-        ***************************************************************************************************************/
-        public requestHelmetColorChange( color:BABYLON.Color3 ) : void
-        {
-            bz.Debug.pc3d.log( 'Change helmet color' );
-/*
-            const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
-            const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
-
-            bz.Debug.pc3d.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
-
-            // pick affected submaterials
-            const stripeMaterial :BABYLON.StandardMaterial = subMaterials[ 0 ] as BABYLON.StandardMaterial;
-            const frontMaterial  :BABYLON.StandardMaterial = subMaterials[ 1 ] as BABYLON.StandardMaterial;
-            const helmetMaterial :BABYLON.StandardMaterial = subMaterials[ 8 ] as BABYLON.StandardMaterial;
-
-            stripeMaterial.diffuseColor = color;
-            frontMaterial.diffuseColor  = color;
-            helmetMaterial.diffuseColor = color;
 */
         }
 
@@ -314,6 +276,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up the pointer callback.
+        *
+        *   @return The pointer callback method to invoke or <code>null</code> if not supported.
+        ***************************************************************************************************************/
+        protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
+        {
+            return this.onPointerDown;
+        }
+
+        /** ************************************************************************************************************
         *   Creates the camera system that manages all cameras that appear in this level.
         *
         *   @return The camera system for this stage.
@@ -369,5 +341,54 @@
 
             // enable auto rotation for arc rotate camera
             this.cameraSystem.getArcRotateCamera().useAutoRotationBehavior = true;
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the pointer is down on this stage.
+        *
+        *   @param evt        The pointer event being propagated by the system.
+        *   @param pickResult More information about the location of the 3D space where the pointer is down.
+        ***************************************************************************************************************/
+        private onPointerDown=( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
+        {
+            // check if the pointer hit
+            if ( pickResult.hit )
+            {
+                // check if the pointer picked a mesh
+                if ( pickResult.pickedMesh )
+                {
+                    bz.Debug.hbp.log( 'Picked a mesh' );
+
+                    this.toggleHighlight( pickResult.pickedMesh );
+                }
+            }
+        };
+
+        /** ************************************************************************************************************
+        *   Toggles the highlight for this mesh.
+        *
+        *   @param mesh The mesh to toggle highlighting for.
+        ***************************************************************************************************************/
+        private toggleHighlight( mesh:BABYLON.AbstractMesh ) : void
+        {
+            bz.Debug.hbp.log( 'mark mesh #[' + mesh.id + ']' );
+
+            // check if this mesh is currently selected
+            if ( mesh === this.currentSelectedMesh )
+            {
+                // disable highlighting
+                ( mesh.material as BABYLON.StandardMaterial ).diffuseColor = bz.SettingColor.COLOR_RGB_WHITE;
+
+                // clear current selected mesh
+                this.currentSelectedMesh = null;
+            }
+            else
+            {
+                // highlight this mesh
+                ( mesh.material as BABYLON.StandardMaterial ).diffuseColor = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
+
+                // assign current selected mesh
+                this.currentSelectedMesh = mesh;
+            }
         }
     }

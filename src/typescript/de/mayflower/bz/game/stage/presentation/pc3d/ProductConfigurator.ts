@@ -313,6 +313,14 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up the pointer callback.
+        ***************************************************************************************************************/
+        protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
+        {
+            return null;
+        }
+
+        /** ************************************************************************************************************
         *   Creates the camera system that manages all cameras that appear in this level.
         *
         *   @return The camera system for this stage.

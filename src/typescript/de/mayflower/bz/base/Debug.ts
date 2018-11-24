@@ -32,6 +32,8 @@
         public      static      readonly    physic              :Debug              = new Debug( false );
         /** Debugs camera behaviours and journeys. */
         public      static      readonly    camera              :Debug              = new Debug( true  );
+        /** Debugs Human Body Partitions. */
+        public      static      readonly    hbp                 :Debug              = new Debug( true  );
 
         /** Flags if logging for this debug group is enabled. */
         private                 readonly    debugEnabled        :boolean            = false;

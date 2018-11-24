@@ -7,6 +7,11 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Human Body Partitions
+    *   =====================
+    *   TODO Limit camera alpha (y axis).
+    *
+    *   =====================
     *   TODO Game improvements
     *   =====================
     *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )

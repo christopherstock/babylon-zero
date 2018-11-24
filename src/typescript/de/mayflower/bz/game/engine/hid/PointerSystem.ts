@@ -3,19 +3,19 @@
     import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
-    *   The pointer system that manages all pointer operations.
+    *   Offers default pointer handling methods.
     *
     *   This is currently just an implementation for physical debug purposes!
     *******************************************************************************************************************/
     export class PointerSystem
     {
         /** ************************************************************************************************************
-        *   Being invoked when the pointer is down.
+        *   Being invoked when the pointer is down on this stage.
         *
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        public assignPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
+        public defaultPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             if ( pickResult.hit )
             {

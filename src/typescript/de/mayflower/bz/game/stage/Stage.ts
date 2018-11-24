@@ -97,6 +97,8 @@
                 this.setupShadows();
             }
 
+            this.scene.onPointerDown = this.createPointerCallback();
+
             this.adjustGuiSizeToCanvasSize();
 
             this.onInitComplete();
@@ -388,6 +390,13 @@
         *   Sets up shadows for all meshes.
         ***************************************************************************************************************/
         protected abstract setupShadows() : void
+
+        /** ************************************************************************************************************
+        *   Sets up the pointer callback.
+        *
+        *   @return The pointer callback method to invoke or <code>null</code> if not supported.
+        ***************************************************************************************************************/
+        protected abstract createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
 
         /** ************************************************************************************************************
         *   Creates the camera system that manages all cameras that appear in this level.

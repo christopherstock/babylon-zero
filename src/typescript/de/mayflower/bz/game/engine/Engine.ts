@@ -71,8 +71,7 @@
             this.scene.init( this.babylonEngine );
 
             // assign pointer debug controls to scene
-            bz.Debug.init.log( 'Assign controls to camera' );
-            this.scene.assignControls();
+            bz.Debug.init.log( 'Assign pointer controls to scene' );
 
             // init materials
             bz.Debug.init.log( 'Init materials' );
