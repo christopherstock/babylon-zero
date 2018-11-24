@@ -14,15 +14,13 @@
 
         /** The current highlighted mesh. */
         private                         currentSelectedMesh     :BABYLON.AbstractMesh       = null;
-
-        // obsolete
-
         /** Referenced imported helmet. */
         private                         model                   :bz.Model                   = null;
         /** Referenced product presentation light. */
         private                         directionalLight        :BABYLON.DirectionalLight   = null;
+
         /** Flags if the helmet animation is currently running. */
-        private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
+      //private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
@@ -353,14 +351,18 @@
         private onPointerDown=( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
         {
             // check if the pointer hit
-            if ( pickResult.hit )
+            // if ( pickResult.hit )
             {
                 // check if the pointer picked a mesh
                 if ( pickResult.pickedMesh )
                 {
                     bz.Debug.hbp.log( 'Picked a mesh' );
-
                     this.toggleHighlight( pickResult.pickedMesh );
+                }
+                else
+                {
+                    bz.Debug.hbp.log( 'Picked no mesh' );
+                    this.toggleHighlight( null );
                 }
             }
         };
@@ -372,8 +374,6 @@
         ***************************************************************************************************************/
         private toggleHighlight( meshToHightlight:BABYLON.AbstractMesh ) : void
         {
-            bz.Debug.hbp.log( 'mark mesh #[' + meshToHightlight.id + ']' );
-
             // disable current selected mesh
             if ( this.currentSelectedMesh != null )
             {
