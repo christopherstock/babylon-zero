@@ -179,6 +179,8 @@
                 bz.Physic.NONE,
                 bz.ModelCompoundType.NONE
             );
+
+            bz.Debug.hbp.log( 'Imported human model with [' + this.model.getMeshCount() + '] meshes' );
 /*
             // reference single meshes
             this.helmet = this.model.getMesh( 0 );
@@ -190,7 +192,6 @@
                 (
                     this.model
                 ),
-
             ];
         }
 
@@ -367,28 +368,46 @@
         /** ************************************************************************************************************
         *   Toggles the highlight for this mesh.
         *
-        *   @param mesh The mesh to toggle highlighting for.
+        *   @param meshToHightlight The mesh to toggle highlighting for.
         ***************************************************************************************************************/
-        private toggleHighlight( mesh:BABYLON.AbstractMesh ) : void
+        private toggleHighlight( meshToHightlight:BABYLON.AbstractMesh ) : void
         {
-            bz.Debug.hbp.log( 'mark mesh #[' + mesh.id + ']' );
+            bz.Debug.hbp.log( 'mark mesh #[' + meshToHightlight.id + ']' );
 
-            // check if this mesh is currently selected
-            if ( mesh === this.currentSelectedMesh )
+            // disable current selected mesh
+            if ( this.currentSelectedMesh != null )
             {
                 // disable highlighting
-                ( mesh.material as BABYLON.StandardMaterial ).diffuseColor = bz.SettingColor.COLOR_RGB_WHITE;
+                const newMaterial:BABYLON.StandardMaterial = ( this.currentSelectedMesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
+                newMaterial.diffuseColor = bz.SettingColor.COLOR_RGB_WHITE;
+                this.currentSelectedMesh.material = newMaterial;
 
-                // clear current selected mesh
-                this.currentSelectedMesh = null;
+                if ( meshToHightlight === this.currentSelectedMesh )
+                {
+                    // clear current selected mesh
+                    this.currentSelectedMesh = null;
+
+                    return;
+                }
             }
-            else
-            {
-                // highlight this mesh
-                ( mesh.material as BABYLON.StandardMaterial ).diffuseColor = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
 
-                // assign current selected mesh
-                this.currentSelectedMesh = mesh;
+            // browse all meshes
+            for ( let i:number = 0; i < this.model.getMeshCount(); ++i )
+            {
+                // pick browsed mesh
+                const mesh:BABYLON.AbstractMesh = this.model.getMesh( i );
+
+                // check if this mesh is currently selected
+                if ( mesh === meshToHightlight )
+                {
+                    // highlight this mesh
+                    const newMaterial:BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
+                    newMaterial.diffuseColor = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
+                    mesh.material = newMaterial;
+
+                    // assign current selected mesh
+                    this.currentSelectedMesh = mesh;
+                }
             }
         }
     }

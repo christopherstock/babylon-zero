@@ -104,7 +104,7 @@
                 22,
                 22,
                 306,
-                646,
+                250,
                 GUIHumanBodyPartitions.GUI_COLOR_BORDER,
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
@@ -115,7 +115,7 @@
                 23,
                 23,
                 304,
-                644,
+                248,
                 GUIHumanBodyPartitions.GUI_COLOR_BORDER,
                 bz.SettingColor.COLOR_CSS_TRANSPARENT
             );
@@ -126,7 +126,7 @@
                 25,
                 25,
                 300,
-                640,
+                244,
                 GUIHumanBodyPartitions.GUI_COLOR_BORDER,
                 GUIHumanBodyPartitions.GUI_COLOR_BG
             );
@@ -462,6 +462,7 @@
         *
         *   @param checkboxId The ID of the visir color checkbox being clicked.
         ***************************************************************************************************************/
+/*
         private onCheckVisorColorRadioButton( checkboxId:number ) : void
         {
             bz.Debug.pc3d.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
@@ -469,12 +470,13 @@
             // change visor color
             this.parent.requestVisorColorChange( GUIHumanBodyPartitions.VISOR_COLORS[ checkboxId ] );
         }
-
+*/
         /** ************************************************************************************************************
         *   Being invoked when a helmet color checkbox is clicked.
         *
         *   @param checkboxId The ID of the helmet color checkbox being clicked.
         ***************************************************************************************************************/
+/*
         private onCheckHelmetColorRadioButton( checkboxId:number ) : void
         {
             bz.Debug.pc3d.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
@@ -482,4 +484,5 @@
             // change helmet color
             this.parent.requestHelmetColorChange( GUIHumanBodyPartitions.HELMET_COLORS[ checkboxId ] );
         }
+*/
     }
