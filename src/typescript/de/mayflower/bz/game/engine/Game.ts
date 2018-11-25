@@ -172,13 +172,6 @@
         ***************************************************************************************************************/
         private handleGlobalKeys() : void
         {
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
-            {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
-
-                this.togglePause();
-            }
-
             if ( bz.SettingDebug.ENABLE_MENU_DEBUG_KEYS )
             {
                 this.handleDebugMenuKeys()
@@ -229,6 +222,13 @@
                 (
                     bz.CameraType.ARC_ROTATE
                 );
+            }
+
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
+
+                this.togglePause();
             }
         }
     }
