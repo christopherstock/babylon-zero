@@ -9,7 +9,7 @@
     {
         /** The bg color for the GUI. */
         // tslint:disable-next-line:max-line-length
-        private     static  readonly    GUI_COLOR_BG                :string                     = 'rgba( 121, 120, 119, 0.25 )';
+        private     static  readonly    GUI_COLOR_BG                :string                     = 'rgba( 0, 0, 0, 0.2 )';
         /** The text color for the GUI. */
         // tslint:disable-next-line:max-line-length
         private     static  readonly    GUI_COLOR_TEXT              :string                     = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;

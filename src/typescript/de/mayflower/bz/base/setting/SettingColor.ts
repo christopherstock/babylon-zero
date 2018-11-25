@@ -40,6 +40,9 @@
         /** The RGB color 'black' without alpha information. */
         public  static  readonly    COLOR_RGB_BLACK                             :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 0.0 );
 
+        /** The RGB color 'computy green' without alpha information. */
+        public  static  readonly    COLOR_RGB_COMPUTY_GREEN                     :BABYLON.Color3     = new BABYLON.Color3( 0.58, 0.76, 0.23 );
+
         /** The RGBA color 'transparent'. */
         public  static  readonly    COLOR_RGBA_TRANSPARENT                      :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
         /** The RGBA color 'dark grey' with full opacity. */

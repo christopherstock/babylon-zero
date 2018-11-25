@@ -10,7 +10,7 @@
     export class HumanBodyPartitions extends bz.Stage
     {
         /** The overlay color for selected meshes. */
-        private     static  readonly    MESH_HIGHLIGHT_COLOR    :BABYLON.Color3             = bz.SettingColor.COLOR_RGB_RED;
+        private     static  readonly    MESH_HIGHLIGHT_COLOR    :BABYLON.Color3             = bz.SettingColor.COLOR_RGB_COMPUTY_GREEN;
 
         /** The current highlighted mesh. */
         private                         currentSelectedMesh     :BABYLON.AbstractMesh       = null;
@@ -122,7 +122,12 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return null;
+            // initial rotate skybox and disable it being picked
+            const skybox:BABYLON.Mesh = bz.MeshFactory.createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 1.0, this.scene );
+            bz.MeshManipulation.setAbsoluteRotationXYZ( skybox, 0.0, 90.0, 0.0 );
+            skybox.isPickable = false;
+
+            return skybox;
         }
 
         /** ************************************************************************************************************
@@ -281,7 +286,8 @@
             {
                 // disable highlighting
                 const newMaterial:BABYLON.StandardMaterial = ( this.currentSelectedMesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
-                newMaterial.diffuseColor = bz.SettingColor.COLOR_RGB_WHITE;
+                newMaterial.diffuseColor  = bz.SettingColor.COLOR_RGB_WHITE;
+                newMaterial.specularColor = bz.SettingColor.COLOR_RGB_BLACK;
                 this.currentSelectedMesh.material = newMaterial;
             }
 
@@ -305,7 +311,9 @@
                 {
                     // highlight this mesh
                     const newMaterial:BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
-                    newMaterial.diffuseColor = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
+
+                    newMaterial.diffuseColor  = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
+                    newMaterial.specularColor = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
                     mesh.material = newMaterial;
 
                     // assign current selected mesh
