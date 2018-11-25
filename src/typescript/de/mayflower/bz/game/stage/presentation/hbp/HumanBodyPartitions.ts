@@ -335,11 +335,11 @@
 
             if ( this.currentSelectedMesh == null )
             {
-                ( this.gui as bz.GUIHumanBodyPartitions ).setBodyPartDescription( false );
+                ( this.gui as bz.GUIHumanBodyPartitions ).setBodyPartDescription( false, null );
             }
             else
             {
-                ( this.gui as bz.GUIHumanBodyPartitions ).setBodyPartDescription( true );
+                ( this.gui as bz.GUIHumanBodyPartitions ).setBodyPartDescription( true, mesh.name );
             }
         }
     }

@@ -466,7 +466,7 @@
                 }
 
                 // clone this mesh ( without a physics impostor )
-                const clonedMesh:BABYLON.AbstractMesh = mesh.clone( '', null );
+                const clonedMesh:BABYLON.AbstractMesh = mesh.clone( mesh.name, null );
                 clonedMeshes.push( clonedMesh );
             }
 

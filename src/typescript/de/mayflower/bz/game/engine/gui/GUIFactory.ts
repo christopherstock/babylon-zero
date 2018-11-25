@@ -45,12 +45,12 @@
         /** ************************************************************************************************************
         *   Creates a rectangle for the GUI.
         *
-        *   @param x             Position of the left edge.
-        *   @param y             Position of the top edge.
-        *   @param width         The horizontal dimension.
-        *   @param height        The vertical dimension.
-        *   @param colorBorder   A css value for the border color.
-        *   @param colorFill     A css value for the fill color.
+        *   @param x           Position of the left edge.
+        *   @param y           Position of the top edge.
+        *   @param width       The horizontal dimension.
+        *   @param height      The vertical dimension.
+        *   @param colorBorder A css value for the border color.
+        *   @param colorFill   A css value for the fill color.
         *
         *   @return The specified rectangle.
         ***************************************************************************************************************/

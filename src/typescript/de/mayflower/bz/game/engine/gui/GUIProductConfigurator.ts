@@ -394,6 +394,7 @@
                 400.0,
                 bz.SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE,
                 '#707070',
+                '#707070',
                 50,
                 545,
                 250,
