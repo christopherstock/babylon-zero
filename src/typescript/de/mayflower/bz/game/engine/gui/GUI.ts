@@ -49,6 +49,7 @@
                 null
             );
             this.guiFg.addControl( this.fpsText );
+            if ( !bz.SettingDebug.SHOW_FPS ) this.fpsText.isVisible = false;
 
             // create the message manager
             this.messageManager = new bz.GUIMessageManager();
@@ -76,6 +77,7 @@
         {
             this.guiFg.idealWidth  = width;
             this.guiFg.idealHeight = height;
+
             this.guiFg.scaleTo( width, height );
         }
 

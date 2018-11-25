@@ -6,7 +6,10 @@
     export class SettingDebug
     {
         /** The global switch for the debug mode. */
-        public      static      DEBUG_MODE                                  :boolean            = true;
+        public      static      DEBUG_MODE                                  :boolean            = false;
+
+        /** Show FPS counter. */
+        public      static      SHOW_FPS                                    :boolean            = ( true && SettingDebug.DEBUG_MODE );
 
         /** Disables all sounds. */
         public      static      DISABLE_SOUND                               :boolean            = ( false && SettingDebug.DEBUG_MODE );
