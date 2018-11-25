@@ -272,9 +272,9 @@
         /** ************************************************************************************************************
         *   Toggles the highlight for this mesh.
         *
-        *   @param meshToHightlight The mesh to toggle highlighting for.
+        *   @param meshToHighlight The mesh to toggle highlighting for.
         ***************************************************************************************************************/
-        private toggleHighlight( meshToHightlight:BABYLON.AbstractMesh ) : void
+        private toggleHighlight( meshToHighlight:BABYLON.AbstractMesh ) : void
         {
             // disable current selected mesh
             if ( this.currentSelectedMesh != null )
@@ -283,18 +283,15 @@
                 const newMaterial:BABYLON.StandardMaterial = ( this.currentSelectedMesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
                 newMaterial.diffuseColor = bz.SettingColor.COLOR_RGB_WHITE;
                 this.currentSelectedMesh.material = newMaterial;
+            }
 
-                // check if the current mesh has been deselected - break in that case
-                if ( meshToHightlight === this.currentSelectedMesh )
-                {
-                    // clear current selected mesh
-                    this.currentSelectedMesh = null;
+            // check if no mesh has been selected or if the current mesh has been selected
+            if ( meshToHighlight == null || meshToHighlight === this.currentSelectedMesh )
+            {
+                // clear current selected mesh and break
+                this.highlightMesh( null );
 
-                    return;
-                }
-
-                // clear current selected mesh
-                this.currentSelectedMesh = null;
+                return;
             }
 
             // browse all meshes
@@ -304,7 +301,7 @@
                 const mesh:BABYLON.AbstractMesh = this.model.getMesh( i );
 
                 // check if this mesh is currently selected
-                if ( mesh === meshToHightlight )
+                if ( mesh === meshToHighlight )
                 {
                     // highlight this mesh
                     const newMaterial:BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
@@ -312,8 +309,29 @@
                     mesh.material = newMaterial;
 
                     // assign current selected mesh
-                    this.currentSelectedMesh = mesh;
+                    this.highlightMesh( mesh );
+
+                    return;
                 }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Highlights the selected mesh and shows, hides or changes the Body Description Panel.
+        *
+        *   @param mesh The mesh to show or <code>null</code> if no mesh has been selected.
+        ***************************************************************************************************************/
+        private highlightMesh( mesh:BABYLON.AbstractMesh ) : void
+        {
+            this.currentSelectedMesh = mesh;
+
+            if ( this.currentSelectedMesh == null )
+            {
+                ( this.gui as bz.GUIHumanBodyPartitions ).setBodyPartDescription( false );
+            }
+            else
+            {
+                ( this.gui as bz.GUIHumanBodyPartitions ).setBodyPartDescription( true );
             }
         }
     }
