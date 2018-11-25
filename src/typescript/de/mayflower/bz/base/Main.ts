@@ -10,6 +10,8 @@
     *   TODO Human Body Partitions
     *   =====================
     *   TODO Fade Body Part Description in and out.
+    *   TODO Refactor to GUIHumanPartitionDescription.
+    *   TODO Install UglifyJsWebpackPlugin.
     *   TODO Refactor to highlight and blur methods in Stage.
     *   TODO Limit camera alpha (y axis).
     *   TODO brand to computy.
