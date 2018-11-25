@@ -32,7 +32,7 @@
             (
                 'url( '
                 + bz.SettingResource.PATH_IMAGE_LOADING
-                + 'loading.png'
+                + 'loadingComp.png'
                 + ' )'
             );
             document.body.appendChild( this.loadingDiv );

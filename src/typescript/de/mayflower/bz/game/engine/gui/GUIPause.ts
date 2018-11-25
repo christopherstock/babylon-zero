@@ -42,11 +42,13 @@
             (
                 0,
                 0,
-                bz.Main.game.engine.canvas.getWidth(),
-                bz.Main.game.engine.canvas.getHeight(),
+                0,
+                0,
                 bz.SettingColor.COLOR_CSS_TRANSPARENT,
                 GUIPause.GUI_COLOR_BG
             );
+            this.bg.width  = '100%';
+            this.bg.height = '100%';
             guiFg.addControl( this.bg );
 
             // headline

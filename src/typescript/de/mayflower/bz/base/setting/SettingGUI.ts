@@ -19,4 +19,7 @@
 
         /** The default font size for GUI texts. */
         public      static  readonly        GUI_FONT_SIZE_DEFAULT               :number         = 20.0;
+
+        /** The medium font size for GUI texts. */
+        public      static  readonly        GUI_FONT_SIZE_MEDIUM                :number         = 15.0;
     }

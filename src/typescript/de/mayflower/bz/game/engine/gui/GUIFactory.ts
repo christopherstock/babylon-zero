@@ -45,23 +45,23 @@
         /** ************************************************************************************************************
         *   Creates a rectangle for the GUI.
         *
-        *   @param x           Position of the left edge.
-        *   @param y           Position of the top edge.
-        *   @param width       The horizontal dimension.
-        *   @param height      The vertical dimension.
-        *   @param colorBorder A css value for the border color.
-        *   @param colorFill   A css value for the fill color.
+        *   @param x             Position of the left edge.
+        *   @param y             Position of the top edge.
+        *   @param width         The horizontal dimension.
+        *   @param height        The vertical dimension.
+        *   @param colorBorder   A css value for the border color.
+        *   @param colorFill     A css value for the fill color.
         *
         *   @return The specified rectangle.
         ***************************************************************************************************************/
         public static createRectangle
         (
-            x           :number,
-            y           :number,
-            width       :number,
-            height      :number,
-            colorBorder :string,
-            colorFill   :string
+            x             :number,
+            y             :number,
+            width         :number,
+            height        :number,
+            colorBorder   :string,
+            colorFill     :string
         )
         : BABYLON_GUI.Rectangle
         {
@@ -352,31 +352,33 @@
         /** ************************************************************************************************************
         *   Creates a slider for the GUI.
         *
-        *   @param value     The initial value of this slider.
-        *   @param minimum   The minimum value of this slider.
-        *   @param maximum   The maximum value of this slider.
-        *   @param colorFg   A css value for the fg color.
-        *   @param colorBg   A css value for the bg color.
-        *   @param x         Position of the left edge.
-        *   @param y         Position of the top edge.
-        *   @param width     The horizontal dimension.
-        *   @param height    The vertical dimension.
-        *   @param onChange  The callback to invoke when the slider value has changed.
+        *   @param value       The initial value of this slider.
+        *   @param minimum     The minimum value of this slider.
+        *   @param maximum     The maximum value of this slider.
+        *   @param colorFg     A css value for the fg color.
+        *   @param colorBg     A css value for the bg color.
+        *   @param colorBorder A css value for the border color.
+        *   @param x           Position of the left edge.
+        *   @param y           Position of the top edge.
+        *   @param width       The horizontal dimension.
+        *   @param height      The vertical dimension.
+        *   @param onChange    The callback to invoke when the slider value has changed.
         *
         *   @return The specified slider.
         ***************************************************************************************************************/
         public static createSlider
         (
-            value    :number,
-            minimum  :number,
-            maximum  :number,
-            colorFg  :string,
-            colorBg  :string,
-            x        :number,
-            y        :number,
-            width    :number,
-            height   :number,
-            onChange :( value:number ) => void
+            value       :number,
+            minimum     :number,
+            maximum     :number,
+            colorFg     :string,
+            colorBg     :string,
+            colorBorder :string,
+            x           :number,
+            y           :number,
+            width       :number,
+            height      :number,
+            onChange    :( value:number ) => void
         )
         : BABYLON_GUI.Slider
         {
@@ -386,15 +388,17 @@
             );
 
             slider.value       = value;
-            slider.minimum    =  minimum;
-            slider.maximum    =  maximum;
+            slider.minimum     =  minimum;
+            slider.maximum     =  maximum;
 
-            slider.color      = colorFg;
-            slider.background = colorBg;
-            slider.left       = x;
-            slider.top        = y;
-            slider.width      = width  + 'px';
-            slider.height     = height + 'px';
+            slider.color       = colorFg;
+            slider.background  = colorBg;
+            slider.borderColor = colorBorder;
+
+            slider.left        = x;
+            slider.top         = y;
+            slider.width       = width  + 'px';
+            slider.height      = height + 'px';
 
             slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
             slider.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -416,6 +420,8 @@
         *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
         *
         *   @return The specified line.
+        *
+        *   @deprecated This line looks blurry and shabby. Use createRect with a height of one instead.
         ***************************************************************************************************************/
         public static createLine
         (

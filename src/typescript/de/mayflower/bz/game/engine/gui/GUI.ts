@@ -76,7 +76,6 @@
         {
             this.guiFg.idealWidth  = width;
             this.guiFg.idealHeight = height;
-
             this.guiFg.scaleTo( width, height );
         }
 

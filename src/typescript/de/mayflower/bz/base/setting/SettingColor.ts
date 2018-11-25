@@ -13,8 +13,13 @@
         public  static  readonly    COLOR_CSS_WHITE_OPAQUE                      :string             = 'rgba( 255, 255, 255, 1.0 )';
         /** The CSS color 'black' with full opacity. */
         public  static  readonly    COLOR_CSS_BLACK_OPAQUE                      :string             = 'rgba( 0,   0,   0,   1.0 )';
+
         /** The CSS color 'mayflower orange' with full opacity. */
         public  static  readonly    COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE           :string             = 'rgba( 237, 115, 4,   1.0 )';
+        /** The CSS color 'computy green' with full opacity. */
+        public  static  readonly    COLOR_CSS_COMPUTY_GREEN_OPAQUE              :string             = 'rgba( 148, 194, 61,  1.0 )';
+        /** The CSS color 'computy gray' with full opacity. */
+        public  static  readonly    COLOR_CSS_COMPUTY_GRAY_OPAQUE               :string             = 'rgba( 121, 120, 119, 1.0 )';
 
         /** The RGB color 'white' without alpha information. */
         public  static  readonly    COLOR_RGB_WHITE                             :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 1.0 );

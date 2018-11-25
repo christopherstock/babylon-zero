@@ -19,9 +19,6 @@
         /** Referenced product presentation light. */
         private                         directionalLight        :BABYLON.DirectionalLight   = null;
 
-        /** Flags if the helmet animation is currently running. */
-      //private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
-
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
@@ -47,92 +44,6 @@
         {
             // invoke parent method
             super.render( pause );
-/*
-            // rotate whole model
-            for ( const mesh of this.model )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    0.0,
-                    0.0,
-                    0.0
-                );
-            }
-*/
-        }
-
-        /** ************************************************************************************************************
-        *   Requests a toggle of the animation phase for the visor.
-        *   May not be performed if an animation is currently running.
-        ***************************************************************************************************************/
-        public requestVisorAnimationToggle() : void
-        {
-/*
-            switch ( this.animationState )
-            {
-                case bz.HelmetState.CLOSED:
-                {
-                    this.animationState = bz.HelmetState.OPENING;
-                    bz.GUIFactory.setVisorToggleButtonText
-                    (
-                        ( this.gui as bz.GUIHumanBodyPartitions ).visorToggleButton,
-                        'Close Visor'
-                    );
-
-                    bz.MeshManipulation.performAnimation
-                    (
-                        this.visor,
-                        0,
-                        20,
-                        false,
-                        () => {
-
-                            this.animationState = bz.HelmetState.OPEN;
-
-                            bz.MeshManipulation.performAnimation
-                            (
-                                this.visor,
-                                20,
-                                21,
-                                true,
-                                () => {}
-                            );
-                        }
-                    );
-                    break;
-                }
-
-                case bz.HelmetState.OPEN:
-                {
-                    this.animationState = bz.HelmetState.CLOSING;
-                    bz.GUIFactory.setVisorToggleButtonText
-                    (
-                        ( this.gui as bz.GUIHumanBodyPartitions ).visorToggleButton,
-                        'Open Visor'
-                    );
-
-                    bz.MeshManipulation.performAnimation
-                    (
-                        this.visor,
-                        20,
-                        0,
-                        false,
-                        () => {
-                            this.animationState = bz.HelmetState.CLOSED;
-                        }
-                    );
-                    break;
-                }
-
-                case bz.HelmetState.OPENING:
-                case bz.HelmetState.CLOSING:
-                {
-                    // do nothing if an animation is currently running.
-                    break;
-                }
-            }
-*/
         }
 
         /** ************************************************************************************************************
@@ -143,11 +54,6 @@
             if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
                 bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
-/*
-                this.gui.addGuiMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
-
-                this.requestVisorAnimationToggle();
-*/
             }
         }
 
@@ -179,11 +85,7 @@
             );
 
             bz.Debug.hbp.log( 'Imported human model with [' + this.model.getMeshCount() + '] meshes' );
-/*
-            // reference single meshes
-            this.helmet = this.model.getMesh( 0 );
-            this.visor  = this.model.getMesh( 1 );
-*/
+
             return [
 
                 new bz.Wall
@@ -382,6 +284,7 @@
                 newMaterial.diffuseColor = bz.SettingColor.COLOR_RGB_WHITE;
                 this.currentSelectedMesh.material = newMaterial;
 
+                // check if the current mesh has been deselected - break in that case
                 if ( meshToHightlight === this.currentSelectedMesh )
                 {
                     // clear current selected mesh
@@ -389,6 +292,9 @@
 
                     return;
                 }
+
+                // clear current selected mesh
+                this.currentSelectedMesh = null;
             }
 
             // browse all meshes

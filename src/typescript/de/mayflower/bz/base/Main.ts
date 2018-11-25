@@ -9,7 +9,11 @@
     *   =====================
     *   TODO Human Body Partitions
     *   =====================
+    *   TODO Refactor to highlight and blur methods in Stage.
     *   TODO Limit camera alpha (y axis).
+    *   TODO brand to computy.
+    *   TODO try specular highlight color.
+    *   TODO Add text field for selected body part.
     *
     *   =====================
     *   TODO Game improvements
