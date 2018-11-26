@@ -1,7 +1,6 @@
 module.exports = ( env, argv ) => {
 
     let config = {
-        mode: 'development',
         entry: './src/typescript/index.ts',
         output: {
             filename: 'bundle.js',

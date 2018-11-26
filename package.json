@@ -11,7 +11,7 @@
     "scripts": {
         "build:dev": "webpack --mode=development --watch",
         "build:production": "webpack --mode=production --watch",
-        "build:devserver": "webpack-dev-server",
+        "build:devserver": "webpack-dev-server --mode=development",
         "test": "mocha --require ts-node/register --require ignore-styles --require src/test/index.ts src/test/**/*.ts",
         "tslint:check": "tslint --project ./tsconfig.json --config ./tslint.json \"src/**/*.{ts,tsx}\"",
         "typedoc:generate": "typedoc --out doc\\ --listInvalidSymbolLinks --name \"babylon-zero, (c) 2018 Mayflower GmbH\" src/typescript"
