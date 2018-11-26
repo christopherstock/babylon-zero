@@ -6,7 +6,7 @@
     export class SettingDebug
     {
         /** The global switch for the debug mode. */
-        public      static      DEBUG_MODE                                  :boolean            = false;
+        public      static      DEBUG_MODE                                  :boolean            = true;
 
         /** Show FPS counter. */
         public      static      SHOW_FPS                                    :boolean            = ( true && SettingDebug.DEBUG_MODE );

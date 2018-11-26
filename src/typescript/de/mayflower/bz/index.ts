@@ -37,6 +37,7 @@
     export * from './game/engine/gui/GUIGame';
     export * from './game/engine/gui/GUIPause';
     export * from './game/engine/gui/GUIHumanBodyPartitions';
+    export * from './game/engine/gui/GUIHumanPartitionDescription';
     export * from './game/engine/gui/GUIProductConfigurator';
 
     export * from './game/engine/ui/CanvasSystem';

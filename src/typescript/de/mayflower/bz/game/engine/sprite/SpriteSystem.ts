@@ -14,8 +14,10 @@
 
         /** ************************************************************************************************************
         *   Creates one sprite manager for each sprite file.
+        *
+        *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public init() : void
+        public init( scene:BABYLON.Scene ) : void
         {
             for (let i:number = 0; i < bz.SpriteFile.ALL_SPRITE_FILES.length; ++i )
             {
@@ -27,7 +29,7 @@
                     bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
                     bz.SettingResource.MAX_SPRITE_INSTANCES,
                     spriteFile.frameSize,
-                    bz.Main.game.engine.scene.getScene()
+                    scene
                 );
             }
         }

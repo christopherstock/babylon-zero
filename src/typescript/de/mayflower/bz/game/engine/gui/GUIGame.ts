@@ -65,6 +65,7 @@
         ***************************************************************************************************************/
         public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
         {
+            // change visibility for wearpon and crosshair
             this.wearponImage.isVisible = visible;
             this.crosshair.isVisible    = visible;
         }

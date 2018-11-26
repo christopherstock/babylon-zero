@@ -36,8 +36,10 @@
 
         /** ************************************************************************************************************
         *   Loads all specified sound files into system memory.
+        *
+        *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public loadSounds() : void
+        public loadSounds( scene:BABYLON.Scene ) : void
         {
             bz.Debug.init.log( ' Preloading [' + this.fileNames.length + '] sounds' );
 
@@ -53,7 +55,7 @@
                 (
                     SoundSystem.createNextSoundId(),
                     fileName,
-                    bz.Main.game.engine.scene.getScene(),
+                    scene,
                     this.onLoadSound
                 );
             }

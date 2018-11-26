@@ -10,9 +10,6 @@
     *   TODO Human Body Partitions
     *   =====================
     *
-    *   TODO Improve webpack config(s)?
-    *   TODO Install UglifyJsWebpackPlugin.
-    *
     *   TODO Refactor to GUIHumanPartitionDescription.
     *   TODO Refactor to highlight and blur methods in Stage.
     *   TODO Control for camera rotation?
@@ -23,13 +20,13 @@
     *   TODO Game improvements
     *   =====================
     *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )
-    *
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Try babylon.JS animation system for camera journeys.
     *
     *   =====================
     *   TODO Issues
     *   =====================
+    *   TODO Enable loading only required resources for the current scene??
     *   TODO Smoothen player collisions on walls.
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Fix decals flickering in certain view angles ?

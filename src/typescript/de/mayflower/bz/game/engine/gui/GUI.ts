@@ -65,7 +65,10 @@
         *
         *   @param visible If the first player view components should be visible or not.
         ***************************************************************************************************************/
-        public abstract setFirstPlayerViewComponentsVisibility( visible:boolean ) : void;
+        public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
+        {
+            // change nothing
+        }
 
         /** ************************************************************************************************************
         *   Updates the GUIs to the specified dimensions.
