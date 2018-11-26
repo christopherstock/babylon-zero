@@ -517,7 +517,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIGame = new bz.GUIGame();
+            const gui:bz.GUIGame = new bz.GUIGame( this.scene );
             gui.init();
 
             return gui;

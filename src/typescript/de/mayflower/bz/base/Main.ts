@@ -9,12 +9,11 @@
     *   =====================
     *   TODO Human Body Partitions
     *   =====================
-    *
-    *   TODO Refactor to GUIHumanPartitionDescription.
-    *   TODO Refactor to highlight and blur methods in Stage.
     *   TODO Control for camera rotation?
-    *   TODO Limit camera alpha (y axis).
+    *   TODO Limit camera (y axis) (alpha).
     *   TODO Fade Body Part Description in and out.
+    *   TODO Improve color effect.
+    *   TODO Change model.
     *
     *   =====================
     *   TODO Game improvements
@@ -26,6 +25,7 @@
     *   =====================
     *   TODO Issues
     *   =====================
+    *   TODO Hold 'Scene' in stage and remove global reference?
     *   TODO Enable loading only required resources for the current scene??
     *   TODO Smoothen player collisions on walls.
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???

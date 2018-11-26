@@ -348,7 +348,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this );
+            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this.scene, this );
             gui.init();
 
             return gui;

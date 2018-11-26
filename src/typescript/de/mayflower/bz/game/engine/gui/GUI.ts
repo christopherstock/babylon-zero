@@ -24,11 +24,13 @@
 */
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
+        *
+        *   @param scene The scene to create this GUI for.
         ***************************************************************************************************************/
-        protected constructor()
+        protected constructor( scene:BABYLON.Scene )
         {
             // create foreground GUI
-            this.guiFg = bz.GUIFactory.createGUI( bz.Main.game.engine.scene.getScene(), true );
+            this.guiFg = bz.GUIFactory.createGUI( scene, true );
 
             // pause GUI
             this.pauseGui = new bz.GUIPause( this.guiFg );

@@ -73,17 +73,17 @@
             // assign pointer debug controls to scene
             bz.Debug.init.log( 'Assign pointer controls to scene' );
 
-            // init ALL? materials
+            // init all materials
             bz.Debug.init.log( 'Init materials' );
             this.materialSystem = new bz.MaterialSystem();
             this.materialSystem.init( this.scene.getScene() );
 
-            // init ALL? sprites
+            // init all sprites
             bz.Debug.init.log( 'Init sprites' );
             this.spriteSystem = new bz.SpriteSystem();
             this.spriteSystem.init( this.scene.getScene() );
 
-            // init ALL? sounds
+            // init all sounds
             bz.Debug.init.log( 'Init sounds' );
             this.soundSystem = new bz.SoundSystem( bz.SoundFile.ALL_SOUND_FILES, this.onSoundsLoaded );
             this.soundSystem.loadSounds( this.scene.getScene() );

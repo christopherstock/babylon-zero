@@ -218,7 +218,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions( this );
+            const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions( this.scene, this );
             gui.init();
 
             return gui;

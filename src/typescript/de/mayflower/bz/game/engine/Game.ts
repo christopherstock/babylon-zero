@@ -48,11 +48,11 @@
             // stop or resume physics engine
             if ( this.pause )
             {
-                bz.Main.game.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
+                this.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
             }
             else
             {
-                bz.Main.game.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
+                this.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
             }
 
             // propagate pause state to gui
@@ -72,8 +72,6 @@
             bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
 
-            const scene:BABYLON.Scene = this.engine.scene.getScene();
-
             // unpause if paused
             if ( this.pause )
             {
@@ -92,6 +90,8 @@
             }
 
             bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
+
+            const scene:BABYLON.Scene = this.engine.scene.getScene();
 
             switch ( targetStage )
             {
