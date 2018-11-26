@@ -9,6 +9,19 @@
     *******************************************************************************************************************/
     export class PointerSystem
     {
+        /** The native babylon.JS scene. */
+        private                 scene           :BABYLON.Scene                      = null;
+
+        /** ************************************************************************************************************
+        *   Creates a new Pointer System.
+        *
+        *   @param scene The native babylon.JS scene to create this pointer system for.
+        ***************************************************************************************************************/
+        public constructor( scene:BABYLON.Scene )
+        {
+            this.scene = scene;
+        }
+
         /** ************************************************************************************************************
         *   Being invoked when the pointer is down on this stage.
         *
@@ -33,7 +46,7 @@
                 }
                 else
                 {
-                    src = bz.Main.game.engine.scene.getScene().activeCamera.position;
+                    src = this.scene.activeCamera.position;
                 }
 
                 const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );

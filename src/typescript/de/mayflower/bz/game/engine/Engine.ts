@@ -19,8 +19,6 @@
         public                      modelImportSystem           :bz.ModelImportSystem               = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;
-        /** The pointer system. */
-        public                      pointerSystem               :bz.PointerSystem                   = null;
         /** The sound system. */
         public                      soundSystem                 :bz.SoundSystem                     = null;
 
@@ -58,8 +56,7 @@
             window.addEventListener( 'resize', this.onWindowResize );
 
             // create key and pointer system
-            this.keySystem     = new bz.KeySystem();
-            this.pointerSystem = new bz.PointerSystem();
+            this.keySystem = new bz.KeySystem();
 
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );

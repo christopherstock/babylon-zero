@@ -85,7 +85,7 @@
         /** ************************************************************************************************************
         *   Creates a new GUI for the Product Configurator.
         *
-        *   @param scene  The BABYLON.js scene to create this GUI for.
+        *   @param scene  The babylon.JS scene to create this GUI for.
         *   @param parent The Product Configurator Stage.
         ***************************************************************************************************************/
         public constructor( scene:BABYLON.Scene, parent:bz.ProductConfigurator )

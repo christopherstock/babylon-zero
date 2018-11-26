@@ -15,7 +15,7 @@
         /** ************************************************************************************************************
         *   Creates a new Heads Up Display for a game level.
         *
-        *   @param scene The BABYLON.js scene to create this GUI for.
+        *   @param scene The babylon.JS scene to create this GUI for.
         ***************************************************************************************************************/
         public constructor( scene:BABYLON.Scene )
         {
