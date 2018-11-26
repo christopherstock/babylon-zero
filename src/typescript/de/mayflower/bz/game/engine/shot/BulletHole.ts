@@ -72,6 +72,7 @@
 
             this.holeMesh = bz.MeshFactory.createDecal
             (
+                bz.Main.game.engine.scene.getScene(),
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getMesh(),
                 this.hitPoint.getNormal(),
@@ -80,7 +81,6 @@
                 this.hitPoint.getGameObjectNextBulletHoleIndexZ(),
                 meshTexture,
                 null,
-                bz.Main.game.engine.scene.getScene(),
                 1.0,
                 this.emissiveColor
             );
@@ -97,13 +97,13 @@
             // create debug bullet hole
             this.debugSphereMesh = bz.MeshFactory.createSphere
             (
+                bz.Main.game.engine.scene.getScene(),
                 this.hitPoint.getPoint().clone(),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 0.10,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
                 bz.SettingColor.COLOR_RGB_ORANGE,
-                bz.Main.game.engine.scene.getScene(),
                 bz.Physic.NONE,
                 1.0,
                 bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
@@ -121,12 +121,12 @@
             // create debug bullet hole
             this.debugNormalLine = bz.MeshFactory.createLine
             (
+                bz.Main.game.engine.scene.getScene(),
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE,
-                bz.Main.game.engine.scene.getScene()
+                bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE
             );
 
             // stick to parent

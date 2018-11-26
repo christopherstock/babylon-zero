@@ -210,9 +210,9 @@
             // import mesh model
             this.model = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.MOTORCYCLE_HELMET,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                this.scene,
                 bz.Physic.NONE,
                 bz.ModelCompoundType.NONE
             );

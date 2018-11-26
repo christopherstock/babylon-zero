@@ -106,9 +106,9 @@
         {
             this.logo = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                this.scene,
                 bz.Physic.NONE,
                 bz.ModelCompoundType.NONE
             );

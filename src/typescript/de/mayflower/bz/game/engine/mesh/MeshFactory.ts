@@ -26,13 +26,13 @@
         /** ************************************************************************************************************
         *   Creates a box mesh.
         *
+        *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param size            The dimensions of this mesh for all axis.
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
         *   @param color           The solid color to apply.
-        *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
         *   @param emissiveColor   The emissive color for this material.
@@ -41,13 +41,13 @@
         ***************************************************************************************************************/
         public static createBox
         (
+            scene           :BABYLON.Scene,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.MeshPivotAnchor,
             size            :BABYLON.Vector3,
             rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
             color           :BABYLON.Color3,
-            scene           :BABYLON.Scene,
             physic          :bz.Physic,
             materialAlpha   :number,
             emissiveColor   :BABYLON.Color3
@@ -110,6 +110,7 @@
             bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
+                scene,
                 texture,
                 true,
                 size.x,
@@ -123,10 +124,10 @@
 
             return MeshFactory.decorateMesh
             (
+                scene,
                 box,
                 rotation,
                 material,
-                scene,
                 physic,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 volume
@@ -136,6 +137,7 @@
         /** ************************************************************************************************************
         *   Creates a cylinder mesh.
         *
+        *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param diameter        The diameter of the cylinder.
@@ -143,7 +145,6 @@
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
         *   @param color           The solid color to apply.
-        *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
         *   @param emissiveColor   The emissive color for this material.
@@ -152,6 +153,7 @@
         ***************************************************************************************************************/
         public static createCylinder
         (
+            scene           :BABYLON.Scene,
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.MeshPivotAnchor,
             diameter        :number,
@@ -159,7 +161,6 @@
             rotation        :BABYLON.Vector3,
             texture         :bz.Texture,
             color           :BABYLON.Color3,
-            scene           :BABYLON.Scene,
             physic          :bz.Physic,
             materialAlpha   :number,
             emissiveColor   :BABYLON.Color3
@@ -211,6 +212,7 @@
             bz.MeshManipulation.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
+                scene,
                 texture,
                 true,
                 diameter,
@@ -224,10 +226,10 @@
 
             return MeshFactory.decorateMesh
             (
+                scene,
                 cylinder,
                 rotation,
                 material,
-                scene,
                 physic,
                 BABYLON.PhysicsImpostor.CylinderImpostor,
                 volume
@@ -237,13 +239,13 @@
         /** ************************************************************************************************************
         *   Creates a sphere.
         *
+        *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
         *   @param pivotAnchor   The anchor point of this mesh.
         *   @param diameter      The diameter of the sphere.
         *   @param rotation      The initial rotation for all axis.
         *   @param texture       The texture to apply.
         *   @param color         The solid color to apply.
-        *   @param scene         The scene where this mesh will be applied.
         *   @param physic        The physical attributes to apply for this mesh.
         *   @param materialAlpha The opacity for this mesh.
         *   @param emissiveColor The emissive color for this material.
@@ -252,13 +254,13 @@
         ***************************************************************************************************************/
         public static createSphere
         (
+            scene         :BABYLON.Scene,
             position      :BABYLON.Vector3,
             pivotAnchor   :bz.MeshPivotAnchor,
             diameter      :number,
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
             color         :BABYLON.Color3,
-            scene         :BABYLON.Scene,
             physic        :bz.Physic,
             materialAlpha :number,
             emissiveColor :BABYLON.Color3
@@ -277,6 +279,7 @@
             bz.MeshManipulation.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
+                scene,
                 texture,
                 false,
                 diameter,
@@ -290,10 +293,10 @@
 
             return MeshFactory.decorateMesh
             (
+                scene,
                 sphere,
                 rotation,
                 material,
-                scene,
                 physic,
                 BABYLON.PhysicsImpostor.SphereImpostor,
                 volume
@@ -304,6 +307,7 @@
         *   Creates a plane mesh. Shouldn't be used in a free 3d space because the side orientation is explicitly
         *   required in order to calculate light effects correctly.
         *
+        *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
         *   @param pivotAnchor     The anchor point of this mesh.
         *   @param width           Width  of the plane.
@@ -311,7 +315,6 @@
         *   @param rotation        The initial rotation for all axis.
         *   @param texture         The texture to apply.
         *   @param color           The solid color to apply.
-        *   @param scene           The scene where this mesh will be applied.
         *   @param physic          The physical attributes to apply for this mesh.
         *   @param materialAlpha   The opacity for this mesh.
         *   @param emissiveColor   The emissive color for this material.
@@ -323,6 +326,8 @@
         ***************************************************************************************************************/
         public static createPlane
         (
+            scene           :BABYLON.Scene,
+
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.MeshPivotAnchor,
             width           :number,
@@ -333,7 +338,6 @@
 
             color           :BABYLON.Color3,
 
-            scene           :BABYLON.Scene,
             physic          :bz.Physic,
             materialAlpha   :number,
             emissiveColor   :BABYLON.Color3,
@@ -355,6 +359,7 @@
             bz.MeshManipulation.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
+                scene,
                 texture,
                 false,
                 width,
@@ -368,10 +373,10 @@
 
             return MeshFactory.decorateMesh
             (
+                scene,
                 plane,
                 rotation,
                 material,
-                scene,
                 physic,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 volume
@@ -381,24 +386,25 @@
         /** ************************************************************************************************************
         *   Creates a line mesh.
         *
-        *   @param start           Start point of the line mesh.
-        *   @param end             End point of the line mesh.
-        *   @param pivotAnchor     The anchor point of this mesh.
-        *   @param rotation        The initial rotation for all axis.
-        *   @param color           The solid color to apply.
-        *   @param scene           The scene where this mesh will be applied.
+        *   @param scene       The scene where this mesh will be applied.
+        *   @param start       Start point of the line mesh.
+        *   @param end         End point of the line mesh.
+        *   @param pivotAnchor The anchor point of this mesh.
+        *   @param rotation    The initial rotation for all axis.
+        *   @param color       The solid color to apply.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
         public static createLine
         (
+            scene           :BABYLON.Scene,
+
             start           :BABYLON.Vector3,
             end             :BABYLON.Vector3,
             pivotAnchor     :bz.MeshPivotAnchor,
             rotation        :BABYLON.Vector3,
 
-            color           :BABYLON.Color4,
-            scene           :BABYLON.Scene
+            color           :BABYLON.Color4
         )
         : BABYLON.Mesh
         {
@@ -425,10 +431,10 @@
 
             return MeshFactory.decorateMesh
             (
+                scene,
                 line,
                 rotation,
                 null,
-                scene,
                 bz.Physic.NONE,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 0.0
@@ -438,11 +444,11 @@
         /** ************************************************************************************************************
         *   Creates a polygon mesh.
         *
+        *   @param scene         The scene where this mesh will be applied.
         *   @param points        All corner points for this polygon to create.
         *   @param pivotAnchor   The anchor point of this mesh.
         *   @param rotation      The initial rotation for all axis.
         *   @param color         The solid color to apply.
-        *   @param scene         The scene where this mesh will be applied.
         *   @param physic        The physical attributes to apply for this mesh.
         *   @param emissiveColor The emissive color for this material.
         *
@@ -450,13 +456,14 @@
         ***************************************************************************************************************/
         public static createPolygon
         (
+            scene           :BABYLON.Scene,
+
             points          :BABYLON.Vector3[],
 
             pivotAnchor     :bz.MeshPivotAnchor,
             rotation        :BABYLON.Vector3,
 
             color           :BABYLON.Color3,
-            scene           :BABYLON.Scene,
 
             physic          :bz.Physic,
             emissiveColor   :BABYLON.Color3
@@ -492,6 +499,7 @@
             );
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
+                scene,
                 null,
                 false,
                 0.0,
@@ -503,10 +511,10 @@
 
             return MeshFactory.decorateMesh
             (
+                scene,
                 polygon,
                 rotation,
                 material,
-                scene,
                 physic,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 1.0
@@ -516,6 +524,7 @@
         /** ************************************************************************************************************
         *   Creates a decal.
         *
+        *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
         *   @param parentMesh    The mesh to apply this decal to.
         *   @param normal        The normal of the mesh to apply the decal to.
@@ -524,7 +533,6 @@
         *   @param indexZ        The z index for this material that prevents overlapping materials.
         *   @param texture       The texture to apply.
         *   @param color         The solid color to apply.
-        *   @param scene         The scene where this mesh will be applied.
         *   @param materialAlpha The opacity for this mesh.
         *   @param emissiveColor The emissive color for this material.
         *
@@ -532,17 +540,17 @@
         ***************************************************************************************************************/
         public static createDecal
         (
-            position        :BABYLON.Vector3,
-            parentMesh      :BABYLON.AbstractMesh,
-            normal          :BABYLON.Vector3,
-            size            :BABYLON.Vector3,
-            rotation        :number,
-            indexZ          :number,
-            texture         :bz.Texture,
-            color           :BABYLON.Color3,
-            scene           :BABYLON.Scene,
-            materialAlpha   :number,
-            emissiveColor   :BABYLON.Color3
+            scene         :BABYLON.Scene,
+            position      :BABYLON.Vector3,
+            parentMesh    :BABYLON.AbstractMesh,
+            normal        :BABYLON.Vector3,
+            size          :BABYLON.Vector3,
+            rotation      :number,
+            indexZ        :number,
+            texture       :bz.Texture,
+            color         :BABYLON.Color3,
+            materialAlpha :number,
+            emissiveColor :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -560,6 +568,7 @@
 
             const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
             (
+                scene,
                 texture,
                 true,
                 size.x,
@@ -576,10 +585,10 @@
 */
             return MeshFactory.decorateMesh
             (
+                scene,
                 decal,
                 null,
                 material,
-                scene,
                 bz.Physic.NONE,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 0.0
@@ -589,13 +598,19 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh from a cube texture ( six images ).
         *
+        *   @param scene   The scene to apply this mesh to.
         *   @param skyBox  The skybox to create.
         *   @param opacity The alpha value for the skybox texture.
-        *   @param scene   The scene to apply this mesh to.
         *
         *   @return The created skybox mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxCube(skyBox:bz.SkyBoxFile, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBoxCube
+        (
+            scene   :BABYLON.Scene,
+            skyBox  :bz.SkyBoxFile,
+            opacity :number
+        )
+        : BABYLON.Mesh
         {
             const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
@@ -635,13 +650,19 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh from a sphere texture ( single spherical image ).
         *
+        *   @param scene   The scene where this mesh will be applied.
         *   @param skyBox  The skybox to use.
         *   @param opacity The alpha value for the skybox texture.
-        *   @param scene   The scene where this mesh will be applied.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxSphere(skyBox:bz.SkyBoxFile, opacity:number, scene:BABYLON.Scene ) : BABYLON.Mesh
+        public static createSkyBoxSphere
+        (
+            scene   :BABYLON.Scene,
+            skyBox  :bz.SkyBoxFile,
+            opacity :number
+        )
+        : BABYLON.Mesh
         {
             if ( document.getElementById( 'vertexShaderCode' ) === null )
             {
@@ -724,9 +745,9 @@
         /** ************************************************************************************************************
         *   Returns a clone of the imported model with the specified filename.
         *
+        *   @param scene        The scene where this imported mesh is cloned into.
         *   @param fileName     The filename of the imported mesh to return a clone for.
         *   @param position     The position for this mesh to show up.
-        *   @param scene        The scene where this imported mesh is cloned into.
         *   @param physic       Specifies the physicsl behaviour of this imported model.
         *                       <code>null</code> to use the native physical attributes from the imported model.
         *   @param compoundType Specifies the mesh compound type for this imported model.
@@ -735,9 +756,9 @@
         ***************************************************************************************************************/
         public static createImportedModel
         (
+            scene        :BABYLON.Scene,
             fileName     :string,
             position     :BABYLON.Vector3,
-            scene        :BABYLON.Scene,
             physic       :bz.Physic,
             compoundType :bz.ModelCompoundType
         )
@@ -791,20 +812,20 @@
         /** ************************************************************************************************************
         *   Adds general mesh properties.
         *
+        *   @param scene               The scene where this mesh will be applied.
         *   @param mesh                The mesh to decorate.
         *   @param rotation            The initial rotation for all axis.
         *   @param material            The material to apply on this mesh.
-        *   @param scene               The scene where this mesh will be applied.
         *   @param physic              The physical attributes to apply for this mesh.
         *   @param physicsImpostorType The kind of physic impostor to apply to this mesh.
         *   @param volume              The calculated volume of the mesh.
         ***************************************************************************************************************/
         private static decorateMesh
         (
+            scene               :BABYLON.Scene,
             mesh                :BABYLON.Mesh,
             rotation            :BABYLON.Vector3,
             material            :BABYLON.StandardMaterial,
-            scene               :BABYLON.Scene,
             physic              :bz.Physic,
             physicsImpostorType :number,
             volume              :number

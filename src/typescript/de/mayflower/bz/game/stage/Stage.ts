@@ -429,34 +429,34 @@
                 // axis x
                 bz.MeshFactory.createLine
                 (
+                    this.scene,
                     new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                     new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
                     bz.MeshPivotAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.SettingColor.COLOR_RGBA_RED_OPAQUE,
-                    this.scene
+                    bz.SettingColor.COLOR_RGBA_RED_OPAQUE
                 ),
 
                 // axis y
                 bz.MeshFactory.createLine
                 (
+                    this.scene,
                     new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                     new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
                     bz.MeshPivotAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE,
-                    this.scene
+                    bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE
                 ),
 
                 // axis z
                 bz.MeshFactory.createLine
                 (
+                    this.scene,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
                     bz.MeshPivotAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                    bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE,
-                    this.scene
+                    bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE
                 )
             );
         }

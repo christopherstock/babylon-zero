@@ -98,33 +98,33 @@
             // import mesh model
             this.chairSingle = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.OFFICE_CHAIR_2,
                 new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
-                this.scene,
                 bz.Physic.SOLID_WOOD,
                 bz.ModelCompoundType.NONE
             );
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.OFFICE_CHAIR_1,
                 new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
-                this.scene,
                 bz.Physic.CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
             this.chairMultiPhysics = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.OFFICE_CHAIR_3,
                 new BABYLON.Vector3( 20.0, 4.0, 30.0 ),
-                this.scene,
                 null,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             );
             this.compoundSpheres = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.DOUBLE_SPHERE_1,
                 new BABYLON.Vector3( 60.0, 10.0, 50.0 ),
-                this.scene,
                 null,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
@@ -136,9 +136,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.DOUBLE_SPHERE_1,
                         new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
-                        this.scene,
                         null,
                         bz.ModelCompoundType.NONE
                     )
@@ -178,13 +178,13 @@
                         [
                             bz.MeshFactory.createSphere
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 3.0,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 null,
                                 bz.SettingColor.COLOR_RGB_RED,
-                                this.scene,
                                 bz.Physic.SOLID_WOOD,
                                 1.0,
                                 bz.SettingColor.COLOR_RGB_RED // this.ambientColor
@@ -201,13 +201,13 @@
                             // static ground
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
                                 new BABYLON.Vector3( 200.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -224,13 +224,13 @@
                             // test wall
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 3.0, 0.0, 1.0  ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -247,13 +247,13 @@
                             // static elevated ground
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -277,9 +277,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-                        this.scene,
                         null,
                         bz.ModelCompoundType.NONE
                     )
@@ -289,9 +289,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( 25.0, 0.0, 20.0 ),
-                        this.scene,
                         null,
                         bz.ModelCompoundType.NONE
                     )
@@ -301,9 +301,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( 30.0, 0.0, 20.0 ),
-                        this.scene,
                         null,
                         bz.ModelCompoundType.NONE
                     )
@@ -329,7 +329,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( bz.SkyBoxFile.STORM, 1.0, this.scene );
+            return bz.MeshFactory.createSkyBoxCube( this.scene, bz.SkyBoxFile.STORM, 1.0 );
         }
 
         /** ************************************************************************************************************

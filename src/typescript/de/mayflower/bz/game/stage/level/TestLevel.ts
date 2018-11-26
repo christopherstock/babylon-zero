@@ -61,13 +61,13 @@
                             // static ground
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
                                 new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -84,13 +84,13 @@
                             // static elevated ground
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -107,13 +107,13 @@
                             // tree - standing (crossed)
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
                                 bz.Texture.WALL_TREE,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -129,13 +129,13 @@
                         [
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0, 270.0, 0.0   ),
                                 bz.Texture.WALL_TREE,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -152,13 +152,13 @@
                             // plane - amiga at world origin
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.0,  4.0, bz.MeshFactory.FACE_DEPTH   ),
                                 new BABYLON.Vector3( 0.0, 45.0, 0.0   ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -175,13 +175,13 @@
                             // plane - amiga plane 45° - BACKSIDE
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -197,13 +197,13 @@
                             // plane - amiga plane 45° - FRONTSIDE
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 21.0, 0.0, 30.0 - bz.MeshFactory.FACE_DEPTH ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0, 65.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -220,13 +220,13 @@
                             // plane - amiga 180° - FRONTSIDE
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 8.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -243,13 +243,13 @@
                             // plane - amiga 180° - BACKSIDE
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -266,13 +266,13 @@
                             // box - amiga light frontside
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -289,13 +289,13 @@
                             // box - amiga light backside
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 10.0, 0.0, 18.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
@@ -312,13 +312,13 @@
                             // movable glass pane
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 2.0,  0.0, 15.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.0, 3.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
                                 null,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 0.5,
                                 this.ambientColor
@@ -335,6 +335,7 @@
                             // triangle
                             bz.MeshFactory.createPolygon
                             (
+                                this.scene,
                                 [
                                     new BABYLON.Vector3( 0.0,  0.0,  13.0    ),
                                     new BABYLON.Vector3( 10.0, 0.0,  13.0    ),
@@ -343,7 +344,6 @@
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
                                 bz.SettingColor.COLOR_RGB_RED,
-                                this.scene,
                                 bz.Physic.STATIC,
                                 this.ambientColor
                             )
@@ -359,13 +359,13 @@
                             // movable crate - small
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 12.0, 0.0, 12.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                                 new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -382,13 +382,13 @@
                             // movable crate - big
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( -1.0,  3.0, 5.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                                 new BABYLON.Vector3( 0.0, 30.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -405,13 +405,13 @@
                             // movable crate - different UVs for all sides
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 24.0,  0.0, 12.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 2.0, 3.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -428,13 +428,13 @@
                             // movable glass quader
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
                                 new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 0.5,
                                 this.ambientColor
@@ -451,13 +451,13 @@
                             // small crate - density crafting
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 5.5, 0.0, 22.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -474,13 +474,13 @@
                             // medium crate - density crafting
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 5.5, 0.0, 25.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -497,13 +497,13 @@
                             // large crate - density crafting
                             bz.MeshFactory.createBox
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 5.5, 0.0, 30.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 3.0, 3.0, 3.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -520,13 +520,13 @@
                             // sphere
                             bz.MeshFactory.createSphere
                             (
+                                this.scene,
                                 new BABYLON.Vector3( 10.5, 0.0, 30.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 3.0,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                this.scene,
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
@@ -539,9 +539,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1,
                         new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
-                        this.scene,
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
@@ -551,9 +551,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1,
                         new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
-                        this.scene,
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
@@ -563,9 +563,9 @@
                 (
                     bz.MeshFactory.createImportedModel
                     (
+                        this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1,
                         new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
-                        this.scene,
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
@@ -600,7 +600,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( bz.SkyBoxFile.DARK_SKY, 0.15, this.scene );
+            return bz.MeshFactory.createSkyBoxCube( this.scene, bz.SkyBoxFile.DARK_SKY, 0.15 );
         }
 
         /** ************************************************************************************************************

@@ -188,13 +188,13 @@
 
             this.compoundMesh = bz.MeshFactory.createBox
             (
+                bz.Main.game.engine.scene.getScene(),
                 position,
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Texture.WALL_GRASS,
                 null,
-                bz.Main.game.engine.scene.getScene(),
                 bz.Physic.NONE,
                 1.0,
                 BABYLON.Color3.Red()

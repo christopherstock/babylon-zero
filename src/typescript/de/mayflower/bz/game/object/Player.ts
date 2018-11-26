@@ -72,6 +72,7 @@
                         // Player.PLAYER_BODY_ID
                         bz.MeshFactory.createCylinder
                         (
+                            bz.Main.game.engine.scene.getScene(),
                             position.clone(),
                             bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
                             bz.SettingPlayer.PLAYER_DIAMETER_BODY_XZ,
@@ -79,7 +80,6 @@
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_GLASS,
                             null,
-                            bz.Main.game.engine.scene.getScene(),
                             bz.Physic.PLAYER,
                             0.25,
                             emissiveColor
@@ -88,13 +88,13 @@
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
                         (
+                            bz.Main.game.engine.scene.getScene(),
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             bz.SettingPlayer.PLAYER_DIAMETER_HEAD,
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
-                            bz.Main.game.engine.scene.getScene(),
                             bz.Physic.NONE,
                             1.0,
                             emissiveColor
@@ -103,13 +103,13 @@
                         // Player.PLAYER_LEFT_HAND_ID
                         bz.MeshFactory.createBox
                         (
+                            bz.Main.game.engine.scene.getScene(),
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
-                            bz.Main.game.engine.scene.getScene(),
                             bz.Physic.NONE,
                             1.0,
                             emissiveColor
@@ -118,13 +118,13 @@
                         // Player.PLAYER_RIGHT_HAND_ID
                         bz.MeshFactory.createBox
                         (
+                            bz.Main.game.engine.scene.getScene(),
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
-                            bz.Main.game.engine.scene.getScene(),
                             bz.Physic.NONE,
                             1.0,
                             emissiveColor

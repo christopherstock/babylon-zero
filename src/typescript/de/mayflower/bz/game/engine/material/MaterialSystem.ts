@@ -27,6 +27,7 @@
         /** ************************************************************************************************************
         *   Creates a material from the given texture or color.
         *
+        *   @param scene              The scene where the new material to creat.
         *   @param texture            The desired texture.
         *   @param ommitTextureTiling Specifies if tiling for the given texture shall be omitted.
         *   @param sizeU              The texture U size for the texture.
@@ -37,6 +38,7 @@
         ***************************************************************************************************************/
         public createMaterial
         (
+            scene              :BABYLON.Scene,
             texture            :bz.Texture,
             ommitTextureTiling :boolean,
 
@@ -52,7 +54,7 @@
             const material:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
                 bz.MaterialSystem.createNextMaterialId(),
-                bz.Main.game.engine.scene.getScene()
+                scene
             );
 
             if ( texture != null )

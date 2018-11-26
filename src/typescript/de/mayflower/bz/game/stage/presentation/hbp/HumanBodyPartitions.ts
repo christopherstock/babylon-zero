@@ -77,9 +77,9 @@
             // import mesh model
             this.model = bz.MeshFactory.createImportedModel
             (
+                this.scene,
                 bz.ModelFile.HUMAN_BODY,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                this.scene,
                 bz.Physic.NONE,
                 bz.ModelCompoundType.NONE
             );
@@ -123,7 +123,7 @@
         protected createSkybox() : BABYLON.Mesh
         {
             // initial rotate skybox and disable it being picked
-            const skybox:BABYLON.Mesh = bz.MeshFactory.createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 1.0, this.scene );
+            const skybox:BABYLON.Mesh = bz.MeshFactory.createSkyBoxCube( this.scene, bz.SkyBoxFile.BLUE_SKY, 1.0 );
             bz.MeshManipulation.setAbsoluteRotationXYZ( skybox, 0.0, 90.0, 0.0 );
             skybox.isPickable = false;
 

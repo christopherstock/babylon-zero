@@ -62,6 +62,7 @@
                 const collisionWidth:number = ( width / 2 );
                 this.collider = bz.MeshFactory.createCylinder
                 (
+                    bz.Main.game.engine.scene.getScene(),
                     position.clone(),
                     anchor,
                     collisionWidth,
@@ -69,7 +70,6 @@
                     BABYLON.Vector3.Zero(),
                     bz.Texture.WALL_GLASS,
                     null,
-                    bz.Main.game.engine.scene.getScene(),
                     bz.Physic.STATIC,
                     0.25,
                     bz.SettingColor.COLOR_RGB_WHITE
