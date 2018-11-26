@@ -41,6 +41,12 @@
         {
             bz.Debug.init.log( ' Preloading [' + this.fileNames.length + '] sounds' );
 
+            if ( bz.SettingDebug.DISABLE_SOUND )
+            {
+                this.onLoadComplete();
+                return;
+            }
+
             for ( const fileName of this.fileNames )
             {
                 this.sounds[ fileName ] = new BABYLON.Sound

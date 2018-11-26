@@ -62,4 +62,19 @@
                 console.log( '[' + bz.String.getDateTimeString() + '] ' + msg );
             }
         }
+
+        /** ************************************************************************************************************
+        *   Logs a line of output to the error console. Will only generate output
+        *   if the debug for this debug group is enabled.
+        *
+        *   @param msg The message to log to the error console. Defaults to an empty string.
+        ***************************************************************************************************************/
+        public err( msg:string = '' ) : void
+        {
+            if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
+            {
+                // tslint:disable-next-line:no-console
+                console.error( '[' + bz.String.getDateTimeString() + '] ' + msg );
+            }
+        }
     }

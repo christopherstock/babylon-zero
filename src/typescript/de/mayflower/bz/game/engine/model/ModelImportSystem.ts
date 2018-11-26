@@ -71,6 +71,14 @@
 
                         // notify load
                         this.onLoadModel();
+                    },
+                    null,
+                    ( scene:BABYLON.Scene, message:string, exception?:any ) => {
+
+                        bz.Debug.init.err( 'ERROR on importing model [' + file + ']' );
+
+                        // simulate load
+                        this.onLoadModel();
                     }
                 );
             }
