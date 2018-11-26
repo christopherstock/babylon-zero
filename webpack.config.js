@@ -1,40 +1,44 @@
-module.exports = {
-    entry: './src/typescript/index.ts',
-    mode: 'development',
-    output: {
-        filename: 'bundle.js',
-        path: __dirname + '/dist/js/'
-    },
+module.exports = ( env, argv ) => {
 
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: 'source-map',
+    let config = {
+        entry: './src/typescript/index.ts',
+        output: {
+            filename: 'bundle.js',
+            path: __dirname + '/dist/js/'
+        },
 
-    resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [
-            '.ts',
-            '.tsx',
-            '.js',
-            '.json'
-        ]
-    },
+        resolve: {
+            // add '.ts' and '.tsx' as resolvable extensions.
+            extensions: [
+                '.ts',
+                '.tsx',
+                '.js',
+                '.json'
+            ]
+        },
+    };
 
-    module: {
+    // enable sourcemaps for debugging webpack's output.
+    if ( argv.mode === 'development' ) {
+        config.devtool = 'source-map';
+    }
+
+    config.module = {
         rules: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+            // all files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader'
             },
 
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            // all output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 test: /\.js$/,
                 enforce: 'pre',
                 loader: 'source-map-loader'
             },
 
-            // All '.css' files will be handled by the style- and css-loader
+            // all '.css' files will be handled by the style- and css-loader
             {
                 test: /\.css$/,
                 use: [
@@ -47,7 +51,7 @@ module.exports = {
                 ]
             },
 
-            // All '.less' files will be handled by the style- and css-loader
+            // all '.less' files will be handled by the style- and css-loader
             {
                 test: /\.less$/,
                 use: [
@@ -62,14 +66,22 @@ module.exports = {
                     }
                 ]
             }
-        ]
-    },
+        ],
+    };
 
-    devServer: {
+    if ( argv.mode === 'production' ) {
+        config.optimization = {
+            minimize: true
+        };
+    }
+
+    config.devServer = {
         host: 'localhost',
         port: 1234,
         watchContentBase: true,
         publicPath: '/js/',
         contentBase: __dirname + '/dist/'
-    }
+    };
+
+    return config;
 };
