@@ -1,5 +1,6 @@
 
     import * as BABYLON from 'babylonjs';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Specifies all settings for the engine.
@@ -7,8 +8,8 @@
     // tslint:disable:max-line-length
     export class SettingEngine
     {
-        /** The application's internal name. */
-        public  static  readonly    TITLE                                   :string             = 'babylon-zero, (c) 2018 Mayflower GmbH';
+        /** The branding. */
+        public  static  readonly    BRANDING                                :bz.Branding        = new bz.BrandingComputy();
 
         /** The minimum canvas width. */
         public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;

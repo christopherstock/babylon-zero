@@ -9,14 +9,15 @@
     *   =====================
     *   TODO Human Body Partitions
     *   =====================
-    *   TODO Fade Body Part Description in and out.
-    *   TODO Refactor to GUIHumanPartitionDescription.
+    *
+    *   TODO Improve webpack config(s)?
     *   TODO Install UglifyJsWebpackPlugin.
+    *
+    *   TODO Refactor to GUIHumanPartitionDescription.
     *   TODO Refactor to highlight and blur methods in Stage.
+    *   TODO Control for camera rotation?
     *   TODO Limit camera alpha (y axis).
-    *   TODO brand to computy.
-    *   TODO try specular highlight color.
-    *   TODO Add text field for selected body part.
+    *   TODO Fade Body Part Description in and out.
     *
     *   =====================
     *   TODO Game improvements
@@ -102,7 +103,9 @@
         ***************************************************************************************************************/
         public static main() : void
         {
-            bz.HTML.setTitle( bz.SettingEngine.TITLE + ', ' + bz.Version.getCurrent() );
+            bz.HTML.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
+            bz.HTML.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
+
             Main.acclaim();
 
             Main.game = new bz.Game();
@@ -114,7 +117,7 @@
         ***************************************************************************************************************/
         private static acclaim() : void
         {
-            bz.Debug.acclaim.log( bz.SettingEngine.TITLE  );
+            bz.Debug.acclaim.log( bz.SettingEngine.BRANDING.getTitle()  );
             bz.Debug.acclaim.log( bz.Version.getCurrent() );
             bz.Debug.acclaim.log();
         }

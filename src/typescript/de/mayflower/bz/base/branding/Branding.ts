@@ -1,30 +1,27 @@
 
     /** ****************************************************************************************************************
-    *   Offers functionality for the HTML wenpage.
+    *   The abstract superclass for all branding confgurations.
     *******************************************************************************************************************/
-    export class HTML
+    export abstract class Branding
     {
         /** ************************************************************************************************************
-        *   Sets the document title.
+        *   Returns the HTML page title.
         *
-        *   @param title The title to set.
+        *   @return The HTML page title.
         ***************************************************************************************************************/
-        public static setTitle( title:string ) : void
-        {
-            document.title = title;
-        }
+        public abstract getTitle() : string;
 
         /** ************************************************************************************************************
-        *   Sets the document favicon path.
+        *   Returns the loading screen logo.
         *
-        *   @param path The path to the favicon.
+        *   @return The logo for the loading screen.
         ***************************************************************************************************************/
-        public static setFavicon( path:string ) : void
-        {
-            const link:HTMLLinkElement = document.createElement( 'link' );
-            link.rel  = 'shortcut icon';
-            link.href = path;
+        public abstract getLoadingLogo() : string;
 
-            document.head.appendChild( link );
-        }
+        /** ************************************************************************************************************
+        *   Returns the favicon.
+        *
+        *   @return The path to the favicon.
+        ***************************************************************************************************************/
+        public abstract getFavicon() : string;
     }
