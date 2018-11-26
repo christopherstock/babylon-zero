@@ -178,17 +178,17 @@
         /** ************************************************************************************************************
         *   Creates and applies a compound parent to all meshes of this model.
         *
-        *   @param position             The position for the compound parent to appear.
         *   @param scene                The scene for the new compound parent to be created in.
+        *   @param position             The position for the compound parent to appear.
         *   @param enableSingleShotOffs Specifies if the compound enables single meshes to be shot off.
         ***************************************************************************************************************/
-        public addCompoundMesh( position:BABYLON.Vector3, scene:BABYLON.Scene, enableSingleShotOffs:boolean ) : void
+        public addCompoundMesh( scene:BABYLON.Scene, position:BABYLON.Vector3, enableSingleShotOffs:boolean ) : void
         {
             this.enableSingleShotOffs = enableSingleShotOffs;
 
             this.compoundMesh = bz.MeshFactory.createBox
             (
-                bz.Main.game.engine.scene.getScene(),
+                scene,
                 position,
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
@@ -209,10 +209,10 @@
             // set physics for compound
             bz.Physic.COMPOUND.applyPhysicToMesh
             (
+                scene,
                 this.compoundMesh,
                 1.0,
-                BABYLON.PhysicsImpostor.BoxImpostor,
-                scene
+                BABYLON.PhysicsImpostor.BoxImpostor
             );
         }
 
@@ -231,7 +231,7 @@
                 // remove the compound from all meshes
                 for ( let i:number = 0; i < this.meshes.length; ++i )
                 {
-                    this.removeCompoundMeshFromMesh( i, scene );
+                    this.removeCompoundMeshFromMesh( scene, i );
                 }
 
                 // compound parent doesn't need to be updated
@@ -266,10 +266,10 @@
         /** ************************************************************************************************************
         *   Assigns all physical impostors onto the meshes of this model.
         *
-        *   @param impostors The impostors to assign to this model's meshes
         *   @param scene     The scene where the new physical impostors are added to.
+        *   @param impostors The impostors to assign to this model's meshes
         ***************************************************************************************************************/
-        public assignImpostors( impostors:bz.PhysicImpostorParams[], scene:BABYLON.Scene ) : void
+        public assignImpostors( scene:BABYLON.Scene, impostors:bz.PhysicImpostorParams[] ) : void
         {
             bz.Debug.physic.log( 'Applying impostors to cloned meshes:' );
 
@@ -390,7 +390,7 @@
                     {
                         bz.Debug.fire.log( 'Mesh to shot off adressed..' );
 
-                        this.removeCompoundMeshFromMesh( i, bz.Main.game.engine.scene.getScene() );
+                        this.removeCompoundMeshFromMesh( bz.Main.game.engine.scene.getScene(), i );
 
                         break;
                     }
@@ -477,10 +477,10 @@
         *   Frees the mesh with the specified index from the compound parent
         *   and reassigns its original physical impostor.
         *
-        *   @param index The index of the mesh to free from the compound.
         *   @param scene The babylon.JS scene where a new impostor is potentially created.
+        *   @param index The index of the mesh to free from the compound.
         ***************************************************************************************************************/
-        private removeCompoundMeshFromMesh( index:number, scene:BABYLON.Scene ) : void
+        private removeCompoundMeshFromMesh( scene:BABYLON.Scene, index:number ) : void
         {
             const mesh:     BABYLON.AbstractMesh    = this.meshes[    index ];
             const impostor: bz.PhysicImpostorParams = this.impostors[ index ];
@@ -498,10 +498,10 @@
 
                     bz.Physic.SOLID_WOOD.applyPhysicToMesh
                     (
+                        scene,
                         mesh,
                         1.0,
                         BABYLON.PhysicsImpostor.BoxImpostor,
-                        bz.Main.game.engine.scene.getScene()
                     );
                 }
                 else

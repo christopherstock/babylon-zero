@@ -123,6 +123,7 @@
 
                     bz.MeshManipulation.performAnimation
                     (
+                        this.scene,
                         this.visor,
                         0,
                         20,
@@ -133,6 +134,7 @@
 
                             bz.MeshManipulation.performAnimation
                             (
+                                this.scene,
                                 this.visor,
                                 20,
                                 21,
@@ -155,6 +157,7 @@
 
                     bz.MeshManipulation.performAnimation
                     (
+                        this.scene,
                         this.visor,
                         20,
                         0,

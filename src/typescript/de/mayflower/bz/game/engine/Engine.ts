@@ -8,8 +8,13 @@
     {
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem                    = null;
+
+        // TODO outsource Scene to Stage etc.!
+
         /** The singleton scene. */
         public                      scene                       :bz.Scene                           = null;
+
+        // TODO move to Scene! Move Texture and rename to TextureSystem in addition!
 
         /** The material system. */
         public                      materialSystem              :bz.MaterialSystem                  = null;
@@ -17,11 +22,12 @@
         public                      spriteSystem                :bz.SpriteSystem                    = null;
         /** The mesh import system. */
         public                      modelImportSystem           :bz.ModelImportSystem               = null;
-        /** The key system. */
-        public                      keySystem                   :bz.KeySystem                       = null;
         /** The sound system. */
         public                      soundSystem                 :bz.SoundSystem                     = null;
 
+
+        /** The key system. */
+        public                      keySystem                   :bz.KeySystem                       = null;
         /** The babylon.JS engine. */
         private                     babylonEngine               :BABYLON.Engine                     = null;
         /** The custom loading screen. */

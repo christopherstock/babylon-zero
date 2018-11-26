@@ -783,7 +783,7 @@
                     impostors.push( physic.createPhysicImpostorParams( ( 1.0 / originalModel.getMeshCount() ) ) );
                 }
             }
-            clonedModel.assignImpostors( impostors, scene );
+            clonedModel.assignImpostors( scene, impostors );
 
             // create compound parent if requested
             switch ( compoundType )
@@ -795,13 +795,13 @@
 
                 case bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED:
                 {
-                    clonedModel.addCompoundMesh( position, scene, false );
+                    clonedModel.addCompoundMesh( scene, position, false );
                     break;
                 }
 
                 case bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED:
                 {
-                    clonedModel.addCompoundMesh( position, scene, true );
+                    clonedModel.addCompoundMesh( scene, position, true );
                     break;
                 }
             }
@@ -837,10 +837,10 @@
 
             physic.applyPhysicToMesh
             (
+                scene,
                 mesh,
                 volume,
-                physicsImpostorType,
-                scene
+                physicsImpostorType
             );
 
             if ( rotation != null )

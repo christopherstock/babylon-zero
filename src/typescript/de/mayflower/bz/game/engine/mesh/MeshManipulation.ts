@@ -130,6 +130,7 @@
         /** ************************************************************************************************************
         *   Starts a stored animation for the given mesh in the specified frame range.
         *
+        *   @param scene      The scene to perform the animation in.
         *   @param mesh       The mesh to perform a predefined animation.
         *   @param startFrame The number of the frame to start the animation.
         *   @param endFrame   The number of the frame to end the animation.
@@ -139,6 +140,7 @@
         ***************************************************************************************************************/
         public static performAnimation
         (
+            scene       :BABYLON.Scene,
             mesh        :BABYLON.AbstractMesh,
             startFrame  :number,
             endFrame    :number,
@@ -149,7 +151,7 @@
         {
             const TIME_SCALE:number = 1.0;
 
-            bz.Main.game.engine.scene.getScene().beginAnimation
+            scene.beginAnimation
             (
                 mesh,
                 startFrame,

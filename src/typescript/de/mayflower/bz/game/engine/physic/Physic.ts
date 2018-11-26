@@ -103,17 +103,17 @@
         /** ************************************************************************************************************
         *   Applies the specified physical behaviour to the given mesh.
         *
+        *   @param scene        The babylon.JS scene that manages this impostor.
         *   @param mesh         The native babylon.JS mesh to set the physical behaviour for.
         *   @param volume       The calculated volume of the mesh.
         *   @param impostorType The type of physics impostor to set.
-        *   @param scene        The babylon.JS scene that manages this impostor.
         ***************************************************************************************************************/
         public applyPhysicToMesh
         (
+            scene        :BABYLON.Scene,
             mesh         :BABYLON.AbstractMesh,
             volume       :number,
-            impostorType :number,
-            scene        :BABYLON.Scene
+            impostorType :number
         )
         : void
         {
