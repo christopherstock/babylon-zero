@@ -7,6 +7,12 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Move Scene to subpackage 'scene' with all required loaders!
+    *
+    *   =====================
     *   TODO Human Body Partitions
     *   =====================
     *   TODO Control for camera rotation?
@@ -25,8 +31,6 @@
     *   =====================
     *   TODO Issues
     *   =====================
-    *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Move Scene to subpackage 'scene' with all required loaders!
     *   TODO Enable loading only required resources for the current scene??
     *   TODO Smoothen player collisions on walls.
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???

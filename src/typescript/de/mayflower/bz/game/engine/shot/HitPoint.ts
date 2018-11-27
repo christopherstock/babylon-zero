@@ -51,16 +51,18 @@
         *   Causes a physical shot impact to the according game object at this hit point.
         *   A bullet hole is created and connected to this hit point.
         *
+        *   @param scene         The scene to create the hit point in.
         *   @param emissiveColor The emissive color for the bullet hole to set.
         *   @param damage        The damage of the impact to cause.
         *
         *   @return The bullet hole being caused by this impact.
         ***************************************************************************************************************/
-        public causeImpact( emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
+        public causeImpact( scene:BABYLON.Scene, emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
         {
             // create a bullet hole
             const bulletHole:bz.BulletHole = new bz.BulletHole
             (
+                scene,
                 this,
                 emissiveColor
             );
@@ -69,7 +71,7 @@
             this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
 
             // hurt the game object
-            this.gameObject.hurt( damage, this.mesh );
+            this.gameObject.hurt( scene, damage, this.mesh );
 
             return bulletHole;
         }

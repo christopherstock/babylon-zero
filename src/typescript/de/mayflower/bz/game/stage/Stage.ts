@@ -279,7 +279,12 @@
             // impact all hit points
             for ( const impactHitPoint of impactHitPoints )
             {
-                const bulletHole:bz.BulletHole = impactHitPoint.causeImpact( this.ambientColor, shot.getDamage() );
+                const bulletHole:bz.BulletHole = impactHitPoint.causeImpact
+                (
+                    this.scene,
+                    this.ambientColor,
+                    shot.getDamage()
+                );
                 this.addBulletHole( bulletHole );
             }
         }

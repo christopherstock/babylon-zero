@@ -73,8 +73,7 @@
             this.scene = new bz.Scene();
             this.scene.init( this.babylonEngine );
 
-            // assign pointer debug controls to scene
-            bz.Debug.init.log( 'Assign pointer controls to scene' );
+            // TODO move all loader functions to Scene!
 
             // init all materials
             bz.Debug.init.log( 'Init materials' );
@@ -150,6 +149,8 @@
         ***************************************************************************************************************/
         private onSoundsLoaded=() : void =>
         {
+            // TODO move all loader functions to Scene!
+
             // init model importer
             bz.Debug.init.log( 'Init model importer' );
             this.modelImportSystem = new bz.ModelImportSystem

@@ -53,12 +53,14 @@
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
+        *   @param scene         The native babylon.JS scene.
         *   @param position      The initial position.
         *   @param rotY          The initial rotation Y.
         *   @param emissiveColor The emissive color of all mesh faces.
         ***************************************************************************************************************/
         public constructor
         (
+            scene         :BABYLON.Scene,
             position      :BABYLON.Vector3,
             rotY          :number,
             emissiveColor :BABYLON.Color3
@@ -72,7 +74,7 @@
                         // Player.PLAYER_BODY_ID
                         bz.MeshFactory.createCylinder
                         (
-                            bz.Main.game.engine.scene.getScene(),
+                            scene,
                             position.clone(),
                             bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
                             bz.SettingPlayer.PLAYER_DIAMETER_BODY_XZ,
@@ -88,7 +90,7 @@
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
                         (
-                            bz.Main.game.engine.scene.getScene(),
+                            scene,
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             bz.SettingPlayer.PLAYER_DIAMETER_HEAD,
@@ -103,7 +105,7 @@
                         // Player.PLAYER_LEFT_HAND_ID
                         bz.MeshFactory.createBox
                         (
-                            bz.Main.game.engine.scene.getScene(),
+                            scene,
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
@@ -118,7 +120,7 @@
                         // Player.PLAYER_RIGHT_HAND_ID
                         bz.MeshFactory.createBox
                         (
-                            bz.Main.game.engine.scene.getScene(),
+                            scene,
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),

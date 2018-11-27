@@ -328,9 +328,10 @@
         /** ************************************************************************************************************
         *   Darkens all meshes according to the given ratio.
         *
+        *   @param scene The babylon.JS scene to create new materials for.
         *   @param ratio The ratio for the current mesh color to darken.
         ***************************************************************************************************************/
-        public darkenMeshes( ratio:number ) : void
+        public darkenMeshes( scene:BABYLON.Scene, ratio:number ) : void
         {
             for ( const mesh of this.meshes )
             {
@@ -352,7 +353,7 @@
                     const newStandardMaterial :BABYLON.StandardMaterial = new BABYLON.StandardMaterial
                     (
                         bz.MaterialSystem.createNextMaterialId(),
-                        bz.Main.game.engine.scene.getScene()
+                        scene
                     );
                     newStandardMaterial.ambientColor    = newAmbientColor;
                     newStandardMaterial.backFaceCulling = false;
@@ -375,9 +376,10 @@
         /** ************************************************************************************************************
         *   Shots off the specified mesh from the compound.
         *
-        *   @param mesh The mesh to shot off the compound.
+        *   @param scene The native babylon.JS scene.
+        *   @param mesh  The mesh to shot off the compound.
         ***************************************************************************************************************/
-        public shotOffCompound( mesh:BABYLON.AbstractMesh ) : void
+        public shotOffCompound( scene:BABYLON.Scene, mesh:BABYLON.AbstractMesh ) : void
         {
             if ( this.enableSingleShotOffs )
             {
@@ -390,7 +392,7 @@
                     {
                         bz.Debug.fire.log( 'Mesh to shot off adressed..' );
 
-                        this.removeCompoundMeshFromMesh( bz.Main.game.engine.scene.getScene(), i );
+                        this.removeCompoundMeshFromMesh( scene, i );
 
                         break;
                     }

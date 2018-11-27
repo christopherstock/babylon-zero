@@ -8,7 +8,6 @@
     {
         /** The wrapped native babylon.JS sprite instance. */
         private             readonly            sprite                          :BABYLON.Sprite             = null;
-
         /** The possible collider - A cylinder body for this sprite. */
         private             readonly            collider                        :BABYLON.AbstractMesh       = null;
 
@@ -27,6 +26,7 @@
         /** ************************************************************************************************************
         *   Creates a new wrapped sprite object from the specified sprite file.
         *
+        *   @param scene      The native babylon.JS scene.
         *   @param spriteFile The sprite file to create an instance from.
         *   @param position   The vector to place the sprite.
         *   @param width      The width of the sprite.
@@ -38,6 +38,7 @@
         ***************************************************************************************************************/
         public constructor
         (
+            scene      :BABYLON.Scene,
             spriteFile :bz.SpriteFile,
             position   :BABYLON.Vector3,
             width      :number,
@@ -62,7 +63,7 @@
                 const collisionWidth:number = ( width / 2 );
                 this.collider = bz.MeshFactory.createCylinder
                 (
-                    bz.Main.game.engine.scene.getScene(),
+                    scene,
                     position.clone(),
                     anchor,
                     collisionWidth,

@@ -119,11 +119,12 @@
         /** ************************************************************************************************************
         *   Being invoked when this game object is hurt by a shot or any other impact source.
         *
+        *   @param scene  The native babylon.JS scene.
         *   @param damage The damage to apply onto this game object.
         *   @param mesh   The mesh that received the damage.
         *                 May be <code>null</code> if the game object received global damage.
         ***************************************************************************************************************/
-        public hurt( damage:number, mesh:BABYLON.AbstractMesh ) : void
+        public hurt( scene:BABYLON.Scene, damage:number, mesh:BABYLON.AbstractMesh ) : void
         {
             // exit if unbreakable
             if ( this.energy === GameObject.UNBREAKABLE )
@@ -157,10 +158,10 @@
             }
 
             // try mesh face darkening
-            this.model.darkenMeshes( ( damage / this.initialEnergy ) );
+            this.model.darkenMeshes( scene, ( damage / this.initialEnergy ) );
 
             // shot off this mesh from the compound - if enabled by the model
-            this.model.shotOffCompound( mesh );
+            this.model.shotOffCompound( scene, mesh );
 
             // check if the object is destoyed now
             if ( this.energy === 0 )
@@ -170,7 +171,7 @@
                 bz.Debug.fire.log( 'Object is destroyed.' );
 
                 // scatter the model
-                this.model.removeCompoundMesh( bz.Main.game.engine.scene.getScene() );
+                this.model.removeCompoundMesh( scene );
             }
         }
     }

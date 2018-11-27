@@ -82,6 +82,7 @@
         {
             return new bz.Player
             (
+                this.scene,
                 new BABYLON.Vector3( 5.0, 0.0, 10.0 ),
                 45.0,
                 this.ambientColor
@@ -342,6 +343,7 @@
             // create and animate a sprite
             const animatedTestSprite:bz.Sprite = new bz.Sprite
             (
+                this.scene,
                 bz.SpriteFile.TEST,
                 new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
                 10.0,
@@ -357,6 +359,7 @@
 
                 new bz.Sprite
                 (
+                    this.scene,
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 0.0, 20.0  ),
                     10.0,

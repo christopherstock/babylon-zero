@@ -24,11 +24,13 @@
         /** ************************************************************************************************************
         *   Creates a new bullet hole.
         *
+        *   @param scene         The scene to create the bullet hole for.
         *   @param hitPoint      The hit pooint to create this bullet hole for.
         *   @param emissiveColor The emissive color of the level where this bullet hole is applied.
         ***************************************************************************************************************/
         public constructor
         (
+            scene         :BABYLON.Scene,
             hitPoint      :bz.HitPoint,
             emissiveColor :BABYLON.Color3,
         )
@@ -37,18 +39,18 @@
             this.emissiveColor = emissiveColor;
 
             // append a bullet hole
-            this.createHoleMesh();
+            this.createHoleMesh( scene );
 
             // append a debug bullet hole
             if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLES )
             {
-                this.createDebugHoleSphere();
+                this.createDebugHoleSphere( scene );
             }
 
             // append the debug hit face normal
             if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
             {
-                this.createDebugHoleNormalLine();
+                this.createDebugHoleNormalLine( scene );
             }
         }
 
@@ -65,14 +67,16 @@
 
         /** ************************************************************************************************************
         *   Creates a bullet hole mesh onto the hit point.
+        *
+        *   @param scene The scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createHoleMesh() : void
+        private createHoleMesh( scene:BABYLON.Scene ) : void
         {
             const meshTexture:bz.Texture = bz.Texture.getTextureFromMeshByName( this.hitPoint.getMesh() );
 
             this.holeMesh = bz.MeshFactory.createDecal
             (
-                bz.Main.game.engine.scene.getScene(),
+                scene,
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getMesh(),
                 this.hitPoint.getNormal(),
@@ -91,13 +95,15 @@
 
         /** ************************************************************************************************************
         *   Creates a debug bullet hole sphere onto this hit point.
+        *
+        *   @param scene The scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createDebugHoleSphere() : void
+        private createDebugHoleSphere( scene:BABYLON.Scene ) : void
         {
             // create debug bullet hole
             this.debugSphereMesh = bz.MeshFactory.createSphere
             (
-                bz.Main.game.engine.scene.getScene(),
+                scene,
                 this.hitPoint.getPoint().clone(),
                 bz.MeshPivotAnchor.CENTER_XYZ,
                 0.10,
@@ -115,13 +121,15 @@
 
         /** ************************************************************************************************************
         *   Creates a debug bullet hole normal line onto this hit point.
+        *
+        *   @param scene The scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createDebugHoleNormalLine() : void
+        private createDebugHoleNormalLine( scene:BABYLON.Scene ) : void
         {
             // create debug bullet hole
             this.debugNormalLine = bz.MeshFactory.createLine
             (
-                bz.Main.game.engine.scene.getScene(),
+                scene,
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.MeshPivotAnchor.CENTER_XYZ,

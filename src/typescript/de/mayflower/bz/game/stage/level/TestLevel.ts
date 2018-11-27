@@ -38,6 +38,7 @@
         {
             return new bz.Player
             (
+                this.scene,
                 new BABYLON.Vector3( 15.0, 0.0, 15.0 ),
                 225.0,
                 this.ambientColor
@@ -614,6 +615,7 @@
 
                 new bz.Sprite
                 (
+                    this.scene,
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -35.0  ),
                     10.0,
@@ -623,6 +625,7 @@
                 ),
                 new bz.Sprite
                 (
+                    this.scene,
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -20.0  ),
                     10.0,
@@ -632,6 +635,7 @@
                 ),
                 new bz.Sprite
                 (
+                    this.scene,
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -5.0  ),
                     10.0,
@@ -641,6 +645,7 @@
                 ),
                 new bz.Sprite
                 (
+                    this.scene,
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, 10.0  ),
                     10.0,
@@ -650,6 +655,7 @@
                 ),
                 new bz.Sprite
                 (
+                    this.scene,
                     bz.SpriteFile.TREE,
                     new BABYLON.Vector3( 45.0, 5.0, -25.0  ),
                     10.0,
