@@ -50,8 +50,8 @@
             // create native sprite
             this.sprite = new BABYLON.Sprite
             (
-                bz.Main.game.engine.spriteSystem.createNextSpriteId(),
-                bz.Main.game.engine.spriteSystem.getSpriteManager( spriteFile.fileName )
+                bz.Main.game.engine.scene.spriteSystem.createNextSpriteId(),
+                bz.Main.game.engine.scene.spriteSystem.getSpriteManager( spriteFile.fileName )
             );
             this.sprite.position = position.clone();
             this.sprite.width    = width;

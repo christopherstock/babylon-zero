@@ -108,7 +108,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
             (
                 scene,
                 texture,
@@ -210,7 +210,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
             (
                 scene,
                 texture,
@@ -277,7 +277,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
             (
                 scene,
                 texture,
@@ -357,7 +357,7 @@
             );
 
             bz.MeshManipulation.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
             (
                 scene,
                 texture,
@@ -497,7 +497,7 @@
                 0.0,
                 0.0
             );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
             (
                 scene,
                 null,
@@ -566,7 +566,7 @@
                 }
             );
 
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
             (
                 scene,
                 texture,
@@ -764,7 +764,7 @@
         )
         : bz.Model
         {
-            const originalModel :bz.Model = bz.Main.game.engine.modelImportSystem.getOriginalModel( fileName );
+            const originalModel :bz.Model = bz.Main.game.engine.scene.modelImportSystem.getOriginalModel( fileName );
             const clonedModel   :bz.Model = originalModel.clone();
 
             // translate cloned model by position

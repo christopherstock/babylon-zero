@@ -14,18 +14,6 @@
         /** The singleton scene. */
         public                      scene                       :bz.Scene                           = null;
 
-        // TODO move to Scene! Move Texture and rename to TextureSystem in addition!
-
-        /** The material system. */
-        public                      materialSystem              :bz.MaterialSystem                  = null;
-        /** The sprite system. */
-        public                      spriteSystem                :bz.SpriteSystem                    = null;
-        /** The mesh import system. */
-        public                      modelImportSystem           :bz.ModelImportSystem               = null;
-        /** The sound system. */
-        public                      soundSystem                 :bz.SoundSystem                     = null;
-
-
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;
         /** The babylon.JS engine. */
@@ -72,23 +60,6 @@
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
             this.scene.init( this.babylonEngine );
-
-            // TODO move all loader functions to Scene!
-
-            // init all materials
-            bz.Debug.init.log( 'Init materials' );
-            this.materialSystem = new bz.MaterialSystem();
-            this.materialSystem.init( this.scene.getScene() );
-
-            // init all sprites
-            bz.Debug.init.log( 'Init sprites' );
-            this.spriteSystem = new bz.SpriteSystem();
-            this.spriteSystem.init( this.scene.getScene() );
-
-            // init all sounds
-            bz.Debug.init.log( 'Init sounds' );
-            this.soundSystem = new bz.SoundSystem( bz.SoundFile.ALL_SOUND_FILES, this.onSoundsLoaded );
-            this.soundSystem.loadSounds( this.scene.getScene() );
         }
 
         /** ************************************************************************************************************
@@ -143,23 +114,6 @@
                 this.babylonEngine.stopRenderLoop( renderLoop );
             }
         }
-
-        /** ************************************************************************************************************
-        *   Being invoked when all sounds are loaded completely.
-        ***************************************************************************************************************/
-        private onSoundsLoaded=() : void =>
-        {
-            // TODO move all loader functions to Scene!
-
-            // init model importer
-            bz.Debug.init.log( 'Init model importer' );
-            this.modelImportSystem = new bz.ModelImportSystem
-            (
-                bz.ModelFile.ALL_MESH_FILES,
-                bz.Main.game.onInitGameEngineCompleted
-            );
-            this.modelImportSystem.loadModels( this.scene.getScene() );
-        };
 
         /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
