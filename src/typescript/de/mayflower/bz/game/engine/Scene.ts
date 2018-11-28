@@ -6,19 +6,19 @@
     *******************************************************************************************************************/
     export class Scene
     {
-        /** The material system. */
-        public                      materialSystem              :bz.MaterialSystem                  = null;
-        /** The sprite system. */
-        public                      spriteSystem                :bz.SpriteSystem                    = null;
-        /** The sound system. */
-        public                      soundSystem                 :bz.SoundSystem                     = null;
-        /** The mesh import system. */
-        public                      modelImportSystem           :bz.ModelImportSystem               = null;
-
         /** The current babylon.JS scene. */
         private                     babylonScene                :BABYLON.Scene                      = null;
         /** The physics plugin for the cannon.js physics engine. */
         private                     physicsPlugin               :BABYLON.CannonJSPlugin             = null;
+
+        /** The material system. */
+        private                     materialSystem              :bz.MaterialSystem                  = null;
+        /** The sprite system. */
+        private                     spriteSystem                :bz.SpriteSystem                    = null;
+        /** The sound system. */
+        private                     soundSystem                 :bz.SoundSystem                     = null;
+        /** The mesh import system. */
+        private                     modelSystem           :bz.ModelSystem               = null;
 
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
@@ -74,15 +74,55 @@
         *
         *   @return The babylon.JS scene.
         ***************************************************************************************************************/
-        public getScene() : BABYLON.Scene
+        public getNativeScene() : BABYLON.Scene
         {
             return this.babylonScene;
         }
 
         /** ************************************************************************************************************
+        *   Delivers the material system.
+        *
+        *   @return The material system.
+        ***************************************************************************************************************/
+        public getMaterialSystem() : bz.MaterialSystem
+        {
+            return this.materialSystem;
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the sprite system.
+        *
+        *   @return The sprite system.
+        ***************************************************************************************************************/
+        public getSpriteSystem() : bz.SpriteSystem
+        {
+            return this.spriteSystem;
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the model system.
+        *
+        *   @return The model system.
+        ***************************************************************************************************************/
+        public getModelSystem() : bz.ModelSystem
+        {
+            return this.modelSystem;
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the sound system.
+        *
+        *   @return The sound system.
+        ***************************************************************************************************************/
+        public getSoundSystem() : bz.SoundSystem
+        {
+            return this.soundSystem;
+        }
+
+        /** ************************************************************************************************************
         *   Renders the babylon.JS scene.
         ***************************************************************************************************************/
-        public renderScene() : void
+        public render() : void
         {
             this.babylonScene.render();
         }
@@ -104,11 +144,11 @@
         {
             // init model importer
             bz.Debug.init.log( 'Init model importer' );
-            this.modelImportSystem = new bz.ModelImportSystem
+            this.modelSystem = new bz.ModelSystem
             (
                 bz.ModelFile.ALL_MESH_FILES,
                 bz.Main.game.onInitGameEngineCompleted
             );
-            this.modelImportSystem.loadModels( this.babylonScene );
+            this.modelSystem.loadModels( this.babylonScene );
         };
     }

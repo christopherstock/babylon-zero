@@ -22,9 +22,9 @@
         /** ************************************************************************************************************
         *   Creates a new test office.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param scene The scene reference.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:bz.Scene )
         {
             super
             (
@@ -59,7 +59,7 @@
 
                 // explode compound spheres
                 this.gui.addGuiMessage( 'explode compound spheres [' + bz.String.getDateTimeString() + ']' );
-                this.compoundSpheres.removeCompoundMesh( this.scene );
+                this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
 
                 // try a camera journey for the stationary target camera
                 this.gui.addGuiMessage( 'start camera journey [' + bz.String.getDateTimeString() + ']' );
@@ -330,7 +330,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( this.scene, bz.SkyBoxFile.STORM, 1.0 );
+            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.STORM, 1.0 );
         }
 
         /** ************************************************************************************************************
@@ -496,7 +496,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene,
+                this.scene.getNativeScene(),
 
                 new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
                 new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
@@ -520,7 +520,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene );
+            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
             gui.init();
 
             return gui;

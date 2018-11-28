@@ -41,7 +41,7 @@
         ***************************************************************************************************************/
         public static createBox
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             pivotAnchor   :bz.MeshPivotAnchor,
             size          :BABYLON.Vector3,
@@ -104,13 +104,13 @@
 
                     faceUV: faceUV,
                 },
-                scene
+                scene.getNativeScene()
             );
 
             bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
-                scene,
+                scene.getNativeScene(),
                 texture,
                 true,
                 size.x,
@@ -124,7 +124,7 @@
 
             return MeshFactory.decorateMesh
             (
-                scene,
+                scene.getNativeScene(),
                 box,
                 rotation,
                 material,
@@ -153,7 +153,7 @@
         ***************************************************************************************************************/
         public static createCylinder
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             pivotAnchor   :bz.MeshPivotAnchor,
             diameter      :number,
@@ -206,13 +206,13 @@
 
                     faceUV:   faceUV,
                 },
-                scene
+                scene.getNativeScene()
             );
 
             bz.MeshManipulation.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
-                scene,
+                scene.getNativeScene(),
                 texture,
                 true,
                 diameter,
@@ -226,7 +226,7 @@
 
             return MeshFactory.decorateMesh
             (
-                scene,
+                scene.getNativeScene(),
                 cylinder,
                 rotation,
                 material,
@@ -254,7 +254,7 @@
         ***************************************************************************************************************/
         public static createSphere
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             pivotAnchor   :bz.MeshPivotAnchor,
             diameter      :number,
@@ -273,13 +273,13 @@
                 {
                     diameter: diameter,
                 },
-                scene
+                scene.getNativeScene()
             );
 
             bz.MeshManipulation.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
-                scene,
+                scene.getNativeScene(),
                 texture,
                 false,
                 diameter,
@@ -293,7 +293,7 @@
 
             return MeshFactory.decorateMesh
             (
-                scene,
+                scene.getNativeScene(),
                 sphere,
                 rotation,
                 material,
@@ -326,7 +326,7 @@
         ***************************************************************************************************************/
         public static createPlane
         (
-            scene           :BABYLON.Scene,
+            scene           :bz.Scene,
 
             position        :BABYLON.Vector3,
             pivotAnchor     :bz.MeshPivotAnchor,
@@ -353,13 +353,13 @@
                     height:          height,
                     sideOrientation: sideOrientation,
                 },
-                scene
+                scene.getNativeScene()
             );
 
             bz.MeshManipulation.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
-                scene,
+                scene.getNativeScene(),
                 texture,
                 false,
                 width,
@@ -373,7 +373,7 @@
 
             return MeshFactory.decorateMesh
             (
-                scene,
+                scene.getNativeScene(),
                 plane,
                 rotation,
                 material,
@@ -456,7 +456,7 @@
         ***************************************************************************************************************/
         public static createPolygon
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
 
             points        :BABYLON.Vector3[],
 
@@ -485,7 +485,7 @@
 */
                     depth: MeshFactory.FACE_DEPTH,
                 },
-                scene
+                scene.getNativeScene()
             );
 
             bz.MeshManipulation.setPositionAndPivot
@@ -497,9 +497,9 @@
                 0.0,
                 0.0
             );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.getMaterialSystem().createMaterial
             (
-                scene,
+                scene.getNativeScene(),
                 null,
                 false,
                 0.0,
@@ -511,7 +511,7 @@
 
             return MeshFactory.decorateMesh
             (
-                scene,
+                scene.getNativeScene(),
                 polygon,
                 rotation,
                 material,
@@ -540,7 +540,7 @@
         ***************************************************************************************************************/
         public static createDecal
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             parentMesh    :BABYLON.AbstractMesh,
             normal        :BABYLON.Vector3,
@@ -566,9 +566,9 @@
                 }
             );
 
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.materialSystem.createMaterial
+            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
-                scene,
+                scene.getNativeScene(),
                 texture,
                 true,
                 size.x,
@@ -585,7 +585,7 @@
 */
             return MeshFactory.decorateMesh
             (
-                scene,
+                scene.getNativeScene(),
                 decal,
                 null,
                 material,
@@ -756,7 +756,7 @@
         ***************************************************************************************************************/
         public static createImportedModel
         (
-            scene        :BABYLON.Scene,
+            scene        :bz.Scene,
             fileName     :string,
             position     :BABYLON.Vector3,
             physic       :bz.Physic,
@@ -764,7 +764,7 @@
         )
         : bz.Model
         {
-            const originalModel :bz.Model = bz.Main.game.engine.scene.modelImportSystem.getOriginalModel( fileName );
+            const originalModel :bz.Model = scene.getModelSystem().getOriginalModel( fileName );
             const clonedModel   :bz.Model = originalModel.clone();
 
             // translate cloned model by position
@@ -783,7 +783,7 @@
                     impostors.push( physic.createPhysicImpostorParams( ( 1.0 / originalModel.getMeshCount() ) ) );
                 }
             }
-            clonedModel.assignImpostors( scene, impostors );
+            clonedModel.assignImpostors( scene.getNativeScene(), impostors );
 
             // create compound parent if requested
             switch ( compoundType )

@@ -9,9 +9,9 @@
         /** ************************************************************************************************************
         *   Creates a new test level.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param scene The scene reference.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:bz.Scene )
         {
             super
             (
@@ -601,7 +601,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( this.scene, bz.SkyBoxFile.DARK_SKY, 0.15 );
+            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.DARK_SKY, 0.15 );
         }
 
         /** ************************************************************************************************************
@@ -680,7 +680,7 @@
                 // hemispheric light
                 bz.LightFactory.createHemispheric
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 0.1, 0.1, 0.1 ),
@@ -691,7 +691,7 @@
                 // directional light
                 bz.LightFactory.createDirectional
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
                     new BABYLON.Vector3( 20.0, 20.0, 20.0 ),
                     1.0,
@@ -703,7 +703,7 @@
                 // spot light
                 bz.LightFactory.createSpot
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
                     new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
                     30.0,
@@ -717,7 +717,7 @@
                 // point light
                 bz.LightFactory.createPoint
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 0.0, 0.0, 0.0 ),
@@ -764,7 +764,7 @@
         ***************************************************************************************************************/
         protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
         {
-            return new bz.PointerSystem( this.scene ).defaultPointerDown;
+            return new bz.PointerSystem( this.scene.getNativeScene() ).defaultPointerDown;
         }
 
         /** ************************************************************************************************************
@@ -776,7 +776,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene,
+                this.scene.getNativeScene(),
 
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
@@ -795,7 +795,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene );
+            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
             gui.init();
 
             return gui;

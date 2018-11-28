@@ -26,7 +26,7 @@
         /** ************************************************************************************************************
         *   Creates a new wrapped sprite object from the specified sprite file.
         *
-        *   @param scene      The native babylon.JS scene.
+        *   @param scene      The scene to create this sprite.
         *   @param spriteFile The sprite file to create an instance from.
         *   @param position   The vector to place the sprite.
         *   @param width      The width of the sprite.
@@ -38,7 +38,7 @@
         ***************************************************************************************************************/
         public constructor
         (
-            scene      :BABYLON.Scene,
+            scene      :bz.Scene,
             spriteFile :bz.SpriteFile,
             position   :BABYLON.Vector3,
             width      :number,
@@ -50,8 +50,8 @@
             // create native sprite
             this.sprite = new BABYLON.Sprite
             (
-                bz.Main.game.engine.scene.spriteSystem.createNextSpriteId(),
-                bz.Main.game.engine.scene.spriteSystem.getSpriteManager( spriteFile.fileName )
+                scene.getSpriteSystem().createNextSpriteId(),
+                scene.getSpriteSystem().getSpriteManager( spriteFile.fileName )
             );
             this.sprite.position = position.clone();
             this.sprite.width    = width;

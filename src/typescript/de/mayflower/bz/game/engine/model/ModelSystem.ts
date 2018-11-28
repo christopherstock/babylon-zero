@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Imports all .babylon model files from 3ds max.
     *******************************************************************************************************************/
-    export class ModelImportSystem
+    export class ModelSystem
     {
         /** All model file names to load. */
         private             readonly    fileNames                       :string[]                       = null;

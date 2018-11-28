@@ -21,9 +21,9 @@
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param scene The scene reference.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:bz.Scene )
         {
             super
             (
@@ -172,7 +172,7 @@
         {
             this.pointLight = bz.LightFactory.createPoint
             (
-                this.scene,
+                this.scene.getNativeScene(),
                 new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                 new BABYLON.Color3( 1.0, 1.0, 1.0 ),
@@ -218,7 +218,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene,
+                this.scene.getNativeScene(),
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
@@ -244,7 +244,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene );
+            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
             gui.init();
 
             return gui;

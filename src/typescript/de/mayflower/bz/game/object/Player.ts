@@ -53,14 +53,14 @@
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
-        *   @param scene         The native babylon.JS scene.
+        *   @param scene         The scene reference.
         *   @param position      The initial position.
         *   @param rotY          The initial rotation Y.
         *   @param emissiveColor The emissive color of all mesh faces.
         ***************************************************************************************************************/
         public constructor
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             rotY          :number,
             emissiveColor :BABYLON.Color3

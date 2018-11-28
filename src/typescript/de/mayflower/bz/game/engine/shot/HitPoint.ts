@@ -57,7 +57,7 @@
         *
         *   @return The bullet hole being caused by this impact.
         ***************************************************************************************************************/
-        public causeImpact( scene:BABYLON.Scene, emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
+        public causeImpact( scene:bz.Scene, emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
         {
             // create a bullet hole
             const bulletHole:bz.BulletHole = new bz.BulletHole
@@ -71,7 +71,7 @@
             this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
 
             // hurt the game object
-            this.gameObject.hurt( scene, damage, this.mesh );
+            this.gameObject.hurt( scene.getNativeScene(), damage, this.mesh );
 
             return bulletHole;
         }

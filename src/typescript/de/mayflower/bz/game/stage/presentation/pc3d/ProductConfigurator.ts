@@ -23,9 +23,9 @@
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param scene The scene reference.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:bz.Scene )
         {
             super
             (
@@ -123,7 +123,7 @@
 
                     bz.MeshManipulation.performAnimation
                     (
-                        this.scene,
+                        this.scene.getNativeScene(),
                         this.visor,
                         0,
                         20,
@@ -134,7 +134,7 @@
 
                             bz.MeshManipulation.performAnimation
                             (
-                                this.scene,
+                                this.scene.getNativeScene(),
                                 this.visor,
                                 20,
                                 21,
@@ -157,7 +157,7 @@
 
                     bz.MeshManipulation.performAnimation
                     (
-                        this.scene,
+                        this.scene.getNativeScene(),
                         this.visor,
                         20,
                         0,
@@ -283,7 +283,7 @@
         {
             this.directionalLight = bz.LightFactory.createDirectional
             (
-                this.scene,
+                this.scene.getNativeScene(),
                 new BABYLON.Vector3( 0.0, 0.0, 1.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 1.0,
@@ -332,7 +332,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene,
+                this.scene.getNativeScene(),
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 250.0, 0.0, 0.0 ),
@@ -351,7 +351,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this.scene, this );
+            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this.scene.getNativeScene(), this );
             gui.init();
 
             return gui;

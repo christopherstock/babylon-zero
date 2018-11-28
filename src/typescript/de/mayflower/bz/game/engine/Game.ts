@@ -93,7 +93,7 @@
 
             bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
 
-            const scene:BABYLON.Scene = this.engine.scene.getScene();
+            const scene:bz.Scene = this.engine.scene;
 
             switch ( targetStage )
             {
@@ -140,7 +140,7 @@
                 }
             }
 
-            scene.executeWhenReady( this.initSceneCompleted );
+            scene.getNativeScene().executeWhenReady( this.initSceneCompleted );
         }
 
         /** ************************************************************************************************************
@@ -163,7 +163,7 @@
             this.stage.render( this.pause );
 
             // render babylon.JS scene
-            this.engine.scene.renderScene();
+            this.engine.scene.render();
 
             // handle global keys ( pause, camera changes, level switches etc. )
             this.handleGlobalKeys();

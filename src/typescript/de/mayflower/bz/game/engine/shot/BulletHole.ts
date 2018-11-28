@@ -30,7 +30,7 @@
         ***************************************************************************************************************/
         public constructor
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             hitPoint      :bz.HitPoint,
             emissiveColor :BABYLON.Color3,
         )
@@ -70,7 +70,7 @@
         *
         *   @param scene The scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createHoleMesh( scene:BABYLON.Scene ) : void
+        private createHoleMesh( scene:bz.Scene ) : void
         {
             const meshTexture:bz.Texture = bz.Texture.getTextureFromMeshByName( this.hitPoint.getMesh() );
 
@@ -98,7 +98,7 @@
         *
         *   @param scene The scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createDebugHoleSphere( scene:BABYLON.Scene ) : void
+        private createDebugHoleSphere( scene:bz.Scene ) : void
         {
             // create debug bullet hole
             this.debugSphereMesh = bz.MeshFactory.createSphere
@@ -124,12 +124,12 @@
         *
         *   @param scene The scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createDebugHoleNormalLine( scene:BABYLON.Scene ) : void
+        private createDebugHoleNormalLine( scene:bz.Scene ) : void
         {
             // create debug bullet hole
             this.debugNormalLine = bz.MeshFactory.createLine
             (
-                scene,
+                scene.getNativeScene(),
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.MeshPivotAnchor.CENTER_XYZ,

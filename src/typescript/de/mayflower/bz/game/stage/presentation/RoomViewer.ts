@@ -9,9 +9,9 @@
         /** ************************************************************************************************************
         *   Creates a new room viewer stage.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param scene The scene reference.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:bz.Scene )
         {
             super
             (
@@ -76,7 +76,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxSphere( this.scene, bz.SkyBoxFile.DINING_ROOM, 1.0 );
+            return bz.MeshFactory.createSkyBoxSphere( this.scene.getNativeScene(), bz.SkyBoxFile.DINING_ROOM, 1.0 );
         }
 
         /** ************************************************************************************************************
@@ -133,7 +133,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene,
+                this.scene.getNativeScene(),
 
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -159,7 +159,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene );
+            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
             gui.init();
 
             return gui;

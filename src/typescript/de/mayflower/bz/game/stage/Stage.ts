@@ -7,8 +7,8 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The reference to the babylon.JS Scene. */
-        protected           readonly        scene                   :BABYLON.Scene                          = null;
+        /** The scene that represents this stage. */
+        protected           readonly        scene                   :bz.Scene                               = null;
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The clear color of this stage is the background color of all mesh materials. */
@@ -46,14 +46,14 @@
         /** ************************************************************************************************************
         *   Creates a new custom stage.
         *
-        *   @param scene         The babylon.JS scene reference.
+        *   @param scene         The scene representing this stage.
         *   @param ambientColor  The ambient color of the stage is the emissive color for all faces.
         *   @param clearColor    The clear color of the stage is the background color of the scene.
         *   @param initialCamera The initial camera for this stage.
         ***************************************************************************************************************/
         protected constructor
         (
-            scene         :BABYLON.Scene,
+            scene         :bz.Scene,
             ambientColor  :BABYLON.Color3,
             clearColor    :BABYLON.Color4,
             initialCamera :bz.CameraType
@@ -70,8 +70,8 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            this.scene.ambientColor = this.ambientColor;
-            this.scene.clearColor   = this.clearColor;
+            this.scene.getNativeScene().ambientColor = this.ambientColor;
+            this.scene.getNativeScene().clearColor   = this.clearColor;
 
             this.player             = this.createPlayer();
 
@@ -97,7 +97,7 @@
                 this.setupShadows();
             }
 
-            this.scene.onPointerDown = this.createPointerCallback();
+            this.scene.getNativeScene().onPointerDown = this.createPointerCallback();
 
             this.adjustGuiSizeToCanvasSize();
 
@@ -249,7 +249,7 @@
             this.cameraSystem.setActiveCamera
             (
                 cameraId,
-                this.scene,
+                this.scene.getNativeScene(),
                 bz.Main.game.engine.canvas.getCanvas(),
                 this.player,
                 this.gui
@@ -266,7 +266,7 @@
             // add debug line
             if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )
             {
-                this.debugMeshes.push( shot.createDebugLine( this.scene ) );
+                this.debugMeshes.push( shot.createDebugLine( this.scene.getNativeScene() ) );
             }
 
             // determine all hit points without hurting the game objects
@@ -434,7 +434,7 @@
                 // axis x
                 bz.MeshFactory.createLine
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                     new BABYLON.Vector3( bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0, 0.0 ),
                     bz.MeshPivotAnchor.LOWEST_XYZ,
@@ -445,7 +445,7 @@
                 // axis y
                 bz.MeshFactory.createLine
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                     new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH, 0.0 ),
                     bz.MeshPivotAnchor.LOWEST_XYZ,
@@ -456,7 +456,7 @@
                 // axis z
                 bz.MeshFactory.createLine
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_AXIS_LENGTH ),
                     bz.MeshPivotAnchor.LOWEST_XYZ,

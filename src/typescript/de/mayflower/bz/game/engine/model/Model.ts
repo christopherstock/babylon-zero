@@ -182,7 +182,7 @@
         *   @param position             The position for the compound parent to appear.
         *   @param enableSingleShotOffs Specifies if the compound enables single meshes to be shot off.
         ***************************************************************************************************************/
-        public addCompoundMesh( scene:BABYLON.Scene, position:BABYLON.Vector3, enableSingleShotOffs:boolean ) : void
+        public addCompoundMesh( scene:bz.Scene, position:BABYLON.Vector3, enableSingleShotOffs:boolean ) : void
         {
             this.enableSingleShotOffs = enableSingleShotOffs;
 
@@ -209,7 +209,7 @@
             // set physics for compound
             bz.Physic.COMPOUND.applyPhysicToMesh
             (
-                scene,
+                scene.getNativeScene(),
                 this.compoundMesh,
                 1.0,
                 BABYLON.PhysicsImpostor.BoxImpostor

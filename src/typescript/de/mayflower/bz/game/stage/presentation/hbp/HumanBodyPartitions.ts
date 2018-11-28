@@ -22,9 +22,9 @@
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
-        *   @param scene The babylon.JS scene reference.
+        *   @param scene The scene reference.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:bz.Scene )
         {
             super
             (
@@ -123,7 +123,12 @@
         protected createSkybox() : BABYLON.Mesh
         {
             // initial rotate skybox and disable it being picked
-            const skybox:BABYLON.Mesh = bz.MeshFactory.createSkyBoxCube( this.scene, bz.SkyBoxFile.BLUE_SKY, 1.0 );
+            const skybox:BABYLON.Mesh = bz.MeshFactory.createSkyBoxCube
+            (
+                this.scene.getNativeScene(),
+                bz.SkyBoxFile.BLUE_SKY,
+                1.0
+            );
             bz.MeshManipulation.setAbsoluteRotationXYZ( skybox, 0.0, 90.0, 0.0 );
             skybox.isPickable = false;
 
@@ -149,7 +154,7 @@
         {
             this.directionalLight = bz.LightFactory.createDirectional
             (
-                this.scene,
+                this.scene.getNativeScene(),
                 new BABYLON.Vector3( 0.0, 0.0, 1.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 1.0,
@@ -200,7 +205,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene,
+                this.scene.getNativeScene(),
 
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -218,7 +223,7 @@
         ***************************************************************************************************************/
         protected createGUI() : bz.GUI
         {
-            const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions( this.scene, this );
+            const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions( this.scene.getNativeScene(), this );
             gui.init();
 
             return gui;
