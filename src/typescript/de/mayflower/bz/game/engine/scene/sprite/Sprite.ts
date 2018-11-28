@@ -1,5 +1,5 @@
 
-    import * as bz from '../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   A wrapper class for babylon.JSs Sprite that offers additional functionality.

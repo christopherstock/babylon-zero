@@ -1,6 +1,6 @@
 
     import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Represents the Graphical User Interface of the pause screen / menu.

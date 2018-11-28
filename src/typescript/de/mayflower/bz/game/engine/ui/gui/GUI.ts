@@ -1,6 +1,6 @@
 
     import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Represents a Graphical User Interface that is displayed in the foreground of the screen.

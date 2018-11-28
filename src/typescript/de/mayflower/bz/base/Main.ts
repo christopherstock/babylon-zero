@@ -9,8 +9,8 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Hold 'Scene' in stage and remove global reference?
     *   TODO Move Scene to subpackage 'scene' with all required loaders!
+    *   TODO Hold 'Scene' in stage and remove global reference?
     *
     *   =====================
     *   TODO Human Body Partitions

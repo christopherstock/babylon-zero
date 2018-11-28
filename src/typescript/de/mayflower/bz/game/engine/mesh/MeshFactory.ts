@@ -497,7 +497,7 @@
                 0.0,
                 0.0
             );
-            const material:BABYLON.StandardMaterial = bz.Main.game.engine.scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
                 scene.getNativeScene(),
                 null,

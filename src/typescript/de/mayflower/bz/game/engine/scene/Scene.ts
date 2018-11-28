@@ -1,5 +1,5 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Wraps the native babylon.JS scene and physics engine and represents the game scene.
@@ -18,7 +18,7 @@
         /** The sound system. */
         private                     soundSystem                 :bz.SoundSystem                     = null;
         /** The mesh import system. */
-        private                     modelSystem           :bz.ModelSystem               = null;
+        private                     modelSystem                 :bz.ModelSystem                     = null;
 
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
