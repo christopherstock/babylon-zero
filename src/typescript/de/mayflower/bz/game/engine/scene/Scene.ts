@@ -40,7 +40,6 @@
                 bz.SettingStage.STAGE_GRAVITY_GLOBAL,
                 this.physicsPlugin
             );
-            this.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
 
             // set default scene clear color
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
@@ -129,13 +128,20 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets the time step for the physical engine.
+        *   Enables or disables physics for the native physics engine.
         *
-        *   @param timeStep The time step to set.
+        *   @param enabled Specifies if the physics engine shall be enabled or disabled.
         ***************************************************************************************************************/
-        public setPhysicalTimeStep( timeStep:number ) : void
+        public enablePhysics( enabled:boolean ) : void
         {
-            this.physicsPlugin.setTimeStep( timeStep );
+            if ( enabled )
+            {
+                this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
+            }
+            else
+            {
+                this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
+            }
         }
 
         /** ************************************************************************************************************

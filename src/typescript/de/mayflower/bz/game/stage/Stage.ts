@@ -43,6 +43,9 @@
         /** A collection of all debug meshes in this stage. */
         private                             debugMeshes             :BABYLON.Mesh[]                         = [];
 
+        /** Indicates pause state. */
+        private                             pause                   :boolean                                = false;
+
         /** ************************************************************************************************************
         *   Creates a new custom stage.
         *
@@ -97,10 +100,16 @@
                 this.setupShadows();
             }
 
+            // assign pointer callback
             this.scene.getNativeScene().onPointerDown = this.createPointerCallback();
 
+            // adjust GUI size
             this.adjustGuiSizeToCanvasSize();
 
+            // enable physics
+            this.scene.enablePhysics( true );
+
+            // invoke init complete callback
             this.onInitComplete();
         }
 
@@ -126,13 +135,11 @@
 
         /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
-        *
-        *   @param pause Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render( pause:boolean ) : void
+        public render() : void
         {
             // consider pause
-            if ( !pause )
+            if ( !this.pause )
             {
                 // handle level specific keys
                 this.handleLevelKeys();
@@ -162,7 +169,7 @@
             // render GUI if present
             if ( this.gui != null )
             {
-                this.gui.render( pause );
+                this.gui.render( this.pause );
             }
         }
 
@@ -305,29 +312,23 @@
         }
 
         /** ************************************************************************************************************
-        *   Alters the pause state for the GUI.
-        *
-        *   @param pause The pause state to set for the GUI.
+        *   Toggles the stage to the pause state or vice versa.
         ***************************************************************************************************************/
-        public setGuiPause( pause:boolean ) : void
+        public togglePause() : void
         {
-            if ( this.gui != null )
-            {
-                this.gui.setPauseGuiVisibility( pause );
-            }
-        }
+            // toggle pause
+            this.pause = !this.pause;
 
-        /** ************************************************************************************************************
-        *   Alters the pause state for all sprites.
-        *
-        *   @param pause The pause state to set for all sprites.
-        ***************************************************************************************************************/
-        public setSpritePause( pause:boolean ) : void
-        {
-            for ( const sprite of this.sprites )
-            {
-                sprite.setPause( pause );
-            }
+            bz.Debug.game.log( 'Toggle pause to [' + this.pause + ']');
+
+            // stop or resume physics engine
+            this.scene.enablePhysics( !this.pause );
+
+            // propagate pause state to gui
+            this.setGuiPause();
+
+            // propagate pause state to all stage sprites
+            this.setSpritePause();
         }
 
         /** ************************************************************************************************************
@@ -531,5 +532,29 @@
             }
 
             this.bulletHoles.push( bulletHole );
+        }
+
+        /** ************************************************************************************************************
+        *   Alters the pause state for the GUI.
+        ***************************************************************************************************************/
+        private setGuiPause() : void
+        {
+            if ( this.gui != null )
+            {
+                this.gui.setPauseGuiVisibility( this.pause );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Alters the pause state for all sprites.
+        *
+        *   @param pause The pause state to set for all sprites.
+        ***************************************************************************************************************/
+        private setSpritePause() : void
+        {
+            for ( const sprite of this.sprites )
+            {
+                sprite.setPause( this.pause );
+            }
         }
     }

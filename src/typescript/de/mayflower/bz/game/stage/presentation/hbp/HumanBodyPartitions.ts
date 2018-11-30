@@ -36,17 +36,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Renders all stage concernings for one tick of the game loop.
-        *
-        *   @param pause Specifies if the pause state is currently active.
-        ***************************************************************************************************************/
-        public render( pause:boolean ) : void
-        {
-            // invoke parent method
-            super.render( pause );
-        }
-
-        /** ************************************************************************************************************
         *   Handles level specific keys.
         ***************************************************************************************************************/
         protected handleLevelKeys() : void

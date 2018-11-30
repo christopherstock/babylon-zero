@@ -88,7 +88,7 @@
             {
                 case bz.GUIAction.RESUME_GAME:
                 {
-                    bz.Main.game.togglePause();
+                    bz.Main.game.stage.togglePause();
                     break;
                 }
 

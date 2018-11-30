@@ -9,7 +9,7 @@
     export class SettingEngine
     {
         /** The branding. */
-        public  static  readonly    BRANDING                                :bz.Branding        = new bz.BrandingComputy();
+        public  static  readonly    BRANDING                                :bz.Branding        = new bz.BrandingMayflower();
 
         /** The minimum canvas width. */
         public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;

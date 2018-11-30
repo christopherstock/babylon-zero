@@ -37,30 +37,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Renders all stage concernings for one tick of the game loop.
-        *
-        *   @param pause Specifies if the pause state is currently active.
-        ***************************************************************************************************************/
-        public render( pause:boolean ) : void
-        {
-            // invoke parent method
-            super.render( pause );
-/*
-            // rotate whole model
-            for ( const mesh of this.model )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ
-                (
-                    mesh,
-                    0.0,
-                    0.0,
-                    0.0
-                );
-            }
-*/
-        }
-
-        /** ************************************************************************************************************
         *   Changes the visir color.
         *
         *   @param color The color to set as the visor color.

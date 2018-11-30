@@ -38,13 +38,11 @@
 
         /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
-        *
-        *   @param pause Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render( pause:boolean ) : void
+        public render() : void
         {
             // invoke parent method
-            super.render( pause );
+            super.render();
 
             // rotate logo
             this.logo.setAbsoluteRotationXYZ

@@ -9,10 +9,15 @@
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem                    = null;
 
+
+
+
         // TODO outsource Scene to Stage etc.!
 
         /** The singleton scene. */
         public                      scene                       :bz.Scene                           = null;
+
+
 
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;

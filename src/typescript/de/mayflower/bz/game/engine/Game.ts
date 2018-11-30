@@ -11,9 +11,6 @@
         /** The current stage. */
         public                      stage                       :bz.Stage                   = null;
 
-        /** Indicates pause state. */
-        private                     pause                       :boolean                    = false;
-
         /** ************************************************************************************************************
         *   Inits the game from scratch.
         ***************************************************************************************************************/
@@ -36,35 +33,6 @@
         };
 
         /** ************************************************************************************************************
-        *   Toggles the game to the pause state or vice versa.
-        *
-        *   TODO move to stage later!
-        ***************************************************************************************************************/
-        public togglePause() : void
-        {
-            // toggle pause
-            this.pause = !this.pause;
-
-            bz.Debug.game.log( 'Toggle pause to [' + this.pause + ']');
-
-            // stop or resume physics engine
-            if ( this.pause )
-            {
-                this.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
-            }
-            else
-            {
-                this.engine.scene.setPhysicalTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
-            }
-
-            // propagate pause state to gui
-            this.stage.setGuiPause( this.pause );
-
-            // propagate pause state to all stage sprites
-            this.stage.setSpritePause( this.pause );
-        }
-
-        /** ************************************************************************************************************
         *   Switches the current stage to the specified target stage.
         *
         *   @param targetStage The target stage to switch to.
@@ -73,12 +41,6 @@
         {
             bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
-
-            // unpause if paused
-            if ( this.pause )
-            {
-                this.togglePause();
-            }
 
             // check existent stage unload
             if ( this.stage != null )
@@ -160,7 +122,7 @@
         private render=() : void =>
         {
             // render stage
-            this.stage.render( this.pause );
+            this.stage.render();
 
             // render babylon.JS scene
             this.engine.scene.render();
@@ -230,7 +192,7 @@
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
 
-                this.togglePause();
+                this.stage.togglePause();
             }
         }
     }
