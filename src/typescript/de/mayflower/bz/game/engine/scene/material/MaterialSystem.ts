@@ -28,7 +28,7 @@
         *
         *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public load(scene:BABYLON.Scene ) : void
+        public load( scene:BABYLON.Scene ) : void
         {
             // load all texture images
             for ( const texture of this.textures )

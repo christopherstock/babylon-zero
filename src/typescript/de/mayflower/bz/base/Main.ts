@@ -9,7 +9,6 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Move 'pause' to stage?
     *   TODO Hold 'Scene' in stage and remove global reference?
     *   TODO Enable loading only required resources for the current scene??
     *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.

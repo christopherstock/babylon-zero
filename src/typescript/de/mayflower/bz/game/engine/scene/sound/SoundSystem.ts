@@ -66,16 +66,21 @@
         *
         *   @param id   The ID of the audio object to play.
         *   @param loop Specifies if playback for this sound should be repeated infinitely.
+        *
+        *   @return The promise from the play call or <code>null</code> if no sound was played.
         ***************************************************************************************************************/
-        public playSound( id:string, loop:boolean = false ) : void
+        public playSound( id:string, loop:boolean = false ) : Promise<void>
         {
             if ( !bz.SettingDebug.DISABLE_SOUND )
             {
                 bz.Debug.sound.log( 'Playing sound [' + id + ']' );
 
                 this.sounds[ id ].loop = loop;
-                this.sounds[ id ].play();
+
+                return this.sounds[ id ].play();
             }
+
+            return null;
         }
 
         /** ************************************************************************************************************

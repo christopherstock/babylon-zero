@@ -5,6 +5,7 @@
     /** ****************************************************************************************************************
     *   The GUI part with the description panel.
     *******************************************************************************************************************/
+    // tslint:disable:max-line-length
     export class GUIHumanPartitionDescription
     {
         /** The left bottom body part descriptor panel. */

@@ -64,7 +64,7 @@
             // create the scene singleton
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
-            this.scene.init( this.babylonEngine );
+            this.scene.init( this.babylonEngine, bz.Main.game.onInitGameEngineCompleted );
         }
 
         /** ************************************************************************************************************

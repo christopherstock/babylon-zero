@@ -21,13 +21,19 @@
         /** The mesh import system. */
         private                     modelSystem                 :bz.ModelSystem                     = null;
 
+        /** The callback to invoke when the scene is fully loaded. */
+        private                     onLoadingComplete           :() => void                         = null;
+
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
         *
-        *   @param engine The babylon.JS engine instance.
+        *   @param engine            The babylon.JS engine instance.
+        *   @param onLoadingComplete The callback to invoke when the scene is fully loaded.
         ***************************************************************************************************************/
-        public init( engine:BABYLON.Engine ) : void
+        public init( engine:BABYLON.Engine, onLoadingComplete:() => void ) : void
         {
+            this.onLoadingComplete = onLoadingComplete;
+
             // create babylon.JS scene
             this.babylonScene = new BABYLON.Scene( engine );
 
@@ -154,7 +160,7 @@
             this.modelSystem = new bz.ModelSystem
             (
                 bz.ModelFile.ALL_MESH_FILES,
-                bz.Main.game.onInitGameEngineCompleted
+                this.onLoadingComplete
             );
             this.modelSystem.load( this.babylonScene );
         };

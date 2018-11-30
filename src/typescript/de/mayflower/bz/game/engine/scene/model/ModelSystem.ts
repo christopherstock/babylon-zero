@@ -73,7 +73,7 @@
                         this.onLoadModel();
                     },
                     null,
-                    ( scene:BABYLON.Scene, message:string, exception?:any ) => {
+                    ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
 
                         bz.Debug.init.err( 'ERROR on importing model [' + file + ']' );
 
