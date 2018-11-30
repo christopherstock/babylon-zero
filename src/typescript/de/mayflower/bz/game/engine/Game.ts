@@ -11,8 +11,8 @@
         /** The current stage. */
         public                      stage                       :bz.Stage                   = null;
 
-        /** The game scene. */
-        public                      scene                       :bz.Scene                   = null;
+        /** The current game scene. */
+        private                     scene                       :bz.Scene                   = null;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -99,6 +99,7 @@
                 }
             }
 
+            // specify callback to invoke when the scene is fully loaded
             this.scene.getNativeScene().executeWhenReady( this.initSceneCompleted );
         }
 
