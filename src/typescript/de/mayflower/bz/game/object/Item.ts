@@ -31,32 +31,44 @@
             super.render();
 
             // check if picked by player
-            this.checkPick( bz.Main.game.stage.getPlayer().getModel() );
+            if ( this.checkPick( bz.Main.game.stage.getPlayer().getModel() ) )
+            {
+                bz.Main.game.stage.addGuiFx( bz.GUIFxType.GAIN_ENERGY );
+            }
 
             // testwise rotate this item
-            this.model.setAbsoluteRotationXYZ
-            (
-                0.0,
-                this.rotY,
-                0.0
-            );
-            this.rotY += 0.5;
+            if ( !this.picked )
+            {
+                this.model.setAbsoluteRotationXYZ
+                (
+                    0.0,
+                    this.rotY,
+                    0.0
+                );
+                this.rotY += 0.5;
+            }
         }
 
         /** ************************************************************************************************************
         *   Checks if this item is picked by colliding with the specified model.
         *
         *   @param modelToCheck The model to check for collision with this item.
+        *
+        *   @return <code>true</code> if this item was picked.
         ***************************************************************************************************************/
-        private checkPick( modelToCheck:bz.Model ) : void
+        private checkPick( modelToCheck:bz.Model ) : boolean
         {
             if ( !this.picked )
             {
                 if ( this.model.intersects( modelToCheck ) )
                 {
                     this.pick();
+
+                    return true;
                 }
             }
+
+            return false;
         }
 
         /** ************************************************************************************************************

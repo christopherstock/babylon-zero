@@ -7,11 +7,13 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
-    *   TODO Refactorings
+    *   TODO Game improvements
     *   =====================
-    *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Enable loading only required resources for the current scene??
-    *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.
+    *   TODO Keep last selected pause menu item?
+    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
+    *   TODO Try babylon.JS animation system for camera journeys.
+    *   TODO Videos with paused physics and camera movements?
+    *   TODO Enable camera movements/animations.
     *
     *   =====================
     *   TODO Human Body Partitions
@@ -23,16 +25,6 @@
     *   TODO Change model.
     *
     *   =====================
-    *   TODO Game improvements
-    *   =====================
-    *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )
-    *   TODO Keep last selected pause menu item?
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
-    *   TODO Try babylon.JS animation system for camera journeys.
-    *   TODO Videos with paused physics and camera movements?
-    *   TODO Enable camera movements/animations.
-    *
-    *   =====================
     *   TODO Issues
     *   =====================
     *   TODO Smoothen player collisions on walls.
@@ -42,6 +34,14 @@
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
+    *
+    *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Enable loading only required resources for the current scene??
+    *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.
+    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *
     *   =====================
     *   TODO Sounds

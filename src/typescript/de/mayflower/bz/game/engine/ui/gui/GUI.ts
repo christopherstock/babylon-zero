@@ -13,15 +13,12 @@
         private             readonly        fpsText                 :BABYLON_GUI.TextBlock                  = null;
         /** The manager for GUI messages. */
         private             readonly        messageManager          :bz.GUIMessageManager                   = null;
+        /** The manager for GUI effects. */
+        private             readonly        fxManager               :bz.GUIFxManager                        = null;
 
         /** The pause GUI. */
         private             readonly        pauseGui                :bz.GUIPause                            = null;
-/*
-        // The GUI fx 'heal'
-        private             readonly        fxHeal                  :bz.GUIFx                               = null;
-        // The GUI fx 'pain'
-        private             readonly        fxPain                  :bz.GUIFx                               = null;
-*/
+
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
         *
@@ -53,8 +50,9 @@
             this.guiFg.addControl( this.fpsText );
             if ( !bz.SettingDebug.SHOW_FPS ) this.fpsText.isVisible = false;
 
-            // create the message manager
+            // create the message and fx managers
             this.messageManager = new bz.GUIMessageManager();
+            this.fxManager      = new bz.GUIFxManager();
         }
 
         /** ************************************************************************************************************
@@ -102,7 +100,9 @@
         public render( pause:boolean ) : void
         {
             this.updateFps();
+
             this.messageManager.render();
+            this.fxManager.render();
 
             if ( pause )
             {
@@ -118,6 +118,16 @@
         public addGuiMessage( msg:string ) : void
         {
             this.messageManager.addGuiMessage( this.guiFg, msg );
+        }
+
+        /** ************************************************************************************************************
+        *   Adds an effect to the fx queue.
+        *
+        *   @param type The type of GUI effect to add to the message queue.
+        ***************************************************************************************************************/
+        public addGuiFx( type:bz.GUIFxType ) : void
+        {
+            this.fxManager.addGuiFx( this.guiFg, type );
         }
 
         /** ************************************************************************************************************

@@ -11,6 +11,8 @@
         public  static  readonly    COLOR_CSS_TRANSPARENT                       :string             = 'rgba( 0,   0,   0,   0.0 )';
         /** The CSS color 'white' with full opacity. */
         public  static  readonly    COLOR_CSS_WHITE_OPAQUE                      :string             = 'rgba( 255, 255, 255, 1.0 )';
+        /** The CSS color 'red' with full opacity. */
+        public  static  readonly    COLOR_CSS_RED_OPAQUE                        :string             = 'rgba( 255, 0,   0,   1.0 )';
         /** The CSS color 'black' with full opacity. */
         public  static  readonly    COLOR_CSS_BLACK_OPAQUE                      :string             = 'rgba( 0,   0,   0,   1.0 )';
 

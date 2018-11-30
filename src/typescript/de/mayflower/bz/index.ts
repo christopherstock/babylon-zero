@@ -24,6 +24,10 @@
     export * from './game/engine/Engine';
     export * from './game/engine/Game';
 
+    export * from './game/engine/ui/gui/fx/GUIFx';
+    export * from './game/engine/ui/gui/fx/GUIFxManager';
+    export * from './game/engine/ui/gui/fx/GUIFxType';
+
     export * from './game/engine/ui/gui/menu/GUIAction';
     export * from './game/engine/ui/gui/menu/GUIMenu';
     export * from './game/engine/ui/gui/menu/GUIMenuItem';
