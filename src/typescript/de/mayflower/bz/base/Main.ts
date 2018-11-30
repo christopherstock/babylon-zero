@@ -7,10 +7,15 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Primal Lab
+    *   =====================
+    *   TODO Try PostProcessing (camera.setPostProcess ?)
+    *   TODO Try video textures (pc screen etc.)!
+    *
+    *   =====================
     *   TODO Game improvements
     *   =====================
     *   TODO Keep last selected pause menu item?
-    *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Try babylon.JS animation system for camera journeys.
     *   TODO Videos with paused physics and camera movements?
     *   TODO Enable camera movements/animations.
@@ -86,8 +91,6 @@
     *   =====================
     *   TODO The Lab
     *   =====================
-    *   TODO Try PostProcessing (camera.setPostProcess ?)
-    *   TODO Try video textures (pc screen etc.)!
     *   TODO Try dynamic textures: ( video in texture in front of screen for company presentation site .. )
     *   TODO Try 'worker thread collisions'?
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).

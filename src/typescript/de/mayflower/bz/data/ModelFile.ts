@@ -17,12 +17,16 @@
         public      static  readonly    SPHERE_1                :string                 = 'furniture/sphere1.babylon';
         /** The model 'double sphere 1'. */
         public      static  readonly    DOUBLE_SPHERE_1         :string                 = 'furniture/doubleSphere1.babylon';
+        /** The model 'crate'. */
+        public      static  readonly    CRATE                   :string                 = 'furniture/crate1.babylon';
+
+        /** The model 'shells'. */
+        public      static  readonly    SHELLS                  :string                 = 'item/shells.babylon';
+
         /** The model 'Mayflower Logo'. */
         public      static  readonly    MF_LOGO                 :string                 = 'presentation/mfLogo.babylon';
         /** The model 'motorcycle helmet'. */
         public      static  readonly    MOTORCYCLE_HELMET       :string                 = 'presentation/motorcycleHelmet.babylon';
-        /** The model 'shells'. */
-        public      static  readonly    SHELLS                  :string                 = 'item/shells.babylon';
         /** The model 'human body'. */
         public      static  readonly    HUMAN_BODY              :string                 = 'presentation/man1.babylon';
 
@@ -35,9 +39,12 @@
             ModelFile.SHELVES,
             ModelFile.SPHERE_1,
             ModelFile.DOUBLE_SPHERE_1,
+            ModelFile.CRATE,
+
+            ModelFile.SHELLS,
+
             ModelFile.MF_LOGO,
             ModelFile.MOTORCYCLE_HELMET,
-            ModelFile.SHELLS,
             ModelFile.HUMAN_BODY,
         ];
     }

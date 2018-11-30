@@ -143,6 +143,19 @@
                     this.compoundSpheres
                 ),
 
+                // crate
+                new bz.Wall
+                (
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.CRATE,
+                        new BABYLON.Vector3( 10.0, 30.0, 5.0 ),
+                        bz.Physic.LIGHT_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+
                 // 3ds chair single-meshed
                 new bz.Wall
                 (
