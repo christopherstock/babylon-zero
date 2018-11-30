@@ -11,6 +11,9 @@
         /** The current stage. */
         public                      stage                       :bz.Stage                   = null;
 
+        /** The game scene. */
+        public                      scene                       :bz.Scene                   = null;
+
         /** ************************************************************************************************************
         *   Inits the game from scratch.
         ***************************************************************************************************************/
@@ -18,19 +21,15 @@
         {
             bz.Debug.init.log( 'Init game engine' );
 
+            // init the engine
             this.engine = new bz.Engine();
             this.engine.init();
+
+            // init the scene
+            bz.Debug.init.log( 'Init scene' );
+            this.scene = new bz.Scene();
+            this.scene.init( this.engine.babylonEngine, this.onInitGameEngineCompleted );
         }
-
-        /** ************************************************************************************************************
-        *   Being invoked when the game engine is completely initialized.
-        ***************************************************************************************************************/
-        public onInitGameEngineCompleted=() : void =>
-        {
-            bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
-
-            this.switchStage( bz.SettingStage.STAGE_STARTUP );
-        };
 
         /** ************************************************************************************************************
         *   Switches the current stage to the specified target stage.
@@ -55,55 +54,63 @@
 
             bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
 
-            const scene:bz.Scene = this.engine.scene;
-
             switch ( targetStage )
             {
                 case bz.StageId.STAGE_TEST_OFFICE:
                 {
-                    this.stage = new bz.Office( scene );
+                    this.stage = new bz.Office( this.scene );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_TEST_LEVEL:
                 {
-                    this.stage = new bz.TestLevel( scene );
+                    this.stage = new bz.TestLevel( this.scene );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_ROOM_VIEWER:
                 {
-                    this.stage = new bz.RoomViewer( scene );
+                    this.stage = new bz.RoomViewer( this.scene );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_PRODUCT_CONFIGURATOR:
                 {
-                    this.stage = new bz.ProductConfigurator( scene );
+                    this.stage = new bz.ProductConfigurator( this.scene );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_INTRO_LOGO:
                 {
-                    this.stage = new bz.IntroLogo( scene );
+                    this.stage = new bz.IntroLogo( this.scene );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_HUMAN_BODY_PARTITIONS:
                 {
-                    this.stage = new bz.HumanBodyPartitions( scene );
+                    this.stage = new bz.HumanBodyPartitions( this.scene );
                     this.stage.init();
                     break;
                 }
             }
 
-            scene.getNativeScene().executeWhenReady( this.initSceneCompleted );
+            this.scene.getNativeScene().executeWhenReady( this.initSceneCompleted );
         }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the game engine is completely initialized.
+        ***************************************************************************************************************/
+        private onInitGameEngineCompleted=() : void =>
+        {
+            bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
+
+            this.switchStage( bz.SettingStage.STAGE_STARTUP );
+        };
 
         /** ************************************************************************************************************
         *   Being invoked when the scene is set up.
@@ -125,7 +132,7 @@
             this.stage.render();
 
             // render babylon.JS scene
-            this.engine.scene.render();
+            this.scene.render();
 
             // handle global keys ( pause, camera changes, level switches etc. )
             this.handleGlobalKeys();

@@ -8,21 +8,11 @@
     {
         /** The canvas system. */
         public                      canvas                      :bz.CanvasSystem                    = null;
-
-
-
-
-        // TODO outsource Scene to Stage etc.!
-
-        /** The singleton scene. */
-        public                      scene                       :bz.Scene                           = null;
-
-
-
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;
         /** The babylon.JS engine. */
-        private                     babylonEngine               :BABYLON.Engine                     = null;
+        public                      babylonEngine               :BABYLON.Engine                     = null;
+
         /** The custom loading screen. */
         private                     loadingScreen               :bz.LoadingScreen                   = null;
 
@@ -60,11 +50,6 @@
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );
             window.addEventListener( 'blur', this.onWindowBlur );
-
-            // create the scene singleton
-            bz.Debug.init.log( 'Init scene' );
-            this.scene = new bz.Scene();
-            this.scene.init( this.babylonEngine, bz.Main.game.onInitGameEngineCompleted );
         }
 
         /** ************************************************************************************************************
