@@ -9,8 +9,13 @@
     *   =====================
     *   TODO Primal Lab
     *   =====================
-    *   TODO Try PostProcessing (camera.setPostProcess ?)
-    *   TODO Try video textures (pc screen etc.)!
+    *   TODO Try PostProcessing (camera.setPostProcess):
+    *        https://doc.babylonjs.com/how_to/how_to_use_postprocesses
+    *        https://www.eternalcoding.com/?p=113
+    *
+    *   TODO Try video textures (pc screen etc.):
+    *        https://doc.babylonjs.com/how_to/video_texture
+    *
     *
     *   =====================
     *   TODO Game improvements
@@ -28,6 +33,17 @@
     *   TODO Fade Body Part Description in and out.
     *   TODO Improve color effect.
     *   TODO Change model.
+    *
+    *   =====================
+    *   TODO FX
+    *   =====================
+    *   TODO Add physically correct bullet drop out after fire.
+    *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
+    *   TODO Particle FX (physical) for wall rubble!
+    *   TODO Quick fire animation in bullet hole (for certain materials..)?
+    *   TODO Add explosion sprites.
+    *   TODO Create 3d gun as 2nd scene in front?
+    *   TODO Add muzzle flash to gun on firing.
     *
     *   =====================
     *   TODO Issues
@@ -54,17 +70,6 @@
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Check Perfect Dark and Goldeneye sound board.
-    *
-    *   =====================
-    *   TODO FX
-    *   =====================
-    *   TODO Add physically correct bullet drop out after fire.
-    *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
-    *   TODO Particle FX (physical) for wall rubble!
-    *   TODO Quick fire animation in bullet hole (for certain materials..)?
-    *   TODO Add explosion sprites.
-    *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Add muzzle flash to gun on firing.
     *
     *   =====================
     *   TODO Wearpons
