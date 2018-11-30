@@ -2,7 +2,8 @@
     import * as bz from '../../..';
 
     /** ****************************************************************************************************************
-    *   Wraps the native babylon.JS scene and physics engine and represents the game scene.
+    *   Represents the game scene. It wraps the native babylon.JS scene and physics engine
+    *   and contains loaders for all resource systems ( materials/textures, sprites, sounds, models ).
     *******************************************************************************************************************/
     export class Scene
     {
@@ -55,18 +56,18 @@
 
             // init all materials
             bz.Debug.init.log( 'Init materials' );
-            this.materialSystem = new bz.MaterialSystem();
-            this.materialSystem.init( this.babylonScene );
+            this.materialSystem = new bz.MaterialSystem( bz.Texture.ALL_TEXTURES );
+            this.materialSystem.load( this.babylonScene );
 
             // init all sprites
             bz.Debug.init.log( 'Init sprites' );
-            this.spriteSystem = new bz.SpriteSystem();
-            this.spriteSystem.init( this.babylonScene );
+            this.spriteSystem = new bz.SpriteSystem( bz.SpriteFile.ALL_SPRITE_FILES );
+            this.spriteSystem.load( this.babylonScene );
 
             // init all sounds
             bz.Debug.init.log( 'Init sounds' );
             this.soundSystem = new bz.SoundSystem( bz.SoundFile.ALL_SOUND_FILES, this.onSoundsLoaded );
-            this.soundSystem.loadSounds( this.babylonScene );
+            this.soundSystem.load( this.babylonScene );
         }
 
         /** ************************************************************************************************************
@@ -149,6 +150,6 @@
                 bz.ModelFile.ALL_MESH_FILES,
                 bz.Main.game.onInitGameEngineCompleted
             );
-            this.modelSystem.loadModels( this.babylonScene );
+            this.modelSystem.load( this.babylonScene );
         };
     }

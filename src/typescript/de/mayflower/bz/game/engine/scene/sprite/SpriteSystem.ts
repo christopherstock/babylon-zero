@@ -12,16 +12,29 @@
         /** Holds all sprite managers - one for each sprite file. */
         private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
 
+        /** All sprite files to load. */
+        private             readonly    filesToLoad                       :bz.SpriteFile[]            = [];
+
+        /** ************************************************************************************************************
+        *   Creates a new sprite system.
+        *
+        *   @param filesToLoad All sprite files to load.
+        ***************************************************************************************************************/
+        public constructor( filesToLoad:bz.SpriteFile[] )
+        {
+            this.filesToLoad = filesToLoad;
+        }
+
         /** ************************************************************************************************************
         *   Creates one sprite manager for each sprite file.
         *
         *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public init( scene:BABYLON.Scene ) : void
+        public load( scene:BABYLON.Scene ) : void
         {
-            for (let i:number = 0; i < bz.SpriteFile.ALL_SPRITE_FILES.length; ++i )
+            for ( let i:number = 0; i < this.filesToLoad.length; ++i )
             {
-                const spriteFile:bz.SpriteFile = bz.SpriteFile.ALL_SPRITE_FILES[ i ];
+                const spriteFile:bz.SpriteFile = this.filesToLoad[ i ];
 
                 this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
                 (

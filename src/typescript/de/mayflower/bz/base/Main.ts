@@ -9,8 +9,10 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Move Scene to subpackage 'scene' with all required loaders!
+    *   TODO Move 'pause' to stage?
     *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Enable loading only required resources for the current scene??
+    *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.
     *
     *   =====================
     *   TODO Human Body Partitions
@@ -25,13 +27,15 @@
     *   TODO Game improvements
     *   =====================
     *   TODO Add full HUD effects ( red for energy lost, white for energy gain etc. )
+    *   TODO Keep last selected pause menu item?
     *   TODO Enable fully ready 3d models with texture, materials, physics impostors and physics values?
     *   TODO Try babylon.JS animation system for camera journeys.
+    *   TODO Videos with paused physics and camera movements?
+    *   TODO Enable camera movements/animations.
     *
     *   =====================
     *   TODO Issues
     *   =====================
-    *   TODO Enable loading only required resources for the current scene??
     *   TODO Smoothen player collisions on walls.
     *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
     *   TODO Fix decals flickering in certain view angles ?
@@ -69,6 +73,7 @@
     *   =====================
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
+    *   TODO Create realistic models, lights and spacial sounds.
     *
     *   =====================
     *   TODO Characters

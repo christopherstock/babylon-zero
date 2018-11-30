@@ -31,7 +31,7 @@
         /** ************************************************************************************************************
         *   Loads all specified model files into system memory.
         ***************************************************************************************************************/
-        public loadModels( scene:BABYLON.Scene ) : void
+        public load( scene:BABYLON.Scene ) : void
         {
             bz.Debug.init.log( ' Importing [' + this.fileNames.length + '] model files' );
 

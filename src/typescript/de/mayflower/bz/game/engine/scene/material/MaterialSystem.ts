@@ -8,17 +8,30 @@
     export class MaterialSystem
     {
         /** Next ID to assign for material creation. */
-        private             static              nextMaterialId                  :number                     = 0;
+        private     static              nextMaterialId              :number                 = 0;
+
+        /** All textures to load. */
+        private             readonly    textures                    :bz.Texture[]           = [];
+
+        /** ************************************************************************************************************
+        *   Creates a new material system.
+        *
+        *   @param textures All textures to load.
+        ***************************************************************************************************************/
+        public constructor( textures:bz.Texture[] )
+        {
+            this.textures = textures;
+        }
 
         /** ************************************************************************************************************
         *   Inits all materials being used in the game.
         *
         *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public init( scene:BABYLON.Scene ) : void
+        public load(scene:BABYLON.Scene ) : void
         {
             // load all texture images
-            for ( const texture of bz.Texture.ALL_TEXTURES )
+            for ( const texture of this.textures )
             {
                 texture.loadTexture( scene );
             }
