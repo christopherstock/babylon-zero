@@ -7,17 +7,26 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Review
+    *   =====================
+    *   FIXED Remove bullet hole flickering for the 1st shot and initial camera position???
+    *   FIXED Fix decals flickering in certain view angles ?
+    *
+    *   =====================
     *   TODO Game improvements
     *   =====================
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Try babylon.JS animation system for camera journeys.
-    *   TODO Videos with paused physics and camera movements?
     *   TODO Enable camera movements/animations.
+    *
+    *   =====================
+    *   TODO New Stuff
+    *   =====================
+    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements?
     *
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.
     *   TODO Hold 'Scene' in stage and remove global reference?
     *   TODO Enable loading only required resources for the current scene??
     *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
@@ -25,15 +34,14 @@
     *   =====================
     *   TODO Primal Lab
     *   =====================
-    *   TODO Try PostProcessing (camera.setPostProcess): https://doc.babylonjs.com/how_to/how_to_use_postprocesses https://www.eternalcoding.com/?p=113
+    *   TODO Try PostProcessing (camera.setPostProcess): https://doc.babylonjs.com/how_to/how_to_use_postprocesses
+    *                                                    https://www.eternalcoding.com/?p=113
     *   TODO Try video textures (pc screen etc.): https://doc.babylonjs.com/how_to/video_texture
     *
     *   =====================
     *   TODO Issues
     *   =====================
     *   TODO Smoothen player collisions on walls.
-    *   TODO Remove bullet hole flickering for the 1st shot and initial camera position???
-    *   TODO Fix decals flickering in certain view angles ?
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..

@@ -305,10 +305,12 @@
         ***************************************************************************************************************/
         public adjustGuiSizeToCanvasSize() : void
         {
+            const canvasSystem:bz.CanvasSystem = bz.Main.game.getEngine().getCanvasSystem();
+
             this.gui.updateSize
             (
-                bz.Main.game.getEngine().getCanvasSystem().getWidth(),
-                bz.Main.game.getEngine().getCanvasSystem().getHeight()
+                canvasSystem.getWidth(),
+                canvasSystem.getHeight()
             );
         }
 

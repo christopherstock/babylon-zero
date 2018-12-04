@@ -533,6 +533,8 @@
             const CURRENT_WEARPON_MAX_ZOOM   :number = 0.5;
             const CURRENT_WEARPON_ZOOM_SPEED :number = 0.05;
 
+            const cameraSystem:bz.CameraSystem = bz.Main.game.getStage().getCameraSystem();
+
             if ( this.zoom )
             {
                 if ( this.fieldOfView > CURRENT_WEARPON_MAX_ZOOM )
@@ -544,7 +546,7 @@
                         this.fieldOfView = CURRENT_WEARPON_MAX_ZOOM;
                     }
 
-                    bz.Main.game.getStage().getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
+                    cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
                 }
             }
             else
@@ -558,7 +560,7 @@
                         this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
                     }
 
-                    bz.Main.game.getStage().getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
+                    cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
                 }
             }
         }
