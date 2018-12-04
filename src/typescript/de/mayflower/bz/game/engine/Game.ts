@@ -163,6 +163,8 @@
         ***************************************************************************************************************/
         private handleDebugMenuKeys() : void
         {
+            // camera switches
+
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
@@ -204,11 +206,20 @@
                 );
             }
 
+            // show pause menu
             if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
             {
                 this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
 
                 this.stage.togglePause();
+            }
+
+            // toggle physics
+            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_P ) )
+            {
+                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_P );
+
+                this.scene.togglePhysics();
             }
         }
     }

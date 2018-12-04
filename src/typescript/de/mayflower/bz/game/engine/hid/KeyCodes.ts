@@ -5,7 +5,7 @@
     export abstract class KeyCodes
     {
         /** The keycode that represents the 'ARROW LEFT' key. */
-        public      static  readonly    KEYP_LEFT                :string                         = 'ArrowLeft';
+        public      static  readonly    KEYP_LEFT               :string                         = 'ArrowLeft';
         /** The keycode that represents the 'ARROW UP' key. */
         public      static  readonly    KEY_UP                  :string                         = 'ArrowUp';
         /** The keycode that represents the 'ARROW RIGHT' key. */
@@ -36,6 +36,9 @@
         public      static  readonly    KEY_Y                   :string                         = 'KeyZ';
         /** The keycode that represents the 'X' key. */
         public      static  readonly    KEY_X                   :string                         = 'KeyX';
+
+        /** The keycode that represents the 'P' key. */
+        public      static  readonly    KEY_P                   :string                         = 'KeyP';
 
         /** The keycode that represents the 'ENTER' key. */
         public      static  readonly    KEY_ENTER               :string                         = 'Enter';

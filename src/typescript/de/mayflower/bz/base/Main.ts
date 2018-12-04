@@ -7,6 +7,14 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Game improvements
+    *   =====================
+    *   TODO Create alternate lower cylinder for player that toggles on ducking?
+    *   TODO Try babylon.JS animation system for camera journeys.
+    *   TODO Videos with paused physics and camera movements?
+    *   TODO Enable camera movements/animations.
+    *
+    *   =====================
     *   TODO Primal Lab
     *   =====================
     *   TODO Try PostProcessing (camera.setPostProcess):
@@ -15,14 +23,6 @@
     *
     *   TODO Try video textures (pc screen etc.):
     *        https://doc.babylonjs.com/how_to/video_texture
-    *
-    *   =====================
-    *   TODO Game improvements
-    *   =====================
-    *   TODO Keep last selected pause menu item?
-    *   TODO Try babylon.JS animation system for camera journeys.
-    *   TODO Videos with paused physics and camera movements?
-    *   TODO Enable camera movements/animations.
     *
     *   =====================
     *   TODO Issues

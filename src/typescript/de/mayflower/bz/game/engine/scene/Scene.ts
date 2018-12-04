@@ -24,6 +24,9 @@
         /** The callback to invoke when the scene is fully loaded. */
         private                     onLoadingComplete           :() => void                         = null;
 
+        /** Specifies if the physics are currently running. */
+        private                     physicsRunning              :boolean                            = false;
+
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
         *
@@ -38,7 +41,8 @@
             this.babylonScene = new BABYLON.Scene( engine );
 
             // create physics plugin
-            this.physicsPlugin = new BABYLON.CannonJSPlugin( true, 30 );
+            const ITERATIONS:number = 30;
+            this.physicsPlugin = new BABYLON.CannonJSPlugin( true, ITERATIONS );
 
             // enable physics engine
             this.babylonScene.enablePhysics
@@ -134,6 +138,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Toggles the state of the physics engine.
+        ***************************************************************************************************************/
+        public togglePhysics() : void
+        {
+            this.physicsRunning = !this.physicsRunning;
+
+            this.enablePhysics( this.physicsRunning );
+        }
+
+        /** ************************************************************************************************************
         *   Enables or disables physics for the native physics engine.
         *
         *   @param enabled Specifies if the physics engine shall be enabled or disabled.
@@ -143,10 +157,12 @@
             if ( enabled )
             {
                 this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
+                this.physicsRunning = true;
             }
             else
             {
                 this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
+                this.physicsRunning = false;
             }
         }
 
