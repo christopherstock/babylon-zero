@@ -30,15 +30,15 @@
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
         *
-        *   @param engine            The babylon.JS engine instance.
+        *   @param scene             The new babylon.JS scene.
         *   @param onLoadingComplete The callback to invoke when the scene is fully loaded.
         ***************************************************************************************************************/
-        public init( engine:BABYLON.Engine, onLoadingComplete:() => void ) : void
+        public init( scene:BABYLON.Scene, onLoadingComplete:() => void ) : void
         {
             this.onLoadingComplete = onLoadingComplete;
 
             // create babylon.JS scene
-            this.babylonScene = new BABYLON.Scene( engine );
+            this.babylonScene = scene;
 
             // create physics plugin
             const ITERATIONS:number = 30;

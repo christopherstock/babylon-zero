@@ -15,14 +15,18 @@
     *   TODO Enable camera movements/animations.
     *
     *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.
+    *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Enable loading only required resources for the current scene??
+    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
+    *
+    *   =====================
     *   TODO Primal Lab
     *   =====================
-    *   TODO Try PostProcessing (camera.setPostProcess):
-    *        https://doc.babylonjs.com/how_to/how_to_use_postprocesses
-    *        https://www.eternalcoding.com/?p=113
-    *
-    *   TODO Try video textures (pc screen etc.):
-    *        https://doc.babylonjs.com/how_to/video_texture
+    *   TODO Try PostProcessing (camera.setPostProcess): https://doc.babylonjs.com/how_to/how_to_use_postprocesses https://www.eternalcoding.com/?p=113
+    *   TODO Try video textures (pc screen etc.): https://doc.babylonjs.com/how_to/video_texture
     *
     *   =====================
     *   TODO Issues
@@ -34,14 +38,6 @@
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
-    *
-    *   =====================
-    *   TODO Refactorings
-    *   =====================
-    *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Enable loading only required resources for the current scene??
-    *   TODO Minimize accesses to Main.game and Main.game.scene and Main.game.engine.
-    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *
     *   =====================
     *   TODO Sounds

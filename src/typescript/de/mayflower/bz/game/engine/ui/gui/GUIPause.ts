@@ -99,7 +99,7 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            this.handlePauseKeys();
+            this.handlePauseKeys( bz.Main.game.engine.keySystem );
         }
 
         /** ************************************************************************************************************
@@ -124,36 +124,38 @@
 
         /** ************************************************************************************************************
         *   Handles pressed keys in the pause menu.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handlePauseKeys() : void
+        private handlePauseKeys( keySystem:bz.KeySystem ) : void
         {
             if
             (
-                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W  )
-                ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
+                    keySystem.isPressed( bz.KeyCodes.KEY_W  )
+                ||  keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_W  );
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_UP );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_W  );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_UP );
 
                 this.menu.selectPreviousItem();
             }
 
             if
             (
-                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S    )
-                ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
+                    keySystem.isPressed( bz.KeyCodes.KEY_S    )
+                ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_S    );
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_DOWN );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_S    );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_DOWN );
 
                 this.menu.selectNextItem();
             }
 
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
                 this.menu.performMenuItem();
             }

@@ -28,7 +28,7 @@
             // init the scene
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
-            this.scene.init( this.engine.babylonEngine, this.onInitGameEngineCompleted );
+            this.scene.init( this.engine.createNewScene(), this.onInitGameEngineCompleted );
         }
 
         /** ************************************************************************************************************
@@ -140,85 +140,72 @@
             // render stage
             this.stage.render();
 
-            // render babylon.JS scene
+            // render scene
             this.scene.render();
 
             // handle global keys ( pause, camera changes, level switches etc. )
-            this.handleGlobalKeys();
+            this.handleGlobalKeys( this.engine.keySystem );
         };
 
         /** ************************************************************************************************************
         *   Handles all keys for the menu.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handleGlobalKeys() : void
+        private handleGlobalKeys( keySystem:bz.KeySystem ) : void
         {
-            if ( bz.SettingDebug.ENABLE_MENU_DEBUG_KEYS )
+            if ( bz.SettingDebug.ENABLE_DEBUG_KEYS )
             {
-                this.handleDebugMenuKeys()
+                this.handleDebugKeys( keySystem );
             }
         }
 
         /** ************************************************************************************************************
         *   Handles all debug keys in the menu state.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handleDebugMenuKeys() : void
+        private handleDebugKeys( keySystem:bz.KeySystem ) : void
         {
             // camera switches
 
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
-                this.stage.setActiveCamera
-                (
-                    bz.CameraType.FREE_DEBUG
-                );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
+                this.stage.setActiveCamera( bz.CameraType.FREE_DEBUG );
             }
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
-                this.stage.setActiveCamera
-                (
-                    bz.CameraType.STATIONARY
-                );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
+                this.stage.setActiveCamera( bz.CameraType.STATIONARY );
             }
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_3 );
-                this.stage.setActiveCamera
-                (
-                    bz.CameraType.FOLLOW
-                );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_3 );
+                this.stage.setActiveCamera( bz.CameraType.FOLLOW );
             }
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
-                this.stage.setActiveCamera
-                (
-                    bz.CameraType.FIRST_PERSON
-                );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
+                this.stage.setActiveCamera( bz.CameraType.FIRST_PERSON );
             }
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_5 ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_5 ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_5 );
-                this.stage.setActiveCamera
-                (
-                    bz.CameraType.ARC_ROTATE
-                );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_5 );
+                this.stage.setActiveCamera( bz.CameraType.ARC_ROTATE );
             }
 
-            // show pause menu
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
+            // toggle pause menu
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
-
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
                 this.stage.togglePause();
             }
 
             // toggle physics
-            if ( this.engine.keySystem.isPressed( bz.KeyCodes.KEY_P ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_P ) )
             {
-                this.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_P );
-
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_P );
                 this.scene.togglePhysics();
             }
         }

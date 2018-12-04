@@ -165,7 +165,7 @@
         public render() : void
         {
             // handle keys
-            this.handleKeys();
+            this.handleKeys( bz.Main.game.engine.keySystem );
 
             // jump
             this.checkJump();
@@ -210,20 +210,22 @@
 
         /** ************************************************************************************************************
         *   Handles all keys for the player.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handleKeys() : void
+        private handleKeys( keySystem:bz.KeySystem ) : void
         {
             // move forewards and backwards
             if
             (
-                   bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_W  )
-                // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_UP )
+                   keySystem.isPressed( bz.KeyCodes.KEY_W  )
+                // || keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
                 let speedForward:number = 0;
 
                 // probably run
-                if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )
+                if ( keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )
                 {
                     speedForward = bz.SettingPlayer.PLAYER_SPEED_RUN;
                 }
@@ -243,8 +245,8 @@
             }
             if
             (
-                    bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_S )
-                // ||  bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
+                    keySystem.isPressed( bz.KeyCodes.KEY_S )
+                // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
                 this.moveDelta.x -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotation.y );
@@ -260,8 +262,8 @@
             // strave
             if
             (
-                   bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_A    )
-                // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
+                   keySystem.isPressed( bz.KeyCodes.KEY_A    )
+                // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
             )
             {
                 this.moveDelta.x -= bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
@@ -269,8 +271,8 @@
             }
             if
             (
-                   bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_D     )
-                // || bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
+                   keySystem.isPressed( bz.KeyCodes.KEY_D     )
+                // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
             )
             {
                 this.moveDelta.x += bz.SettingPlayer.PLAYER_SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
@@ -278,51 +280,51 @@
             }
 
             // turn Y
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
                 this.rotationDelta.y = -bz.SettingPlayer.PLAYER_SPEED_TURN;
             }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_E ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_E ) )
             {
                 this.rotationDelta.y = bz.SettingPlayer.PLAYER_SPEED_TURN;
             }
 
             // look up / down
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_R ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_R ) )
             {
                 this.rotationDelta.z = -bz.SettingPlayer.PLAYER_SPEED_LOOK_UP_DOWN;
             }
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_F ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_F ) )
             {
                 this.rotationDelta.z = bz.SettingPlayer.PLAYER_SPEED_LOOK_UP_DOWN;
             }
 
             // fire
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_CTRL_LEFT ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_CTRL_LEFT ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_CTRL_LEFT );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_CTRL_LEFT );
 
                 this.fire = true;
             }
 
             // duck
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_Y ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_Y ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_Y );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_Y );
 
                 this.toggleDuck();
             }
 
             // jump
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
 
                 this.assignJump();
             }
 
             // zoom
-            this.zoom = bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_X );
+            this.zoom = keySystem.isPressed( bz.KeyCodes.KEY_X );
         }
 
         /** ************************************************************************************************************

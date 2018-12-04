@@ -10,9 +10,9 @@
         public                      canvas                      :bz.CanvasSystem                    = null;
         /** The key system. */
         public                      keySystem                   :bz.KeySystem                       = null;
-        /** The babylon.JS engine. */
-        public                      babylonEngine               :BABYLON.Engine                     = null;
 
+        /** The babylon.JS engine. */
+        private                     babylonEngine               :BABYLON.Engine                     = null;
         /** The custom loading screen. */
         private                     loadingScreen               :bz.LoadingScreen                   = null;
 
@@ -103,6 +103,16 @@
 
                 this.babylonEngine.stopRenderLoop( renderLoop );
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Creates a new babylon.JS native scene.
+        *
+        *   @return The native babylon.JS scene created from the native babylon.JS engine.
+        ***************************************************************************************************************/
+        public createNewScene() : BABYLON.Scene
+        {
+            return new BABYLON.Scene( this.babylonEngine );
         }
 
         /** ************************************************************************************************************

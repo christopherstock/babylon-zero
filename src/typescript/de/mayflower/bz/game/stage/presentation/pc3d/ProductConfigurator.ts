@@ -156,12 +156,14 @@
 
         /** ************************************************************************************************************
         *   Handles level specific keys.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected handleLevelKeys() : void
+        protected handleLevelKeys( keySystem:bz.KeySystem ) : void
         {
-            if ( bz.Main.game.engine.keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
-                bz.Main.game.engine.keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
                 this.gui.addGuiMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
 

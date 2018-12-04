@@ -152,7 +152,7 @@
             if ( !this.pause )
             {
                 // handle level specific keys
-                this.handleLevelKeys();
+                this.handleLevelKeys( bz.Main.game.engine.keySystem );
 
                 // render player
                 if ( this.player != null )
@@ -176,11 +176,8 @@
                 this.cameraSystem.render();
             }
 
-            // render GUI if present
-            if ( this.gui != null )
-            {
-                this.gui.render( this.pause );
-            }
+            // render GUI
+            this.gui.render( this.pause );
         }
 
         /** ************************************************************************************************************
@@ -252,10 +249,7 @@
             this.cameraSystem.dispose();
 
             // dispose GUI
-            if ( this.gui != null )
-            {
-                this.gui.dispose();
-            }
+            this.gui.dispose();
         }
 
         /** ************************************************************************************************************
@@ -311,14 +305,11 @@
         ***************************************************************************************************************/
         public adjustGuiSizeToCanvasSize() : void
         {
-            if ( this.gui != null )
-            {
-                this.gui.updateSize
-                (
-                    bz.Main.game.engine.canvas.getWidth(),
-                    bz.Main.game.engine.canvas.getHeight()
-                );
-            }
+            this.gui.updateSize
+            (
+                bz.Main.game.engine.canvas.getWidth(),
+                bz.Main.game.engine.canvas.getHeight()
+            );
         }
 
         /** ************************************************************************************************************
@@ -363,8 +354,10 @@
 
         /** ************************************************************************************************************
         *   Handles level specific keys.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected abstract handleLevelKeys() : void;
+        protected abstract handleLevelKeys( keySystem:bz.KeySystem ) : void;
 
         /** ************************************************************************************************************
         *   Sets up the player for this stage.
@@ -569,10 +562,7 @@
         ***************************************************************************************************************/
         private setGuiPause() : void
         {
-            if ( this.gui != null )
-            {
-                this.gui.setPauseGuiVisibility( this.pause );
-            }
+            this.gui.setPauseGuiVisibility( this.pause );
         }
 
         /** ************************************************************************************************************

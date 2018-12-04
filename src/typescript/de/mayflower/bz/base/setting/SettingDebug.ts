@@ -16,7 +16,7 @@
         /** Enabled collisions for the free debug camera. */
         public      static      ENABLE_COLLISIONS_FOR_DEBUG_CAMERA          :boolean            = ( false && SettingDebug.DEBUG_MODE );
         /** Enabled menu debug keys for switching camera and stages. */
-        public      static      ENABLE_MENU_DEBUG_KEYS                      :boolean            = ( true  && SettingDebug.DEBUG_MODE );
+        public      static      ENABLE_DEBUG_KEYS                      :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 
         /** Show the bounding boxes for all meshes. */
         public      static      SHOW_MESH_BOUNDING_BOXES                    :boolean            = ( false && SettingDebug.DEBUG_MODE );
