@@ -165,7 +165,7 @@
         public render() : void
         {
             // handle keys
-            this.handleKeys( bz.Main.game.engine.keySystem );
+            this.handleKeys( bz.Main.game.engine.getKeySystem() );
 
             // jump
             this.checkJump();

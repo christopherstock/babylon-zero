@@ -144,7 +144,7 @@
             this.scene.render();
 
             // handle global keys ( pause, camera changes, level switches etc. )
-            this.handleGlobalKeys( this.engine.keySystem );
+            this.handleGlobalKeys( this.engine.getKeySystem() );
         };
 
         /** ************************************************************************************************************

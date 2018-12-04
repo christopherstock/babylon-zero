@@ -7,10 +7,9 @@
     export class Engine
     {
         /** The canvas system. */
-        public                      canvas                      :bz.CanvasSystem                    = null;
+        private                     canvasSystem                :bz.CanvasSystem                    = null;
         /** The key system. */
-        public                      keySystem                   :bz.KeySystem                       = null;
-
+        private                     keySystem                   :bz.KeySystem                       = null;
         /** The babylon.JS engine. */
         private                     babylonEngine               :BABYLON.Engine                     = null;
         /** The custom loading screen. */
@@ -22,15 +21,15 @@
         public init() : void
         {
             bz.Debug.init.log( 'Init canvas' );
-            this.canvas = new bz.CanvasSystem();
-            this.canvas.updateDimensions();
+            this.canvasSystem = new bz.CanvasSystem();
+            this.canvasSystem.updateDimensions();
 
             // create custom loading screen
-            this.loadingScreen = new bz.LoadingScreen( this.canvas.getCanvas() );
+            this.loadingScreen = new bz.LoadingScreen( this.canvasSystem.getCanvas() );
 
             // init babylon.JS engine, set and show custom loading screen
             bz.Debug.init.log( 'Init babylon.JS engine' );
-            this.babylonEngine = new BABYLON.Engine( this.canvas.getCanvas(), true );
+            this.babylonEngine = new BABYLON.Engine( this.canvasSystem.getCanvas(), true );
             if ( bz.SettingEngine.CUSTOM_LOADING_SCREEN )
             {
                 this.babylonEngine.loadingScreen = this.loadingScreen;
@@ -116,6 +115,26 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns the canvas system.
+        *
+        *   @return The canvas system.
+        ***************************************************************************************************************/
+        public getCanvasSystem() : bz.CanvasSystem
+        {
+            return this.canvasSystem;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the key system.
+        *
+        *   @return The key system.
+        ***************************************************************************************************************/
+        public getKeySystem() : bz.KeySystem
+        {
+            return this.keySystem;
+        }
+
+        /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
         ***************************************************************************************************************/
         private onWindowResize=() : void =>
@@ -124,7 +143,7 @@
             this.loadingScreen.resizeLoadingDivToCanvasDimensions();
 
             // update canvas dimensions and check if they actually changed
-            const dimensionsChanged:boolean = this.canvas.updateDimensions();
+            const dimensionsChanged:boolean = this.canvasSystem.updateDimensions();
 
             if ( dimensionsChanged )
             {
