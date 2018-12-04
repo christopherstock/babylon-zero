@@ -92,37 +92,37 @@
                     break;
                 }
 
-                case bz.GUIAction.SWITCH_TO_LEVEL_1:
+                case bz.GUIAction.SWITCH_TO_STAGE_1:
                 {
                     bz.Main.game.switchStage( bz.StageId.STAGE_TEST_OFFICE );
                     break;
                 }
 
-                case bz.GUIAction.SWITCH_TO_LEVEL_2:
+                case bz.GUIAction.SWITCH_TO_STAGE_2:
                 {
                     bz.Main.game.switchStage( bz.StageId.STAGE_TEST_LEVEL );
                     break;
                 }
 
-                case bz.GUIAction.SWITCH_TO_LEVEL_3:
+                case bz.GUIAction.SWITCH_TO_STAGE_3:
                 {
                     bz.Main.game.switchStage( bz.StageId.STAGE_ROOM_VIEWER );
                     break;
                 }
 
-                case bz.GUIAction.SWITCH_TO_LEVEL_4:
+                case bz.GUIAction.SWITCH_TO_STAGE_4:
                 {
                     bz.Main.game.switchStage( bz.StageId.STAGE_PRODUCT_CONFIGURATOR );
                     break;
                 }
 
-                case bz.GUIAction.SWITCH_TO_LEVEL_5:
+                case bz.GUIAction.SWITCH_TO_STAGE_5:
                 {
                     bz.Main.game.switchStage( bz.StageId.STAGE_INTRO_LOGO );
                     break;
                 }
 
-                case bz.GUIAction.SWITCH_TO_LEVEL_6:
+                case bz.GUIAction.SWITCH_TO_STAGE_6:
                 {
                     bz.Main.game.switchStage( bz.StageId.STAGE_HUMAN_BODY_PARTITIONS );
                     break;

@@ -16,7 +16,6 @@
     *   TODO Try video textures (pc screen etc.):
     *        https://doc.babylonjs.com/how_to/video_texture
     *
-    *
     *   =====================
     *   TODO Game improvements
     *   =====================
@@ -24,26 +23,6 @@
     *   TODO Try babylon.JS animation system for camera journeys.
     *   TODO Videos with paused physics and camera movements?
     *   TODO Enable camera movements/animations.
-    *
-    *   =====================
-    *   TODO Human Body Partitions
-    *   =====================
-    *   TODO Control for camera rotation?
-    *   TODO Limit camera (y axis) (alpha).
-    *   TODO Fade Body Part Description in and out.
-    *   TODO Improve color effect.
-    *   TODO Change model.
-    *
-    *   =====================
-    *   TODO FX
-    *   =====================
-    *   TODO Add physically correct bullet drop out after fire.
-    *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
-    *   TODO Particle FX (physical) for wall rubble!
-    *   TODO Quick fire animation in bullet hole (for certain materials..)?
-    *   TODO Add explosion sprites.
-    *   TODO Create 3d gun as 2nd scene in front?
-    *   TODO Add muzzle flash to gun on firing.
     *
     *   =====================
     *   TODO Issues
@@ -80,6 +59,26 @@
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..
     *
     *   =====================
+    *   TODO FX
+    *   =====================
+    *   TODO Add physically correct bullet drop out after fire.
+    *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
+    *   TODO Particle FX (physical) for wall rubble!
+    *   TODO Quick fire animation in bullet hole (for certain materials..)?
+    *   TODO Add explosion sprites.
+    *   TODO Create 3d gun as 2nd scene in front?
+    *   TODO Add muzzle flash to gun on firing.
+    *
+    *   =====================
+    *   TODO Human Body Partitions
+    *   =====================
+    *   TODO Control for camera rotation?
+    *   TODO Limit camera (y axis) (alpha).
+    *   TODO Fade Body Part Description in and out.
+    *   TODO Improve color effect.
+    *   TODO Change model.
+    *
+    *   =====================
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
@@ -88,10 +87,10 @@
     *   TODO Characters
     *   =====================
     *   TODO Create (different?) characters from primitives or mesh objects??
-    *   TODO Create class Bot that represents an enemy with one field for attitude.
     *   TODO Create class Character, the abstract class of Player and Bot.
     *   TODO Checkout babylon.JS bones and skeletons?
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
+    *   TODO Create class Bot that represents an enemy with one field for attitude.
     *
     *   =====================
     *   TODO The Lab
@@ -105,7 +104,6 @@
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
     *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
-    *
     *******************************************************************************************************************/
     export class Main
     {

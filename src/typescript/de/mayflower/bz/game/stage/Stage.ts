@@ -342,6 +342,26 @@
         }
 
         /** ************************************************************************************************************
+        *   Delivers the current selected index of the pause menu.
+        *
+        *   @return The current active pause menu index.
+        ***************************************************************************************************************/
+        public getPauseMenuIndex() : number
+        {
+            return this.gui.getPauseMenuIndex();
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the active index for the pause menu.
+        *
+        *   @param index The index of the pause menu item to set.
+        ***************************************************************************************************************/
+        public setPauseMenuIndex( index:number ) : void
+        {
+            this.gui.setPauseMenuIndex( index );
+        }
+
+        /** ************************************************************************************************************
         *   Handles level specific keys.
         ***************************************************************************************************************/
         protected abstract handleLevelKeys() : void;

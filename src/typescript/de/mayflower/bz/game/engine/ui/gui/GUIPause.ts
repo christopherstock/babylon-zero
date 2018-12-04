@@ -14,12 +14,12 @@
         /** All items of the GUI menu. */
         private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
         [
-            new bz.GUIMenuItem( 'Level 1 - Office',                  bz.GUIAction.SWITCH_TO_LEVEL_1 ),
-            new bz.GUIMenuItem( 'Level 2 - Test Level',              bz.GUIAction.SWITCH_TO_LEVEL_2 ),
-            new bz.GUIMenuItem( 'Level 3 - Room Viewer',             bz.GUIAction.SWITCH_TO_LEVEL_3 ),
-            new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_LEVEL_4 ),
-            new bz.GUIMenuItem( 'Level 5 - Intro Logo',              bz.GUIAction.SWITCH_TO_LEVEL_5 ),
-            new bz.GUIMenuItem( 'Level 6 - Human Body Partitions',   bz.GUIAction.SWITCH_TO_LEVEL_6 ),
+            new bz.GUIMenuItem( 'Level 1 - Office',                  bz.GUIAction.SWITCH_TO_STAGE_1 ),
+            new bz.GUIMenuItem( 'Level 2 - Test Level',              bz.GUIAction.SWITCH_TO_STAGE_2 ),
+            new bz.GUIMenuItem( 'Level 3 - Room Viewer',             bz.GUIAction.SWITCH_TO_STAGE_3 ),
+            new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_STAGE_4 ),
+            new bz.GUIMenuItem( 'Level 5 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_5 ),
+            new bz.GUIMenuItem( 'Level 6 - Human Body Partitions',   bz.GUIAction.SWITCH_TO_STAGE_6 ),
             new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
         ];
 
@@ -74,7 +74,7 @@
                 guiFg,
                 GUIPause.GUI_MENU_ITEMS,
                 ( bz.SettingGUI.GUI_BORDER_Y + 100 ),
-                true
+                bz.SettingGUI.WRAP_PAUSE_MENU_ITEMS
             );
 
             // initially hide all components
@@ -100,6 +100,26 @@
         public render() : void
         {
             this.handlePauseKeys();
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the current selected index of the pause menu.
+        *
+        *   @return The current active pause menu index.
+        ***************************************************************************************************************/
+        public getPauseMenuIndex() : number
+        {
+            return this.menu.getPauseMenuIndex();
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the active index for the pause menu.
+        *
+        *   @param index The index of the pause menu item to set.
+        ***************************************************************************************************************/
+        public setPauseMenuIndex( index:number ) : void
+        {
+            this.menu.setPauseMenuIndex( index );
         }
 
         /** ************************************************************************************************************

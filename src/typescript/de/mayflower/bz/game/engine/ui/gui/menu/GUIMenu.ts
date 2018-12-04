@@ -31,8 +31,8 @@
             wrapSelection :boolean
         )
         {
-            this.menuItems     = menuItems;
-            this.wrapSelection = wrapSelection;
+            this.menuItems           = menuItems;
+            this.wrapSelection       = wrapSelection;
 
             // create all menu item text blocks
             for ( let index:number = 0; index < this.menuItems.length; ++index )
@@ -96,6 +96,27 @@
         public performMenuItem() : void
         {
             this.menuItems[ this.currentSelectedItem ].perform();
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the current selected index of the pause menu.
+        *
+        *   @return The current active pause menu index.
+        ***************************************************************************************************************/
+        public getPauseMenuIndex() : number
+        {
+            return this.currentSelectedItem;
+        }
+
+        /** ************************************************************************************************************
+        *   Directly sets the active index for the pause menu.
+        *
+        *   @param index The index of the pause menu item to set.
+        ***************************************************************************************************************/
+        public setPauseMenuIndex( index:number ) : void
+        {
+            this.currentSelectedItem = index;
+            this.updateMenuItems();
         }
 
         /** ************************************************************************************************************

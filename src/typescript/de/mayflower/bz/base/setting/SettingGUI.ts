@@ -27,4 +27,7 @@
 
         /** The medium font size for GUI texts. */
         public      static  readonly        GUI_FONT_SIZE_MEDIUM                :number         = 15.0;
+
+        /** If navigation through pause menu items is wrapped before first and after last item. */
+        public      static  readonly        WRAP_PAUSE_MENU_ITEMS               :boolean        = true;
     }

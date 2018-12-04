@@ -41,11 +41,16 @@
             bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
 
+            let lastPauseMenuItem:number = 0;
+
             // check existent stage unload
             if ( this.stage != null )
             {
                 this.engine.setLoadingUiVisibility( true );
                 this.engine.setRenderLoopExecution( false, this.render );
+
+                // remember last pause menu index
+                lastPauseMenuItem = this.stage.getPauseMenuIndex();
 
                 // dispose existent stage
                 bz.Debug.stage.log( 'Disposing the current stage' );
@@ -98,6 +103,9 @@
                     break;
                 }
             }
+
+            // assign remembered pause menu index
+            this.stage.setPauseMenuIndex( lastPauseMenuItem );
 
             // specify callback to invoke when the scene is fully loaded
             this.scene.getNativeScene().executeWhenReady( this.initSceneCompleted );

@@ -141,6 +141,26 @@
         }
 
         /** ************************************************************************************************************
+        *   Delivers the current selected index of the pause menu.
+        *
+        *   @return The current active pause menu index.
+        ***************************************************************************************************************/
+        public getPauseMenuIndex() : number
+        {
+            return this.pauseGui.getPauseMenuIndex();
+        }
+
+        /** ************************************************************************************************************
+        *   Sets the active index for the pause menu.
+        *
+        *   @param index The index of the pause menu item to set.
+        ***************************************************************************************************************/
+        public setPauseMenuIndex( index:number ) : void
+        {
+            this.pauseGui.setPauseMenuIndex( index );
+        }
+
+        /** ************************************************************************************************************
         *   Updates the Frames Per Second counter.
         ***************************************************************************************************************/
         private updateFps() : void
