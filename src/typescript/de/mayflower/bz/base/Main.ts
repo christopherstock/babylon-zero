@@ -7,12 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
-    *   TODO Review
-    *   =====================
-    *   FIXED Remove bullet hole flickering for the 1st shot and initial camera position???
-    *   FIXED Fix decals flickering in certain view angles ?
-    *
-    *   =====================
     *   TODO Game improvements
     *   =====================
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
