@@ -7,10 +7,9 @@
     export class Game
     {
         /** The game engine. */
-        public                      engine                      :bz.Engine                  = null;
+        private                     engine                      :bz.Engine                  = null;
         /** The current stage. */
-        public                      stage                       :bz.Stage                   = null;
-
+        private                     stage                       :bz.Stage                   = null;
         /** The current game scene. */
         private                     scene                       :bz.Scene                   = null;
 
@@ -109,6 +108,26 @@
 
             // specify callback to invoke when the scene is fully loaded
             this.scene.getNativeScene().executeWhenReady( this.initSceneCompleted );
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the current game stage.
+        *
+        *   @return The current game stage.
+        ***************************************************************************************************************/
+        public getStage() : bz.Stage
+        {
+            return this.stage;
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the game engine.
+        *
+        *   @return The current game stage.
+        ***************************************************************************************************************/
+        public getEngine() : bz.Engine
+        {
+            return this.engine;
         }
 
         /** ************************************************************************************************************

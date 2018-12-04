@@ -152,7 +152,7 @@
             if ( !this.pause )
             {
                 // handle level specific keys
-                this.handleLevelKeys( bz.Main.game.engine.getKeySystem() );
+                this.handleLevelKeys( bz.Main.game.getEngine().getKeySystem() );
 
                 // render player
                 if ( this.player != null )
@@ -261,7 +261,7 @@
             (
                 cameraId,
                 this.scene.getNativeScene(),
-                bz.Main.game.engine.getCanvasSystem().getCanvas(),
+                bz.Main.game.getEngine().getCanvasSystem().getCanvas(),
                 this.player,
                 this.gui
             );
@@ -307,8 +307,8 @@
         {
             this.gui.updateSize
             (
-                bz.Main.game.engine.getCanvasSystem().getWidth(),
-                bz.Main.game.engine.getCanvasSystem().getHeight()
+                bz.Main.game.getEngine().getCanvasSystem().getWidth(),
+                bz.Main.game.getEngine().getCanvasSystem().getHeight()
             );
         }
 

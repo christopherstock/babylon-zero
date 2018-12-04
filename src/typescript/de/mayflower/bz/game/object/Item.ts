@@ -31,9 +31,9 @@
             super.render();
 
             // check if picked by player
-            if ( this.checkPick( bz.Main.game.stage.getPlayer().getModel() ) )
+            if ( this.checkPick( bz.Main.game.getStage().getPlayer().getModel() ) )
             {
-                bz.Main.game.stage.addGuiFx( bz.GUIFxType.GAIN_ENERGY );
+                bz.Main.game.getStage().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
             }
 
             // testwise rotate this item

@@ -165,7 +165,7 @@
         public render() : void
         {
             // handle keys
-            this.handleKeys( bz.Main.game.engine.getKeySystem() );
+            this.handleKeys( bz.Main.game.getEngine().getKeySystem() );
 
             // jump
             this.checkJump();
@@ -544,7 +544,7 @@
                         this.fieldOfView = CURRENT_WEARPON_MAX_ZOOM;
                     }
 
-                    bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
+                    bz.Main.game.getStage().getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
                 }
             }
             else
@@ -558,7 +558,7 @@
                         this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
                     }
 
-                    bz.Main.game.stage.getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
+                    bz.Main.game.getStage().getCameraSystem().setFirstPersonCameraFieldOfView( this.fieldOfView );
                 }
             }
         }
@@ -608,7 +608,7 @@
                 const shot:bz.Shot = this.createShot();
 
                 // check affected game objects
-                bz.Main.game.stage.applyShot( shot );
+                bz.Main.game.getStage().applyShot( shot );
             }
         }
 

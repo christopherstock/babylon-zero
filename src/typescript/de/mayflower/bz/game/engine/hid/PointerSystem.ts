@@ -32,17 +32,18 @@
         {
             if ( pickResult.hit )
             {
-                let src:BABYLON.Vector3 = null;
+                let stage :bz.Stage        = bz.Main.game.getStage();
+                let src   :BABYLON.Vector3 = null;
 
                 // horrible debug implementation
                 if
                 (
-                        bz.Main.game.stage != null
-                    &&  bz.Main.game.stage.getCameraSystem().isFirstPersonCameraActive()
-                    &&  bz.Main.game.stage.getPlayer() != null
+                        stage != null
+                    &&  stage.getCameraSystem().isFirstPersonCameraActive()
+                    &&  stage.getPlayer() != null
                 )
                 {
-                    src = bz.Main.game.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
+                    src = stage.getPlayer().getThirdPersonCameraTargetMesh().position;
                 }
                 else
                 {

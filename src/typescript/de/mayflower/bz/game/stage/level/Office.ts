@@ -63,7 +63,7 @@
                 this.camTarget = !this.camTarget;
 
                 // show hurt GUI effect
-                bz.Main.game.stage.addGuiFx( bz.GUIFxType.HURT );
+                bz.Main.game.getStage().addGuiFx( bz.GUIFxType.HURT );
             }
         }
 
