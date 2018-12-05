@@ -36,8 +36,8 @@
             }
             this.babylonEngine.displayLoadingUI();
 
-            // set collision epsilon
-            BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.COLLISION_EPSILON_SIZE;
+            // set collision epsilon .. this effects collision detection
+            BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.PHYSICS_COLLISION_EPSILON_SIZE;
 
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );

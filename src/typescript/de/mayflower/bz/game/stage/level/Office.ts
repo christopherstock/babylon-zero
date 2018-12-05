@@ -77,7 +77,7 @@
             return new bz.Player
             (
                 this.scene,
-                new BABYLON.Vector3( 5.0, 0.0, 10.0 ),
+                new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
                 45.0,
                 this.ambientColor
             );

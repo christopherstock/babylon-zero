@@ -317,7 +317,7 @@
                 clonedMesh.visibility = 1.0;
 
                 // specify debug settings for the cloned mesh
-                clonedMesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                clonedMesh.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
                 clonedMesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
                 clonedMesh.isPickable = true;
             }

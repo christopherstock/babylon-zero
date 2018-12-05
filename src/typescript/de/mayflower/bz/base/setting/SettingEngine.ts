@@ -1,5 +1,4 @@
 
-    import * as BABYLON from 'babylonjs';
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
@@ -26,8 +25,6 @@
         public  static  readonly    CAMERA_FOLLOW_ACCELERATION_SPEED        :number             = 0.075;
         /** Max camera moving speed. defaults to 20. */
         public  static  readonly    CAMERA_FOLLOW_MAX_SPEED                 :number             = 10.0;
-        /** The ellipsoid for the free debug camera (only when collisions are active). */
-        public  static  readonly    CAMERA_FREE_ELLIPSOID                   :BABYLON.Vector3    = new BABYLON.Vector3( 2.0, 2.0, 2.0 );
 
         /** Specifies if shadow rendering shall be enabled. */
         public  static  readonly    ENABLE_SHADOWS                          :boolean            = true;
@@ -38,15 +35,15 @@
         /** The multiplier from the hit damage to the physical impact force to apply. */
         public  static  readonly    DAMAGE_IMPULSE_MULTIPLIER               :number             = 10;
 
-        /** The diameter of the collison epsilon used for all collision detections. */
-        public  static  readonly    COLLISION_EPSILON_SIZE                  :number             = 0.01;
-
         /** The delay between each sprite animation frame change in ms. */
         public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
 
+        /** The physics engine iteration count per render cycle. */
+        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 1000; // 4000 = no shaking
+        /** The diameter of the collison epsilon used for all collision detections. */
+        public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 0.01;
         /** The calculating time step amount for one tick of the physical engine. */
         public  static  readonly    PHYSICS_TIME_STEP_DEFAULT               :number             = ( 1 / 60 );
-
         /** The calculating time step amount for one paused tick of the physical engine. 0 is not working! */
         public  static  readonly    PHYSICS_TIME_STEP_PAUSED                :number             = 0.00000000000000000000000000000000000001;
     }

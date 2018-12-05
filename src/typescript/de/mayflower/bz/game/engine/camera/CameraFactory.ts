@@ -36,11 +36,11 @@
             freeCamera.setTarget( startupTarget );
 
             // disable collisions and gravity
-            freeCamera.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
-            freeCamera.applyGravity    = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+            freeCamera.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
+            freeCamera.applyGravity    = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
 
-            // set the ellipsoid around the camera (the size of the player in our case)
-            freeCamera.ellipsoid       = bz.SettingEngine.CAMERA_FREE_ELLIPSOID;
+            // set the ellipsoid around the camera (the collision area if collisions are enabled)
+            freeCamera.ellipsoid       = bz.SettingDebug.DEBUG_CAMERA_ELLIPSOID;
             freeCamera.ellipsoidOffset = BABYLON.Vector3.Zero();
 
             freeCamera.keysUp    = [ 38 ];

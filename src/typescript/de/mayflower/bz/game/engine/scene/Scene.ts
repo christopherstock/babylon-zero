@@ -41,8 +41,7 @@
             this.babylonScene = scene;
 
             // create physics plugin
-            const ITERATIONS:number = 30;
-            this.physicsPlugin = new BABYLON.CannonJSPlugin( true, ITERATIONS );
+            this.physicsPlugin = new BABYLON.CannonJSPlugin( true, bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS );
 
             // enable physics engine
             this.babylonScene.enablePhysics
@@ -55,7 +54,7 @@
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
 
             // enable debug collisions for free debug camera
-            this.babylonScene.collisionsEnabled = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+            this.babylonScene.collisionsEnabled = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
 
             // show the babylon.JS debug layer
             if ( bz.SettingDebug.SHOW_SCENE_DEBUG_PANEL )

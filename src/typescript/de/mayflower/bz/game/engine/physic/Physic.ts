@@ -125,7 +125,7 @@
                 {
                     const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
 
-                    mesh.checkCollisions = bz.SettingDebug.ENABLE_COLLISIONS_FOR_DEBUG_CAMERA;
+                    mesh.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,

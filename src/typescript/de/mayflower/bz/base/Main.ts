@@ -6,24 +6,14 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   =====================
-    *   TODO Game improvements
-    *   =====================
-    *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *   TODO Try babylon.JS animation system for camera journeys.
-    *   TODO Enable camera movements/animations.
+    *   TODO Smoothen player collisions on walls.
     *
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements?
-    *
-    *   =====================
-    *   TODO Refactorings
-    *   =====================
-    *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Enable loading only required resources for the current scene??
-    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
+    *   TODO Create alternate lower cylinder for player that toggles on ducking?
+    *   TODO Try babylon.JS animation system for camera journeys.
+    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *
     *   =====================
     *   TODO Primal Lab
@@ -33,9 +23,15 @@
     *   TODO Try video textures (pc screen etc.): https://doc.babylonjs.com/how_to/video_texture
     *
     *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Enable loading only required resources for the current scene??
+    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
+    *
+    *   =====================
     *   TODO Issues
     *   =====================
-    *   TODO Smoothen player collisions on walls.
     *   TODO Try to keep original physic imposter parameters after the compound has been set.
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
@@ -44,9 +40,9 @@
     *   =====================
     *   TODO Sounds
     *   =====================
+    *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
-    *   TODO Check Perfect Dark and Goldeneye sound board.
     *
     *   =====================
     *   TODO Wearpons
