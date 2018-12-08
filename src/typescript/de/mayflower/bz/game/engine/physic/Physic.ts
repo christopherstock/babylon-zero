@@ -192,7 +192,7 @@
                 case bz.PhysicState.PLAYER:
                 {
                     return {
-                        mass:        10.0,
+                        mass:        50.0,
                         friction:    0.0,
                         restitution: 0.0,
                     };

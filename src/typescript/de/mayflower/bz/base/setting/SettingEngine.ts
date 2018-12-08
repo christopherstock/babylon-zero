@@ -25,6 +25,13 @@
         public  static  readonly    CAMERA_FOLLOW_ACCELERATION_SPEED        :number             = 0.075;
         /** Max camera moving speed. defaults to 20. */
         public  static  readonly    CAMERA_FOLLOW_MAX_SPEED                 :number             = 10.0;
+        /** The default speed for camera animations. */
+        public  static  readonly    CAMERA_ANIMATION_FRAMES_PER_SECOND      :number             = 50;
+
+        // TODO remove!
+
+        /** The minimum camera move distance that determines the end of the journey. */
+        public  static  readonly    CAMERA_JOURNEY_MINIMUM_MOVE             :BABYLON.Vector3    = new BABYLON.Vector3( 0.05, 0.05, 0.05 );
 
         /** Specifies if shadow rendering shall be enabled. */
         public  static  readonly    ENABLE_SHADOWS                          :boolean            = true;
@@ -39,9 +46,9 @@
         public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
 
         /** The physics engine iteration count per render cycle. */
-        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 1000; // 4000 = no shaking
+        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 30;   // 5000 = no shaking
         /** The diameter of the collison epsilon used for all collision detections. */
-        public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 0.01;
+        public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 0.001;
         /** The calculating time step amount for one tick of the physical engine. */
         public  static  readonly    PHYSICS_TIME_STEP_DEFAULT               :number             = ( 1 / 60 );
         /** The calculating time step amount for one paused tick of the physical engine. 0 is not working! */

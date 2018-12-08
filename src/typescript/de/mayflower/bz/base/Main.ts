@@ -6,13 +6,11 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Smoothen player collisions on walls.
-    *
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Try babylon.JS animation system for camera journeys.
+    *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *
     *   =====================
@@ -51,6 +49,7 @@
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up.
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..
+    *   TODO Create explosions (sprites, wearpons etc.)
     *
     *   =====================
     *   TODO FX

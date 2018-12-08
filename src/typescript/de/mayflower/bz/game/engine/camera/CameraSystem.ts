@@ -6,8 +6,20 @@
     *******************************************************************************************************************/
     export class CameraSystem
     {
+        /** Next ID to assign for animation creation. TODO to animation system. */
+        private     static              nextAnimationId                 :number                                 = 0;
+
         /** The currently active camera type. */
         private                         activeCameraType                :bz.CameraType                          = null;
+
+        // TODO remove custom camera journey system
+
+        /** The current camera that is on a journey. */
+        private                         journeyCamera                   :BABYLON.Camera                         = null;
+        /** The current target point for the journey camera. */
+        private                         journeyTarget                   :BABYLON.Vector3                        = null;
+        /** The current speed for the journey camera. */
+        private                         journeySpeed                    :number                                 = 0;
 
         /** The free controllable babylon.JS (debug) camera. */
         private         readonly        freeCamera                      :BABYLON.FreeCamera                     = null;
@@ -19,13 +31,6 @@
         private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
         /** The babylon.JS axis camera. */
         private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
-
-        /** The current camera that is on a journey. */
-        private                         journeyCamera                   :BABYLON.Camera                         = null;
-        /** The current target point for the journey camera. */
-        private                         journeyTarget                   :BABYLON.Vector3                        = null;
-        /** The current speed for the journey camera. */
-        private                         journeySpeed                    :number                                 = 0;
 
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
@@ -235,7 +240,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Starts a camera journey for the specified camera.
+        *   Starts a camera journey for the specified camera. TODO remove!
         *
         *   @param cameraType     The camera type to perform a journey with.
         *   @param targetPosition The target position for the specified journey camera.
@@ -260,6 +265,80 @@
         public render() : void
         {
             this.animateJourneyCamera();
+        }
+
+        /** ************************************************************************************************************
+        *   Animates the position of the specified camera to the desired destination.
+        *
+        *   @param cameraType  The camera to animate.
+        *   @param destination The destination of the camera position.
+        *   @param onFinish    Being invoked when the target is reached.
+        ***************************************************************************************************************/
+        public animateCameraPosition
+        (
+            cameraType  :bz.CameraType,
+            destination :BABYLON.Vector3,
+            onFinish    : () => void
+        )
+        : void
+        {
+            const camera     :BABYLON.Camera    = this.getCameraFromType( cameraType );
+
+            // TODO param speed in seconds!
+            const frameCount :number            = 120;
+
+            const ease       :BABYLON.CubicEase = new BABYLON.CubicEase();
+
+            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
+            BABYLON.Animation.CreateAndStartAnimation
+            (
+                CameraSystem.createNextAnimationId(),
+                camera,
+                'position',
+                bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND,
+                frameCount,
+                camera.position,
+                destination,
+                0,
+                ease,
+                onFinish
+            );
+        }
+
+        /** ************************************************************************************************************
+        *   Animates the target of the specified camera to the desired destination.
+        *
+        *   @param camera      The target camera.
+        *   @param destination The destination of the camera target.
+        *   @param speed       The moving speed of the camera in distance per tick.
+        *   @param onFinish    Being invoked when the target is reached.
+        ***************************************************************************************************************/
+        public animateCameraTarget
+        (
+            camera      :BABYLON.ArcRotateCamera,
+            destination :BABYLON.Vector3,
+            speed       : number,
+            onFinish    :() => void
+        )
+        : void
+        {
+            const frameCount :number            = 200;
+            const ease       :BABYLON.CubicEase = new BABYLON.CubicEase();
+
+            ease.setEasingMode( BABYLON.EasingFunction.EASINGMODE_EASEINOUT );
+            BABYLON.Animation.CreateAndStartAnimation
+            (
+                CameraSystem.createNextAnimationId(),
+                camera,
+                'target',
+                speed,
+                frameCount,
+                camera.target,
+                destination,
+                0,
+                ease,
+                onFinish
+            );
         }
 
         /** ************************************************************************************************************
@@ -303,16 +382,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Animates the journey camera for one tick if the game loop.
+        *   Animates the journey camera for one tick if the game loop. TODO remove!
         ***************************************************************************************************************/
         private animateJourneyCamera() : void
         {
             // only if a journey camera is assigned
             if ( this.journeyCamera != null )
             {
-                // the minimum camera move distance that determines the end of the journey
-                const MIN_CAMERA_MOVE:BABYLON.Vector3 = new BABYLON.Vector3( 0.05, 0.05, 0.05 );
-
                 const diff:BABYLON.Vector3 = this.journeyCamera.position.subtract( this.journeyTarget );
                 diff.scaleInPlace( this.journeySpeed );
 
@@ -321,9 +397,9 @@
                 // check target reach
                 if
                 (
-                       Math.abs( diff.x as number ) < MIN_CAMERA_MOVE.x
-                    && Math.abs( diff.y as number ) < MIN_CAMERA_MOVE.y
-                    && Math.abs( diff.z as number ) < MIN_CAMERA_MOVE.z
+                       Math.abs( diff.x as number ) < bz.SettingEngine.CAMERA_JOURNEY_MINIMUM_MOVE.x
+                    && Math.abs( diff.y as number ) < bz.SettingEngine.CAMERA_JOURNEY_MINIMUM_MOVE.y
+                    && Math.abs( diff.z as number ) < bz.SettingEngine.CAMERA_JOURNEY_MINIMUM_MOVE.z
                 )
                 {
                     bz.Debug.camera.log( 'Target reached' );
@@ -389,5 +465,15 @@
             {
                 camera.detachControl( canvas );
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next id for a new animation to create.
+        *
+        *   @return The next free unique id for a new animation to create.
+        ***************************************************************************************************************/
+        private static createNextAnimationId() : string
+        {
+            return 'animation' + CameraSystem.nextAnimationId++;
         }
     }

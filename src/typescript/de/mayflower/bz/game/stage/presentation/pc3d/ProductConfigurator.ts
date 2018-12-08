@@ -20,6 +20,9 @@
         /** Flags if the helmet animation is currently running. */
         private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
 
+        /** Tests target camera animation. */
+        private                         camTarget               :boolean                    = false;
+
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
@@ -168,6 +171,15 @@
                 this.gui.addGuiMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
 
                 this.requestVisorAnimationToggle();
+/*
+                // test camera animation
+                bz.CameraSystem.animateCameraTarget
+                (
+                    this.getCameraSystem().getArcRotateCamera(),
+                    ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 100.0, 1.0, 100.0 ) )
+                );
+                this.camTarget = !this.camTarget;
+*/
             }
         }
 

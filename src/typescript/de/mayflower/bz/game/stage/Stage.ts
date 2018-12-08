@@ -172,7 +172,7 @@
                     item.render();
                 }
 
-                // render camera system if present
+                // render camera system (perform journeys etc.) TODO remove?
                 this.cameraSystem.render();
             }
 
