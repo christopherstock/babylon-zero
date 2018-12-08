@@ -71,7 +71,9 @@
                 (
                     bz.CameraType.STATIONARY,
                     ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
-                    () => { 'Cam reached target' }
+                    2.5,
+                    new BABYLON.PowerEase(),
+                    () => { console.log( 'Cam reached target' ) }
                 );
                 this.camTarget = !this.camTarget;
             }

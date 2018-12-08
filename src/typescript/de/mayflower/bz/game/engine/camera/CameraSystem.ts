@@ -272,24 +272,28 @@
         *
         *   @param cameraType  The camera to animate.
         *   @param destination The destination of the camera position.
+        *   @param seconds     The seconds for the animation to take.
+        *   @param ease        The easing class instance or <code>null</code> for no easing.
         *   @param onFinish    Being invoked when the target is reached.
         ***************************************************************************************************************/
         public animateCameraPosition
         (
             cameraType  :bz.CameraType,
             destination :BABYLON.Vector3,
-            onFinish    : () => void
+            seconds     :number,
+            ease        :BABYLON.EasingFunction,
+            onFinish    :() => void
         )
         : void
         {
-            const camera     :BABYLON.Camera    = this.getCameraFromType( cameraType );
+            const camera     :BABYLON.Camera = this.getCameraFromType( cameraType );
+            const frameCount :number         = ( seconds * bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND );
 
-            // TODO param speed in seconds!
-            const frameCount :number            = 120;
+            if ( ease != null )
+            {
+                ease.setEasingMode( BABYLON.EasingFunction.EASINGMODE_EASEINOUT );
+            }
 
-            const ease       :BABYLON.CubicEase = new BABYLON.CubicEase();
-
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
             BABYLON.Animation.CreateAndStartAnimation
             (
                 CameraSystem.createNextAnimationId(),
@@ -310,28 +314,33 @@
         *
         *   @param camera      The target camera.
         *   @param destination The destination of the camera target.
-        *   @param speed       The moving speed of the camera in distance per tick.
+        *   @param seconds     The seconds for the animation to take.
+        *   @param ease        The easing class instance or <code>null</code> for no easing.
         *   @param onFinish    Being invoked when the target is reached.
         ***************************************************************************************************************/
         public animateCameraTarget
         (
             camera      :BABYLON.ArcRotateCamera,
             destination :BABYLON.Vector3,
-            speed       : number,
+            seconds     :number,
+            ease        :BABYLON.EasingFunction,
             onFinish    :() => void
         )
         : void
         {
-            const frameCount :number            = 200;
-            const ease       :BABYLON.CubicEase = new BABYLON.CubicEase();
+            const frameCount:number = ( seconds * bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND );
 
-            ease.setEasingMode( BABYLON.EasingFunction.EASINGMODE_EASEINOUT );
+            if ( ease != null )
+            {
+                ease.setEasingMode( BABYLON.EasingFunction.EASINGMODE_EASEINOUT );
+            }
+
             BABYLON.Animation.CreateAndStartAnimation
             (
                 CameraSystem.createNextAnimationId(),
                 camera,
                 'target',
-                speed,
+                bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND,
                 frameCount,
                 camera.target,
                 destination,
