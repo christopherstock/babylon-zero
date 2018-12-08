@@ -171,9 +171,6 @@
                 {
                     item.render();
                 }
-
-                // render camera system (perform journeys etc.) TODO remove?
-                this.cameraSystem.render();
             }
 
             // render GUI

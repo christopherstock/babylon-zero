@@ -9,7 +9,6 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Try babylon.JS animation system for camera journeys.
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *
@@ -24,6 +23,9 @@
     *   TODO Refactorings
     *   =====================
     *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Create animation system.
+    *   TODO MeshManipulation.performAnimation to animation system.
+    *   TODO Replace Sprite custom animation system with native animations?
     *   TODO Enable loading only required resources for the current scene??
     *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *

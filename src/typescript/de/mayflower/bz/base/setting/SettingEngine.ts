@@ -28,11 +28,6 @@
         /** The default speed for camera animations. */
         public  static  readonly    CAMERA_ANIMATION_FRAMES_PER_SECOND      :number             = 50;
 
-        // TODO remove!
-
-        /** The minimum camera move distance that determines the end of the journey. */
-        public  static  readonly    CAMERA_JOURNEY_MINIMUM_MOVE             :BABYLON.Vector3    = new BABYLON.Vector3( 0.05, 0.05, 0.05 );
-
         /** Specifies if shadow rendering shall be enabled. */
         public  static  readonly    ENABLE_SHADOWS                          :boolean            = true;
 

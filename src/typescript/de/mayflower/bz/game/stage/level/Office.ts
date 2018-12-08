@@ -54,17 +54,7 @@
 
                 // show hurt GUI effect
                 bz.Main.game.getStage().addGuiFx( bz.GUIFxType.HURT );
-/*
-                // try a custom camera journey for the stationary target camera
-                this.gui.addGuiMessage( 'start camera journey [' + bz.String.getDateTimeString() + ']' );
-                this.getCameraSystem().startJourney
-                (
-                    bz.CameraType.STATIONARY,
-                    ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
-                    0.05
-                );
-                this.camTarget = !this.camTarget;
-*/
+
                 // perform a camera animation for the stationary target camera
                 this.gui.addGuiMessage( 'start camera journey [' + bz.String.getDateTimeString() + ']' );
                 this.getCameraSystem().animateCameraPosition

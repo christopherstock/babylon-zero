@@ -6,20 +6,11 @@
     *******************************************************************************************************************/
     export class CameraSystem
     {
-        /** Next ID to assign for animation creation. TODO to animation system. */
+        /** Next ID to assign for animation creation. */
         private     static              nextAnimationId                 :number                                 = 0;
 
         /** The currently active camera type. */
         private                         activeCameraType                :bz.CameraType                          = null;
-
-        // TODO remove custom camera journey system
-
-        /** The current camera that is on a journey. */
-        private                         journeyCamera                   :BABYLON.Camera                         = null;
-        /** The current target point for the journey camera. */
-        private                         journeyTarget                   :BABYLON.Vector3                        = null;
-        /** The current speed for the journey camera. */
-        private                         journeySpeed                    :number                                 = 0;
 
         /** The free controllable babylon.JS (debug) camera. */
         private         readonly        freeCamera                      :BABYLON.FreeCamera                     = null;
@@ -240,34 +231,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Starts a camera journey for the specified camera. TODO remove!
-        *
-        *   @param cameraType     The camera type to perform a journey with.
-        *   @param targetPosition The target position for the specified journey camera.
-        *   @param speed          The speed of the journey camera.
-        ***************************************************************************************************************/
-        public startJourney
-        (
-            cameraType     :bz.CameraType,
-            targetPosition :BABYLON.Vector3,
-            speed          :number
-        )
-        : void
-        {
-            this.journeyCamera = this.getCameraFromType( cameraType );
-            this.journeyTarget = targetPosition;
-            this.journeySpeed  = speed;
-        }
-
-        /** ************************************************************************************************************
-        *   Renders the camera system for one tick of the game loop.
-        ***************************************************************************************************************/
-        public render() : void
-        {
-            this.animateJourneyCamera();
-        }
-
-        /** ************************************************************************************************************
         *   Animates the position of the specified camera to the desired destination.
         *
         *   @param cameraType  The camera to animate.
@@ -388,37 +351,6 @@
             }
 
             return null;
-        }
-
-        /** ************************************************************************************************************
-        *   Animates the journey camera for one tick if the game loop. TODO remove!
-        ***************************************************************************************************************/
-        private animateJourneyCamera() : void
-        {
-            // only if a journey camera is assigned
-            if ( this.journeyCamera != null )
-            {
-                const diff:BABYLON.Vector3 = this.journeyCamera.position.subtract( this.journeyTarget );
-                diff.scaleInPlace( this.journeySpeed );
-
-                this.journeyCamera.position.subtractInPlace( diff );
-
-                // check target reach
-                if
-                (
-                       Math.abs( diff.x as number ) < bz.SettingEngine.CAMERA_JOURNEY_MINIMUM_MOVE.x
-                    && Math.abs( diff.y as number ) < bz.SettingEngine.CAMERA_JOURNEY_MINIMUM_MOVE.y
-                    && Math.abs( diff.z as number ) < bz.SettingEngine.CAMERA_JOURNEY_MINIMUM_MOVE.z
-                )
-                {
-                    bz.Debug.camera.log( 'Target reached' );
-
-                    // unassign journey camera
-                    this.journeyCamera = null;
-                    this.journeyTarget = null;
-                    this.journeySpeed  = 0.0;
-                }
-            }
         }
 
         /** ************************************************************************************************************
