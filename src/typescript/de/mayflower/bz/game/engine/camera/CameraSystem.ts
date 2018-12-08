@@ -409,6 +409,74 @@
         }
 
         /** ************************************************************************************************************
+        *   Tests some post processing pipelining.
+        ***************************************************************************************************************/
+        private testPostProcessingPipeline() : void
+        {
+            const e:BABYLON.PostProcessRenderPipeline = new BABYLON.PostProcessRenderPipeline
+            (
+                bz.Main.game.getEngine().getNativeEngine(),
+                'standardPipeline'
+            );
+            const t:BABYLON.Engine = bz.Main.game.getEngine().getNativeEngine();
+            const i:BABYLON.PostProcessRenderEffect = new BABYLON.PostProcessRenderEffect(
+                bz.Main.game.getEngine().getNativeEngine(),
+                'fxaa',
+                () : BABYLON.FxaaPostProcess => {
+                    return new BABYLON.FxaaPostProcess
+                    (
+                        'antialias',
+                        2,
+                        null,
+                        BABYLON.Texture.TRILINEAR_SAMPLINGMODE,
+                        t,
+                        !0
+                    );
+                }
+            );
+            e.addEffect( i );
+            bz.Main.game.getScene().getNativeScene().postProcessRenderPipelineManager.addPipeline( e );
+
+            bz.Main.game.getScene().getNativeScene().postProcessRenderPipelineManager.attachCamerasToRenderPipeline(
+                'standardPipeline',
+                this.stationaryCamera
+            );
+        }
+
+        /** ************************************************************************************************************
+        *   Tests some post processing effects.
+        ***************************************************************************************************************/
+        private testPostProcessing() : void
+        {
+            // black and white
+            const blackAndWhite:BABYLON.BlackAndWhitePostProcess = new BABYLON.BlackAndWhitePostProcess
+            (
+                'BW',
+                1.0,
+                this.stationaryCamera
+            );
+
+            // blur
+            const kernel:number = 16;
+            const blur:BABYLON.BlurPostProcess = new BABYLON.BlurPostProcess
+            (
+                'Horizontal blur',
+                new BABYLON.Vector2( 1.0, 0 ),
+                kernel,
+                0.25,
+                this.stationaryCamera
+            );
+
+            // highlight
+            const postProcess = new BABYLON.HighlightsPostProcess
+            (
+                'highlights',
+                1.0,
+                this.stationaryCamera
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Returns the next id for a new animation to create.
         *
         *   @return The next free unique id for a new animation to create.

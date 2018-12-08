@@ -30,15 +30,15 @@
         /** ************************************************************************************************************
         *   Inits the babylon.JS scene.
         *
-        *   @param scene             The new babylon.JS scene.
+        *   @param engine            The game engine.
         *   @param onLoadingComplete The callback to invoke when the scene is fully loaded.
         ***************************************************************************************************************/
-        public init( scene:BABYLON.Scene, onLoadingComplete:() => void ) : void
+        public init( engine:bz.Engine, onLoadingComplete:() => void ) : void
         {
             this.onLoadingComplete = onLoadingComplete;
 
             // create babylon.JS scene
-            this.babylonScene = scene;
+            this.babylonScene = engine.createNewScene();
 
             // create physics plugin
             this.physicsPlugin = new BABYLON.CannonJSPlugin( true, bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS );

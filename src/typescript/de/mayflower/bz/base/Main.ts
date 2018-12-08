@@ -9,8 +9,6 @@
     *   =====================
     *   TODO Primal Lab
     *   =====================
-    *   TODO Try PostProcessing (camera.setPostProcess): https://doc.babylonjs.com/how_to/how_to_use_postprocesses
-    *                                                    https://www.eternalcoding.com/?p=113
     *   TODO Try video textures (pc screen etc.): https://doc.babylonjs.com/how_to/video_texture
     *
     *   =====================

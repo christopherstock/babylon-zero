@@ -27,7 +27,7 @@
             // init the scene
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
-            this.scene.init( this.engine.createNewScene(), this.onInitGameEngineCompleted );
+            this.scene.init( this.engine, this.onInitGameEngineCompleted );
         }
 
         /** ************************************************************************************************************
@@ -128,6 +128,16 @@
         public getEngine() : bz.Engine
         {
             return this.engine;
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the scene.
+        *
+        *   @return The current scene.
+        ***************************************************************************************************************/
+        public getScene() : bz.Scene
+        {
+            return this.scene;
         }
 
         /** ************************************************************************************************************

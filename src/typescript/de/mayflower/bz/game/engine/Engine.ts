@@ -62,6 +62,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns the native babylon.JS engine.
+        *
+        *   @return The native engine.
+        ***************************************************************************************************************/
+        public getNativeEngine() : BABYLON.Engine
+        {
+            return this.babylonEngine;
+        }
+
+        /** ************************************************************************************************************
         *   Sets the visibility for the babylon.JS engine's loading UI.
         *
         *   @param visible Whether to show or to hide the loading UI.
