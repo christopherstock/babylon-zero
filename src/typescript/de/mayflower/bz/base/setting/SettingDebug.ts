@@ -33,7 +33,7 @@
         public  static  readonly    SHOW_DEBUG_BULLET_HOLE_NORMAL           :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 
         /** Show the world coordinate axis. */
-        public  static  readonly    DEBUG_COORDINATE_AXIS_ENABLED           :boolean            = ( false && SettingDebug.DEBUG_MODE );
+        public  static  readonly    DEBUG_COORDINATE_AXIS_ENABLED           :boolean            = ( true && SettingDebug.DEBUG_MODE );
         /** The length of the world coordinate axis. */
         public  static  readonly    DEBUG_COORDINATE_AXIS_LENGTH            :number             = 25.0;
     }

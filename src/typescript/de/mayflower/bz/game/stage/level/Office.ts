@@ -231,7 +231,7 @@
                     new bz.Model
                     (
                         [
-                            // test wall
+                            // test wall green
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
@@ -240,6 +240,29 @@
                                 new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    new bz.Model
+                    (
+                        [
+                            // test wall (flying obstacle)
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 20.0, 3.0, 2.0  ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 15.0, 5.0, 5.0 ),
+                                new BABYLON.Vector3( 0.0, 270.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
                                 null,
                                 bz.Physic.STATIC,
                                 1.0,

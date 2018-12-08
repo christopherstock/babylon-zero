@@ -50,6 +50,9 @@
         /** The referenced right hand mesh. */
         private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
 
+        /** This is an experimental move blocker that may solve the jitter bug one day. */
+        private                         blockMovement               :number                             = 0;
+
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
@@ -156,7 +159,21 @@
             this.heightY     = bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING;
             this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
 
+            // set positions for all limbs
             this.positionPlayerLimbs();
+
+            // set a collision event handler for the body
+            if ( false )
+            {
+                this.body.physicsImpostor.onCollideEvent = (
+                    collider     :BABYLON.PhysicsImpostor,
+                    collidedWith :BABYLON.PhysicsImpostor
+                ) : void => {
+                    console.log( 'Player Body is colliding!' );
+
+                    this.blockMovement = 20;
+                };
+            }
         }
 
         /** ************************************************************************************************************
@@ -184,6 +201,13 @@
 
             // interact
             this.checkFire();
+
+            if ( this.blockMovement > 0 )
+            {
+                --this.blockMovement;
+
+                if ( this.blockMovement === 0 ) console.log( ' Move Block released!' );
+            }
         }
 
         /** ************************************************************************************************************
@@ -340,6 +364,12 @@
                 || this.moveDelta.z !== 0.0
             )
             {
+                if ( this.blockMovement > 0 )
+                {
+                    this.moveDelta.x = 0.0;
+                    this.moveDelta.z = 0.0;
+                }
+
                 // apply move delta
                 this.body.moveWithCollisions
                 (

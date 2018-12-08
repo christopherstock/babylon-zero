@@ -13,7 +13,7 @@
         private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
 
         /** All sprite files to load. */
-        private             readonly    filesToLoad                       :bz.SpriteFile[]            = [];
+        private             readonly    filesToLoad                     :bz.SpriteFile[]            = [];
 
         /** ************************************************************************************************************
         *   Creates a new sprite system.

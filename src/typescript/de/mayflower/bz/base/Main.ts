@@ -7,12 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
-    *   TODO New Stuff
-    *   =====================
-    *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
-    *
-    *   =====================
     *   TODO Primal Lab
     *   =====================
     *   TODO Try PostProcessing (camera.setPostProcess): https://doc.babylonjs.com/how_to/how_to_use_postprocesses
@@ -20,12 +14,20 @@
     *   TODO Try video textures (pc screen etc.): https://doc.babylonjs.com/how_to/video_texture
     *
     *   =====================
+    *   TODO Issues
+    *   =====================
+    *   TODO Try to improve collision handling for the player.
+    *
+    *   =====================
+    *   TODO New Stuff
+    *   =====================
+    *   TODO Create alternate lower cylinder for player that toggles on ducking?
+    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
+    *
+    *   =====================
     *   TODO Refactorings
     *   =====================
     *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Create animation system.
-    *   TODO MeshManipulation.performAnimation to animation system.
-    *   TODO Replace Sprite custom animation system with native animations?
     *   TODO Enable loading only required resources for the current scene??
     *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *

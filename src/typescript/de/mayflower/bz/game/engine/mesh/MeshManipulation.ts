@@ -149,7 +149,7 @@
         )
         : void
         {
-            const TIME_SCALE:number = 1.0;
+            const SPEED_RATIO:number = 1.0;
 
             scene.beginAnimation
             (
@@ -157,7 +157,7 @@
                 startFrame,
                 endFrame,
                 loop,
-                TIME_SCALE,
+                SPEED_RATIO,
                 onFinish
             );
         }
