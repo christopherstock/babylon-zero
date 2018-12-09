@@ -101,10 +101,15 @@
         {
             if ( this.isVideoTexture )
             {
-                this.nativeTexture = new BABYLON.VideoTexture( this.fileName, this.fileName, scene, true );
+                // create video texture and mute audio
+                const videoTexture:BABYLON.VideoTexture = new BABYLON.VideoTexture( this.fileName, this.fileName, scene, true );
+                videoTexture.video.muted = true;
+
+                this.nativeTexture = videoTexture;
             }
             else
             {
+                // create default texture
                 this.nativeTexture = new BABYLON.Texture( this.fileName, scene );
             }
         }

@@ -7,35 +7,30 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
-    *   TODO Issues
-    *   =====================
-    *   TODO Try to improve collision handling for the player.
-    *
-    *   =====================
     *   TODO New Stuff
     *   =====================
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
+    *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *
     *   =====================
     *   TODO Refactorings
     *   =====================
     *   TODO Hold 'Scene' in stage and remove global reference?
     *   TODO Enable loading only required resources for the current scene??
-    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *
     *   =====================
     *   TODO Issues
     *   =====================
-    *   TODO Try to keep original physic imposter parameters after the compound has been set.
-    *   TODO Enable pointer lock in non-fullscreen (window) mode?
+    *   TODO Try to improve collision handling for the player.
+    *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
+    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
     *   =====================
     *   TODO Sounds
     *   =====================
-    *   TODO Check Perfect Dark and Goldeneye sound board.
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *
@@ -46,7 +41,7 @@
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up.
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..
-    *   TODO Create explosions (sprites, wearpons etc.)
+    *   TODO Create explosive wearpons etc.
     *
     *   =====================
     *   TODO FX
