@@ -9,24 +9,26 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
+    *   TODO Hold 'Scene' in stage and remove global reference?
+    *   TODO Remove 'ALL' global references to Main.game ??
+    *   TODO Enable loading only required resources for the current scene??
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
+    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
-    *
-    *   =====================
-    *   TODO Refactorings
-    *   =====================
-    *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Enable loading only required resources for the current scene??
+    *   TODO Show a video texture in the GUI?
+    *   TODO Try fog or smoke?
+    *   TODO Try different player objects: physics for car, etc
+    *   TODO Try fur.
+    *   TODO HID: Add wearpon slower panning on aiming/zooming.
+    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
+    *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *
     *   =====================
     *   TODO Issues
     *   =====================
     *   TODO Try to improve collision handling for the player.
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
-    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
-    *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
-    *   TODO HID: Add wearpon panning (pan view/angle on moving crosshair to the screen border)?
     *
     *   =====================
     *   TODO Sounds
@@ -37,9 +39,8 @@
     *   =====================
     *   TODO Wearpons
     *   =====================
-    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
-    *   TODO Enable wearpon items (wearpons and ammo) to be picked up.
+    *   TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..
     *   TODO Create explosive wearpons etc.
     *
@@ -67,6 +68,7 @@
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
+    *   TODO Update babylon.js and all other npm packages.
     *
     *   =====================
     *   TODO Characters
@@ -80,12 +82,8 @@
     *   =====================
     *   TODO The Lab
     *   =====================
-    *   TODO Try dynamic textures: ( video in texture in front of screen for company presentation site .. )
     *   TODO Try 'worker thread collisions'?
     *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
-    *   TODO Try fog or smoke?
-    *   TODO Try player objects: physics for car, etc?
-    *   TODO Try fur.
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
     *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
