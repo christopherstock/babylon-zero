@@ -8,26 +8,31 @@
     export class Texture
     {
         /** The texture 'bullet hole concreate'. */
-        public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( 'bulletHole/concrete.png',   bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null                            );
+        public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( 'bulletHole/concrete.png',   bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null,                           false   );
         /** The texture 'bullet hole wood'. */
-        public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( 'bulletHole/wood.png',       bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null                            );
+        public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( 'bulletHole/wood.png',       bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null,                           false   );
+        /** The texture 'bullet hole glass'. */
+        public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( 'bulletHole/glass.png',      bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null,                           false   );
 
         /** The texture 'wall test'. */
-        public      static  readonly    WALL_TEST                   :Texture                = new Texture( 'wall/test.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_CONCRETE    );
+        public      static  readonly    WALL_TEST                   :Texture                = new Texture( 'wall/test.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_CONCRETE,   false   );
         /** The texture 'wall mayflower logo'. */
-        public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( 'wall/mfLogo.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( 'wall/mfLogo.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       false   );
         /** The texture 'wall amiga'. */
-        public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( 'wall/amiga.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( 'wall/amiga.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       false   );
         /** The texture 'wall wood'. */
-        public      static  readonly    WALL_WOOD                   :Texture                = new Texture( 'wall/wood.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_WOOD                   :Texture                = new Texture( 'wall/wood.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       false   );
         /** The texture 'wall grass'. */
-        public      static  readonly    WALL_GRASS                  :Texture                = new Texture( 'wall/grass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_GRASS                  :Texture                = new Texture( 'wall/grass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       false   );
         /** The texture 'wall glas'. */
-        public      static  readonly    WALL_GLASS                  :Texture                = new Texture( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_GLASS                  :Texture                = new Texture( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       false   );
         /** The texture 'wall tree'. */
-        public      static  readonly    WALL_TREE                   :Texture                = new Texture( 'wall/tree.png',             bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_TREE                   :Texture                = new Texture( 'wall/tree.png',             bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_WOOD,       false   );
         /** The texture 'wall skin rosé'. */
-        public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD        );
+        public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       false   );
+
+        /** The video texture 'wall test'. */
+        public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( 'test.mp4',                  bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_GLASS,      true    );
 
         /** Contains all texture data objects. */
         public      static  readonly    ALL_TEXTURES                :Texture[]              =
@@ -43,6 +48,8 @@
             Texture.WALL_GLASS,
             Texture.WALL_TREE,
             Texture.WALL_SKIN_ROSE,
+
+            Texture.VIDEO_TEST,
         ];
 
         /** The filename of this texture's image. */
@@ -53,9 +60,11 @@
         private             readonly    textureHasAlpha             :bz.TextureHasAlpha     = null;
         /** The UV tiling strategy to apply for this texture. */
         private             readonly    strategyUV                  :bz.TextureUV           = null;
+        /** Flags if this texture is a video texture. */
+        private             readonly    isVideoTexture              :boolean                = false;
 
         /** The babylon.JS texture data. */
-        private                         textureData                 :BABYLON.Texture        = null;
+        private                         nativeTexture               :BABYLON.Texture        = null;
 
         /** ************************************************************************************************************
         *   Creates a texture configuration.
@@ -64,19 +73,22 @@
         *   @param textureHasAlpha   Specifies alpha occurance in texture image.
         *   @param strategyUV        The UV tiling strategy for this texture.
         *   @param bulletHoleTexture The texture for bullet holes that occur onto this texture.
+        *   @param isVideoTexture    Flags if this texture is a video texture.
         ***************************************************************************************************************/
         public constructor
         (
             fileName          :string,
             textureHasAlpha   :bz.TextureHasAlpha,
             strategyUV        :bz.TextureUV,
-            bulletHoleTexture :bz.Texture
+            bulletHoleTexture :bz.Texture,
+            isVideoTexture    :boolean
         )
         {
-            this.fileName          = bz.SettingResource.PATH_IMAGE_TEXTURE + fileName;
+            this.fileName          = ( isVideoTexture ? bz.SettingResource.PATH_VIDEO_TEXTURE : bz.SettingResource.PATH_IMAGE_TEXTURE ) + fileName;
             this.textureHasAlpha   = textureHasAlpha;
             this.strategyUV        = strategyUV;
             this.bulletHoleTexture = bulletHoleTexture;
+            this.isVideoTexture    = isVideoTexture;
         }
 
         /** ************************************************************************************************************
@@ -86,11 +98,14 @@
         ***************************************************************************************************************/
         public loadTexture( scene:BABYLON.Scene ) : void
         {
-            this.textureData = new BABYLON.Texture
-            (
-                this.fileName,
-                scene
-            );
+            if ( this.isVideoTexture )
+            {
+                this.nativeTexture = new BABYLON.VideoTexture( 'video', this.fileName, scene, true );
+            }
+            else
+            {
+                this.nativeTexture = new BABYLON.Texture( this.fileName, scene );
+            }
         }
 
         /** ************************************************************************************************************
@@ -98,9 +113,29 @@
         *
         *   @return A clone of this texture's native texture data.
         ***************************************************************************************************************/
-        public cloneTextureData() : BABYLON.Texture
+        public cloneNativeTexture() : BABYLON.Texture
         {
-            return this.textureData.clone();
+            return this.nativeTexture.clone();
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the texture's babylon.JS data.
+        *
+        *   @return The texture's native texture data.
+        ***************************************************************************************************************/
+        public getNativeTexture() : BABYLON.Texture
+        {
+            return this.nativeTexture;
+        }
+
+        /** ************************************************************************************************************
+        *   Checks if this texture is a video texture.
+        *
+        *   @return <code>true</code> if this texture is a video texture.
+        ***************************************************************************************************************/
+        public getIsVideoTexture() : boolean
+        {
+            return this.isVideoTexture;
         }
 
         /** ************************************************************************************************************

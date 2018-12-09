@@ -7,11 +7,6 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
-    *   TODO Primal Lab
-    *   =====================
-    *   TODO Try video textures (pc screen etc.): https://doc.babylonjs.com/how_to/video_texture
-    *
-    *   =====================
     *   TODO Issues
     *   =====================
     *   TODO Try to improve collision handling for the player.

@@ -126,8 +126,6 @@
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
 
-
-
             const tv:BABYLON.Mesh = bz.MeshFactory.createBox
             (
                 this.scene,
@@ -135,29 +133,12 @@
                 bz.MeshPivotAnchor.LOWEST_XYZ,
                 new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), bz.MeshFactory.FACE_DEPTH ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.Texture.WALL_AMIGA,
+                bz.Texture.VIDEO_TEST,
                 null,
                 bz.Physic.STATIC,
                 1.0,
                 this.ambientColor
             );
-
-            // test a video texture
-            const videoMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
-            (
-                bz.MaterialSystem.createNextMaterialId(),
-                bz.Main.game.getScene().getNativeScene()
-            );
-            videoMaterial.diffuseTexture = new BABYLON.VideoTexture(
-                'video',
-                bz.SettingResource.PATH_VIDEO_TEXTURE + 'test.mp4',
-                bz.Main.game.getScene().getNativeScene(),
-                true
-            );
-            videoMaterial.emissiveColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-            tv.material = videoMaterial;
-
-
 
             return [
 

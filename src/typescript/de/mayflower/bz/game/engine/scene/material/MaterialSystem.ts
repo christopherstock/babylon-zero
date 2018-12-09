@@ -131,19 +131,33 @@
         )
         : BABYLON.Texture
         {
-            const newTexture:BABYLON.Texture = texture.cloneTextureData();
+            // do not clone native video textures! ( babylon.JS will hang otherwise! )
+            const newTexture:BABYLON.Texture =
+            (
+                    texture.getIsVideoTexture()
+                ?   texture.getNativeTexture()
+                :   texture.cloneNativeTexture()
+            );
 
-            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
-            newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
-
-            // working around poor typings for scaling ..
-            if ( repeatU !== -1 )
+            if ( texture.getIsVideoTexture() )
             {
-                ( newTexture as any ).uScale = repeatU;
+                newTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
+                newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
             }
-            if ( repeatV !== -1 )
+            else
             {
-                ( newTexture as any ).vScale = repeatV;
+                newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+                newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
+
+                // working around poor typings for scaling ..
+                if ( repeatU !== -1 )
+                {
+                    ( newTexture as any ).uScale = repeatU;
+                }
+                if ( repeatV !== -1 )
+                {
+                    ( newTexture as any ).vScale = repeatV;
+                }
             }
 
             newTexture.hasAlpha = texture.hasAlpha();
