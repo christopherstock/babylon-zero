@@ -72,7 +72,7 @@
         ***************************************************************************************************************/
         private createHoleMesh( scene:bz.Scene ) : void
         {
-            const meshTexture:bz.Texture = bz.Texture.getTextureFromMeshByName( this.hitPoint.getMesh() );
+            const meshTexture:bz.Texture = bz.Texture.getAccordingBulletHoleTextureForMesh( this.hitPoint.getMesh() );
 
             this.holeMesh = bz.MeshFactory.createDecal
             (

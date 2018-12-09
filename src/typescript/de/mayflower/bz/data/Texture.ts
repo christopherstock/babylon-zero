@@ -39,6 +39,7 @@
         [
             Texture.BULLET_HOLE_CONCRETE,
             Texture.BULLET_HOLE_WOOD,
+            Texture.BULLET_HOLE_GLASS,
 
             Texture.WALL_TEST,
             Texture.WALL_MAYFLOWER_LOGO,
@@ -100,7 +101,7 @@
         {
             if ( this.isVideoTexture )
             {
-                this.nativeTexture = new BABYLON.VideoTexture( 'video', this.fileName, scene, true );
+                this.nativeTexture = new BABYLON.VideoTexture( this.fileName, this.fileName, scene, true );
             }
             else
             {
@@ -159,12 +160,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Determines the specified meshe's active texture and tries to return the according
-        *   Texture by comparing the specified filename.
+        *   Delivers the according bullet hole for the given native mesh.
         *
-        *   @param mesh The mesh to determine the Texture for.
+        *   @param mesh The mesh to determine the Bullet Hole Texture for.
+        *
+        *   @return The according bullet hole texture.
         ***************************************************************************************************************/
-        public static getTextureFromMeshByName( mesh:BABYLON.AbstractMesh ) : bz.Texture
+        public static getAccordingBulletHoleTextureForMesh( mesh:BABYLON.AbstractMesh ) : bz.Texture
         {
             const DEFAULT_BULLET_HOLE_TEXTURE:Texture = Texture.BULLET_HOLE_CONCRETE;
 
