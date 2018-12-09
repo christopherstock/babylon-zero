@@ -40,7 +40,7 @@
                 (
                     'spriteManager' + i,
                     bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
-                    bz.SettingResource.MAX_SPRITE_INSTANCES,
+                    bz.SettingEngine.MAX_SPRITE_INSTANCES,
                     spriteFile.frameSize,
                     scene
                 );

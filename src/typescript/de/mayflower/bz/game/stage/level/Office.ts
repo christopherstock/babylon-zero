@@ -131,9 +131,9 @@
             const tv:BABYLON.Mesh = bz.MeshFactory.createBox
             (
                 this.scene,
-                new BABYLON.Vector3( 3.0, 0.0, 25.0 ),
+                new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
                 bz.MeshPivotAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 0.001 ),
+                new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), bz.MeshFactory.FACE_DEPTH ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Texture.WALL_AMIGA,
                 null,
