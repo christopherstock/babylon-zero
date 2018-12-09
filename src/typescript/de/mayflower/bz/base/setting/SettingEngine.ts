@@ -48,4 +48,9 @@
         public  static  readonly    PHYSICS_TIME_STEP_DEFAULT               :number             = ( 1 / 60 );
         /** The calculating time step amount for one paused tick of the physical engine. 0 is not working! */
         public  static  readonly    PHYSICS_TIME_STEP_PAUSED                :number             = 0.00000000000000000000000000000000000001;
+
+        /** Maximum instances of concurrent sprites. */
+        public  static  readonly    MAX_SPRITE_INSTANCES                    :number             = 255;
+        /** Maximum instances of bullet holes in one stage. */
+        public  static  readonly    MAX_BULLET_HOLES                        :number             = 255;
     }
