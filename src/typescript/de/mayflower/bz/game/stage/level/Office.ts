@@ -22,13 +22,16 @@
         /** ************************************************************************************************************
         *   Creates a new test office.
         *
-        *   @param scene The scene reference.
+        *   @param scene  The scene reference.
+        *   @param canvas The canvas system this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
+                canvas,
+
                 bz.SettingColor.COLOR_RGB_WHITE,
                 bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE,
                 bz.CameraType.FIRST_PERSON
@@ -570,6 +573,7 @@
             return new bz.CameraSystem
             (
                 this.scene.getNativeScene(),
+                this.canvas,
 
                 new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
                 new BABYLON.Vector3( 20.0, 5.0,  20.0 ),

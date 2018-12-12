@@ -14,6 +14,9 @@
 
         /** The native babylon.JS scene these cameras belong to. */
         private             readonly    scene                           :BABYLON.Scene                          = null;
+        /** The canvas system this camera system is connected with. */
+        private             readonly    canvas                          :bz.CanvasSystem                        = null;
+
         /** The free controllable babylon.JS (debug) camera. */
         private             readonly    freeCamera                      :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
@@ -29,6 +32,7 @@
         *   Sets up all scene cameras.
         *
         *   @param scene                           The babylon.JS scene to create these cameras for.
+        *   @param canvas                          The canvas system this camera system is linked to.
         *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
@@ -41,6 +45,7 @@
         public constructor
         (
             scene                           :BABYLON.Scene,
+            canvas                          :bz.CanvasSystem,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
@@ -51,7 +56,8 @@
             firstPersonCameraTarget         :BABYLON.AbstractMesh
         )
         {
-            this.scene = scene;
+            this.scene  = scene;
+            this.canvas = canvas;
 
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (
@@ -114,14 +120,12 @@
         *   Sets the specified camera as the scene's active camera.
         *
         *   @param cameraType The type of camera to set as the scene's active camera.
-        *   @param canvas     The HTML canvas that might change debug controls on camera switch.
         *   @param player     The player instance that will show or hide according to the currently set camera.
         *   @param gui        The stage GUI that may be shown or hidden according to the selected camera.
         ***************************************************************************************************************/
         public setActiveCamera
         (
             cameraType :bz.CameraType,
-            canvas     :HTMLCanvasElement,
             player     :bz.Player,
             gui        :bz.GUI
         )
@@ -134,8 +138,8 @@
             {
                 case bz.CameraType.FREE_DEBUG:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      true,  canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -145,8 +149,8 @@
 
                 case bz.CameraType.STATIONARY:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -156,8 +160,8 @@
 
                 case bz.CameraType.FOLLOW:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -167,8 +171,8 @@
 
                 case bz.CameraType.FIRST_PERSON:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
 
                     if ( player != null ) player.setVisible( false );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( true );
@@ -178,8 +182,8 @@
 
                 case bz.CameraType.ARC_ROTATE:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas.getCanvas() );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -421,17 +425,19 @@
 
         /** ************************************************************************************************************
         *   Tests some post processing pipelining.
+        *
+        *   @param engine The native babylon.JS engine that manages this pp rendering pipeline.
         ***************************************************************************************************************/
-        private testPostProcessingPipeline() : void
+        private testPostProcessingPipeline( engine:BABYLON.Engine ) : void
         {
-            const e:BABYLON.PostProcessRenderPipeline = new BABYLON.PostProcessRenderPipeline
+            const pipeline :BABYLON.PostProcessRenderPipeline = new BABYLON.PostProcessRenderPipeline
             (
-                bz.Main.game.getEngine().getNativeEngine(),
+                engine,
                 'standardPipeline'
             );
-            const t:BABYLON.Engine = bz.Main.game.getEngine().getNativeEngine();
-            const i:BABYLON.PostProcessRenderEffect = new BABYLON.PostProcessRenderEffect(
-                bz.Main.game.getEngine().getNativeEngine(),
+            const effect   :BABYLON.PostProcessRenderEffect = new BABYLON.PostProcessRenderEffect
+            (
+                engine,
                 'fxaa',
                 () : BABYLON.FxaaPostProcess => {
                     return new BABYLON.FxaaPostProcess
@@ -440,13 +446,13 @@
                         2,
                         null,
                         BABYLON.Texture.TRILINEAR_SAMPLINGMODE,
-                        t,
+                        engine,
                         !0
                     );
                 }
             );
-            e.addEffect( i );
-            this.scene.postProcessRenderPipelineManager.addPipeline( e );
+            pipeline.addEffect( effect );
+            this.scene.postProcessRenderPipelineManager.addPipeline( pipeline );
 
             this.scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline(
                 'standardPipeline',

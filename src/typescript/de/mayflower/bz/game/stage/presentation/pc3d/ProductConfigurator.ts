@@ -26,13 +26,16 @@
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
-        *   @param scene The scene reference.
+        *   @param scene  The scene reference.
+        *   @param canvas The canvas system this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
+                canvas,
+
                 bz.SettingColor.COLOR_RGB_GREY_QUARTER,
                 new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 ),
                 bz.CameraType.ARC_ROTATE
@@ -324,6 +327,7 @@
             return new bz.CameraSystem
             (
                 this.scene.getNativeScene(),
+                this.canvas,
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 250.0, 0.0, 0.0 ),

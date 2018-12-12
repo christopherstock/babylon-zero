@@ -9,13 +9,16 @@
         /** ************************************************************************************************************
         *   Creates a new room viewer stage.
         *
-        *   @param scene The scene reference.
+        *   @param scene  The scene reference.
+        *   @param canvas The canvas this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
+                canvas,
+
                 bz.SettingColor.COLOR_RGB_BLACK,
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
                 bz.CameraType.FREE_DEBUG
@@ -136,6 +139,7 @@
             return new bz.CameraSystem
             (
                 this.scene.getNativeScene(),
+                this.canvas,
 
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),

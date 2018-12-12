@@ -166,6 +166,6 @@
         private updateFps() : void
         {
             // update and assign fps
-            this.fpsText.text = bz.Main.game.getEngine().getFps().toFixed( 2 ) + ' fps';
+            this.fpsText.text = bz.Main.game.getFps().toFixed( 2 ) + ' fps';
         }
     }

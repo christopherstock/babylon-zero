@@ -185,7 +185,7 @@
         public render() : void
         {
             // handle keys
-            this.handleKeys( bz.Main.game.getEngine().getKeySystem() );
+            this.handleKeys( bz.Main.game.getKeySystem() );
 
             // jump
             this.checkJump();

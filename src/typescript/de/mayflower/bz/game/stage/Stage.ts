@@ -9,6 +9,9 @@
     {
         /** The scene that represents this stage. */
         protected           readonly        scene                   :bz.Scene                               = null;
+        /** The canvas system this stage is displayed on. */
+        protected           readonly        canvas                  :bz.CanvasSystem                        = null;
+
         /** The ambient color of this stage is the emissive color of all mesh materials. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The clear color of this stage is the background color of all mesh materials. */
@@ -50,6 +53,8 @@
         *   Creates a new custom stage.
         *
         *   @param scene         The scene representing this stage.
+        *   @param canvas        The canvas system this stage is displayed on.
+        *
         *   @param ambientColor  The ambient color of the stage is the emissive color for all faces.
         *   @param clearColor    The clear color of the stage is the background color of the scene.
         *   @param initialCamera The initial camera for this stage.
@@ -57,12 +62,16 @@
         protected constructor
         (
             scene         :bz.Scene,
+            canvas        :bz.CanvasSystem,
+
             ambientColor  :BABYLON.Color3,
             clearColor    :BABYLON.Color4,
             initialCamera :bz.CameraType
         )
         {
             this.scene         = scene;
+            this.canvas        = canvas;
+
             this.ambientColor  = ambientColor;
             this.clearColor    = clearColor;
             this.initialCamera = initialCamera;
@@ -152,7 +161,7 @@
             if ( !this.pause )
             {
                 // handle level specific keys
-                this.handleLevelKeys( bz.Main.game.getEngine().getKeySystem() );
+                this.handleLevelKeys( bz.Main.game.getKeySystem() );
 
                 // render player
                 if ( this.player != null )
@@ -257,7 +266,6 @@
             this.cameraSystem.setActiveCamera
             (
                 cameraId,
-                bz.Main.game.getEngine().getCanvasSystem().getCanvas(),
                 this.player,
                 this.gui
             );
@@ -301,12 +309,10 @@
         ***************************************************************************************************************/
         public adjustGuiSizeToCanvasSize() : void
         {
-            const canvasSystem:bz.CanvasSystem = bz.Main.game.getEngine().getCanvasSystem();
-
             this.gui.updateSize
             (
-                canvasSystem.getWidth(),
-                canvasSystem.getHeight()
+                this.canvas.getWidth(),
+                this.canvas.getHeight()
             );
         }
 

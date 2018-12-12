@@ -9,13 +9,16 @@
         /** ************************************************************************************************************
         *   Creates a new test level.
         *
-        *   @param scene The scene reference.
+        *   @param scene  The scene reference.
+        *   @param canvas The canvas system this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
+                canvas,
+
                 new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
                 bz.CameraType.FIRST_PERSON
@@ -804,6 +807,7 @@
             return new bz.CameraSystem
             (
                 this.scene.getNativeScene(),
+                this.canvas,
 
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),
                 new BABYLON.Vector3( 20.0, 5.0, 20.0 ),

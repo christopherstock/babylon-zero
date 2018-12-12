@@ -51,7 +51,7 @@
                     scene,
                     ( importedMeshes:BABYLON.AbstractMesh[] ) => {
 
-                        bz.Debug.init.log( '  Imported [' + importedMeshes.length + '] meshes' );
+                        // bz.Debug.init.log( '  Imported [' + importedMeshes.length + '] meshes' );
 
                         // hide all meshes
                         for ( const importedMesh of importedMeshes )

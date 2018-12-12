@@ -31,14 +31,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Toggles the pause state for the current stage.
-        ***************************************************************************************************************/
-        public togglePause() : void
-        {
-            this.stage.togglePause();
-        }
-
-        /** ************************************************************************************************************
         *   Switches the current stage to the specified target stage.
         *
         *   @param targetStage The target stage to switch to.
@@ -70,42 +62,42 @@
             {
                 case bz.StageId.STAGE_TEST_OFFICE:
                 {
-                    this.stage = new bz.Office( this.scene );
+                    this.stage = new bz.Office( this.scene, this.engine.getCanvasSystem() );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_TEST_LEVEL:
                 {
-                    this.stage = new bz.TestLevel( this.scene );
+                    this.stage = new bz.TestLevel( this.scene, this.engine.getCanvasSystem() );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_ROOM_VIEWER:
                 {
-                    this.stage = new bz.RoomViewer( this.scene );
+                    this.stage = new bz.RoomViewer( this.scene, this.engine.getCanvasSystem() );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_PRODUCT_CONFIGURATOR:
                 {
-                    this.stage = new bz.ProductConfigurator( this.scene );
+                    this.stage = new bz.ProductConfigurator( this.scene, this.engine.getCanvasSystem() );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_INTRO_LOGO:
                 {
-                    this.stage = new bz.IntroLogo( this.scene );
+                    this.stage = new bz.IntroLogo( this.scene, this.engine.getCanvasSystem() );
                     this.stage.init();
                     break;
                 }
 
                 case bz.StageId.STAGE_HUMAN_BODY_PARTITIONS:
                 {
-                    this.stage = new bz.HumanBodyPartitions( this.scene );
+                    this.stage = new bz.HumanBodyPartitions( this.scene, this.engine.getCanvasSystem() );
                     this.stage.init();
                     break;
                 }
@@ -119,13 +111,31 @@
         }
 
         /** ************************************************************************************************************
-        *   Delivers the game engine.
-        *
-        *   @return The current game stage.
+        *   Toggles the pause state for the current stage.
         ***************************************************************************************************************/
-        public getEngine() : bz.Engine
+        public togglePause() : void
         {
-            return this.engine;
+            this.stage.togglePause();
+        }
+
+        /** ************************************************************************************************************
+        *   Delivers the game engine's key system.
+        *
+        *   @return The key system.
+        ***************************************************************************************************************/
+        public getKeySystem() : bz.KeySystem
+        {
+            return this.engine.getKeySystem();
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the current FPS of the babylon.JS engine.
+        *
+        *   @return The current Frames Per Second as a floating number.
+        ***************************************************************************************************************/
+        public getFps() : number
+        {
+            return this.engine.getFps();
         }
 
         /** ************************************************************************************************************
