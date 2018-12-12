@@ -14,8 +14,8 @@
 
         /** The native babylon.JS scene these cameras belong to. */
         private             readonly    scene                           :BABYLON.Scene                          = null;
-        /** The canvas system this camera system is connected with. */
-        private             readonly    canvas                          :bz.CanvasSystem                        = null;
+        /** The canvas this camera system is connected with. */
+        private             readonly    canvas                          :HTMLCanvasElement                      = null;
 
         /** The free controllable babylon.JS (debug) camera. */
         private             readonly    freeCamera                      :BABYLON.FreeCamera                     = null;
@@ -32,7 +32,7 @@
         *   Sets up all scene cameras.
         *
         *   @param scene                           The babylon.JS scene to create these cameras for.
-        *   @param canvas                          The canvas system this camera system is linked to.
+        *   @param canvas                          The canvas this camera system is linked to.
         *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
@@ -45,7 +45,7 @@
         public constructor
         (
             scene                           :BABYLON.Scene,
-            canvas                          :bz.CanvasSystem,
+            canvas                          :HTMLCanvasElement,
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
@@ -138,8 +138,8 @@
             {
                 case bz.CameraType.FREE_DEBUG:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas.getCanvas() );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -149,8 +149,8 @@
 
                 case bz.CameraType.STATIONARY:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -160,8 +160,8 @@
 
                 case bz.CameraType.FOLLOW:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
@@ -171,8 +171,8 @@
 
                 case bz.CameraType.FIRST_PERSON:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
 
                     if ( player != null ) player.setVisible( false );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( true );
@@ -182,8 +182,8 @@
 
                 case bz.CameraType.ARC_ROTATE:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas.getCanvas() );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas.getCanvas() );
+                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas );
 
                     if ( player != null ) player.setVisible( true );
                     if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );

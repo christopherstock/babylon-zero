@@ -202,7 +202,7 @@
             return new bz.CameraSystem
             (
                 this.scene.getNativeScene(),
-                this.canvas,
+                this.canvas.getNativeCanvas(),
 
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),

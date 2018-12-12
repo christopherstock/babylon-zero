@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export class CanvasSystem
     {
-        /** The canvas element. */
+        /** The native HTML5 canvas element. */
         private         readonly    canvas                  :HTMLCanvasElement              = null;
         /** The canvas rendering context. */
         private         readonly    canvasContext           :WebGLRenderingContext          = null;
@@ -16,7 +16,7 @@
         ***************************************************************************************************************/
         public constructor()
         {
-            // create
+            // create native canvas
             this.canvas = document.createElement( 'canvas' );
 
             // reference 3d rendering context
@@ -81,11 +81,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the current canvas object.
+        *   Returns the native HTML canvas object.
         *
         *   @return The HTML canvas object.
         ***************************************************************************************************************/
-        public getCanvas() : HTMLCanvasElement
+        public getNativeCanvas() : HTMLCanvasElement
         {
             return this.canvas;
         }

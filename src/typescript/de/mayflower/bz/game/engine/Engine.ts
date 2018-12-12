@@ -25,11 +25,11 @@
             this.canvasSystem.updateDimensions();
 
             // create custom loading screen
-            this.loadingScreen = new bz.LoadingScreen( this.canvasSystem.getCanvas() );
+            this.loadingScreen = new bz.LoadingScreen( this.canvasSystem.getNativeCanvas() );
 
             // init babylon.JS engine, set and show custom loading screen
             bz.Debug.init.log( 'Init babylon.JS engine' );
-            this.babylonEngine = new BABYLON.Engine( this.canvasSystem.getCanvas(), true );
+            this.babylonEngine = new BABYLON.Engine( this.canvasSystem.getNativeCanvas(), true );
             if ( bz.SettingEngine.CUSTOM_LOADING_SCREEN )
             {
                 this.babylonEngine.loadingScreen = this.loadingScreen;
