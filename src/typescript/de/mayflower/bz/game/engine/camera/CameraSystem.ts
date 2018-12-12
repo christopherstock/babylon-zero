@@ -101,6 +101,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Delivers the active babylon.JS camera.
+        *
+        *   @return The currently active native camera.
+        ***************************************************************************************************************/
+        public getActiveCamera() : BABYLON.Camera
+        {
+            return this.scene.activeCamera;
+        }
+
+        /** ************************************************************************************************************
         *   Sets the specified camera as the scene's active camera.
         *
         *   @param cameraType The type of camera to set as the scene's active camera.

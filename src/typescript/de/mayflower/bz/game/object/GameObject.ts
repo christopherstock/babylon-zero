@@ -6,12 +6,14 @@
     *******************************************************************************************************************/
     export abstract class GameObject
     {
-        /** An energy amount that represents that this will is unbreakable. */
+        /** An energy amount that represents that this game object is unbreakable. */
         public      static  readonly        UNBREAKABLE                 :number                         = -1;
 
+        /** The stage this game object belongs to. */
+        protected           readonly        stage                       :bz.Stage                       = null;
         /** All meshes this game object consists of. */
         protected           readonly        model                       :bz.Model                       = null;
-        /** The initial energy of this wall. */
+        /** The initial energy of this game object. */
         private             readonly        initialEnergy               :number                         = 0;
 
         /** The current energy of this wall. */
@@ -24,11 +26,13 @@
         /** ************************************************************************************************************
         *   Creates a new game object.
         *
+        *   @param stage  The stage this game object belongs to.
         *   @param model  The model for this game object.
         *   @param energy The initial energy of this game object.
         ***************************************************************************************************************/
-        protected constructor( model:bz.Model, energy:number )
+        protected constructor( stage:bz.Stage, model:bz.Model, energy:number )
         {
+            this.stage         = stage;
             this.model         = model;
             this.initialEnergy = energy;
             this.energy        = energy;

@@ -56,6 +56,7 @@
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
+        *   @param stage         The stage this player belongs to.
         *   @param scene         The scene reference.
         *   @param position      The initial position.
         *   @param rotY          The initial rotation Y.
@@ -63,6 +64,7 @@
         ***************************************************************************************************************/
         public constructor
         (
+            stage         :bz.Stage,
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
             rotY          :number,
@@ -71,6 +73,7 @@
         {
             super
             (
+                stage,
                 new bz.Model
                 (
                     [
@@ -202,6 +205,7 @@
             // interact
             this.checkFire();
 
+            // try experimental move blocker
             if ( this.blockMovement > 0 )
             {
                 --this.blockMovement;
@@ -563,7 +567,7 @@
             const CURRENT_WEARPON_MAX_ZOOM   :number = 0.5;
             const CURRENT_WEARPON_ZOOM_SPEED :number = 0.05;
 
-            const cameraSystem:bz.CameraSystem = bz.Main.game.getStage().getCameraSystem();
+            const cameraSystem:bz.CameraSystem = this.stage.getCameraSystem();
 
             if ( this.zoom )
             {
@@ -628,19 +632,18 @@
         ***************************************************************************************************************/
         private checkFire() : void
         {
+            // check if firing is requested
             if ( this.fire )
             {
                 bz.Debug.fire.log();
                 bz.Debug.fire.log( 'Player is firing' );
 
-                // handle fire as processed
+                // mark fire request as processed
                 this.fire = false;
 
-                // create shot
+                // create shot and apply it onto the stage
                 const shot:bz.Shot = this.createShot();
-
-                // check affected game objects
-                bz.Main.game.getStage().applyShot( shot );
+                this.stage.applyShot( shot );
             }
         }
 

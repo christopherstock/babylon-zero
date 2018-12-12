@@ -158,10 +158,7 @@
             if ( dimensionsChanged )
             {
                 // resize GUIs
-                if ( bz.Main.game.getStage() != null )
-                {
-                    bz.Main.game.getStage().adjustGuiSizeToCanvasSize();
-                }
+                bz.Main.game.adjustGameSizeToCanvasSize();
 
                 // resize babylon.JS
                 this.babylonEngine.resize();

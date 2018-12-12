@@ -15,11 +15,12 @@
         /** ************************************************************************************************************
         *   Creates a new item.
         *
+        *   @param stage The stage this item belongs to.
         *   @param model The model that represents this item.
         ***************************************************************************************************************/
-        public constructor( model:bz.Model )
+        public constructor( stage:bz.Stage, model:bz.Model )
         {
-            super( model, bz.GameObject.UNBREAKABLE );
+            super( stage, model, bz.GameObject.UNBREAKABLE );
         }
 
         /** ************************************************************************************************************
@@ -31,10 +32,9 @@
             super.render();
 
             // check if picked by player
-            const stage:bz.Stage = bz.Main.game.getStage();
-            if ( this.checkPick( stage.getPlayer().getModel() ) )
+            if ( this.checkPick( this.stage.getPlayer().getModel() ) )
             {
-                stage.addGuiFx( bz.GUIFxType.GAIN_ENERGY );
+                this.stage.addGuiFx( bz.GUIFxType.GAIN_ENERGY );
             }
 
             // testwise rotate this item

@@ -40,6 +40,7 @@
         {
             return new bz.Player
             (
+                this,
                 this.scene,
                 new BABYLON.Vector3( 15.0, 0.0, 15.0 ),
                 225.0,
@@ -58,6 +59,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -81,6 +83,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -104,6 +107,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -127,6 +131,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -149,6 +154,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -172,6 +178,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -194,6 +201,7 @@
                 ),
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -217,6 +225,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -240,6 +249,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -263,6 +273,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -286,6 +297,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -309,6 +321,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -332,6 +345,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -356,6 +370,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -379,6 +394,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -402,6 +418,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -425,6 +442,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -448,6 +466,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -471,6 +490,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -494,6 +514,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -517,6 +538,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -540,6 +562,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -552,6 +575,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -564,6 +588,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -766,7 +791,7 @@
         ***************************************************************************************************************/
         protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
         {
-            return new bz.PointerSystem( this.scene.getNativeScene() ).defaultPointerDown;
+            return new bz.PointerSystem( this ).defaultPointerDown;
         }
 
         /** ************************************************************************************************************

@@ -82,6 +82,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     this.model
                 ),
             ];

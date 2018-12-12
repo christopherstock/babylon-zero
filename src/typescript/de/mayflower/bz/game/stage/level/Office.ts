@@ -53,7 +53,7 @@
                 this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
 
                 // show hurt GUI effect
-                bz.Main.game.getStage().addGuiFx( bz.GUIFxType.HURT );
+                this.addGuiFx( bz.GUIFxType.HURT );
 
                 // perform a camera animation for the stationary target camera
                 this.gui.addGuiMessage( 'start camera journey [' + bz.String.getDateTimeString() + ']' );
@@ -78,6 +78,7 @@
         {
             return new bz.Player
             (
+                this,
                 this.scene,
                 new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
                 45.0,
@@ -145,6 +146,7 @@
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -158,12 +160,14 @@
                 // black sphere COMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
                 (
+                    this,
                     this.compoundSpheres
                 ),
 
                 // crate
                 new bz.Wall
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -177,12 +181,14 @@
                 // 3ds chair single-meshed
                 new bz.Wall
                 (
+                    this,
                     this.chairSingle
                 ),
 
                 // tv
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -194,6 +200,7 @@
                 // 3ds chair - multi-meshes with same physics
                 new bz.Wall
                 (
+                    this,
                     this.chairMulti,
                     5
                 ),
@@ -201,6 +208,7 @@
                 // 3ds chair - multi-meshes with specific physics
                 new bz.Wall
                 (
+                    this,
                     this.chairMultiPhysics,
                     5
                 ),
@@ -208,6 +216,7 @@
                 // red sphere from own model
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -230,6 +239,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -253,6 +263,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -276,6 +287,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -299,6 +311,7 @@
 
                 new bz.Wall
                 (
+                    this,
                     new bz.Model
                     (
                         [
@@ -333,6 +346,7 @@
 
                 new bz.Item
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -345,6 +359,7 @@
 
                 new bz.Item
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
@@ -357,6 +372,7 @@
 
                 new bz.Item
                 (
+                    this,
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,

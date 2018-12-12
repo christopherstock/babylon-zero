@@ -3,23 +3,22 @@
     import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
-    *   Offers default pointer handling methods.
-    *
+    *   Offers default pointer handling for one specific stage.
     *   This is currently just an implementation for physical debug purposes!
     *******************************************************************************************************************/
     export class PointerSystem
     {
-        /** The native babylon.JS scene. */
-        private                 scene           :BABYLON.Scene                      = null;
+        /** The stage this pointer system operates on. */
+        private             readonly            stage               :bz.Stage                           = null;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
         *
-        *   @param scene The native babylon.JS scene to create this pointer system for.
+        *   @param stage The stage this pointer system operates on.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( stage:bz.Stage )
         {
-            this.scene = scene;
+            this.stage = stage;
         }
 
         /** ************************************************************************************************************
@@ -32,22 +31,21 @@
         {
             if ( pickResult.hit )
             {
-                let stage :bz.Stage        = bz.Main.game.getStage();
-                let src   :BABYLON.Vector3 = null;
+                let src :BABYLON.Vector3 = null;
 
                 // horrible debug implementation
                 if
                 (
-                        stage != null
-                    &&  stage.getCameraSystem().isFirstPersonCameraActive()
-                    &&  stage.getPlayer() != null
+                        this.stage != null
+                    &&  this.stage.getCameraSystem().isFirstPersonCameraActive()
+                    &&  this.stage.getPlayer() != null
                 )
                 {
-                    src = stage.getPlayer().getThirdPersonCameraTargetMesh().position;
+                    src = this.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
                 }
                 else
                 {
-                    src = this.scene.activeCamera.position;
+                    src = this.stage.getCameraSystem().getActiveCamera().position;
                 }
 
                 const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );

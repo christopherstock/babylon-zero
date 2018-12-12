@@ -9,12 +9,13 @@
         /** ************************************************************************************************************
         *   Creates a new wall instance.
         *
+        *   @param stage  The stage this wall belongs to.
         *   @param model  The model that represents this wall.
         *   @param energy The initial energy of this wall.
         ***************************************************************************************************************/
-        public constructor( model:bz.Model, energy:number = Wall.UNBREAKABLE )
+        public constructor( stage:bz.Stage, model:bz.Model, energy:number = Wall.UNBREAKABLE )
         {
-            super( model, energy );
+            super( stage, model, energy );
         }
 
         /** ************************************************************************************************************

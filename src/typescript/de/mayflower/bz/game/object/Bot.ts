@@ -9,10 +9,11 @@
         /** ************************************************************************************************************
         *   Creates a new bot instance.
         *
+        *   @param stage The stage this bot belongs to.
         *   @param model The model that represents this bot.
         ***************************************************************************************************************/
-        public constructor( model:bz.Model )
+        public constructor( stage:bz.Stage, model:bz.Model )
         {
-            super( model, bz.GameObject.UNBREAKABLE );
+            super( stage, model, bz.GameObject.UNBREAKABLE );
         }
     }

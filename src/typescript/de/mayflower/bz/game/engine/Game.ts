@@ -31,6 +31,14 @@
         }
 
         /** ************************************************************************************************************
+        *   Toggles the pause state for the current stage.
+        ***************************************************************************************************************/
+        public togglePause() : void
+        {
+            this.stage.togglePause();
+        }
+
+        /** ************************************************************************************************************
         *   Switches the current stage to the specified target stage.
         *
         *   @param targetStage The target stage to switch to.
@@ -111,16 +119,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Delivers the current game stage.
-        *
-        *   @return The current game stage.
-        ***************************************************************************************************************/
-        public getStage() : bz.Stage
-        {
-            return this.stage;
-        }
-
-        /** ************************************************************************************************************
         *   Delivers the game engine.
         *
         *   @return The current game stage.
@@ -131,13 +129,14 @@
         }
 
         /** ************************************************************************************************************
-        *   Delivers the scene.
-        *
-        *   @return The current scene.
+        *   Adjusts all game elements to the current canvas size.
         ***************************************************************************************************************/
-        public getScene() : bz.Scene
+        public adjustGameSizeToCanvasSize() : void
         {
-            return this.scene;
+            if ( this.stage != null )
+            {
+                this.stage.adjustGuiSizeToCanvasSize();
+            }
         }
 
         /** ************************************************************************************************************
