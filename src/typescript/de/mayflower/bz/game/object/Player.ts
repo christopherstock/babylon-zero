@@ -50,9 +50,6 @@
         /** The referenced right hand mesh. */
         private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
 
-        /** This is an experimental move blocker that may solve the jitter bug one day. */
-        private                         blockMovement               :number                             = 0;
-
         /** ************************************************************************************************************
         *   Creates a new player instance.
         *
@@ -172,9 +169,7 @@
                     collider     :BABYLON.PhysicsImpostor,
                     collidedWith :BABYLON.PhysicsImpostor
                 ) : void => {
-                    console.log( 'Player Body is colliding!' );
-
-                    this.blockMovement = 20;
+                    console.log( ' Colliding!' );
                 };
             }
         }
@@ -204,14 +199,6 @@
 
             // interact
             this.checkFire();
-
-            // try experimental move blocker
-            if ( this.blockMovement > 0 )
-            {
-                --this.blockMovement;
-
-                if ( this.blockMovement === 0 ) console.log( ' Move Block released!' );
-            }
         }
 
         /** ************************************************************************************************************
@@ -368,12 +355,6 @@
                 || this.moveDelta.z !== 0.0
             )
             {
-                if ( this.blockMovement > 0 )
-                {
-                    this.moveDelta.x = 0.0;
-                    this.moveDelta.z = 0.0;
-                }
-
                 // apply move delta
                 this.body.moveWithCollisions
                 (

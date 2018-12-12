@@ -9,7 +9,7 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Redesign class Texture and create TextureSystem? Check ModelSystem again?
+    *   TODO Try to improve collision handling for the player. -> remove with own implementation? ..
     *
     *   TODO Try fog or smoke?
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
@@ -31,7 +31,6 @@
     *   =====================
     *   TODO Issues
     *   =====================
-    *   TODO Try to improve collision handling for the player.
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Enable loading of only required resources for the current scene??
     *
