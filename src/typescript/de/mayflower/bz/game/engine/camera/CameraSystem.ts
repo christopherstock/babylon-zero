@@ -7,26 +7,28 @@
     export class CameraSystem
     {
         /** Next ID to assign for animation creation. */
-        private     static              nextAnimationId                 :number                                 = 0;
+        private     static              nextCameraAnimationId           :number                                 = 0;
 
         /** The currently active camera type. */
         private                         activeCameraType                :bz.CameraType                          = null;
 
+        /** The native babylon.JS scene these cameras belong to. */
+        private             readonly    scene                           :BABYLON.Scene                          = null;
         /** The free controllable babylon.JS (debug) camera. */
-        private         readonly        freeCamera                      :BABYLON.FreeCamera                     = null;
+        private             readonly    freeCamera                      :BABYLON.FreeCamera                     = null;
         /** The stationary and targeted babylon.JS camera. */
-        private         readonly        stationaryCamera                :BABYLON.TargetCamera                   = null;
+        private             readonly    stationaryCamera                :BABYLON.TargetCamera                   = null;
         /** The follow babylon.JS camera. */
-        private         readonly        followCamera                    :BABYLON.FollowCamera                   = null;
+        private             readonly    followCamera                    :BABYLON.FollowCamera                   = null;
         /** The first person babylon.JS camera. */
-        private         readonly        firstPersonCamera               :BABYLON.FreeCamera                     = null;
+        private             readonly    firstPersonCamera               :BABYLON.FreeCamera                     = null;
         /** The babylon.JS axis camera. */
-        private         readonly        arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+        private             readonly    arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
 
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
         *
-        *   @param scene                           The babylon.JS scene.
+        *   @param scene                           The babylon.JS scene to create these cameras for.
         *
         *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
         *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
@@ -49,31 +51,32 @@
             firstPersonCameraTarget         :BABYLON.AbstractMesh
         )
         {
+            this.scene = scene;
+
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (
-                scene,
+                this.scene,
                 startupPositionFreeDebugCamera,
                 startupTargetFreeDebugCamera
             );
             this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera
             (
-                scene,
+                this.scene,
                 startupPositionStationaryCamera
             );
             this.followCamera      = bz.CameraFactory.createFollowCamera
             (
-                scene,
+                this.scene,
                 startupPositionFreeDebugCamera
             );
             this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera
             (
-                scene,
+                this.scene,
                 bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW
             );
-
             this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera
             (
-                scene,
+                this.scene,
                 0.0,
                 0.0,
                 200,
@@ -101,7 +104,6 @@
         *   Sets the specified camera as the scene's active camera.
         *
         *   @param cameraType The type of camera to set as the scene's active camera.
-        *   @param scene      The babylon.JS scene to set the active camera for.
         *   @param canvas     The HTML canvas that might change debug controls on camera switch.
         *   @param player     The player instance that will show or hide according to the currently set camera.
         *   @param gui        The stage GUI that may be shown or hidden according to the selected camera.
@@ -109,15 +111,14 @@
         public setActiveCamera
         (
             cameraType :bz.CameraType,
-            scene      :BABYLON.Scene,
             canvas     :HTMLCanvasElement,
             player     :bz.Player,
             gui        :bz.GUI
         )
         : void
         {
-            this.activeCameraType = cameraType;
-            scene.activeCamera    = this.getCameraFromType( cameraType );
+            this.activeCameraType   = cameraType;
+            this.scene.activeCamera = this.getCameraFromType( cameraType );
 
             switch ( cameraType )
             {
@@ -259,7 +260,7 @@
 
             BABYLON.Animation.CreateAndStartAnimation
             (
-                CameraSystem.createNextAnimationId(),
+                CameraSystem.createNextCameraAnimationId(),
                 camera,
                 'position',
                 bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND,
@@ -300,7 +301,7 @@
 
             BABYLON.Animation.CreateAndStartAnimation
             (
-                CameraSystem.createNextAnimationId(),
+                CameraSystem.createNextCameraAnimationId(),
                 camera,
                 'target',
                 bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND,
@@ -435,16 +436,16 @@
                 }
             );
             e.addEffect( i );
-            bz.Main.game.getScene().getNativeScene().postProcessRenderPipelineManager.addPipeline( e );
+            this.scene.postProcessRenderPipelineManager.addPipeline( e );
 
-            bz.Main.game.getScene().getNativeScene().postProcessRenderPipelineManager.attachCamerasToRenderPipeline(
+            this.scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline(
                 'standardPipeline',
                 this.stationaryCamera
             );
         }
 
         /** ************************************************************************************************************
-        *   Tests some post processing effects.
+        *   Tests some post processing effects on the stationary camera.
         ***************************************************************************************************************/
         private testPostProcessing() : void
         {
@@ -481,8 +482,8 @@
         *
         *   @return The next free unique id for a new animation to create.
         ***************************************************************************************************************/
-        private static createNextAnimationId() : string
+        private static createNextCameraAnimationId() : string
         {
-            return 'animation' + CameraSystem.nextAnimationId++;
+            return 'cameraAnimation' + CameraSystem.nextCameraAnimationId++;
         }
     }

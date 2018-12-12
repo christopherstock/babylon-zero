@@ -257,7 +257,6 @@
             this.cameraSystem.setActiveCamera
             (
                 cameraId,
-                this.scene.getNativeScene(),
                 bz.Main.game.getEngine().getCanvasSystem().getCanvas(),
                 this.player,
                 this.gui

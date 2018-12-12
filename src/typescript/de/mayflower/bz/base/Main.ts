@@ -9,6 +9,7 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
+    *   TODO Remove ALL references to bz.Scene and BABYLON.Scene.
     *   TODO Hold 'Scene' in stage and remove global reference?
     *   TODO Remove 'ALL' global references to Main.game ??
     *   TODO Enable loading only required resources for the current scene??
