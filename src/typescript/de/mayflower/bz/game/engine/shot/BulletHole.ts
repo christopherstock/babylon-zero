@@ -50,7 +50,7 @@
             // append the debug hit face normal
             if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
             {
-                this.createDebugHoleNormalLine( scene );
+                this.createDebugHoleNormalLine( scene.getNativeScene() );
             }
         }
 
@@ -122,14 +122,14 @@
         /** ************************************************************************************************************
         *   Creates a debug bullet hole normal line onto this hit point.
         *
-        *   @param scene The scene to create the bullet hole for.
+        *   @param scene The native babylon.JS scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createDebugHoleNormalLine( scene:bz.Scene ) : void
+        private createDebugHoleNormalLine( scene:BABYLON.Scene ) : void
         {
             // create debug bullet hole
             this.debugNormalLine = bz.MeshFactory.createLine
             (
-                scene.getNativeScene(),
+                scene,
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.MeshPivotAnchor.CENTER_XYZ,

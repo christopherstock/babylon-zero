@@ -9,33 +9,36 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Remove ALL references to bz.Scene and BABYLON.Scene.
-    *   TODO Hold 'Scene' in stage and remove global reference?
-    *   TODO Remove 'ALL' global references to Main.game ??
-    *   TODO Enable loading only required resources for the current scene??
-    *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
-    *   TODO Redesign Texture and create TextureSystem? Check ModelSystem again?
-    *   TODO Enable pointer lock in non-fullscreen (window) mode?
-    *   TODO Show a video texture in the GUI?
+    *   TODO Redesign class Texture and create TextureSystem? Check ModelSystem again?
+    *
     *   TODO Try fog or smoke?
+    *   TODO Create alternate lower cylinder for player that toggles on ducking?
+    *   TODO Show a video texture in the GUI?
     *   TODO Try different player objects: physics for car, etc
     *   TODO Try fur.
-    *   TODO HID: Add wearpon slower panning on aiming/zooming.
+    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
+    *   TODO HID: Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
-    *
-    *   =====================
-    *   TODO Issues
-    *   =====================
-    *   TODO Try to improve collision handling for the player.
-    *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
+    *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *
     *   =====================
     *   TODO Sounds
     *   =====================
     *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
+    *
+    *   =====================
+    *   TODO Issues
+    *   =====================
+    *   TODO Try to improve collision handling for the player.
+    *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
+    *   TODO Enable loading of only required resources for the current scene??
+    *
+    *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Remove 'ALL' global references to Main.game..
     *
     *   =====================
     *   TODO Wearpons
@@ -84,7 +87,7 @@
     *   TODO The Lab
     *   =====================
     *   TODO Try 'worker thread collisions'?
-    *   TODO Try 3D GUI again ( requires babylon.JS 3.3 ).
+    *   TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
     *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
