@@ -403,22 +403,18 @@
             const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
             this.body.physicsImpostor.setLinearVelocity
             (
-
                 new BABYLON.Vector3
                 (
                     ( velocity.x * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
 
-                    // check if player is descending and multiply the velocity in this case
+                    // check player falling
                     (
                         this.isFalling()
 
-                        // increase descending on falling
+                        // scale up falling velocity
                         ? ( velocity.y * bz.SettingPlayer.PLAYER_FALLING_VELOCITY_MULTIPLIER )
 
-                        // allow descending but not ascending
-                        // : ( velocity.y < 0.0 ? velocity.y : 0.0 )
-
-                        // apply velocity
+                        // keep velocity
                         : velocity.y
                     ),
 

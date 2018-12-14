@@ -25,10 +25,10 @@
         public  static  readonly    PLAYER_MOVE_VELOCITY_MULTIPLIER             :number             = 0.5;
         /** The player's physical falling multiplier per tick. */
         public  static  readonly    PLAYER_FALLING_VELOCITY_MULTIPLIER          :number             = 1.05;
-        /** The player's physical velocity y that determines falling. */
-        public  static  readonly    PLAYER_FALLING_VELOCITY_Y                   :number             = -1.0;
         /** The player's physical ascend distance multiplied by remaining jump ascending ticks. */
         public  static  readonly    PLAYER_JUMP_ASCEND_IMPULSE_Y               :number             = 300.0;
+        /** The player's physical velocity y that determines falling. */
+        public  static  readonly    PLAYER_FALLING_VELOCITY_Y                   :number             = -1.0;
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.2;
