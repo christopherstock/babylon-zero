@@ -43,7 +43,7 @@
         );
 
         /** Props for office chair. */
-        public  static  readonly        CONCRETE           :Physic                 = new Physic
+        public  static  readonly        CONCRETE        :Physic                 = new Physic
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.CONCRETE,
@@ -52,7 +52,7 @@
         );
 
         /** Props for a physical compound object. */
-        public  static  readonly        COMPOUND            :Physic                 = new Physic
+        public  static  readonly        COMPOUND        :Physic                 = new Physic
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.DEFAULT,
@@ -192,7 +192,7 @@
                 case bz.PhysicState.PLAYER:
                 {
                     return {
-                        mass:        50.0,
+                        mass:        bz.SettingPlayer.PLAYER_MASS,
                         friction:    0.0,
                         restitution: 0.0,
                     };

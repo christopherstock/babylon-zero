@@ -26,8 +26,8 @@
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
-        /** The number of jump ticks to perform. */
-        private                         jumpTicks                   :number                             = 0;
+        /** The number of jump ticks to perform. TODO remove */
+        // private                         jumpTicks                   :number                             = 0;
 
         /** Flags if the player currently wants to zoom. */
         private                         zoom                        :boolean                            = false;
@@ -355,7 +355,8 @@
                 || this.moveDelta.z !== 0.0
             )
             {
-                // apply move delta
+/*
+                // apply direct move delta
                 this.body.moveWithCollisions
                 (
                     new BABYLON.Vector3
@@ -365,19 +366,19 @@
                         this.moveDelta.z
                     )
                 );
-/*
-                // apply impulse
-                this.body.physicsImpostor.applyImpulse // applyForce
+*/
+                // apply physical impulse
+                this.body.physicsImpostor.applyImpulse // applyForce ?
                 (
                     new BABYLON.Vector3
                     (
-                        ( 10 * this.moveDelta.x ),
-                        0.0,
-                        ( 10 * this.moveDelta.z )
+                        ( bz.SettingPlayer.PLAYER_MOVE_IMPULSE_MULTIPLIER * this.moveDelta.x ),
+                        this.moveDelta.y,
+                        ( bz.SettingPlayer.PLAYER_MOVE_IMPULSE_MULTIPLIER * this.moveDelta.z )
                     ),
                     this.body.position
                 );
-*/
+
                 // force rotZ centering on horizontal movements
                 if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
                 {
@@ -402,20 +403,26 @@
             const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
             this.body.physicsImpostor.setLinearVelocity
             (
+
                 new BABYLON.Vector3
                 (
-                    0.0,
+                    ( velocity.x * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
 
+                    // check if player is descending and multiply the velocity in this case
                     (
-                        ( this.isFalling() && this.jumpTicks === 0 )
+                        this.isFalling()
 
                         // increase descending on falling
-                        ? ( velocity.y * bz.SettingPlayer.PLAYER_FALLING_MULTIPLIER )
+                        ? ( velocity.y * bz.SettingPlayer.PLAYER_FALLING_VELOCITY_MULTIPLIER )
 
                         // allow descending but not ascending
-                        : ( velocity.y < 0.0 ? velocity.y : 0.0 )
+                        // : ( velocity.y < 0.0 ? velocity.y : 0.0 )
+
+                        // apply velocity
+                        : velocity.y
                     ),
-                    0.0,
+
+                    ( velocity.z * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
                 )
             );
 
@@ -487,13 +494,14 @@
         ***************************************************************************************************************/
         private assignJump() : void
         {
-            // deny jumping if already jumping
+            // TODO deny jumping if player has no contact to the ground!
+/*
             if ( this.jumpTicks > 0 )
             {
                 bz.Debug.player.log( 'Player jumping denied cause already jumping' );
                 return;
             }
-
+*/
             // deny jumping if currently falling
             if ( this.isFalling() )
             {
@@ -502,7 +510,7 @@
             }
 
             bz.Debug.player.log( 'Player jumps' );
-            this.jumpTicks = bz.SettingPlayer.PLAYER_JUMP_ASCEND_TICKS;
+            this.moveDelta.y = bz.SettingPlayer.PLAYER_JUMP_ASCEND_IMPULSE_Y;
         }
 
         /** ************************************************************************************************************
@@ -633,12 +641,15 @@
         ***************************************************************************************************************/
         private checkJump() : void
         {
+            // TODO remove!
+/*
             if ( this.jumpTicks > 0 )
             {
                 this.moveDelta.y = ( this.jumpTicks * bz.SettingPlayer.PLAYER_JUMP_ASCEND_DISTANCE_Y );
 
                 --this.jumpTicks;
             }
+*/
         }
 
         /** ************************************************************************************************************

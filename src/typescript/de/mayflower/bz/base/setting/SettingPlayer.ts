@@ -6,7 +6,7 @@
     export class SettingPlayer
     {
         /** The player's diameter on the XZ axis. */
-        public  static  readonly    PLAYER_DIAMETER_BODY_XZ                     :number             = 2.35;
+        public  static  readonly    PLAYER_DIAMETER_BODY_XZ                     :number             = 3.0;
         /** The player's head diameter on all axis. */
         public  static  readonly    PLAYER_DIAMETER_HEAD                        :number             = 1.0;
 
@@ -14,6 +14,21 @@
         public  static  readonly    PLAYER_HEIGHT_Y_STANDING                    :number             = 4.0;
         /** The player's height on ducking. */
         public  static  readonly    PLAYER_HEIGHT_Y_DUCKED                      :number             = 2.0;
+
+        /** The player's physical mass. */
+        public  static  readonly    PLAYER_MASS                                 :number             = 50.0;
+
+        /** The player's physical force multiplier for horizontal movements. TODO remove! */
+        public  static  readonly    PLAYER_MOVE_IMPULSE_MULTIPLIER              :number             = 1500;
+
+        /** The player's physical force multiplier for horizontal movements. */
+        public  static  readonly    PLAYER_MOVE_VELOCITY_MULTIPLIER             :number             = 0.5;
+        /** The player's physical falling multiplier per tick. */
+        public  static  readonly    PLAYER_FALLING_VELOCITY_MULTIPLIER          :number             = 1.05;
+        /** The player's physical velocity y that determines falling. */
+        public  static  readonly    PLAYER_FALLING_VELOCITY_Y                   :number             = -1.0;
+        /** The player's physical ascend distance multiplied by remaining jump ascending ticks. */
+        public  static  readonly    PLAYER_JUMP_ASCEND_IMPULSE_Y               :number             = 300.0;
 
         /** The player's moving speed in world coordinate per tick. */
         public  static  readonly    PLAYER_SPEED_MOVE                           :number             = 0.2;
@@ -44,13 +59,4 @@
 
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;
-
-        /** Number of ticks for the player to ascend on jumping. */
-        public  static  readonly    PLAYER_JUMP_ASCEND_TICKS                    :number             = 20.0;
-        /** The ascend distance multiplied by remaining jump ascending ticks. */
-        public  static  readonly    PLAYER_JUMP_ASCEND_DISTANCE_Y               :number             = 0.02;
-        /** The falling multiplier per tick. */
-        public  static  readonly    PLAYER_FALLING_MULTIPLIER                   :number             = 1.05;
-        /** The velocity y that determines falling. */
-        public  static  readonly    PLAYER_FALLING_VELOCITY_Y                   :number             = -1.0;
     }
