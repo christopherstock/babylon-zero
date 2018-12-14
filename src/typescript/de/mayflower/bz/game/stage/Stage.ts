@@ -82,16 +82,15 @@
         ***************************************************************************************************************/
         public init() : void
         {
+            // set ambient color and scene bg color
             this.scene.getNativeScene().ambientColor = this.ambientColor;
             this.scene.getNativeScene().clearColor   = this.clearColor;
 
-            this.player             = this.createPlayer();
+            // enable fog if desired
+            this.scene.enableFog( false );
 
-            if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
-            {
-                this.createCoordinalAxis();
-            }
-
+            // create all game objects
+            this.player       = this.createPlayer();
             this.walls        = this.createWalls();
             this.items        = this.createItems();
             this.bots         = this.createBots();
@@ -101,12 +100,20 @@
             this.cameraSystem = this.createCameraSystem();
             this.lights       = this.createLights();
 
+            // set camera system
             this.setActiveCamera( this.initialCamera );
 
+            // create shadow generators
             if ( bz.SettingEngine.ENABLE_SHADOWS )
             {
                 this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
+            }
+
+            // create debug axis
+            if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
+            {
+                this.createCoordinalAxis();
             }
 
             // assign pointer callback

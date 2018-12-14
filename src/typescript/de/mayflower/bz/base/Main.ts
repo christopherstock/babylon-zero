@@ -9,7 +9,6 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Try fog or smoke?
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Show a video texture in the GUI?
     *   TODO Try different player objects: physics for car, etc
@@ -38,6 +37,9 @@
     *   TODO Refactorings
     *   =====================
     *   TODO Remove 'ALL' global references to Main.game..
+    *   TODO Parameter for stage fog/smoke color/enabled?
+    *   TODO group values and invocations in Stage to functions and classes?
+    *   TODO Minimize access to bz.Scene.getNativeScene()
     *
     *   =====================
     *   TODO Wearpons
@@ -85,6 +87,8 @@
     *   =====================
     *   TODO The Lab
     *   =====================
+    *   TODO Try babylon 101 scenes.
+    *   TODO Try mountain grounds ("height maps").
     *   TODO Try 'worker thread collisions'?
     *   TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
     *   TODO Try 'gamelets' in the babylon.JS docs.

@@ -166,6 +166,32 @@
         }
 
         /** ************************************************************************************************************
+        *   Enables or disables fog for the native scene.
+        *
+        *   @param enabled Specifies if fog shall be enabled in the current scene.
+        ***************************************************************************************************************/
+        public enableFog( enabled:boolean ) : void
+        {
+            if ( enabled )
+            {
+                this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_EXP;  // TODO 2 is faster!
+                this.babylonScene.fogColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+
+                // for exponential mode
+                this.babylonScene.fogDensity = 0.05;
+/*
+                // for linear mode
+                this.babylonScene.fogStart = 20.0;
+                this.babylonScene.fogEnd = 60.0;
+*/
+            }
+            else
+            {
+                this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Being invoked when all sounds are loaded completely.
         ***************************************************************************************************************/
         private onSoundsLoaded=() : void =>
