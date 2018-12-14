@@ -41,9 +41,9 @@
         public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
 
         /** The physics engine iteration count per render cycle. */
-        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 30;   // 5000 = no shaking
+        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 5;       // 5000 = no shaking
         /** The diameter of the collison epsilon used for all collision detections. */
-        public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 5.0;
+        public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 500.0;    // no effect?
         /** The calculating time step amount for one tick of the physical engine. */
         public  static  readonly    PHYSICS_TIME_STEP_DEFAULT               :number             = ( 1 / 60 );
         /** The calculating time step amount for one paused tick of the physical engine. 0 is not working! */

@@ -26,8 +26,6 @@
         private                         fire                        :boolean                            = false;
         /** Flags if the player currently wants to duck. */
         private                         duck                        :boolean                            = false;
-        /** The number of jump ticks to perform. TODO remove */
-        // private                         jumpTicks                   :number                             = 0;
 
         /** Flags if the player currently wants to zoom. */
         private                         zoom                        :boolean                            = false;
@@ -180,21 +178,18 @@
         public render() : void
         {
             // handle keys
-            this.handleKeys( bz.Main.game.getKeySystem() );
+            this.handleKeys();
 
-            // jump
-            this.checkJump();
-
-            // move
+            // alter position
             this.movePlayer();
             this.manipulateVelocities();
 
-            // view
+            // alter view
             this.rotatePlayerXYZ();
             this.checkCenteringRotZ();
             this.checkFieldOfViewChange();
 
-            // morph
+            // alter height
             this.checkHeightChange();
 
             // interact
@@ -225,11 +220,11 @@
 
         /** ************************************************************************************************************
         *   Handles all keys for the player.
-        *
-        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handleKeys( keySystem:bz.KeySystem ) : void
+        private handleKeys() : void
         {
+            const keySystem:bz.KeySystem = bz.Main.game.getKeySystem();
+
             // move forewards and backwards
             if
             (
@@ -242,18 +237,18 @@
                 // probably run
                 if ( keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )
                 {
-                    speedForward = bz.SettingPlayer.PLAYER_SPEED_RUN;
+                    speedForward = bz.SettingPlayer.PLAYER_RUN_IMPULSE;
                 }
                 else
                 {
-                    speedForward = bz.SettingPlayer.PLAYER_SPEED_MOVE;
+                    speedForward = bz.SettingPlayer.PLAYER_MOVE_IMPULSE;
                 }
 
                 this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
                 this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.rotation.y );
 
                 // shake head if enabled
-                if ( bz.SettingPlayer.PLAYER_HEAD_SHAKING )
+                if ( bz.SettingPlayer.PLAYER_HEAD_SHAKING_ENABLED )
                 {
                     this.alterHeadShakeAngle( speedForward );
                 }
@@ -264,13 +259,13 @@
                 // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
-                this.moveDelta.x -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.sinDegrees( this.rotation.y );
-                this.moveDelta.z -= bz.SettingPlayer.PLAYER_SPEED_MOVE * bz.MathUtil.cosDegrees( this.rotation.y );
+                this.moveDelta.x -= bz.SettingPlayer.PLAYER_MOVE_IMPULSE * bz.MathUtil.sinDegrees( this.rotation.y );
+                this.moveDelta.z -= bz.SettingPlayer.PLAYER_MOVE_IMPULSE * bz.MathUtil.cosDegrees( this.rotation.y );
 
                 // shake head if enabled
-                if ( bz.SettingPlayer.PLAYER_HEAD_SHAKING )
+                if ( bz.SettingPlayer.PLAYER_HEAD_SHAKING_ENABLED )
                 {
-                    this.alterHeadShakeAngle( -bz.SettingPlayer.PLAYER_SPEED_MOVE );
+                    this.alterHeadShakeAngle( -bz.SettingPlayer.PLAYER_MOVE_IMPULSE );
                 }
             }
 
@@ -372,9 +367,9 @@
                 (
                     new BABYLON.Vector3
                     (
-                        ( bz.SettingPlayer.PLAYER_MOVE_IMPULSE_MULTIPLIER * this.moveDelta.x ),
+                        this.moveDelta.x,
                         this.moveDelta.y,
-                        ( bz.SettingPlayer.PLAYER_MOVE_IMPULSE_MULTIPLIER * this.moveDelta.z )
+                        this.moveDelta.z
                     ),
                     this.body.position
                 );
@@ -490,7 +485,6 @@
         ***************************************************************************************************************/
         private assignJump() : void
         {
-            // TODO deny jumping if player has no contact to the ground!
 /*
             if ( this.jumpTicks > 0 )
             {
@@ -633,22 +627,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Checks if the player is jumping.
-        ***************************************************************************************************************/
-        private checkJump() : void
-        {
-            // TODO remove!
-/*
-            if ( this.jumpTicks > 0 )
-            {
-                this.moveDelta.y = ( this.jumpTicks * bz.SettingPlayer.PLAYER_JUMP_ASCEND_DISTANCE_Y );
-
-                --this.jumpTicks;
-            }
-*/
-        }
-
-        /** ************************************************************************************************************
         *   Creates a shot that contains all information about this shot.
         *
         *   @return The shot that is currently fired from the player.
@@ -723,7 +701,7 @@
         private alterHeadShakeAngle( delta:number ) : void
         {
             // apply delta and normalize angle
-            this.headShakingAngle += ( delta * bz.SettingPlayer.PLAYER_HEAD_SHAKING_SPEED_MULTIPLIER );
+            this.headShakingAngle += ( delta * bz.SettingPlayer.PLAYER_HEAD_SHAKING_VELOCITY_MULTIPLIER );
             this.headShakingAngle = bz.MathUtil.normalizeAngleDegrees( this.headShakingAngle );
 
             // bz.Debug.player.log( 'Head shake angle delta [' + delta + '] total [' + this.headShakingAngle + ']' );

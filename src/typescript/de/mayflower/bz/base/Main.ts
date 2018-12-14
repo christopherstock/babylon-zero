@@ -9,8 +9,6 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
-    *   TODO Try to improve collision handling for the player. -> remove with own implementation? ..
-    *
     *   TODO Try fog or smoke?
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Show a video texture in the GUI?
@@ -21,6 +19,7 @@
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
+    *   TODO Try morphing one mesh/model into another (crate to broken crate).
     *
     *   =====================
     *   TODO Sounds
@@ -31,6 +30,7 @@
     *   =====================
     *   TODO Issues
     *   =====================
+    *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Enable loading of only required resources for the current scene??
     *
