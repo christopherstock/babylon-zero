@@ -10,36 +10,36 @@
     *   TODO New Stuff
     *   =====================
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *   TODO Show a video texture in the GUI?
-    *   TODO Try different player objects: physics for car, etc
-    *   TODO Try fur.
+    *   TODO Parameter for stage fog/smoke color/enabled?
+    *
+    *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
+    *
+    *   TODO Try morphing one mesh/model into another (crate to broken crate).
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *   TODO HID: Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
-    *   TODO Try morphing one mesh/model into another (crate to broken crate).
+    *   TODO Try different player objects: physics for car, etc
+    *
+    *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Remove 'ALL' global references to Main.game..
+    *   TODO group values and invocations in Stage to functions and classes?
+    *   TODO Minimize access to bz.Scene.getNativeScene()
     *
     *   =====================
     *   TODO Sounds
     *   =====================
-    *   TODO Create and test spatial sounds (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
+    *   TODO Create and test spatial sounds [radio etc.] (bullet hit). https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *
     *   =====================
     *   TODO Issues
     *   =====================
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
-    *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Enable loading of only required resources for the current scene??
-    *
-    *   =====================
-    *   TODO Refactorings
-    *   =====================
-    *   TODO Remove 'ALL' global references to Main.game..
-    *   TODO Parameter for stage fog/smoke color/enabled?
-    *   TODO group values and invocations in Stage to functions and classes?
-    *   TODO Minimize access to bz.Scene.getNativeScene()
     *
     *   =====================
     *   TODO Wearpons
@@ -89,8 +89,11 @@
     *   =====================
     *   TODO Try babylon 101 scenes.
     *   TODO Try mountain grounds ("height maps").
-    *   TODO Try 'worker thread collisions'?
+    *   TODO Try 'worker thread collisions'? seems obsolete.
+    *   TODO Impossible?: Show a video texture in the GUI.
+    *   TODO Try fur.
     *   TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
+    *   TODO Try water effects?
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
     *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
