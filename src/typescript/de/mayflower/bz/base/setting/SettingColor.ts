@@ -37,6 +37,8 @@
         public  static  readonly    COLOR_RGB_GREEN                             :BABYLON.Color3     = new BABYLON.Color3( 0.0, 1.0, 0.0 );
         /** The RGB color 'blue' without alpha information. */
         public  static  readonly    COLOR_RGB_BLUE                              :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 1.0 );
+        /** The RGB color 'yellow' without alpha information. */
+        public  static  readonly    COLOR_RGB_YELLOW                            :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 0.0 );
         /** The RGB color 'orange' without alpha information. */
         public  static  readonly    COLOR_RGB_ORANGE                            :BABYLON.Color3     = new BABYLON.Color3( 1.0, 0.5, 0.0 );
         /** The RGB color 'black' without alpha information. */

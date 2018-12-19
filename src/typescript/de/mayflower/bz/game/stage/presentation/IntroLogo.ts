@@ -60,7 +60,15 @@
 
             // alter the light intensity
             ++this.currentTick;
+/*
+            // DEBUG bling bling ..
+            if ( true )
+            {
+                this.pointLight.range = 100.0;
 
+                return;
+            }
+*/
             if ( this.currentTick < 100 )
             {
                 this.pointLight.range += 1.0;
@@ -107,6 +115,7 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
+            // import logo
             this.logo = bz.MeshFactory.createImportedModel
             (
                 this.scene,
@@ -115,15 +124,17 @@
                 bz.Physic.NONE,
                 bz.ModelCompoundType.NONE
             );
-
+/*
+            // manipulate material colors for logo
+            const material:BABYLON.StandardMaterial = this.logo.getMesh( 0 ).material as BABYLON.StandardMaterial;
+            material.specularColor = new BABYLON.Color3( 0.949, 0.713, 0.498 );
+*/
             return [
-
                 new bz.Wall
                 (
                     this,
                     this.logo
                 ),
-
             ];
         }
 

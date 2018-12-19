@@ -9,16 +9,18 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
+    *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
+    *
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Parameter for stage fog/smoke color/enabled?
     *
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *
-    *   TODO Try morphing one mesh/model into another (crate to broken crate).
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *   TODO HID: Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
+    *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *   TODO Try different player objects: physics for car, etc
     *
