@@ -102,6 +102,7 @@
 
     export * from './game/stage/level/Office';
     export * from './game/stage/level/TestLevel';
+    export * from './game/stage/level/TestSite';
 
     export * from './game/stage/presentation/IntroLogo';
     export * from './game/stage/presentation/RoomViewer';

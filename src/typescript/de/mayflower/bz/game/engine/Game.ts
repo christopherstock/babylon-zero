@@ -56,52 +56,55 @@
                 this.stage.dispose();
             }
 
-            bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
-
+            // assign the new stage
             switch ( targetStage )
             {
-                case bz.StageId.STAGE_TEST_OFFICE:
+                case bz.StageId.TEST_OFFICE:
                 {
                     this.stage = new bz.Office( this.scene, this.engine.getCanvasSystem() );
-                    this.stage.init();
                     break;
                 }
 
-                case bz.StageId.STAGE_TEST_LEVEL:
+                case bz.StageId.TEST_LEVEL:
                 {
                     this.stage = new bz.TestLevel( this.scene, this.engine.getCanvasSystem() );
-                    this.stage.init();
                     break;
                 }
 
-                case bz.StageId.STAGE_ROOM_VIEWER:
+                case bz.StageId.TEST_SITE:
+                {
+                    this.stage = new bz.TestSite( this.scene, this.engine.getCanvasSystem() );
+                    break;
+                }
+
+                case bz.StageId.ROOM_VIEWER:
                 {
                     this.stage = new bz.RoomViewer( this.scene, this.engine.getCanvasSystem() );
-                    this.stage.init();
                     break;
                 }
 
-                case bz.StageId.STAGE_PRODUCT_CONFIGURATOR:
+                case bz.StageId.PRODUCT_CONFIGURATOR:
                 {
                     this.stage = new bz.ProductConfigurator( this.scene, this.engine.getCanvasSystem() );
-                    this.stage.init();
                     break;
                 }
 
-                case bz.StageId.STAGE_INTRO_LOGO:
+                case bz.StageId.INTRO_LOGO:
                 {
                     this.stage = new bz.IntroLogo( this.scene, this.engine.getCanvasSystem() );
-                    this.stage.init();
                     break;
                 }
 
-                case bz.StageId.STAGE_HUMAN_BODY_PARTITIONS:
+                case bz.StageId.HUMAN_BODY_PARTITIONS:
                 {
                     this.stage = new bz.HumanBodyPartitions( this.scene, this.engine.getCanvasSystem() );
-                    this.stage.init();
                     break;
                 }
             }
+
+            // init the new stage
+            bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
+            this.stage.init();
 
             // assign remembered pause menu index
             this.stage.setPauseMenuIndex( lastPauseMenuItem );

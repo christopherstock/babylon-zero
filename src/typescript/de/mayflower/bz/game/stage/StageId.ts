@@ -5,20 +5,17 @@
     export enum StageId
     {
         /** The test office level. */
-        STAGE_TEST_OFFICE,
-
+        TEST_OFFICE,
         /** The test level. */
-        STAGE_TEST_LEVEL,
-
+        TEST_LEVEL,
+        /** The test site level. */
+        TEST_SITE,
         /** The room viewer. */
-        STAGE_ROOM_VIEWER,
-
+        ROOM_VIEWER,
         /** The product configurator. */
-        STAGE_PRODUCT_CONFIGURATOR,
-
+        PRODUCT_CONFIGURATOR,
         /** The rotating Mayflower logo. */
-        STAGE_INTRO_LOGO,
-
+        INTRO_LOGO,
         /** The human body partitions. */
-        STAGE_HUMAN_BODY_PARTITIONS,
+        HUMAN_BODY_PARTITIONS,
     }
