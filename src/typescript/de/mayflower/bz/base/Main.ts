@@ -9,7 +9,6 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Remove 'isVideoTexture' in bz.Texture and turn into 'TextureType' for enabling model textures.
     *   TODO Detect textures from model files! (for bullet holes on crate)
     *   TODO Parameter for stage fog/smoke color/enabled?
     *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
@@ -18,6 +17,7 @@
     *   TODO group values and invocations in Stage to different functions and classes?
     *   TODO Minimize access to bz.Scene.getNativeScene()
     *   TODO Suppress errors for missing babylon.manifest files?
+    *   TODO Fix non playing video textures in Chrome.
     *
     *   =====================
     *   TODO New Stuff
