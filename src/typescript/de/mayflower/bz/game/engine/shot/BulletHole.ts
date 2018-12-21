@@ -4,6 +4,7 @@
     /** ****************************************************************************************************************
     *   Represents a bullet hole on a hit point.
     *******************************************************************************************************************/
+    // tslint:disable:max-line-length
     export class BulletHole
     {
         /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */

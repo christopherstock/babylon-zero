@@ -17,6 +17,7 @@
     *   TODO Remove global references to Main.game: pass Interface getFps and KeySystem to Stage and GUI.
     *   TODO group values and invocations in Stage to different functions and classes?
     *   TODO Minimize access to bz.Scene.getNativeScene()
+    *   TODO Suppress errors for missing babylon.manifest files?
     *
     *   =====================
     *   TODO New Stuff
