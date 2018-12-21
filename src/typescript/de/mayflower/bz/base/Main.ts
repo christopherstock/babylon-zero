@@ -9,10 +9,10 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Change stage method ordering (createPlayer and createCameraSystem first! also abstract methods!)
     *   TODO Remove 'isVideoTexture' in bz.Texture and turn into 'TextureType' for enabling model textures.
     *   TODO Detect textures from model files! (for bullet holes on crate)
     *   TODO Parameter for stage fog/smoke color/enabled?
+    *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
     *   TODO Remove npm dependencies 'babylon-zero-lib', 'earcut' and 'oimo'?
     *   TODO Remove global references to Main.game: pass Interface getFps and KeySystem to Stage and GUI.
     *   TODO group values and invocations in Stage to different functions and classes?

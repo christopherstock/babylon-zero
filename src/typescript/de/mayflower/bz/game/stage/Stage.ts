@@ -92,13 +92,13 @@
 
             // create all game objects
             this.player       = this.createPlayer();
+            this.cameraSystem = this.createCameraSystem();
             this.walls        = this.createWalls();
             this.items        = this.createItems();
             this.bots         = this.createBots();
             this.skybox       = this.createSkybox();
             this.sprites      = this.createSprites();
             this.gui          = this.createGUI();
-            this.cameraSystem = this.createCameraSystem();
             this.lights       = this.createLights();
 
             // set camera system
@@ -365,18 +365,25 @@
         }
 
         /** ************************************************************************************************************
-        *   Handles level specific keys.
-        *
-        *   @param keySystem The key system to use for key determination.
-        ***************************************************************************************************************/
-        protected abstract handleLevelKeys( keySystem:bz.KeySystem ) : void;
-
-        /** ************************************************************************************************************
         *   Sets up the player for this stage.
         *
         *   @return The player instance for this stage.
         ***************************************************************************************************************/
         protected abstract createPlayer() : bz.Player;
+
+        /** ************************************************************************************************************
+        *   Creates the camera system that manages all cameras that appear in this level.
+        *
+        *   @return The camera system for this stage.
+        ***************************************************************************************************************/
+        protected abstract createCameraSystem() : bz.CameraSystem;
+
+        /** ************************************************************************************************************
+        *   Handles level specific keys.
+        *
+        *   @param keySystem The key system to use for key determination.
+        ***************************************************************************************************************/
+        protected abstract handleLevelKeys( keySystem:bz.KeySystem ) : void;
 
         /** ************************************************************************************************************
         *   Creates and returns all walls this stage consists of.
@@ -438,13 +445,6 @@
         *   @return The pointer callback method to invoke or <code>null</code> if not supported.
         ***************************************************************************************************************/
         protected abstract createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
-
-        /** ************************************************************************************************************
-        *   Creates the camera system that manages all cameras that appear in this level.
-        *
-        *   @return The camera system for this stage.
-        ***************************************************************************************************************/
-        protected abstract createCameraSystem() : bz.CameraSystem;
 
         /** ************************************************************************************************************
         *   Creates the GUI for this stage.
