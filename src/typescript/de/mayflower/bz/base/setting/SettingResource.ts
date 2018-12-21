@@ -28,6 +28,4 @@
         public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = 'res/image/texture/';
         /** Relative path from index.html where all video textures reside. */
         public  static  readonly    PATH_VIDEO_TEXTURE                      :string             = 'res/video/texture/';
-        /** Relative path from index.html where all model textures reside. */
-        public  static  readonly    PATH_MODEL_TEXTURE                      :string             = 'res/model/';
     }

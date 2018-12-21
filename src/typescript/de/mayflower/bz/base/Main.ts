@@ -9,7 +9,6 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Detect textures from model files! (for bullet holes on crate)
     *   TODO Parameter for stage fog/smoke color/enabled?
     *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
     *   TODO Remove npm dependencies 'babylon-zero-lib', 'earcut' and 'oimo'?
