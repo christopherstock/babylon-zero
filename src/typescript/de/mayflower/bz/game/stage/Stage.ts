@@ -87,9 +87,6 @@
             this.scene.getNativeScene().ambientColor = this.ambientColor;
             this.scene.getNativeScene().clearColor   = this.clearColor;
 
-            // enable fog if desired
-            this.scene.enableFog( false );
-
             // create all game objects
             this.player       = this.createPlayer();
             this.cameraSystem = this.createCameraSystem();
@@ -110,6 +107,9 @@
                 this.shadowGenerators = this.createShadowGenerators();
                 this.setupShadows();
             }
+
+            // enable fog if desired
+            this.setupFog();
 
             // create debug axis
             if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
@@ -438,6 +438,11 @@
         *   Sets up shadows for all meshes.
         ***************************************************************************************************************/
         protected abstract setupShadows() : void
+
+        /** ************************************************************************************************************
+        *   Sets up fog for this stage.
+        ***************************************************************************************************************/
+        protected abstract setupFog() : void
 
         /** ************************************************************************************************************
         *   Sets up the pointer callback.
