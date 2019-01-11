@@ -57,9 +57,10 @@
 
     export * from './game/engine/scene/Scene';
 
-    export * from './game/engine/scene/material/TextureUV';
-    export * from './game/engine/scene/material/TextureHasAlpha';
     export * from './game/engine/scene/material/MaterialSystem';
+    export * from './game/engine/scene/material/TextureHasAlpha';
+    export * from './game/engine/scene/material/TextureType';
+    export * from './game/engine/scene/material/TextureUV';
 
     export * from './game/engine/scene/model/Model';
     export * from './game/engine/scene/model/ModelCompoundType';

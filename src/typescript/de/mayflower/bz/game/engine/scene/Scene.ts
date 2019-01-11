@@ -81,6 +81,8 @@
         /** ************************************************************************************************************
         *   Delivers a reference to the babylon.JS scene.
         *
+        *   TODO remove?
+        *
         *   @return The babylon.JS scene.
         ***************************************************************************************************************/
         public getNativeScene() : BABYLON.Scene
@@ -168,26 +170,29 @@
         /** ************************************************************************************************************
         *   Enables or disables fog for the native scene.
         *
-        *   @param enabled Specifies if fog shall be enabled in the current scene.
+        *   TODO refactor and create disableFog!
+        *
+        *   @param color   The fog color to set or <code>null</code> if no fog shall be set.
+        *   @param density The fog density.
         ***************************************************************************************************************/
-        public enableFog( enabled:boolean ) : void
+        public enableFog( color:BABYLON.Color3, density:number ) : void
         {
-            if ( enabled )
+            if ( color == null )
+            {
+                this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
+            }
+            else
             {
                 this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_EXP;  // TODO 2 is faster!
-                this.babylonScene.fogColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+                this.babylonScene.fogColor = color;
 
                 // for exponential mode
-                this.babylonScene.fogDensity = 0.05;
+                this.babylonScene.fogDensity = density;
 /*
                 // for linear mode
                 this.babylonScene.fogStart = 20.0;
                 this.babylonScene.fogEnd = 60.0;
 */
-            }
-            else
-            {
-                this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
             }
         }
 

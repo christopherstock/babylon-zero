@@ -39,6 +39,45 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up the player for this stage.
+        *
+        *   @return The player instance for this stage.
+        ***************************************************************************************************************/
+        protected createPlayer() : bz.Player
+        {
+            return new bz.Player
+            (
+                this,
+                this.scene,
+                new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
+                45.0,
+                this.ambientColor
+            );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates the camera system that manages all cameras that appear in this level.
+        *
+        *   @return The camera system for this stage.
+        ***************************************************************************************************************/
+        protected createCameraSystem() : bz.CameraSystem
+        {
+            return new bz.CameraSystem
+            (
+                this.scene.getNativeScene(),
+                this.canvas.getNativeCanvas(),
+
+                new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
+                new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
+                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+
+                this.player.getThirdPersonCameraTargetMesh(),
+                this.player.getThirdPersonCameraTargetMesh(),
+                this.player.getFirstPersonCameraTargetMesh()
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Handles level specific keys.
         *
         *   @param keySystem The key system to use for key determination.
@@ -70,23 +109,6 @@
                 );
                 this.camTarget = !this.camTarget;
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up the player for this stage.
-        *
-        *   @return The player instance for this stage.
-        ***************************************************************************************************************/
-        protected createPlayer() : bz.Player
-        {
-            return new bz.Player
-            (
-                this,
-                this.scene,
-                new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
-                45.0,
-                this.ambientColor
-            );
         }
 
         /** ************************************************************************************************************
@@ -556,33 +578,19 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up shadows for all meshes.
+        ***************************************************************************************************************/
+        protected setupFog() : void
+        {
+            this.scene.enableFog( null, 0.0 );
+        }
+
+        /** ************************************************************************************************************
         *   Sets up the pointer callback.
         ***************************************************************************************************************/
         protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
         {
             return null;
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the camera system that manages all cameras that appear in this level.
-        *
-        *   @return The camera system for this stage.
-        ***************************************************************************************************************/
-        protected createCameraSystem() : bz.CameraSystem
-        {
-            return new bz.CameraSystem
-            (
-                this.scene.getNativeScene(),
-                this.canvas.getNativeCanvas(),
-
-                new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
-                new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
-
-                this.player.getThirdPersonCameraTargetMesh(),
-                this.player.getThirdPersonCameraTargetMesh(),
-                this.player.getFirstPersonCameraTargetMesh()
-            );
         }
 
         /** ************************************************************************************************************

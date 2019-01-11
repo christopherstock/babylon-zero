@@ -27,7 +27,7 @@
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        public defaultPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
+        public defaultPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
         {
             if ( pickResult.hit )
             {

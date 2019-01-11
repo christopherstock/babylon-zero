@@ -39,6 +39,37 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up the player for this stage.
+        *
+        *   @return The player instance for this stage.
+        ***************************************************************************************************************/
+        protected createPlayer() : bz.Player
+        {
+            return null;
+        }
+
+        /** ************************************************************************************************************
+        *   Creates the camera system that manages all cameras that appear in this level.
+        *
+        *   @return The camera system for this stage.
+        ***************************************************************************************************************/
+        protected createCameraSystem() : bz.CameraSystem
+        {
+            return new bz.CameraSystem
+            (
+                this.scene.getNativeScene(),
+                this.canvas.getNativeCanvas(),
+
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                null
+            );
+        }
+
+        /** ************************************************************************************************************
         *   Handles level specific keys.
         *
         *   @param keySystem The key system to use for key determination.
@@ -50,16 +81,6 @@
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Sets up the player for this stage.
-        *
-        *   @return The player instance for this stage.
-        ***************************************************************************************************************/
-        protected createPlayer() : bz.Player
-        {
-            return null;
         }
 
         /** ************************************************************************************************************
@@ -183,6 +204,14 @@
         }
 
         /** ************************************************************************************************************
+        *   Sets up shadows for all meshes.
+        ***************************************************************************************************************/
+        protected setupFog() : void
+        {
+            this.scene.enableFog( null, 0.0 );
+        }
+
+        /** ************************************************************************************************************
         *   Sets up the pointer callback.
         *
         *   @return The pointer callback method to invoke or <code>null</code> if not supported.
@@ -190,27 +219,6 @@
         protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
         {
             return this.onPointerDown;
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the camera system that manages all cameras that appear in this level.
-        *
-        *   @return The camera system for this stage.
-        ***************************************************************************************************************/
-        protected createCameraSystem() : bz.CameraSystem
-        {
-            return new bz.CameraSystem
-            (
-                this.scene.getNativeScene(),
-                this.canvas.getNativeCanvas(),
-
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                null
-            );
         }
 
         /** ************************************************************************************************************
