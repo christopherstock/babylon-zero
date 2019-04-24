@@ -7,6 +7,12 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Primal
+    *   =====================
+    *   TODO New major 4.0.
+    *   TODO Update Node.js and npm.
+    *
+    *   =====================
     *   TODO Refactorings
     *   =====================
     *   TODO Parameter for stage fog/smoke color/enabled?
