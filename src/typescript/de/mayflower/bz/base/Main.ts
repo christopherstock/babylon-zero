@@ -23,6 +23,7 @@
     *   =====================
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
+    *   TODO Try mirrored textures!
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *
