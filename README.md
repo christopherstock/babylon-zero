@@ -1,8 +1,7 @@
-![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSETS/promo/promoBadge7_1920x1037.jpg)
-#### ROCK AND ROLL - Exploring babylon.JS - WebGL made simple and powerful!
+![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSETS/promo/promoBadge8_960x512.gif)
+#### Discovering babylon.JS 4.0 - WebGL made simple and powerful!
 
-Join this advanced workshop on Friday the 27th in our slacktime at Mayflower GmbH! 
-Contact me for a personal invitation!
+Join this advanced workshop on 15-18 May 2019 at the Mayflower Barcamp in Bayreuth!
 
 Christopher
 
