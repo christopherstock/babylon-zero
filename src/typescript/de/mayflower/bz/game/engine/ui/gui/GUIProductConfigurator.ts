@@ -135,7 +135,7 @@
 
             const logo:BABYLON_GUI.Image = bz.GUIFactory.createImage
             (
-                'pc3d/mfLogo.png',
+                bz.SettingEngine.BRANDING.getPcGuiLogo(),
                 50,
                 50,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,

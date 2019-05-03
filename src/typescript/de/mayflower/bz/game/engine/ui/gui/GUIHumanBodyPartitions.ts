@@ -59,7 +59,7 @@
 
             const logo:BABYLON_GUI.Image = bz.GUIFactory.createImage
             (
-                'hbp/compLogo.png',
+                bz.SettingEngine.BRANDING.getHbpGuiLogo(),
                 50,
                 50,
                 BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
@@ -118,7 +118,7 @@
                 175.0,
                 145.0,
                 400.0,
-                bz.SettingEngine.BRANDING.getPrimalColor(),
+                bz.SettingEngine.BRANDING.getPrimalColorCss(),
                 bz.SettingColor.COLOR_CSS_COMPUTY_GRAY_OPAQUE,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 50,

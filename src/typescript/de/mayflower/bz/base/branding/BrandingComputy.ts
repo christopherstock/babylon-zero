@@ -1,5 +1,6 @@
 
-    import * as bz from '../..';
+    import * as bz      from '../..';
+    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   The branding class for 'Computy' branding.
@@ -41,8 +42,38 @@
         *
         *   @return The primal css color value.
         ***************************************************************************************************************/
-        public getPrimalColor() : string
+        public getPrimalColorCss() : string
         {
             return bz.SettingColor.COLOR_CSS_COMPUTY_GREEN_OPAQUE;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the primal RGB color value.
+        *
+        *   @return The primal RGB color value.
+        ***************************************************************************************************************/
+        public getPrimalColorRgb() : BABYLON.Color3
+        {
+            return bz.SettingColor.COLOR_RGB_COMPUTY_GREEN;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the path to the HBP GUI logo.
+        *
+        *   @return The relative path to the HBP GUI logo.
+        ***************************************************************************************************************/
+        public getHbpGuiLogo() : string
+        {
+            return 'hbp/compLogo.png';
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the path to the PC GUI logo.
+        *
+        *   @return The relative path to the PC GUI logo.
+        ***************************************************************************************************************/
+        public getPcGuiLogo() : string
+        {
+            return 'pc3d/compLogo.png';
         }
     }

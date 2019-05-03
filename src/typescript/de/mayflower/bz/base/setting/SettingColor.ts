@@ -15,7 +15,6 @@
         public  static  readonly    COLOR_CSS_RED_OPAQUE                        :string             = 'rgba( 255, 0,   0,   1.0 )';
         /** The CSS color 'black' with full opacity. */
         public  static  readonly    COLOR_CSS_BLACK_OPAQUE                      :string             = 'rgba( 0,   0,   0,   1.0 )';
-
         /** The CSS color 'mayflower orange' with full opacity. */
         public  static  readonly    COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE           :string             = 'rgba( 237, 115, 4,   1.0 )';
         /** The CSS color 'computy green' with full opacity. */
@@ -43,9 +42,10 @@
         public  static  readonly    COLOR_RGB_ORANGE                            :BABYLON.Color3     = new BABYLON.Color3( 1.0, 0.5, 0.0 );
         /** The RGB color 'black' without alpha information. */
         public  static  readonly    COLOR_RGB_BLACK                             :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-
         /** The RGB color 'computy green' without alpha information. */
         public  static  readonly    COLOR_RGB_COMPUTY_GREEN                     :BABYLON.Color3     = new BABYLON.Color3( 0.58, 0.76, 0.23 );
+        /** The RGB color 'mayflower orange' without alpha information. */
+        public  static  readonly    COLOR_RGB_MAYFLOWER_ORANGE                  :BABYLON.Color3     = new BABYLON.Color3( 0.92, 0.45, 0.01 );
 
         /** The RGBA color 'transparent'. */
         public  static  readonly    COLOR_RGBA_TRANSPARENT                      :BABYLON.Color4     = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
