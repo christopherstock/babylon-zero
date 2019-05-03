@@ -35,4 +35,14 @@
         {
             return bz.SettingResource.PATH_IMAGE_FAVICON + 'computy.ico';
         }
+
+        /** ************************************************************************************************************
+        *   Returns the primal css color value.
+        *
+        *   @return The primal css color value.
+        ***************************************************************************************************************/
+        public getPrimalColor() : string
+        {
+            return bz.SettingColor.COLOR_CSS_COMPUTY_GREEN_OPAQUE;
+        }
     }
