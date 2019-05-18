@@ -1,6 +1,5 @@
 
     import * as bz      from '../../../..';
-    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.

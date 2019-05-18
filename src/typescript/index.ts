@@ -1,6 +1,10 @@
 
     import * as bz from './de/mayflower/bz';
 
+    // window.CANNON = require( 'cannon' );
+
+    ( global as any ).CANNON = require( 'cannon' );
+
     /*******************************************************************************************************************
     *   Being invoked when the page is loaded completely.
     *******************************************************************************************************************/

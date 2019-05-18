@@ -1,6 +1,6 @@
 
-    import * as bz          from '../../../..';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz   from '../../../..';
+    import * as bjsg from 'babylonjs-gui'
 
     /** ****************************************************************************************************************
     *   The GUI for the 'Human Body Partitions' stage.
@@ -20,7 +20,7 @@
         public      static  readonly    GUI_COLOR_BORDER        :string                             = '#ffffff';
 
         /** A reference to the camera zoom slider. */
-        public                          cameraZoomSlider        :BABYLON_GUI.Slider                 = null;
+        public                          cameraZoomSlider        :bjsg.Slider                        = null;
 
         /** The description GUI for one selected body part. */
         public                          descriptionGUI          :bz.GUIHumanPartitionDescription    = null;
@@ -46,7 +46,7 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            const rectangleLeftTop:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
+            const rectangleLeftTop:bjsg.Rectangle = bz.GUIFactory.createRectangle
             (
                 25,
                 25,
@@ -57,18 +57,18 @@
             );
             this.guiFg.addControl( rectangleLeftTop );
 
-            const logo:BABYLON_GUI.Image = bz.GUIFactory.createImage
+            const logo:bjsg.Image = bz.GUIFactory.createImage
             (
                 bz.SettingEngine.BRANDING.getHbpGuiLogo(),
                 50,
                 50,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 GUIHumanBodyPartitions.GUI_COLOR_SHADOW
             );
             this.guiFg.addControl( logo );
 
-            const titleRow:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const titleRow:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Human Body Partitions, v.0.0.1, PoC',
                 bz.SettingGUI.GUI_FONT_SIZE_MEDIUM,
@@ -78,14 +78,14 @@
                 115,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
-            titleRow.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+            titleRow.textHorizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER;
             this.guiFg.addControl( titleRow );
 
-            const line1:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
+            const line1:bjsg.Rectangle = bz.GUIFactory.createRectangle
             (
                 50,
                 145,
@@ -96,7 +96,7 @@
             );
             this.guiFg.addControl( line1 );
 
-            const textCameraZoom:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const textCameraZoom:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Zoom',
                 bz.SettingGUI.GUI_FONT_SIZE_MEDIUM,
@@ -106,11 +106,11 @@
                 155,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
-            textCameraZoom.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+            textCameraZoom.textHorizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER;
             this.guiFg.addControl( textCameraZoom );
 
             this.cameraZoomSlider = bz.GUIFactory.createSlider

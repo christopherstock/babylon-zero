@@ -1,6 +1,6 @@
 
-    import * as bz          from '../../../..';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz   from '../../../..';
+    import * as bjsg from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   The GUI part with the description panel.
@@ -9,18 +9,18 @@
     export class GUIHumanPartitionDescription
     {
         /** The left bottom body part descriptor panel. */
-        private             readonly    rectangleLeftBottom         :BABYLON_GUI.Rectangle      = null;
+        private             readonly    rectangleLeftBottom         :bjsg.Rectangle      = null;
         /** The left bottom title field. */
-        private             readonly    bodyPartTitle               :BABYLON_GUI.TextBlock      = null;
+        private             readonly    bodyPartTitle               :bjsg.TextBlock      = null;
         /** The left bottom text field. */
-        private             readonly    bodyPartText                :BABYLON_GUI.TextBlock      = null;
+        private             readonly    bodyPartText                :bjsg.TextBlock      = null;
 
         /** ************************************************************************************************************
         *   Creates a new GUI for the Product Configurator.
         *
         *   @param guiFg The gui to append all components to.
         ***************************************************************************************************************/
-        public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture )
+        public constructor( guiFg:bjsg.AdvancedDynamicTexture )
         {
             this.rectangleLeftBottom = bz.GUIFactory.createRectangle
             (
@@ -43,11 +43,11 @@
                 275,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
-            this.bodyPartTitle.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+            this.bodyPartTitle.textHorizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER;
             guiFg.addControl( this.bodyPartTitle );
 
             this.bodyPartText = bz.GUIFactory.createTextBlock
@@ -60,11 +60,11 @@
                 315,
                 250,
                 125,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
-            this.bodyPartText.textHorizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+            this.bodyPartText.textHorizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER;
             this.bodyPartText.textWrapping = true;
             guiFg.addControl( this.bodyPartText );
         }

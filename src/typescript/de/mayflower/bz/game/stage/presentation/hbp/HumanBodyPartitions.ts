@@ -1,6 +1,5 @@
 
     import * as bz      from '../../../..';
-    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   The 'human body partitions' stage offers an interactive body model where

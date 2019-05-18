@@ -1,6 +1,6 @@
 
     import * as bz          from '../../../../..';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bjsg from "babylonjs-gui";
 
     /** ****************************************************************************************************************
     *   Represents one GUI message that's displayed in the GUI message queue and disappearing after some time.
@@ -11,7 +11,7 @@
         private                             lifetimeTicks               :number                             = 0;
 
         /** The text block that contains this single message. */
-        private             readonly        messageText                 :BABYLON_GUI.TextBlock              = null;
+        private             readonly        messageText                 :bjsg.TextBlock                     = null;
 
         /** ************************************************************************************************************
         *   Creates a new message text.
@@ -21,7 +21,7 @@
         ***************************************************************************************************************/
         public constructor
         (
-            gui :BABYLON_GUI.AdvancedDynamicTexture,
+            gui :bjsg.AdvancedDynamicTexture,
             msg :string
         )
         {
@@ -37,8 +37,8 @@
                 0,
                 500,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_BOTTOM,
                 null
             );
 

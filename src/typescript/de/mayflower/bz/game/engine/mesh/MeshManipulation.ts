@@ -1,6 +1,5 @@
 
-    import * as BABYLON from 'babylonjs';
-    import * as bz      from '../../..';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Offers static functionality for manipulating meshes.

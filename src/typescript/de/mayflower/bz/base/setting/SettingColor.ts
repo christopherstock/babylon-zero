@@ -1,5 +1,5 @@
 
-    import * as BABYLON from 'babylonjs';
+    import * as bjs from 'babylonjs'
 
     /** ****************************************************************************************************************
     *   Specifies all colors the application makes use of.
@@ -23,7 +23,7 @@
         public  static  readonly    COLOR_CSS_COMPUTY_GRAY_OPAQUE               :string             = 'rgba( 121, 120, 119, 1.0 )';
 
         /** The RGB color 'white' without alpha information. */
-        public  static  readonly    COLOR_RGB_WHITE                             :BABYLON.Color3     = new BABYLON.Color3( 1.0, 1.0, 1.0 );
+        public  static  readonly    COLOR_RGB_WHITE                             :BABYLON.Color3     = new bjs.Color3( 1.0, 1.0, 1.0 );
         /** The RGB color 'grey 0.75' without alpha information. */
         public  static  readonly    COLOR_RGB_GREY_THREE_QUARTERS               :BABYLON.Color3     = new BABYLON.Color3( 0.75, 0.75, 0.75 );
         /** The RGB color 'grey 0.5' without alpha information. */

@@ -1,5 +1,13 @@
 
-    import * as bz from '../../..';
+    import * as bz            from '../../..';
+    import * as bjs           from 'babylonjs'
+    import * as cannon        from 'cannon';
+    import { CannonJSPlugin } from 'babylonjs';
+
+    // const CANNON = import 'CANNON'
+
+    // const CANNON = require( 'CANNON' );
+
 
     /** ****************************************************************************************************************
     *   Represents the game scene. It wraps the native babylon.JS scene and physics engine

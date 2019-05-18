@@ -1,6 +1,5 @@
 
     import * as bz      from '../../../..';
-    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   Specifies all textures and materials.

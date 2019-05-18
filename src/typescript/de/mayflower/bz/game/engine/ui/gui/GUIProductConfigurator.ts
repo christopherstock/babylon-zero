@@ -1,7 +1,6 @@
 
-    import * as bz          from '../../../..';
-    import * as BABYLON     from 'babylonjs';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz   from '../../../..';
+    import * as bjsg from 'babylonjs-gui'
 
     /** ****************************************************************************************************************
     *   The GUI for the '3D product configurator' stage.
@@ -71,14 +70,14 @@
         private     static  readonly    GUI_COLOR_BORDER            :string                     = '#c9c9c9';
 
         /** A reference to the camera zoom slider. */
-        public                          cameraZoomSlider            :BABYLON_GUI.Slider         = null;
+        public                          cameraZoomSlider            :bjsg.Slider         = null;
         /** A reference to the toggle button to open and close the visor. */
-        public                          visorToggleButton           :BABYLON_GUI.Button         = null;
+        public                          visorToggleButton           :bjsg.Button         = null;
 
         /** All checkboxes that change the visor color. */
-        private                         visorColorRadioButtons      :BABYLON_GUI.RadioButton[]  = [];
+        private                         visorColorRadioButtons      :bjsg.RadioButton[]  = [];
         /** All checkboxes that change the helmet color. */
-        private                         helmetColorRadioButtons     :BABYLON_GUI.RadioButton[]  = [];
+        private                         helmetColorRadioButtons     :bjsg.RadioButton[]  = [];
         /** A reference to the Product Configurator stage. */
         private                         parent                      :bz.ProductConfigurator     = null;
 
@@ -100,7 +99,7 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            const rectangleOuter:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
+            const rectangleOuter:bjsg.Rectangle = bz.GUIFactory.createRectangle
             (
                 22,
                 22,
@@ -111,7 +110,7 @@
             );
             this.guiFg.addControl( rectangleOuter );
 
-            const rectangleOuter2:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
+            const rectangleOuter2:bjsg.Rectangle = bz.GUIFactory.createRectangle
             (
                 23,
                 23,
@@ -122,7 +121,7 @@
             );
             this.guiFg.addControl( rectangleOuter2 );
 
-            const rectangleInner:BABYLON_GUI.Rectangle = bz.GUIFactory.createRectangle
+            const rectangleInner:bjsg.Rectangle = bz.GUIFactory.createRectangle
             (
                 25,
                 25,
@@ -133,18 +132,18 @@
             );
             this.guiFg.addControl( rectangleInner );
 
-            const logo:BABYLON_GUI.Image = bz.GUIFactory.createImage
+            const logo:bjsg.Image = bz.GUIFactory.createImage
             (
                 bz.SettingEngine.BRANDING.getPcGuiLogo(),
                 50,
                 50,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 GUIProductConfigurator.GUI_COLOR_SHADOW
             );
             this.guiFg.addControl( logo );
 
-            const titleRow1:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const titleRow1:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 '3D Product',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -154,12 +153,12 @@
                 50,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( titleRow1 );
-            const titleRow2:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const titleRow2:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Configurator',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -169,12 +168,12 @@
                 80,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( titleRow2 );
-            const titleRow3:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const titleRow3:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'v.0.4.1, MVP',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -184,13 +183,13 @@
                 110,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( titleRow3 );
 
-            const line1:BABYLON_GUI.Line = bz.GUIFactory.createLine
+            const line1:bjsg.Line = bz.GUIFactory.createLine
             (
                 50,
                 160,
@@ -202,7 +201,7 @@
             );
             this.guiFg.addControl( line1 );
 
-            const textColorChoserVisor:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const textColorChoserVisor:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Visor',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -212,8 +211,8 @@
                 170,
                 300,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( textColorChoserVisor );
@@ -230,7 +229,7 @@
                     + ( visorColor.b * 255 )
                     + ' )'
                 );
-                const radioButton:BABYLON_GUI.RadioButton = bz.GUIFactory.createRadioButton
+                const radioButton:bjsg.RadioButton = bz.GUIFactory.createRadioButton
                 (
                     'visorColorSelect',
                     bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
@@ -254,7 +253,7 @@
                 this.visorColorRadioButtons.push( radioButton );
                 this.guiFg.addControl( radioButton );
 
-                const colorCaption:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+                const colorCaption:bjsg.TextBlock = bz.GUIFactory.createTextBlock
                 (
                     GUIProductConfigurator.VISOR_COLOR_NAMES[ i ],
                     bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -264,8 +263,8 @@
                     203 + ( i * 30 ),
                     300,
                     20,
-                    BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                    BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                    bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                    bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                     () => {
                         bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
@@ -275,7 +274,7 @@
             }
             this.visorColorRadioButtons[ 0 ].isChecked = true;
 
-            const line2:BABYLON_GUI.Line = bz.GUIFactory.createLine
+            const line2:bjsg.Line = bz.GUIFactory.createLine
             (
                 50,
                 330,
@@ -287,7 +286,7 @@
             );
             this.guiFg.addControl( line2 );
 
-            const textColorChoserHelmet:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const textColorChoserHelmet:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Color Helmet',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -297,8 +296,8 @@
                 340,
                 300,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( textColorChoserHelmet );
@@ -315,7 +314,7 @@
                     + ( helmetColor.b * 255 )
                     + ' )'
                 );
-                const radioButton:BABYLON_GUI.RadioButton = bz.GUIFactory.createRadioButton
+                const radioButton:bjsg.RadioButton = bz.GUIFactory.createRadioButton
                 (
                     'helmetColorSelect',
                     bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
@@ -339,7 +338,7 @@
                 this.helmetColorRadioButtons.push( radioButton );
                 this.guiFg.addControl( radioButton );
 
-                const colorCaption:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+                const colorCaption:bjsg.TextBlock = bz.GUIFactory.createTextBlock
                 (
                     GUIProductConfigurator.HELMET_COLOR_NAMES[ i ],
                     bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -349,8 +348,8 @@
                     373 + ( i * 30 ),
                     300,
                     20,
-                    BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                    BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                    bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                    bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                     () => {
                         bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
                         radioButton.isChecked = true;
@@ -360,7 +359,7 @@
             }
             this.helmetColorRadioButtons[ 0 ].isChecked = true;
 
-            const line3:BABYLON_GUI.Line = bz.GUIFactory.createLine
+            const line3:bjsg.Line = bz.GUIFactory.createLine
             (
                 50,
                 500,
@@ -372,7 +371,7 @@
             );
             this.guiFg.addControl( line3 );
 
-            const textCameraZoom:BABYLON_GUI.TextBlock = bz.GUIFactory.createTextBlock
+            const textCameraZoom:bjsg.TextBlock = bz.GUIFactory.createTextBlock
             (
                 'Zoom',
                 bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
@@ -382,8 +381,8 @@
                 510,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( textCameraZoom );
@@ -410,7 +409,7 @@
             );
             this.guiFg.addControl( this.cameraZoomSlider );
 
-            const line4:BABYLON_GUI.Line = bz.GUIFactory.createLine
+            const line4:bjsg.Line = bz.GUIFactory.createLine
             (
                 50,
                 580,

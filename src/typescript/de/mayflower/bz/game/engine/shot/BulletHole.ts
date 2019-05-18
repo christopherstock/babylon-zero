@@ -1,5 +1,6 @@
 
     import * as bz from '../../..';
+    import * as bjs from 'babylonjs'
 
     /** ****************************************************************************************************************
     *   Represents a bullet hole on a hit point.

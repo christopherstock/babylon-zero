@@ -1,6 +1,7 @@
 
-    import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../../..';
+    import * as bz   from '../../../..';
+    import * as bjs  from 'babylonjs'
+    import * as bjsg from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Represents a Graphical User Interface that is displayed in the foreground of the screen.
@@ -8,9 +9,9 @@
     export abstract class GUI
     {
         /** The fullscreen gui in foreground. */
-        protected           readonly        guiFg                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+        protected           readonly        guiFg                   :bjsg.AdvancedDynamicTexture            = null;
         /** The FPS text block. */
-        private             readonly        fpsText                 :BABYLON_GUI.TextBlock                  = null;
+        private             readonly        fpsText                 :bjsg.TextBlock                         = null;
         /** The manager for GUI messages. */
         private             readonly        messageManager          :bz.GUIMessageManager                   = null;
         /** The manager for GUI effects. */
@@ -43,8 +44,8 @@
                 bz.SettingGUI.GUI_BORDER_Y,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             this.guiFg.addControl( this.fpsText );

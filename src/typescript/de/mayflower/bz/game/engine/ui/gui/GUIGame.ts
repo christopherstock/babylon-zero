@@ -1,6 +1,7 @@
 
-    import * as bz          from '../../../..';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz   from '../../../..';
+    import * as bjs  from 'babylonjs'
+    import * as bjsg from 'babylonjs-gui'
 
     /** ****************************************************************************************************************
     *   Manages the Graphical User Interface that contains all GUI elements for one game level.
@@ -8,9 +9,9 @@
     export class GUIGame extends bz.GUI
     {
         /** The wearpon image. */
-        protected                           wearponImage            :BABYLON_GUI.Image                      = null;
+        protected                           wearponImage            :bjsg.Image                         = null;
         /** The corsshair. */
-        protected                           crosshair               :BABYLON_GUI.Image                      = null;
+        protected                           crosshair               :bjsg.Image                         = null;
 
         /** ************************************************************************************************************
         *   Creates a new Heads Up Display for a game level.
@@ -32,8 +33,8 @@
                 'wearpon/autoShotgun.png',
                 -bz.SettingGUI.GUI_BORDER_X,
                 0,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+                bjsg.Control.VERTICAL_ALIGNMENT_BOTTOM,
                 null
             );
             this.guiFg.addControl( this.wearponImage );
@@ -43,8 +44,8 @@
                 'crosshair/default.png',
                 0,
                 0,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                bjsg.Control.VERTICAL_ALIGNMENT_CENTER,
                 null
             );
             this.guiFg.addControl( this.crosshair );

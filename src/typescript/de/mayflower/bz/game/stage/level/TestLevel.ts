@@ -1,5 +1,6 @@
 
-    import * as bz from '../../..';
+    import * as bz  from '../../..';
+    import * as bjs from 'babylonjs'
 
     /** ****************************************************************************************************************
     *   Specifies the 'test' level that tries out all level components.
@@ -19,7 +20,7 @@
                 scene,
                 canvas,
 
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                new bjs.Color3( 0.1, 0.1, 0.1 ),
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
                 bz.CameraType.FIRST_PERSON
             );

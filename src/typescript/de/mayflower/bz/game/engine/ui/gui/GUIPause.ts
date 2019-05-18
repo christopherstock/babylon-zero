@@ -1,6 +1,7 @@
 
-    import * as BABYLON_GUI from 'babylonjs-gui';
-    import * as bz from '../../../..';
+    import * as bz   from '../../../..';
+    import * as bjs  from 'babylonjs'
+    import * as bjsg from 'babylonjs-gui'
 
     /** ****************************************************************************************************************
     *   Represents the Graphical User Interface of the pause screen / menu.
@@ -25,9 +26,9 @@
         ];
 
         /** The translucent background. */
-        private             readonly        bg                      :BABYLON_GUI.Rectangle                  = null;
+        private             readonly        bg                      :bjsg.Rectangle                  = null;
         /** The 'pause' headline text. */
-        private             readonly        headline                :BABYLON_GUI.TextBlock                  = null;
+        private             readonly        headline                :bjsg.TextBlock                  = null;
         /** The GUI menu. */
         private             readonly        menu                    :bz.GUIMenu                             = null;
 
@@ -36,7 +37,7 @@
         *
         *   @param guiFg The gui to append all components to.
         ***************************************************************************************************************/
-        public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture )
+        public constructor( guiFg:bjsg.AdvancedDynamicTexture )
         {
             // bg
             this.bg = bz.GUIFactory.createRectangle
@@ -63,8 +64,8 @@
                 bz.SettingGUI.GUI_BORDER_Y,
                 250,
                 25,
-                BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
-                BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                 null
             );
             guiFg.addControl( this.headline );

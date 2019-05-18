@@ -1,6 +1,5 @@
 
     import * as bz      from '../..';
-    import * as BABYLON from 'babylonjs';
 
     /** ****************************************************************************************************************
     *   The branding class for 'Computy' branding.

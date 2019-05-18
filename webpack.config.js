@@ -1,3 +1,12 @@
+
+/*
+    new webpack.ProvidePlugin(
+        {
+        CANNON: 'cannon'
+        }
+    );
+*/
+
 module.exports = ( env, argv ) => {
 
     let config = {
@@ -66,7 +75,7 @@ module.exports = ( env, argv ) => {
                     }
                 ]
             }
-        ],
+        ]
     };
 
     if ( argv.mode === 'production' ) {
@@ -74,7 +83,11 @@ module.exports = ( env, argv ) => {
             minimize: true
         };
     }
-
+/*
+    config.externals = {
+        "cannon": "CANNON"
+    };
+*/
     config.devServer = {
         host: 'localhost',
         port: 1234,

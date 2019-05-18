@@ -1,6 +1,7 @@
 
-    import * as bz          from '../../../../..';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz   from '../../../../..';
+    import * as bjs  from 'babylonjs'
+    import * as bjsg from 'babylonjs-gui'
 
     /** ****************************************************************************************************************
     *   Manages all GUI FX shown in the GUI.
@@ -24,7 +25,7 @@
         *   @param gui  The gui to add the text message to.
         *   @param type The message to add to the message queue.
         ***************************************************************************************************************/
-        public addGuiFx( gui:BABYLON_GUI.AdvancedDynamicTexture, type:bz.GUIFxType ) : void
+        public addGuiFx( gui:bjsg.AdvancedDynamicTexture, type:bz.GUIFxType ) : void
         {
             this.fxQueue.push
             (

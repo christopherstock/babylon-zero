@@ -1,7 +1,6 @@
 
-    import * as bz          from '../../../..';
-    import * as BABYLON     from 'babylonjs';
-    import * as BABYLON_GUI from 'babylonjs-gui';
+    import * as bz   from '../../../..';
+    import * as bjsg from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Creates all types of GUI components.
@@ -25,14 +24,16 @@
             scene      :BABYLON.Scene,
             foreground :boolean
         )
-        : BABYLON_GUI.AdvancedDynamicTexture
+        : bjsg.AdvancedDynamicTexture
         {
-            const gui:BABYLON_GUI.AdvancedDynamicTexture = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
+            const gui:bjsg.AdvancedDynamicTexture = bjsg.AdvancedDynamicTexture.CreateFullscreenUI
             (
                 GUIFactory.createNextGuiId(),
-                foreground,
+                foreground
+/*
                 scene,
                 BABYLON.Texture.NEAREST_SAMPLINGMODE
+*/
             );
 
             gui.renderAtIdealSize = true;
@@ -63,9 +64,9 @@
             colorBorder   :string,
             colorFill     :string
         )
-        : BABYLON_GUI.Rectangle
+        : bjsg.Rectangle
         {
-            const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( GUIFactory.createNextGuiId() );
+            const rectangle:bjsg.Rectangle = new bjsg.Rectangle( GUIFactory.createNextGuiId() );
 
             rectangle.left       = x;
             rectangle.top        = y;
@@ -74,8 +75,8 @@
             rectangle.color      = colorBorder;
             rectangle.background = colorFill;
 
-            rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            rectangle.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            rectangle.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
 
             return rectangle;
         }
@@ -111,9 +112,9 @@
             alignmentVert :number,
             onPointerDown :() => void
         )
-        : BABYLON_GUI.TextBlock
+        : bjsg.TextBlock
         {
-            const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  GUIFactory.createNextGuiId()  );
+            const textBlock:bjsg.TextBlock = new bjsg.TextBlock(  GUIFactory.createNextGuiId()  );
 
             textBlock.text     = text;
             textBlock.left     = x;
@@ -172,9 +173,9 @@
             width   :number,
             height  :number
         )
-        : BABYLON_GUI.InputText
+        : bjsg.InputText
         {
-            const inputField:BABYLON_GUI.InputText = new BABYLON_GUI.InputText( GUIFactory.createNextGuiId() );
+            const inputField:bjsg.InputText = new bjsg.InputText( GUIFactory.createNextGuiId() );
 
             inputField.text       = text;
             inputField.color      = colorFg;
@@ -184,8 +185,8 @@
             inputField.width      = width  + 'px';
             inputField.height     = height + 'px';
 
-            inputField.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            inputField.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            inputField.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            inputField.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
 
             return inputField;
         }
@@ -215,9 +216,9 @@
             height  :number,
             onClick :() => void
         )
-        : BABYLON_GUI.Button
+        : bjsg.Button
         {
-            const button:BABYLON_GUI.Button = BABYLON_GUI.Button.CreateSimpleButton
+            const button:bjsg.Button = bjsg.Button.CreateSimpleButton
             (
                 GUIFactory.createNextGuiId(),
                 text
@@ -230,8 +231,8 @@
             button.width      = width  + 'px';
             button.height     = height + 'px';
 
-            button.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            button.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            button.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            button.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
 
             button.onPointerClickObservable.add
             (
@@ -268,9 +269,9 @@
             height    :number,
             onToggle  :() => void
         )
-        : BABYLON_GUI.Checkbox
+        : bjsg.Checkbox
         {
-            const checkbox:BABYLON_GUI.Checkbox = new BABYLON_GUI.Checkbox
+            const checkbox:bjsg.Checkbox = new bjsg.Checkbox
             (
                 GUIFactory.createNextGuiId()
             );
@@ -283,8 +284,8 @@
             checkbox.width      = width  + 'px';
             checkbox.height     = height + 'px';
 
-            checkbox.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            checkbox.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            checkbox.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            checkbox.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
 
             checkbox.onPointerClickObservable.add
             (
@@ -321,9 +322,9 @@
             height    :number,
             onCheck   :( checked:boolean ) => void
         )
-        : BABYLON_GUI.RadioButton
+        : bjsg.RadioButton
         {
-            const radioButton:BABYLON_GUI.RadioButton = new BABYLON_GUI.RadioButton
+            const radioButton:bjsg.RadioButton = new bjsg.RadioButton
             (
                 GUIFactory.createNextGuiId()
             );
@@ -336,8 +337,8 @@
             radioButton.width      = width  + 'px';
             radioButton.height     = height + 'px';
 
-            radioButton.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            radioButton.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            radioButton.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            radioButton.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
 
             radioButton.onIsCheckedChangedObservable.add
             (
@@ -380,9 +381,9 @@
             height      :number,
             onChange    :( value:number ) => void
         )
-        : BABYLON_GUI.Slider
+        : bjsg.Slider
         {
-            const slider:BABYLON_GUI.Slider = new BABYLON_GUI.Slider
+            const slider:bjsg.Slider = new bjsg.Slider
             (
                 GUIFactory.createNextGuiId()
             );
@@ -400,8 +401,8 @@
             slider.width       = width  + 'px';
             slider.height      = height + 'px';
 
-            slider.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            slider.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            slider.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            slider.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
 
             slider.onValueChangedObservable.add( onChange );
 
@@ -433,9 +434,9 @@
             color       :string,
             shadowColor :string
         )
-        : BABYLON_GUI.Line
+        : bjsg.Line
         {
-            const line:BABYLON_GUI.Line = new BABYLON_GUI.Line
+            const line:bjsg.Line = new bjsg.Line
             (
                 GUIFactory.createNextGuiId()
             );
@@ -480,9 +481,9 @@
             alignVert   :number,
             shadowColor :string
         )
-        : BABYLON_GUI.Image
+        : bjsg.Image
         {
-            const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
+            const image:bjsg.Image = new bjsg.Image
             (
                 GUIFactory.createNextGuiId(),
                 bz.SettingResource.PATH_IMAGE_GUI + filename
@@ -491,7 +492,7 @@
             image.horizontalAlignment = alignHorz;
             image.verticalAlignment   = alignVert;
             image.autoScale           = true;
-            image.stretch             = BABYLON_GUI.Image.STRETCH_NONE;
+            image.stretch             = bjsg.Image.STRETCH_NONE;
 
             image.left = x;
             image.top  = y;
@@ -513,7 +514,7 @@
         *   @param radioButtons All radio buttons of the radio button group.
         *   @param index        The index of the radio button in the group to check if all buttons are unchecked.
         ***************************************************************************************************************/
-        public static checkRadioButtonIfAllAreUnchecked( radioButtons:BABYLON_GUI.RadioButton[], index:number ) : void
+        public static checkRadioButtonIfAllAreUnchecked( radioButtons:bjsg.RadioButton[], index:number ) : void
         {
             let allRadioButtonsUnchecked:boolean = true;
             for ( const radioButton of radioButtons )
@@ -535,14 +536,14 @@
         *   @param button  The button to set a new text for.
         *   @param newText The text to set as the button's caption.
         ***************************************************************************************************************/
-        public static setVisorToggleButtonText( button:BABYLON_GUI.Button, newText:string ) : void
+        public static setVisorToggleButtonText( button:bjsg.Button, newText:string ) : void
         {
-            const textName  :string                = button.name + '_button';
-            const textBlock :BABYLON.GUI.TextBlock = button.getChildByType
+            const textName  :string         = button.name + '_button';
+            const textBlock :bjsg.TextBlock = button.getChildByType
             (
                 textName,
                 'TextBlock'
-            ) as BABYLON.GUI.TextBlock;
+            ) as bjsg.TextBlock;
 
             textBlock.text = newText;
         }
