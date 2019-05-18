@@ -167,7 +167,7 @@
             );
 
             return [
-
+/*
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
                 (
@@ -188,7 +188,7 @@
                     this,
                     this.compoundSpheres
                 ),
-
+*/
                 // crate
                 new bz.Wall
                 (
@@ -202,7 +202,7 @@
                         bz.ModelCompoundType.NONE
                     )
                 ),
-
+/*
                 // 3ds chair single-meshed
                 new bz.Wall
                 (
@@ -261,7 +261,7 @@
                         ]
                     )
                 ),
-
+*/
                 new bz.Wall
                 (
                     this,
@@ -272,9 +272,9 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
+                                new BABYLON.Vector3( 0.0, -5.0, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
+                                new BABYLON.Vector3( 200.0, 5.0, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
@@ -285,7 +285,7 @@
                         ]
                     ),
                 ),
-
+/*
                 new bz.Wall
                 (
                     this,
@@ -309,7 +309,8 @@
                         ]
                     )
                 ),
-
+ */
+/*
                 new bz.Wall
                 (
                     this,
@@ -333,7 +334,8 @@
                         ]
                     )
                 ),
-
+ */
+/*
                 new bz.Wall
                 (
                     this,
@@ -357,6 +359,7 @@
                         ]
                     )
                 ),
+ */
             ];
         }
 
