@@ -31,7 +31,7 @@
             this.onLoadComplete = onLoadComplete;
 
             // set the global volume for all sounds
-            BABYLON.Engine.audioEngine.setGlobalVolume( 1.0 );
+            // BABYLON.Engine.audioEngine.setGlobalVolume( 1.0 );
         }
 
         /** ************************************************************************************************************
