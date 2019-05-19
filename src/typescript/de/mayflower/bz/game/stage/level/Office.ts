@@ -49,7 +49,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
+                new BABYLON.Vector3( 8.0, 5.0, 13.0 ),
                 45.0,
                 this.ambientColor
             );
@@ -237,7 +237,7 @@
                     this.chairMultiPhysics,
                     5
                 ),
-
+/*
                 // red sphere from own model
                 new bz.Wall
                 (
@@ -261,7 +261,7 @@
                         ]
                     )
                 ),
-
+*/
                 new bz.Wall
                 (
                     this,
@@ -272,9 +272,9 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
+                                new BABYLON.Vector3( 0.0, -5.0, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
+                                new BABYLON.Vector3( 200.0, 5.0, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
@@ -590,7 +590,7 @@
         ***************************************************************************************************************/
         protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
         {
-            return null;
+            return new bz.PointerSystem( this ).defaultPointerDown;
         }
 
         /** ************************************************************************************************************

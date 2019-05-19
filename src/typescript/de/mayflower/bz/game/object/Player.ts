@@ -9,11 +9,11 @@
         /** The id of the player's body mesh in the mesh array. */
         private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
         /** The id of the player's head mesh in the mesh array. */
-        private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
+        // private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
         /** The id of the player's left hand mesh in the mesh array. */
-        private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
+        // private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
         /** The id of the player's left hand mesh in the mesh array. */
-        private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
+        // private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
         /** The current height of the player. Changes on ducking. */
         private                         heightY                     :number                             = 0.0;
@@ -42,11 +42,11 @@
         /** The referenced body mesh. */
         private             readonly    body                        :BABYLON.AbstractMesh               = null;
         /** The referenced head mesh. */
-        private             readonly    head                        :BABYLON.AbstractMesh               = null;
+        // private             readonly    head                        :BABYLON.AbstractMesh               = null;
         /** The referenced left hand mesh. */
-        private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
+        // private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
         /** The referenced right hand mesh. */
-        private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
+        // private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
         *   Creates a new player instance.
@@ -69,6 +69,16 @@
             super
             (
                 stage,
+
+                bz.MeshFactory.createImportedModel
+                (
+                    scene,
+                    bz.ModelFile.CRATE,
+                    position.clone(),
+                    bz.Physic.PLAYER,
+                    bz.ModelCompoundType.NONE
+                ),
+/*
                 new bz.Model
                 (
                     [
@@ -87,7 +97,8 @@
                             0.25,
                             emissiveColor
                         ),
-
+ */
+/*
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
                         (
@@ -132,8 +143,7 @@
                             1.0,
                             emissiveColor
                         ),
-                    ]
-                ),
+ */
                 bz.GameObject.UNBREAKABLE
             );
 
@@ -144,6 +154,7 @@
 
             // reference the body and all limbs
             this.body      = this.model.getMesh( Player.PLAYER_BODY_ID       );
+/*
             this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
             this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
             this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
@@ -152,7 +163,7 @@
             this.head.setParent(      this.body );
             this.leftHand.setParent(  this.body );
             this.rightHand.setParent( this.body );
-
+*/
             // set initial height
             this.heightY     = bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING;
             this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
@@ -204,7 +215,7 @@
         ***************************************************************************************************************/
         public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
-            return this.head;
+            return this.body;
         }
 
         /** ************************************************************************************************************
@@ -455,11 +466,11 @@
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
                 this.body,
-                0.0,
+                this.rotation.z,
                 this.rotation.y,
                 0.0
             );
-
+/*
             // rotate head
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
@@ -468,6 +479,7 @@
                 0.0,
                 0.0
             );
+*/
         }
 
         /** ************************************************************************************************************
@@ -636,7 +648,7 @@
             const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
             const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
 
-            const source      :BABYLON.Vector3 = this.head.absolutePosition;
+            const source      :BABYLON.Vector3 = this.body.absolutePosition;
             const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
             (
                 this.rotation.z + divergenceZ,
@@ -671,7 +683,7 @@
             );
 
             // bz.Debug.player.log( ' Head Shaking modifierY is [' + headShakingModifierY + ']' );
-
+/*
             this.head.position = new BABYLON.Vector3
             (
                 0.0,
@@ -691,6 +703,7 @@
                 halfPlayerHeight - ( bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING / 2 ),
                 0.0
             );
+ */
         }
 
         /** ************************************************************************************************************
