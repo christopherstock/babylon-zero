@@ -53,20 +53,6 @@
                 bz.SettingStage.STAGE_GRAVITY_GLOBAL,
                 this.physicsPlugin
             );
-/*
-            console.log( "Scene Graity:" );
-            console.log( this.babylonScene.gravity );
-
-
-this.babylonScene.gravity = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
-
-            console.log( "Scene Graity:" );
-            console.log( this.babylonScene.gravity );
-
-
-            console.log( "Physic Plugin Graity:" );
-            console.log( this.physicsPlugin.setGravity( new BABYLON.Vector3( 0.0, 0.0, 0.0 ) ) );
-*/
 
             // set default scene clear color
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
