@@ -261,7 +261,7 @@
                         ]
                     )
                 ),
-*/
+
                 new bz.Wall
                 (
                     this,
@@ -272,9 +272,9 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 0.0, -5.0, 0.0  ),
+                                new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, 5.0, 100.0 ),
+                                new BABYLON.Vector3( 200.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
