@@ -15,15 +15,6 @@
             bz.PhysicRestitution.NONE,
         );
 
-        /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly        PLAYER          :Physic                 = new Physic
-        (
-            bz.PhysicState.PLAYER,
-            null,
-            null,
-            null,
-        );
-
         /** Props for light wood. */
         public  static  readonly        LIGHT_WOOD      :Physic                 = new Physic
         (
@@ -121,7 +112,6 @@
             {
                 case bz.PhysicState.STATIC:
                 case bz.PhysicState.MOVABLE:
-                case bz.PhysicState.PLAYER:
                 {
                     const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
 
@@ -188,7 +178,7 @@
                     mass = ( volume * this.density );
                     break;
                 }
-
+/*
                 case bz.PhysicState.PLAYER:
                 {
                     return {
@@ -197,7 +187,7 @@
                         restitution: 0.0,
                     };
                 }
-
+*/
                 case bz.PhysicState.NONE:
                 {
                     break;

@@ -11,5 +11,5 @@
         public  static  readonly    STAGE_STARTUP                           :bz.StageId         = bz.StageId.TEST_OFFICE;
 
         /** The global scene gravity. */
-        public  static  readonly    STAGE_GRAVITY_GLOBAL                    :BABYLON.Vector3    = new BABYLON.Vector3( 0, -7.5, 0 );
+        public  static  readonly    STAGE_GRAVITY_GLOBAL                    :BABYLON.Vector3    = new BABYLON.Vector3( 0, -1.0, 0 );
     }

@@ -1,13 +1,5 @@
 
-    import * as bz            from '../../..';
-    import * as bjs           from 'babylonjs'
-    import * as cannon        from 'cannon';
-    import { CannonJSPlugin } from 'babylonjs';
-
-    // const CANNON = import 'CANNON'
-
-    // const CANNON = require( 'CANNON' );
-
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Represents the game scene. It wraps the native babylon.JS scene and physics engine
@@ -49,7 +41,11 @@
             this.babylonScene = engine.createNewScene();
 
             // create physics plugin
-            this.physicsPlugin = new BABYLON.CannonJSPlugin( true, bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS );
+            this.physicsPlugin = new BABYLON.CannonJSPlugin
+            (
+                true,
+                bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS
+            );
 
             // enable physics engine
             this.babylonScene.enablePhysics
@@ -57,6 +53,20 @@
                 bz.SettingStage.STAGE_GRAVITY_GLOBAL,
                 this.physicsPlugin
             );
+/*
+            console.log( "Scene Graity:" );
+            console.log( this.babylonScene.gravity );
+
+
+this.babylonScene.gravity = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+
+            console.log( "Scene Graity:" );
+            console.log( this.babylonScene.gravity );
+
+
+            console.log( "Physic Plugin Graity:" );
+            console.log( this.physicsPlugin.setGravity( new BABYLON.Vector3( 0.0, 0.0, 0.0 ) ) );
+*/
 
             // set default scene clear color
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
