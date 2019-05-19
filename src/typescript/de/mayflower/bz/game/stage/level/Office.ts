@@ -261,7 +261,7 @@
                         ]
                     )
                 ),
-
+*/
                 new bz.Wall
                 (
                     this,
