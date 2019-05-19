@@ -28,6 +28,8 @@
         ***************************************************************************************************************/
         public defaultPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
         {
+            if ( true ) return;
+
             if ( pickResult.hit )
             {
                 let src :BABYLON.Vector3 = null;

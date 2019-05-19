@@ -16,7 +16,7 @@
         public  static  readonly    PLAYER_HEIGHT_Y_DUCKED                      :number             = 2.0;
 
         /** The player's physical mass. */
-        public  static  readonly    PLAYER_MASS                                 :number             = 50.0;
+        public  static  readonly    PLAYER_MASS                                 :number             = 15.0;
 
         /** The player's physical force downscale multiplier for horizontal movements. */
         public  static  readonly    PLAYER_MOVE_VELOCITY_MULTIPLIER             :number             = 0.5;

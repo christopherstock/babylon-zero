@@ -34,7 +34,7 @@
 
                 bz.SettingColor.COLOR_RGB_WHITE,
                 bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE,
-                bz.CameraType.FIRST_PERSON
+                bz.CameraType.FREE_DEBUG
             );
         }
 
@@ -49,7 +49,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
+                new BABYLON.Vector3( 8.0, 10.0, 13.0 ),
                 45.0,
                 this.ambientColor
             );
@@ -67,9 +67,9 @@
                 this.scene.getNativeScene(),
                 this.canvas.getNativeCanvas(),
 
-                new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
+                new BABYLON.Vector3( -15.0, 10.0, -15.0 ),
                 new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+                new BABYLON.Vector3( 0.0,  5.0,  0.0  ),
 
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
@@ -118,6 +118,7 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
+/*
             // import mesh model
             this.chairSingle = bz.MeshFactory.createImportedModel
             (
@@ -165,7 +166,7 @@
                 1.0,
                 this.ambientColor
             );
-
+*/
             return [
 /*
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
@@ -197,7 +198,7 @@
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
-                        new BABYLON.Vector3( 10.0, 30.0, 5.0 ),
+                        new BABYLON.Vector3( 10.0, 50.0, 5.0 ),
                         bz.Physic.LIGHT_WOOD,
                         bz.ModelCompoundType.NONE
                     )

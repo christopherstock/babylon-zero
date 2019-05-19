@@ -49,6 +49,7 @@
 
             startupPositionFreeDebugCamera  :BABYLON.Vector3,
             startupPositionStationaryCamera :BABYLON.Vector3,
+            // TODO change with previous parameter
             startupTargetFreeDebugCamera    :BABYLON.Vector3,
 
             stationaryCameraTarget          :any,
