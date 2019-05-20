@@ -419,9 +419,6 @@
                 (
                     ( velocity.x * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
 
-
-
-
                     // check player falling
                     (
                         this.isFalling()

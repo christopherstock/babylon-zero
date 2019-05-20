@@ -16,7 +16,7 @@
         public  static  readonly    PLAYER_HEIGHT_Y_DUCKED                      :number             = 2.0;
 
         /** The player's physical mass. */
-        public  static  readonly    PLAYER_MASS                                 :number             = 30.0;
+        public  static  readonly    PLAYER_MASS                                 :number             = 50.0;
 
         /** The player's physical force downscale multiplier for horizontal movements. */
         public  static  readonly    PLAYER_MOVE_VELOCITY_MULTIPLIER             :number             = 0.5;
@@ -24,8 +24,9 @@
         public  static  readonly    PLAYER_FALLING_VELOCITY_MULTIPLIER          :number             = 1.05;
         /** The player's physical force ascend impulse for jumping. */
         public  static  readonly    PLAYER_JUMP_ASCEND_IMPULSE_Y                :number             = 300.0;
+
         /** The player's physical force horizontal impulse for moving. */
-        public  static  readonly    PLAYER_MOVE_IMPULSE                         :number             = 200.0;
+        public  static  readonly    PLAYER_MOVE_IMPULSE                         :number             = 10.0;
         /** The player's physical force horizontal impulse for running. */
         public  static  readonly    PLAYER_RUN_IMPULSE                          :number             = 300.0;
         /** The player's physical force horizontal impulse for straving. */
