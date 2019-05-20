@@ -30,6 +30,8 @@
                     mass:         this.mass,
                     friction:     this.friction,
                     restitution:  this.restitution,
+
+                    // TODO try on simple objects?
                     ignoreParent: false,
                 },
                 scene

@@ -94,7 +94,7 @@
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_GLASS,
                             null,
-                            bz.Physic.CONCRETE,
+                            bz.Physic.PLAYER,
                             0.25,
                             emissiveColor
                         ),
@@ -421,10 +421,7 @@
 
 
 
-0.0,
 
-
-/*
                     // check player falling
                     (
                         this.isFalling()
@@ -435,7 +432,7 @@
                         // keep velocity
                         : velocity.y
                     ),
-*/
+
                     ( velocity.z * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
                 )
             );
