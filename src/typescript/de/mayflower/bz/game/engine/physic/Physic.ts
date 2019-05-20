@@ -19,9 +19,9 @@
         public  static  readonly        PLAYER          :Physic                 = new Physic
         (
             bz.PhysicState.PLAYER,
-            null,
-            null,
-            null,
+            bz.PhysicDensity.SOLID_WOOD,
+            bz.PhysicFriction.HIGH,
+            bz.PhysicRestitution.NONE,
         );
 
         /** Props for light wood. */

@@ -78,6 +78,7 @@
                     bz.Physic.PLAYER,
                     bz.ModelCompoundType.NONE
                 ),
+
 /*
                 new bz.Model
                 (
@@ -93,11 +94,13 @@
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_GLASS,
                             null,
-                            bz.Physic.PLAYER,
+                            bz.Physic.CONCRETE,
                             0.25,
                             emissiveColor
                         ),
- */
+                    ]
+                ),
+*/
 /*
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
@@ -373,6 +376,9 @@
                     )
                 );
 */
+
+                // this.body.moveWithCollisions( this.moveDelta );
+
                 // apply physical impulse
                 this.body.physicsImpostor.applyImpulse // applyForce ?
                 (
@@ -413,6 +419,12 @@
                 (
                     ( velocity.x * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
 
+
+
+0.0,
+
+
+/*
                     // check player falling
                     (
                         this.isFalling()
@@ -423,7 +435,7 @@
                         // keep velocity
                         : velocity.y
                     ),
-
+*/
                     ( velocity.z * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
                 )
             );

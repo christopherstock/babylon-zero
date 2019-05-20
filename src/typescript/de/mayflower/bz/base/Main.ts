@@ -10,6 +10,8 @@
     *   TODO Primal
     *   =====================
     *   TODO New major 4.0.
+    *   TODO Try AmmoJS ?
+    *   TODO Exclude babylon js and physics engine sources as externals for increased build performance.
     *   TODO Update Node.js and npm.
     *
     *   =====================

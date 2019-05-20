@@ -40,6 +40,8 @@
         /** The delay between each sprite animation frame change in ms. */
         public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
 
+        // TODO extract physics to SettingPhysics
+
         /** The physics engine iteration count per render cycle. */
         public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 5;       // 5000 = no shaking
         /** The diameter of the collison epsilon used for all collision detections. */
