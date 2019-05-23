@@ -69,7 +69,7 @@
             super
             (
                 stage,
-
+/*
                 bz.MeshFactory.createImportedModel
                 (
                     scene,
@@ -78,8 +78,8 @@
                     bz.Physic.PLAYER,
                     bz.ModelCompoundType.NONE
                 ),
+*/
 
-/*
                 new bz.Model
                 (
                     [
@@ -100,7 +100,7 @@
                         ),
                     ]
                 ),
-*/
+
 /*
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
@@ -380,16 +380,19 @@
                 // this.body.moveWithCollisions( this.moveDelta );
 
                 // apply physical impulse
-                this.body.physicsImpostor.applyImpulse // applyForce ?
-                (
-                    new BABYLON.Vector3
+                if ( this.body.physicsImpostor != null )
+                {
+                    this.body.physicsImpostor.applyImpulse // applyForce ?
                     (
-                        this.moveDelta.x,
-                        this.moveDelta.y,
-                        this.moveDelta.z
-                    ),
-                    this.body.position
-                );
+                        new BABYLON.Vector3
+                        (
+                            this.moveDelta.x,
+                            this.moveDelta.y,
+                            this.moveDelta.z
+                        ),
+                        this.body.position
+                    );
+                }
 
                 // force rotZ centering on horizontal movements
                 if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
@@ -411,34 +414,37 @@
         ***************************************************************************************************************/
         private manipulateVelocities() : void
         {
-            // suppress linear velocities except Y
-            const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
-            this.body.physicsImpostor.setLinearVelocity
-            (
-                new BABYLON.Vector3
+            if ( this.body.physicsImpostor != null )
+            {
+                // suppress linear velocities except Y
+                const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
+                this.body.physicsImpostor.setLinearVelocity
                 (
-                    ( velocity.x * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
-
-                    // check player falling
+                    new BABYLON.Vector3
                     (
-                        this.isFalling()
+                        ( velocity.x * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
 
-                        // scale up falling velocity
-                        ? ( velocity.y * bz.SettingPlayer.PLAYER_FALLING_VELOCITY_MULTIPLIER )
+                        // check player falling
+                        (
+                            this.isFalling()
 
-                        // keep velocity
-                        : velocity.y
-                    ),
+                            // scale up falling velocity
+                            ? ( velocity.y * bz.SettingPlayer.PLAYER_FALLING_VELOCITY_MULTIPLIER )
 
-                    ( velocity.z * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
-                )
-            );
+                            // keep velocity
+                            : velocity.y
+                        ),
 
-            // completely suppress angular velocities
-            this.body.physicsImpostor.setAngularVelocity
-            (
-                BABYLON.Vector3.Zero()
-            );
+                        ( velocity.z * bz.SettingPlayer.PLAYER_MOVE_VELOCITY_MULTIPLIER ),
+                    )
+                );
+
+                // completely suppress angular velocities
+                this.body.physicsImpostor.setAngularVelocity
+                (
+                    BABYLON.Vector3.Zero()
+                );
+            }
         }
 
         /** ************************************************************************************************************
@@ -736,6 +742,9 @@
         ***************************************************************************************************************/
         private isFalling() : boolean
         {
-            return ( this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.PLAYER_FALLING_VELOCITY_Y );
+            return (
+                    this.body.physicsImpostor != null
+                &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.PLAYER_FALLING_VELOCITY_Y
+            );
         }
     }
