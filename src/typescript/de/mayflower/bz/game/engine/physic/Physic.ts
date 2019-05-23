@@ -192,9 +192,10 @@
                 case bz.PhysicState.PLAYER:
                 {
                     return {
-                        mass:        bz.SettingPlayer.PLAYER_MASS,
-                        friction:    0.0,
-                        restitution: 0.0,
+                        mass:                               bz.SettingPlayer.PLAYER_MASS,
+                        friction:                           0.0,
+                        restitution:                        0.0,
+                        disableBidirectionalTransformation: false,
                     };
                 }
 
@@ -205,9 +206,10 @@
             }
 
             return {
-                mass:        mass,
-                friction:    this.friction,
-                restitution: this.restitution
+                mass:                               mass,
+                friction:                           this.friction,
+                restitution:                        this.restitution,
+                disableBidirectionalTransformation: false,
             };
         }
     }

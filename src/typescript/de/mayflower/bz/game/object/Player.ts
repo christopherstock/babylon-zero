@@ -69,7 +69,7 @@
             super
             (
                 stage,
-/*
+
                 bz.MeshFactory.createImportedModel
                 (
                     scene,
@@ -78,8 +78,8 @@
                     bz.Physic.PLAYER,
                     bz.ModelCompoundType.NONE
                 ),
-*/
 
+/*
                 new bz.Model
                 (
                     [
@@ -100,7 +100,7 @@
                         ),
                     ]
                 ),
-
+*/
 /*
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
@@ -491,6 +491,19 @@
                 0.0,
                 0.0
             );
+*/
+/*
+            console.log( this.body );
+            console.log( this.rotation.z );
+            console.log( this.rotation.y );
+*/
+/*
+            let quaternion :BABYLON.Quaternion = BABYLON.Quaternion.RotationAxis(
+                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+                bz.MathUtil.degreesToRad( this.rotation.y )
+            );
+
+            this.body.rotationQuaternion = quaternion;
 */
         }
 

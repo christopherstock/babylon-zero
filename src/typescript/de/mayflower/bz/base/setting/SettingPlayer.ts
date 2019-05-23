@@ -26,7 +26,7 @@
         public  static  readonly    PLAYER_JUMP_ASCEND_IMPULSE_Y                :number             = 300.0;
 
         /** The player's physical force horizontal impulse for moving. */
-        public  static  readonly    PLAYER_MOVE_IMPULSE                         :number             = 10.0;
+        public  static  readonly    PLAYER_MOVE_IMPULSE                         :number             = 200.0;
         /** The player's physical force horizontal impulse for running. */
         public  static  readonly    PLAYER_RUN_IMPULSE                          :number             = 300.0;
         /** The player's physical force horizontal impulse for straving. */
