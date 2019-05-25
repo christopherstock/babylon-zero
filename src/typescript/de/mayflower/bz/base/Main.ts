@@ -9,7 +9,6 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Exclude babylon js and physics engine sources as externals for increased build performance.
     *   TODO Try different player objects: physics for car, spaceship, etc
     *
     *   =====================

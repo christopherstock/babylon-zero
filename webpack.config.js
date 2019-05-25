@@ -83,11 +83,13 @@ module.exports = ( env, argv ) => {
             minimize: true
         };
     }
-/*
+
     config.externals = {
-        "cannon": "CANNON"
+        "cannon":    "CANNON",
+        "earcut":    "earcut",
+        "babylonjs": "BABYLON",
     };
-*/
+
     config.devServer = {
         host: 'localhost',
         port: 1234,
