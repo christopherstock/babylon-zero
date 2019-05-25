@@ -30,7 +30,7 @@
         *
         *   @return The player instance for this stage.
         ***************************************************************************************************************/
-        protected createPlayer() : bz.Player
+        protected createPlayer() : bz.PlayerHuman
         {
             return null;
         }

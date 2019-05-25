@@ -22,7 +22,6 @@
     *   TODO group values and invocations in Stage to different functions and classes?
     *   TODO Minimize access to bz.Scene.getNativeScene()
     *   TODO Suppress errors for missing babylon.manifest files?
-    *   TODO Fix non playing video textures in Chrome.
     *
     *   =====================
     *   TODO New Stuff

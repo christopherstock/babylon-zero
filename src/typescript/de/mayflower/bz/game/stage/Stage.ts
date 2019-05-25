@@ -19,7 +19,7 @@
         protected           readonly        initialCamera           :bz.CameraType                          = null;
 
         /** The player instance. */
-        protected                           player                  :bz.Player                              = null;
+        protected                           player                  :bz.PlayerHuman                              = null;
         /** A collection of all walls in this stage. */
         protected                           walls                   :bz.Wall[]                              = [];
         /** A collection of all items in this stage. */
@@ -144,7 +144,7 @@
         *
         *   @return The player instance.
         ***************************************************************************************************************/
-        public getPlayer() : bz.Player
+        public getPlayer() : bz.PlayerHuman
         {
             return this.player;
         }
@@ -368,7 +368,7 @@
         *
         *   @return The player instance for this stage.
         ***************************************************************************************************************/
-        protected abstract createPlayer() : bz.Player;
+        protected abstract createPlayer() : bz.PlayerHuman;
 
         /** ************************************************************************************************************
         *   Creates the camera system that manages all cameras that appear in this level.

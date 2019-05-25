@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Represents the character being controlled by the user.
     *******************************************************************************************************************/
-    export class Player extends bz.GameObject
+    export class PlayerHuman extends bz.GameObject
     {
         /** The id of the player's body mesh in the mesh array. */
         private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
@@ -156,7 +156,7 @@
             this.moveDelta     = BABYLON.Vector3.Zero();
 
             // reference the body and all limbs
-            this.body      = this.model.getMesh( Player.PLAYER_BODY_ID       );
+            this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID       );
 /*
             this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
             this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
