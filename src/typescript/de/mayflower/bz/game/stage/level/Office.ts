@@ -161,7 +161,8 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Texture.VIDEO_TEST,
                 null,
-                bz.Physic.STATIC,
+                // bz.Physic.STATIC,
+                bz.Physic.NONE,
                 1.0,
                 this.ambientColor
             );
@@ -209,7 +210,7 @@
                     this,
                     this.chairSingle
                 ),
-/*
+
                 // tv
                 new bz.Wall
                 (
@@ -221,7 +222,7 @@
                         ]
                     )
                 ),
-*/
+
                 // 3ds chair - multi-meshes with same physics
                 new bz.Wall
                 (

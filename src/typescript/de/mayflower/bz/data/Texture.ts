@@ -118,7 +118,9 @@
                 {
                     // create video texture and mute audio
                     const videoTexture:BABYLON.VideoTexture = new BABYLON.VideoTexture( this.fileName, this.fileName, scene, true );
-                    videoTexture.video.muted = true;
+                    videoTexture.video.muted    = true;
+                    videoTexture.video.autoplay = true;
+                    videoTexture.video.play();
 
                     this.nativeTexture = videoTexture;
                     break;

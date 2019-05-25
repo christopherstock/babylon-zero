@@ -9,12 +9,9 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Remove the tv from other scenes ..
     *   TODO Update Node.js and npm.
-    *
     *   TODO Exclude babylon js and physics engine sources as externals for increased build performance.
-    *
-    *   TODO Remove MeshFactory!
+    *   TODO Try different player objects: physics for car, spaceship, etc
     *
     *   =====================
     *   TODO Refactorings
@@ -42,7 +39,6 @@
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *   TODO Enable pointer lock in non-fullscreen (window) mode?
-    *   TODO Try different player objects: physics for car, etc
     *
     *   =====================
     *   TODO Sounds
@@ -54,8 +50,10 @@
     *   =====================
     *   TODO Issues
     *   =====================
+    *   TODO Why are physics buggy for primitives from MeshFactory?
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
     *   TODO Enable loading of only required resources for the current scene??
+    *   TODO Solution to fix screen shaking on collisions?
     *
     *   =====================
     *   TODO Wearpons
