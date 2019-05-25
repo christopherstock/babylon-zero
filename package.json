@@ -1,7 +1,7 @@
 {
     "name": "babylon-zero",
-    "version": "0.0.8",
-    "description": "A babylon.JS joyride",
+    "version": "0.0.9",
+    "description": "Different tryouts with babylon.JS",
     "author": "Christopher Stock <email@christopherstock.de>",
     "license": "MIT",
     "main": "dist/index.html",
@@ -39,12 +39,10 @@
         "webpack-dev-server": "^3.1.5"
     },
     "dependencies": {
-        "babylon-zero-lib": "^0.1.0",
         "babylonjs": "^4.0.3",
         "babylonjs-gui": "^4.0.3",
         "cannon": "^0.6.2",
         "earcut": "^2.1.3",
-        "moment": "^2.22.1",
-        "oimo": "^1.0.9"
+        "moment": "^2.22.1"
     }
 }

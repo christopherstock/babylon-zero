@@ -18,7 +18,6 @@
     *   =====================
     *   TODO Parameter for stage fog/smoke color/enabled?
     *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
-    *   TODO Remove npm dependencies 'babylon-zero-lib', 'earcut' and 'oimo'?
     *   TODO Remove global references to Main.game: pass Interface getFps and KeySystem to Stage and GUI.
     *   TODO group values and invocations in Stage to different functions and classes?
     *   TODO Minimize access to bz.Scene.getNativeScene()

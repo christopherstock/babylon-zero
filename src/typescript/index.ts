@@ -2,7 +2,6 @@
     import * as bz from './de/mayflower/bz';
 
     ( global as any ).CANNON = require( 'cannon' );
-    ( global as any ).OIMO   = require( 'oimo'   );
     ( global as any ).earcut = require( 'earcut' );
 
     /*******************************************************************************************************************

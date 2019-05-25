@@ -351,7 +351,8 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                bz.Physic.STATIC,
+                                // bz.Physic.STATIC,
+                                bz.Physic.NONE,
                                 1.0,
                                 this.ambientColor
                             )
