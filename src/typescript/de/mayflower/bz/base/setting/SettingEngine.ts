@@ -55,4 +55,7 @@
         public  static  readonly    MAX_SPRITE_INSTANCES                    :number             = 255;
         /** Maximum instances of bullet holes in one stage. */
         public  static  readonly    MAX_BULLET_HOLES                        :number             = 255;
+
+        /** The default field of view of the 1st person camera. */
+        public  static  readonly    DEFAULT_FIELD_OF_VIEW                   :number             = 1.0;
     }

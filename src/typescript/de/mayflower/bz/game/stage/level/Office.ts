@@ -49,7 +49,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, 20.0, 13.0 ),
+                new BABYLON.Vector3( 8.0, 2.5, 13.0 ),
                 45.0,
                 this.ambientColor
             );

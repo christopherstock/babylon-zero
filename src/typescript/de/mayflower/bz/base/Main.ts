@@ -10,6 +10,8 @@
     *   TODO Primal
     *   =====================
     *   TODO Try different player objects: physics for car, spaceship, etc
+    *   TODO Create 3D space shooting engine.
+    *   TODO Fix exploding models.
     *
     *   =====================
     *   TODO Refactorings
@@ -25,9 +27,9 @@
     *   =====================
     *   TODO New Stuff
     *   =====================
+    *   TODO Try reflecting mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
     *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
-    *   TODO Try mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *
@@ -47,6 +49,8 @@
     *   =====================
     *   TODO Issues
     *   =====================
+    *   TODO Fix why physical objects behave buggy on reloading the scene!
+    *   TODO Fix loading und unloading of objects on switching scene!
     *   TODO Why are physics buggy for primitives from MeshFactory?
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
     *   TODO Enable loading of only required resources for the current scene??
@@ -103,7 +107,7 @@
     *   TODO Try height maps ('mountain grounds')
     *   TODO Try 'worker thread collisions'? seems obsolete.
     *   TODO Try fur.
-    *   TODO Impossible?: Show a video texture in the GUI.
+    *   TODO Try Impossible?: Show a video texture in the GUI.
     *   TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
     *   TODO Try water effects?
     *   TODO Try 'gamelets' in the babylon.JS docs.

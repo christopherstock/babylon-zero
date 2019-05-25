@@ -79,7 +79,7 @@
             this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera
             (
                 this.scene,
-                bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW
+                bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
             );
             this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera
             (

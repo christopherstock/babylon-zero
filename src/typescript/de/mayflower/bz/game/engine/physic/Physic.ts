@@ -19,8 +19,8 @@
         public  static  readonly        PLAYER          :Physic                 = new Physic
         (
             bz.PhysicState.PLAYER,
-            bz.PhysicDensity.SOLID_WOOD,
-            bz.PhysicFriction.HIGH,
+            bz.SettingPlayer.PLAYER_MASS,
+            bz.PhysicFriction.NONE,
             bz.PhysicRestitution.NONE,
         );
 
@@ -189,6 +189,8 @@
                     break;
                 }
 
+// TODO never passed if Player is a model !!
+/*
                 case bz.PhysicState.PLAYER:
                 {
                     return {
@@ -198,7 +200,7 @@
                         disableBidirectionalTransformation: false,
                     };
                 }
-
+*/
                 case bz.PhysicState.NONE:
                 {
                     break;

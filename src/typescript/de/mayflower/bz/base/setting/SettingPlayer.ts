@@ -26,11 +26,11 @@
         public  static  readonly    PLAYER_JUMP_ASCEND_IMPULSE_Y                :number             = 300.0;
 
         /** The player's physical force horizontal impulse for moving. */
-        public  static  readonly    PLAYER_MOVE_IMPULSE                         :number             = 200.0;
+        public  static  readonly    PLAYER_MOVE_IMPULSE                         :number             = 300.0;
         /** The player's physical force horizontal impulse for running. */
-        public  static  readonly    PLAYER_RUN_IMPULSE                          :number             = 300.0;
+        public  static  readonly    PLAYER_RUN_IMPULSE                          :number             = 450.0;
         /** The player's physical force horizontal impulse for straving. */
-        public  static  readonly    PLAYER_SPEED_STRAVE                         :number             = 225.0;
+        public  static  readonly    PLAYER_SPEED_STRAVE                         :number             = 325.0;
         /** The player's physical velocity y that determines falling. */
         public  static  readonly    PLAYER_FALLING_VELOCITY_Y                   :number             = -1.0;
 
@@ -51,9 +51,6 @@
         public  static  readonly    PLAYER_HEAD_SHAKING_VELOCITY_MULTIPLIER     :number             = 0.04;
         /** The player's head shaking range Y. */
         public  static  readonly    PLAYER_HEAD_SHAKING_RANGE_Y                 :number             = 0.1;
-
-        /** The default field of view of the player's 1st person camera. */
-        public  static  readonly    PLAYER_DEFAULT_FIELD_OF_VIEW                :number             = 1.0;
 
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    PLAYER_MAX_LOOK_UP_DOWN                     :number             = 60.0;

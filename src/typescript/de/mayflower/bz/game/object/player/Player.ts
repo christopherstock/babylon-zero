@@ -169,7 +169,7 @@
 */
             // set initial height
             this.heightY     = bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING;
-            this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
+            this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
 
             // set positions for all limbs
             this.positionPlayerLimbs();
@@ -601,13 +601,13 @@
             }
             else
             {
-                if ( this.fieldOfView < bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW )
+                if ( this.fieldOfView < bz.SettingEngine.DEFAULT_FIELD_OF_VIEW )
                 {
                     this.fieldOfView += CURRENT_WEARPON_ZOOM_SPEED;
 
-                    if ( this.fieldOfView > bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW )
+                    if ( this.fieldOfView > bz.SettingEngine.DEFAULT_FIELD_OF_VIEW )
                     {
-                        this.fieldOfView = bz.SettingPlayer.PLAYER_DEFAULT_FIELD_OF_VIEW;
+                        this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
                     }
 
                     cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
