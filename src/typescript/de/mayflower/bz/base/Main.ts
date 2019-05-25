@@ -9,13 +9,12 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO New major 4.0.
-    *   TODO Raise version to 8 (babylon.JS major 4 - 4.0)
-    *   TODO Remove MeshFactory!
-    *   TODO Try AmmoJS ?
-    *   TODO Try soft bodies.
-    *   TODO Exclude babylon js and physics engine sources as externals for increased build performance.
+    *   TODO Remove the tv from other scenes ..
     *   TODO Update Node.js and npm.
+    *
+    *   TODO Exclude babylon js and physics engine sources as externals for increased build performance.
+    *
+    *   TODO Remove MeshFactory!
     *
     *   =====================
     *   TODO Refactorings
@@ -104,6 +103,7 @@
     *   =====================
     *   TODO The Lab
     *   =====================
+    *   TODO Try soft bodies.
     *   TODO Try babylon 101 scenes.
     *   TODO Try height maps ('mountain grounds')
     *   TODO Try 'worker thread collisions'? seems obsolete.

@@ -21,9 +21,11 @@
         private     static  readonly    V_0_0_7                 :Version            = new Version( '0.0.7', 'ROCK AND ROLL',            '25.07.2018, 06:39:41 GMT+1' );
         /** The project's version v.0.0.8. */
         private     static  readonly    V_0_0_8                 :Version            = new Version( '0.0.8', 'HUMAN BODY PARTITIONS',    '24.11.2018, 14:15:12 GMT+1' );
+        /** The project's version v.0.0.9. */
+        private     static  readonly    V_0_0_9                 :Version            = new Version( '0.0.9', 'BABYLON.JS 4.0',           '25.05.2019, 18:22:41 GMT+1' );
 
         /** The project's current version. */
-        private     static  readonly    CURRENT_VERSION         :Version            = Version.V_0_0_8;
+        private     static  readonly    CURRENT_VERSION         :Version            = Version.V_0_0_9;
 
         /** This version's specifier. */
         private             readonly    version                 :string             = null;

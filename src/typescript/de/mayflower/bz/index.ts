@@ -86,7 +86,7 @@
     export * from './game/object/GameObject';
     export * from './game/object/Bot';
     export * from './game/object/Item';
-    export * from './game/object/Player';
+    export * from './game/object/player/Player';
     export * from './game/object/Wall';
 
     export * from './data/ModelFile';

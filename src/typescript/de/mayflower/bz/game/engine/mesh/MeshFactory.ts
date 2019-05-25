@@ -3,8 +3,6 @@
 
     /** ****************************************************************************************************************
     *   Constructs meshes.
-    *
-    *   @deprecated Buggy in babylon.JS 4.0.
     *******************************************************************************************************************/
     export class MeshFactory
     {
@@ -820,6 +818,8 @@
         *   @param physic              The physical attributes to apply for this mesh.
         *   @param physicsImpostorType The kind of physic impostor to apply to this mesh.
         *   @param volume              The calculated volume of the mesh.
+        *
+        *   @deprecated Applying physic is buggy for standard meshes since babylon.JS 4.0.
         ***************************************************************************************************************/
         private static decorateMesh
         (
@@ -836,13 +836,17 @@
             mesh.material       = material;
             mesh.receiveShadows = bz.SettingEngine.ENABLE_SHADOWS;
 
-            physic.applyPhysicToMesh
-            (
-                scene,
-                mesh,
-                volume,
-                physicsImpostorType
-            );
+            // buggy physics for primitives since babylon.JS 4.0.
+            if ( true )
+            {
+                physic.applyPhysicToMesh
+                (
+                    scene,
+                    mesh,
+                    volume,
+                    physicsImpostorType
+                );
+            }
 
             if ( rotation != null )
             {

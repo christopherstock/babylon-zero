@@ -1,5 +1,5 @@
 
-    import * as bz from '../..';
+    import * as bz from '../../../index';
 
     /** ****************************************************************************************************************
     *   Represents the character being controlled by the user.
