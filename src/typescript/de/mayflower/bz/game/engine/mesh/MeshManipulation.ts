@@ -66,8 +66,12 @@
         )
         : void
         {
+            // all other pivotAnchors behave buggy .. sorry :( :( :(
+            // pivotAnchor = bz.MeshPivotAnchor.CENTER_XYZ;
+
             switch ( pivotAnchor )
             {
+/*
                 case bz.MeshPivotAnchor.LOWEST_XYZ:
                 {
 
@@ -96,24 +100,6 @@ if ( debug )
                             ( depth  / 2 )
                         )
                     );
-/*
-
-var CoR_At = new BABYLON.Vector3(1, 3, 2);
-var pilotStart = new BABYLON.Vector3(3, 6, 6);
-
-mesh.position = pilotStart;
-
-var pivotTranslate = pilotStart.subtract(CoR_At);
-mesh.setPivotMatrix(BABYLON.Matrix.Translation(pivotTranslate.x, pivotTranslate.y, pivotTranslate.z));
-*/
-
-/*
-                    mesh.position = new BABYLON.Vector3(
-                        position.x + 0.1,
-                        position.y,
-                        position.z
-                    );
-*/
     }
 }
 else
@@ -132,8 +118,10 @@ else
 }
                     break;
                 }
-
+*/
+                case bz.MeshPivotAnchor.LOWEST_XYZ:
                 case bz.MeshPivotAnchor.CENTER_XYZ:
+                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
                 {
                     mesh.position = position;
                     mesh.setPivotMatrix
@@ -148,7 +136,7 @@ else
                     );
                     break;
                 }
-
+/*
                 case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
                 {
                     mesh.position = position;
@@ -164,7 +152,7 @@ else
                     );
                     break;
                 }
-
+*/
                 case bz.MeshPivotAnchor.NONE:
                 {
                     mesh.position = new BABYLON.Vector3(
