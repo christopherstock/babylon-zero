@@ -148,8 +148,8 @@
                                 bz.Texture.WALL_GLASS,
                                 null,
 
-//                                bz.Physic.STATIC,
-                                bz.Physic.NONE,
+                                bz.Physic.STATIC,
+//                                bz.Physic.NONE,
 
                                 0.5,
                                 this.ambientColor,
