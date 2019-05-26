@@ -137,13 +137,16 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 5.0, 0.0, 1.0  ),
+                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH, 1.0  ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GLASS,
                                 null,
-                                bz.Physic.STATIC,
+
+                                // bz.Physic.STATIC,
+                                bz.Physic.NONE,
+
                                 0.5,
                                 this.ambientColor
                             ),
