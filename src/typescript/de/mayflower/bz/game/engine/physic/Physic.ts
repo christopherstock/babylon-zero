@@ -113,7 +113,8 @@
             scene        :BABYLON.Scene,
             mesh         :BABYLON.AbstractMesh,
             volume       :number,
-            impostorType :number
+            impostorType :number,
+            debug        :boolean = false
         )
         : void
         {
@@ -126,6 +127,18 @@
                     const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
 
                     mesh.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
+
+
+                    if ( debug ) {
+
+/*
+                        impostorParams.mass = 0.1;
+*/
+                        console.log( impostorParams );
+
+
+                    }
+
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -133,6 +146,7 @@
                         impostorParams,
                         scene
                     );
+
                     mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
 
                     break;

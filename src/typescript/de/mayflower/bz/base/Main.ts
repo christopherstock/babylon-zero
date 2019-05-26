@@ -14,6 +14,7 @@
     *
     *   TODO Try different player objects: physics for car, spaceship, etc
     *   TODO Create 3D space shooting engine.
+    *   TODO do NOT load unused models into a scene!?
     *   TODO Fix exploding models.
     *
     *   =====================

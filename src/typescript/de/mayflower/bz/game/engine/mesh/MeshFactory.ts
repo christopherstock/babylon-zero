@@ -25,16 +25,16 @@
         /** ************************************************************************************************************
         *   Creates a box mesh.
         *
-        *   @param scene           The scene where this mesh will be applied.
-        *   @param position        Where to place this mesh.
-        *   @param pivotAnchor     The anchor point of this mesh.
-        *   @param size            The dimensions of this mesh for all axis.
-        *   @param rotation        The initial rotation for all axis.
-        *   @param texture         The texture to apply.
-        *   @param color           The solid color to apply.
-        *   @param physic          The physical attributes to apply for this mesh.
-        *   @param materialAlpha   The opacity for this mesh.
-        *   @param emissiveColor   The emissive color for this material.
+        *   @param scene         The scene where this mesh will be applied.
+        *   @param position      Where to place this mesh.
+        *   @param pivotAnchor   The anchor point of this mesh.
+        *   @param size          The dimensions of this mesh for all axis.
+        *   @param rotation      The initial rotation for all axis.
+        *   @param texture       The texture to apply.
+        *   @param color         The solid color to apply.
+        *   @param physic        The physical attributes to apply for this mesh.
+        *   @param materialAlpha The opacity for this mesh.
+        *   @param emissiveColor The emissive color for this material.
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
@@ -49,7 +49,8 @@
             color         :BABYLON.Color3,
             physic        :bz.Physic,
             materialAlpha :number,
-            emissiveColor :BABYLON.Color3
+            emissiveColor :BABYLON.Color3,
+            debug         :boolean = false
         )
         : BABYLON.Mesh
         {
@@ -129,7 +130,8 @@
                 material,
                 physic,
                 BABYLON.PhysicsImpostor.BoxImpostor,
-                volume
+                volume,
+                debug
             );
         }
 
@@ -829,7 +831,8 @@
             material            :BABYLON.StandardMaterial,
             physic              :bz.Physic,
             physicsImpostorType :number,
-            volume              :number
+            volume              :number,
+            debug               :boolean = false
         )
         : BABYLON.Mesh
         {
@@ -844,7 +847,8 @@
                     scene,
                     mesh,
                     volume,
-                    physicsImpostorType
+                    physicsImpostorType,
+                    debug
                 );
             }
 
