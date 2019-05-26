@@ -11,9 +11,9 @@
         /** The id of the player's head mesh in the mesh array. */
         private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
         /** The id of the player's left hand mesh in the mesh array. */
-        // private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
+        private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
         /** The id of the player's left hand mesh in the mesh array. */
-        // private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
+        private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
         /** The current height of the player. Changes on ducking. */
         private                         heightY                     :number                             = 0.0;
@@ -44,9 +44,9 @@
         /** The referenced head mesh. */
         private             readonly    head                        :BABYLON.AbstractMesh               = null;
         /** The referenced left hand mesh. */
-        // private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
+        private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
         /** The referenced right hand mesh. */
-        // private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
+        private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
 
         /** ************************************************************************************************************
         *   Creates a new player instance.
@@ -97,35 +97,36 @@
                             1.0,
                             emissiveColor
                         ),
-/*
-                        bz.MeshFactory.createImportedModel
+
+                        // Player.PLAYER_LEFT_HAND_ID
+                        bz.MeshFactory.createBox
                         (
                             scene,
-                            bz.ModelFile.CRATE,
-
-                            // position.clone().addInPlace( new BABYLON.Vector3( 0.0, -2.5, 0.0 ) ),
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-
-                            bz.Physic.NONE,
-                            bz.ModelCompoundType.NONE
-                        ).getMesh( 0 ),
-
-                        // Player.PLAYER_BODY_ID
-                        bz.MeshFactory.createCylinder
-                        (
-                            scene,
-                            position.clone(),
-                            bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                            bz.SettingPlayer.PLAYER_DIAMETER_BODY_XZ,
-                            bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING,
+                            position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             BABYLON.Vector3.Zero(),
-                            bz.Texture.WALL_GLASS,
+                            bz.Texture.WALL_SKIN_ROSE,
                             null,
-                            bz.Physic.PLAYER,
-                            0.25,
+                            bz.Physic.NONE,
+                            1.0,
                             emissiveColor
                         ),
-*/
+
+                        // Player.PLAYER_RIGHT_HAND_ID
+                        bz.MeshFactory.createBox
+                        (
+                            scene,
+                            position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
+                            BABYLON.Vector3.Zero(),
+                            bz.Texture.WALL_SKIN_ROSE,
+                            null,
+                            bz.Physic.NONE,
+                            1.0,
+                            emissiveColor
+                        ),
                     ]
                 ),
 
@@ -144,36 +145,6 @@
                             1.0,
                             emissiveColor
                         ),
-
-                        // Player.PLAYER_LEFT_HAND_ID
-                        bz.MeshFactory.createBox
-                        (
-                            scene,
-                            BABYLON.Vector3.Zero(),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-                            BABYLON.Vector3.Zero(),
-                            bz.Texture.WALL_SKIN_ROSE,
-                            null,
-                            bz.Physic.NONE,
-                            1.0,
-                            emissiveColor
-                        ),
-
-                        // Player.PLAYER_RIGHT_HAND_ID
-                        bz.MeshFactory.createBox
-                        (
-                            scene,
-                            BABYLON.Vector3.Zero(),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-                            BABYLON.Vector3.Zero(),
-                            bz.Texture.WALL_SKIN_ROSE,
-                            null,
-                            bz.Physic.NONE,
-                            1.0,
-                            emissiveColor
-                        ),
  */
                 bz.GameObject.UNBREAKABLE
             );
@@ -184,16 +155,15 @@
             this.moveDelta     = BABYLON.Vector3.Zero();
 
             // reference the body and all limbs
-            this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID );
-            this.head      = this.model.getMesh( PlayerHuman.PLAYER_HEAD_ID );
-/*
-            this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
-            this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
-*/
+            this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID       );
+            this.head      = this.model.getMesh( PlayerHuman.PLAYER_HEAD_ID       );
+            this.leftHand  = this.model.getMesh( PlayerHuman.PLAYER_LEFT_HAND_ID  );
+            this.rightHand = this.model.getMesh( PlayerHuman.PLAYER_RIGHT_HAND_ID );
+
             // stick all limbs to body
             this.head.setParent(      this.body );
-            // this.leftHand.setParent(  this.body );
-            // this.rightHand.setParent( this.body );
+            this.leftHand.setParent(  this.body );
+            this.rightHand.setParent( this.body );
 
             // set initial height
             this.heightY     = bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING;
