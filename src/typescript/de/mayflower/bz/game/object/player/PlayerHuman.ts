@@ -42,7 +42,7 @@
         /** The referenced body mesh. */
         private             readonly    body                        :BABYLON.AbstractMesh               = null;
         /** The referenced head mesh. */
-        // private             readonly    head                        :BABYLON.AbstractMesh               = null;
+        private             readonly    head                        :BABYLON.AbstractMesh               = null;
         /** The referenced left hand mesh. */
         // private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
         /** The referenced right hand mesh. */
@@ -83,7 +83,34 @@
                             bz.ModelCompoundType.NONE
                         ).getMesh( 0 ),
 
+                        // Player.PLAYER_HEAD_ID
+                        bz.MeshFactory.createSphere
+                        (
+                            scene,
+                            position.clone().addInPlace( new BABYLON.Vector3( 0.0, 2.5, 0.0 ) ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            bz.SettingPlayer.PLAYER_DIAMETER_HEAD,
+                            BABYLON.Vector3.Zero(),
+                            bz.Texture.WALL_SKIN_ROSE,
+                            null,
+                            bz.Physic.NONE,
+                            1.0,
+                            emissiveColor
+                        ),
 /*
+                        bz.MeshFactory.createImportedModel
+                        (
+                            scene,
+                            bz.ModelFile.CRATE,
+
+                            // position.clone().addInPlace( new BABYLON.Vector3( 0.0, -2.5, 0.0 ) ),
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+
+                            bz.Physic.NONE,
+                            bz.ModelCompoundType.NONE
+                        ).getMesh( 0 ),
+
+                        // Player.PLAYER_BODY_ID
                         bz.MeshFactory.createCylinder
                         (
                             scene,
@@ -157,31 +184,17 @@
             this.moveDelta     = BABYLON.Vector3.Zero();
 
             // reference the body and all limbs
-            this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID       );
-
-            // this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
-/*
-            this.head      = bz.MeshFactory.createImportedModel
-            (
-                scene,
-                bz.ModelFile.CRATE,
-                position.clone().subtract( new BABYLON.Vector3( 0.0, 1.0, 0.0 ) ),
-                bz.Physic.NONE,
-                bz.ModelCompoundType.NONE
-            ).getMesh( 0 );
-*/
+            this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID );
+            this.head      = this.model.getMesh( PlayerHuman.PLAYER_HEAD_ID );
 /*
             this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
             this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
 */
-/*
             // stick all limbs to body
             this.head.setParent(      this.body );
-*/
-/*
-            this.leftHand.setParent(  this.body );
-            this.rightHand.setParent( this.body );
-*/
+            // this.leftHand.setParent(  this.body );
+            // this.rightHand.setParent( this.body );
+
             // set initial height
             this.heightY     = bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING;
             this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
@@ -233,7 +246,7 @@
         ***************************************************************************************************************/
         public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
         {
-            return this.body;
+            return this.head;
         }
 
         /** ************************************************************************************************************
@@ -493,11 +506,11 @@
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
                 this.body,
-                this.rotation.z,
+                0.0, // this.rotation.z,
                 this.rotation.y,
                 0.0
             );
-/*
+
             // rotate head
             bz.MeshManipulation.setAbsoluteRotationXYZ
             (
@@ -506,20 +519,6 @@
                 0.0,
                 0.0
             );
-*/
-/*
-            console.log( this.body );
-            console.log( this.rotation.z );
-            console.log( this.rotation.y );
-*/
-/*
-            let quaternion :BABYLON.Quaternion = BABYLON.Quaternion.RotationAxis(
-                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-                bz.MathUtil.degreesToRad( this.rotation.y )
-            );
-
-            this.body.rotationQuaternion = quaternion;
-*/
         }
 
         /** ************************************************************************************************************
@@ -688,7 +687,7 @@
             const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
             const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
 
-            const source      :BABYLON.Vector3 = this.body.absolutePosition;
+            const source      :BABYLON.Vector3 = this.head.absolutePosition;
             const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
             (
                 this.rotation.z + divergenceZ,
