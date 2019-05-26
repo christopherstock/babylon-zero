@@ -120,7 +120,6 @@ else
                 }
 */
                 case bz.MeshPivotAnchor.LOWEST_XYZ:
-                case bz.MeshPivotAnchor.CENTER_XYZ:
                 case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
                 {
                     mesh.position = position;
@@ -153,6 +152,22 @@ else
                     break;
                 }
 */
+                case bz.MeshPivotAnchor.CENTER_XYZ:
+                {
+                    mesh.position = position;
+                    mesh.setPivotMatrix
+                    (
+                        BABYLON.Matrix.Translation
+                        (
+                            0.0,
+                            0.0,
+                            0.0
+                        ),
+                        false
+                    );
+                    break;
+                }
+
                 case bz.MeshPivotAnchor.NONE:
                 {
                     mesh.position = new BABYLON.Vector3(
