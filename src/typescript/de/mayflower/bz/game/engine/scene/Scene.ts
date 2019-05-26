@@ -9,7 +9,7 @@
     {
         /** The current babylon.JS scene. */
         private                     babylonScene                :BABYLON.Scene                      = null;
-        /** The physics plugin for the cannon.js physics engine. */
+        /** The physics plugin being used in the scene. */
         private                     physicsPlugin               :BABYLON.IPhysicsEnginePlugin       = null;
 
         /** The material system. */
