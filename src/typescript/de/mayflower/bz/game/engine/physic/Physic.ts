@@ -134,7 +134,7 @@
 /*
                         impostorParams.mass = 0.1;
 */
-                        console.log( impostorParams );
+                        // console.log( impostorParams );
 
 
                     }

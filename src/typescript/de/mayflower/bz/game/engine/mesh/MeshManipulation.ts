@@ -70,23 +70,55 @@
             {
                 case bz.MeshPivotAnchor.LOWEST_XYZ:
                 {
-                    mesh.position = position;
 
 
 if ( debug )
 {
-    console.log( "PivotMatrix:", width, height, depth );
-}
+    console.log( "Position:",    position );
+    console.log( "PivotMatrix:", mesh.getPivotMatrix() );
+    console.log( "PivotPoint:",  mesh.getPivotPoint()  );
 
-// if ( !debug )
-// {
 
-if ( debug )
-{
+    if ( true )
+    {
+                    mesh.position = new BABYLON.Vector3
+                    (
+                        position.x + ( width  / 2 ),
+                        position.y + ( height / 2 ),
+                        position.z + ( depth  / 2 ),
+                    );
+                    mesh.setPivotMatrix
+                    (
+                        BABYLON.Matrix.Translation
+                        (
+                            ( width  / 2 ),
+                            ( height / 2 ),
+                            ( depth  / 2 )
+                        )
+                    );
+/*
 
+var CoR_At = new BABYLON.Vector3(1, 3, 2);
+var pilotStart = new BABYLON.Vector3(3, 6, 6);
+
+mesh.position = pilotStart;
+
+var pivotTranslate = pilotStart.subtract(CoR_At);
+mesh.setPivotMatrix(BABYLON.Matrix.Translation(pivotTranslate.x, pivotTranslate.y, pivotTranslate.z));
+*/
+
+/*
+                    mesh.position = new BABYLON.Vector3(
+                        position.x + 0.1,
+                        position.y,
+                        position.z
+                    );
+*/
+    }
 }
 else
 {
+                    mesh.position = position;
                     mesh.setPivotMatrix
                     (
                         BABYLON.Matrix.Translation

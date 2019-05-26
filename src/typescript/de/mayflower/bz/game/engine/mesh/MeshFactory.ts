@@ -54,6 +54,7 @@
         )
         : BABYLON.Mesh
         {
+            // TODO move faceUV determination to separate method
             let faceUV:BABYLON.Vector4[] = [];
 
             if ( texture != null )

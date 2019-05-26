@@ -137,25 +137,26 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH, 1.0  ),
+//                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH, 1.0  ),
+                                new BABYLON.Vector3( 0.0, bz.MeshFactory.FACE_DEPTH, 0.0  ),
 
-//                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                bz.MeshPivotAnchor.NONE,
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+//                                bz.MeshPivotAnchor.NONE,
 
                                 new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                new BABYLON.Vector3( 0.0, 10.0, 0.0 ),
                                 bz.Texture.WALL_GLASS,
                                 null,
 
-                                bz.Physic.STATIC,
-                                // bz.Physic.NONE,
+//                                bz.Physic.STATIC,
+                                bz.Physic.NONE,
 
                                 0.5,
                                 this.ambientColor,
 
                                 true
                             ),
-
+/*
                             // box primitive from MeshFactory
                             bz.MeshFactory.createBox
                             (
@@ -163,7 +164,6 @@
                                 new BABYLON.Vector3( 0.75, 0.75 + bz.MeshFactory.FACE_DEPTH, 0.75 ),
 
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-//                                bz.MeshPivotAnchor.NONE,
 
                                 new BABYLON.Vector3( 1.5, 1.5, 1.5 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -178,6 +178,7 @@
 
                                 true
                             ),
+*/
                         ]
                     )
                 ),
