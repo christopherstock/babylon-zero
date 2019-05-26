@@ -61,6 +61,8 @@
             width       :number,
             height      :number,
             depth       :number,
+
+            debug       :boolean = false
         )
         : void
         {
@@ -69,6 +71,22 @@
                 case bz.MeshPivotAnchor.LOWEST_XYZ:
                 {
                     mesh.position = position;
+
+
+if ( debug )
+{
+    console.log( "PivotMatrix:", width, height, depth );
+}
+
+// if ( !debug )
+// {
+
+if ( debug )
+{
+
+}
+else
+{
                     mesh.setPivotMatrix
                     (
                         BABYLON.Matrix.Translation
@@ -79,6 +97,7 @@
                         ),
                         false
                     );
+}
                     break;
                 }
 

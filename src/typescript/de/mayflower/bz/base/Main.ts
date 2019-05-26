@@ -37,7 +37,7 @@
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *
     *   TODO HID: Add slower panning on aiming/zooming with wearpon.
-    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon.
+    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *   TODO Enable pointer lock in non-fullscreen (window) mode?

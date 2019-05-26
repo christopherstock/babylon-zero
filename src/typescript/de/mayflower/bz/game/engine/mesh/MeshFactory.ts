@@ -107,7 +107,8 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z );
+            bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z, debug );
+
             const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
                 scene.getNativeScene(),
@@ -839,6 +840,11 @@
             mesh.material       = material;
             mesh.receiveShadows = bz.SettingEngine.ENABLE_SHADOWS;
 
+            if ( rotation != null )
+            {
+                bz.MeshManipulation.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
+            }
+
             // buggy physics for primitives since babylon.JS 4.0.
             if ( true )
             {
@@ -850,11 +856,6 @@
                     physicsImpostorType,
                     debug
                 );
-            }
-
-            if ( rotation != null )
-            {
-                bz.MeshManipulation.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
             }
 
             return mesh;

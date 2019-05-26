@@ -160,10 +160,10 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH + 5.0, 5.0  ),
+                                new BABYLON.Vector3( 0.75, 0.75 + bz.MeshFactory.FACE_DEPTH, 0.75 ),
 
-//                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                bz.MeshPivotAnchor.NONE,
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+//                                bz.MeshPivotAnchor.NONE,
 
                                 new BABYLON.Vector3( 1.5, 1.5, 1.5 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
