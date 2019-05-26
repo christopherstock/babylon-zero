@@ -9,7 +9,7 @@
         /** The id of the player's body mesh in the mesh array. */
         private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
         /** The id of the player's head mesh in the mesh array. */
-        // private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
+        private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
         /** The id of the player's left hand mesh in the mesh array. */
         // private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
         /** The id of the player's left hand mesh in the mesh array. */
@@ -70,20 +70,20 @@
             (
                 stage,
 
-                bz.MeshFactory.createImportedModel
-                (
-                    scene,
-                    bz.ModelFile.CRATE,
-                    position.clone(),
-                    bz.Physic.PLAYER,
-                    bz.ModelCompoundType.NONE
-                ),
-
-/*
                 new bz.Model
                 (
                     [
                         // Player.PLAYER_BODY_ID
+                        bz.MeshFactory.createImportedModel
+                        (
+                            scene,
+                            bz.ModelFile.CRATE,
+                            position.clone(),
+                            bz.Physic.PLAYER,
+                            bz.ModelCompoundType.NONE
+                        ).getMesh( 0 ),
+
+/*
                         bz.MeshFactory.createCylinder
                         (
                             scene,
@@ -98,9 +98,10 @@
                             0.25,
                             emissiveColor
                         ),
+*/
                     ]
                 ),
-*/
+
 /*
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
@@ -157,13 +158,27 @@
 
             // reference the body and all limbs
             this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID       );
+
+            // this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
 /*
-            this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
+            this.head      = bz.MeshFactory.createImportedModel
+            (
+                scene,
+                bz.ModelFile.CRATE,
+                position.clone().subtract( new BABYLON.Vector3( 0.0, 1.0, 0.0 ) ),
+                bz.Physic.NONE,
+                bz.ModelCompoundType.NONE
+            ).getMesh( 0 );
+*/
+/*
             this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
             this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
-
+*/
+/*
             // stick all limbs to body
             this.head.setParent(      this.body );
+*/
+/*
             this.leftHand.setParent(  this.body );
             this.rightHand.setParent( this.body );
 */
