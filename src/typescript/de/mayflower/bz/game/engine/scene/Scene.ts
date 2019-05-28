@@ -47,12 +47,13 @@
                 bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS
             );
 
-            // enable physics engine
+            // enable physics engine and stop it immediately in order to prevent unwanted startup impulses!
             this.babylonScene.enablePhysics
             (
                 bz.SettingStage.STAGE_GRAVITY_GLOBAL,
                 this.physicsPlugin
             );
+            this.enablePhysics( false );
 
             // set default scene clear color
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;

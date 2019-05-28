@@ -40,6 +40,10 @@
             bz.Debug.stage.log( '' );
             bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
 
+            // stop physics engine immediately
+            this.scene.enablePhysics( false );
+
+            // remember last pause menu item
             let lastPauseMenuItem:number = 0;
 
             // check existent stage unload
@@ -171,6 +175,9 @@
 
             this.engine.setLoadingUiVisibility( false );
             this.engine.setRenderLoopExecution( true, this.render );
+
+            // start physics engine not before now in order to prevent unwanted physical startup impulses! :)
+            this.scene.enablePhysics( true );
         };
 
         /** ************************************************************************************************************

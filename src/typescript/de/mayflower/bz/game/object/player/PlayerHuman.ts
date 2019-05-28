@@ -380,6 +380,8 @@
                 // apply physical impulse
                 if ( this.body.physicsImpostor != null )
                 {
+                    // this.body.physicsImpostor.setDeltaPosition ??
+
                     this.body.physicsImpostor.applyImpulse // applyForce ?
                     (
                         new BABYLON.Vector3

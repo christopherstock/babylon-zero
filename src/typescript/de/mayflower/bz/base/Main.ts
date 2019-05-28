@@ -9,12 +9,13 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Fix Player head via placing a second box.
-    *   TODO Why are physics and quaternion rotations buggy for primitives from MeshFactory?
+    *   TODO Fix why some meshes get an impulse on reloading the scene?
     *
-    *   TODO Try different player objects: physics for car, spaceship, etc
-    *   TODO Create 3D space shooting engine.
     *   TODO do NOT load unused models into a scene!?
+    *
+    *   TODO Create 3D space shooting engine.
+    *   TODO Create external corsshair for player 3rd view.
+    *   TODO Try different player objects: physics for car, spaceship, etc
     *   TODO Fix exploding models.
     *
     *   =====================

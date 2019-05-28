@@ -122,9 +122,6 @@
             // adjust GUI size
             this.adjustGuiSizeToCanvasSize();
 
-            // enable physics
-            this.scene.enablePhysics( true );
-
             // invoke init complete callback
             this.onInitComplete();
         }

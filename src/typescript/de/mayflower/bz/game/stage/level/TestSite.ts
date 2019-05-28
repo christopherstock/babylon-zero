@@ -97,7 +97,7 @@
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
-                        new BABYLON.Vector3( 10.0, 0.0, 5.0 ),
+                        new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
                         bz.Physic.LIGHT_WOOD,
                         bz.ModelCompoundType.NONE
                     )
