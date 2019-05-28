@@ -152,9 +152,7 @@
 //                                bz.Physic.NONE,
 
                                 0.5,
-                                this.ambientColor,
-
-                                true
+                                this.ambientColor
                             ),
 
                             // box primitive from MeshFactory
@@ -174,9 +172,7 @@
                                 // bz.Physic.NONE,
 
                                 0.5,
-                                this.ambientColor,
-
-                                true
+                                this.ambientColor
                             ),
                         ]
                     )

@@ -49,8 +49,7 @@
             color         :BABYLON.Color3,
             physic        :bz.Physic,
             materialAlpha :number,
-            emissiveColor :BABYLON.Color3,
-            debug         :boolean = false
+            emissiveColor :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -108,7 +107,15 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot( box, position, pivotAnchor, size.x, size.y, size.z, debug );
+            bz.MeshManipulation.setPositionAndPivot
+            (
+                box,
+                position,
+                pivotAnchor,
+                size.x,
+                size.y,
+                size.z
+            );
 
             const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
@@ -132,8 +139,7 @@
                 material,
                 physic,
                 BABYLON.PhysicsImpostor.BoxImpostor,
-                volume,
-                debug
+                volume
             );
         }
 
@@ -212,7 +218,16 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot( cylinder, position, pivotAnchor, diameter, height, diameter );
+            bz.MeshManipulation.setPositionAndPivot
+            (
+                cylinder,
+                position,
+                pivotAnchor,
+                diameter,
+                height,
+                diameter
+            );
+
             const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
                 scene.getNativeScene(),
@@ -279,7 +294,16 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot( sphere, position, pivotAnchor, diameter, diameter, diameter );
+            bz.MeshManipulation.setPositionAndPivot
+            (
+                sphere,
+                position,
+                pivotAnchor,
+                diameter,
+                diameter,
+                diameter
+            );
+
             const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
                 scene.getNativeScene(),
@@ -359,7 +383,16 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot( plane, position, pivotAnchor, width, height, 0.0 );
+            bz.MeshManipulation.setPositionAndPivot
+            (
+                plane,
+                position,
+                pivotAnchor,
+                width,
+                height,
+                0.0
+            );
+
             const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
                 scene.getNativeScene(),
@@ -430,7 +463,15 @@
                 scene
             );
 
-            bz.MeshManipulation.setPositionAndPivot( line, BABYLON.Vector3.Zero(), pivotAnchor, 0.0, 0.0, 0.0 );
+            bz.MeshManipulation.setPositionAndPivot
+            (
+                line,
+                BABYLON.Vector3.Zero(),
+                pivotAnchor,
+                0.0,
+                0.0,
+                0.0
+            );
 
             return MeshFactory.decorateMesh
             (
@@ -822,8 +863,6 @@
         *   @param physic              The physical attributes to apply for this mesh.
         *   @param physicsImpostorType The kind of physic impostor to apply to this mesh.
         *   @param volume              The calculated volume of the mesh.
-        *
-        *   @deprecated Applying physic is buggy for standard meshes since babylon.JS 4.0.
         ***************************************************************************************************************/
         private static decorateMesh
         (
@@ -833,8 +872,7 @@
             material            :BABYLON.StandardMaterial,
             physic              :bz.Physic,
             physicsImpostorType :number,
-            volume              :number,
-            debug               :boolean = false
+            volume              :number
         )
         : BABYLON.Mesh
         {
@@ -847,17 +885,13 @@
             }
 
             // buggy physics for primitives since babylon.JS 4.0.
-            if ( true )
-            {
-                physic.applyPhysicToMesh
-                (
-                    scene,
-                    mesh,
-                    volume,
-                    physicsImpostorType,
-                    debug
-                );
-            }
+            physic.applyPhysicToMesh
+            (
+                scene,
+                mesh,
+                volume,
+                physicsImpostorType
+            );
 
             return mesh;
         }
