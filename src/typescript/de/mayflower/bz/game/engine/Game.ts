@@ -104,6 +104,12 @@
                     this.stage = new bz.HumanBodyPartitions( this.scene, this.engine.getCanvasSystem() );
                     break;
                 }
+
+                case bz.StageId.SPACESHIP:
+                {
+                    this.stage = new bz.Spaceship( this.scene, this.engine.getCanvasSystem() );
+                    break;
+                }
             }
 
             // init the new stage

@@ -21,4 +21,6 @@
         SWITCH_TO_STAGE_6,
         /** Switch to level 7. */
         SWITCH_TO_STAGE_7,
+        /** Switch to level 8. */
+        SWITCH_TO_STAGE_8,
     }

@@ -10,6 +10,10 @@
         TEST_LEVEL,
         /** The test site level. */
         TEST_SITE,
+
+        /** The spaceshiplevel. */
+        SPACESHIP,
+
         /** The room viewer. */
         ROOM_VIEWER,
         /** The product configurator. */

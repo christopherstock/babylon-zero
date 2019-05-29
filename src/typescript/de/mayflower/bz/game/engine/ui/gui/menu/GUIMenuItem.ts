@@ -135,6 +135,12 @@
                     game.switchStage( bz.StageId.TEST_SITE );
                     break;
                 }
+
+                case bz.GUIAction.SWITCH_TO_STAGE_8:
+                {
+                    game.switchStage( bz.StageId.SPACESHIP );
+                    break;
+                }
             }
         }
     }

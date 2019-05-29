@@ -13,7 +13,7 @@
     *   TODO Create 3D space shooting engine.
     *   TODO Create external corsshair for player 3rd view.
     *   TODO Try different player objects: physics for car, spaceship, etc
-    *   TODO Fix exploding models.
+    *   TODO Fix/Create! exploding models?
     *
     *   =====================
     *   TODO Refactorings
@@ -23,7 +23,7 @@
     *   TODO Remove global references to Main.game: pass Interface getFps and KeySystem to Stage and GUI.
     *   TODO group values and invocations in Stage to different functions and classes?
     *   TODO Minimize access to bz.Scene.getNativeScene()
-    *   TODO Suppress errors for missing babylon.manifest files?
+    *   TODO Suppress errors for missing babylon.manifest files? Check solution in banylonjs 4
     *
     *   =====================
     *   TODO New Stuff

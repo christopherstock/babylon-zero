@@ -102,6 +102,7 @@
     export * from './game/stage/Stage';
 
     export * from './game/stage/level/Office';
+    export * from './game/stage/level/Spaceship';
     export * from './game/stage/level/TestLevel';
     export * from './game/stage/level/TestSite';
 
