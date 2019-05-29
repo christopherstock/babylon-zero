@@ -9,11 +9,10 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *
-    *   TODO Create 3D space shooting engine.
-    *   TODO Create external corsshair for player 3rd view.
     *   TODO Try different player objects: physics for car, spaceship, etc
+    *   TODO Create external corsshair for player 3rd view.
     *   TODO Fix/Create! exploding models?
+    *   TODO Create 3D space shooting engine.
     *
     *   =====================
     *   TODO Refactorings

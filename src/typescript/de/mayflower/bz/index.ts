@@ -86,8 +86,10 @@
     export * from './game/object/GameObject';
     export * from './game/object/Bot';
     export * from './game/object/Item';
-    export * from './game/object/player/PlayerHuman';
     export * from './game/object/Wall';
+
+    export * from './game/object/player/Player';
+    export * from './game/object/player/PlayerHuman';
 
     export * from './data/ModelFile';
     export * from './data/SkyBoxFile';

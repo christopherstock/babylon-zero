@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Represents the character being controlled by the user.
     *******************************************************************************************************************/
-    export class PlayerHuman extends bz.GameObject
+    export class PlayerHuman extends bz.Player
     {
         /** The id of the player's body mesh in the mesh array. */
         private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
