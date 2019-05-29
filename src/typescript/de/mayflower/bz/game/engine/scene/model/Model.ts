@@ -313,7 +313,7 @@
                 clonedMesh.id = bz.MeshFactory.createNextMeshId();
 
                 // show this mesh
-                clonedMesh.visibility = 1.0;
+                clonedMesh.isVisible = true;
 
                 // specify debug settings for the cloned mesh
                 clonedMesh.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;

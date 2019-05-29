@@ -40,21 +40,6 @@
             // create babylon.JS scene
             this.babylonScene = engine.createNewScene();
 
-            // create physics plugin
-            this.physicsPlugin = new BABYLON.CannonJSPlugin
-            (
-                true,
-                bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS
-            );
-
-            // enable physics engine and stop it immediately in order to prevent unwanted startup impulses!
-            this.babylonScene.enablePhysics
-            (
-                bz.SettingStage.STAGE_GRAVITY_GLOBAL,
-                this.physicsPlugin
-            );
-            this.enablePhysics( false );
-
             // set default scene clear color
             this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
 
@@ -66,6 +51,9 @@
             {
                 this.babylonScene.debugLayer.show()
             }
+
+            // create physics engine
+            this.createPhysicsEngine();
 
             // init all materials
             bz.Debug.init.log( 'Init materials' );
@@ -199,6 +187,29 @@
                 this.babylonScene.fogEnd = 60.0;
 */
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Constructs the physics engine for the babylon.JS scene.
+        ***************************************************************************************************************/
+        private createPhysicsEngine() : void
+        {
+            // create physics plugin
+            this.physicsPlugin = new BABYLON.CannonJSPlugin
+            (
+                true,
+                bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS
+            );
+
+            // stop physics engine immediately
+            this.enablePhysics( false );
+
+            // enable physics engine and stop it immediately in order to prevent unwanted startup impulses!
+            this.babylonScene.enablePhysics
+            (
+                bz.SettingStage.STAGE_GRAVITY_GLOBAL,
+                this.physicsPlugin
+            );
         }
 
         /** ************************************************************************************************************

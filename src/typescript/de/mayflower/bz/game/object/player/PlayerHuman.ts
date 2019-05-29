@@ -169,9 +169,12 @@
             this.heightY     = bz.SettingPlayer.PLAYER_HEIGHT_Y_STANDING;
             this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
 
-            // set positions for all limbs
-            this.positionPlayerLimbs();
+            // apply initial rotation
+            this.rotatePlayerXYZ();
 
+            // apply positions for all limbs
+            this.positionPlayerLimbs();
+/*
             // set a collision event handler for the body
             if ( false )
             {
@@ -182,6 +185,7 @@
                     console.log( ' Colliding!' );
                 };
             }
+*/
         }
 
         /** ************************************************************************************************************

@@ -1,6 +1,6 @@
 
-    import * as bz          from '../../../../..';
-    import * as bjsg from "babylonjs-gui";
+    import * as bz   from '../../../../..';
+    import * as bjsg from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Manages all GUI messages shown in the GUI.

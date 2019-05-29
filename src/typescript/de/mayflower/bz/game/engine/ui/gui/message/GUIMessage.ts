@@ -1,6 +1,6 @@
 
-    import * as bz          from '../../../../..';
-    import * as bjsg from "babylonjs-gui";
+    import * as bz   from '../../../../..';
+    import * as bjsg from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Represents one GUI message that's displayed in the GUI message queue and disappearing after some time.

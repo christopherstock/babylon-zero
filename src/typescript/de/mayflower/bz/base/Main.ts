@@ -9,9 +9,9 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Fix why some meshes get an impulse on reloading the scene?
     *
     *   TODO do NOT load unused models into a scene!?
+    *   TODO Add version number to external js filenames.
     *
     *   TODO Create 3D space shooting engine.
     *   TODO Create external corsshair for player 3rd view.

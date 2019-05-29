@@ -6,6 +6,9 @@
     *******************************************************************************************************************/
     export class TestSite extends bz.Stage
     {
+        /** A reference to the test crate. */
+        private testCrate :bz.Wall = null;
+
         /** ************************************************************************************************************
         *   Creates a new test office.
         *
@@ -87,21 +90,23 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
+            this.testCrate = new bz.Wall
+            (
+                this,
+                bz.MeshFactory.createImportedModel
+                (
+                    this.scene,
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
+                    bz.Physic.LIGHT_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            );
+
             return [
 
                 // crate
-                new bz.Wall
-                (
-                    this,
-                    bz.MeshFactory.createImportedModel
-                    (
-                        this.scene,
-                        bz.ModelFile.CRATE,
-                        new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
-                        bz.Physic.LIGHT_WOOD,
-                        bz.ModelCompoundType.NONE
-                    )
-                ),
+                this.testCrate,
 
                 new bz.Wall
                 (

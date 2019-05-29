@@ -1,6 +1,6 @@
 
-    import * as bz from '../../../../..';
-    import * as bjsg from "babylonjs-gui";
+    import * as bz   from '../../../../..';
+    import * as bjsg from 'babylonjs-gui';
 
     /** ****************************************************************************************************************
     *   Represents a menu shown in the GUI.

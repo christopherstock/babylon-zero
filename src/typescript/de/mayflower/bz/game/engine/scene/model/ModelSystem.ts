@@ -56,7 +56,7 @@
                         // hide all meshes
                         for ( const importedMesh of importedMeshes )
                         {
-                            importedMesh.visibility = 0.0;
+                            importedMesh.isVisible = false;
 
                             // disable backface culling by default
                             if ( importedMesh.material != null )
