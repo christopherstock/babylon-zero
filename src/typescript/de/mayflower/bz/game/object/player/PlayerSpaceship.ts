@@ -20,8 +20,6 @@
         private                         heightY                     :number                             = 0.0;
         /** Flags if rotZ view centering should occur this tick. */
         private                         centerRotZ                  :boolean                            = false;
-        /** The current angle for the sinus calculation of the head shaking. */
-        private                         headShakingAngle            :number                             = 0.0;
 
         /** Flags if fire should be performed this tick. */
         private                         fire                        :boolean                            = false;
@@ -105,6 +103,9 @@
             this.leftHand.setParent(  this.body );
             this.rightHand.setParent( this.body );
 */
+            // set alpha
+            this.body.material.alpha = 0.5;
+
             // set initial height
             this.heightY     = bz.SettingPlayerHuman.HEIGHT_Y_STANDING;
             this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
@@ -141,9 +142,6 @@
             this.rotatePlayerXYZ();
             this.checkCenteringRotZ();
             this.checkFieldOfViewChange();
-
-            // alter height
-            this.checkHeightChange();
 
             // interact
             this.checkFire();
@@ -304,10 +302,9 @@
         ***************************************************************************************************************/
         private movePlayer() : void
         {
-
-
             this.body.position.x += bz.SettingPlayerSpaceship.SPEED_DEFAULT;
 
+            // console.log( "> y: " + this.body.position.y );
 
             // check if moving occurred
             if
@@ -317,52 +314,18 @@
                 || this.moveDelta.z !== 0.0
             )
             {
-                this.body.position.y += this.moveDelta.y;
-                this.body.position.z += this.moveDelta.z;
-/*
-                // apply direct move delta
-                this.body.moveWithCollisions
-                (
-                    new BABYLON.Vector3
-                    (
-                        this.moveDelta.x,
-                        this.moveDelta.y,
-                        this.moveDelta.z
-                    )
-                );
-*/
+                let newPositionY :number = ( this.body.position.y + this.moveDelta.y );
+                if ( newPositionY < 1.0  ) newPositionY = 1.0;
+                if ( newPositionY > 25.0 ) newPositionY = 25.0;
+                this.body.position.y = newPositionY;
 
-                // this.body.moveWithCollisions( this.moveDelta );
-/*
-                // apply physical impulse
-                if ( this.body.physicsImpostor != null )
-                {
-                    // this.body.physicsImpostor.setDeltaPosition ??
+                let newPositionZ :number = ( this.body.position.z + this.moveDelta.z );
+                if ( newPositionZ < 1.0  ) newPositionZ = 1.0;
+                if ( newPositionZ > 50.0 ) newPositionZ = 50.0;
+                this.body.position.z = newPositionZ;
 
-                    this.body.physicsImpostor.applyImpulse // applyForce ?
-                    (
-                        new BABYLON.Vector3
-                        (
-                            this.moveDelta.x,
-                            this.moveDelta.y,
-                            this.moveDelta.z
-                        ),
-                        this.body.position
-                    );
-                }
-
-                // force rotZ centering on horizontal movements
-                if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
-                {
-                    this.centerRotZ = true;
-                }
-*/
                 // reset move deltas
                 this.moveDelta = BABYLON.Vector3.Zero();
-            }
-            else
-            {
-                // this.centerRotZ = false;
             }
         }
 
@@ -374,25 +337,14 @@
             if ( this.body.physicsImpostor != null )
             {
                 // suppress linear velocities except Y
-                const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
+                // const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
                 this.body.physicsImpostor.setLinearVelocity
                 (
                     new BABYLON.Vector3
                     (
-                        ( velocity.x * bz.SettingPlayerHuman.MOVE_VELOCITY_MULTIPLIER ),
-
-                        // check player falling
-                        (
-                            this.isFalling()
-
-                            // scale up falling velocity
-                            ? ( velocity.y * bz.SettingPlayerHuman.FALLING_VELOCITY_MULTIPLIER )
-
-                            // keep velocity
-                            : velocity.y
-                        ),
-
-                        ( velocity.z * bz.SettingPlayerHuman.MOVE_VELOCITY_MULTIPLIER ),
+                        0.0,
+                        0.0,
+                        0.0
                     )
                 );
 
@@ -459,60 +411,6 @@
             this.duck = !this.duck;
 
             bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
-        }
-
-        /** ************************************************************************************************************
-        *   Assigns player jumping.
-        ***************************************************************************************************************/
-        private assignJump() : void
-        {
-/*
-            if ( this.jumpTicks > 0 )
-            {
-                bz.Debug.player.log( 'Player jumping denied cause already jumping' );
-                return;
-            }
-*/
-            // deny jumping if currently falling
-            if ( this.isFalling() )
-            {
-                bz.Debug.player.log( 'Player jumping denied caused by falling' );
-                return;
-            }
-
-            bz.Debug.player.log( 'Player jumps' );
-            this.moveDelta.y = bz.SettingPlayerHuman.JUMP_ASCEND_IMPULSE_Y;
-        }
-
-        /** ************************************************************************************************************
-        *   Checks if a height change is required and possibly changes it.
-        ***************************************************************************************************************/
-        private checkHeightChange() : void
-        {
-            if ( this.duck )
-            {
-                if ( this.heightY > bz.SettingPlayerHuman.HEIGHT_Y_DUCKED )
-                {
-                    this.heightY -= bz.SettingPlayerHuman.SPEED_DUCKING;
-
-                    if ( this.heightY < bz.SettingPlayerHuman.HEIGHT_Y_DUCKED )
-                    {
-                        this.heightY = bz.SettingPlayerHuman.HEIGHT_Y_DUCKED;
-                    }
-                }
-            }
-            else
-            {
-                if ( this.heightY < bz.SettingPlayerHuman.HEIGHT_Y_STANDING )
-                {
-                    this.heightY += bz.SettingPlayerHuman.SPEED_STANDING_UP;
-
-                    if ( this.heightY > bz.SettingPlayerHuman.HEIGHT_Y_STANDING )
-                    {
-                        this.heightY = bz.SettingPlayerHuman.HEIGHT_Y_STANDING;
-                    }
-                }
-            }
         }
 
         /** ************************************************************************************************************
@@ -629,33 +527,6 @@
                 range,
                 false,
                 1
-            );
-        }
-
-        /** ************************************************************************************************************
-        *   Alters the angle that simulates the head shaking on walking forwards and backwards.
-        *
-        *   @param delta The moving delta to apply on head shaking.
-        ***************************************************************************************************************/
-        private alterHeadShakeAngle( delta:number ) : void
-        {
-            // apply delta and normalize angle
-            this.headShakingAngle += ( delta * bz.SettingPlayerHuman.HEAD_SHAKING_VELOCITY_MULTIPLIER );
-            this.headShakingAngle = bz.MathUtil.normalizeAngleDegrees( this.headShakingAngle );
-
-            // bz.Debug.player.log( 'Head shake angle delta [' + delta + '] total [' + this.headShakingAngle + ']' );
-        }
-
-        /** ************************************************************************************************************
-        *   Determines if the player is currently falling.
-        *
-        *   @return <code>true</code> if the player is currently falling.
-        ***************************************************************************************************************/
-        private isFalling() : boolean
-        {
-            return (
-                    this.body.physicsImpostor != null
-                &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayerHuman.FALLING_VELOCITY_Y
             );
         }
     }

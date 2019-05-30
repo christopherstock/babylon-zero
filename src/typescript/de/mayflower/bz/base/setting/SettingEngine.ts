@@ -16,13 +16,13 @@
         public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
         /** Follow camera height offset. */
-        public  static  readonly    CAMERA_FOLLOW_HEIGHT_OFFSET             :number             = 6.0;
+        public  static  readonly    CAMERA_FOLLOW_HEIGHT_OFFSET             :number             = 0.0; // 6.0;
         /** How far from the object to follow. */
         public  static  readonly    CAMERA_FOLLOW_RADIUS                    :number             = 15.0;
         /** Offset rotation (for front following etc.). */
         public  static  readonly    CAMERA_FOLLOW_ROTATION_OFFSET           :number             = 180.0;
         /** Camera acceleration after target change. defaults to 0.05 */
-        public  static  readonly    CAMERA_FOLLOW_ACCELERATION_SPEED        :number             = 0.075;
+        public  static  readonly    CAMERA_FOLLOW_ACCELERATION_SPEED        :number             = 0.03;
         /** Max camera moving speed. defaults to 20. */
         public  static  readonly    CAMERA_FOLLOW_MAX_SPEED                 :number             = 10.0;
         /** The default speed for camera animations. */
