@@ -127,7 +127,7 @@
         public setActiveCamera
         (
             cameraType :bz.CameraType,
-            player     :bz.PlayerHuman,
+            player     :bz.Player,
             gui        :bz.GUI
         )
         : void
