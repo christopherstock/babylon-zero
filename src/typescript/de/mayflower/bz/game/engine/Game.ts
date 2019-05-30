@@ -107,7 +107,7 @@
 
                 case bz.StageId.SPACESHIP:
                 {
-                    this.stage = new bz.Spaceship( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.SpaceshipScene( this.scene, this.engine.getCanvasSystem() );
                     break;
                 }
             }

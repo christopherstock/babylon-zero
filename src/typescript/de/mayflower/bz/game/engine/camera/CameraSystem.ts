@@ -31,30 +31,31 @@
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
         *
-        *   @param scene                           The babylon.JS scene to create these cameras for.
-        *   @param canvas                          The canvas this camera system is linked to.
+        *   @param scene                    The babylon.JS scene to create these cameras for.
+        *   @param canvas                   The canvas this camera system is linked to.
         *
-        *   @param startupPositionFreeDebugCamera  The camera startup position for the free debug camera.
-        *   @param startupPositionStationaryCamera The camera startup position for the stationary camera.
-        *   @param startupTargetFreeDebugCamera    The camera startup target for the free debug camera.
+        *   @param positionFreeDebugCamera  The startup position for the free debug camera.
+        *   @param positionStationaryCamera The startup position for the stationary camera.
+        *   @param positionFollowCamera     The startup position for the follow camera.
         *
-        *   @param stationaryCameraTarget          The target node for the starionary camera.
-        *   @param followCameraTarget              The target node for the follow camera.
-        *   @param firstPersonCameraTarget         The target mesh for the first person camera.
+        *   @param targetFreeDebugCamera    The target position for the free debug camera.
+        *   @param targetStationaryCamera   The target node     for the starionary camera.
+        *   @param targetFollowCamera       The target node     for the follow camera.
+        *   @param targetFirstPersonCamera  The target mesh     for the first person camera.
         ***************************************************************************************************************/
         public constructor
         (
-            scene                           :BABYLON.Scene,
-            canvas                          :HTMLCanvasElement,
+            scene                    :BABYLON.Scene,
+            canvas                   :HTMLCanvasElement,
 
-            startupPositionFreeDebugCamera  :BABYLON.Vector3,
-            startupPositionStationaryCamera :BABYLON.Vector3,
-            // TODO change with previous parameter
-            startupTargetFreeDebugCamera    :BABYLON.Vector3,
+            positionFreeDebugCamera  :BABYLON.Vector3,
+            positionStationaryCamera :BABYLON.Vector3,
+            positionFollowCamera     :BABYLON.Vector3,
 
-            stationaryCameraTarget          :any,
-            followCameraTarget              :any,
-            firstPersonCameraTarget         :BABYLON.AbstractMesh
+            targetFreeDebugCamera    :BABYLON.Vector3,
+            targetStationaryCamera   :any,
+            targetFollowCamera       :any,
+            targetFirstPersonCamera  :BABYLON.AbstractMesh
         )
         {
             this.scene  = scene;
@@ -63,18 +64,18 @@
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (
                 this.scene,
-                startupPositionFreeDebugCamera,
-                startupTargetFreeDebugCamera
+                positionFreeDebugCamera,
+                targetFreeDebugCamera
             );
             this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera
             (
                 this.scene,
-                startupPositionStationaryCamera
+                positionStationaryCamera
             );
             this.followCamera      = bz.CameraFactory.createFollowCamera
             (
                 this.scene,
-                startupPositionFreeDebugCamera
+                positionFollowCamera
             );
             this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera
             (
@@ -93,17 +94,17 @@
             );
 
             // assign camera targets
-            if ( stationaryCameraTarget != null )
+            if ( targetStationaryCamera != null )
             {
-                this.lockStationaryTargetCameraTo( stationaryCameraTarget );
+                this.lockStationaryTargetCameraTo( targetStationaryCamera );
             }
-            if ( followCameraTarget != null )
+            if ( targetFollowCamera != null )
             {
-                this.lockFollowCameraTo( followCameraTarget );
+                this.lockFollowCameraTo( targetFollowCamera );
             }
-            if ( firstPersonCameraTarget != null )
+            if ( targetFirstPersonCamera != null )
             {
-                this.setFirstPersonCameraTo( firstPersonCameraTarget );
+                this.setFirstPersonCameraTo( targetFirstPersonCamera );
             }
         }
 

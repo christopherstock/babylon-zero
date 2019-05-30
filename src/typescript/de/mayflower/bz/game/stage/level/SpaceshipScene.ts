@@ -4,7 +4,7 @@
     /** ****************************************************************************************************************
     *   Specifies the 'spaceship' level.
     *******************************************************************************************************************/
-    export class Spaceship extends bz.Stage
+    export class SpaceshipScene extends bz.Stage
     {
         /** ************************************************************************************************************
         *   Creates a new spaceship scene.
@@ -32,7 +32,7 @@
         ***************************************************************************************************************/
         protected createPlayer() : bz.Player
         {
-            return new bz.PlayerHuman
+            return new bz.PlayerSpaceship
             (
                 this,
                 this.scene,
@@ -56,8 +56,9 @@
 
                 new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
                 new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+                new BABYLON.Vector3( -500.0,  0.0,  25.0 ),
 
+                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getFirstPersonCameraTargetMesh()
@@ -76,7 +77,7 @@
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
                 // add GUI message to queue
-                this.gui.addGuiMessage( 'Test in Spaceship level' );
+                this.gui.addGuiMessage( 'Test in SpaceshipScene level' );
             }
         }
 

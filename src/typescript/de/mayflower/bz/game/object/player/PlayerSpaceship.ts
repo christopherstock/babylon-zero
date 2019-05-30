@@ -2,9 +2,9 @@
     import * as bz from '../../../index';
 
     /** ****************************************************************************************************************
-    *   Represents a human player being controlled by the user.
+    *   Represents a spaceship being controlled by the user.
     *******************************************************************************************************************/
-    export class PlayerHuman extends bz.Player
+    export class PlayerSpaceship extends bz.Player
     {
         /** The id of the player's body mesh in the mesh array. */
         private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
@@ -155,10 +155,10 @@
             this.moveDelta     = BABYLON.Vector3.Zero();
 
             // reference the body and all limbs
-            this.body      = this.model.getMesh( PlayerHuman.PLAYER_BODY_ID       );
-            this.head      = this.model.getMesh( PlayerHuman.PLAYER_HEAD_ID       );
-            this.leftHand  = this.model.getMesh( PlayerHuman.PLAYER_LEFT_HAND_ID  );
-            this.rightHand = this.model.getMesh( PlayerHuman.PLAYER_RIGHT_HAND_ID );
+            this.body      = this.model.getMesh( PlayerSpaceship.PLAYER_BODY_ID       );
+            this.head      = this.model.getMesh( PlayerSpaceship.PLAYER_HEAD_ID       );
+            this.leftHand  = this.model.getMesh( PlayerSpaceship.PLAYER_LEFT_HAND_ID  );
+            this.rightHand = this.model.getMesh( PlayerSpaceship.PLAYER_RIGHT_HAND_ID );
 
             // stick all limbs to body
             this.head.setParent(      this.body );

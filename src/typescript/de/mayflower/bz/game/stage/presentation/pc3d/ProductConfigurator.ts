@@ -185,6 +185,7 @@
                 new BABYLON.Vector3( 250.0, 0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
 
+                new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
                 null,
                 null

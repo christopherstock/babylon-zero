@@ -90,6 +90,7 @@
 
     export * from './game/object/player/Player';
     export * from './game/object/player/PlayerHuman';
+    export * from './game/object/player/PlayerSpaceship';
 
     export * from './data/ModelFile';
     export * from './data/SkyBoxFile';
@@ -104,7 +105,7 @@
     export * from './game/stage/Stage';
 
     export * from './game/stage/level/Office';
-    export * from './game/stage/level/Spaceship';
+    export * from './game/stage/level/SpaceshipScene';
     export * from './game/stage/level/TestLevel';
     export * from './game/stage/level/TestSite';
 
