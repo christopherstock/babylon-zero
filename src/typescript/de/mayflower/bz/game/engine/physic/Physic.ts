@@ -7,7 +7,7 @@
     export class Physic
     {
         /** A non-collidable and non-gravitational affected physical state. */
-        public  static  readonly        NONE            :Physic                 = new Physic
+        public  static  readonly        NONE                :Physic             = new Physic
         (
             bz.PhysicState.NONE,
             null,
@@ -16,10 +16,19 @@
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly        PLAYER          :Physic                 = new Physic
+        public  static  readonly        PLAYER_HUMAN        :Physic             = new Physic
         (
-            bz.PhysicState.PLAYER,
-            bz.SettingPlayer.PLAYER_MASS,
+            bz.PhysicState.MOVABLE,
+            bz.SettingPlayer.PLAYER_HUMAN_MASS,
+            bz.PhysicFriction.NONE,
+            bz.PhysicRestitution.NONE,
+        );
+
+        /** The player has very special physical attributes with the primal goal to keep the user entertained. */
+        public  static  readonly        PLAYER_SPACESHIP    :Physic             = new Physic
+        (
+            bz.PhysicState.STATIC,
+            bz.PhysicDensity.STATIC,
             bz.PhysicFriction.NONE,
             bz.PhysicRestitution.NONE,
         );
@@ -113,8 +122,7 @@
             scene        :BABYLON.Scene,
             mesh         :BABYLON.AbstractMesh,
             volume       :number,
-            impostorType :number,
-            debug        :boolean = false
+            impostorType :number
         )
         : void
         {
@@ -122,23 +130,10 @@
             {
                 case bz.PhysicState.STATIC:
                 case bz.PhysicState.MOVABLE:
-                case bz.PhysicState.PLAYER:
                 {
                     const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
 
                     mesh.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
-
-
-                    if ( debug ) {
-
-/*
-                        impostorParams.mass = 0.1;
-*/
-                        // console.log( impostorParams );
-
-
-                    }
-
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -146,7 +141,6 @@
                         impostorParams,
                         scene
                     );
-
                     mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
 
                     break;
@@ -203,7 +197,7 @@
                     break;
                 }
 
-// TODO never passed if Player is a model !!
+// TODO never passed if Player is an imported model !! .. enable explicit physics setting!
 /*
                 case bz.PhysicState.PLAYER:
                 {

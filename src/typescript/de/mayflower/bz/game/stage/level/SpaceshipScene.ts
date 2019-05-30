@@ -36,7 +36,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 0.0, 0.0, 25.0 ),
+                new BABYLON.Vector3( 0.0, 15.0, 25.0 ),
                 90.0,
                 this.ambientColor
             );

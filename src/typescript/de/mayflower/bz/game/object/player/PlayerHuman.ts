@@ -79,7 +79,7 @@
                             scene,
                             bz.ModelFile.CRATE,
                             position.clone(),
-                            bz.Physic.PLAYER,
+                            bz.Physic.PLAYER_HUMAN,
                             bz.ModelCompoundType.NONE
                         ).getMesh( 0 ),
 
