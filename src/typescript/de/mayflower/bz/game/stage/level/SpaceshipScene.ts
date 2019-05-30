@@ -36,7 +36,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 0.0, 15.0, 25.0 ),
+                new BABYLON.Vector3( 0.0, 15.0, 50.0 ),
                 90.0,
                 this.ambientColor
             );
@@ -54,11 +54,11 @@
                 this.scene.getNativeScene(),
                 this.canvas.getNativeCanvas(),
 
-                new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
-                new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-                new BABYLON.Vector3( -500.0,  0.0,  25.0 ),
+                new BABYLON.Vector3( 10.0,   10.0, 10.0 ),
+                new BABYLON.Vector3( 20.0,   5.0,  20.0 ),
+                new BABYLON.Vector3( -500.0, 0.0,  50.0 ),
 
-                new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+                new BABYLON.Vector3( 0.0,    0.0,  0.0  ),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getThirdPersonCameraTargetMesh(),
                 this.player.getFirstPersonCameraTargetMesh()
@@ -116,7 +116,7 @@
                                 this.scene,
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 1000.0, bz.MeshFactory.FACE_DEPTH, 50.0 ),
+                                new BABYLON.Vector3( 5000.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,

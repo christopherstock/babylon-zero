@@ -111,9 +111,6 @@
 
             // apply initial rotation
             this.rotatePlayerXYZ();
-
-            // apply positions for all limbs
-            this.positionPlayerLimbs();
 /*
             // set a collision event handler for the body
             if ( false )
@@ -298,6 +295,18 @@
         ***************************************************************************************************************/
         private movePlayer() : void
         {
+
+
+            this.body.position.x += bz.SettingPlayerSpaceship.SPEED_DEFAULT;
+
+
+
+
+            if ( true ) return;
+
+
+
+
             // check if moving occurred
             if
             (
@@ -486,8 +495,6 @@
                     {
                         this.heightY = bz.SettingPlayerHuman.HEIGHT_Y_DUCKED;
                     }
-
-                    this.positionPlayerLimbs();
                 }
             }
             else
@@ -500,8 +507,6 @@
                     {
                         this.heightY = bz.SettingPlayerHuman.HEIGHT_Y_STANDING;
                     }
-
-                    this.positionPlayerLimbs();
                 }
             }
         }
@@ -624,45 +629,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Positions all player limbs according to the current player height.
-        ***************************************************************************************************************/
-        private positionPlayerLimbs() : void
-        {
-            // get half player height
-            const halfPlayerHeight:number = ( this.heightY / 2 );
-
-            // get current modifier Y
-            const headShakingModifierY:number =
-            (
-                bz.MathUtil.sinDegrees( this.headShakingAngle )
-                * bz.SettingPlayerHuman.HEAD_SHAKING_RANGE_Y
-            );
-
-            // bz.Debug.player.log( ' Head Shaking modifierY is [' + headShakingModifierY + ']' );
-/*
-            this.head.position = new BABYLON.Vector3
-            (
-                0.0,
-                ( halfPlayerHeight - ( bz.SettingPlayerHuman.DIAMETER_HEAD / 2 ) ) - headShakingModifierY,
-                0.0
-            );
-
-            this.leftHand.position = new BABYLON.Vector3
-            (
-                -1.0,
-                halfPlayerHeight - ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 ),
-                0.0
-            );
-            this.rightHand.position = new BABYLON.Vector3
-            (
-                1.0,
-                halfPlayerHeight - ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 ),
-                0.0
-            );
- */
-        }
-
-        /** ************************************************************************************************************
         *   Alters the angle that simulates the head shaking on walking forwards and backwards.
         *
         *   @param delta The moving delta to apply on head shaking.
@@ -674,9 +640,6 @@
             this.headShakingAngle = bz.MathUtil.normalizeAngleDegrees( this.headShakingAngle );
 
             // bz.Debug.player.log( 'Head shake angle delta [' + delta + '] total [' + this.headShakingAngle + ']' );
-
-            // update player limbs positions
-            this.positionPlayerLimbs();
         }
 
         /** ************************************************************************************************************
