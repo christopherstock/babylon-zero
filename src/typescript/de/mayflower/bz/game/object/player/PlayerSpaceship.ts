@@ -1,5 +1,5 @@
 
-    import * as bz from '../../../index';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Represents a spaceship being controlled by the user.
@@ -185,6 +185,8 @@
                 // || keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
+
+/*
                 let speedForward:number = 0;
 
                 // probably run
@@ -196,8 +198,9 @@
                 {
                     speedForward = bz.SettingPlayerHuman.MOVE_IMPULSE;
                 }
-
-                this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
+*/
+                this.moveDelta.y = bz.SettingPlayerSpaceship.SPEED_RAISE;
+/*
                 this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.rotation.y );
 
                 // shake head if enabled
@@ -205,6 +208,7 @@
                 {
                     this.alterHeadShakeAngle( speedForward );
                 }
+*/
             }
             if
             (
@@ -212,6 +216,8 @@
                 // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
+                this.moveDelta.y = -bz.SettingPlayerSpaceship.SPEED_RAISE;
+/*
                 this.moveDelta.x -= bz.SettingPlayerHuman.MOVE_IMPULSE * bz.MathUtil.sinDegrees( this.rotation.y );
                 this.moveDelta.z -= bz.SettingPlayerHuman.MOVE_IMPULSE * bz.MathUtil.cosDegrees( this.rotation.y );
 
@@ -220,6 +226,7 @@
                 {
                     this.alterHeadShakeAngle( -bz.SettingPlayerHuman.MOVE_IMPULSE );
                 }
+*/
             }
 
             // strave
@@ -229,8 +236,8 @@
                 // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
             )
             {
-                this.moveDelta.x -= bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-                this.moveDelta.z += bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+                // this.moveDelta.x -= bz.SettingPlayerSpaceship.SPEED_STRAVE;
+                this.moveDelta.z += bz.SettingPlayerSpaceship.SPEED_STRAVE;
             }
             if
             (
@@ -238,11 +245,12 @@
                 // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
             )
             {
-                this.moveDelta.x += bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-                this.moveDelta.z -= bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+                // this.moveDelta.x += bz.SettingPlayerSpaceship.SPEED_STRAVE;
+                this.moveDelta.z -= bz.SettingPlayerSpaceship.SPEED_STRAVE;
             }
 
             // turn Y
+/*
             if ( keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
                 this.rotationDelta.y = -bz.SettingPlayerHuman.SPEED_TURN;
@@ -251,7 +259,8 @@
             {
                 this.rotationDelta.y = bz.SettingPlayerHuman.SPEED_TURN;
             }
-
+*/
+/*
             // look up / down
             if ( keySystem.isPressed( bz.KeyCodes.KEY_R ) )
             {
@@ -261,7 +270,7 @@
             {
                 this.rotationDelta.z = bz.SettingPlayerHuman.SPEED_LOOK_UP_DOWN;
             }
-
+*/
             // fire
             if ( keySystem.isPressed( bz.KeyCodes.KEY_CTRL_LEFT ) )
             {
@@ -269,7 +278,7 @@
 
                 this.fire = true;
             }
-
+/*
             // duck
             if ( keySystem.isPressed( bz.KeyCodes.KEY_Y ) )
             {
@@ -285,7 +294,7 @@
 
                 this.assignJump();
             }
-
+*/
             // zoom
             this.zoom = keySystem.isPressed( bz.KeyCodes.KEY_X );
         }
@@ -300,13 +309,6 @@
             this.body.position.x += bz.SettingPlayerSpaceship.SPEED_DEFAULT;
 
 
-
-
-            if ( true ) return;
-
-
-
-
             // check if moving occurred
             if
             (
@@ -315,6 +317,8 @@
                 || this.moveDelta.z !== 0.0
             )
             {
+                this.body.position.y += this.moveDelta.y;
+                this.body.position.z += this.moveDelta.z;
 /*
                 // apply direct move delta
                 this.body.moveWithCollisions
@@ -329,7 +333,7 @@
 */
 
                 // this.body.moveWithCollisions( this.moveDelta );
-
+/*
                 // apply physical impulse
                 if ( this.body.physicsImpostor != null )
                 {
@@ -352,13 +356,13 @@
                 {
                     this.centerRotZ = true;
                 }
-
+*/
                 // reset move deltas
                 this.moveDelta = BABYLON.Vector3.Zero();
             }
             else
             {
-                this.centerRotZ = false;
+                // this.centerRotZ = false;
             }
         }
 
