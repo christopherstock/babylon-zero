@@ -36,8 +36,8 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, 0.0, 13.0 ),
-                195.0,
+                new BABYLON.Vector3( 0.0, 0.0, 25.0 ),
+                90.0,
                 this.ambientColor
             );
         }
@@ -88,7 +88,7 @@
         protected createWalls() : bz.Wall[]
         {
             return [
-
+/*
                 // crate
                 new bz.Wall
                 (
@@ -102,7 +102,7 @@
                         bz.ModelCompoundType.NONE
                     )
                 ),
-
+*/
                 new bz.Wall
                 (
                     this,
@@ -115,7 +115,7 @@
                                 this.scene,
                                 new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, bz.MeshFactory.FACE_DEPTH, 100.0 ),
+                                new BABYLON.Vector3( 1000.0, bz.MeshFactory.FACE_DEPTH, 50.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
@@ -126,7 +126,7 @@
                         ]
                     ),
                 ),
-
+/*
                 new bz.Wall
                 (
                     this,
@@ -137,20 +137,13 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-//                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH, 1.0  ),
                                 new BABYLON.Vector3( 0.0, bz.MeshFactory.FACE_DEPTH, 0.0  ),
-
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-//                                bz.MeshPivotAnchor.NONE,
-
                                 new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
                                 new BABYLON.Vector3( 0.0, 10.0, 0.0 ),
                                 bz.Texture.WALL_GLASS,
                                 null,
-
                                 bz.Physic.STATIC,
-//                                bz.Physic.NONE,
-
                                 0.5,
                                 this.ambientColor
                             ),
@@ -177,6 +170,7 @@
                         ]
                     )
                 ),
+*/
             ];
         }
 
