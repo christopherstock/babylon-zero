@@ -9,6 +9,8 @@
     *   =====================
     *   TODO Primal
     *   =====================
+    *   TODO Move key reation to stage.init analog to PointerSystem?
+    *
     *   TODO Try different player objects: physics for car, spaceship, etc
     *   TODO Create external corsshair for player 3rd view.
     *   TODO Fix/Create! exploding models?

@@ -23,15 +23,18 @@
         {
             this.stage  = stage;
             this.canvas = canvas;
+
+            // assign pointer callback
+            // this.scene.getNativeScene().onPointerDown = this.createPointerCallback();
         }
 
         /** ************************************************************************************************************
-        *   Being invoked when the pointer is down on this stage.
+        *   Sets up and defines the pointer callback.
         *
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        public defaultPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
+        public onPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
         {
             // check if a result is picked and if the stage is present
             if ( pickResult.hit && this.stage != null )
@@ -66,5 +69,5 @@
                     pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
                 }
             }
-        }
+        };
     }

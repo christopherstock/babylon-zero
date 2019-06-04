@@ -820,13 +820,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up the pointer callback.
-        *
-        *   @return The pointer callback method to invoke or <code>null</code> if not supported.
+        *   Sets up the pointer system.
         ***************************************************************************************************************/
-        protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
+        protected createPointerSystem() : bz.PointerSystem
         {
-            return new bz.PointerSystem( this, this.canvas ).defaultPointerDown;
+            return new bz.PointerSystem( this, this.canvas );
         }
 
         /** ************************************************************************************************************

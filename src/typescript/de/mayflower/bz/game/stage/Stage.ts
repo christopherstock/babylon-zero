@@ -1,5 +1,5 @@
 
-    import * as bz      from '../..';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Represents a custom stage set.
@@ -27,14 +27,19 @@
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                               = [];
 
-        /** The skybox that surrounds the whole stage. */
-        protected                           skybox                  :BABYLON.Mesh                           = null;
-        /** A collection of all sprites that appear in this stage. */
-        protected                           sprites                 :bz.Sprite[]                            = [];
         /** The game GUI. */
         protected                           gui                     :bz.GUI                                 = null;
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
+
+        /** The pointer system to use in this stage. */
+        protected                           pointerSystem           :bz.PointerSystem                       = null;
+
+        /** The skybox that surrounds the whole stage. */
+        protected                           skybox                  :BABYLON.Mesh                           = null;
+        /** A collection of all sprites that appear in this stage. */
+        protected                           sprites                 :bz.Sprite[]                            = [];
+
         /** A collection of all lights that appear in this stage. */
         protected                           lights                  :BABYLON.Light[]                        = [];
         /** A collection of all shadowGenerators that appear in this stage. */
@@ -87,15 +92,16 @@
             this.scene.getNativeScene().clearColor   = this.clearColor;
 
             // create all game objects
-            this.player       = this.createPlayer();
-            this.cameraSystem = this.createCameraSystem();
-            this.walls        = this.createWalls();
-            this.items        = this.createItems();
-            this.bots         = this.createBots();
-            this.skybox       = this.createSkybox();
-            this.sprites      = this.createSprites();
-            this.gui          = this.createGUI();
-            this.lights       = this.createLights();
+            this.player        = this.createPlayer();
+            this.cameraSystem  = this.createCameraSystem();
+            this.walls         = this.createWalls();
+            this.items         = this.createItems();
+            this.bots          = this.createBots();
+            this.skybox        = this.createSkybox();
+            this.sprites       = this.createSprites();
+            this.gui           = this.createGUI();
+            this.lights        = this.createLights();
+            this.pointerSystem = this.createPointerSystem();
 
             // set camera system
             this.setActiveCamera( this.initialCamera );
@@ -115,9 +121,6 @@
             {
                 this.createCoordinalAxis();
             }
-
-            // assign pointer callback
-            this.scene.getNativeScene().onPointerDown = this.createPointerCallback();
 
             // adjust GUI size
             this.adjustGuiSizeToCanvasSize();
@@ -433,19 +436,19 @@
         /** ************************************************************************************************************
         *   Sets up shadows for all meshes.
         ***************************************************************************************************************/
-        protected abstract setupShadows() : void
+        protected abstract setupShadows() : void;
 
         /** ************************************************************************************************************
         *   Sets up fog for this stage.
         ***************************************************************************************************************/
-        protected abstract setupFog() : void
+        protected abstract setupFog() : void;
 
         /** ************************************************************************************************************
-        *   Sets up the pointer callback.
+        *   Sets up the pointer system.
         *
-        *   @return The pointer callback method to invoke or <code>null</code> if not supported.
+        *   @return The pointer system to use in this stage.
         ***************************************************************************************************************/
-        protected abstract createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
+        protected abstract createPointerSystem() : bz.PointerSystem;
 
         /** ************************************************************************************************************
         *   Creates the GUI for this stage.
