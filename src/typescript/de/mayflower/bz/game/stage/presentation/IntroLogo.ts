@@ -252,7 +252,7 @@
         ***************************************************************************************************************/
         protected createPointerSystem() : bz.PointerSystem
         {
-            return new bz.PointerSystem( this, this.canvas, false );
+            return new bz.PointerSystem( this, this.canvas, false, false );
         }
 
         /** ************************************************************************************************************

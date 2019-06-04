@@ -22,6 +22,8 @@
         public      static      readonly    pc3d                :Debug              = new Debug( false );
         /** Debugs key system. */
         public      static      readonly    key                 :Debug              = new Debug( false );
+        /** Debugs pointer system. */
+        public      static      readonly    pointer             :Debug              = new Debug( true  );
         /** Debugs the game items. */
         public      static      readonly    item                :Debug              = new Debug( true  );
         /** Debugs player fire. */

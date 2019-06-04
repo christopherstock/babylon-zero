@@ -8,10 +8,12 @@
     export class PointerSystem
     {
         /** The canvas this pointer system operates on. */
-        private             readonly            canvas              :bz.CanvasSystem                    = null;
-
+        private             readonly    canvas              :bz.CanvasSystem            = null;
         /** The stage this pointer system operates on. */
-        private             readonly            stage               :bz.Stage                           = null;
+        private             readonly    stage               :bz.Stage                   = null;
+
+        /** Indicates if that the pointer is currently locked. */
+        private                         pointerLocked       :boolean                    = false;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
@@ -19,19 +21,21 @@
         *   @param stage             The stage  this pointer system operates on.
         *   @param canvas            The canvas this pointer system operates on.
         *   @param assignPointerDown Specifies if a pointerDown event shall be assigned to the babylon.JS scene.
+        *   @param assignPointerLock Specifies if the pointer shall be locked on clicking onto the canvas.
         ***************************************************************************************************************/
         public constructor
         (
             stage             :bz.Stage,
             canvas            :bz.CanvasSystem,
-            assignPointerDown :boolean
+            assignPointerDown :boolean,
+            assignPointerLock :boolean
         )
         {
             this.stage  = stage;
             this.canvas = canvas;
 
-            // assign or remove pointer callback
-            this.stage.getScene().onPointerDown = ( assignPointerDown ? this.onPointerDown : null );
+            this.stage.getScene().onPointerDown   = ( assignPointerDown ? this.onPointerDown : null );
+            this.canvas.getNativeCanvas().onclick = ( assignPointerLock ? this.onCanvasClick : null );
         }
 
         /** ************************************************************************************************************
@@ -45,6 +49,8 @@
             // check if a result is picked and if the stage is present
             if ( pickResult.hit && this.stage != null )
             {
+                bz.Debug.pointer.log( 'Picked a mesh on pointerDown' );
+
                 let src :BABYLON.Vector3 = null;
 
                 // horrible debug implementation
@@ -75,5 +81,61 @@
                     pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
                 }
             }
+        };
+
+        /** ************************************************************************************************************
+        *   Requests the mouse/pointer lock feature of the browser.
+        ***************************************************************************************************************/
+        private onCanvasClick = () : void =>
+        {
+            document.addEventListener( 'pointerlockchange',    this.onPointerLockChange );
+            document.addEventListener( 'mozpointerlockchange', this.onPointerLockChange );
+            document.addEventListener( 'mousemove',            this.onMouseMove         );
+
+            this.canvas.getNativeCanvas().requestPointerLock =
+            (
+                    this.canvas.getNativeCanvas().requestPointerLock
+                ||  this.canvas.getNativeCanvas().mozRequestPointerLock
+            );
+            this.canvas.getNativeCanvas().requestPointerLock();
+        };
+
+        /** ************************************************************************************************************
+        *   Being invoked when the pointer lock changes.
+        ***************************************************************************************************************/
+        private onPointerLockChange = () : void =>
+        {
+            if (
+                    document.pointerLockElement               === this.canvas.getNativeCanvas()
+                ||  ( document as any ).mozPointerLockElement === this.canvas.getNativeCanvas()
+            ) {
+                bz.Debug.pointer.log( 'The pointer lock status is now LOCKED' );
+
+                this.pointerLocked = true;
+
+            }
+            else
+            {
+                bz.Debug.pointer.log( 'The pointer lock status is now UNLOCKED' );
+
+                this.pointerLocked = false;
+            }
+        };
+
+        /** ************************************************************************************************************
+        *   Being invoked when the pointer-locked mouse is moved.
+        *
+        *   Note that this method is being invoked ASYNCHRONOUS by the system
+        *   so ALL occuring events must be stored and processed afterwards!
+        ***************************************************************************************************************/
+        private onMouseMove = ( me:MouseEvent ) : void =>
+        {
+            if ( this.pointerLocked )
+            {
+                bz.Debug.pointer.log( 'PointerMovement X: [' + me.movementX + '] Y: [' + me.movementY + ']' );
+            }
+
+
+
         };
     }

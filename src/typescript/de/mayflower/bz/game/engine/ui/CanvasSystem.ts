@@ -11,9 +11,6 @@
         /** The canvas rendering context. */
         private         readonly    canvasContext           :WebGLRenderingContext          = null;
 
-        /** Indicates that the pointer is currently locked. */
-        private                     pointerLocked           :boolean                        = false;
-
         /** ************************************************************************************************************
         *   Constructs a new canvas system.
         ***************************************************************************************************************/
@@ -27,9 +24,6 @@
 
             // append to body
             document.body.appendChild( this.canvas );
-
-            // request pointer lock
-            this.requestPointerLock();
         }
 
         /** ************************************************************************************************************
@@ -104,63 +98,5 @@
         public getCanvasContext() : WebGLRenderingContext
         {
             return this.canvasContext;
-        }
-
-        // TODO extract to pointer lock system!
-
-        /** ************************************************************************************************************
-        *   Requests the mouse/pointer lock feature of the browser.
-        ***************************************************************************************************************/
-        private requestPointerLock() : void
-        {
-            document.addEventListener( 'pointerlockchange',    ()                => { this.onPointerLockChange() } );
-            document.addEventListener( 'mozpointerlockchange', ()                => { this.onPointerLockChange() } );
-            document.addEventListener( 'mousemove',            ( me:MouseEvent ) => { this.onMouseMove( me );    } );
-
-            this.canvas.onclick = () :void =>
-            {
-                this.canvas.requestPointerLock =
-                (
-                    this.canvas.requestPointerLock || this.canvas.mozRequestPointerLock
-                );
-                this.canvas.requestPointerLock();
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Being invoked when the pointer lock changes.
-        ***************************************************************************************************************/
-        private onPointerLockChange() : void
-        {
-            if (
-                    document.pointerLockElement               === this.canvas
-                ||  ( document as any ).mozPointerLockElement === this.canvas
-            ) {
-                console.log('The pointer lock status is now locked');
-
-                this.pointerLocked = true;
-
-            } else {
-                console.log('The pointer lock status is now unlocked');
-
-                this.pointerLocked = false;
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Being invoked when the pointer-locked mouse is moved.
-        ***************************************************************************************************************/
-        private onMouseMove( me:MouseEvent ) : void
-        {
-            if ( this.pointerLocked )
-            {
-                console.log( 'MovementX: ' + me.movementX );
-                console.log( 'MovementY: ' + me.movementY );
-            }
-
-
-
-
-
         }
     }

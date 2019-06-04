@@ -9,7 +9,7 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Move key reation to stage.init analog to PointerSystem?
+    *   TODO Move key reation to Stage.init analog to PointerSystem?
     *
     *   TODO Try different player objects: physics for car, spaceship, etc
     *   TODO Create external corsshair for player 3rd view.
@@ -39,7 +39,6 @@
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
-    *   TODO Enable pointer lock in non-fullscreen (window) mode?
     *
     *   =====================
     *   TODO Sounds
