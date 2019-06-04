@@ -21,7 +21,7 @@
 
                 bz.SettingColor.COLOR_RGB_BLACK,
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-                bz.CameraType.FREE_DEBUG
+                bz.CameraType.FREE_CAMERA
             );
         }
 
@@ -149,7 +149,7 @@
         ***************************************************************************************************************/
         protected setupFog() : void
         {
-            this.scene.enableFog( null, 0.0 );
+            this.scene.disableFog();
         }
 
         /** ************************************************************************************************************

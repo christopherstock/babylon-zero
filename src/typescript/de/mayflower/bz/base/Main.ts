@@ -9,8 +9,10 @@
     *   =====================
     *   TODO Primal
     *   =====================
+    *   TODO Implement mouse movements and controls!
     *   TODO Move key reation to Stage.init analog to PointerSystem?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
+    *   TODO Connect Main Menu items to Stages?
     *
     *   TODO Try different player objects: physics for car!
     *   TODO Create external corsshair for player 3rd view (spaceship).

@@ -4,10 +4,8 @@
     *******************************************************************************************************************/
     export enum CameraType
     {
-        // TODO rename to 'FREE_CAMERA' everywhere?
-
-        /** A free controllable debug camera. */
-        FREE_DEBUG,
+        /** A free controllable camera. */
+        FREE_CAMERA,
         /** A stationary stage camera. */
         STATIONARY,
         /** A camera that follows the player's body. */

@@ -226,7 +226,7 @@
             if ( keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
-                this.stage.setActiveCamera( bz.CameraType.FREE_DEBUG );
+                this.stage.setActiveCamera( bz.CameraType.FREE_CAMERA );
             }
             if ( keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
             {

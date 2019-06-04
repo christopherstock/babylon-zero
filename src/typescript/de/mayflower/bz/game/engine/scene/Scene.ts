@@ -159,32 +159,32 @@
         }
 
         /** ************************************************************************************************************
-        *   Enables or disables fog for the native scene.
-        *
-        *   TODO refactor and create disableFog!
+        *   Disables fog for the native scene.
+        ***************************************************************************************************************/
+        public disableFog() : void
+        {
+            this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
+        }
+
+        /** ************************************************************************************************************
+        *   Enables fog for the native scene.
         *
         *   @param color   The fog color to set or <code>null</code> if no fog shall be set.
         *   @param density The fog density.
         ***************************************************************************************************************/
         public enableFog( color:BABYLON.Color3, density:number ) : void
         {
-            if ( color == null )
-            {
-                this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
-            }
-            else
-            {
-                this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_EXP;  // TODO 2 is faster!
-                this.babylonScene.fogColor = color;
+            // Fog Mode '2' is faster!
+            this.babylonScene.fogMode    = BABYLON.Scene.FOGMODE_EXP;
+            this.babylonScene.fogColor   = color;
 
-                // for exponential mode
-                this.babylonScene.fogDensity = density;
+            // for exponential mode
+            this.babylonScene.fogDensity = density;
 /*
-                // for linear mode
-                this.babylonScene.fogStart = 20.0;
-                this.babylonScene.fogEnd = 60.0;
+            // for linear mode
+            this.babylonScene.fogStart = 20.0;
+            this.babylonScene.fogEnd = 60.0;
 */
-            }
         }
 
         /** ************************************************************************************************************

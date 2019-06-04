@@ -34,11 +34,11 @@
         *   @param scene                    The babylon.JS scene to create these cameras for.
         *   @param canvas                   The canvas this camera system is linked to.
         *
-        *   @param positionFreeDebugCamera  The startup position for the free debug camera.
+        *   @param positionFreeCamera       The startup position for the free camera.
         *   @param positionStationaryCamera The startup position for the stationary camera.
         *   @param positionFollowCamera     The startup position for the follow camera.
         *
-        *   @param targetFreeDebugCamera    The target position for the free debug camera.
+        *   @param targetFreeCamera         The target position for the free camera.
         *   @param targetStationaryCamera   The target node     for the starionary camera.
         *   @param targetFollowCamera       The target node     for the follow camera.
         *   @param targetFirstPersonCamera  The target mesh     for the first person camera.
@@ -48,11 +48,11 @@
             scene                    :BABYLON.Scene,
             canvas                   :HTMLCanvasElement,
 
-            positionFreeDebugCamera  :BABYLON.Vector3,
+            positionFreeCamera       :BABYLON.Vector3,
             positionStationaryCamera :BABYLON.Vector3,
             positionFollowCamera     :BABYLON.Vector3,
 
-            targetFreeDebugCamera    :BABYLON.Vector3,
+            targetFreeCamera         :BABYLON.Vector3,
             targetStationaryCamera   :any,
             targetFollowCamera       :any,
             targetFirstPersonCamera  :BABYLON.AbstractMesh
@@ -64,8 +64,8 @@
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (
                 this.scene,
-                positionFreeDebugCamera,
-                targetFreeDebugCamera
+                positionFreeCamera,
+                targetFreeCamera
             );
             this.stationaryCamera  = bz.CameraFactory.createStationaryTargetCamera
             (
@@ -82,7 +82,7 @@
                 this.scene,
                 bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
             );
-            this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera
+            this.arcRotateCamera   = bz.CameraFactory.createArcRotateCamera
             (
                 this.scene,
                 0.0,
@@ -138,7 +138,7 @@
 
             switch ( cameraType )
             {
-                case bz.CameraType.FREE_DEBUG:
+                case bz.CameraType.FREE_CAMERA:
                 {
                     this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas );
                     this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
@@ -356,7 +356,7 @@
                     return this.followCamera;
                 }
 
-                case bz.CameraType.FREE_DEBUG:
+                case bz.CameraType.FREE_CAMERA:
                 {
                     return this.freeCamera;
                 }
