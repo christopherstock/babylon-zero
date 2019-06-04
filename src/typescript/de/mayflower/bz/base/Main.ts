@@ -10,9 +10,11 @@
     *   TODO Primal
     *   =====================
     *   TODO Move key reation to Stage.init analog to PointerSystem?
+    *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *
-    *   TODO Try different player objects: physics for car, spaceship, etc
-    *   TODO Create external corsshair for player 3rd view.
+    *   TODO Try different player objects: physics for car!
+    *   TODO Create external corsshair for player 3rd view (spaceship).
+    *   TODO Try to map a 3d point to a 2d point?
     *   TODO Fix/Create! exploding models?
     *   TODO Create 3D space shooting engine.
     *
@@ -37,7 +39,6 @@
     *
     *   TODO HID: Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
-    *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *
     *   =====================
@@ -50,11 +51,10 @@
     *   =====================
     *   TODO Issues
     *   =====================
-    *   TODO Fix why physical objects behave buggy on reloading the scene!
-    *   TODO Fix loading und unloading of objects on switching scene!
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
-    *   TODO Enable loading of only required resources for the current scene??
+    *   TODO Enable loading of only required resources for the current scene?
     *   TODO Solution to fix screen shaking on collisions?
+    *   TODO Fix setting the pivot for meshes and objects.
     *
     *   =====================
     *   TODO Wearpons
@@ -76,15 +76,6 @@
     *   TODO Add muzzle flash to gun on firing.
     *
     *   =====================
-    *   TODO Human Body Partitions
-    *   =====================
-    *   TODO Control for camera rotation?
-    *   TODO Limit camera (y axis) (alpha).
-    *   TODO Fade Body Part Description in and out.
-    *   TODO Improve color effect.
-    *   TODO Change model.
-    *
-    *   =====================
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
@@ -98,6 +89,15 @@
     *   TODO Checkout babylon.JS bones and skeletons?
     *   TODO Check cannonJs examples ? (human.js .. bones etc.)
     *   TODO Create class Bot that represents an enemy with one field for attitude.
+    *
+    *   =====================
+    *   TODO Human Body Partitions
+    *   =====================
+    *   TODO Control for camera rotation?
+    *   TODO Limit camera (y axis) (alpha).
+    *   TODO Fade Body Part Description in and out.
+    *   TODO Improve color effect.
+    *   TODO Change model.
     *
     *   =====================
     *   TODO The Lab
