@@ -72,9 +72,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Delivers a reference to the babylon.JS scene.
-        *
-        *   TODO remove?
+        *   Delivers a reference to the native babylon.JS scene.
         *
         *   @return The babylon.JS scene.
         ***************************************************************************************************************/

@@ -16,16 +16,22 @@
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
         *
-        *   @param stage  The stage  this pointer system operates on.
-        *   @param canvas The canvas this pointer system operates on.
+        *   @param stage             The stage  this pointer system operates on.
+        *   @param canvas            The canvas this pointer system operates on.
+        *   @param assignPointerDown Specifies if a pointerDown event shall be assigned to the babylon.JS scene.
         ***************************************************************************************************************/
-        public constructor( stage:bz.Stage, canvas:bz.CanvasSystem )
+        public constructor
+        (
+            stage             :bz.Stage,
+            canvas            :bz.CanvasSystem,
+            assignPointerDown :boolean
+        )
         {
             this.stage  = stage;
             this.canvas = canvas;
 
-            // assign pointer callback
-            // this.scene.getNativeScene().onPointerDown = this.createPointerCallback();
+            // assign or remove pointer callback
+            this.stage.getScene().onPointerDown = ( assignPointerDown ? this.onPointerDown : null );
         }
 
         /** ************************************************************************************************************
