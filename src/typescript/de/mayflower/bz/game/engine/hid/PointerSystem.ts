@@ -7,17 +7,22 @@
     *******************************************************************************************************************/
     export class PointerSystem
     {
+        /** The canvas this pointer system operates on. */
+        private             readonly            canvas              :bz.CanvasSystem                    = null;
+
         /** The stage this pointer system operates on. */
         private             readonly            stage               :bz.Stage                           = null;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
         *
-        *   @param stage The stage this pointer system operates on.
+        *   @param stage  The stage  this pointer system operates on.
+        *   @param canvas The canvas this pointer system operates on.
         ***************************************************************************************************************/
-        public constructor( stage:bz.Stage )
+        public constructor( stage:bz.Stage, canvas:bz.CanvasSystem )
         {
-            this.stage = stage;
+            this.stage  = stage;
+            this.canvas = canvas;
         }
 
         /** ************************************************************************************************************
@@ -28,15 +33,15 @@
         ***************************************************************************************************************/
         public defaultPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
         {
-            if ( pickResult.hit )
+            // check if a result is picked and if the stage is present
+            if ( pickResult.hit && this.stage != null )
             {
                 let src :BABYLON.Vector3 = null;
 
                 // horrible debug implementation
                 if
                 (
-                        this.stage != null
-                    &&  this.stage.getCameraSystem().isFirstPersonCameraActive()
+                        this.stage.getCameraSystem().isFirstPersonCameraActive()
                     &&  this.stage.getPlayer() != null
                 )
                 {

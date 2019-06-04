@@ -113,12 +113,14 @@
         ***************************************************************************************************************/
         private requestPointerLock() : void
         {
-            document.addEventListener( 'pointerlockchange',    ()                => { this.onPointerLockChange() }, false );
-            document.addEventListener( 'mozpointerlockchange', ()                => { this.onPointerLockChange() }, false );
-            document.addEventListener( 'mousemove',            ( me:MouseEvent ) => { this.onMouseMove( me );    }, false );
+            document.addEventListener( 'pointerlockchange',    ()                => { this.onPointerLockChange() } );
+            document.addEventListener( 'mozpointerlockchange', ()                => { this.onPointerLockChange() } );
+            document.addEventListener( 'mousemove',            ( me:MouseEvent ) => { this.onMouseMove( me );    } );
 
-            this.canvas.onclick = () :void => {
-                this.canvas.requestPointerLock = (
+            this.canvas.onclick = () :void =>
+            {
+                this.canvas.requestPointerLock =
+                (
                     this.canvas.requestPointerLock || this.canvas.mozRequestPointerLock
                 );
                 this.canvas.requestPointerLock();

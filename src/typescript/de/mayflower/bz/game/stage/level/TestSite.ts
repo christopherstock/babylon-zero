@@ -267,7 +267,7 @@
         ***************************************************************************************************************/
         protected createPointerCallback() : ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) => void
         {
-            return new bz.PointerSystem( this ).defaultPointerDown;
+            return new bz.PointerSystem( this, this.canvas ).defaultPointerDown;
         }
 
         /** ************************************************************************************************************
