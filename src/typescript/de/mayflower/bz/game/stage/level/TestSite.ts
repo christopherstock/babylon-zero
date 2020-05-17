@@ -261,6 +261,7 @@
         {
             this.scene.disableFog();
 
+            // green poison steam..
             // this.scene.enableFog( new BABYLON.Color3( 101 / 256, 206 / 256, 143 / 256 ), 0.05 );
         }
 

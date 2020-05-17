@@ -35,6 +35,7 @@
                 this.babylonEngine.loadingScreen = this.loadingScreen;
             }
             this.babylonEngine.displayLoadingUI();
+            this.babylonEngine.enableOfflineSupport = false;
 
             // set collision epsilon .. this effects collision detection
             BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.PHYSICS_COLLISION_EPSILON_SIZE;

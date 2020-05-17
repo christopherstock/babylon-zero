@@ -39,10 +39,11 @@
     export * from './game/engine/ui/gui/GUI';
     export * from './game/engine/ui/gui/GUIFactory';
     export * from './game/engine/ui/gui/GUIGame';
-    export * from './game/engine/ui/gui/GUIPause';
     export * from './game/engine/ui/gui/GUIHumanBodyPartitions';
     export * from './game/engine/ui/gui/GUIHumanPartitionDescription';
+    export * from './game/engine/ui/gui/GUIPause';
     export * from './game/engine/ui/gui/GUIProductConfigurator';
+    export * from './game/engine/ui/gui/GUIType';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/LightFactory';

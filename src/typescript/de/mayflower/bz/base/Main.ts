@@ -7,45 +7,30 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
+    *   TODO Refactorings
+    *   =====================
+    *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
+    *   TODO Remove global references to Main.game:
+    *   TODO Minimize access to bz.Scene.getNativeScene()
+    *   TODO pass Interface getFps and KeySystem to Stage and GUI.
+    *   TODO group values and invocations in Stage to different functions and classes?
+    *
+    *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Prune _ASSETS
-    *   TODO Reset Git Repository?
     *   TODO Change player back from Box to Cylinder?
-    *
+    *   TODO Fix/Create! exploding models?
     *   TODO Implement mouse movements and controls!
     *   TODO Move key reation to Stage.init analog to PointerSystem?
     *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Connect Main Menu items to Stages?
-    *
-    *   TODO Try different player objects: physics for car!
-    *   TODO Create external corsshair for player 3rd view (spaceship).
-    *   TODO Try to map a 3d point to a 2d point?
-    *   TODO Fix/Create! exploding models?
-    *   TODO Create 3D space shooting engine.
-    *
-    *   TODO Create 'The Office' - version MVP 1.0.
-    *
-    *   =====================
-    *   TODO Refactorings
-    *   =====================
-    *   TODO Parameter for stage fog/smoke color/enabled?
-    *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
-    *   TODO Remove global references to Main.game: pass Interface getFps and KeySystem to Stage and GUI.
-    *   TODO group values and invocations in Stage to different functions and classes?
-    *   TODO Minimize access to bz.Scene.getNativeScene()
-    *   TODO Suppress errors for missing babylon.manifest files? Check solution in banylonjs 4
-    *
-    *   =====================
-    *   TODO New Stuff
-    *   =====================
-    *   TODO Try reflecting mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
+    *   TODO Reset Git Repository?
+    *   TODO Solution to fix screen shaking on collisions?
+    *   TODO Fix setting the pivot for meshes and objects.
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
-    *   TODO Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *
     *   TODO HID: Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
@@ -62,16 +47,12 @@
     *   =====================
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
     *   TODO Enable loading of only required resources for the current scene?
-    *   TODO Solution to fix screen shaking on collisions?
-    *   TODO Fix setting the pivot for meshes and objects.
     *
     *   =====================
     *   TODO Wearpons
     *   =====================
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
-    *   TODO Create wearpons with projectiles (exploding or non-exploding)..
-    *   TODO Create explosive wearpons etc.
     *
     *   =====================
     *   TODO Fx
@@ -88,7 +69,6 @@
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
-    *   TODO Update babylon.js and all other npm packages.
     *
     *   =====================
     *   TODO Characters
@@ -100,13 +80,10 @@
     *   TODO Create class Bot that represents an enemy with one field for attitude.
     *
     *   =====================
-    *   TODO Human Body Partitions
+    *   TODO New features
     *   =====================
-    *   TODO Control for camera rotation?
-    *   TODO Limit camera (y axis) (alpha).
-    *   TODO Fade Body Part Description in and out.
-    *   TODO Improve color effect.
-    *   TODO Change model.
+    *   TODO Create wearpons with projectiles (exploding or non-exploding)..
+    *   TODO Create explosive wearpons etc.
     *
     *   =====================
     *   TODO The Lab
@@ -115,10 +92,13 @@
     *   TODO Try babylon 101 scenes.
     *   TODO Try height maps ('mountain grounds')
     *   TODO Try 'worker thread collisions'? seems obsolete.
+    *   TODO Try reflecting mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
+    *   TODO Try Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
     *   TODO Try fur.
     *   TODO Try Impossible?: Show a video texture in the GUI.
     *   TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
     *   TODO Try water effects?
+    *   TODO Try different player objects: physics for car!
     *   TODO Try 'gamelets' in the babylon.JS docs.
     *   TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
     *   TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
