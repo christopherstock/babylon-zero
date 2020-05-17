@@ -411,6 +411,7 @@
 
         /** ************************************************************************************************************
         *   Creates a line for the GUI.
+        *   The line looks blurry and shabby - Consider using createRect with a height of one instead.
         *
         *   @param x1          Start position X.
         *   @param y1          Start position Y.
@@ -421,8 +422,6 @@
         *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
         *
         *   @return The specified line.
-        *
-        *   @deprecated This line looks blurry and shabby. Use createRect with a height of one instead.
         ***************************************************************************************************************/
         public static createLine
         (
@@ -555,6 +554,6 @@
         ***************************************************************************************************************/
         private static createNextGuiId() : string
         {
-            return 'gui' + GUIFactory.nextGuiId++;
+            return 'gui' + String( GUIFactory.nextGuiId++ );
         }
     }

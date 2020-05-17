@@ -9,9 +9,8 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Prune _ASSETS
     *   TODO Introduce ESLint and fix all issues.
-    *   TODO Modernize Tech Stack.
+    *   TODO Prune _ASSETS
     *   TODO Reset Git Repository?
     *
     *   TODO Implement mouse movements and controls!

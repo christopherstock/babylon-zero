@@ -94,15 +94,15 @@
             );
 
             // assign camera targets
-            if ( targetStationaryCamera != null )
+            if ( targetStationaryCamera !== null )
             {
                 this.lockStationaryTargetCameraTo( targetStationaryCamera );
             }
-            if ( targetFollowCamera != null )
+            if ( targetFollowCamera !== null )
             {
                 this.lockFollowCameraTo( targetFollowCamera );
             }
-            if ( targetFirstPersonCamera != null )
+            if ( targetFirstPersonCamera !== null )
             {
                 this.setFirstPersonCameraTo( targetFirstPersonCamera );
             }
@@ -140,56 +140,82 @@
             {
                 case bz.CameraType.FREE_CAMERA:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      true,  this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      true  );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false );
 
-                    if ( player != null ) player.setVisible( true );
-                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
-
+                    if ( player !== null )
+                    {
+                        player.setVisible( true );
+                    }
+                    if ( gui    !== null )
+                    {
+                        gui.setFirstPlayerViewComponentsVisibility( false );
+                    }
                     break;
                 }
 
                 case bz.CameraType.STATIONARY:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false );
 
-                    if ( player != null ) player.setVisible( true );
-                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
-
+                    if ( player !== null )
+                    {
+                        player.setVisible( true );
+                    }
+                    if ( gui    !== null )
+                    {
+                        gui.setFirstPlayerViewComponentsVisibility( false );
+                    }
                     break;
                 }
 
                 case bz.CameraType.FOLLOW:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false );
 
-                    if ( player != null ) player.setVisible( true );
-                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
-
+                    if ( player !== null )
+                    {
+                        player.setVisible( true );
+                    }
+                    if ( gui    !== null )
+                    {
+                        gui.setFirstPlayerViewComponentsVisibility( false );
+                    }
                     break;
                 }
 
                 case bz.CameraType.FIRST_PERSON:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, false, this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, false );
 
-                    if ( player != null ) player.setVisible( false );
-                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( true );
+                    if ( player !== null )
+                    {
+                        player.setVisible( false );
+                    }
+                    if ( gui    !== null )
+                    {
+                        gui.setFirstPlayerViewComponentsVisibility( true );
+                    }
 
                     break;
                 }
 
                 case bz.CameraType.ARC_ROTATE:
                 {
-                    this.setCameraControlsEnabled( this.freeCamera,      false, this.canvas );
-                    this.setCameraControlsEnabled( this.arcRotateCamera, true,  this.canvas );
+                    this.setCameraControlsEnabled( this.freeCamera,      false );
+                    this.setCameraControlsEnabled( this.arcRotateCamera, true  );
 
-                    if ( player != null ) player.setVisible( true );
-                    if ( gui    != null ) gui.setFirstPlayerViewComponentsVisibility( false );
-
+                    if ( player !== null )
+                    {
+                        player.setVisible( true );
+                    }
+                    if ( gui    !== null )
+                    {
+                        gui.setFirstPlayerViewComponentsVisibility( false );
+                    }
                     break;
                 }
             }
@@ -410,18 +436,17 @@
         private setCameraControlsEnabled
         (
             camera :BABYLON.Camera,
-            enable :boolean,
-            canvas :HTMLCanvasElement
+            enable :boolean
         )
         : void
         {
             if ( enable )
             {
-                camera.attachControl( canvas );
+                camera.attachControl( this.canvas );
             }
             else
             {
-                camera.detachControl( canvas );
+                camera.detachControl( this.canvas );
             }
         }
 
@@ -502,6 +527,6 @@
         ***************************************************************************************************************/
         private static createNextCameraAnimationId() : string
         {
-            return 'cameraAnimation' + CameraSystem.nextCameraAnimationId++;
+            return 'cameraAnimation' + String( CameraSystem.nextCameraAnimationId++ );
         }
     }

@@ -4,7 +4,6 @@
     /** ****************************************************************************************************************
     *   Represents a bullet hole on a hit point.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class BulletHole
     {
         /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
@@ -33,7 +32,7 @@
         (
             scene         :bz.Scene,
             hitPoint      :bz.HitPoint,
-            emissiveColor :BABYLON.Color3,
+            emissiveColor :BABYLON.Color3
         )
         {
             this.hitPoint      = hitPoint;
@@ -62,8 +61,14 @@
         {
             this.holeMesh.dispose();
 
-            if ( this.debugSphereMesh != null ) this.debugSphereMesh.dispose();
-            if ( this.debugNormalLine != null ) this.debugNormalLine.dispose();
+            if ( this.debugSphereMesh !== null )
+            {
+                this.debugSphereMesh.dispose();
+            }
+            if ( this.debugNormalLine !== null )
+            {
+                this.debugNormalLine.dispose();
+            }
         }
 
         /** ************************************************************************************************************

@@ -177,6 +177,6 @@
         ***************************************************************************************************************/
         private static getNextCameraId() : string
         {
-            return 'camera' + CameraFactory.nextCameraId++;
+            return 'camera' + String( CameraFactory.nextCameraId++ );
         }
     }
