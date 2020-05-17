@@ -81,10 +81,13 @@
         ***************************************************************************************************************/
         public updateSize( width:number, height:number ) : void
         {
+/*
+            // this will scale texts up and down - which cases an ugly behaviour!
             this.guiFg.idealWidth  = width;
             this.guiFg.idealHeight = height;
 
             this.guiFg.scaleTo( width, height );
+*/
         }
 
         /** ************************************************************************************************************
