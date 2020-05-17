@@ -12,7 +12,7 @@
             bz.PhysicState.NONE,
             null,
             bz.PhysicFriction.NONE,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicRestitution.NONE
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
@@ -21,7 +21,7 @@
             bz.PhysicState.MOVABLE,
             bz.SettingPlayerHuman.MASS,
             bz.PhysicFriction.NONE,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicRestitution.NONE
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
@@ -30,7 +30,7 @@
             bz.PhysicState.STATIC,
             bz.PhysicDensity.STATIC,
             bz.PhysicFriction.NONE,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicRestitution.NONE
         );
 
         /** Props for light wood. */
@@ -39,7 +39,7 @@
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.LIGHT_WOOD,
             bz.PhysicFriction.HIGH,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicRestitution.NONE
         );
 
         /** Props for solid wood. */
@@ -48,7 +48,7 @@
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.SOLID_WOOD,
             bz.PhysicFriction.MEDIUM,
-            bz.PhysicRestitution.MEDIUM,
+            bz.PhysicRestitution.MEDIUM
         );
 
         /** Props for office chair. */
@@ -57,7 +57,7 @@
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.CONCRETE,
             bz.PhysicFriction.HIGH,
-            bz.PhysicRestitution.NONE,
+            bz.PhysicRestitution.NONE
         );
 
         /** Props for a physical compound object. */
@@ -66,7 +66,7 @@
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.DEFAULT,
             bz.PhysicFriction.MEDIUM,
-            bz.PhysicRestitution.MEDIUM,
+            bz.PhysicRestitution.MEDIUM
         );
 
         /** Physical properties for a non-moving and collidable body. */
@@ -75,7 +75,7 @@
             bz.PhysicState.STATIC,
             bz.PhysicDensity.STATIC,
             bz.PhysicFriction.MEDIUM,
-            bz.PhysicRestitution.MEDIUM,
+            bz.PhysicRestitution.MEDIUM
         );
 
         /** The general physic state of this physics setting. */

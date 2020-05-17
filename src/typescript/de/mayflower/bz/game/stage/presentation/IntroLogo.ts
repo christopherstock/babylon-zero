@@ -72,20 +72,29 @@
             if ( this.currentTick < 100 )
             {
                 this.pointLight.range += 1.0;
-                if ( this.pointLight.range > 50.0 ) this.pointLight.range = 50.0;
+                if ( this.pointLight.range > 50.0 )
+                {
+                    this.pointLight.range = 50.0;
+                }
             }
             else if ( this.currentTick < 150 )
             {
                 this.pointLight.range += 1.5;
-                if ( this.pointLight.range > 100.0 ) this.pointLight.range = 100.0;
+                if ( this.pointLight.range > 100.0 )
+                {
+                    this.pointLight.range = 100.0;
+                }
             }
             else if ( this.currentTick < 360 )
             {
+                // do nothing but wait
             }
             else
             {
                 this.pointLight.range -= 1.5;
-                if ( this.pointLight.range < 0.0 ) this.pointLight.range = 0.0;
+                if ( this.pointLight.range < 0.0 ) {
+                    this.pointLight.range = 0.0;
+                }
             }
         }
 

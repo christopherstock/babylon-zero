@@ -52,8 +52,14 @@
         ***************************************************************************************************************/
         public static normalizeAngleDegrees( angleDegrees:number ) : number
         {
-            while ( angleDegrees > 360.0 ) angleDegrees -= 360.0;
-            while ( angleDegrees < 0.0   ) angleDegrees += 360.0;
+            while ( angleDegrees > 360.0 )
+            {
+                angleDegrees -= 360.0;
+            }
+            while ( angleDegrees < 0.0   )
+            {
+                angleDegrees += 360.0;
+            }
 
             return angleDegrees;
         }

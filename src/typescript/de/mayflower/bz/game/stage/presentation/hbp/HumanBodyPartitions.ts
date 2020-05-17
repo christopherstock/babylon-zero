@@ -8,7 +8,9 @@
     export class HumanBodyPartitions extends bz.Stage
     {
         /** The overlay color for selected meshes. */
-        private     static  readonly    MESH_HIGHLIGHT_COLOR    :BABYLON.Color3             = bz.SettingEngine.BRANDING.getPrimalColorRgb();
+        private     static  readonly    MESH_HIGHLIGHT_COLOR    :BABYLON.Color3             = (
+            bz.SettingEngine.BRANDING.getPrimalColorRgb()
+        );
 
         /** The current highlighted mesh. */
         private                         currentSelectedMesh     :BABYLON.AbstractMesh       = null;

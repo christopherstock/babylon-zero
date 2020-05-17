@@ -70,16 +70,16 @@
         private     static  readonly    GUI_COLOR_BORDER            :string                     = '#c9c9c9';
 
         /** A reference to the camera zoom slider. */
-        public                          cameraZoomSlider            :bjsg.Slider         = null;
+        public                          cameraZoomSlider            :bjsg.Slider                = null;
         /** A reference to the toggle button to open and close the visor. */
-        public                          visorToggleButton           :bjsg.Button         = null;
+        public                          visorToggleButton           :bjsg.Button                = null;
 
         /** All checkboxes that change the visor color. */
-        private                         visorColorRadioButtons      :bjsg.RadioButton[]  = [];
+        private             readonly    visorColorRadioButtons      :bjsg.RadioButton[]         = [];
         /** All checkboxes that change the helmet color. */
-        private                         helmetColorRadioButtons     :bjsg.RadioButton[]  = [];
+        private             readonly    helmetColorRadioButtons     :bjsg.RadioButton[]         = [];
         /** A reference to the Product Configurator stage. */
-        private                         parent                      :bz.ProductConfigurator     = null;
+        private             readonly    parent                      :bz.ProductConfigurator     = null;
 
         /** ************************************************************************************************************
         *   Creates a new GUI for the Product Configurator.

@@ -94,7 +94,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -118,7 +118,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -142,7 +142,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -165,7 +165,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -189,7 +189,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -213,7 +213,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -236,7 +236,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -260,7 +260,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -284,7 +284,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -308,7 +308,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -332,7 +332,7 @@
                                 bz.Physic.STATIC,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -356,7 +356,7 @@
                                 bz.Physic.STATIC,
                                 0.5,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -381,7 +381,7 @@
                                 bz.SettingColor.COLOR_RGB_RED,
                                 bz.Physic.STATIC,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -405,7 +405,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -429,7 +429,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -453,7 +453,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -477,7 +477,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 0.5,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -501,7 +501,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -525,7 +525,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
@@ -549,7 +549,7 @@
                                 bz.Physic.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),

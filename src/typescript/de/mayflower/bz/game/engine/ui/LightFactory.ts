@@ -175,6 +175,6 @@
         ***************************************************************************************************************/
         private static createNextLightId() : string
         {
-            return 'light' + LightFactory.nextLightId++;
+            return 'light' + String( LightFactory.nextLightId++ );
         }
     }

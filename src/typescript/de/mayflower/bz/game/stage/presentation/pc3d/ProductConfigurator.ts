@@ -53,7 +53,7 @@
             const visorMultiMaterial:BABYLON.MultiMaterial = this.visor.material as BABYLON.MultiMaterial;
             const subMaterials:BABYLON.Material[] = visorMultiMaterial.subMaterials;
 
-            bz.Debug.pc3d.log( 'Sub-Materials of visor: [' + subMaterials.length + ']' );
+            bz.Debug.pc3d.log( 'Sub-Materials of visor: [' + String( subMaterials.length ) + ']' );
 
             // pick 1st submaterial
             const visorMaterial:BABYLON.StandardMaterial = subMaterials[ 16 ] as BABYLON.StandardMaterial;
@@ -73,7 +73,7 @@
             const helmetMultiMaterial:BABYLON.MultiMaterial = this.helmet.material as BABYLON.MultiMaterial;
             const subMaterials:BABYLON.Material[] = helmetMultiMaterial.subMaterials;
 
-            bz.Debug.pc3d.log( 'Sub-Materials of helmet : [' + subMaterials.length + ']' );
+            bz.Debug.pc3d.log( 'Sub-Materials of helmet : [' + String( subMaterials.length ) + ']' );
 
             // pick affected submaterials
             const stripeMaterial :BABYLON.StandardMaterial = subMaterials[ 0 ] as BABYLON.StandardMaterial;

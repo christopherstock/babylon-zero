@@ -125,7 +125,7 @@
                                 this.ambientColor
                             ),
                         ]
-                    ),
+                    )
                 ),
 /*
                 new bz.Wall

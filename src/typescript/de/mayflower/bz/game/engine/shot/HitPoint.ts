@@ -88,15 +88,15 @@
                 bz.Debug.fire.log
                 (
                     'apply impulse - shot impulse direction: '
-                    + '[' + this.direction.x + ']'
-                    + '[' + this.direction.y + ']'
-                    + '[' + this.direction.z + ']'
+                    + '[' + String( this.direction.x ) + ']'
+                    + '[' + String( this.direction.y ) + ']'
+                    + '[' + String( this.direction.z ) + ']'
                 );
 
                 bz.Debug.fire.log
                 (
                     'affected mesh has mass: '
-                    + '[' + this.mesh.physicsImpostor.mass + ']'
+                    + '[' + String( this.mesh.physicsImpostor.mass ) + ']'
                 );
 
                 this.mesh.applyImpulse( this.direction.scale( force ), this.point );

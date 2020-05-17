@@ -2,7 +2,6 @@
     /** ****************************************************************************************************************
     *   Specifies the filenames of all model files to import.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export abstract class ModelFile
     {
         /** The model 'office chair'. */

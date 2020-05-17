@@ -1,10 +1,11 @@
 
+    /* eslint-disable max-len */
+
     import * as bjs from 'babylonjs'
 
     /** ****************************************************************************************************************
     *   Specifies all colors the application makes use of.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SettingColor
     {
         /** The CSS color 'transparent'. */

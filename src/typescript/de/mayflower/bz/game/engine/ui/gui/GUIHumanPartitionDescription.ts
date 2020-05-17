@@ -5,7 +5,6 @@
     /** ****************************************************************************************************************
     *   The GUI part with the description panel.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class GUIHumanPartitionDescription
     {
         /** The left bottom body part descriptor panel. */
@@ -90,42 +89,53 @@
                 case 'body':
                 {
                     this.bodyPartTitle.text = 'Upper Body';
-                    this.bodyPartText.text = 'If you want an effective upper body workout optimized for muscle growth, then you need to read this article.\nWhen it comes to picking a workout split that maximizes muscle growth, there’s a lot of factors that need to be considered.';
+                    this.bodyPartText.text = 'If you want an effective upper body workout optimized for muscle growth, '
+                    + 'then you need to read this article.\nWhen it comes to picking a workout split that maximizes '
+                    + 'muscle growth, there’s a lot of factors that need to be considered.';
                     break;
                 }
 
                 case 'head':
                 {
                     this.bodyPartTitle.text = 'Head';
-                    this.bodyPartText.text = 'Nearly everyone has had headache pain, and most of us have had it many times. A minor headache is little more than a nuisance that\'s relieved by an over-the-counter pain reliever, some food or coffee, or a short rest.';
+                    this.bodyPartText.text = 'Nearly everyone has had headache pain, and most of us have had it many '
+                    + 'times. A minor headache is little more than a nuisance that\'s relieved by an over-the-counter '
+                    + 'pain reliever, some food or coffee, or a short rest.';
                     break;
                 }
 
                 case 'legs_upper':
                 {
                     this.bodyPartTitle.text = 'Upper Thigh';
-                    this.bodyPartText.text = 'The upper leg is often called the thigh. It’s the area that runs from the hip to the knee in each leg. The hamstrings are three muscles located on the back of the thigh. They allow the knees to bend.';
+                    this.bodyPartText.text = 'The upper leg is often called the thigh. It’s the area that runs from '
+                    + 'the hip to the knee in each leg. The hamstrings are three muscles located on the back of the '
+                    + 'thigh. They allow the knees to bend.';
                     break;
                 }
 
                 case 'knees':
                 {
                     this.bodyPartTitle.text = 'Knees';
-                    this.bodyPartText.text = 'In humans and other primates, the knee joins the thigh with the leg and consists of two joints: one between the femur and tibia (tibiofemoral joint).';
+                    this.bodyPartText.text = 'In humans and other primates, the knee joins the thigh with the leg and '
+                    + 'consists of two joints: one between the femur and tibia (tibiofemoral joint).';
                     break;
                 }
 
                 case 'legs_lower':
                 {
                     this.bodyPartTitle.text = 'Lower Thigh';
-                    this.bodyPartText.text = 'The lower leg is a major anatomical part of the skeletal system. Together with the upper leg, it forms the lower extremity. It lies between the knee and the ankle, while the upper leg lies between the hip and the knee.';
+                    this.bodyPartText.text = 'The lower leg is a major anatomical part of the skeletal system. '
+                    + 'Together with the upper leg, it forms the lower extremity. It lies between the knee and the '
+                    + 'ankle, while the upper leg lies between the hip and the knee.';
                     break;
                 }
 
                 case 'feet':
                 {
                     this.bodyPartTitle.text = 'Feet';
-                    this.bodyPartText.text = 'The foot (plural feet) is an anatomical structure found in many vertebrates. It is the terminal portion of a limb which bears weight and allows locomotion. In many animals with feet, the foot is a separate organ at the terminal part of the leg.';
+                    this.bodyPartText.text = 'The foot (plural feet) is an anatomical structure found in many '
+                    + 'vertebrates. It is the terminal portion of a limb which bears weight and allows locomotion. '
+                    + 'In many animals with feet, the foot is a separate organ at the terminal part of the leg.';
                     break;
                 }
             }

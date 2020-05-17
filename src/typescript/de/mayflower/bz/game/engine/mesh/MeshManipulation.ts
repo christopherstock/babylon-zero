@@ -103,7 +103,6 @@
                 // TODO till the pivot matrix is buggy in babylon.JS 4.0, all pivots shall stay on the center
                 case bz.MeshPivotAnchor.LOWEST_XYZ:
                 case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
-
                 case bz.MeshPivotAnchor.CENTER_XYZ:
                 {
                     mesh.position = position;

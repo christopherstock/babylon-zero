@@ -21,7 +21,7 @@
         *
         *   @param canvas The canvas element being used by the babylon.JS engine.
         ***************************************************************************************************************/
-        constructor( canvas:HTMLCanvasElement )
+        public constructor( canvas:HTMLCanvasElement )
         {
             this.canvas = canvas;
 

@@ -106,7 +106,7 @@
                     ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
                     2.5,
                     new BABYLON.PowerEase(),
-                    () => { console.log( 'Cam reached target' ) }
+                    () => { bz.Debug.camera.log( 'Cam reached target' ) }
                 );
                 this.camTarget = !this.camTarget;
             }
@@ -219,7 +219,7 @@
                     new bz.Model
                     (
                         [
-                            tv
+                            tv,
                         ]
                     )
                 ),
@@ -285,7 +285,7 @@
                                 this.ambientColor
                             ),
                         ]
-                    ),
+                    )
                 ),
 
                 new bz.Wall
@@ -356,7 +356,7 @@
                                 bz.Physic.NONE,
                                 1.0,
                                 this.ambientColor
-                            )
+                            ),
                         ]
                     )
                 ),
