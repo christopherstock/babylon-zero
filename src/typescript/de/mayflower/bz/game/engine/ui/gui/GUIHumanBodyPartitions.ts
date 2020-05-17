@@ -125,7 +125,7 @@
                 180,
                 250,
                 20,
-                ( value:number ) =>
+                ( value:number ) :void =>
                 {
                     // bz.Debug.gui.log( 'slider changed to [' + value + ']' );
 

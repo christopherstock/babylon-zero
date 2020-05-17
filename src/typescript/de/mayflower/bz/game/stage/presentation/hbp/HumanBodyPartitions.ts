@@ -244,7 +244,7 @@
 
             // link arc rotate camera zoom to slider
             this.cameraSystem.getArcRotateCamera().onViewMatrixChangedObservable.add(
-                () => {
+                () :void => {
 
                     ( this.gui as bz.GUIHumanBodyPartitions ).cameraZoomSlider.value =
                     (

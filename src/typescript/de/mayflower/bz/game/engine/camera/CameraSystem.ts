@@ -487,7 +487,7 @@
             );
 
             // highlight
-            const postProcess = new BABYLON.HighlightsPostProcess
+            const postProcess :BABYLON.HighlightsPostProcess = new BABYLON.HighlightsPostProcess
             (
                 'highlights',
                 1.0,

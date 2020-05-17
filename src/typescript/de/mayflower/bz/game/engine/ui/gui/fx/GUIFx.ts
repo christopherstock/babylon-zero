@@ -67,7 +67,9 @@
             --this.lifetimeTicks;
 
             // assign opacity according to lifetime ticks
-            this.fxRect.alpha = ( bz.SettingGUI.GUI_FX_INITIAL_ALPHA * this.lifetimeTicks / bz.SettingGUI.GUI_FX_LIFETIME );
+            this.fxRect.alpha = (
+                bz.SettingGUI.GUI_FX_INITIAL_ALPHA * this.lifetimeTicks / bz.SettingGUI.GUI_FX_LIFETIME
+            );
         }
 
         /** ************************************************************************************************************

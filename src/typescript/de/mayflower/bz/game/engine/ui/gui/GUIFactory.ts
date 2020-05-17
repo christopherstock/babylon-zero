@@ -236,7 +236,7 @@
 
             button.onPointerClickObservable.add
             (
-                () => {
+                () :void => {
                     onClick();
                 }
             );
@@ -289,7 +289,7 @@
 
             checkbox.onPointerClickObservable.add
             (
-                () => {
+                () :void => {
                     onToggle();
                 }
             );
@@ -342,7 +342,7 @@
 
             radioButton.onIsCheckedChangedObservable.add
             (
-                ( checked:boolean ) => {
+                ( checked:boolean ) :void => {
                     onCheck( checked );
                 }
             );

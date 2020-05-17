@@ -54,7 +54,7 @@
         "webpack-dev-server": "3.10.3"
     },
     "dependencies": {
-        "babylonjs": "4.0.3",
+        "babylonjs": "4.1.0",
         "babylonjs-gui": "4.0.3",
         "cannon": "0.6.2",
         "earcut": "2.1.5",
