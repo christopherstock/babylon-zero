@@ -34,7 +34,8 @@
 
                 bz.SettingColor.COLOR_RGB_WHITE,
                 bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE,
-                bz.CameraType.FIRST_PERSON
+                bz.CameraType.FIRST_PERSON,
+                bz.GUIType.GAME
             );
         }
 
@@ -601,16 +602,5 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        ***************************************************************************************************************/
-        protected createGUI() : bz.GUI
-        {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
-            gui.init();
-
-            return gui;
         }
     }

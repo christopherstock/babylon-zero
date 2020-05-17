@@ -37,7 +37,8 @@
 
                 bz.SettingColor.COLOR_RGB_GREY_QUARTER,
                 new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 ),
-                bz.CameraType.ARC_ROTATE
+                bz.CameraType.ARC_ROTATE,
+                bz.GUIType.PRODUCT_CONFIGURATOR
             );
         }
 
@@ -345,19 +346,6 @@
         protected createPointerSystem() : bz.PointerSystem
         {
             return new bz.PointerSystem( this, this.canvas, false, false );
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        protected createGUI() : bz.GUI
-        {
-            const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator( this.scene.getNativeScene(), this );
-            gui.init();
-
-            return gui;
         }
 
         /** ************************************************************************************************************

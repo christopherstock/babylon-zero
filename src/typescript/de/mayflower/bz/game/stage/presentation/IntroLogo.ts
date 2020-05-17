@@ -33,7 +33,8 @@
 
                 bz.SettingColor.COLOR_RGB_BLACK,
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-                bz.CameraType.STATIONARY
+                bz.CameraType.STATIONARY,
+                bz.GUIType.GAME
             );
 
             this.rotY = 270.0;
@@ -269,18 +270,5 @@
         ***************************************************************************************************************/
         protected onInitComplete() : void
         {
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        protected createGUI() : bz.GUI
-        {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
-            gui.init();
-
-            return gui;
         }
     }

@@ -22,7 +22,8 @@
 
                 new bjs.Color3( 0.1, 0.1, 0.1 ),
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-                bz.CameraType.FIRST_PERSON
+                bz.CameraType.FIRST_PERSON,
+                bz.GUIType.GAME
             );
         }
 
@@ -825,19 +826,6 @@
         protected createPointerSystem() : bz.PointerSystem
         {
             return new bz.PointerSystem( this, this.canvas, false, true );
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        protected createGUI() : bz.GUI
-        {
-            const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
-            gui.init();
-
-            return gui;
         }
 
         /** ************************************************************************************************************

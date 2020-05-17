@@ -9,7 +9,6 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Move 'createGUI' to bz.Stage and make it final. Create GUIType enum.
     *   TODO Remove global references to Main.game:
     *   TODO Minimize access to bz.Scene.getNativeScene()
     *   TODO pass Interface getFps and KeySystem to Stage and GUI.
@@ -36,13 +35,6 @@
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *
     *   =====================
-    *   TODO Sounds
-    *   =====================
-    *   TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
-    *        https://doc.babylonjs.com/how_to/playing_sounds_and_music
-    *   TODO Sounds for shot, bullet hit and bullet drop.
-    *
-    *   =====================
     *   TODO Issues
     *   =====================
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
@@ -53,6 +45,13 @@
     *   =====================
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
+    *
+    *   =====================
+    *   TODO Sounds
+    *   =====================
+    *   TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
+    *        https://doc.babylonjs.com/how_to/playing_sounds_and_music
+    *   TODO Sounds for shot, bullet hit and bullet drop.
     *
     *   =====================
     *   TODO Fx

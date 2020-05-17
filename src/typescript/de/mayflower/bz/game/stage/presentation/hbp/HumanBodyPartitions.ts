@@ -34,7 +34,8 @@
 
                 bz.SettingColor.COLOR_RGB_GREY_HALF,
                 new BABYLON.Color4( 0.75, 0.75, 0.75, 1.0 ),
-                bz.CameraType.ARC_ROTATE
+                bz.CameraType.ARC_ROTATE,
+                bz.GUIType.HUMAN_BODY_PARTITIONS
             );
         }
 
@@ -219,19 +220,6 @@
         protected createPointerSystem() : bz.PointerSystem
         {
             return new bz.PointerSystem( this, this.canvas, true, false );
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        protected createGUI() : bz.GUI
-        {
-            const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions( this.scene.getNativeScene(), this );
-            gui.init();
-
-            return gui;
         }
 
         /** ************************************************************************************************************

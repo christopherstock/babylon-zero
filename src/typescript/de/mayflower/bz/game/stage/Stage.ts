@@ -6,17 +6,20 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
+        // TODO move all readonly fields to StageConfig ?
+
         /** The scene that represents this stage. */
         protected           readonly        scene                   :bz.Scene                               = null;
         /** The canvas system this stage is displayed on. */
         protected           readonly        canvas                  :bz.CanvasSystem                        = null;
-
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The clear color of this stage is the background color of all mesh materials. */
         protected           readonly        clearColor              :BABYLON.Color4                         = null;
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
+        /** The initial GUI to set for this stage. */
+        protected           readonly        guiType                 :bz.GUIType                             = null;
 
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -58,28 +61,28 @@
         *
         *   @param scene         The scene representing this stage.
         *   @param canvas        The canvas system this stage is displayed on.
-        *
         *   @param ambientColor  Specifies the ambient color of the babylon.JS scene
         *                        and is set as the emissive color of all faces.
         *   @param clearColor    The clear color of the stage is the background color of the scene.
         *   @param initialCamera The initial camera for this stage.
+        *   @param guiType       The type of GUI to set for this stage.
         ***************************************************************************************************************/
         protected constructor
         (
             scene         :bz.Scene,
             canvas        :bz.CanvasSystem,
-
             ambientColor  :BABYLON.Color3,
             clearColor    :BABYLON.Color4,
-            initialCamera :bz.CameraType
+            initialCamera :bz.CameraType,
+            guiType       :bz.GUIType
         )
         {
             this.scene         = scene;
             this.canvas        = canvas;
-
             this.ambientColor  = ambientColor;
             this.clearColor    = clearColor;
             this.initialCamera = initialCamera;
+            this.guiType       = guiType;
         }
 
         /** ************************************************************************************************************
@@ -174,7 +177,42 @@
         *
         *   @return The created GUI.
         ***************************************************************************************************************/
-        protected abstract createGUI() : bz.GUI;
+        private createGUI() : bz.GUI
+        {
+            switch ( this.guiType )
+            {
+                case bz.GUIType.HUMAN_BODY_PARTITIONS:
+                {
+                    const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions(
+                        this.scene.getNativeScene(),
+                        ( this as unknown as bz.HumanBodyPartitions )
+                    );
+                    gui.init();
+
+                    return gui;
+                }
+
+                case bz.GUIType.PRODUCT_CONFIGURATOR:
+                {
+                    const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator(
+                        this.scene.getNativeScene(),
+                        ( this as unknown as bz.ProductConfigurator )
+                    );
+                    gui.init();
+
+                    return gui;
+                }
+
+                case bz.GUIType.GAME:
+                default:
+                {
+                    const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
+                    gui.init();
+
+                    return gui;
+                }
+            }
+        }
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.
