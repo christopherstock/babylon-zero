@@ -98,7 +98,10 @@
 
             if ( pickingInfos.length > 0 )
             {
-                bz.Debug.fire.log( '  [' + pickingInfos.length + '] collision detected on game object.' );
+                bz.Debug.fire.log
+                (
+                    '  [' + String( pickingInfos.length ) + '] collision detected on game object.'
+                );
 
                 for ( const pickingInfo of pickingInfos )
                 {
@@ -153,7 +156,13 @@
 
             // lower energy
             this.energy -= damage;
-            bz.Debug.fire.log( 'Object got hurt with [' + damage + '] damage - new energy is [' + this.energy + ']' );
+            bz.Debug.fire.log
+            (
+                'Object got hurt with ['
+                + String( damage )
+                + '] damage - new energy is ['
+                + String( this.energy ) + ']'
+            );
 
             // clip lowest energy value
             if ( this.energy <= 0 )

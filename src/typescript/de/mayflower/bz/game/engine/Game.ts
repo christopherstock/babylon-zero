@@ -38,7 +38,7 @@
         public switchStage( targetStage:bz.StageId ) : void
         {
             bz.Debug.stage.log( '' );
-            bz.Debug.stage.log( 'Switching to target stage [' + targetStage + ']' );
+            bz.Debug.stage.log( 'Switching to target stage [' + String( targetStage ) + ']' );
 
             // stop physics engine immediately
             this.scene.enablePhysics( false );
@@ -47,7 +47,7 @@
             let lastPauseMenuItem:number = 0;
 
             // check existent stage unload
-            if ( this.stage != null )
+            if ( this.stage !== null )
             {
                 this.engine.setLoadingUiVisibility( true );
                 this.engine.setRenderLoopExecution( false, this.render );

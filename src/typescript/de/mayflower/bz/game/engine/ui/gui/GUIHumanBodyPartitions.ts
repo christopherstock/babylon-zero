@@ -1,4 +1,6 @@
 
+    /* eslint-disable max-len */
+
     import * as bz   from '../../../..';
     import * as bjsg from 'babylonjs-gui'
 
@@ -8,13 +10,10 @@
     export class GUIHumanBodyPartitions extends bz.GUI
     {
         /** The bg color for the GUI. */
-        // tslint:disable-next-line:max-line-length
         public      static  readonly    GUI_COLOR_BG            :string                             = 'rgba( 0, 0, 0, 0.125 )';
         /** The text color for the GUI. */
-        // tslint:disable-next-line:max-line-length
         public      static  readonly    GUI_COLOR_TEXT          :string                             = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
         /** The text shadow color for the GUI. */
-        // tslint:disable-next-line:max-line-length
         public      static  readonly    GUI_COLOR_SHADOW        :string                             = bz.SettingColor.COLOR_CSS_BLACK_OPAQUE;
         /** The border color for the GUI. */
         public      static  readonly    GUI_COLOR_BORDER        :string                             = '#ffffff';
@@ -26,7 +25,7 @@
         public                          descriptionGUI          :bz.GUIHumanPartitionDescription    = null;
 
         /** A reference to the Human Body Partition stage. */
-        private                         parent                  :bz.HumanBodyPartitions             = null;
+        private             readonly    parent                  :bz.HumanBodyPartitions             = null;
 
         /** ************************************************************************************************************
         *   Creates a new GUI for the Product Configurator.

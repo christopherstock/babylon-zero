@@ -2,7 +2,6 @@
     /** ****************************************************************************************************************
     *   Specifies all adjustments and balancings for the human player.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SettingPlayerHuman
     {
         /** The player's diameter on the XZ axis. */

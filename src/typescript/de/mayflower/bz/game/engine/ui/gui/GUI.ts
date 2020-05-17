@@ -48,7 +48,10 @@
                 null
             );
             this.guiFg.addControl( this.fpsText );
-            if ( !bz.SettingDebug.SHOW_FPS ) this.fpsText.isVisible = false;
+            if ( !bz.SettingDebug.SHOW_FPS )
+            {
+                this.fpsText.isVisible = false;
+            }
 
             // create the message and fx managers
             this.messageManager = new bz.GUIMessageManager();

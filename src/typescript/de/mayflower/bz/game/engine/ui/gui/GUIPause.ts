@@ -8,7 +8,9 @@
     export class GUIPause
     {
         /** The bg color for the GUI. */
-        private     static  readonly        GUI_COLOR_BG            :string                                 = 'rgba( 100, 100, 100, 0.25 )';
+        private     static  readonly        GUI_COLOR_BG            :string                                 = (
+            'rgba( 100, 100, 100, 0.25 )'
+        );
 
         /** All items of the GUI menu. */
         private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =

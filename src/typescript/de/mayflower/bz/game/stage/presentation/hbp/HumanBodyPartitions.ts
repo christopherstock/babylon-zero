@@ -5,7 +5,6 @@
     *   The 'human body partitions' stage offers an interactive body model where
     *   specific partitions can be selected. Various information shall be displayed after picking one body partition.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class HumanBodyPartitions extends bz.Stage
     {
         /** The overlay color for selected meshes. */

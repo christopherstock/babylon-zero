@@ -38,8 +38,14 @@
             let canvasHeight:number = window.innerHeight;
 
             // clip to minimum canvas dimensions
-            if ( canvasWidth  < bz.SettingEngine.CANVAS_MIN_WIDTH  ) canvasWidth  = bz.SettingEngine.CANVAS_MIN_WIDTH;
-            if ( canvasHeight < bz.SettingEngine.CANVAS_MIN_HEIGHT ) canvasHeight = bz.SettingEngine.CANVAS_MIN_HEIGHT;
+            if ( canvasWidth  < bz.SettingEngine.CANVAS_MIN_WIDTH  )
+            {
+                canvasWidth  = bz.SettingEngine.CANVAS_MIN_WIDTH;
+            }
+            if ( canvasHeight < bz.SettingEngine.CANVAS_MIN_HEIGHT )
+            {
+                canvasHeight = bz.SettingEngine.CANVAS_MIN_HEIGHT;
+            }
 
             const dimensionsChanged:boolean =
             (
@@ -53,8 +59,9 @@
 
             bz.Debug.canvas.log
             (
-                'Updated canvas dimensions to [' + canvasWidth + 'x' + canvasHeight + '] '
-                + 'changed [' + dimensionsChanged + ']'
+                'Updated canvas dimensions to ['
+                + String( canvasWidth ) + 'x' + String( canvasHeight ) + '] '
+                + 'changed [' + String( dimensionsChanged ) + ']'
             );
 
             return dimensionsChanged;

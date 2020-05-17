@@ -31,7 +31,7 @@
                 new bz.GUIFx
                 (
                     gui,
-                    type,
+                    type
                 )
             );
         }

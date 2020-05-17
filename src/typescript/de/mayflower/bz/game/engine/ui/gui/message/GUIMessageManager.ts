@@ -31,7 +31,7 @@
                 new bz.GUIMessage
                 (
                     gui,
-                    msg,
+                    msg
                 )
             );
 
