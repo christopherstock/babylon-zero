@@ -1,6 +1,5 @@
 
     import * as bz   from '../../../..';
-    import * as bjs  from 'babylonjs'
     import * as bjsg from 'babylonjs-gui'
 
     /** ****************************************************************************************************************
@@ -9,7 +8,6 @@
     export class GUIPause
     {
         /** The bg color for the GUI. */
-        // tslint:disable-next-line:max-line-length
         private     static  readonly        GUI_COLOR_BG            :string                                 = 'rgba( 100, 100, 100, 0.25 )';
 
         /** All items of the GUI menu. */

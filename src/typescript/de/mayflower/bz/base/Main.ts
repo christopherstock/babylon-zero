@@ -25,6 +25,8 @@
     *   TODO Fix/Create! exploding models?
     *   TODO Create 3D space shooting engine.
     *
+    *   TODO Create 'The Office' - version MVP 1.0.
+    *
     *   =====================
     *   TODO Refactorings
     *   =====================

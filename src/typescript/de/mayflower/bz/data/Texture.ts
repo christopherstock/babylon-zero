@@ -117,10 +117,22 @@
                 case bz.TextureType.VIDEO:
                 {
                     // create video texture and mute audio
-                    const videoTexture:BABYLON.VideoTexture = new BABYLON.VideoTexture( this.fileName, this.fileName, scene, true );
+                    const videoTexture:BABYLON.VideoTexture = new BABYLON.VideoTexture(
+                        this.fileName,
+                        this.fileName,
+                        scene,
+                        true
+                    );
                     videoTexture.video.muted    = true;
                     videoTexture.video.autoplay = true;
-                    videoTexture.video.play();
+                    videoTexture.video.play().then(
+                        () :void => {
+                            // no need to handle this promise fullfillment
+                        } )
+                        .catch( () :void => {
+                            // no need to catch this promise error
+                        }
+                    );
 
                     this.nativeTexture = videoTexture;
                     break;

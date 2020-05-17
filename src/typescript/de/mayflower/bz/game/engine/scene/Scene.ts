@@ -49,7 +49,14 @@
             // show the babylon.JS debug layer
             if ( bz.SettingDebug.SHOW_SCENE_DEBUG_PANEL )
             {
-                this.babylonScene.debugLayer.show()
+                this.babylonScene.debugLayer.show().then(
+                    () :void => {
+                        // no need to handle this promise fullfillment
+                    } )
+                    .catch( () :void => {
+                        // no need to catch this promise error
+                    }
+                );
             }
 
             // create physics engine
