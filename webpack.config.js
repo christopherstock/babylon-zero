@@ -12,7 +12,7 @@ module.exports = ( env, argv ) => {
     let config = {
         entry: './src/typescript/index.ts',
         output: {
-            filename: 'bundle.js',
+            filename: 'babylon-zero-v0.0.10.js',
             path: __dirname + '/dist/js/'
         },
 
