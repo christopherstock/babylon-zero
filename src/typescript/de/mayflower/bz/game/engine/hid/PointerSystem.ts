@@ -79,13 +79,13 @@
 
                 const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
                 dir.normalize();
-
+console.log( pickResult.pickedMesh );
                 // horrible debug implementation
                 if
                 (
-                        pickResult.pickedMesh                             != null
-                    &&  pickResult.pickedMesh.physicsImpostor             != null
-                    &&  pickResult.pickedMesh.physicsImpostor.physicsBody != null
+                        pickResult.pickedMesh                             !== null
+                    &&  pickResult.pickedMesh.physicsImpostor             !== undefined
+                    &&  pickResult.pickedMesh.physicsImpostor.physicsBody !== null
                 )
                 {
                     pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );

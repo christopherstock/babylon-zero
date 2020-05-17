@@ -346,7 +346,7 @@
         ***************************************************************************************************************/
         private manipulateVelocities() : void
         {
-            if ( this.body.physicsImpostor != null )
+            if ( this.body.physicsImpostor !== undefined )
             {
                 // suppress linear velocities except Y
                 // const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();

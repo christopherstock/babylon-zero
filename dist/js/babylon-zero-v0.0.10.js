@@ -19632,9 +19632,9 @@ var Texture = /** @class */ (function () {
         var e_1, _a;
         var DEFAULT_BULLET_HOLE_TEXTURE = Texture.BULLET_HOLE_CONCRETE;
         // try to pick the texture filename
-        if (mesh != null
-            && mesh.material != null
-            && mesh.material.getActiveTextures() != null
+        if (mesh !== null
+            && mesh.material !== null
+            && mesh.material.getActiveTextures() !== null
             && mesh.material.getActiveTextures().length > 0) {
             // pick texture filename
             var meshTextureFileName = mesh.material.getActiveTextures()[0].name;

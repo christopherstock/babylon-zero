@@ -382,7 +382,7 @@
                 // this.body.moveWithCollisions( this.moveDelta );
 
                 // apply physical impulse
-                if ( this.body.physicsImpostor != null )
+                if ( this.body.physicsImpostor !== undefined )
                 {
                     // this.body.physicsImpostor.setDeltaPosition ??
 
@@ -418,7 +418,7 @@
         ***************************************************************************************************************/
         private manipulateVelocities() : void
         {
-            if ( this.body.physicsImpostor != null )
+            if ( this.body.physicsImpostor !== undefined )
             {
                 // suppress linear velocities except Y
                 const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
@@ -746,7 +746,7 @@
         private isFalling() : boolean
         {
             return (
-                    this.body.physicsImpostor != null
+                    this.body.physicsImpostor !== undefined
                 &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayerHuman.FALLING_VELOCITY_Y
             );
         }

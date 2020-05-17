@@ -241,9 +241,9 @@
             // try to pick the texture filename
             if
             (
-                mesh != null
-                && mesh.material != null
-                && mesh.material.getActiveTextures() != null
+                mesh !== null
+                && mesh.material !== null
+                && mesh.material.getActiveTextures() !== null
                 && mesh.material.getActiveTextures().length > 0
             )
             {
