@@ -17,9 +17,9 @@
         // private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
 
         /** The current height of the player. Changes on ducking. */
-        private                         heightY                     :number                             = 0.0;
+        private             readonly    heightY                     :number                             = 0.0;
         /** Flags if rotZ view centering should occur this tick. */
-        private                         centerRotZ                  :boolean                            = false;
+        private             readonly    centerRotZ                  :boolean                            = false;
 
         /** Flags if fire should be performed this tick. */
         private                         fire                        :boolean                            = false;
@@ -315,13 +315,25 @@
             )
             {
                 let newPositionY :number = ( this.body.position.y + this.moveDelta.y );
-                if ( newPositionY < 1.0  ) newPositionY = 1.0;
-                if ( newPositionY > 25.0 ) newPositionY = 25.0;
+                if ( newPositionY < 1.0  )
+                {
+                    newPositionY = 1.0;
+                }
+                if ( newPositionY > 25.0 )
+                {
+                    newPositionY = 25.0;
+                }
                 this.body.position.y = newPositionY;
 
                 let newPositionZ :number = ( this.body.position.z + this.moveDelta.z );
-                if ( newPositionZ < 1.0  ) newPositionZ = 1.0;
-                if ( newPositionZ > 50.0 ) newPositionZ = 50.0;
+                if ( newPositionZ < 1.0  )
+                {
+                    newPositionZ = 1.0;
+                }
+                if ( newPositionZ > 50.0 )
+                {
+                    newPositionZ = 50.0;
+                }
                 this.body.position.z = newPositionZ;
 
                 // reset move deltas
@@ -410,7 +422,7 @@
         {
             this.duck = !this.duck;
 
-            bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
+            bz.Debug.player.log( 'Player ducking: [' + String( this.duck ) + ']' );
         }
 
         /** ************************************************************************************************************

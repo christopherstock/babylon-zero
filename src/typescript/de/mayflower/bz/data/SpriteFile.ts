@@ -1,8 +1,9 @@
 
+    /* eslint-disable max-len */
+
     /** ****************************************************************************************************************
     *   Specifies all sprite files to load with their according frame size information.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SpriteFile
     {
         /** The sprite 'tree'. */

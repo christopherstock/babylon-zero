@@ -46,9 +46,9 @@
         protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
 
         /** A collection of all bullet holes in this stage. */
-        private                             bulletHoles             :bz.BulletHole[]                        = [];
+        private             readonly        bulletHoles             :bz.BulletHole[]                        = [];
         /** A collection of all debug meshes in this stage. */
-        private                             debugMeshes             :BABYLON.Mesh[]                         = [];
+        private             readonly        debugMeshes             :BABYLON.Mesh[]                         = [];
 
         /** Indicates pause state. */
         private                             pause                   :boolean                                = false;
@@ -81,6 +81,105 @@
             this.clearColor    = clearColor;
             this.initialCamera = initialCamera;
         }
+
+        /** ************************************************************************************************************
+        *   Sets up the player for this stage.
+        *
+        *   @return The player instance for this stage.
+        ***************************************************************************************************************/
+        protected abstract createPlayer() : bz.Player;
+
+        /** ************************************************************************************************************
+        *   Creates the camera system that manages all cameras that appear in this level.
+        *
+        *   @return The camera system for this stage.
+        ***************************************************************************************************************/
+        protected abstract createCameraSystem() : bz.CameraSystem;
+
+        /** ************************************************************************************************************
+        *   Handles level specific keys.
+        *
+        *   @param keySystem The key system to use for key determination.
+        ***************************************************************************************************************/
+        protected abstract handleLevelKeys( keySystem:bz.KeySystem ) : void;
+
+        /** ************************************************************************************************************
+        *   Creates and returns all walls this stage consists of.
+        *
+        *   @return All walls of this stage.
+        ***************************************************************************************************************/
+        protected abstract createWalls() : bz.Wall[];
+
+        /** ************************************************************************************************************
+        *   Creates and returns all items this stage consists of.
+        *
+        *   @return All items of this stage.
+        ***************************************************************************************************************/
+        protected abstract createItems() : bz.Item[];
+
+        /** ************************************************************************************************************
+        *   Creates and returns all bots this stage consists of.
+        *
+        *   @return All bots of this stage.
+        ***************************************************************************************************************/
+        protected abstract createBots() : bz.Bot[];
+
+        /** ************************************************************************************************************
+        *   Sets up the skybox.
+        *
+        *   @return The created skybox for this stage.
+        ***************************************************************************************************************/
+        protected abstract createSkybox() : BABYLON.Mesh;
+
+        /** ************************************************************************************************************
+        *   Creates all sprites that appear in the stage.
+        *
+        *   @return All sprites that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createSprites() : bz.Sprite[];
+
+        /** ************************************************************************************************************
+        *   Creates all lights that appear in this level.
+        *
+        *   @return All lights that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createLights() : BABYLON.Light[];
+
+        /** ************************************************************************************************************
+        *   Creates all shadow generators that appear in this level.
+        *
+        *   @return All shadow generators that appear in this stage.
+        ***************************************************************************************************************/
+        protected abstract createShadowGenerators() : BABYLON.ShadowGenerator[];
+
+        /** ************************************************************************************************************
+        *   Sets up shadows for all meshes.
+        ***************************************************************************************************************/
+        protected abstract setupShadows() : void;
+
+        /** ************************************************************************************************************
+        *   Sets up fog for this stage.
+        ***************************************************************************************************************/
+        protected abstract setupFog() : void;
+
+        /** ************************************************************************************************************
+        *   Sets up the pointer system.
+        *
+        *   @return The pointer system to use in this stage.
+        ***************************************************************************************************************/
+        protected abstract createPointerSystem() : bz.PointerSystem;
+
+        /** ************************************************************************************************************
+        *   Creates the GUI for this stage.
+        *
+        *   @return The created GUI.
+        ***************************************************************************************************************/
+        protected abstract createGUI() : bz.GUI;
+
+        /** ************************************************************************************************************
+        *   Being invoked when the stage setup is complete.
+        ***************************************************************************************************************/
+        protected abstract onInitComplete() : void;
 
         /** ************************************************************************************************************
         *   Inits the stage.
@@ -341,7 +440,7 @@
             // toggle pause
             this.pause = !this.pause;
 
-            bz.Debug.game.log( 'Toggle pause to [' + this.pause + ']');
+            bz.Debug.game.log( 'Toggle pause to [' + String( this.pause ) + ']');
 
             // stop or resume physics engine
             this.scene.enablePhysics( !this.pause );
@@ -372,105 +471,6 @@
         {
             this.gui.setPauseMenuIndex( index );
         }
-
-        /** ************************************************************************************************************
-        *   Sets up the player for this stage.
-        *
-        *   @return The player instance for this stage.
-        ***************************************************************************************************************/
-        protected abstract createPlayer() : bz.Player;
-
-        /** ************************************************************************************************************
-        *   Creates the camera system that manages all cameras that appear in this level.
-        *
-        *   @return The camera system for this stage.
-        ***************************************************************************************************************/
-        protected abstract createCameraSystem() : bz.CameraSystem;
-
-        /** ************************************************************************************************************
-        *   Handles level specific keys.
-        *
-        *   @param keySystem The key system to use for key determination.
-        ***************************************************************************************************************/
-        protected abstract handleLevelKeys( keySystem:bz.KeySystem ) : void;
-
-        /** ************************************************************************************************************
-        *   Creates and returns all walls this stage consists of.
-        *
-        *   @return All walls of this stage.
-        ***************************************************************************************************************/
-        protected abstract createWalls() : bz.Wall[];
-
-        /** ************************************************************************************************************
-        *   Creates and returns all items this stage consists of.
-        *
-        *   @return All items of this stage.
-        ***************************************************************************************************************/
-        protected abstract createItems() : bz.Item[];
-
-        /** ************************************************************************************************************
-        *   Creates and returns all bots this stage consists of.
-        *
-        *   @return All bots of this stage.
-        ***************************************************************************************************************/
-        protected abstract createBots() : bz.Bot[];
-
-        /** ************************************************************************************************************
-        *   Sets up the skybox.
-        *
-        *   @return The created skybox for this stage.
-        ***************************************************************************************************************/
-        protected abstract createSkybox() : BABYLON.Mesh;
-
-        /** ************************************************************************************************************
-        *   Creates all sprites that appear in the stage.
-        *
-        *   @return All sprites that appear in this stage.
-        ***************************************************************************************************************/
-        protected abstract createSprites() : bz.Sprite[];
-
-        /** ************************************************************************************************************
-        *   Creates all lights that appear in this level.
-        *
-        *   @return All lights that appear in this stage.
-        ***************************************************************************************************************/
-        protected abstract createLights() : BABYLON.Light[];
-
-        /** ************************************************************************************************************
-        *   Creates all shadow generators that appear in this level.
-        *
-        *   @return All shadow generators that appear in this stage.
-        ***************************************************************************************************************/
-        protected abstract createShadowGenerators() : BABYLON.ShadowGenerator[];
-
-        /** ************************************************************************************************************
-        *   Sets up shadows for all meshes.
-        ***************************************************************************************************************/
-        protected abstract setupShadows() : void;
-
-        /** ************************************************************************************************************
-        *   Sets up fog for this stage.
-        ***************************************************************************************************************/
-        protected abstract setupFog() : void;
-
-        /** ************************************************************************************************************
-        *   Sets up the pointer system.
-        *
-        *   @return The pointer system to use in this stage.
-        ***************************************************************************************************************/
-        protected abstract createPointerSystem() : bz.PointerSystem;
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        protected abstract createGUI() : bz.GUI;
-
-        /** ************************************************************************************************************
-        *   Being invoked when the stage setup is complete.
-        ***************************************************************************************************************/
-        protected abstract onInitComplete() : void;
 
         /** ************************************************************************************************************
         *   Sets up the coordinal axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.

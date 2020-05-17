@@ -585,7 +585,7 @@
                     (
                         this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1,
-                        new BABYLON.Vector3( -25.0, 20.0, 25.0 ),
+                        new BABYLON.Vector3( -10.0, 20.0, 0.0 ),
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
@@ -598,7 +598,7 @@
                     (
                         this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1,
-                        new BABYLON.Vector3( -25.0, 20.0, 35.0 ),
+                        new BABYLON.Vector3( -10.0, 20.0, 10.0 ),
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
@@ -611,7 +611,7 @@
                     (
                         this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1,
-                        new BABYLON.Vector3( -25.0, 20.0, 45.0 ),
+                        new BABYLON.Vector3( -10.0, 20.0, 15.0 ),
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )

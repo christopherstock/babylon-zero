@@ -439,7 +439,7 @@
                             : velocity.y
                         ),
 
-                        ( velocity.z * bz.SettingPlayerHuman.MOVE_VELOCITY_MULTIPLIER ),
+                        ( velocity.z * bz.SettingPlayerHuman.MOVE_VELOCITY_MULTIPLIER )
                     )
                 );
 
@@ -504,7 +504,7 @@
         {
             this.duck = !this.duck;
 
-            bz.Debug.player.log( 'Player ducking: [' + this.duck + ']' );
+            bz.Debug.player.log( 'Player ducking: [' + String( this.duck ) + ']' );
         }
 
         /** ************************************************************************************************************

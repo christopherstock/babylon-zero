@@ -38,7 +38,7 @@
 
                 this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
                 (
-                    'spriteManager' + i,
+                    'spriteManager' + String( i ),
                     bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
                     bz.SettingEngine.MAX_SPRITE_INSTANCES,
                     spriteFile.frameSize,
@@ -54,7 +54,7 @@
         ***************************************************************************************************************/
         public createNextSpriteId() : string
         {
-            return 'sprite' + this.nextSpriteId++;
+            return 'sprite' + String( this.nextSpriteId++ );
         }
 
         /** ************************************************************************************************************

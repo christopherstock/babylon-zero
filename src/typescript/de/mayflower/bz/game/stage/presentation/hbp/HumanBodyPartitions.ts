@@ -102,7 +102,7 @@
                 bz.ModelCompoundType.NONE
             );
 
-            bz.Debug.hbp.log( 'Imported human model with [' + this.model.getMeshCount() + '] meshes' );
+            bz.Debug.hbp.log( 'Imported human model with [' + String( this.model.getMeshCount() ) + '] meshes' );
 
             return [
 
@@ -295,7 +295,9 @@
             if ( this.currentSelectedMesh != null )
             {
                 // disable highlighting
-                const newMaterial:BABYLON.StandardMaterial = ( this.currentSelectedMesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
+                const newMaterial:BABYLON.StandardMaterial = (
+                    this.currentSelectedMesh.material as BABYLON.StandardMaterial
+                ).clone( bz.MaterialSystem.createNextMaterialId() );
                 newMaterial.diffuseColor  = bz.SettingColor.COLOR_RGB_WHITE;
                 newMaterial.specularColor = bz.SettingColor.COLOR_RGB_BLACK;
                 this.currentSelectedMesh.material = newMaterial;

@@ -341,7 +341,7 @@
                 {
                     const numberToSubtract    :number                   = ratio; // 0.025 * bz.MathUtil.getRandomInt();
 
-                    const oldStandardMaterial :BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial );
+                    const oldStandardMaterial :BABYLON.StandardMaterial = mesh.material;
                     const oldAmbientColor     :BABYLON.Color3           = oldStandardMaterial.ambientColor;
                     const oldR                :number                   = oldAmbientColor.r;
                     const oldG                :number                   = oldAmbientColor.g;

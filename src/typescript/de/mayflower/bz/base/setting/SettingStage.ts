@@ -1,10 +1,11 @@
 
+    /* eslint-disable max-len */
+
     import * as bz from '../../index';
 
     /** ****************************************************************************************************************
     *   Specifies all global settings for the stages.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SettingStage
     {
         /** The stage the application starts up with. */

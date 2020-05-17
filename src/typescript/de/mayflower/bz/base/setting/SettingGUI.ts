@@ -2,7 +2,6 @@
     /** ****************************************************************************************************************
     *   Specifies all adjustments and balancings for the Graohical User Interface.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SettingGUI
     {
         /** The number of ticks for a GUI message to be displayed. */
