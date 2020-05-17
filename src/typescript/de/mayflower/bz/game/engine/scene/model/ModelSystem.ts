@@ -33,7 +33,7 @@
         ***************************************************************************************************************/
         public load( scene:BABYLON.Scene ) : void
         {
-            bz.Debug.init.log( ' Importing [' + this.fileNames.length + '] model files' );
+            bz.Debug.init.log( ' Importing [' + String( this.fileNames.length ) + '] model files' );
 
             for ( const fileName of this.fileNames )
             {
@@ -101,7 +101,7 @@
         {
             if ( ++this.loadedModelCount >= this.fileNames.length )
             {
-                bz.Debug.init.log( ' All [' + this.fileNames.length + '] models loaded' );
+                bz.Debug.init.log( ' All [' + String( this.fileNames.length ) + '] models loaded' );
 
                 this.onLoadComplete();
             }

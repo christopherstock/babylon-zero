@@ -132,7 +132,13 @@
         {
             if ( this.pointerLocked )
             {
-                bz.Debug.pointer.log( 'PointerMovement X: [' + me.movementX + '] Y: [' + me.movementY + ']' );
+                bz.Debug.pointer.log(
+                    'PointerMovement X: ['
+                    + String( me.movementX )
+                    + '] Y: ['
+                    + String( me.movementY )
+                    + ']'
+                );
             }
 
 

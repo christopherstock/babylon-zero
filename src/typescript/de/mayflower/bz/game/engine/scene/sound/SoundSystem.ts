@@ -90,7 +90,7 @@
         {
             if ( ++this.loadedSoundCount >= this.fileNames.length )
             {
-                bz.Debug.init.log( ' All [' + this.fileNames.length + '] sounds loaded' );
+                bz.Debug.init.log( ' All [' + String( this.fileNames.length ) + '] sounds loaded' );
 
                 this.onLoadComplete();
             }

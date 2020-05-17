@@ -218,7 +218,7 @@
         ***************************************************************************************************************/
         protected createPointerSystem() : bz.PointerSystem
         {
-            return new bz.PointerSystem( this, this.canvas, false, false );
+            return new bz.PointerSystem( this, this.canvas, true, false );
         }
 
         /** ************************************************************************************************************
@@ -257,6 +257,9 @@
 
             // enable auto rotation for arc rotate camera
             this.cameraSystem.getArcRotateCamera().useAutoRotationBehavior = true;
+
+            // exceptional own handling for pointer down ..
+            this.getScene().onPointerDown = this.onPointerDown;
         }
 
         /** ************************************************************************************************************
@@ -304,7 +307,7 @@
             }
 
             // check if no mesh has been selected or if the current mesh has been selected
-            if ( meshToHighlight == null || meshToHighlight === this.currentSelectedMesh )
+            if ( meshToHighlight == null || meshToHighlight == this.currentSelectedMesh )
             {
                 // clear current selected mesh and break
                 this.highlightMesh( null );
@@ -319,10 +322,12 @@
                 const mesh:BABYLON.AbstractMesh = this.model.getMesh( i );
 
                 // check if this mesh is currently selected
-                if ( mesh === meshToHighlight )
+                if ( mesh == meshToHighlight )
                 {
                     // highlight this mesh
-                    const newMaterial:BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial ).clone( bz.MaterialSystem.createNextMaterialId() );
+                    const newMaterial:BABYLON.StandardMaterial = (
+                        mesh.material as BABYLON.StandardMaterial
+                    ).clone( bz.MaterialSystem.createNextMaterialId() );
 
                     newMaterial.diffuseColor  = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;
                     newMaterial.specularColor = HumanBodyPartitions.MESH_HIGHLIGHT_COLOR;

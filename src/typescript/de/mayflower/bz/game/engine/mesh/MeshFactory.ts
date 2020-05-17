@@ -458,7 +458,7 @@
                         color,
                         color,
                     ],
-                    useVertexAlpha: true
+                    useVertexAlpha: true,
                 },
                 scene
             );
@@ -761,13 +761,13 @@
                 scene,
                 {
                     vertexElement: 'vertexShaderCode',
-                    fragmentElement: 'fragmentShaderCode'
+                    fragmentElement: 'fragmentShaderCode',
                 },
                 {
                     needAlphaBlending: true,
                     attributes: ['position'],
                     uniforms:   ['world', 'viewProjection'],
-                    samplers:   ['textureSampler']
+                    samplers:   ['textureSampler'],
                 }
             );
             skyboxMaterial.setTexture( 'textureSampler', texture );

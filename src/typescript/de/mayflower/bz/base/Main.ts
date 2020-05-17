@@ -12,6 +12,7 @@
     *   TODO Introduce ESLint and fix all issues.
     *   TODO Prune _ASSETS
     *   TODO Reset Git Repository?
+    *   TODO Check compiled webpack bundle ..
     *
     *   TODO Implement mouse movements and controls!
     *   TODO Move key reation to Stage.init analog to PointerSystem?
