@@ -18,6 +18,7 @@
     *
     *   TODO Implement mouse movements and controls!
     *   TODO Move key reation to Stage.init analog to PointerSystem?
+    *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Connect Main Menu items to Stages?
     *

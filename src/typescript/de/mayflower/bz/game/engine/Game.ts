@@ -156,7 +156,7 @@
         ***************************************************************************************************************/
         public adjustGameSizeToCanvasSize() : void
         {
-            if ( this.stage != null )
+            if ( this.stage !== null )
             {
                 this.stage.adjustGuiSizeToCanvasSize();
             }

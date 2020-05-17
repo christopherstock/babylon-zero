@@ -41,14 +41,14 @@
 
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );
-            window.addEventListener( 'resize', this.onWindowResize );
+            window.addEventListener( 'resize', () => { this.onWindowResize(); } );
 
             // create key and pointer system
             this.keySystem = new bz.KeySystem();
 
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );
-            window.addEventListener( 'blur', this.onWindowBlur );
+            window.addEventListener( 'blur', () => { this.onWindowBlur(); } );
         }
 
         /** ************************************************************************************************************
@@ -137,7 +137,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
         ***************************************************************************************************************/
-        private onWindowResize=() : void =>
+        private onWindowResize() : void
         {
             // resize loading screen
             this.loadingScreen.resizeLoadingDivToCanvasDimensions();
@@ -158,7 +158,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the browser window loses the application focue.
         ***************************************************************************************************************/
-        private onWindowBlur=() : void =>
+        private onWindowBlur() : void
         {
             bz.Debug.canvas.log( 'Detected window focus lost - Releasing all keys' );
             this.keySystem.releaseAllKeys();

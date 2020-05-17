@@ -34,8 +34,18 @@
             this.stage  = stage;
             this.canvas = canvas;
 
-            this.stage.getScene().onPointerDown   = ( assignPointerDown ? this.onPointerDown : null );
-            this.canvas.getNativeCanvas().onclick = ( assignPointerLock ? this.onCanvasClick : null );
+            this.stage.getScene().onPointerDown = (
+                assignPointerDown
+                ? ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
+                    this.onPointerDown( evt, pickResult );
+                }
+                : null
+            );
+            this.canvas.getNativeCanvas().onclick = (
+                assignPointerLock
+                ? () :void => { this.onCanvasClick(); }
+                : null
+            );
         }
 
         /** ************************************************************************************************************
@@ -44,10 +54,10 @@
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        public onPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
+        public onPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             // check if a result is picked and if the stage is present
-            if ( pickResult.hit && this.stage != null )
+            if ( pickResult.hit && this.stage !== null )
             {
                 bz.Debug.pointer.log( 'Picked a mesh on pointerDown' );
 
@@ -57,7 +67,7 @@
                 if
                 (
                         this.stage.getCameraSystem().isFirstPersonCameraActive()
-                    &&  this.stage.getPlayer() != null
+                    &&  this.stage.getPlayer() !== null
                 )
                 {
                     src = this.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
@@ -86,15 +96,20 @@
         /** ************************************************************************************************************
         *   Requests the mouse/pointer lock feature of the browser.
         ***************************************************************************************************************/
-        private onCanvasClick = () : void =>
+        private onCanvasClick() : void
         {
-            document.addEventListener( 'pointerlockchange',    this.onPointerLockChange );
-            document.addEventListener( 'mozpointerlockchange', this.onPointerLockChange );
-            document.addEventListener( 'mousemove',            this.onMouseMove         );
+            document.addEventListener( 'pointerlockchange',    () => { this.onPointerLockChange(); } );
+            document.addEventListener( 'mozpointerlockchange', () => { this.onPointerLockChange(); } );
+            document.addEventListener( 'mousemove',            ( mouseEvent:MouseEvent ) => {
+                this.onMouseMove( mouseEvent ); }
+            );
 
+            // eslint-disable-next-line @typescript-eslint/unbound-method
             this.canvas.getNativeCanvas().requestPointerLock =
             (
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                     this.canvas.getNativeCanvas().requestPointerLock
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                 ||  this.canvas.getNativeCanvas().mozRequestPointerLock
             );
             this.canvas.getNativeCanvas().requestPointerLock();
@@ -103,7 +118,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the pointer lock changes.
         ***************************************************************************************************************/
-        private onPointerLockChange = () : void =>
+        private onPointerLockChange() : void
         {
             if (
                     document.pointerLockElement               === this.canvas.getNativeCanvas()
@@ -128,7 +143,7 @@
         *   Note that this method is being invoked ASYNCHRONOUS by the system
         *   so ALL occuring events must be stored and processed afterwards!
         ***************************************************************************************************************/
-        private onMouseMove = ( me:MouseEvent ) : void =>
+        private onMouseMove( me:MouseEvent ) : void
         {
             if ( this.pointerLocked )
             {
