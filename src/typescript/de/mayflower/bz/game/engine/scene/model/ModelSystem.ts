@@ -97,7 +97,7 @@
         /** ************************************************************************************************************
         *   Being invoked when one mesh was loaded completely.
         ***************************************************************************************************************/
-        private onLoadModel=() : void =>
+        private onLoadModel() : void
         {
             if ( ++this.loadedModelCount >= this.fileNames.length )
             {

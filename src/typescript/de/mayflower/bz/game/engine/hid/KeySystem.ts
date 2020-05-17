@@ -16,11 +16,11 @@
         ***************************************************************************************************************/
         public constructor()
         {
-            window.addEventListener( 'keydown',     this.onKeyDown, false );
-            window.addEventListener( 'keyup',       this.onKeyUp,   false );
+            window.addEventListener( 'keydown',   ( event:Event ) => { this.onKeyDown( event ); }, false );
+            window.addEventListener( 'keyup',     ( event:Event ) => { this.onKeyUp(   event ); }, false );
 
-            window.addEventListener( 'onkeydown',   this.onKeyDown, false );
-            window.addEventListener( 'onkeyup',     this.onKeyUp,   false );
+            window.addEventListener( 'onkeydown', ( event:Event ) => { this.onKeyDown( event ); }, false );
+            window.addEventListener( 'onkeyup',   ( event:Event ) => { this.onKeyUp(   event ); }, false );
         }
 
         /** ************************************************************************************************************
@@ -28,7 +28,7 @@
         *
         *   @param event The system's propagated key event.
         ***************************************************************************************************************/
-        public onKeyDown=( event:Event ) : void  =>
+        public onKeyDown( event:Event ) : void
         {
             const keyCode:string = ( event as KeyboardEvent ).code;
 
@@ -45,7 +45,7 @@
         *
         *   @param event The system's propagated key event.
         ***************************************************************************************************************/
-        public onKeyUp=( event:Event ) : void =>
+        public onKeyUp( event:Event ) : void
         {
             const keyCode:string = ( event as KeyboardEvent ).code;
 

@@ -295,7 +295,7 @@
             const camera     :BABYLON.Camera = this.getCameraFromType( cameraType );
             const frameCount :number         = ( seconds * bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND );
 
-            if ( ease != null )
+            if ( ease !== null )
             {
                 ease.setEasingMode( BABYLON.EasingFunction.EASINGMODE_EASEINOUT );
             }
@@ -336,7 +336,7 @@
         {
             const frameCount:number = ( seconds * bz.SettingEngine.CAMERA_ANIMATION_FRAMES_PER_SECOND );
 
-            if ( ease != null )
+            if ( ease !== null )
             {
                 ease.setEasingMode( BABYLON.EasingFunction.EASINGMODE_EASEINOUT );
             }

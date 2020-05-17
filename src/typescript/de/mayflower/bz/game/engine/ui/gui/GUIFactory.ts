@@ -448,7 +448,7 @@
             line.color     = color;
             line.lineWidth = width;
 
-            if ( shadowColor != null )
+            if ( shadowColor !== null )
             {
                 line.shadowColor   = shadowColor;
                 line.shadowBlur    = 0.0;
@@ -496,7 +496,7 @@
             image.left = x;
             image.top  = y;
 
-            if ( shadowColor != null )
+            if ( shadowColor !== null )
             {
                 image.shadowColor   = shadowColor;
                 image.shadowBlur    = 0.0;

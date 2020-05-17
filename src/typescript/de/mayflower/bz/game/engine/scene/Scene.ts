@@ -74,7 +74,10 @@
 
             // init all sounds
             bz.Debug.init.log( 'Init sounds' );
-            this.soundSystem = new bz.SoundSystem( bz.SoundFile.ALL_SOUND_FILES, this.onSoundsLoaded );
+            this.soundSystem = new bz.SoundSystem(
+                bz.SoundFile.ALL_SOUND_FILES,
+                () => { this.onSoundsLoaded(); }
+            );
             this.soundSystem.load( this.babylonScene );
         }
 
@@ -220,7 +223,7 @@
         /** ************************************************************************************************************
         *   Being invoked when all sounds are loaded completely.
         ***************************************************************************************************************/
-        private onSoundsLoaded=() : void =>
+        private onSoundsLoaded() : void
         {
             // init model importer
             bz.Debug.init.log( 'Init model importer' );

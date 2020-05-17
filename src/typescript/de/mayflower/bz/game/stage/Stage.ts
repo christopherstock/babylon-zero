@@ -308,7 +308,7 @@
         public dispose() : void
         {
             // dispose player
-            if ( this.player != null )
+            if ( this.player !== null )
             {
                 this.player.dispose();
             }

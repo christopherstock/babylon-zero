@@ -13,6 +13,8 @@
     *   TODO Prune _ASSETS
     *   TODO Reset Git Repository?
     *   TODO Check compiled webpack bundle ..
+    *   TODO Change player back from Box to Cylinder?
+    *   TODO Fix gui-font resize bug on resizing the canvas?
     *
     *   TODO Implement mouse movements and controls!
     *   TODO Move key reation to Stage.init analog to PointerSystem?

@@ -27,7 +27,7 @@
             // init the scene
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
-            this.scene.init( this.engine, this.onInitGameEngineCompleted );
+            this.scene.init( this.engine, () => { this.onInitGameEngineCompleted(); } );
         }
 
         /** ************************************************************************************************************
@@ -50,7 +50,7 @@
             if ( this.stage !== null )
             {
                 this.engine.setLoadingUiVisibility( true );
-                this.engine.setRenderLoopExecution( false, this.render );
+                this.engine.setRenderLoopExecution( false, () => { this.render(); } );
 
                 // remember last pause menu index
                 lastPauseMenuItem = this.stage.getPauseMenuIndex();
@@ -120,7 +120,7 @@
             this.stage.setPauseMenuIndex( lastPauseMenuItem );
 
             // specify callback to invoke when the scene is fully loaded
-            this.scene.getNativeScene().executeWhenReady( this.initSceneCompleted );
+            this.scene.getNativeScene().executeWhenReady( () => { this.initSceneCompleted(); } );
         }
 
         /** ************************************************************************************************************
@@ -165,22 +165,22 @@
         /** ************************************************************************************************************
         *   Being invoked when the game engine is completely initialized.
         ***************************************************************************************************************/
-        private onInitGameEngineCompleted=() : void =>
+        private onInitGameEngineCompleted() : void
         {
             bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
             this.switchStage( bz.SettingStage.STAGE_STARTUP );
-        };
+        }
 
         /** ************************************************************************************************************
         *   Being invoked when the scene is set up.
         ***************************************************************************************************************/
-        private initSceneCompleted=() : void =>
+        private initSceneCompleted() : void
         {
             bz.Debug.init.log( 'System callback: Scene initialization completed' );
 
             this.engine.setLoadingUiVisibility( false );
-            this.engine.setRenderLoopExecution( true, this.render );
+            this.engine.setRenderLoopExecution( true, () => { this.render(); } );
 
             // start physics engine not before now in order to prevent unwanted physical startup impulses! :)
             this.scene.enablePhysics( true );
@@ -189,7 +189,7 @@
         /** ************************************************************************************************************
         *   The render loop being invoked each game tick.
         ***************************************************************************************************************/
-        private render=() : void =>
+        private render() : void
         {
             // render stage
             this.stage.render();

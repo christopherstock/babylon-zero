@@ -56,7 +56,7 @@
                     SoundSystem.createNextSoundId(),
                     fileName,
                     scene,
-                    this.onLoadSound
+                    () => { this.onLoadSound(); }
                 );
             }
         }
@@ -86,7 +86,7 @@
         /** ************************************************************************************************************
         *   Being invoked when one sound was loaded completely.
         ***************************************************************************************************************/
-        private onLoadSound=() : void =>
+        private onLoadSound() : void
         {
             if ( ++this.loadedSoundCount >= this.fileNames.length )
             {

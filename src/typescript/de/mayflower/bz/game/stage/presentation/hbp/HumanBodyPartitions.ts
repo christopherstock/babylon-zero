@@ -259,7 +259,9 @@
             this.cameraSystem.getArcRotateCamera().useAutoRotationBehavior = true;
 
             // exceptional own handling for pointer down ..
-            this.getScene().onPointerDown = this.onPointerDown;
+            this.getScene().onPointerDown = ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
+                this.onPointerDown( evt, pickResult );
+            }
         }
 
         /** ************************************************************************************************************
@@ -268,7 +270,7 @@
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        private onPointerDown=( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void =>
+        private onPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             // check if the pointer hit
             // if ( pickResult.hit )
@@ -295,7 +297,7 @@
         private toggleHighlight( meshToHighlight:BABYLON.AbstractMesh ) : void
         {
             // disable current selected mesh
-            if ( this.currentSelectedMesh != null )
+            if ( this.currentSelectedMesh !== null )
             {
                 // disable highlighting
                 const newMaterial:BABYLON.StandardMaterial = (
@@ -307,7 +309,7 @@
             }
 
             // check if no mesh has been selected or if the current mesh has been selected
-            if ( meshToHighlight == null || meshToHighlight == this.currentSelectedMesh )
+            if ( meshToHighlight === null || meshToHighlight === this.currentSelectedMesh )
             {
                 // clear current selected mesh and break
                 this.highlightMesh( null );
@@ -322,7 +324,7 @@
                 const mesh:BABYLON.AbstractMesh = this.model.getMesh( i );
 
                 // check if this mesh is currently selected
-                if ( mesh == meshToHighlight )
+                if ( mesh === meshToHighlight )
                 {
                     // highlight this mesh
                     const newMaterial:BABYLON.StandardMaterial = (
@@ -350,7 +352,7 @@
         {
             this.currentSelectedMesh = mesh;
 
-            if ( this.currentSelectedMesh == null )
+            if ( this.currentSelectedMesh === null )
             {
                 ( this.gui as bz.GUIHumanBodyPartitions ).descriptionGUI.setBodyPartDescription( false, null );
             }
