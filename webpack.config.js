@@ -83,9 +83,10 @@ module.exports = ( env, argv ) => {
     }
 
     config.externals = {
-        "cannon":    "CANNON",
-        "earcut":    "earcut",
-        "babylonjs": "BABYLON",
+        "cannon":        "CANNON",
+        "earcut":        "earcut",
+        "babylonjs":     "BABYLON",
+        "babylonjs-gui": "BABYLON.GUI",
     };
 
     config.devServer = {
