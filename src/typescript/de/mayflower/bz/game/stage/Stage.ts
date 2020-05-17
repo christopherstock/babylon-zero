@@ -280,7 +280,7 @@
                 this.handleLevelKeys( bz.Main.game.getKeySystem() );
 
                 // render player
-                if ( this.player != null )
+                if ( this.player !== null )
                 {
                     this.player.render();
                 }
@@ -344,7 +344,7 @@
             }
 
             // dispose skybox
-            if ( this.skybox != null )
+            if ( this.skybox !== null )
             {
                 this.skybox.dispose();
             }

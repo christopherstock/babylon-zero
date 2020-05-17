@@ -83,7 +83,7 @@
         ***************************************************************************************************************/
         public applyImpulseToMesh( force:number ) : void
         {
-            if ( this.mesh.physicsImpostor != null && this.mesh.physicsImpostor.physicsBody != null )
+            if ( this.mesh.physicsImpostor !== null && this.mesh.physicsImpostor.physicsBody !== null )
             {
                 bz.Debug.fire.log
                 (

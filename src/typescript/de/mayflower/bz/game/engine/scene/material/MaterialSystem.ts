@@ -69,7 +69,7 @@
                 scene
             );
 
-            if ( texture != null )
+            if ( texture !== null )
             {
                 let textureU:number = -1;
                 let textureV:number = -1;
@@ -103,7 +103,7 @@
 
                 material.backFaceCulling = texture.hasAlpha();
             }
-            else if ( color != null )
+            else if ( color !== null )
             {
                 material.diffuseColor    = color;
                 material.backFaceCulling = false;

@@ -255,7 +255,7 @@
                 {
                     if ( texture.fileName === meshTextureFileName )
                     {
-                        if ( texture.bulletHoleTexture != null )
+                        if ( texture.bulletHoleTexture !== null )
                         {
                             return texture.bulletHoleTexture;
                         }

@@ -56,7 +56,7 @@
             // TODO move faceUV determination to separate method
             let faceUV:BABYLON.Vector4[] = [];
 
-            if ( texture != null )
+            if ( texture !== null )
             {
                 switch ( texture.getStrategyUV() )
                 {
@@ -178,7 +178,7 @@
         {
             let faceUV:BABYLON.Vector4[] = [];
 
-            if ( texture != null )
+            if ( texture !== null )
             {
                 switch ( texture.getStrategyUV() )
                 {
@@ -816,7 +816,7 @@
 
             // extract or create physics impostors and assign them to the cloned model
             let impostors :bz.PhysicImpostorParams[] = [];
-            if ( physic == null )
+            if ( physic === null )
             {
                 impostors = originalModel.getImpostors()
             }
@@ -879,7 +879,7 @@
             mesh.material       = material;
             mesh.receiveShadows = bz.SettingEngine.ENABLE_SHADOWS;
 
-            if ( rotation != null )
+            if ( rotation !== null )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ( mesh, rotation.x, rotation.y, rotation.z );
             }
