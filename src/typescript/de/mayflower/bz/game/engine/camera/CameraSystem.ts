@@ -431,7 +431,6 @@
         *
         *   @param camera The camera to attach or detach control to.
         *   @param enable Whether to enable the canvas controls or not.
-        *   @param canvas The HTML canvas to enable or disable debug controls.
         ***************************************************************************************************************/
         private setCameraControlsEnabled
         (

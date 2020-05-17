@@ -1,5 +1,5 @@
 
-    import * as bz      from '../../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   The 'product viewer' stage offers an exploration of a 3D model that can be viewed from all angles.
@@ -20,7 +20,7 @@
         private                         animationState          :bz.HelmetState             = bz.HelmetState.CLOSED;
 
         /** Tests target camera animation. */
-        private                         camTarget               :boolean                    = false;
+        private     readonly            camTarget               :boolean                    = false;
 
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.

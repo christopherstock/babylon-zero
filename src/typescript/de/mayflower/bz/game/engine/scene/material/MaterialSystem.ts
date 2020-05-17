@@ -1,5 +1,5 @@
 
-    import * as bz      from '../../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Specifies all textures and materials.
@@ -94,7 +94,7 @@
                     }
                 }
 
-                material.diffuseTexture = this.createTexture
+                material.diffuseTexture = MaterialSystem.createTexture
                 (
                     texture,
                     textureU,
@@ -116,13 +116,23 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns the next id for a new mesh to create.
+        *
+        *   @return The next free unique id for a new mesh to create.
+        ***************************************************************************************************************/
+        public static createNextMaterialId() : string
+        {
+            return 'material' + String( MaterialSystem.nextMaterialId++ );
+        }
+
+        /** ************************************************************************************************************
         *   Creates a textured material.
         *
         *   @param texture The texture to create.
         *   @param repeatU The amount for U repeating this texture.
         *   @param repeatV The amount for V repeating this texture.
         ***************************************************************************************************************/
-        private createTexture
+        private static createTexture
         (
             texture :bz.Texture,
             repeatU :number,
@@ -162,15 +172,5 @@
             newTexture.hasAlpha = texture.hasAlpha();
 
             return newTexture;
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the next id for a new mesh to create.
-        *
-        *   @return The next free unique id for a new mesh to create.
-        ***************************************************************************************************************/
-        public static createNextMaterialId() : string
-        {
-            return 'material' + MaterialSystem.nextMaterialId++;
         }
     }

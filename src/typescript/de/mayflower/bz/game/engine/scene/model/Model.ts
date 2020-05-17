@@ -1,5 +1,5 @@
 
-    import * as bz      from '../../../..';
+    import * as bz from '../../../..';
 
     /** ****************************************************************************************************************
     *   Represents a collection of meshes that may be compound.
@@ -288,10 +288,10 @@
                     bz.Debug.physic.log
                     (
                         ' Applying impostor to mesh '
-                        + '[' + impostor.type        + ']'
-                        + '[' + impostor.mass        + ']'
-                        + '[' + impostor.friction    + ']'
-                        + '[' + impostor.restitution + ']'
+                        + '[' + String( impostor.type        ) + ']'
+                        + '[' + String( impostor.mass        ) + ']'
+                        + '[' + String( impostor.friction    ) + ']'
+                        + '[' + String( impostor.restitution ) + ']'
                     );
 
                     impostor.applyPhysicsImpostor( mesh, scene );
@@ -504,7 +504,7 @@
                         scene,
                         mesh,
                         1.0,
-                        BABYLON.PhysicsImpostor.BoxImpostor,
+                        BABYLON.PhysicsImpostor.BoxImpostor
                     );
                 }
                 else
@@ -512,10 +512,10 @@
                     bz.Debug.physic.log
                     (
                         ' Applying impostor to SCATTERED mesh '
-                        + '[' + impostor.type        + ']'
-                        + '[' + impostor.mass        + ']'
-                        + '[' + impostor.friction    + ']'
-                        + '[' + impostor.restitution + ']'
+                        + '[' + String( impostor.type        ) + ']'
+                        + '[' + String( impostor.mass        ) + ']'
+                        + '[' + String( impostor.friction    ) + ']'
+                        + '[' + String( impostor.restitution ) + ']'
                     );
 
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor

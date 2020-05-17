@@ -303,10 +303,10 @@
 
             // determine all hit points without hurting the game objects
             const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot );
-            bz.Debug.fire.log( ' Gathered [' + hitPoints.length + '] hit points' );
+            bz.Debug.fire.log( ' Gathered [' + String( hitPoints.length ) + '] hit points' );
 
             // determine impact hit points
-            const impactHitPoints:bz.HitPoint[] = this.determineImpactHitPoints( hitPoints, shot );
+            const impactHitPoints:bz.HitPoint[] = Stage.determineImpactHitPoints( hitPoints, shot );
 
             // impact all hit points
             for ( const impactHitPoint of impactHitPoints )
@@ -540,33 +540,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Determines all hit points of the given array of hit points that will be impacted by the specified shot.
-        *
-        *   @param hitPoints All hit points that possibly collide with the shot.
-        *   @param shot      The shot that caused all hit points.
-        ***************************************************************************************************************/
-        private determineImpactHitPoints( hitPoints:bz.HitPoint[], shot:bz.Shot ) : bz.HitPoint[]
-        {
-            let impactHitPoints:bz.HitPoint[] = [];
-
-            if ( shot.isWallBreaking() )
-            {
-                impactHitPoints = hitPoints;
-            }
-            else
-            {
-                const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
-
-                if ( nearestHitPoint != null )
-                {
-                    impactHitPoints.push( nearestHitPoint );
-                }
-            }
-
-            return impactHitPoints;
-        }
-
-        /** ************************************************************************************************************
         *   Adds the specified bullet hole to the bullet hole stack.
         *   If the maximum number of bullet holes is reached, the oldest bullet hole will be disposed.
         *
@@ -600,5 +573,32 @@
             {
                 sprite.setPause( this.pause );
             }
+        }
+
+        /** ************************************************************************************************************
+        *   Determines all hit points of the given array of hit points that will be impacted by the specified shot.
+        *
+        *   @param hitPoints All hit points that possibly collide with the shot.
+        *   @param shot      The shot that caused all hit points.
+        ***************************************************************************************************************/
+        private static determineImpactHitPoints( hitPoints:bz.HitPoint[], shot:bz.Shot ) : bz.HitPoint[]
+        {
+            let impactHitPoints:bz.HitPoint[] = [];
+
+            if ( shot.isWallBreaking() )
+            {
+                impactHitPoints = hitPoints;
+            }
+            else
+            {
+                const nearestHitPoint:bz.HitPoint = bz.HitPoint.determineNearestHitPoint( hitPoints );
+
+                if ( nearestHitPoint !== null )
+                {
+                    impactHitPoints.push( nearestHitPoint );
+                }
+            }
+
+            return impactHitPoints;
         }
     }
