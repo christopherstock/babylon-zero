@@ -132,8 +132,8 @@
         ***************************************************************************************************************/
         public static main() : void
         {
-            bz.HTML.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
-            bz.HTML.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
+            bz.HtmlUtil.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
+            bz.HtmlUtil.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
 
             Main.acclaim();
 

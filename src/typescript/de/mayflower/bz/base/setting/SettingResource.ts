@@ -2,7 +2,6 @@
     /** ****************************************************************************************************************
     *   Specifies all settings for any file and memory resources the application imports.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SettingResource
     {
         /** Relative path from index.html where all loading images reside. */

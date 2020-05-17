@@ -1,10 +1,11 @@
 
+    /* eslint-disable max-len */
+
     import * as bz from '..';
 
     /** ****************************************************************************************************************
     *   Specifies the filenames of all sounds to load.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export abstract class SoundFile
     {
         /** The fx sound 'test 1'. */

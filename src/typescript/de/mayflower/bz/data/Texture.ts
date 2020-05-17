@@ -1,10 +1,11 @@
 
+    /* eslint-disable max-len */
+
     import * as bz from '..';
 
     /** ****************************************************************************************************************
     *   Specifies all textures to load.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class Texture
     {
         /** The texture 'bullet hole concreate'. */

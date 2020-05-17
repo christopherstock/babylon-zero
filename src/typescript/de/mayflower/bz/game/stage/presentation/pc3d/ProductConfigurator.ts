@@ -203,7 +203,7 @@
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                this.gui.addGuiMessage( 'toggle visor [' + bz.String.getDateTimeString() + ']' );
+                this.gui.addGuiMessage( 'toggle visor [' + bz.StringUtil.getDateTimeString() + ']' );
 
                 this.requestVisorAnimationToggle();
 /*

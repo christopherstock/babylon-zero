@@ -1,10 +1,11 @@
 
+    /* eslint-disable max-len */
+
     import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Specifies all settings for the engine.
     *******************************************************************************************************************/
-    // tslint:disable:max-line-length
     export class SettingEngine
     {
         /** The branding. */

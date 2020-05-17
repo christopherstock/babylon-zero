@@ -61,7 +61,7 @@
             if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
             {
                 /* eslint-disable no-console */
-                console.log( '[' + bz.String.getDateTimeString() + '] ' + msg );
+                console.log( '[' + bz.StringUtil.getDateTimeString() + '] ' + msg );
             }
         }
 
@@ -76,7 +76,7 @@
             if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
             {
                 /* eslint-disable no-console */
-                console.error( '[' + bz.String.getDateTimeString() + '] ' + msg );
+                console.error( '[' + bz.StringUtil.getDateTimeString() + '] ' + msg );
             }
         }
     }

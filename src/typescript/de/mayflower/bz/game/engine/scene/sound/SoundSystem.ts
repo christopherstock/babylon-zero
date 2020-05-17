@@ -41,7 +41,7 @@
         ***************************************************************************************************************/
         public load(scene:BABYLON.Scene ) : void
         {
-            bz.Debug.init.log( ' Preloading [' + this.fileNames.length + '] sounds' );
+            bz.Debug.init.log( ' Preloading [' + String( this.fileNames.length ) + '] sounds' );
 
             if ( bz.SettingDebug.DISABLE_SOUND )
             {
@@ -103,6 +103,6 @@
         ***************************************************************************************************************/
         public static createNextSoundId() : string
         {
-            return 'sound' + SoundSystem.nextSoundId++;
+            return 'sound' + String( SoundSystem.nextSoundId++ );
         }
     }

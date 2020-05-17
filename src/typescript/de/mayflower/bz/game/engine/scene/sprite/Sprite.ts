@@ -148,7 +148,7 @@
         {
             this.sprite.dispose();
 
-            if ( this.collider != null )
+            if ( this.collider !== null )
             {
                 this.collider.dispose();
             }
