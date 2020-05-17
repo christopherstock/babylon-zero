@@ -248,7 +248,7 @@
                 // || keySystem.isPressed( bz.KeyCodes.KEY_UP )
             )
             {
-                let speedForward:number = 0;
+                let speedForward:number;
 
                 // probably run
                 if ( keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )

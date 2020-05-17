@@ -61,7 +61,7 @@
             {
                 bz.Debug.pointer.log( 'Picked a mesh on pointerDown' );
 
-                let src :BABYLON.Vector3 = null;
+                let src :BABYLON.Vector3;
 
                 // horrible debug implementation
                 if
@@ -79,7 +79,7 @@
 
                 const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
                 dir.normalize();
-console.log( pickResult.pickedMesh );
+
                 // horrible debug implementation
                 if
                 (

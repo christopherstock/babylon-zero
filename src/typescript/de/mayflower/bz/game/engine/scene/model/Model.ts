@@ -70,7 +70,7 @@
                 mesh.dispose();
             }
 
-            if ( this.compoundMesh != null )
+            if ( this.compoundMesh !== null )
             {
                 this.compoundMesh.dispose();
             }
@@ -140,7 +140,7 @@
         ***************************************************************************************************************/
         public setAbsoluteRotationXYZ( rotX:number, rotY:number, rotZ:number ) : void
         {
-            if ( this.compoundMesh != null )
+            if ( this.compoundMesh !== null )
             {
                 bz.MeshManipulation.setAbsoluteRotationXYZ( this.compoundMesh, rotX, rotY, rotZ );
             }
@@ -225,7 +225,7 @@
         ***************************************************************************************************************/
         public removeCompoundMesh( scene:BABYLON.Scene ) : void
         {
-            if ( this.compoundMesh != null )
+            if ( this.compoundMesh !== null )
             {
                 bz.Debug.physic.log( 'Removing compound parent from model' );
 
@@ -253,7 +253,7 @@
 
             for ( const mesh of this.meshes )
             {
-                if ( mesh.physicsImpostor != null )
+                if ( mesh.physicsImpostor !== undefined )
                 {
                     this.impostors.push( bz.PhysicImpostorParams.fromImpostor( mesh.physicsImpostor ) );
                 }
@@ -283,7 +283,7 @@
                 const mesh     :BABYLON.AbstractMesh    = this.meshes[ i ];
                 const impostor :bz.PhysicImpostorParams = impostors[ i ];
 
-                if ( impostor != null )
+                if ( impostor !== null )
                 {
                     bz.Debug.physic.log
                     (
@@ -410,8 +410,8 @@
             {
                 if
                 (
-                       mesh.physicsImpostor             !=  null
-                    && mesh.physicsImpostor.physicsBody !=  null
+                       mesh.physicsImpostor             !== undefined
+                    && mesh.physicsImpostor.physicsBody !== null
                     && mesh.physicsImpostor.type        === BABYLON.PhysicsImpostor.SphereImpostor
                 )
                 {
@@ -428,7 +428,7 @@
         {
             for ( const mesh of this.meshes )
             {
-                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
+                if ( mesh.physicsImpostor !== undefined && mesh.physicsImpostor.physicsBody !== null )
                 {
                     mesh.physicsImpostor.setLinearVelocity( mesh.physicsImpostor.getLinearVelocity().scale( 0.99 ) );
                 }
@@ -442,7 +442,7 @@
         {
             for ( const mesh of this.meshes )
             {
-                if ( mesh.physicsImpostor != null && mesh.physicsImpostor.physicsBody != null )
+                if ( mesh.physicsImpostor !== undefined && mesh.physicsImpostor.physicsBody !== null )
                 {
                     mesh.physicsImpostor.setAngularVelocity( mesh.physicsImpostor.getAngularVelocity().scale( 0.99 ) );
                 }
@@ -462,7 +462,7 @@
             for ( const mesh of this.meshes )
             {
                 // remove physical impostors of all meshes if still present
-                if ( mesh.physicsImpostor != null )
+                if ( mesh.physicsImpostor !== undefined )
                 {
                     mesh.physicsImpostor.dispose();
                     mesh.physicsImpostor = null;
@@ -489,13 +489,13 @@
             const impostor: bz.PhysicImpostorParams = this.impostors[ index ];
 
             // only if this mesh has a parent compound.
-            if ( mesh.parent != null )
+            if ( mesh.parent !== null )
             {
                 // free mesh from parent
                 mesh.setParent( null );
 
                 // apply impostor
-                if ( impostor == null )
+                if ( impostor === null )
                 {
                     bz.Debug.physic.log( ' Applying DEFAULT impostor to SCATTERED mesh ' );
 

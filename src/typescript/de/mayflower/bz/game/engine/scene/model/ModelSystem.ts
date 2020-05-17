@@ -59,7 +59,7 @@
                             importedMesh.isVisible = false;
 
                             // disable backface culling by default
-                            if ( importedMesh.material != null )
+                            if ( importedMesh.material !== null )
                             {
                                 importedMesh.material.backFaceCulling = false;
                             }
