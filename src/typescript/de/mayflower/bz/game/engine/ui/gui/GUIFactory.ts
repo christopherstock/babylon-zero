@@ -182,8 +182,8 @@
             inputField.background = colorBg;
             inputField.left       = x;
             inputField.top        = y;
-            inputField.width      = width  + 'px';
-            inputField.height     = height + 'px';
+            inputField.width      = String( width ) + 'px';
+            inputField.height     = String(height ) + 'px';
 
             inputField.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
             inputField.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
@@ -228,8 +228,8 @@
             button.background = colorBg;
             button.left       = x;
             button.top        = y;
-            button.width      = width  + 'px';
-            button.height     = height + 'px';
+            button.width      = String( width  ) + 'px';
+            button.height     = String( height ) + 'px';
 
             button.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
             button.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
@@ -281,8 +281,8 @@
             checkbox.background = colorBg;
             checkbox.left       = x;
             checkbox.top        = y;
-            checkbox.width      = width  + 'px';
-            checkbox.height     = height + 'px';
+            checkbox.width      = String( width  ) + 'px';
+            checkbox.height     = String( height ) + 'px';
 
             checkbox.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
             checkbox.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
@@ -334,8 +334,8 @@
             radioButton.background = colorBg;
             radioButton.left       = x;
             radioButton.top        = y;
-            radioButton.width      = width  + 'px';
-            radioButton.height     = height + 'px';
+            radioButton.width      = String( width  ) + 'px';
+            radioButton.height     = String( height ) + 'px';
 
             radioButton.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
             radioButton.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
@@ -398,8 +398,8 @@
 
             slider.left        = x;
             slider.top         = y;
-            slider.width       = width  + 'px';
-            slider.height      = height + 'px';
+            slider.width       = String( width  ) + 'px';
+            slider.height      = String( height ) + 'px';
 
             slider.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
             slider.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
@@ -518,7 +518,10 @@
             let allRadioButtonsUnchecked:boolean = true;
             for ( const radioButton of radioButtons )
             {
-                if ( radioButton.isChecked ) allRadioButtonsUnchecked = false;
+                if ( radioButton.isChecked )
+                {
+                    allRadioButtonsUnchecked = false;
+                }
             }
 
             // check if all buttons are unchecked

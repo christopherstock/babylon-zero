@@ -59,13 +59,17 @@
 
         /** The bg color for the GUI. */
         // tslint:disable-next-line:max-line-length
-        private     static  readonly    GUI_COLOR_BG                :string                     = 'rgba( 100, 100, 100, 0.5 )';
+        private     static  readonly    GUI_COLOR_BG                :string                     = (
+            'rgba( 100, 100, 100, 0.5 )'
+        );
         /** The text color for the GUI. */
-        // tslint:disable-next-line:max-line-length
-        private     static  readonly    GUI_COLOR_TEXT              :string                     = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
+        private     static  readonly    GUI_COLOR_TEXT              :string                     = (
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE
+        );
         /** The text shadow color for the GUI. */
-        // tslint:disable-next-line:max-line-length
-        private     static  readonly    GUI_COLOR_SHADOW            :string                     = bz.SettingColor.COLOR_CSS_BLACK_OPAQUE;
+        private     static  readonly    GUI_COLOR_SHADOW            :string                     = (
+            bz.SettingColor.COLOR_CSS_BLACK_OPAQUE
+        );
         /** The border color for the GUI. */
         private     static  readonly    GUI_COLOR_BORDER            :string                     = '#c9c9c9';
 
@@ -222,11 +226,11 @@
                 const visorColor :BABYLON.Color3 = GUIProductConfigurator.VISOR_COLORS[ i ];
                 const colorCss   :string         = (
                     'rgb( '
-                    + ( visorColor.r * 255 )
+                    + String( visorColor.r * 255 )
                     + ', '
-                    + ( visorColor.g * 255 )
+                    + String( visorColor.g * 255 )
                     + ', '
-                    + ( visorColor.b * 255 )
+                    + String( visorColor.b * 255 )
                     + ' )'
                 );
                 const radioButton:bjsg.RadioButton = bz.GUIFactory.createRadioButton
@@ -239,7 +243,13 @@
                     20,
                     20,
                     ( checked:boolean ) => {
-                        bz.Debug.pc3d.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
+                        bz.Debug.pc3d.log(
+                            'RadioButton clicked ['
+                            + String( i )
+                            + ']['
+                            + String( checked )
+                            + ']'
+                        );
                         if ( checked )
                         {
                             this.onCheckVisorColorRadioButton( i );
@@ -266,7 +276,7 @@
                     bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
                     bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                     () => {
-                        bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
+                        bz.Debug.pc3d.log( 'text clicked! [' + String( i ) + ' ]' );
                         radioButton.isChecked = true;
                     }
                 );
@@ -307,11 +317,11 @@
                 const helmetColor :BABYLON.Color3 = GUIProductConfigurator.HELMET_COLORS[ i ];
                 const colorCss   :string         = (
                     'rgb( '
-                    + ( helmetColor.r * 255 )
+                    + String( helmetColor.r * 255 )
                     + ', '
-                    + ( helmetColor.g * 255 )
+                    + String( helmetColor.g * 255 )
                     + ', '
-                    + ( helmetColor.b * 255 )
+                    + String( helmetColor.b * 255 )
                     + ' )'
                 );
                 const radioButton:bjsg.RadioButton = bz.GUIFactory.createRadioButton
@@ -324,7 +334,9 @@
                     20,
                     20,
                     ( checked:boolean ) => {
-                        bz.Debug.pc3d.log( 'RadioButton clicked [' + i + '][' + checked + ']' );
+                        bz.Debug.pc3d.log(
+                            'RadioButton clicked [' + String( i ) + '][' + String( checked ) + ']'
+                        );
                         if ( checked )
                         {
                             this.onCheckHelmetColorRadioButton( i );
@@ -351,7 +363,7 @@
                     bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT,
                     bjsg.Control.VERTICAL_ALIGNMENT_TOP,
                     () => {
-                        bz.Debug.pc3d.log( 'text clicked! [' + i + ' ]' );
+                        bz.Debug.pc3d.log( 'text clicked! [' + String( i ) + ' ]' );
                         radioButton.isChecked = true;
                     }
                 );
@@ -454,7 +466,7 @@
         ***************************************************************************************************************/
         private onCheckVisorColorRadioButton( checkboxId:number ) : void
         {
-            bz.Debug.pc3d.log( 'Clicked Visor color change radiobutton [' + checkboxId + ']' );
+            bz.Debug.pc3d.log( 'Clicked Visor color change radiobutton [' + String( checkboxId ) + ']' );
 
             // change visor color
             this.parent.requestVisorColorChange( GUIProductConfigurator.VISOR_COLORS[ checkboxId ] );
@@ -467,7 +479,7 @@
         ***************************************************************************************************************/
         private onCheckHelmetColorRadioButton( checkboxId:number ) : void
         {
-            bz.Debug.pc3d.log( 'Clicked Helmet color change radiobutton [' + checkboxId + ']' );
+            bz.Debug.pc3d.log( 'Clicked Helmet color change radiobutton [' + String( checkboxId ) + ']' );
 
             // change helmet color
             this.parent.requestHelmetColorChange( GUIProductConfigurator.HELMET_COLORS[ checkboxId ] );
