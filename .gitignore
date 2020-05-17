@@ -2,14 +2,24 @@
 # node.js
 node_modules
 
-# system & ide
+# macOS
 .DS_Store
+
+# IntelliJ
 .idea
 *.iml
 
-# build and target paths
+# Distribution path IS committed
+# /dist/js/
+
+# TypeScript build path
 bin
+
+# TypeDoc output
 doc
+
+# Jest coverage output
+coverage
 
 # huge files
 /_ASSETS/_AEP/promo8/assets/logo_Exploding.avi

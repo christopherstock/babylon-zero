@@ -9,6 +9,11 @@
     *   =====================
     *   TODO Primal
     *   =====================
+    *   TODO Prune _ASSETS
+    *   TODO Introduce ESLint and fix all issues.
+    *   TODO Modernize Tech Stack.
+    *   TODO Reset Git Repository?
+    *
     *   TODO Implement mouse movements and controls!
     *   TODO Move key reation to Stage.init analog to PointerSystem?
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..

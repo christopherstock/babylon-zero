@@ -1,12 +1,3 @@
-
-/*
-    new webpack.ProvidePlugin(
-        {
-        CANNON: 'cannon'
-        }
-    );
-*/
-
 module.exports = ( env, argv ) => {
 
     let config = {
@@ -15,7 +6,6 @@ module.exports = ( env, argv ) => {
             filename: 'babylon-zero-v0.0.10.js',
             path: __dirname + '/dist/js/'
         },
-
         resolve: {
             // add '.ts' and '.tsx' as resolvable extensions.
             extensions: [
@@ -68,14 +58,22 @@ module.exports = ( env, argv ) => {
                         loader: 'style-loader'
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: {
+                            url: false
+                        }
                     },
                     {
-                        loader: 'less-loader'
+                        loader: 'less-loader',
+                        options: {
+                            relativeUrls:      false,
+                            sourceMap:         true,
+                            javascriptEnabled: true
+                        }
                     }
                 ]
             }
-        ]
+        ],
     };
 
     if ( argv.mode === 'production' ) {

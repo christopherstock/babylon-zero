@@ -100,7 +100,9 @@
         ***************************************************************************************************************/
         public applyRayCollision( ray:BABYLON.Ray ) : BABYLON.PickingInfo[]
         {
-            return ray.intersectsMeshes( this.meshes );
+            return ray.intersectsMeshes(
+                this.meshes as any
+            );
         }
 
         /** ************************************************************************************************************
