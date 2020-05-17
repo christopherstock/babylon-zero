@@ -113,7 +113,7 @@
             }
 
             // init the new stage
-            bz.Debug.stage.log( ' Initializing target stage [' + targetStage + ']' );
+            bz.Debug.stage.log( ' Initializing target stage [' + String( targetStage ) + ']' );
             this.stage.init();
 
             // assign remembered pause menu index

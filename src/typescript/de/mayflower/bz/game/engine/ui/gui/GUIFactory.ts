@@ -70,8 +70,8 @@
 
             rectangle.left       = x;
             rectangle.top        = y;
-            rectangle.width      = width  + 'px';
-            rectangle.height     = height + 'px';
+            rectangle.width      = String( width  ) + 'px';
+            rectangle.height     = String( height ) + 'px';
             rectangle.color      = colorBorder;
             rectangle.background = colorFill;
 
@@ -119,12 +119,12 @@
             textBlock.text     = text;
             textBlock.left     = x;
             textBlock.top      = y;
-            textBlock.width    = width  + 'px';
-            textBlock.height   = height + 'px';
-            textBlock.fontSize = fontSize + 'px';
+            textBlock.width    = String( width    ) + 'px';
+            textBlock.height   = String( height   ) + 'px';
+            textBlock.fontSize = String( fontSize ) + 'px';
             textBlock.color    = color;
 
-            if ( shadowColor != null )
+            if ( shadowColor !== null )
             {
                 textBlock.shadowColor   = shadowColor;
                 textBlock.shadowBlur    = 0.0;
