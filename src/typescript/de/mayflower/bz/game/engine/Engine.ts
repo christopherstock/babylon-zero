@@ -101,7 +101,8 @@
             {
                 bz.Debug.stage.log( 'Stopping render loop' );
 
-                this.babylonEngine.stopRenderLoop( renderLoop );
+                // remove all render loop functions! ( passing renderLoop explicilty won't remove it in bjs 4.1.0 )
+                this.babylonEngine.stopRenderLoop();
             }
         }
 

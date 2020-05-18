@@ -9,8 +9,7 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Change player back from Box to Cylinder.
-    *   TODO Fix wrong render speed after switching to ProductConfigurator and back to a level!
+    *   TODO Change player back from Box to Cylinder for Human Player.
     *   TODO Fix/ReCreate exploding models.
     *   TODO Implement mouse movements and controls.
     *   TODO Move key creation to Stage.init analog to PointerSystem?

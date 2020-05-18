@@ -156,6 +156,8 @@
         ***************************************************************************************************************/
         public enablePhysics( enabled:boolean ) : void
         {
+            bz.Debug.physic.log( 'Set physics engine enabled [' + String( enabled ) + ']' );
+
             if ( enabled )
             {
                 this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );

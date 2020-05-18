@@ -44,7 +44,7 @@
         // TODO extract physics to SettingPhysics
 
         /** The physics engine iteration count per render cycle. */
-        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 5;       // 5000 = no shaking
+        public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 5;       // 5000 = no shaking but horribly slow!
         /** The diameter of the collison epsilon used for all collision detections. */
         public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 500.0;    // no effect?
         /** The calculating time step amount for one tick of the physical engine. */
