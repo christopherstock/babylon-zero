@@ -22,15 +22,17 @@
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
-        *   @param scene  The scene reference.
-        *   @param canvas The canvas system this stage is displayed on.
+        *   @param scene     The scene reference.
+        *   @param canvas    The canvas system this stage is displayed on.
+        *   @param keySystem The key system being used in this stage.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem, keySystem:bz.KeySystem )
         {
             super
             (
                 scene,
                 canvas,
+                keySystem,
 
                 bz.SettingColor.COLOR_RGB_GREY_HALF,
                 new BABYLON.Color4( 0.75, 0.75, 0.75, 1.0 ),

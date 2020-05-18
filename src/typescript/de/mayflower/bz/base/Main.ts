@@ -9,22 +9,21 @@
     *   =====================
     *   TODO Refactorings
     *   =====================
-    *   TODO Remove global references to Main.game:
-    *   TODO Minimize access to bz.Scene.getNativeScene()
+    *   TODO Remove global references to Main.game.
+    *   TODO Minimize access to bz.Scene.getNativeScene().
     *   TODO pass Interface getFps and KeySystem to Stage and GUI.
-    *   TODO group values and invocations in Stage to different functions and classes?
+    *   TODO group values and invocations in Stage to different functions and classes (init, game, tech etc.).
     *
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Change player back from Box to Cylinder?
-    *   TODO Fix/Create! exploding models?
-    *   TODO Implement mouse movements and controls!
-    *   TODO Move key reation to Stage.init analog to PointerSystem?
+    *   TODO Change player back from Box to Cylinder.
+    *   TODO Fix/ReCreate exploding models.
+    *   TODO Implement mouse movements and controls.
+    *   TODO Move key reaction to Stage.init analog to PointerSystem?
     *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Connect Main Menu items to Stages?
-    *   TODO Reset Git Repository?
     *   TODO Solution to fix screen shaking on collisions?
     *   TODO Fix setting the pivot for meshes and objects.
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
@@ -33,6 +32,7 @@
     *   TODO HID: Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
+    *   TODO Reset Git Repository?
     *
     *   =====================
     *   TODO Issues

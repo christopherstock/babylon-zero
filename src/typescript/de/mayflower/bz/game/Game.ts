@@ -1,5 +1,5 @@
 
-    import * as bz from '../..';
+    import * as bz from '../index';
 
     /** ****************************************************************************************************************
     *   Manages the game logic.
@@ -65,49 +65,81 @@
             {
                 case bz.StageId.TEST_OFFICE:
                 {
-                    this.stage = new bz.Office( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.Office(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.TEST_LEVEL:
                 {
-                    this.stage = new bz.TestLevel( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.TestLevel(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.TEST_SITE:
                 {
-                    this.stage = new bz.TestSite( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.TestSite(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.ROOM_VIEWER:
                 {
-                    this.stage = new bz.RoomViewer( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.RoomViewer(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.PRODUCT_CONFIGURATOR:
                 {
-                    this.stage = new bz.ProductConfigurator( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.ProductConfigurator(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.INTRO_LOGO:
                 {
-                    this.stage = new bz.IntroLogo( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.IntroLogo(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.HUMAN_BODY_PARTITIONS:
                 {
-                    this.stage = new bz.HumanBodyPartitions( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.HumanBodyPartitions(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
 
                 case bz.StageId.SPACESHIP:
                 {
-                    this.stage = new bz.SpaceshipScene( this.scene, this.engine.getCanvasSystem() );
+                    this.stage = new bz.SpaceshipScene(
+                        this.scene,
+                        this.engine.getCanvasSystem(),
+                        this.getKeySystem()
+                    );
                     break;
                 }
             }
@@ -133,6 +165,7 @@
 
         /** ************************************************************************************************************
         *   Delivers the game engine's key system.
+        *   TODO remove!
         *
         *   @return The key system.
         ***************************************************************************************************************/

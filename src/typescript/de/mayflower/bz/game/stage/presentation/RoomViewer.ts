@@ -9,15 +9,17 @@
         /** ************************************************************************************************************
         *   Creates a new room viewer stage.
         *
-        *   @param scene  The scene reference.
-        *   @param canvas The canvas this stage is displayed on.
+        *   @param scene     The scene reference.
+        *   @param canvas    The canvas this stage is displayed on.
+        *   @param keySystem The key system being used in this stage.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem, keySystem:bz.KeySystem )
         {
             super
             (
                 scene,
                 canvas,
+                keySystem,
 
                 bz.SettingColor.COLOR_RGB_BLACK,
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,

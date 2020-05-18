@@ -20,6 +20,9 @@
         protected           readonly        initialCamera           :bz.CameraType                          = null;
         /** The initial GUI to set for this stage. */
         protected           readonly        guiType                 :bz.GUIType                             = null;
+        /** The key system to use in this stage. */
+        protected           readonly        keySystem               :bz.KeySystem                           = null;
+
 
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -61,6 +64,7 @@
         *
         *   @param scene         The scene representing this stage.
         *   @param canvas        The canvas system this stage is displayed on.
+        *   @param keySystem     The key system being used in this stage.
         *   @param ambientColor  Specifies the ambient color of the babylon.JS scene
         *                        and is set as the emissive color of all faces.
         *   @param clearColor    The clear color of the stage is the background color of the scene.
@@ -71,6 +75,7 @@
         (
             scene         :bz.Scene,
             canvas        :bz.CanvasSystem,
+            keySystem     :bz.KeySystem,
             ambientColor  :BABYLON.Color3,
             clearColor    :BABYLON.Color4,
             initialCamera :bz.CameraType,
@@ -79,6 +84,7 @@
         {
             this.scene         = scene;
             this.canvas        = canvas;
+            this.keySystem     = keySystem;
             this.ambientColor  = ambientColor;
             this.clearColor    = clearColor;
             this.initialCamera = initialCamera;
@@ -171,48 +177,6 @@
         *   @return The pointer system to use in this stage.
         ***************************************************************************************************************/
         protected abstract createPointerSystem() : bz.PointerSystem;
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        private createGUI() : bz.GUI
-        {
-            switch ( this.guiType )
-            {
-                case bz.GUIType.HUMAN_BODY_PARTITIONS:
-                {
-                    const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions(
-                        this.scene.getNativeScene(),
-                        ( this as unknown as bz.HumanBodyPartitions )
-                    );
-                    gui.init();
-
-                    return gui;
-                }
-
-                case bz.GUIType.PRODUCT_CONFIGURATOR:
-                {
-                    const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator(
-                        this.scene.getNativeScene(),
-                        ( this as unknown as bz.ProductConfigurator )
-                    );
-                    gui.init();
-
-                    return gui;
-                }
-
-                case bz.GUIType.GAME:
-                default:
-                {
-                    const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
-                    gui.init();
-
-                    return gui;
-                }
-            }
-        }
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.
@@ -508,6 +472,48 @@
         public setPauseMenuIndex( index:number ) : void
         {
             this.gui.setPauseMenuIndex( index );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates the GUI for this stage.
+        *
+        *   @return The created GUI.
+        ***************************************************************************************************************/
+        private createGUI() : bz.GUI
+        {
+            switch ( this.guiType )
+            {
+                case bz.GUIType.HUMAN_BODY_PARTITIONS:
+                {
+                    const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions(
+                        this.scene.getNativeScene(),
+                        ( this as unknown as bz.HumanBodyPartitions )
+                    );
+                    gui.init();
+
+                    return gui;
+                }
+
+                case bz.GUIType.PRODUCT_CONFIGURATOR:
+                {
+                    const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator(
+                        this.scene.getNativeScene(),
+                        ( this as unknown as bz.ProductConfigurator )
+                    );
+                    gui.init();
+
+                    return gui;
+                }
+
+                case bz.GUIType.GAME:
+                default:
+                {
+                    const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
+                    gui.init();
+
+                    return gui;
+                }
+            }
         }
 
         /** ************************************************************************************************************

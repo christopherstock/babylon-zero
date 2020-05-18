@@ -23,7 +23,7 @@
     export * from './base/setting/SettingStage';
 
     export * from './game/engine/Engine';
-    export * from './game/engine/Game';
+    export * from './game/Game';
 
     export * from './game/engine/ui/gui/fx/GUIFx';
     export * from './game/engine/ui/gui/fx/GUIFxManager';
