@@ -27,11 +27,11 @@
         ];
 
         /** The translucent background. */
-        private             readonly        bg                      :bjsg.Rectangle                  = null;
+        private             readonly        bg                      :bjsg.Rectangle                 = null;
         /** The 'pause' headline text. */
-        private             readonly        headline                :bjsg.TextBlock                  = null;
+        private             readonly        headline                :bjsg.TextBlock                 = null;
         /** The GUI menu. */
-        private             readonly        menu                    :bz.GUIMenu                             = null;
+        private             readonly        menu                    :bz.GUIMenu                     = null;
 
         /** ************************************************************************************************************
         *   Initializes all components of the pause screen and adds them to the given component.
@@ -99,10 +99,12 @@
 
         /** ************************************************************************************************************
         *   Updates the pause GUI information for the current game tick.
+        *
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        public render() : void
+        public render( keySystem:bz.KeySystem ) : void
         {
-            this.handlePauseKeys( bz.Main.game.getKeySystem() );
+            this.handlePauseKeys( keySystem );
         }
 
         /** ************************************************************************************************************

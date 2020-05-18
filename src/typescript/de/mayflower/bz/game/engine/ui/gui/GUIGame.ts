@@ -15,11 +15,12 @@
         /** ************************************************************************************************************
         *   Creates a new Heads Up Display for a game level.
         *
-        *   @param scene The babylon.JS scene to create this GUI for.
+        *   @param scene     The babylon.JS scene to create this GUI for.
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene )
+        public constructor( scene:BABYLON.Scene, keySystem:bz.KeySystem )
         {
-            super( scene );
+            super( scene, keySystem );
         }
 
         /** ************************************************************************************************************

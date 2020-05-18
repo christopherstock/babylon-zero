@@ -13,6 +13,7 @@
     *   TODO Minimize access to bz.Scene.getNativeScene().
     *   TODO pass Interface getFps and KeySystem to Stage and GUI.
     *   TODO group values and invocations in Stage to different functions and classes (init, game, tech etc.).
+    *   TODO Fix wrong render speed after switching to ProductConfigurator and back to a level!
     *
     *   =====================
     *   TODO Primal

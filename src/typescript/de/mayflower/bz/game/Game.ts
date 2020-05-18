@@ -68,7 +68,7 @@
                     this.stage = new bz.Office(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -78,7 +78,7 @@
                     this.stage = new bz.TestLevel(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -88,7 +88,7 @@
                     this.stage = new bz.TestSite(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -98,7 +98,7 @@
                     this.stage = new bz.RoomViewer(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -108,7 +108,7 @@
                     this.stage = new bz.ProductConfigurator(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -118,7 +118,7 @@
                     this.stage = new bz.IntroLogo(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -128,7 +128,7 @@
                     this.stage = new bz.HumanBodyPartitions(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }
@@ -138,7 +138,7 @@
                     this.stage = new bz.SpaceshipScene(
                         this.scene,
                         this.engine.getCanvasSystem(),
-                        this.getKeySystem()
+                        this.engine.getKeySystem()
                     );
                     break;
                 }

@@ -174,7 +174,7 @@
         ***************************************************************************************************************/
         private handleKeys() : void
         {
-            const keySystem:bz.KeySystem = bz.Main.game.getKeySystem();
+            const keySystem:bz.KeySystem = this.stage.getKeySystem();
 
             // move forewards and backwards
             if

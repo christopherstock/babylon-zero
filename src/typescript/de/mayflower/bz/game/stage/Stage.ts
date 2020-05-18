@@ -22,7 +22,8 @@
         protected           readonly        guiType                 :bz.GUIType                             = null;
         /** The key system to use in this stage. */
         protected           readonly        keySystem               :bz.KeySystem                           = null;
-
+        /** The pointer system to use in this stage. */
+        protected                           pointerSystem           :bz.PointerSystem                       = null;
 
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -37,9 +38,6 @@
         protected                           gui                     :bz.GUI                                 = null;
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
-
-        /** The pointer system to use in this stage. */
-        protected                           pointerSystem           :bz.PointerSystem                       = null;
 
         /** The skybox that surrounds the whole stage. */
         protected                           skybox                  :BABYLON.Mesh                           = null;
@@ -271,6 +269,16 @@
         }
 
         /** ************************************************************************************************************
+        *   Returns this stage's key system.
+        *
+        *   @return The key system of this stage.
+        ***************************************************************************************************************/
+        public getKeySystem() : bz.KeySystem
+        {
+            return this.keySystem;
+        }
+
+        /** ************************************************************************************************************
         *   Renders all stage concernings for one tick of the game loop.
         ***************************************************************************************************************/
         public render() : void
@@ -279,7 +287,7 @@
             if ( !this.pause )
             {
                 // handle level specific keys
-                this.handleLevelKeys( bz.Main.game.getKeySystem() );
+                this.handleLevelKeys( this.keySystem );
 
                 // render player
                 if ( this.player !== null )
@@ -487,7 +495,8 @@
                 {
                     const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions(
                         this.scene.getNativeScene(),
-                        ( this as unknown as bz.HumanBodyPartitions )
+                        ( this as unknown as bz.HumanBodyPartitions ),
+                        this.keySystem
                     );
                     gui.init();
 
@@ -498,7 +507,8 @@
                 {
                     const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator(
                         this.scene.getNativeScene(),
-                        ( this as unknown as bz.ProductConfigurator )
+                        ( this as unknown as bz.ProductConfigurator ),
+                        this.keySystem
                     );
                     gui.init();
 
@@ -508,7 +518,10 @@
                 case bz.GUIType.GAME:
                 default:
                 {
-                    const gui:bz.GUIGame = new bz.GUIGame( this.scene.getNativeScene() );
+                    const gui:bz.GUIGame = new bz.GUIGame(
+                        this.scene.getNativeScene(),
+                        this.keySystem
+                    );
                     gui.init();
 
                     return gui;

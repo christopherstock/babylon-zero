@@ -15,6 +15,8 @@
         private             readonly        messageManager          :bz.GUIMessageManager                   = null;
         /** The manager for GUI effects. */
         private             readonly        fxManager               :bz.GUIFxManager                        = null;
+        /** The key system connected to this GUI. */
+        private             readonly        keySystem               :bz.KeySystem                           = null;
 
         /** The pause GUI. */
         private             readonly        pauseGui                :bz.GUIPause                            = null;
@@ -22,10 +24,14 @@
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
         *
-        *   @param scene The scene to create this GUI for.
+        *   @param scene     The scene to create this GUI for.
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected constructor( scene:BABYLON.Scene )
+        protected constructor( scene:BABYLON.Scene, keySystem:bz.KeySystem )
         {
+            // reference the key system
+            this.keySystem = keySystem;
+
             // create foreground GUI
             this.guiFg = bz.GUIFactory.createGUI( scene, true );
 
@@ -101,7 +107,7 @@
         /** ************************************************************************************************************
         *   Updates the GUI information for the current game tick.
         *
-        *   @param pause Specifies if the pause state is currently active.
+        *   @param pause     Specifies if the pause state is currently active.
         ***************************************************************************************************************/
         public render( pause:boolean ) : void
         {
@@ -112,7 +118,7 @@
 
             if ( pause )
             {
-                this.pauseGui.render();
+                this.pauseGui.render( this.keySystem );
             }
         }
 

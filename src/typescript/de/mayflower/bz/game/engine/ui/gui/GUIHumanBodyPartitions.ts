@@ -30,12 +30,13 @@
         /** ************************************************************************************************************
         *   Creates a new GUI for the Product Configurator.
         *
-        *   @param scene  The babylon.JS scene to create this GUI for.
-        *   @param parent The Product Configurator Stage.
+        *   @param scene     The babylon.JS scene to create this GUI for.
+        *   @param parent    The Product Configurator Stage.
+        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene, parent:bz.HumanBodyPartitions )
+        public constructor( scene:BABYLON.Scene, parent:bz.HumanBodyPartitions, keySystem:bz.KeySystem )
         {
-            super( scene );
+            super( scene, keySystem );
 
             this.parent = parent;
         }
