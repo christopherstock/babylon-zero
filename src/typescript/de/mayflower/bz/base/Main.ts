@@ -7,37 +7,24 @@
     *   The main class containing the point of entry and a single game instance.
     *
     *   =====================
-    *   TODO Refactorings
-    *   =====================
-    *   TODO Remove global references to Main.game.
-    *   TODO Minimize access to bz.Scene.getNativeScene().
-    *   TODO pass Interface getFps and KeySystem to Stage and GUI.
-    *   TODO group values and invocations in Stage to different functions and classes (init, game, tech etc.).
-    *   TODO Fix wrong render speed after switching to ProductConfigurator and back to a level!
-    *
-    *   =====================
     *   TODO Primal
     *   =====================
     *   TODO Change player back from Box to Cylinder.
+    *   TODO Fix wrong render speed after switching to ProductConfigurator and back to a level!
     *   TODO Fix/ReCreate exploding models.
     *   TODO Implement mouse movements and controls.
-    *   TODO Move key reaction to Stage.init analog to PointerSystem?
+    *   TODO Move key creation to Stage.init analog to PointerSystem?
     *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
-    *   TODO Connect Main Menu items to Stages?
-    *   TODO Solution to fix screen shaking on collisions?
-    *   TODO Fix setting the pivot for meshes and objects.
+    *   TODO Solution to fix/remove screen shaking on collisions.
+    *   TODO Fix setting a different pivot for meshes and objects.
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *   TODO HID: Add slower panning on aiming/zooming with wearpon.
+    *   TODO Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *   TODO Reset Git Repository?
-    *
-    *   =====================
-    *   TODO Issues
-    *   =====================
     *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
     *   TODO Enable loading of only required resources for the current scene?
     *
@@ -57,7 +44,7 @@
     *   =====================
     *   TODO Fx
     *   =====================
-    *   TODO Add physically correct bullet drop out after fire.
+    *   TODO Add physically correct bullet drop (+sound) out after fire.
     *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
     *   TODO Particle FX (physical) for wall rubble!
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
