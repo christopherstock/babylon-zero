@@ -12,8 +12,13 @@
         /** The stage this pointer system operates on. */
         private             readonly    stage               :bz.Stage                   = null;
 
-        /** Indicates if that the pointer is currently locked. */
+        /** Indicates that the pointer is currently locked. */
         private                         pointerLocked       :boolean                    = false;
+
+        /** The last pointer drag X if the pointer is locked. */
+        private                         lastMovementX       :number                     = 0;
+        /** The last pointer drag Y if the pointer is locked. */
+        private                         lastMovementY       :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
@@ -93,6 +98,20 @@
             }
         };
 
+        public getAndResetLastPointerX() : number
+        {
+            const ret :number = this.lastMovementX;
+            this.lastMovementX = 0;
+            return ret;
+        }
+
+        public getAndResetLastPointerY() : number
+        {
+            const ret :number = this.lastMovementY;
+            this.lastMovementY = 0;
+            return ret;
+        }
+
         /** ************************************************************************************************************
         *   Requests the mouse/pointer lock feature of the browser.
         ***************************************************************************************************************/
@@ -156,7 +175,7 @@
                 );
             }
 
-
-
+            this.lastMovementX = me.movementX;
+            this.lastMovementY = me.movementY;
         };
     }

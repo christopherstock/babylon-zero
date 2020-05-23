@@ -9,13 +9,11 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Change player back from Box to Cylinder for Human Player.
+    *   TODO Solution to fix/remove screen shaking on collisions.
     *   TODO Fix/ReCreate exploding models.
-    *   TODO Implement mouse movements and controls.
     *   TODO Move key creation to Stage.init analog to PointerSystem?
     *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
-    *   TODO Solution to fix/remove screen shaking on collisions.
     *   TODO Fix setting a different pivot for meshes and objects.
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!

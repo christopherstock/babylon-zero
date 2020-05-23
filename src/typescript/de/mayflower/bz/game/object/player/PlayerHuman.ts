@@ -221,8 +221,9 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // handle keys
+            // handle input
             this.handleKeys();
+            this.handlePointer();
 
             // alter position
             this.movePlayer();
@@ -382,6 +383,30 @@
         }
 
         /** ************************************************************************************************************
+        *   Handles all pointer operations for the player.
+        ***************************************************************************************************************/
+        private handlePointer() : void
+        {
+            const pointerSystem:bz.PointerSystem = this.stage.getPointerSystem();
+
+            // turn Y
+            const lastPointerMovementX :number = pointerSystem.getAndResetLastPointerX();
+            if ( lastPointerMovementX !== 0 )
+            {
+                // noinspection JSSuspiciousNameCombination
+                this.rotationDelta.y = lastPointerMovementX * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER;
+            }
+
+            // look up / down
+            const lastPointerMovementY :number = pointerSystem.getAndResetLastPointerY();
+            if ( lastPointerMovementY !== 0 )
+            {
+                // noinspection JSSuspiciousNameCombination
+                this.rotationDelta.z = lastPointerMovementY * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER;
+            }
+        }
+
+        /** ************************************************************************************************************
         *   Moves all player's meshes by the current move deltas.
         ***************************************************************************************************************/
         private movePlayer() : void
@@ -394,6 +419,7 @@
                 || this.moveDelta.z !== 0.0
             )
             {
+                // direct movement is completely inoperative! :(
                 const DIRECT_MOVEMENT :boolean = false;
 
                 if ( DIRECT_MOVEMENT )
@@ -429,10 +455,13 @@
                     }
                 }
 
-                // force rotZ centering on horizontal movements
-                if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
+                // force rotZ centering on horizontal movements if enabled
+                if ( bz.SettingPlayerHuman.ENABLE_CENTERING_ROT_Y_ON_WALKING )
                 {
-                    this.centerRotZ = true;
+                    if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
+                    {
+                        this.centerRotZ = true;
+                    }
                 }
 
                 // reset move deltas

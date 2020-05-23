@@ -23,7 +23,7 @@
         public  static  readonly    FALLING_VELOCITY_MULTIPLIER             :number             = 1.05;
 
         /** The player's physical force ascend impulse for jumping. */
-        public  static  readonly    JUMP_ASCEND_IMPULSE_Y                   :number             = 30000.0;
+        public  static  readonly    JUMP_ASCEND_IMPULSE_Y                   :number             = 10000.0;
 
         /** The player's physical force horizontal impulse for moving. */
         public  static  readonly    MOVE_IMPULSE                            :number             = 25000.0;
@@ -54,4 +54,10 @@
 
         /** The player's maximum looking up/down in degrees. */
         public  static  readonly    MAX_LOOK_UP_DOWN                        :number             = 60.0;
+
+        /** Enable centering rotation Y centering on walking. */
+        public  static  readonly    ENABLE_CENTERING_ROT_Y_ON_WALKING       :boolean            = false;
+
+        /** Multiplier for mapping pointer movements XY to player rotation YZ. */
+        public  static  readonly    POINTER_MOVEMENT_MULTIPLIER             :number             = 0.7;
     }
