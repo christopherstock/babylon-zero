@@ -73,6 +73,25 @@
                 new bz.Model
                 (
                     [
+
+                        // Player.PLAYER_BODY_ID
+                        bz.MeshFactory.createCylinder
+                        (
+                            scene,
+                            position.clone().addInPlace(
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                            ),
+                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            bz.SettingPlayerHuman.DIAMETER_BODY_XZ,
+                            bz.SettingPlayerHuman.HEIGHT_Y_STANDING,
+                            BABYLON.Vector3.Zero(),
+                            bz.Texture.WALL_GLASS,
+                            null,
+                            bz.Physic.PLAYER_HUMAN,
+                            0.5,
+                            emissiveColor
+                        ),
+/*
                         // Player.PLAYER_BODY_ID
                         bz.MeshFactory.createImportedModel
                         (
@@ -82,12 +101,21 @@
                             bz.Physic.PLAYER_HUMAN,
                             bz.ModelCompoundType.NONE
                         ).getMesh( 0 ),
-
+*/
                         // Player.PLAYER_HEAD_ID
                         bz.MeshFactory.createSphere
                         (
                             scene,
-                            position.clone().addInPlace( new BABYLON.Vector3( 0.0, 2.5, 0.0 ) ),
+                            position.clone().addInPlace(
+                                new BABYLON.Vector3(
+                                    0.0,
+                                    (
+                                        ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 )
+                                        - ( bz.SettingPlayerHuman.DIAMETER_HEAD / 2 )
+                                    ),
+                                    0.0
+                                )
+                            ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
                             bz.SettingPlayerHuman.DIAMETER_HEAD,
                             BABYLON.Vector3.Zero(),
@@ -366,36 +394,39 @@
                 || this.moveDelta.z !== 0.0
             )
             {
-/*
-                // apply direct move delta
-                this.body.moveWithCollisions
-                (
-                    new BABYLON.Vector3
-                    (
-                        this.moveDelta.x,
-                        this.moveDelta.y,
-                        this.moveDelta.z
-                    )
-                );
-*/
+                const DIRECT_MOVEMENT :boolean = false;
 
-                // this.body.moveWithCollisions( this.moveDelta );
-
-                // apply physical impulse
-                if ( this.body.physicsImpostor !== undefined )
+                if ( DIRECT_MOVEMENT )
                 {
-                    // this.body.physicsImpostor.setDeltaPosition ??
-
-                    this.body.physicsImpostor.applyImpulse // applyForce ?
+                    // apply direct move delta
+                    this.body.moveWithCollisions
                     (
                         new BABYLON.Vector3
                         (
                             this.moveDelta.x,
                             this.moveDelta.y,
                             this.moveDelta.z
-                        ),
-                        this.body.position
+                        )
                     );
+                }
+                else
+                {
+                    // apply physical impulse
+                    if ( this.body.physicsImpostor !== undefined )
+                    {
+                        // this.body.physicsImpostor.setDeltaPosition ??
+
+                        this.body.physicsImpostor.applyImpulse
+                        (
+                            new BABYLON.Vector3
+                            (
+                                this.moveDelta.x,
+                                this.moveDelta.y,
+                                this.moveDelta.z
+                            ),
+                            this.body.position
+                        );
+                    }
                 }
 
                 // force rotZ centering on horizontal movements

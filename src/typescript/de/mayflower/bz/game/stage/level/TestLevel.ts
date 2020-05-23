@@ -40,7 +40,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 15.0, 0.0, 15.0 ),
+                new BABYLON.Vector3( 15.0, bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2, 15.0 ),
                 225.0,
                 this.ambientColor
             );

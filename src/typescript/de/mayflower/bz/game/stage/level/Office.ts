@@ -52,7 +52,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, 2.5, 13.0 ),
+                new BABYLON.Vector3( 8.0, ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 ), 13.0 ),
                 45.0,
                 this.ambientColor
             );
@@ -267,13 +267,13 @@
                     )
                 ),
 */
+                // static ground
                 new bz.Wall
                 (
                     this,
                     new bz.Model
                     (
                         [
-                            // static ground
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
@@ -291,17 +291,17 @@
                     )
                 ),
 
+                // test wall green
                 new bz.Wall
                 (
                     this,
                     new bz.Model
                     (
                         [
-                            // test wall green
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 3.0, 0.0, 1.0  ),
+                                new BABYLON.Vector3( 3.0, 2.5, 1.0  ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -315,13 +315,13 @@
                     )
                 ),
 /*
+                // test wall (flying obstacle)
                 new bz.Wall
                 (
                     this,
                     new bz.Model
                     (
                         [
-                            // test wall (flying obstacle)
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
@@ -339,13 +339,13 @@
                     )
                 ),
 */
+                // static elevated ground
                 new bz.Wall
                 (
                     this,
                     new bz.Model
                     (
                         [
-                            // static elevated ground
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
@@ -434,7 +434,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.STORM, 1.0 );
+            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 1.0 );
         }
 
         /** ************************************************************************************************************

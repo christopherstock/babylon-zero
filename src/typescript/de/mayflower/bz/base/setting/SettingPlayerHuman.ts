@@ -21,15 +21,16 @@
         public  static  readonly    MOVE_VELOCITY_MULTIPLIER                :number             = 0.5;
         /** The player's physical force upscale multiplier descending. */
         public  static  readonly    FALLING_VELOCITY_MULTIPLIER             :number             = 1.05;
+
         /** The player's physical force ascend impulse for jumping. */
-        public  static  readonly    JUMP_ASCEND_IMPULSE_Y                   :number             = 300.0;
+        public  static  readonly    JUMP_ASCEND_IMPULSE_Y                   :number             = 30000.0;
 
         /** The player's physical force horizontal impulse for moving. */
-        public  static  readonly    MOVE_IMPULSE                            :number             = 300.0;
+        public  static  readonly    MOVE_IMPULSE                            :number             = 25000.0;
         /** The player's physical force horizontal impulse for running. */
-        public  static  readonly    RUN_IMPULSE                             :number             = 450.0;
+        public  static  readonly    RUN_IMPULSE                             :number             = 50000.0;
         /** The player's physical force horizontal impulse for straving. */
-        public  static  readonly    SPEED_STRAVE                            :number             = 325.0;
+        public  static  readonly    SPEED_STRAVE                            :number             = 20000.0;
         /** The player's physical velocity y that determines falling. */
         public  static  readonly    FALLING_VELOCITY_Y                      :number             = -1.0;
 
