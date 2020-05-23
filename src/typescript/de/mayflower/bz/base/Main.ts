@@ -9,7 +9,7 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Solution to fix/remove screen shaking on collisions.
+    *   TODO Enable shoot via pointer click.
     *   TODO Fix/ReCreate exploding models.
     *   TODO Move key creation to Stage.init analog to PointerSystem?
     *   TODO Player may not jump in air.
@@ -17,6 +17,7 @@
     *   TODO Fix setting a different pivot for meshes and objects.
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
+    *   TODO Solution to fix/remove screen shaking on collisions.
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
     *   TODO Add slower panning on aiming/zooming with wearpon.
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )

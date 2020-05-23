@@ -4,9 +4,14 @@
     /** ****************************************************************************************************************
     *   Offers default pointer handling for one specific stage.
     *   This is currently just an implementation for physical debug purposes!
+    *
+    *   TODO rename to MouseSystem.
     *******************************************************************************************************************/
     export class PointerSystem
     {
+        private     static  readonly    MOUSE_BUTTON_LEFT   :number                     = 0;
+        private     static  readonly    MOUSE_BUTTON_RIGHT  :number                     = 2;
+
         /** The canvas this pointer system operates on. */
         private             readonly    canvas              :bz.CanvasSystem            = null;
         /** The stage this pointer system operates on. */
@@ -48,13 +53,13 @@
             );
             this.canvas.getNativeCanvas().onclick = (
                 assignPointerLock
-                ? () :void => { this.onCanvasClick(); }
+                ? ( me: MouseEvent ) :any => { this.onCanvasClick( me ); }
                 : null
             );
         }
 
         /** ************************************************************************************************************
-        *   Sets up and defines the pointer callback.
+        *   Sets up and defines the DEBUG pointer callback.
         *
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
@@ -114,8 +119,35 @@
 
         /** ************************************************************************************************************
         *   Requests the mouse/pointer lock feature of the browser.
+        *
+        *   @param me The MouseEvent with additional information on this click event.
         ***************************************************************************************************************/
-        private onCanvasClick() : void
+        private onCanvasClick( me:MouseEvent ) : void
+        {
+            // check if the pointer is already locked
+            if ( this.pointerLocked )
+            {
+                // TODO extract from onclick to onmousedown & onmouseup
+
+                bz.Debug.pointer.log( 'Pointer already locked - Canvas click button [' + String( me.button ) + ']' );
+
+                if ( me.button === PointerSystem.MOUSE_BUTTON_LEFT )
+                {
+                    bz.Debug.pointer.log( ' Left mouse key clicked' );
+                }
+
+                if ( me.button === PointerSystem.MOUSE_BUTTON_RIGHT )
+                {
+                    bz.Debug.pointer.log( ' Right mouse key clicked' );
+                }
+            }
+            else
+            {
+                this.requestPointerLock();
+            }
+        };
+
+        private requestPointerLock() : void
         {
             document.addEventListener( 'pointerlockchange',    () => { this.onPointerLockChange(); } );
             document.addEventListener( 'mozpointerlockchange', () => { this.onPointerLockChange(); } );
@@ -132,7 +164,7 @@
                 ||  this.canvas.getNativeCanvas().mozRequestPointerLock
             );
             this.canvas.getNativeCanvas().requestPointerLock();
-        };
+        }
 
         /** ************************************************************************************************************
         *   Being invoked when the pointer lock changes.
@@ -157,7 +189,7 @@
         };
 
         /** ************************************************************************************************************
-        *   Being invoked when the pointer-locked mouse is moved.
+        *   Being invoked when the 'pointer-locked' mouse is moved.
         *
         *   Note that this method is being invoked ASYNCHRONOUS by the system
         *   so ALL occuring events must be stored and processed afterwards!
