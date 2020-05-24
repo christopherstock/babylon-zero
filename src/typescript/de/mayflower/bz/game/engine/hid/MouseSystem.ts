@@ -7,22 +7,28 @@
     *******************************************************************************************************************/
     export class MouseSystem
     {
-        private     static  readonly    MOUSE_BUTTON_LEFT   :number                     = 0;
-        private     static  readonly    MOUSE_BUTTON_CENTER :number                     = 1;
-        private     static  readonly    MOUSE_BUTTON_RIGHT  :number                     = 2;
+        private     static  readonly    MOUSE_BUTTON_LEFT       :number                 = 0;
+        private     static  readonly    MOUSE_BUTTON_CENTER     :number                 = 1;
+        private     static  readonly    MOUSE_BUTTON_RIGHT      :number                 = 2;
 
         /** The canvas this pointer system operates on. */
-        private             readonly    canvas              :bz.CanvasSystem            = null;
+        private             readonly    canvas                  :bz.CanvasSystem        = null;
         /** The stage this pointer system operates on. */
-        private             readonly    stage               :bz.Stage                   = null;
+        private             readonly    stage                   :bz.Stage               = null;
 
         /** Indicates that the mouse is currently locked inside the canvas. */
-        private                         mouseLocked       :boolean                    = false;
+        private                         mouseLocked             :boolean                = false;
 
         /** The last mouse drag X if the pointer is locked. */
-        private                         lastMovementX       :number                     = 0;
+        private                         lastMovementX           :number                 = 0;
         /** The last mouse drag Y if the pointer is locked. */
-        private                         lastMovementY       :number                     = 0;
+        private                         lastMovementY           :number                 = 0;
+        /** Indicates if the left mouse key is currently down. */
+        private                         downMouseKeyLeft        :boolean                = false;
+        /** Indicates if the center mouse key is currently down. */
+        private                         downMouseKeyCenter      :boolean                = false;
+        /** Indicates if the right mouse key is currently down. */
+        private                         downMouseKeyRight       :boolean                = false;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
@@ -50,11 +56,13 @@
                 }
                 : null
             );
-            this.canvas.getNativeCanvas().onclick = (
-                assignPointerLock
-                ? ( me: MouseEvent ) :any => { this.onCanvasClick( me ); }
-                : null
-            );
+
+            if ( assignPointerLock )
+            {
+                this.canvas.getNativeCanvas().onclick     = ( me: MouseEvent ) :any => { this.onMouseClick( me ); };
+                this.canvas.getNativeCanvas().onmousedown = ( me: MouseEvent ) :any => { this.onMouseDown(  me ); };
+                this.canvas.getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => { this.onMouseUp(    me ); };
+            }
         }
 
         /** ************************************************************************************************************
@@ -117,34 +125,91 @@
         }
 
         /** ************************************************************************************************************
-        *   Requests the mouse/pointer lock feature of the browser.
+        *   Being invoked when the canvas is clicked.
+        *   Requests the mouse/pointer lock feature of the browser if the lock is not already active.
         *
         *   @param me The MouseEvent with additional information on this click event.
         ***************************************************************************************************************/
-        private onCanvasClick( me:MouseEvent ) : void
+        private onMouseClick( me:MouseEvent ) : void
         {
-            // check if the pointer is already locked
-            if ( this.mouseLocked )
-            {
-                // TODO extract from onclick to onmousedown & onmouseup
-
-                bz.Debug.pointer.log( 'Pointer already locked - Canvas click button [' + String( me.button ) + ']' );
-
-                if ( me.button === MouseSystem.MOUSE_BUTTON_LEFT )
-                {
-                    bz.Debug.pointer.log( ' Left mouse key clicked' );
-                }
-
-                if ( me.button === MouseSystem.MOUSE_BUTTON_RIGHT )
-                {
-                    bz.Debug.pointer.log( ' Right mouse key clicked' );
-                }
-            }
-            else
+            // check if the pointer is not locked yet
+            if ( !this.mouseLocked )
             {
                 this.requestPointerLock();
             }
         };
+
+        /** ************************************************************************************************************
+        *   Being invoked when the mouse is down over the canvas.
+        *
+        *   @param me The MouseEvent with additional information on this event.
+        ***************************************************************************************************************/
+        private onMouseDown( me:MouseEvent ) : void
+        {
+            // only handle this event if the pointer is locked
+            if ( this.mouseLocked )
+            {
+                switch ( me.button )
+                {
+                    case MouseSystem.MOUSE_BUTTON_LEFT:
+                    {
+                        this.downMouseKeyLeft = true;
+                        bz.Debug.pointer.log( ' Left mouse key down' );
+                        break;
+                    }
+
+                    case MouseSystem.MOUSE_BUTTON_CENTER:
+                    {
+                        this.downMouseKeyCenter = true;
+                        bz.Debug.pointer.log( ' Center mouse key down' );
+                        break;
+                    }
+
+                    case MouseSystem.MOUSE_BUTTON_RIGHT:
+                    {
+                        this.downMouseKeyRight = true;
+                        bz.Debug.pointer.log( ' Right mouse key down' );
+                        break;
+                    }
+                }
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Being invoked when the mouse is up over the canvas.
+        *
+        *   @param me The MouseEvent with additional information on this event.
+        ***************************************************************************************************************/
+        private onMouseUp( me:MouseEvent ) : void
+        {
+            // only handle this event if the pointer is locked
+            if ( this.mouseLocked )
+            {
+                switch ( me.button )
+                {
+                    case MouseSystem.MOUSE_BUTTON_LEFT:
+                    {
+                        this.downMouseKeyLeft = false;
+                        bz.Debug.pointer.log( ' Left mouse key up' );
+                        break;
+                    }
+
+                    case MouseSystem.MOUSE_BUTTON_CENTER:
+                    {
+                        this.downMouseKeyCenter = false;
+                        bz.Debug.pointer.log( ' Center mouse key up' );
+                        break;
+                    }
+
+                    case MouseSystem.MOUSE_BUTTON_RIGHT:
+                    {
+                        this.downMouseKeyRight = false;
+                        bz.Debug.pointer.log( ' Right mouse key up' );
+                        break;
+                    }
+                }
+            }
+        }
 
         private requestPointerLock() : void
         {
