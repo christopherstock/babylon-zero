@@ -4,12 +4,11 @@
     /** ****************************************************************************************************************
     *   Offers default pointer handling for one specific stage.
     *   This is currently just an implementation for physical debug purposes!
-    *
-    *   TODO rename to MouseSystem.
     *******************************************************************************************************************/
-    export class PointerSystem
+    export class MouseSystem
     {
         private     static  readonly    MOUSE_BUTTON_LEFT   :number                     = 0;
+        private     static  readonly    MOUSE_BUTTON_CENTER :number                     = 1;
         private     static  readonly    MOUSE_BUTTON_RIGHT  :number                     = 2;
 
         /** The canvas this pointer system operates on. */
@@ -17,37 +16,37 @@
         /** The stage this pointer system operates on. */
         private             readonly    stage               :bz.Stage                   = null;
 
-        /** Indicates that the pointer is currently locked. */
-        private                         pointerLocked       :boolean                    = false;
+        /** Indicates that the mouse is currently locked inside the canvas. */
+        private                         mouseLocked       :boolean                    = false;
 
-        /** The last pointer drag X if the pointer is locked. */
+        /** The last mouse drag X if the pointer is locked. */
         private                         lastMovementX       :number                     = 0;
-        /** The last pointer drag Y if the pointer is locked. */
+        /** The last mouse drag Y if the pointer is locked. */
         private                         lastMovementY       :number                     = 0;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
         *
-        *   @param stage             The stage  this pointer system operates on.
-        *   @param canvas            The canvas this pointer system operates on.
-        *   @param assignPointerDown Specifies if a pointerDown event shall be assigned to the babylon.JS scene.
-        *   @param assignPointerLock Specifies if the pointer shall be locked on clicking onto the canvas.
+        *   @param stage                  The stage  this pointer system operates on.
+        *   @param canvas                 The canvas this pointer system operates on.
+        *   @param assignDebugPointerDown Specifies if a pointerDown event shall be assigned to the babylon.JS scene.
+        *   @param assignPointerLock      Specifies if the pointer shall be locked on clicking onto the canvas.
         ***************************************************************************************************************/
         public constructor
         (
-            stage             :bz.Stage,
-            canvas            :bz.CanvasSystem,
-            assignPointerDown :boolean,
-            assignPointerLock :boolean
+            stage                  :bz.Stage,
+            canvas                 :bz.CanvasSystem,
+            assignDebugPointerDown :boolean,
+            assignPointerLock      :boolean
         )
         {
             this.stage  = stage;
             this.canvas = canvas;
 
             this.stage.getScene().onPointerDown = (
-                assignPointerDown
+                assignDebugPointerDown
                 ? ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
-                    this.onPointerDown( evt, pickResult );
+                    this.onDebugPointerDown( evt, pickResult );
                 }
                 : null
             );
@@ -64,7 +63,7 @@
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        public onPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
+        public onDebugPointerDown(evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             // check if a result is picked and if the stage is present
             if ( pickResult.hit && this.stage !== null )
@@ -103,14 +102,14 @@
             }
         };
 
-        public getAndResetLastPointerX() : number
+        public getAndResetLastMouseMovementX() : number
         {
             const ret :number = this.lastMovementX;
             this.lastMovementX = 0;
             return ret;
         }
 
-        public getAndResetLastPointerY() : number
+        public getAndResetLastMouseMovementY() : number
         {
             const ret :number = this.lastMovementY;
             this.lastMovementY = 0;
@@ -125,18 +124,18 @@
         private onCanvasClick( me:MouseEvent ) : void
         {
             // check if the pointer is already locked
-            if ( this.pointerLocked )
+            if ( this.mouseLocked )
             {
                 // TODO extract from onclick to onmousedown & onmouseup
 
                 bz.Debug.pointer.log( 'Pointer already locked - Canvas click button [' + String( me.button ) + ']' );
 
-                if ( me.button === PointerSystem.MOUSE_BUTTON_LEFT )
+                if ( me.button === MouseSystem.MOUSE_BUTTON_LEFT )
                 {
                     bz.Debug.pointer.log( ' Left mouse key clicked' );
                 }
 
-                if ( me.button === PointerSystem.MOUSE_BUTTON_RIGHT )
+                if ( me.button === MouseSystem.MOUSE_BUTTON_RIGHT )
                 {
                     bz.Debug.pointer.log( ' Right mouse key clicked' );
                 }
@@ -177,14 +176,14 @@
             ) {
                 bz.Debug.pointer.log( 'The pointer lock status is now LOCKED' );
 
-                this.pointerLocked = true;
+                this.mouseLocked = true;
 
             }
             else
             {
                 bz.Debug.pointer.log( 'The pointer lock status is now UNLOCKED' );
 
-                this.pointerLocked = false;
+                this.mouseLocked = false;
             }
         };
 
@@ -196,7 +195,7 @@
         ***************************************************************************************************************/
         private onMouseMove( me:MouseEvent ) : void
         {
-            if ( this.pointerLocked )
+            if ( this.mouseLocked )
             {
                 bz.Debug.pointer.log(
                     'PointerMovement X: ['

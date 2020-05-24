@@ -55,7 +55,7 @@
 
     export * from './game/engine/hid/KeyCodes';
     export * from './game/engine/hid/KeySystem';
-    export * from './game/engine/hid/PointerSystem';
+    export * from './game/engine/hid/MouseSystem';
 
     export * from './game/engine/scene/Scene';
 

@@ -223,7 +223,7 @@
         {
             // handle input
             this.handleKeys();
-            this.handlePointer();
+            this.handleMouse();
 
             // alter position
             this.movePlayer();
@@ -383,14 +383,14 @@
         }
 
         /** ************************************************************************************************************
-        *   Handles all pointer operations for the player.
+        *   Handles all mouse operations for the player.
         ***************************************************************************************************************/
-        private handlePointer() : void
+        private handleMouse() : void
         {
-            const pointerSystem:bz.PointerSystem = this.stage.getPointerSystem();
+            const mouseSystem:bz.MouseSystem = this.stage.getMouseSystem();
 
             // turn Y
-            const lastPointerMovementX :number = pointerSystem.getAndResetLastPointerX();
+            const lastPointerMovementX :number = mouseSystem.getAndResetLastMouseMovementX();
             if ( lastPointerMovementX !== 0 )
             {
                 // noinspection JSSuspiciousNameCombination
@@ -398,7 +398,7 @@
             }
 
             // look up / down
-            const lastPointerMovementY :number = pointerSystem.getAndResetLastPointerY();
+            const lastPointerMovementY :number = mouseSystem.getAndResetLastMouseMovementY();
             if ( lastPointerMovementY !== 0 )
             {
                 // noinspection JSSuspiciousNameCombination

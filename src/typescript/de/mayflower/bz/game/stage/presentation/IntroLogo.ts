@@ -260,11 +260,11 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets up the pointer system.
+        *   Sets up the mouse system.
         ***************************************************************************************************************/
-        protected createPointerSystem() : bz.PointerSystem
+        protected createMouseSystem() : bz.MouseSystem
         {
-            return new bz.PointerSystem( this, this.canvas, false, false );
+            return new bz.MouseSystem( this, this.canvas, false, false );
         }
 
         /** ************************************************************************************************************

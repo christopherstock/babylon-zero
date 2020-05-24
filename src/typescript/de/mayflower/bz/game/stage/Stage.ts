@@ -22,8 +22,8 @@
         protected           readonly        guiType                 :bz.GUIType                             = null;
         /** The key system to use in this stage. */
         protected           readonly        keySystem               :bz.KeySystem                           = null;
-        /** The pointer system to use in this stage. */
-        protected                           pointerSystem           :bz.PointerSystem                       = null;
+        /** The mouse system to use in this stage. */
+        protected                           mouseSystem             :bz.MouseSystem                         = null;
 
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -170,11 +170,11 @@
         protected abstract setupFog() : void;
 
         /** ************************************************************************************************************
-        *   Sets up the pointer system.
+        *   Sets up the mouse system.
         *
-        *   @return The pointer system to use in this stage.
+        *   @return The mouse system to use in this stage.
         ***************************************************************************************************************/
-        protected abstract createPointerSystem() : bz.PointerSystem;
+        protected abstract createMouseSystem() : bz.MouseSystem;
 
         /** ************************************************************************************************************
         *   Being invoked when the stage setup is complete.
@@ -200,7 +200,7 @@
             this.sprites       = this.createSprites();
             this.gui           = this.createGUI();
             this.lights        = this.createLights();
-            this.pointerSystem = this.createPointerSystem();
+            this.mouseSystem = this.createMouseSystem();
 
             // set camera system
             this.setActiveCamera( this.initialCamera );
@@ -279,13 +279,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns this stage's pointer system.
+        *   Returns this stage's mouse system.
         *
         *   @return The pointer system of this stage.
         ***************************************************************************************************************/
-        public getPointerSystem() : bz.PointerSystem
+        public getMouseSystem() : bz.MouseSystem
         {
-            return this.pointerSystem;
+            return this.mouseSystem;
         }
 
         /** ************************************************************************************************************
