@@ -221,9 +221,8 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // handle input
-            this.handleKeys();
-            this.handleMouse();
+            // check user input
+            this.handleUserInput();
 
             // alter position
             this.movePlayer();
@@ -237,7 +236,7 @@
             // alter height
             this.checkHeightChange();
 
-            // interact
+            // interact with level
             this.checkFire();
         }
 
@@ -266,9 +265,10 @@
         /** ************************************************************************************************************
         *   Handles all keys for the player.
         ***************************************************************************************************************/
-        private handleKeys() : void
+        private handleUserInput() : void
         {
             const keySystem:bz.KeySystem = this.stage.getKeySystem();
+            const mouseSystem:bz.MouseSystem = this.stage.getMouseSystem();
 
             // move forewards and backwards
             if
@@ -343,6 +343,12 @@
             {
                 this.rotationDelta.y = bz.SettingPlayerHuman.SPEED_TURN;
             }
+            const lastPointerMovementX :number = mouseSystem.getAndResetLastMouseMovementX();
+            if ( lastPointerMovementX !== 0 )
+            {
+                // noinspection JSSuspiciousNameCombination
+                this.rotationDelta.y += ( lastPointerMovementX * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER );
+            }
 
             // look up / down
             if ( keySystem.isPressed( bz.KeyCodes.KEY_R ) )
@@ -352,6 +358,12 @@
             if ( keySystem.isPressed( bz.KeyCodes.KEY_F ) )
             {
                 this.rotationDelta.z = bz.SettingPlayerHuman.SPEED_LOOK_UP_DOWN;
+            }
+            const lastPointerMovementY :number = mouseSystem.getAndResetLastMouseMovementY();
+            if ( lastPointerMovementY !== 0 )
+            {
+                // noinspection JSSuspiciousNameCombination
+                this.rotationDelta.z += ( lastPointerMovementY * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER );
             }
 
             // fire
@@ -380,30 +392,6 @@
 
             // zoom
             this.zoom = keySystem.isPressed( bz.KeyCodes.KEY_X );
-        }
-
-        /** ************************************************************************************************************
-        *   Handles all mouse operations for the player.
-        ***************************************************************************************************************/
-        private handleMouse() : void
-        {
-            const mouseSystem:bz.MouseSystem = this.stage.getMouseSystem();
-
-            // turn Y
-            const lastPointerMovementX :number = mouseSystem.getAndResetLastMouseMovementX();
-            if ( lastPointerMovementX !== 0 )
-            {
-                // noinspection JSSuspiciousNameCombination
-                this.rotationDelta.y = lastPointerMovementX * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER;
-            }
-
-            // look up / down
-            const lastPointerMovementY :number = mouseSystem.getAndResetLastMouseMovementY();
-            if ( lastPointerMovementY !== 0 )
-            {
-                // noinspection JSSuspiciousNameCombination
-                this.rotationDelta.z = lastPointerMovementY * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER;
-            }
         }
 
         /** ************************************************************************************************************

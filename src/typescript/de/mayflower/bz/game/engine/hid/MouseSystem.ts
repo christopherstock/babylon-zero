@@ -7,9 +7,9 @@
     *******************************************************************************************************************/
     export class MouseSystem
     {
-        private     static  readonly    MOUSE_BUTTON_LEFT       :number                 = 0;
-        private     static  readonly    MOUSE_BUTTON_CENTER     :number                 = 1;
-        private     static  readonly    MOUSE_BUTTON_RIGHT      :number                 = 2;
+        public      static  readonly    MOUSE_BUTTON_LEFT       :number                 = 0;
+        public      static  readonly    MOUSE_BUTTON_CENTER     :number                 = 1;
+        public      static  readonly    MOUSE_BUTTON_RIGHT      :number                 = 2;
 
         /** The canvas this pointer system operates on. */
         private             readonly    canvas                  :bz.CanvasSystem        = null;
@@ -122,6 +122,29 @@
             const ret :number = this.lastMovementY;
             this.lastMovementY = 0;
             return ret;
+        }
+
+        public isMouseButtonDown( buttonId:number ) : boolean
+        {
+            switch ( buttonId )
+            {
+                case MouseSystem.MOUSE_BUTTON_LEFT:
+                {
+                    return this.downMouseKeyLeft;
+                }
+
+                case MouseSystem.MOUSE_BUTTON_CENTER:
+                {
+                    return this.downMouseKeyCenter;
+                }
+
+                case MouseSystem.MOUSE_BUTTON_RIGHT:
+                {
+                    return this.downMouseKeyRight;
+                }
+            }
+
+            return false;
         }
 
         /** ************************************************************************************************************
