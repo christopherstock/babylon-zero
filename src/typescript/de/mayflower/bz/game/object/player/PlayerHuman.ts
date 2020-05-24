@@ -370,7 +370,11 @@
             if ( keySystem.isPressed( bz.KeyCodes.KEY_CTRL_LEFT ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_CTRL_LEFT );
-
+                this.fire = true;
+            }
+            if ( mouseSystem.consumeMouseButtonDown( bz.MouseSystem.MOUSE_BUTTON_LEFT ) )
+            {
+                // mouseSystem.setButtonNeedsRelease( bz.MouseSystem.MOUSE_BUTTON_LEFT );
                 this.fire = true;
             }
 
@@ -391,7 +395,10 @@
             }
 
             // zoom
-            this.zoom = keySystem.isPressed( bz.KeyCodes.KEY_X );
+            this.zoom = (
+                keySystem.isPressed( bz.KeyCodes.KEY_X )
+                || mouseSystem.isMouseButtonDown( bz.MouseSystem.MOUSE_BUTTON_RIGHT )
+            );
         }
 
         /** ************************************************************************************************************
@@ -689,11 +696,11 @@
             // check if firing is requested
             if ( this.fire )
             {
-                bz.Debug.fire.log();
-                bz.Debug.fire.log( 'Player is firing' );
-
                 // mark fire request as processed
                 this.fire = false;
+
+                bz.Debug.fire.log();
+                bz.Debug.fire.log( 'Player is firing' );
 
                 // create shot and apply it onto the stage
                 const shot:bz.Shot = this.createShot();

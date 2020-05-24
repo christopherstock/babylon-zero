@@ -7,28 +7,43 @@
     *******************************************************************************************************************/
     export class MouseSystem
     {
-        public      static  readonly    MOUSE_BUTTON_LEFT       :number                 = 0;
-        public      static  readonly    MOUSE_BUTTON_CENTER     :number                 = 1;
-        public      static  readonly    MOUSE_BUTTON_RIGHT      :number                 = 2;
+        // TODO Extract to MouseButtonCodes
+        public      static  readonly    MOUSE_BUTTON_LEFT           :number                 = 0;
+        public      static  readonly    MOUSE_BUTTON_CENTER         :number                 = 1;
+        public      static  readonly    MOUSE_BUTTON_RIGHT          :number                 = 2;
 
         /** The canvas this pointer system operates on. */
-        private             readonly    canvas                  :bz.CanvasSystem        = null;
+        private             readonly    canvas                      :bz.CanvasSystem        = null;
         /** The stage this pointer system operates on. */
-        private             readonly    stage                   :bz.Stage               = null;
+        private             readonly    stage                       :bz.Stage               = null;
 
         /** Indicates that the mouse is currently locked inside the canvas. */
-        private                         mouseLocked             :boolean                = false;
+        private                         mouseLocked                 :boolean                = false;
 
         /** The last mouse drag X if the pointer is locked. */
-        private                         lastMovementX           :number                 = 0;
+        private                         lastMovementX               :number                 = 0;
         /** The last mouse drag Y if the pointer is locked. */
-        private                         lastMovementY           :number                 = 0;
+        private                         lastMovementY               :number                 = 0;
         /** Indicates if the left mouse key is currently down. */
-        private                         downMouseKeyLeft        :boolean                = false;
+        private                         downMouseButtonLeft         :boolean                = false;
         /** Indicates if the center mouse key is currently down. */
-        private                         downMouseKeyCenter      :boolean                = false;
+        private                         downMouseButtonCenter       :boolean                = false;
         /** Indicates if the right mouse key is currently down. */
-        private                         downMouseKeyRight       :boolean                = false;
+        private                         downMouseButtonRight        :boolean                = false;
+
+        /** Indicates if the left mouse key was down but not consumed. */
+        private                         unconsumedDownMouseButtonLeft       :boolean        = false;
+        /** Indicates if the center mouse key is currently down. */
+        private                         unconsumedDownMouseButtonCenter     :boolean        = false;
+        /** Indicates if the right mouse key is currently down. */
+        private                         unconsumedDownMouseButtonRight      :boolean        = false;
+
+        /** Indicates that the left mouse button needs to be released before next press is accepted. */
+        private                         needsReleaseButtonLeft      :boolean                = false;
+        /** Indicates that the center mouse button needs to be released before next press is accepted. */
+        private                         needsReleaseButtonCenter    :boolean                = false;
+        /** Indicates that the right mouse button needs to be released before next press is accepted. */
+        private                         needsReleaseButtonRight     :boolean                = false;
 
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
@@ -130,21 +145,86 @@
             {
                 case MouseSystem.MOUSE_BUTTON_LEFT:
                 {
-                    return this.downMouseKeyLeft;
+                    return this.downMouseButtonLeft;
                 }
 
                 case MouseSystem.MOUSE_BUTTON_CENTER:
                 {
-                    return this.downMouseKeyCenter;
+                    return this.downMouseButtonCenter;
                 }
 
                 case MouseSystem.MOUSE_BUTTON_RIGHT:
                 {
-                    return this.downMouseKeyRight;
+                    return this.downMouseButtonRight;
                 }
             }
 
             return false;
+        }
+
+        public consumeMouseButtonDown( buttonId:number ) : boolean
+        {
+            switch ( buttonId )
+            {
+                case MouseSystem.MOUSE_BUTTON_LEFT:
+                {
+                    if ( this.unconsumedDownMouseButtonLeft )
+                    {
+                        this.unconsumedDownMouseButtonLeft = false;
+                        return true;
+                    }
+                    return false;
+                }
+
+                case MouseSystem.MOUSE_BUTTON_CENTER:
+                {
+                    if ( this.unconsumedDownMouseButtonCenter )
+                    {
+                        this.unconsumedDownMouseButtonCenter = false;
+                        return true;
+                    }
+                    return false;
+                }
+
+                case MouseSystem.MOUSE_BUTTON_RIGHT:
+                {
+                    if ( this.unconsumedDownMouseButtonRight )
+                    {
+                        this.unconsumedDownMouseButtonRight = false;
+                        return true;
+                    }
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public setButtonNeedsRelease( buttonId:number ) : void
+        {
+            switch ( buttonId )
+            {
+                case MouseSystem.MOUSE_BUTTON_LEFT:
+                {
+                    this.needsReleaseButtonLeft = true;
+                    this.downMouseButtonLeft    = false;
+                    break;
+                }
+
+                case MouseSystem.MOUSE_BUTTON_CENTER:
+                {
+                    this.needsReleaseButtonCenter = true;
+                    this.downMouseButtonCenter    = false;
+                    break;
+                }
+
+                case MouseSystem.MOUSE_BUTTON_RIGHT:
+                {
+                    this.needsReleaseButtonRight = true;
+                    this.downMouseButtonRight    = false;
+                    break;
+                }
+            }
         }
 
         /** ************************************************************************************************************
@@ -176,22 +256,34 @@
                 {
                     case MouseSystem.MOUSE_BUTTON_LEFT:
                     {
-                        this.downMouseKeyLeft = true;
-                        bz.Debug.pointer.log( ' Left mouse key down' );
+                        if ( !this.needsReleaseButtonLeft )
+                        {
+                            this.downMouseButtonLeft           = true;
+                            this.unconsumedDownMouseButtonLeft = true;
+                            bz.Debug.pointer.log( ' Left mouse key down' );
+                        }
                         break;
                     }
 
                     case MouseSystem.MOUSE_BUTTON_CENTER:
                     {
-                        this.downMouseKeyCenter = true;
-                        bz.Debug.pointer.log( ' Center mouse key down' );
+                        if ( !this.needsReleaseButtonCenter )
+                        {
+                            this.downMouseButtonCenter           = true;
+                            this.unconsumedDownMouseButtonCenter = true;
+                            bz.Debug.pointer.log( ' Center mouse key down' );
+                        }
                         break;
                     }
 
                     case MouseSystem.MOUSE_BUTTON_RIGHT:
                     {
-                        this.downMouseKeyRight = true;
-                        bz.Debug.pointer.log( ' Right mouse key down' );
+                        if ( !this.needsReleaseButtonRight )
+                        {
+                            this.downMouseButtonRight           = true;
+                            this.unconsumedDownMouseButtonRight = true;
+                            bz.Debug.pointer.log( ' Right mouse key down' );
+                        }
                         break;
                     }
                 }
@@ -212,21 +304,24 @@
                 {
                     case MouseSystem.MOUSE_BUTTON_LEFT:
                     {
-                        this.downMouseKeyLeft = false;
+                        this.downMouseButtonLeft    = false;
+                        this.needsReleaseButtonLeft = false;
                         bz.Debug.pointer.log( ' Left mouse key up' );
                         break;
                     }
 
                     case MouseSystem.MOUSE_BUTTON_CENTER:
                     {
-                        this.downMouseKeyCenter = false;
+                        this.downMouseButtonCenter    = false;
+                        this.needsReleaseButtonCenter = false;
                         bz.Debug.pointer.log( ' Center mouse key up' );
                         break;
                     }
 
                     case MouseSystem.MOUSE_BUTTON_RIGHT:
                     {
-                        this.downMouseKeyRight = false;
+                        this.downMouseButtonRight    = false;
+                        this.needsReleaseButtonRight = false;
                         bz.Debug.pointer.log( ' Right mouse key up' );
                         break;
                     }
