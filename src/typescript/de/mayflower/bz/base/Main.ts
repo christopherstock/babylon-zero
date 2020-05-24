@@ -9,35 +9,30 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Enable shoot via pointer click.
     *   TODO Fix/ReCreate exploding models.
     *   TODO Move key creation to Stage.init analog to PointerSystem?
+    *   TODO Remove stage hierarchy - introduce StageSetup with descendants!
     *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
-    *   TODO Fix setting a different pivot for meshes and objects.
+    *   TODO Add slower panning on aiming/zooming with wearpon.
+    *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
+    *   TODO Fix setting a different pivot for meshes and objects AGAIN?
+    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
     *   TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
     *   TODO Solution to fix/remove screen shaking on collisions.
     *   TODO Create alternate lower cylinder for player that toggles on ducking?
-    *   TODO Add slower panning on aiming/zooming with wearpon.
-    *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
     *   TODO Reset Git Repository?
-    *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
+    *   TODO Prune some unused test levels?
+    *   TODO Show wearpon's ammo in magazine and total.
+    *   TODO Enable wearpon magazine and reloading!
     *   TODO Enable loading of only required resources for the current scene?
-    *
-    *   =====================
-    *   TODO Wearpons
-    *   =====================
-    *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *   TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
-    *
-    *   =====================
-    *   TODO Sounds
-    *   =====================
     *   TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
     *        https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
+    *   TODO Create 3d gun as 2nd scene in front?
     *
     *   =====================
     *   TODO Fx
@@ -46,14 +41,18 @@
     *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
     *   TODO Particle FX (physical) for wall rubble!
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
-    *   TODO Add explosion sprites.
-    *   TODO Create 3d gun as 2nd scene in front?
+    *   TODO Add explosion effects for sprites.
     *   TODO Add muzzle flash to gun on firing.
     *
     *   =====================
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
+    *
+    *   =====================
+    *   TODO Wearpons
+    *   =====================
+    *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *
     *   =====================
     *   TODO Characters
