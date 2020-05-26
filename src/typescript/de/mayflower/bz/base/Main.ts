@@ -9,12 +9,8 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Move key creation to Stage.init analog to PointerSystem?
-    *   TODO Remove stage hierarchy - introduce StageSetup with descendants!
-    *   TODO Player may not jump in air.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Add slower panning on aiming/zooming with wearpon.
-    *   TODO deny jumping if player has no contact to the ground! (or simply block re-jump for X ticks!)
     *   TODO Fix setting a different pivot for meshes and objects AGAIN?
     *   TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
     *   TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
@@ -49,6 +45,11 @@
     *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
+    *
+    *   =====================
+    *   TODO Player
+    *   =====================
+    *   TODO Player may not jump in air - deny jumping if player has no contact to the ground!
     *
     *   =====================
     *   TODO Wearpons

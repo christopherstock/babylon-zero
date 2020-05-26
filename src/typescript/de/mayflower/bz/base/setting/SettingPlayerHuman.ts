@@ -22,6 +22,8 @@
         /** The player's physical force upscale multiplier descending. */
         public  static  readonly    FALLING_VELOCITY_MULTIPLIER             :number             = 1.05;
 
+        /** Specifies if the player may jump. ( acts as a feature flag ) */
+        public  static  readonly    JUMP_ENABLED                            :boolean            = false;
         /** The player's physical force ascend impulse for jumping. */
         public  static  readonly    JUMP_ASCEND_IMPULSE_Y                   :number             = 10000.0;
 

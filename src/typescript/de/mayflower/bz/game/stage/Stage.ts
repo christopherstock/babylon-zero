@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        // TODO move all readonly fields to StageConfig ?
+        // TODO extract all constructor- and readonly-fields to StageConfig
 
         /** The scene that represents this stage. */
         protected           readonly        scene                   :bz.Scene                               = null;

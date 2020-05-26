@@ -387,11 +387,14 @@
             }
 
             // jump
-            if ( keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+            if ( bz.SettingPlayerHuman.JUMP_ENABLED )
             {
-                keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
+                if ( keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+                {
+                    keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
 
-                this.assignJump();
+                    this.assignJump();
+                }
             }
 
             // zoom
