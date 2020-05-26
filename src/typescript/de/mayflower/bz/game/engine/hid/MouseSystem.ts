@@ -17,7 +17,7 @@
         /** The stage this pointer system operates on. */
         private             readonly    stage                       :bz.Stage               = null;
 
-        /** Indicates that the mouse is currently locked inside the canvas. */
+        /** Indicates that the mouse is currently locked inside the canvas. TODO use native flag in Canvas?! */
         private                         mouseLocked                 :boolean                = false;
 
         /** The last mouse drag X if the pointer is locked. */
@@ -227,6 +227,12 @@
             }
         }
 
+        // TODO remove after using native canvas flag!
+        public releasePointerLock() : void
+        {
+            this.mouseLocked = false;
+        }
+
         /** ************************************************************************************************************
         *   Being invoked when the canvas is clicked.
         *   Requests the mouse/pointer lock feature of the browser if the lock is not already active.
@@ -387,9 +393,9 @@
                     + String( me.movementY )
                     + ']'
                 );
-            }
 
-            this.lastMovementX = me.movementX;
-            this.lastMovementY = me.movementY;
+                this.lastMovementX = me.movementX;
+                this.lastMovementY = me.movementY;
+            }
         };
     }

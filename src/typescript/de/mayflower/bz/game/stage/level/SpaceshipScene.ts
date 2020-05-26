@@ -9,17 +9,15 @@
         /** ************************************************************************************************************
         *   Creates a new spaceship scene.
         *
-        *   @param scene     The scene reference.
-        *   @param canvas    The canvas system this stage is displayed on.
-        *   @param keySystem The key system being used in this stage.
+        *   @param scene  The scene reference.
+        *   @param canvas The canvas system this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem, keySystem:bz.KeySystem )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
                 canvas,
-                keySystem,
 
                 bz.SettingColor.COLOR_RGB_WHITE,
                 bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE,

@@ -8,8 +8,6 @@
     {
         /** The canvas system. */
         private                     canvasSystem                :bz.CanvasSystem                    = null;
-        /** The key system. */
-        private                     keySystem                   :bz.KeySystem                       = null;
         /** The babylon.JS engine. */
         private                     babylonEngine               :BABYLON.Engine                     = null;
         /** The custom loading screen. */
@@ -43,9 +41,6 @@
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );
             window.addEventListener( 'resize', () => { this.onWindowResize(); } );
-
-            // create key and pointer system
-            this.keySystem = new bz.KeySystem();
 
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );
@@ -127,16 +122,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the key system.
-        *
-        *   @return The key system.
-        ***************************************************************************************************************/
-        public getKeySystem() : bz.KeySystem
-        {
-            return this.keySystem;
-        }
-
-        /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
         ***************************************************************************************************************/
         private onWindowResize() : void
@@ -163,6 +148,11 @@
         private onWindowBlur() : void
         {
             bz.Debug.canvas.log( 'Detected window focus lost - Releasing all keys' );
-            this.keySystem.releaseAllKeys();
+
+            if ( bz.Main.game.getStage() !== null )
+            {
+                bz.Main.game.getStage().getKeySystem().releaseAllKeys();
+                bz.Main.game.getStage().getMouseSystem().releasePointerLock();
+            }
         }
     }

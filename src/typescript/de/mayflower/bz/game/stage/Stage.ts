@@ -20,11 +20,11 @@
         protected           readonly        initialCamera           :bz.CameraType                          = null;
         /** The initial GUI to set for this stage. */
         protected           readonly        guiType                 :bz.GUIType                             = null;
+
         /** The key system to use in this stage. */
-        protected           readonly        keySystem               :bz.KeySystem                           = null;
+        protected                           keySystem               :bz.KeySystem                           = null;
         /** The mouse system to use in this stage. */
         protected                           mouseSystem             :bz.MouseSystem                         = null;
-
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
         /** A collection of all walls in this stage. */
@@ -62,7 +62,6 @@
         *
         *   @param scene         The scene representing this stage.
         *   @param canvas        The canvas system this stage is displayed on.
-        *   @param keySystem     The key system being used in this stage.
         *   @param ambientColor  Specifies the ambient color of the babylon.JS scene
         *                        and is set as the emissive color of all faces.
         *   @param clearColor    The clear color of the stage is the background color of the scene.
@@ -73,7 +72,6 @@
         (
             scene         :bz.Scene,
             canvas        :bz.CanvasSystem,
-            keySystem     :bz.KeySystem,
             ambientColor  :BABYLON.Color3,
             clearColor    :BABYLON.Color4,
             initialCamera :bz.CameraType,
@@ -82,7 +80,6 @@
         {
             this.scene         = scene;
             this.canvas        = canvas;
-            this.keySystem     = keySystem;
             this.ambientColor  = ambientColor;
             this.clearColor    = clearColor;
             this.initialCamera = initialCamera;
@@ -198,9 +195,10 @@
             this.bots          = this.createBots();
             this.skybox        = this.createSkybox();
             this.sprites       = this.createSprites();
-            this.gui           = this.createGUI();
+            this.keySystem     = this.createKeySystem();
+            this.mouseSystem   = this.createMouseSystem();
             this.lights        = this.createLights();
-            this.mouseSystem = this.createMouseSystem();
+            this.gui           = this.createGUI();
 
             // set camera system
             this.setActiveCamera( this.initialCamera );
@@ -490,6 +488,16 @@
         public setPauseMenuIndex( index:number ) : void
         {
             this.gui.setPauseMenuIndex( index );
+        }
+
+        /** ************************************************************************************************************
+        *   Creates the key system.
+        *
+        *   @return The created key system.
+        ***************************************************************************************************************/
+        private createKeySystem() : bz.KeySystem
+        {
+            return new bz.KeySystem();
         }
 
         /** ************************************************************************************************************

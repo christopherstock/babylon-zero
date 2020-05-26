@@ -67,8 +67,7 @@
                 {
                     this.stage = new bz.Office(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -77,8 +76,7 @@
                 {
                     this.stage = new bz.TestLevel(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -87,8 +85,7 @@
                 {
                     this.stage = new bz.TestSite(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -97,8 +94,7 @@
                 {
                     this.stage = new bz.RoomViewer(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -107,8 +103,7 @@
                 {
                     this.stage = new bz.ProductConfigurator(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -117,8 +112,7 @@
                 {
                     this.stage = new bz.IntroLogo(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -127,8 +121,7 @@
                 {
                     this.stage = new bz.HumanBodyPartitions(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -137,8 +130,7 @@
                 {
                     this.stage = new bz.SpaceshipScene(
                         this.scene,
-                        this.engine.getCanvasSystem(),
-                        this.engine.getKeySystem()
+                        this.engine.getCanvasSystem()
                     );
                     break;
                 }
@@ -164,17 +156,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Delivers the game engine's key system.
-        *   TODO remove!
-        *
-        *   @return The key system.
-        ***************************************************************************************************************/
-        public getKeySystem() : bz.KeySystem
-        {
-            return this.engine.getKeySystem();
-        }
-
-        /** ************************************************************************************************************
         *   Returns the current FPS of the babylon.JS engine.
         *
         *   @return The current Frames Per Second as a floating number.
@@ -182,6 +163,16 @@
         public getFps() : number
         {
             return this.engine.getFps();
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the current active stage.
+        *
+        *   @return The current active stage.
+        ***************************************************************************************************************/
+        public getStage() : bz.Stage
+        {
+            return this.stage;
         }
 
         /** ************************************************************************************************************
@@ -231,29 +222,27 @@
             this.scene.render();
 
             // handle global keys ( pause, camera changes, level switches etc. )
-            this.handleGlobalKeys( this.engine.getKeySystem() );
+            this.handleGlobalKeys();
         };
 
         /** ************************************************************************************************************
         *   Handles all keys for the menu.
-        *
-        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handleGlobalKeys( keySystem:bz.KeySystem ) : void
+        private handleGlobalKeys() : void
         {
             if ( bz.SettingDebug.ENABLE_DEBUG_KEYS )
             {
-                this.handleDebugKeys( keySystem );
+                this.handleDebugKeys();
             }
         }
 
         /** ************************************************************************************************************
         *   Handles all debug keys in the menu state.
-        *
-        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handleDebugKeys( keySystem:bz.KeySystem ) : void
+        private handleDebugKeys() : void
         {
+            const keySystem :bz.KeySystem = this.stage.getKeySystem();
+
             // camera switches
 
             if ( keySystem.isPressed( bz.KeyCodes.KEY_1 ) )

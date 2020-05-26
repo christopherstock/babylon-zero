@@ -27,15 +27,13 @@
         *
         *   @param scene     The scene reference.
         *   @param canvas    The canvas system this stage is displayed on.
-        *   @param keySystem The key system being used in this stage.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem, keySystem:bz.KeySystem )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
                 canvas,
-                keySystem,
 
                 bz.SettingColor.COLOR_RGB_GREY_QUARTER,
                 new BABYLON.Color4( 0.95, 0.95, 0.95, 1.0 ),

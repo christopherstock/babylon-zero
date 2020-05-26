@@ -14,15 +14,13 @@
         *
         *   @param scene     The scene reference.
         *   @param canvas    The canvas system this stage is displayed on.
-        *   @param keySystem The key system being used in this stage.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem, keySystem:bz.KeySystem )
+        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
                 scene,
                 canvas,
-                keySystem,
 
                 new bjs.Color3( 0.1, 0.1, 0.1 ),
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
