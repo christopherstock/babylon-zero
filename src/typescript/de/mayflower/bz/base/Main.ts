@@ -32,12 +32,14 @@
     *        https://doc.babylonjs.com/how_to/playing_sounds_and_music
     *   TODO Sounds for shot, bullet hit and bullet drop.
     *   TODO Create 3d gun as 2nd scene in front?
+    *   TODO Try exploding models via particle system? (demo)
+    *        https://www.babylonjs-playground.com/#ML2LR9#0
     *
     *   =====================
     *   TODO Fx
     *   =====================
     *   TODO Add physically correct bullet drop (+sound) out after fire.
-    *   TODO Try particle system (fx, non-physicsl) for bullet holes' wall rubble.
+    *   TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
     *   TODO Particle FX (physical) for wall rubble!
     *   TODO Quick fire animation in bullet hole (for certain materials..)?
     *   TODO Add explosion effects for sprites.
