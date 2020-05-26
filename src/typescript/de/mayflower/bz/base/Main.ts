@@ -9,7 +9,6 @@
     *   =====================
     *   TODO Primal
     *   =====================
-    *   TODO Fix/ReCreate exploding models.
     *   TODO Move key creation to Stage.init analog to PointerSystem?
     *   TODO Remove stage hierarchy - introduce StageSetup with descendants!
     *   TODO Player may not jump in air.

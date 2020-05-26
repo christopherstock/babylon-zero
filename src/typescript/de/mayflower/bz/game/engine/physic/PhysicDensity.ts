@@ -17,4 +17,7 @@
 
         /** The density value for 'concrete'. */
         CONCRETE   = 1.5,
+
+        /** The density value for 'solid concrete'. */
+        SOLID_CONCRETE   = 2.5,
     }

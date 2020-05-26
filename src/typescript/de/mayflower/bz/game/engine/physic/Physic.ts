@@ -60,6 +60,15 @@
             bz.PhysicRestitution.NONE
         );
 
+        /** Props for office chair. */
+        public  static  readonly        SOLID_CONCRETE  :Physic                 = new Physic
+        (
+            bz.PhysicState.MOVABLE,
+            bz.PhysicDensity.SOLID_CONCRETE,
+            bz.PhysicFriction.HIGH,
+            bz.PhysicRestitution.NONE
+        );
+
         /** Props for a physical compound object. */
         public  static  readonly        COMPOUND        :Physic                 = new Physic
         (

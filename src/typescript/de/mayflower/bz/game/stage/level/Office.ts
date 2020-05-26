@@ -129,7 +129,7 @@
                 this.scene,
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( 15.0, 5.0, 17.5 ),
-                bz.Physic.SOLID_WOOD,
+                bz.Physic.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
 /*
