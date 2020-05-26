@@ -4,6 +4,8 @@
 
     /** ****************************************************************************************************************
     *   Specifies the 'test' level that tries out all level components.
+    *
+    *   TODO extract walls and lights and prune!
     *******************************************************************************************************************/
     export class TestLevel extends bz.Stage
     {
@@ -587,7 +589,7 @@
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
-                        bz.ModelFile.OFFICE_CHAIR_1,
+                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                         new BABYLON.Vector3( -10.0, 20.0, 0.0 ),
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
@@ -600,7 +602,7 @@
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
-                        bz.ModelFile.OFFICE_CHAIR_1,
+                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                         new BABYLON.Vector3( -10.0, 20.0, 10.0 ),
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
@@ -613,7 +615,7 @@
                     bz.MeshFactory.createImportedModel
                     (
                         this.scene,
-                        bz.ModelFile.OFFICE_CHAIR_1,
+                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                         new BABYLON.Vector3( -10.0, 20.0, 15.0 ),
                         bz.Physic.SOLID_WOOD,
                         bz.ModelCompoundType.NONE

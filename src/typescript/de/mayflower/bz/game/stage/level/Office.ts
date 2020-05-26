@@ -12,6 +12,7 @@
         protected                           chairMulti              :bz.Model                               = null;
         /** A testwise mesh 'chair'. */
         protected                           chairMultiPhysics       :bz.Model                               = null;
+
         /** A testwise mesh 'compound spheres'. */
         protected                           compoundSpheres         :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
@@ -126,11 +127,12 @@
             this.chairSingle = bz.MeshFactory.createImportedModel
             (
                 this.scene,
-                bz.ModelFile.OFFICE_CHAIR_2,
-                new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                new BABYLON.Vector3( 15.0, 5.0, 17.5 ),
                 bz.Physic.SOLID_WOOD,
-                bz.ModelCompoundType.NONE
+                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
+/*
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
                 this.scene,
@@ -170,9 +172,9 @@
                 1.0,
                 this.ambientColor
             );
-
+*/
             return [
-
+/*
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
                 (
@@ -193,8 +195,8 @@
                     this,
                     this.compoundSpheres
                 ),
-
-                // crate
+*/
+                // movable wooden crate
                 new bz.Wall
                 (
                     this,
@@ -212,9 +214,10 @@
                 new bz.Wall
                 (
                     this,
-                    this.chairSingle
+                    this.chairSingle,
+                    3
                 ),
-
+/*
                 // tv
                 new bz.Wall
                 (
@@ -226,7 +229,8 @@
                         ]
                     )
                 ),
-
+*/
+/*
                 // 3ds chair - multi-meshes with same physics
                 new bz.Wall
                 (
@@ -234,7 +238,8 @@
                     this.chairMulti,
                     5
                 ),
-
+*/
+/*
                 // 3ds chair - multi-meshes with specific physics
                 new bz.Wall
                 (
@@ -242,6 +247,7 @@
                     this.chairMultiPhysics,
                     5
                 ),
+*/
 /*
                 // red sphere from own model
                 new bz.Wall
@@ -355,8 +361,8 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                // bz.Physic.STATIC,
-                                bz.Physic.NONE,
+                                bz.Physic.STATIC,
+                                // bz.Physic.NONE,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -444,6 +450,7 @@
         ***************************************************************************************************************/
         protected createSprites() : bz.Sprite[]
         {
+/*
             // create and animate a sprite
             const animatedTestSprite:bz.Sprite = new bz.Sprite
             (
@@ -456,11 +463,11 @@
                 bz.SpriteCollidable.NO
             );
             animatedTestSprite.animate( 0, 43, true );
-
+*/
             return [
-
+/*
                 animatedTestSprite,
-
+*/
                 new bz.Sprite
                 (
                     this.scene,
@@ -589,6 +596,9 @@
         protected setupFog() : void
         {
             this.scene.disableFog();
+
+            // green poison steam..
+            // this.scene.enableFog( new BABYLON.Color3( 101 / 256, 206 / 256, 143 / 256 ), 0.05 );
         }
 
         /** ************************************************************************************************************
