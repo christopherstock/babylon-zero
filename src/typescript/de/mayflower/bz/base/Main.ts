@@ -9,6 +9,7 @@
     *   =====================
     *   TODO Primal
     *   =====================
+    *   TODO Add height map: https://playground.babylonjs.com/#IIZ9UU
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Add slower panning on aiming/zooming with wearpon.
     *   TODO Fix setting a different pivot for meshes and objects AGAIN?
@@ -96,6 +97,8 @@
 
         /** ************************************************************************************************************
         *   This method is invoked when the application starts.
+        *
+        *   TODO to non static!
         ***************************************************************************************************************/
         public static main() : void
         {
