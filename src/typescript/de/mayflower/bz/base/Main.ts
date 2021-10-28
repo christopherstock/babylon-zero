@@ -6,14 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Remove Test Site!
     *   TODO Merge Level 1 + 2!
     *   TODO Reduce Complexity!
     *
     *   =====================
-    *   TODO Primal
+    *   Primal
     *   =====================
-    *   TODO Add height map: https://playground.babylonjs.com/#IIZ9UU
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Add slower panning on aiming/zooming with wearpon.
     *   TODO Fix setting a different pivot for meshes and objects AGAIN?
@@ -37,7 +35,7 @@
     *        https://www.babylonjs-playground.com/#ML2LR9#0
     *
     *   =====================
-    *   TODO Fx
+    *   Fx
     *   =====================
     *   TODO Add physically correct bullet drop (+sound) out after fire.
     *   TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
@@ -47,22 +45,22 @@
     *   TODO Add muzzle flash to gun on firing.
     *
     *   =====================
-    *   TODO Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
+    *   Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
     *   =====================
     *   TODO Create realistic models, lights and spacial sounds.
     *
     *   =====================
-    *   TODO Player
+    *   Player
     *   =====================
     *   TODO Player may not jump in air - deny jumping if player has no contact to the ground!
     *
     *   =====================
-    *   TODO Wearpons
+    *   Wearpons
     *   =====================
     *   TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom ..
     *
     *   =====================
-    *   TODO Characters
+    *   Characters
     *   =====================
     *   TODO Create (different?) characters from primitives or mesh objects??
     *   TODO Create class Character, the abstract class of Player and Bot.
@@ -71,13 +69,13 @@
     *   TODO Create class Bot that represents an enemy with one field for attitude.
     *
     *   =====================
-    *   TODO New features
+    *   New features
     *   =====================
     *   TODO Create wearpons with projectiles (exploding or non-exploding)..
     *   TODO Create explosive wearpons etc.
     *
     *   =====================
-    *   TODO The Lab
+    *   The Lab
     *   =====================
     *   TODO Try soft bodies.
     *   TODO Try babylon 101 scenes.

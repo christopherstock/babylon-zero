@@ -65,7 +65,7 @@
             {
                 case bz.StageId.TEST_OFFICE:
                 {
-                    this.stage = new bz.Office(
+                    this.stage = new bz.StageOffice(
                         this.scene,
                         this.engine.getCanvasSystem()
                     );
@@ -119,7 +119,7 @@
 
                 case bz.StageId.SPACESHIP:
                 {
-                    this.stage = new bz.SpaceshipScene(
+                    this.stage = new bz.StageSpaceshipRun(
                         this.scene,
                         this.engine.getCanvasSystem()
                     );

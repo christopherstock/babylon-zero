@@ -93,20 +93,20 @@
     export * from './game/object/player/PlayerHuman';
     export * from './game/object/player/PlayerSpaceship';
 
+    export * from './game/stage/Stage';
+
     export * from './data/ModelFile';
     export * from './data/SkyBoxFile';
     export * from './data/SoundFile';
     export * from './data/SpriteFile';
     export * from './data/Texture';
+    export * from './data/StageOffice';
 
     export * from './util/DOMUtil';
     export * from './util/MathUtil';
     export * from './util/StringUtil';
 
-    export * from './game/stage/Stage';
-
-    export * from './game/stage/level/Office';
-    export * from './game/stage/level/SpaceshipScene';
+    export * from './game/stage/level/StageSpaceshipRun';
     export * from './game/stage/level/TestLevel';
 
     export * from './game/stage/presentation/IntroLogo';

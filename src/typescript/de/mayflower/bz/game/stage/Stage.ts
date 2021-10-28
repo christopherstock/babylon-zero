@@ -14,8 +14,8 @@
         protected           readonly        canvas                  :bz.CanvasSystem                        = null;
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
-        /** The clear color of this stage is the background color of all mesh materials. */
-        protected           readonly        clearColor              :BABYLON.Color4                         = null;
+        /** The scene background color is the clear color for the scene. */
+        protected           readonly        sceneBgColor            :BABYLON.Color4                         = null;
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
         /** The initial GUI to set for this stage. */
@@ -64,7 +64,7 @@
         *   @param canvas        The canvas system this stage is displayed on.
         *   @param ambientColor  Specifies the ambient color of the babylon.JS scene
         *                        and is set as the emissive color of all faces.
-        *   @param clearColor    The clear color of the stage is the background color of the scene.
+        *   @param sceneBgColor  The background color of the scene.
         *   @param initialCamera The initial camera for this stage.
         *   @param guiType       The type of GUI to set for this stage.
         ***************************************************************************************************************/
@@ -73,7 +73,7 @@
             scene         :bz.Scene,
             canvas        :bz.CanvasSystem,
             ambientColor  :BABYLON.Color3,
-            clearColor    :BABYLON.Color4,
+            sceneBgColor  :BABYLON.Color4,
             initialCamera :bz.CameraType,
             guiType       :bz.GUIType
         )
@@ -81,7 +81,7 @@
             this.scene         = scene;
             this.canvas        = canvas;
             this.ambientColor  = ambientColor;
-            this.clearColor    = clearColor;
+            this.sceneBgColor  = sceneBgColor;
             this.initialCamera = initialCamera;
             this.guiType       = guiType;
         }
@@ -183,9 +183,8 @@
         ***************************************************************************************************************/
         public init() : void
         {
-            // set ambient color and scene bg color
             this.scene.getNativeScene().ambientColor = this.ambientColor;
-            this.scene.getNativeScene().clearColor   = this.clearColor;
+            this.scene.getNativeScene().clearColor   = this.sceneBgColor;
 
             // create all game objects
             this.player        = this.createPlayer();

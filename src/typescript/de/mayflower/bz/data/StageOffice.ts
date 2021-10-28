@@ -1,10 +1,10 @@
 
-    import * as bz from '../../..';
+    import * as bz from '..';
 
     /** ****************************************************************************************************************
     *   Specifies the 'office' level.
     *******************************************************************************************************************/
-    export class Office extends bz.Stage
+    export class StageOffice extends bz.Stage
     {
         /** A testwise mesh 'chair'. */
         protected                           chairSingle             :bz.Model                               = null;
@@ -33,8 +33,11 @@
                 scene,
                 canvas,
 
-                bz.SettingColor.COLOR_RGB_WHITE,
-                bz.SettingColor.COLOR_RGBA_WHITE_OPAQUE,
+                // bz.SettingColor.COLOR_RGB_WHITE,
+                // lights out!
+                new BABYLON.Color3( 0.2, 0.2, 0.2 ),
+
+                bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
                 bz.CameraType.FIRST_PERSON,
                 bz.GUIType.GAME
             );
@@ -453,6 +456,502 @@
                     )
                 ),
 
+
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // tree - standing (crossed)
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
+                                bz.Texture.WALL_TREE,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0, 270.0, 0.0   ),
+                                bz.Texture.WALL_TREE,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // plane - amiga at world origin
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 2.0,  4.0, bz.MeshFactory.FACE_DEPTH   ),
+                                new BABYLON.Vector3( 0.0, 45.0, 0.0   ),
+                                bz.Texture.WALL_AMIGA,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // plane - amiga plane 45° - BACKSIDE
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
+                                bz.Texture.WALL_AMIGA,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // plane - amiga plane 45° - FRONTSIDE
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 21.0, 0.0, 30.0 - bz.MeshFactory.FACE_DEPTH ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0, 65.0, 0.0 ),
+                                bz.Texture.WALL_AMIGA,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // plane - amiga 180° - FRONTSIDE
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 8.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_GRASS,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // plane - amiga 180° - BACKSIDE
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_GRASS,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // box - amiga light frontside
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_AMIGA,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // box - amiga light backside
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 10.0, 0.0, 18.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
+                                new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
+                                bz.Texture.WALL_AMIGA,
+                                null,
+                                bz.Physic.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // movable glass pane
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 2.0,  0.0, 15.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 2.0, 3.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
+                                bz.Texture.WALL_GLASS,
+                                null,
+                                bz.Physic.STATIC,
+                                0.5,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // triangle
+                            bz.MeshFactory.createPolygon
+                            (
+                                this.scene,
+                                [
+                                    new BABYLON.Vector3( 0.0,  0.0,  13.0    ),
+                                    new BABYLON.Vector3( 10.0, 0.0,  13.0    ),
+                                    new BABYLON.Vector3( 10.0, 0.0,  0.0     ),
+                                ],
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
+                                bz.SettingColor.COLOR_RGB_RED,
+                                bz.Physic.STATIC,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // movable crate - small
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 12.0, 0.0, 12.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                                new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // movable crate - big
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( -1.0,  3.0, 5.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                                new BABYLON.Vector3( 0.0, 30.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // movable crate - different UVs for all sides
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 24.0,  0.0, 12.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 1.0, 2.0, 3.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_TEST,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // movable glass quader
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
+                                new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
+                                bz.Texture.WALL_GLASS,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                0.5,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // small crate - density crafting
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 5.5, 0.0, 22.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // medium crate - density crafting
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 5.5, 0.0, 25.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // large crate - density crafting
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 5.5, 0.0, 30.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 3.0, 3.0, 3.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // sphere
+                            bz.MeshFactory.createSphere
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 10.5, 0.0, 30.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                3.0,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_TEST,
+                                null,
+                                bz.Physic.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                        new BABYLON.Vector3( -10.0, 20.0, 0.0 ),
+                        bz.Physic.SOLID_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                        new BABYLON.Vector3( -10.0, 20.0, 10.0 ),
+                        bz.Physic.SOLID_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                        new BABYLON.Vector3( -10.0, 20.0, 15.0 ),
+                        bz.Physic.SOLID_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+
             ];
         }
 
@@ -524,7 +1023,8 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 1.0 );
+            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.DARK_SKY, 0.1 );
+            // return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 0.5 );
         }
 
         /** ************************************************************************************************************
@@ -562,6 +1062,58 @@
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES
                 ),
+
+
+                new bz.Sprite
+                (
+                    this.scene,
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 45.0, 5.0, -35.0  ),
+                    10.0,
+                    20.0,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    bz.SpriteCollidable.NO
+                ),
+                new bz.Sprite
+                (
+                    this.scene,
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 45.0, 5.0, -20.0  ),
+                    10.0,
+                    20.0,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    bz.SpriteCollidable.NO
+                ),
+                new bz.Sprite
+                (
+                    this.scene,
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 45.0, 5.0, -5.0  ),
+                    10.0,
+                    20.0,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    bz.SpriteCollidable.NO
+                ),
+                new bz.Sprite
+                (
+                    this.scene,
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 45.0, 5.0, 10.0  ),
+                    10.0,
+                    20.0,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    bz.SpriteCollidable.NO
+                ),
+                new bz.Sprite
+                (
+                    this.scene,
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 45.0, 5.0, -25.0  ),
+                    10.0,
+                    20.0,
+                    bz.MeshPivotAnchor.CENTER_XYZ,
+                    bz.SpriteCollidable.NO
+                ),
             ];
         }
 
@@ -572,59 +1124,57 @@
         ***************************************************************************************************************/
         protected createLights() : BABYLON.Light[]
         {
-            // const lights:BABYLON.Light[] = [
-/*
+            return [
+
                 // hemispheric light
                 bz.LightFactory.createHemispheric
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    false
                 ),
 
                 // directional light
                 bz.LightFactory.createDirectional
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
                     new BABYLON.Vector3( 20.0, 20.0, 20.0 ),
                     1.0,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
                     new BABYLON.Color3( 1.0, 0.5, 0.0 ),
+                    false
                 ),
 
                 // spot light
                 bz.LightFactory.createSpot
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
                     new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
-                    bz.MathUtil.degreesToRad( 30.0 ),
+                    30.0,
                     2,
                     new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                    new BABYLON.Color3( 1.0, 1.0, 1.0 )
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    50.0,
+                    false
                 ),
 
                 // point light
                 bz.LightFactory.createPoint
                 (
-                    this.scene,
+                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
-                    1.0,
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    50.0,
+                    1.0,
+                    true
                 ),
-*/
-            // ];
-/*
-            lights[ 0 ].setEnabled( false );
-            lights[ 1 ].setEnabled( false );
-            lights[ 2 ].setEnabled( false );
-            lights[ 3 ].setEnabled( true  );
-*/
-            return [];
+            ];
         }
 
         /** ************************************************************************************************************
@@ -634,16 +1184,14 @@
         ***************************************************************************************************************/
         protected createShadowGenerators() : BABYLON.ShadowGenerator[]
         {
-            // const shadowGenerators:BABYLON.ShadowGenerator[] = [
-/*
+            const shadowGenerators:BABYLON.ShadowGenerator[] = [
                 new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) ),
-*/
-            // ];
-/*
+            ];
+
             shadowGenerators[ 0 ].useExponentialShadowMap = true;
             shadowGenerators[ 0 ].usePoissonSampling      = true;
-*/
-            return [];
+
+            return shadowGenerators;
         }
 
         /** ************************************************************************************************************
@@ -651,27 +1199,11 @@
         ***************************************************************************************************************/
         protected setupShadows() : void
         {
-/*
-            // set shadows for all movables
-            for ( const movable of this.movables )
-            {
-                // set shadows for all meshes
-                for ( const mesh of movable.getMeshes() )
-                {
-                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
-                }
-            }
-
             // set shadows for all walls
             for ( const wall of this.walls )
             {
-                // set shadows for all meshes
-                for ( const mesh of wall.getMeshes() )
-                {
-                    this.shadowGenerators[ 0 ].getShadowMap().renderList.push( mesh );
-                }
+                wall.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
             }
-*/
         }
 
         /** ************************************************************************************************************
