@@ -96,12 +96,12 @@
 
     export * from './game/stage/Stage';
 
-    export * from './data/ModelFile';
-    export * from './data/SkyBoxFile';
-    export * from './data/SoundFile';
-    export * from './data/SpriteFile';
-    export * from './data/Texture';
-    export * from './data/StageOffice';
+    export * from './base/data/ModelFile';
+    export * from './base/data/SkyBoxFile';
+    export * from './base/data/SoundFile';
+    export * from './base/data/SpriteFile';
+    export * from './base/data/Texture';
+    export * from './base/data/StageOffice';
 
     export * from './util/DOMUtil';
     export * from './util/MathUtil';

@@ -1,7 +1,7 @@
 
     /* eslint-disable max-len */
 
-    import * as bz from '..';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Specifies the filenames of all sounds to load.

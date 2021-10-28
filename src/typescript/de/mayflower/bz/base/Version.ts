@@ -26,9 +26,11 @@
         private     static  readonly    V_0_0_9                 :Version            = new Version( '0.0.9',  'BABYLON.JS 4.0',           '25.05.2019, 18:22:41 GMT+1' );
         /** The project's version v.0.0.10. */
         private     static  readonly    V_0_0_10                :Version            = new Version( '0.0.10', 'NEXT LEVEL',               '17.05.2020, 12:05:12 GMT+1' );
+        /** The project's version v.0.0.11. */
+        private     static  readonly    V_0_0_11                :Version            = new Version( '0.0.11', 'PRETTIFY',                 '28.10.2021, 23:28:33 GMT+1' );
 
         /** The project's current version. */
-        private     static  readonly    CURRENT_VERSION         :Version            = Version.V_0_0_10;
+        private     static  readonly    CURRENT_VERSION         :Version            = Version.V_0_0_11;
 
         /** This version's specifier. */
         private             readonly    version                 :string             = null;
