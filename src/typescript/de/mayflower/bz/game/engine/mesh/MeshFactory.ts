@@ -157,7 +157,31 @@
                 subdivisions: subdivisions,
                 minHeight: 0,
                 maxHeight: groundHeight,
-                onReady: () => {},
+                onReady: () => {
+                    const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+                    (
+                        scene.getNativeScene(),
+                        bz.Texture.WALL_GRASS,
+                        false,
+                        width,
+                        height,
+                        null,
+                        1.0,
+                        emissiveColor
+                    );
+
+                    ground = MeshFactory.decorateMesh
+                    (
+                        scene.getNativeScene(),
+                        ground,
+                        rotation,
+                        material,
+                        physic,
+                        BABYLON.PhysicsImpostor.HeightmapImpostor,
+                        0.0
+                    );
+
+                },
             };
             let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
                 'ground',
@@ -166,47 +190,9 @@
                 scene.getNativeScene()
             );
 
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
-            (
-                scene.getNativeScene(),
-                bz.Texture.WALL_GRASS,
-                false,
-                width,
-                height,
-                null,
-                1.0,
-                emissiveColor
-            );
-
-            ground.material = material;
-
-            ground.position.x = -25.0;
+            ground.position.x = -40.0;
             ground.position.y = 0;
             ground.position.z = 50;
-
-console.log( '>> Decorating GroundMap .. A' );
-/*
-            ground = MeshFactory.decorateMesh
-            (
-                scene.getNativeScene(),
-                ground,
-                rotation,
-                material,
-                physic,
-                BABYLON.PhysicsImpostor.HeightmapImpostor,
-                0.0
-            );
-*/
-console.log( '>> Decorating GroundMap .. B' );
-
-
-            ground.physicsImpostor = new BABYLON.PhysicsImpostor
-            (
-                ground,
-                BABYLON.PhysicsImpostor.BoxImpostor,
-                { mass: 0.0, },
-                scene.getNativeScene()
-            );
 
             return ground;
         }
