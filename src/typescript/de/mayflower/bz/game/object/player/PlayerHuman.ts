@@ -372,7 +372,7 @@
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_CTRL_LEFT );
                 this.fire = true;
             }
-            if ( mouseSystem.consumeMouseButtonDown( bz.MouseSystem.MOUSE_BUTTON_LEFT ) )
+            if ( mouseSystem.consumeMouseButtonDown( bz.MouseCodes.MOUSE_BUTTON_LEFT ) )
             {
                 // mouseSystem.setButtonNeedsRelease( bz.MouseSystem.MOUSE_BUTTON_LEFT );
                 this.fire = true;
@@ -400,7 +400,7 @@
             // zoom
             this.zoom = (
                 keySystem.isPressed( bz.KeyCodes.KEY_X )
-                || mouseSystem.isMouseButtonDown( bz.MouseSystem.MOUSE_BUTTON_RIGHT )
+                || mouseSystem.isMouseButtonDown( bz.MouseCodes.MOUSE_BUTTON_RIGHT )
             );
         }
 

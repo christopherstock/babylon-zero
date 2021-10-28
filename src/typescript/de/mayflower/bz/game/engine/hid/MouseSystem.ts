@@ -7,11 +7,6 @@
     *******************************************************************************************************************/
     export class MouseSystem
     {
-        // TODO Extract to MouseButtonCodes
-        public      static  readonly    MOUSE_BUTTON_LEFT           :number                 = 0;
-        public      static  readonly    MOUSE_BUTTON_CENTER         :number                 = 1;
-        public      static  readonly    MOUSE_BUTTON_RIGHT          :number                 = 2;
-
         /** The canvas this pointer system operates on. */
         private             readonly    canvas                      :bz.CanvasSystem        = null;
         /** The stage this pointer system operates on. */
@@ -143,17 +138,17 @@
         {
             switch ( buttonId )
             {
-                case MouseSystem.MOUSE_BUTTON_LEFT:
+                case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                 {
                     return this.downMouseButtonLeft;
                 }
 
-                case MouseSystem.MOUSE_BUTTON_CENTER:
+                case bz.MouseCodes.MOUSE_BUTTON_CENTER:
                 {
                     return this.downMouseButtonCenter;
                 }
 
-                case MouseSystem.MOUSE_BUTTON_RIGHT:
+                case bz.MouseCodes.MOUSE_BUTTON_RIGHT:
                 {
                     return this.downMouseButtonRight;
                 }
@@ -166,7 +161,7 @@
         {
             switch ( buttonId )
             {
-                case MouseSystem.MOUSE_BUTTON_LEFT:
+                case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                 {
                     if ( this.unconsumedDownMouseButtonLeft )
                     {
@@ -176,7 +171,7 @@
                     return false;
                 }
 
-                case MouseSystem.MOUSE_BUTTON_CENTER:
+                case bz.MouseCodes.MOUSE_BUTTON_CENTER:
                 {
                     if ( this.unconsumedDownMouseButtonCenter )
                     {
@@ -186,7 +181,7 @@
                     return false;
                 }
 
-                case MouseSystem.MOUSE_BUTTON_RIGHT:
+                case bz.MouseCodes.MOUSE_BUTTON_RIGHT:
                 {
                     if ( this.unconsumedDownMouseButtonRight )
                     {
@@ -204,21 +199,21 @@
         {
             switch ( buttonId )
             {
-                case MouseSystem.MOUSE_BUTTON_LEFT:
+                case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                 {
                     this.needsReleaseButtonLeft = true;
                     this.downMouseButtonLeft    = false;
                     break;
                 }
 
-                case MouseSystem.MOUSE_BUTTON_CENTER:
+                case bz.MouseCodes.MOUSE_BUTTON_CENTER:
                 {
                     this.needsReleaseButtonCenter = true;
                     this.downMouseButtonCenter    = false;
                     break;
                 }
 
-                case MouseSystem.MOUSE_BUTTON_RIGHT:
+                case bz.MouseCodes.MOUSE_BUTTON_RIGHT:
                 {
                     this.needsReleaseButtonRight = true;
                     this.downMouseButtonRight    = false;
@@ -260,7 +255,7 @@
             {
                 switch ( me.button )
                 {
-                    case MouseSystem.MOUSE_BUTTON_LEFT:
+                    case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                     {
                         if ( !this.needsReleaseButtonLeft )
                         {
@@ -271,7 +266,7 @@
                         break;
                     }
 
-                    case MouseSystem.MOUSE_BUTTON_CENTER:
+                    case bz.MouseCodes.MOUSE_BUTTON_CENTER:
                     {
                         if ( !this.needsReleaseButtonCenter )
                         {
@@ -282,7 +277,7 @@
                         break;
                     }
 
-                    case MouseSystem.MOUSE_BUTTON_RIGHT:
+                    case bz.MouseCodes.MOUSE_BUTTON_RIGHT:
                     {
                         if ( !this.needsReleaseButtonRight )
                         {
@@ -308,7 +303,7 @@
             {
                 switch ( me.button )
                 {
-                    case MouseSystem.MOUSE_BUTTON_LEFT:
+                    case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                     {
                         this.downMouseButtonLeft    = false;
                         this.needsReleaseButtonLeft = false;
@@ -316,7 +311,7 @@
                         break;
                     }
 
-                    case MouseSystem.MOUSE_BUTTON_CENTER:
+                    case bz.MouseCodes.MOUSE_BUTTON_CENTER:
                     {
                         this.downMouseButtonCenter    = false;
                         this.needsReleaseButtonCenter = false;
@@ -324,7 +319,7 @@
                         break;
                     }
 
-                    case MouseSystem.MOUSE_BUTTON_RIGHT:
+                    case bz.MouseCodes.MOUSE_BUTTON_RIGHT:
                     {
                         this.downMouseButtonRight    = false;
                         this.needsReleaseButtonRight = false;
