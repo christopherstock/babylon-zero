@@ -150,14 +150,26 @@
             const subdivisions :number = 50;
             const groundHeight :number = 5.0;
 
-            const options = { width: width, height: height, subdivisions: subdivisions, minHeight: 0, maxHeight: groundHeight, onReady: () => {} };
-            const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap( "ground", "res/image/texture/heightMap/heightMap.png", options, scene.getNativeScene() );
+            const options = {
+                width: width,
+                height: height,
+                subdivisions: subdivisions,
+                minHeight: 0,
+                maxHeight: groundHeight,
+                onReady: () => {},
+            };
+            const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
+                'ground',
+                'res/image/texture/heightMap/heightMap.png',
+                options,
+                scene.getNativeScene()
+            );
 
             const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
             (
                 scene.getNativeScene(),
                 bz.Texture.WALL_GRASS,
-                true,
+                false,
                 width,
                 height,
                 null,
@@ -166,20 +178,11 @@
             );
 
             ground.material = material;
+
             ground.position.x = -25.0;
             ground.position.y = 0;
             ground.position.z = 50;
-/*
-            const groundMaterial = new BABYLON.StandardMaterial("ground", scene.getNativeScene());
-            groundMaterial.diffuseTexture = new BABYLON.Texture("res/image/texture/wall/grass.jpg", scene.getNativeScene());
-            // groundMaterial.diffuseTexture.scale = 6;
-            // groundMaterial.diffuseTexture.scale = 6;
-            groundMaterial.specularColor = new BABYLON.Color3( 1.0, 1.0, 1.0 );
-            ground.isPickable = false;
 
-            // groundMaterial.freeze();
-            // ground.freezeWorldMatrix();
-*/
             return ground;
         }
 
