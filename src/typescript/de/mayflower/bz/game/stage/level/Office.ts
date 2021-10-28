@@ -14,7 +14,7 @@
         protected                           chairMultiPhysics       :bz.Model                               = null;
 
         /** A testwise mesh 'compound spheres'. */
-        protected                           compoundSpheres         :bz.Model                               = null;
+        // protected                           compoundSpheres         :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
         // protected                        chairRot                :number                                 = 0.0;
         /** Testwise camera target toggle. */
@@ -95,7 +95,7 @@
 
                 // explode compound spheres
                 this.gui.addGuiMessage( 'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']' );
-                this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
+                // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
 
                 // show hurt GUI effect
                 this.addGuiFx( bz.GUIFxType.HURT );
