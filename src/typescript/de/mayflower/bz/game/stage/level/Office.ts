@@ -377,7 +377,8 @@
                         [
                             bz.MeshFactory.createHeightMapGround
                             (
-                                this.scene
+                                this.scene,
+                                this.ambientColor
                             ),
                         ]
                     )
