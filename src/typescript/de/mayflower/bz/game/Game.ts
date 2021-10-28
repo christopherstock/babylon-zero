@@ -81,15 +81,6 @@
                     break;
                 }
 
-                case bz.StageId.TEST_SITE:
-                {
-                    this.stage = new bz.TestSite(
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
-                    break;
-                }
-
                 case bz.StageId.ROOM_VIEWER:
                 {
                     this.stage = new bz.RoomViewer(

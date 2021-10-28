@@ -8,8 +8,6 @@
         TEST_OFFICE,
         /** The test level. */
         TEST_LEVEL,
-        /** The test site level. */
-        TEST_SITE,
 
         /** The spaceshiplevel. */
         SPACESHIP,

@@ -21,8 +21,7 @@
             new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_STAGE_4 ),
             new bz.GUIMenuItem( 'Level 5 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_5 ),
             new bz.GUIMenuItem( 'Level 6 - Human Body Partitions',   bz.GUIAction.SWITCH_TO_STAGE_6 ),
-            new bz.GUIMenuItem( 'Level 7 - Test Site',               bz.GUIAction.SWITCH_TO_STAGE_7 ),
-            new bz.GUIMenuItem( 'Level 8 - Spacescene',              bz.GUIAction.SWITCH_TO_STAGE_8 ),
+            new bz.GUIMenuItem( 'Level 7 - Spacescene',              bz.GUIAction.SWITCH_TO_STAGE_7 ),
             new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
         ];
 

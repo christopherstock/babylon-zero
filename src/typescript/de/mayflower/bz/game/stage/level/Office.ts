@@ -130,6 +130,20 @@
                 bz.Physic.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
+
+            const testCrate = new bz.Wall
+            (
+                this,
+                bz.MeshFactory.createImportedModel
+                (
+                    this.scene,
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
+                    bz.Physic.LIGHT_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            );
+
 /*
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
@@ -194,6 +208,8 @@
                     this.compoundSpheres
                 ),
 */
+                testCrate,
+
                 // movable wooden crate
                 new bz.Wall
                 (
@@ -205,6 +221,57 @@
                         new BABYLON.Vector3( 10.0, 30.0, 5.0 ),
                         bz.Physic.LIGHT_WOOD,
                         bz.ModelCompoundType.NONE
+                    )
+                ),
+
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // static glass wall
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+//                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH, 1.0  ),
+                                new BABYLON.Vector3( 0.0, bz.MeshFactory.FACE_DEPTH, 0.0  ),
+
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+//                                bz.MeshPivotAnchor.NONE,
+
+                                new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
+                                new BABYLON.Vector3( 0.0, 10.0, 0.0 ),
+                                bz.Texture.WALL_GLASS,
+                                null,
+
+                                bz.Physic.STATIC,
+//                                bz.Physic.NONE,
+
+                                0.5,
+                                this.ambientColor
+                            ),
+
+                            // box primitive from MeshFactory
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 5.0, 5.0, 5.0 ),
+
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+
+                                new BABYLON.Vector3( 1.5, 1.5, 1.5 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_GRASS,
+                                null,
+
+                                bz.Physic.SOLID_WOOD,
+                                // bz.Physic.NONE,
+
+                                0.5,
+                                this.ambientColor
+                            ),
+                        ]
                     )
                 ),
 
