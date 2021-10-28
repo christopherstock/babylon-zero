@@ -143,22 +143,23 @@
             );
         }
 
-        public static createHeightMapGround( scene:bz.Scene, emissiveColor ) : BABYLON.Mesh
+        public static createHeightMapGround( scene:bz.Scene, emissiveColor, rotation, physic ) : BABYLON.Mesh
         {
             const width  :number = 50.0;
             const height :number = 50.0;
             const subdivisions :number = 50;
-            const groundHeight :number = 5.0;
+            const groundHeight :number = 50.0;
 
             const options = {
                 width: width,
                 height: height,
+                depth: 50.0,
                 subdivisions: subdivisions,
                 minHeight: 0,
                 maxHeight: groundHeight,
                 onReady: () => {},
             };
-            const ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
+            let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
                 'ground',
                 'res/image/texture/heightMap/heightMap.png',
                 options,
@@ -182,6 +183,30 @@
             ground.position.x = -25.0;
             ground.position.y = 0;
             ground.position.z = 50;
+
+console.log( '>> Decorating GroundMap .. A' );
+/*
+            ground = MeshFactory.decorateMesh
+            (
+                scene.getNativeScene(),
+                ground,
+                rotation,
+                material,
+                physic,
+                BABYLON.PhysicsImpostor.HeightmapImpostor,
+                0.0
+            );
+*/
+console.log( '>> Decorating GroundMap .. B' );
+
+
+            ground.physicsImpostor = new BABYLON.PhysicsImpostor
+            (
+                ground,
+                BABYLON.PhysicsImpostor.BoxImpostor,
+                { mass: 0.0, },
+                scene.getNativeScene()
+            );
 
             return ground;
         }

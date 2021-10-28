@@ -140,9 +140,14 @@
                 case bz.PhysicState.STATIC:
                 case bz.PhysicState.MOVABLE:
                 {
+console.log( '>> Decorating GroundMap .. C' );
+
+
                     const impostorParams:BABYLON.PhysicsImpostorParameters = this.createImpostorParams( volume );
+console.log( '>> Decorating GroundMap .. D' );
 
                     mesh.checkCollisions = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
+console.log( '>> Decorating GroundMap .. E' );
                     mesh.physicsImpostor = new BABYLON.PhysicsImpostor
                     (
                         mesh,
@@ -150,7 +155,9 @@
                         impostorParams,
                         scene
                     );
+console.log( '>> Decorating GroundMap .. F' );
                     mesh.showBoundingBox = bz.SettingDebug.SHOW_MESH_BOUNDING_BOXES;
+console.log( '>> Decorating GroundMap .. G' );
 
                     break;
                 }

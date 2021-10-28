@@ -378,7 +378,9 @@
                             bz.MeshFactory.createHeightMapGround
                             (
                                 this.scene,
-                                this.ambientColor
+                                this.ambientColor,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Physic.STATIC
                             ),
                         ]
                     )
