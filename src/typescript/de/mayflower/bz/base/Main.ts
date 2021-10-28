@@ -6,12 +6,12 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Merge Level 1 + 2!
     *   TODO Reduce Complexity!
     *
     *   =====================
     *   Primal
     *   =====================
+    *   TODO Flashlite on player - depending on wearpon.
     *   TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
     *   TODO Add slower panning on aiming/zooming with wearpon.
     *   TODO Fix setting a different pivot for meshes and objects AGAIN?

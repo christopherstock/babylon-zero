@@ -63,18 +63,9 @@
             // assign the new stage
             switch ( targetStage )
             {
-                case bz.StageId.TEST_OFFICE:
+                case bz.StageId.OFFICE:
                 {
                     this.stage = new bz.StageOffice(
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
-                    break;
-                }
-
-                case bz.StageId.TEST_LEVEL:
-                {
-                    this.stage = new bz.TestLevel(
                         this.scene,
                         this.engine.getCanvasSystem()
                     );

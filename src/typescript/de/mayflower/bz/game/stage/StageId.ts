@@ -5,13 +5,9 @@
     export enum StageId
     {
         /** The test office level. */
-        TEST_OFFICE,
-        /** The test level. */
-        TEST_LEVEL,
-
+        OFFICE,
         /** The spaceshiplevel. */
         SPACESHIP,
-
         /** The room viewer. */
         ROOM_VIEWER,
         /** The product configurator. */

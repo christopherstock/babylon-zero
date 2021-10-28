@@ -16,12 +16,11 @@
         private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
         [
             new bz.GUIMenuItem( 'Level 1 - Office',                  bz.GUIAction.SWITCH_TO_STAGE_1 ),
-            new bz.GUIMenuItem( 'Level 2 - Test Level',              bz.GUIAction.SWITCH_TO_STAGE_2 ),
-            new bz.GUIMenuItem( 'Level 3 - Room Viewer',             bz.GUIAction.SWITCH_TO_STAGE_3 ),
-            new bz.GUIMenuItem( 'Level 4 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_STAGE_4 ),
-            new bz.GUIMenuItem( 'Level 5 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_5 ),
-            new bz.GUIMenuItem( 'Level 6 - Human Body Partitions',   bz.GUIAction.SWITCH_TO_STAGE_6 ),
-            new bz.GUIMenuItem( 'Level 7 - Spacescene',              bz.GUIAction.SWITCH_TO_STAGE_7 ),
+            new bz.GUIMenuItem( 'Level 2 - Room Viewer',             bz.GUIAction.SWITCH_TO_STAGE_2 ),
+            new bz.GUIMenuItem( 'Level 3 - 3D Product Configurator', bz.GUIAction.SWITCH_TO_STAGE_3 ),
+            new bz.GUIMenuItem( 'Level 4 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_4 ),
+            new bz.GUIMenuItem( 'Level 5 - Human Body Partitions',   bz.GUIAction.SWITCH_TO_STAGE_5 ),
+            new bz.GUIMenuItem( 'Level 6 - Spacescene',              bz.GUIAction.SWITCH_TO_STAGE_6 ),
             new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
         ];
 

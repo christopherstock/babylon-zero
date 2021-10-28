@@ -107,7 +107,6 @@
     export * from './util/StringUtil';
 
     export * from './game/stage/level/StageSpaceshipRun';
-    export * from './game/stage/level/TestLevel';
 
     export * from './game/stage/presentation/IntroLogo';
     export * from './game/stage/presentation/RoomViewer';
