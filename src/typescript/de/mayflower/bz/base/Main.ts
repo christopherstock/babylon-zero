@@ -106,8 +106,8 @@
         ***************************************************************************************************************/
         public static main() : void
         {
-            bz.HtmlUtil.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
-            bz.HtmlUtil.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
+            bz.DOMUtil.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
+            bz.DOMUtil.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
 
             Main.acclaim();
 

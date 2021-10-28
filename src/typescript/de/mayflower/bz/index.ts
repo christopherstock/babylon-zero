@@ -99,7 +99,7 @@
     export * from './data/SpriteFile';
     export * from './data/Texture';
 
-    export * from './util/HtmlUtil';
+    export * from './util/DOMUtil';
     export * from './util/MathUtil';
     export * from './util/StringUtil';
 
