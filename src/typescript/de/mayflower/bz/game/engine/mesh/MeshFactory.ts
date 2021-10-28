@@ -157,7 +157,7 @@
                 subdivisions: subdivisions,
                 minHeight: 0,
                 maxHeight: groundHeight,
-                onReady: () => {
+                onReady: () :void => {
                     const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
                     (
                         scene.getNativeScene(),

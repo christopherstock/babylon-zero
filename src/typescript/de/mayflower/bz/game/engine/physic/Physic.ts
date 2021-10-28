@@ -5,6 +5,8 @@
     *   Specifies the physical behaviour of a body.
     *
     *   TODO rename to PhysicSet ?
+    *   TODO prune unused!
+    *   TODO outsource constant data to PhysicBehaviour etc ?
     *******************************************************************************************************************/
     export class Physic
     {
@@ -53,7 +55,7 @@
             bz.PhysicRestitution.MEDIUM
         );
 
-        /** Props for office chair. */
+        /** Props for concrete. */
         public  static  readonly        CONCRETE        :Physic                 = new Physic
         (
             bz.PhysicState.MOVABLE,
@@ -62,7 +64,7 @@
             bz.PhysicRestitution.NONE
         );
 
-        /** Props for office chair. */
+        /** Props for solid concrete. */
         public  static  readonly        SOLID_CONCRETE  :Physic                 = new Physic
         (
             bz.PhysicState.MOVABLE,

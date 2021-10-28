@@ -1,25 +1,23 @@
 
     /** ****************************************************************************************************************
     *   Specifies densities with their the physical behaviour of a body.
-    *
-    *   TODO to base/physic ?
     *******************************************************************************************************************/
     export enum PhysicDensity
     {
         /** The density value for static bodies. */
-        STATIC     = 0.0,
+        STATIC         = 0.0,
 
         /** The density value for 'light wood'. */
-        LIGHT_WOOD = 0.5,
+        LIGHT_WOOD     = 0.5,
         /** The density value for 'solid wood'. */
-        SOLID_WOOD = 1.0,
+        SOLID_WOOD     = 1.0,
 
         /** The default density. */
-        DEFAULT    = 1.0,
+        DEFAULT        = 1.0,
 
         /** The density value for 'concrete'. */
-        CONCRETE   = 1.5,
+        CONCRETE       = 1.5,
 
         /** The density value for 'solid concrete'. */
-        SOLID_CONCRETE   = 2.5,
+        SOLID_CONCRETE = 2.5,
     }

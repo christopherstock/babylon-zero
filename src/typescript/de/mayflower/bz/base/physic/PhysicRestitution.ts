@@ -1,17 +1,15 @@
 
     /** ****************************************************************************************************************
-    *   Specifies the surface friction for bodies.
-    *
-    *   TODO to base/physic ?
+    *   Specifies the bodie's physical restitution.
     *******************************************************************************************************************/
-    export enum PhysicFriction
+    export enum PhysicRestitution
     {
-        /** No friction. */
+        /** No restitution. */
         NONE = 0.0,
 
-        /** Medium friction. */
+        /** Medium restitution. */
         MEDIUM = 0.5,
 
-        /** High friction. */
+        /** High restitution. */
         HIGH = 1.0,
     }
