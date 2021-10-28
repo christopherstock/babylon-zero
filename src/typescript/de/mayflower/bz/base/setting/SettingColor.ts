@@ -12,16 +12,14 @@
         public  static  readonly    COLOR_CSS_TRANSPARENT                       :string             = 'rgba( 0,   0,   0,   0.0 )';
         /** The CSS color 'white' with full opacity. */
         public  static  readonly    COLOR_CSS_WHITE_OPAQUE                      :string             = 'rgba( 255, 255, 255, 1.0 )';
+        /** The CSS color 'gray' with full opacity. */
+        public  static  readonly    COLOR_CSS_GRAY_OPAQUE                       :string             = 'rgba( 121, 121, 121, 1.0 )';
         /** The CSS color 'red' with full opacity. */
         public  static  readonly    COLOR_CSS_RED_OPAQUE                        :string             = 'rgba( 255, 0,   0,   1.0 )';
         /** The CSS color 'black' with full opacity. */
         public  static  readonly    COLOR_CSS_BLACK_OPAQUE                      :string             = 'rgba( 0,   0,   0,   1.0 )';
         /** The CSS color 'mayflower orange' with full opacity. */
         public  static  readonly    COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE           :string             = 'rgba( 237, 115, 4,   1.0 )';
-        /** The CSS color 'computy green' with full opacity. */
-        public  static  readonly    COLOR_CSS_COMPUTY_GREEN_OPAQUE              :string             = 'rgba( 148, 194, 61,  1.0 )';
-        /** The CSS color 'computy gray' with full opacity. */
-        public  static  readonly    COLOR_CSS_COMPUTY_GRAY_OPAQUE               :string             = 'rgba( 121, 120, 119, 1.0 )';
 
         /** The RGB color 'white' without alpha information. */
         public  static  readonly    COLOR_RGB_WHITE                             :BABYLON.Color3     = new bjs.Color3( 1.0, 1.0, 1.0 );
@@ -43,8 +41,6 @@
         public  static  readonly    COLOR_RGB_ORANGE                            :BABYLON.Color3     = new BABYLON.Color3( 1.0, 0.5, 0.0 );
         /** The RGB color 'black' without alpha information. */
         public  static  readonly    COLOR_RGB_BLACK                             :BABYLON.Color3     = new BABYLON.Color3( 0.0, 0.0, 0.0 );
-        /** The RGB color 'computy green' without alpha information. */
-        public  static  readonly    COLOR_RGB_COMPUTY_GREEN                     :BABYLON.Color3     = new BABYLON.Color3( 0.58, 0.76, 0.23 );
         /** The RGB color 'mayflower orange' without alpha information. */
         public  static  readonly    COLOR_RGB_MAYFLOWER_ORANGE                  :BABYLON.Color3     = new BABYLON.Color3( 0.92, 0.45, 0.01 );
 

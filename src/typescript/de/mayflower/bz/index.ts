@@ -10,7 +10,6 @@
     export * from './game/stage/StageId';
 
     export * from './base/branding/Branding';
-    export * from './base/branding/BrandingComputy';
     export * from './base/branding/BrandingMayflower';
 
     export * from './base/setting/SettingColor';

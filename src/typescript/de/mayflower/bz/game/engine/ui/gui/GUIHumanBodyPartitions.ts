@@ -119,7 +119,7 @@
                 145.0,
                 400.0,
                 bz.SettingEngine.BRANDING.getPrimalColorCss(),
-                bz.SettingColor.COLOR_CSS_COMPUTY_GRAY_OPAQUE,
+                bz.SettingColor.COLOR_CSS_GRAY_OPAQUE,
                 bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
                 50,
                 180,
