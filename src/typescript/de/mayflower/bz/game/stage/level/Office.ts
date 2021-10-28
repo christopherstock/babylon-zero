@@ -367,6 +367,22 @@
                         ]
                     )
                 ),
+
+                // heightmap ground
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createHeightMapGround
+                            (
+                                this.scene
+                            ),
+                        ]
+                    )
+                ),
+
             ];
         }
 
