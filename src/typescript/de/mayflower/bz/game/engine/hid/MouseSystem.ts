@@ -54,6 +54,8 @@
         {
             this.game = game;
 
+            // TODO extract to explicit methods for setting debugPointerDown or assignPointerLock!
+
             this.game.getScene().getNativeScene().onPointerDown = (
                 assignDebugPointerDown
                 ? ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {

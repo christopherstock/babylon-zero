@@ -81,8 +81,10 @@
 
         /** ************************************************************************************************************
         *   Performs this menu item's associated action.
+        *
+        *   @param game The game instance.
         ***************************************************************************************************************/
-        public perform( game ) : void
+        public perform( game:bz.Game ) : void
         {
             switch ( this.action )
             {

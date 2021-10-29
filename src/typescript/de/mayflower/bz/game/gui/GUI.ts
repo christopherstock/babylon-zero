@@ -8,7 +8,7 @@
     export class GUI
     {
         /** The fullscreen gui in foreground. */
-        protected           readonly        guiFg                   :bjsg.AdvancedDynamicTexture            = null;
+        private             readonly        guiFg                   :bjsg.AdvancedDynamicTexture            = null;
         /** The FPS text block. */
         private             readonly        fpsText                 :bjsg.TextBlock                         = null;
         /** The manager for GUI messages. */
@@ -20,15 +20,14 @@
         private             readonly        pauseGui                :bz.GUIPause                            = null;
 
         /** The wearpon image. */
-        protected                           wearponImage            :bjsg.Image                         = null;
+        private                             wearponImage            :bjsg.Image                             = null;
         /** The corsshair. */
-        protected                           crosshair               :bjsg.Image                         = null;
+        private                             crosshair               :bjsg.Image                             = null;
 
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
         *
-        *   @param scene     The scene to create this GUI for.
-        *   @param keySystem The key system to use for key determination.
+        *   @param scene The scene to create this GUI for.
         ***************************************************************************************************************/
         public constructor( scene:BABYLON.Scene )
         {
@@ -115,9 +114,11 @@
         /** ************************************************************************************************************
         *   Updates the GUI information for the current game tick.
         *
+        *   @param game      The parent game instance.
         *   @param pause     Specifies if the pause state is currently active.
+        *   @param keySystem The key system to query.
         ***************************************************************************************************************/
-        public render( game, pause:boolean, keySystem ) : void
+        public render( game:bz.Game, pause:boolean, keySystem:bz.KeySystem ) : void
         {
             this.updateFps( game );
 

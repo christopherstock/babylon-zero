@@ -92,8 +92,10 @@
 
         /** ************************************************************************************************************
         *   Performs the action for the current selected menu item.
+        *
+        *   @param game The game instance.
         ***************************************************************************************************************/
-        public performMenuItem( game ) : void
+        public performMenuItem( game:bz.Game ) : void
         {
             this.menuItems[ this.currentSelectedItem ].perform( game );
         }
