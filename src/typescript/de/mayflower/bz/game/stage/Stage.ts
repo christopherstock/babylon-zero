@@ -20,10 +20,9 @@
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
 
-        /** The key system to use in this stage. TODO to game ?? */
-        public                              keySystem               :bz.KeySystem                           = null;
         /** The mouse system to use in this stage. TODO to game ?? */
         protected                           mouseSystem             :bz.MouseSystem                         = null;
+
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
         /** A collection of all walls in this stage. */
@@ -181,7 +180,6 @@
             this.bots          = this.createBots();
             this.skybox        = this.createSkybox();
             this.sprites       = this.createSprites();
-            this.keySystem     = this.createKeySystem();
             this.mouseSystem   = this.createMouseSystem();
             this.lights        = this.createLights();
 
@@ -236,16 +234,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns this stage's key system.
-        *
-        *   @return The key system of this stage.
-        ***************************************************************************************************************/
-        public getKeySystem() : bz.KeySystem
-        {
-            return this.keySystem;
-        }
-
-        /** ************************************************************************************************************
         *   Returns this stage's mouse system.
         *
         *   @return The pointer system of this stage.
@@ -261,7 +249,7 @@
         public render() : void
         {
             // handle level specific keys
-            this.handleLevelKeys( this.keySystem );
+            this.handleLevelKeys( this.game.keySystem );
 
             // render player
             if ( this.player !== null )

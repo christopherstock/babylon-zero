@@ -16,6 +16,8 @@
         private                     gui                         :bz.GUI                     = null;
         /** Indicates pause state. */
         private                     pause                       :boolean                    = false;
+        /** The key system to use in this stage. */
+        public                      keySystem                   :bz.KeySystem               = null;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -32,6 +34,9 @@
             bz.Debug.init.log( 'Init scene' );
             this.scene = new bz.Scene();
             this.scene.init( this.engine, () => { this.onInitGameEngineCompleted(); } );
+
+            // init the key system
+            this.keySystem = new bz.KeySystem();
         }
 
         /** ************************************************************************************************************
@@ -175,7 +180,7 @@
             }
 
             // render GUI
-            this.gui.render( this, this.pause, this.stage.keySystem );
+            this.gui.render( this, this.pause, this.keySystem );
 
             // render scene
             this.scene.render();
@@ -200,7 +205,7 @@
         ***************************************************************************************************************/
         private handleDebugKeys() : void
         {
-            const keySystem :bz.KeySystem = this.stage.getKeySystem();
+            const keySystem :bz.KeySystem = this.keySystem;
 
             // camera switches
 
