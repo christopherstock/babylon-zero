@@ -196,71 +196,6 @@
                     this.compoundSpheres
                 ),
 */
-                // movable wooden crate
-                new bz.Wall
-                (
-                    this,
-                    bz.MeshFactory.createImportedModel
-                    (
-                        this.scene,
-                        bz.ModelFile.CRATE,
-                        new BABYLON.Vector3( 10.0, 30.0, 5.0 ),
-                        bz.PhysicBehaviour.LIGHT_WOOD,
-                        bz.ModelCompoundType.NONE
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // static glass wall
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-//                                new BABYLON.Vector3( 5.0, bz.MeshFactory.FACE_DEPTH, 1.0  ),
-                                new BABYLON.Vector3( 0.0, bz.MeshFactory.FACE_DEPTH, 0.0  ),
-
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-//                                bz.MeshPivotAnchor.NONE,
-
-                                new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
-                                new BABYLON.Vector3( 0.0, 10.0, 0.0 ),
-                                bz.Texture.WALL_GLASS,
-                                null,
-
-                                bz.PhysicBehaviour.STATIC,
-//                                bz.Physic.NONE,
-
-                                0.5,
-                                this.ambientColor
-                            ),
-
-                            // box primitive from MeshFactory
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 5.0, 5.0, 5.0 ),
-
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-
-                                new BABYLON.Vector3( 1.5, 1.5, 1.5 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_GRASS,
-                                null,
-
-                                bz.PhysicBehaviour.SOLID_WOOD,
-                                // bz.Physic.NONE,
-
-                                0.5,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
                 // 3ds chair single-meshed
                 new bz.Wall
                 (
@@ -686,30 +621,6 @@
                     new bz.Model
                     (
                         [
-                            // movable crate - small
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 12.0, 0.0, 12.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
-                                new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
-                                bz.Texture.WALL_WOOD,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
                             // movable crate - big
                             bz.MeshFactory.createBox
                             (
@@ -1032,7 +943,7 @@
                 (
                     this.scene,
                     bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( this.OFFSET_X + 50.0, 0.0, this.OFFSET_Z + 10.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
@@ -1043,7 +954,7 @@
                 (
                     this.scene,
                     bz.SpriteFile.PALM,
-                    new BABYLON.Vector3( this.OFFSET_X + 70.0, 0.0, this.OFFSET_Z + 10.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
@@ -1054,7 +965,7 @@
                 (
                     this.scene,
                     bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( this.OFFSET_X + 80.0, 0.0, this.OFFSET_Z + 10.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
@@ -1283,6 +1194,28 @@
                         new BABYLON.Vector3( this.OFFSET_X + 17.5, 5.0, this.OFFSET_Z + 17.5 ),
                         bz.PhysicBehaviour.LIGHT_WOOD,
                         bz.ModelCompoundType.NONE
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
+                                new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
+                                bz.Texture.WALL_WOOD,
+                                null,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
                     )
                 ),
             ]

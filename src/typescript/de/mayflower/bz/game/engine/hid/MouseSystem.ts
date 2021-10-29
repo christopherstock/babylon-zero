@@ -2,8 +2,7 @@
     import * as bz      from '../../..';
 
     /** ****************************************************************************************************************
-    *   Offers default pointer handling for one specific stage.
-    *   This is currently just an implementation for physical debug purposes!
+    *   Offers mouse and pointer handling.
     *******************************************************************************************************************/
     export class MouseSystem
     {
@@ -54,7 +53,6 @@
         {
             this.game = game;
 
-            // TODO extract to explicit methods for setting debugPointerDown or assignPointerLock!
             if ( assignDebugPointerDown )
             {
                 this.game.getScene().getNativeScene().onPointerDown =
@@ -67,9 +65,15 @@
 
             if ( assignPointerLock )
             {
-                this.game.getEngine().getCanvasSystem().getNativeCanvas().onclick     = ( me: MouseEvent ) :any => { this.onMouseClick( me ); };
-                this.game.getEngine().getCanvasSystem().getNativeCanvas().onmousedown = ( me: MouseEvent ) :any => { this.onMouseDown(  me ); };
-                this.game.getEngine().getCanvasSystem().getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => { this.onMouseUp(    me ); };
+                this.game.getEngine().getCanvasSystem().getNativeCanvas().onclick     = ( me: MouseEvent ) :any => {
+                    this.onMouseClick( me );
+                };
+                this.game.getEngine().getCanvasSystem().getNativeCanvas().onmousedown = ( me: MouseEvent ) :any => {
+                    this.onMouseDown(  me );
+                };
+                this.game.getEngine().getCanvasSystem().getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => {
+                    this.onMouseUp(    me );
+                };
             }
         }
 

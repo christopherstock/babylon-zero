@@ -42,7 +42,7 @@
             this.mouseSystem = new bz.MouseSystem(
                 this,
                 bz.SettingDebug.DEBUG_ENABLE_POINTER_DOWN_IMPULSE,
-                false
+                !bz.SettingDebug.DEBUG_DISABLE_POINTER_LOCK
             )
         }
 
