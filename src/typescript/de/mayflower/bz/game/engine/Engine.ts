@@ -148,8 +148,8 @@
 
             if ( game.getStage() !== null )
             {
-                game.keySystem.releaseAllKeys();
-                game.mouseSystem.releasePointerLock();
+                game.getKeySystem().releaseAllKeys();
+                game.getMouseSystem().releasePointerLock();
             }
         }
     }

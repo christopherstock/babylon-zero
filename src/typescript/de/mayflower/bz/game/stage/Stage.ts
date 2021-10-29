@@ -90,10 +90,8 @@
 
         /** ************************************************************************************************************
         *   Handles level specific keys.
-        *
-        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected abstract handleLevelKeys( keySystem:bz.KeySystem ) : void;
+        protected abstract handleLevelKeys() : void;
 
         /** ************************************************************************************************************
         *   Creates and returns all walls this stage consists of.
@@ -228,7 +226,7 @@
         public render() : void
         {
             // handle level specific keys
-            this.handleLevelKeys( this.game.keySystem );
+            this.handleLevelKeys();
 
             // render player
             if ( this.player !== null )

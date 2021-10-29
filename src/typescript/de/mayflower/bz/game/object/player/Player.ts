@@ -267,8 +267,8 @@
         ***************************************************************************************************************/
         private handleUserInput() : void
         {
-            const keySystem:bz.KeySystem = this.stage.game.keySystem;
-            const mouseSystem:bz.MouseSystem = this.stage.game.mouseSystem;
+            const keySystem:bz.KeySystem = this.stage.game.getKeySystem();
+            const mouseSystem:bz.MouseSystem = this.stage.game.getMouseSystem();
 
             // move forewards and backwards
             if

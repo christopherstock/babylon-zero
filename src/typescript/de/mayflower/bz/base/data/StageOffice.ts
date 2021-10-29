@@ -82,11 +82,11 @@
 
         /** ************************************************************************************************************
         *   Handles level specific keys.
-        *
-        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected handleLevelKeys( keySystem:bz.KeySystem ) : void
+        protected handleLevelKeys() : void
         {
+            const keySystem :bz.KeySystem = this.game.getKeySystem();
+
             if ( keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );

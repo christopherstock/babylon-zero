@@ -17,9 +17,9 @@
         /** Indicates pause state. */
         private                     pause                       :boolean                    = false;
         /** The key system to use in this stage. */
-        public                      keySystem                   :bz.KeySystem               = null;
+        private                     keySystem                   :bz.KeySystem               = null;
         /** The mouse system to use in this stage. */
-        public                      mouseSystem                 :bz.MouseSystem             = null;
+        private                     mouseSystem                 :bz.MouseSystem             = null;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -88,7 +88,7 @@
 
                 case bz.StageId.INTRO_LOGO:
                 {
-                    this.stage = new bz.StageIntroLogo( this                     );
+                    this.stage = new bz.StageIntroLogo( this );
                     break;
                 }
             }
@@ -101,7 +101,7 @@
             bz.Debug.stage.log( ' Initializing target stage [' + String( targetStage ) + ']' );
             this.stage.init();
 
-            // release keys and pointer lock?
+            // release keys and pointer lock
             this.keySystem.releaseAllKeys();
             this.mouseSystem.releasePointerLock();
 
@@ -279,5 +279,15 @@
         public getGUI() : bz.GUI
         {
             return this.gui;
+        }
+
+        public getKeySystem() : bz.KeySystem
+        {
+            return this.keySystem;
+        }
+
+        public getMouseSystem() : bz.MouseSystem
+        {
+            return this.mouseSystem;
         }
     }

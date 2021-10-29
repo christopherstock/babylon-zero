@@ -131,10 +131,8 @@
 
         /** ************************************************************************************************************
         *   Handles level specific keys.
-        *
-        *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected handleLevelKeys( keySystem:bz.KeySystem ) : void
+        protected handleLevelKeys() : void
         {
         }
 
