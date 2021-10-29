@@ -3,6 +3,8 @@
 
     /** ****************************************************************************************************************
     *   Represents the game entity being controlled by the user.
+    *
+    *   TODO prune and merge with PlayerHuman!!
     *******************************************************************************************************************/
     export abstract class Player extends bz.GameObject
     {

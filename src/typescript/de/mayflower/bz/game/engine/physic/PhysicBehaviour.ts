@@ -6,12 +6,12 @@
     *
     *   TODO rename to PhysicSet ?
     *   TODO prune unused!
-    *   TODO outsource constant data to PhysicBehaviour etc ?
+    *   TODO outsource constant data to PhysicBehaviourData etc ?
     *******************************************************************************************************************/
-    export class Physic
+    export class PhysicBehaviour
     {
         /** A non-collidable and non-gravitational affected physical state. */
-        public  static  readonly        NONE                :Physic             = new Physic
+        public  static  readonly        NONE                :PhysicBehaviour             = new PhysicBehaviour
         (
             bz.PhysicState.NONE,
             null,
@@ -20,7 +20,7 @@
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly        PLAYER_HUMAN        :Physic             = new Physic
+        public  static  readonly        PLAYER_HUMAN        :PhysicBehaviour             = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
             bz.SettingPlayerHuman.MASS,
@@ -29,7 +29,7 @@
         );
 
         /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly        PLAYER_SPACESHIP    :Physic             = new Physic
+        public  static  readonly        PLAYER_SPACESHIP    :PhysicBehaviour             = new PhysicBehaviour
         (
             bz.PhysicState.STATIC,
             bz.PhysicDensity.STATIC,
@@ -38,7 +38,7 @@
         );
 
         /** Props for light wood. */
-        public  static  readonly        LIGHT_WOOD      :Physic                 = new Physic
+        public  static  readonly        LIGHT_WOOD      :PhysicBehaviour                 = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.LIGHT_WOOD,
@@ -47,7 +47,7 @@
         );
 
         /** Props for solid wood. */
-        public  static  readonly        SOLID_WOOD      :Physic                 = new Physic
+        public  static  readonly        SOLID_WOOD      :PhysicBehaviour                 = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.SOLID_WOOD,
@@ -56,7 +56,7 @@
         );
 
         /** Props for concrete. */
-        public  static  readonly        CONCRETE        :Physic                 = new Physic
+        public  static  readonly        CONCRETE        :PhysicBehaviour                 = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.CONCRETE,
@@ -65,7 +65,7 @@
         );
 
         /** Props for solid concrete. */
-        public  static  readonly        SOLID_CONCRETE  :Physic                 = new Physic
+        public  static  readonly        SOLID_CONCRETE  :PhysicBehaviour                 = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.SOLID_CONCRETE,
@@ -74,7 +74,7 @@
         );
 
         /** Props for a physical compound object. */
-        public  static  readonly        COMPOUND        :Physic                 = new Physic
+        public  static  readonly        COMPOUND        :PhysicBehaviour                 = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
             bz.PhysicDensity.DEFAULT,
@@ -83,7 +83,7 @@
         );
 
         /** Physical properties for a non-moving and collidable body. */
-        public  static  readonly        STATIC          :Physic                 = new Physic
+        public  static  readonly        STATIC          :PhysicBehaviour                 = new PhysicBehaviour
         (
             bz.PhysicState.STATIC,
             bz.PhysicDensity.STATIC,

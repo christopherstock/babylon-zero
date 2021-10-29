@@ -39,7 +39,6 @@
     export * from './game/engine/ui/gui/GUIFactory';
     export * from './game/engine/ui/gui/GUIGame';
     export * from './game/engine/ui/gui/GUIPause';
-    export * from './game/engine/ui/gui/GUIType';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/LightFactory';
@@ -81,7 +80,7 @@
 
     export * from './game/engine/physic/PhysicImpostorParams';
     export * from './game/engine/physic/PhysicState';
-    export * from './game/engine/physic/Physic';
+    export * from './game/engine/physic/PhysicBehaviour';
 
     export * from './game/object/GameObject';
     export * from './game/object/Bot';
@@ -90,7 +89,6 @@
 
     export * from './game/object/player/Player';
     export * from './game/object/player/PlayerHuman';
-    export * from './game/object/player/PlayerSpaceship';
 
     export * from './game/stage/Stage';
 

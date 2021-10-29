@@ -47,7 +47,7 @@
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
             color         :BABYLON.Color3,
-            physic        :bz.Physic,
+            physic        :bz.PhysicBehaviour,
             materialAlpha :number,
             emissiveColor :BABYLON.Color3
         )
@@ -224,7 +224,7 @@
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
             color         :BABYLON.Color3,
-            physic        :bz.Physic,
+            physic        :bz.PhysicBehaviour,
             materialAlpha :number,
             emissiveColor :BABYLON.Color3
         )
@@ -333,7 +333,7 @@
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
             color         :BABYLON.Color3,
-            physic        :bz.Physic,
+            physic        :bz.PhysicBehaviour,
             materialAlpha :number,
             emissiveColor :BABYLON.Color3
         )
@@ -419,7 +419,7 @@
 
             color           :BABYLON.Color3,
 
-            physic          :bz.Physic,
+            physic          :bz.PhysicBehaviour,
             materialAlpha   :number,
             emissiveColor   :BABYLON.Color3,
             sideOrientation :number
@@ -533,7 +533,7 @@
                 line,
                 rotation,
                 null,
-                bz.Physic.NONE,
+                bz.PhysicBehaviour.NONE,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 0.0
             );
@@ -563,7 +563,7 @@
 
             color         :BABYLON.Color3,
 
-            physic        :bz.Physic,
+            physic        :bz.PhysicBehaviour,
             emissiveColor :BABYLON.Color3
         )
         : BABYLON.Mesh
@@ -687,7 +687,7 @@
                 decal,
                 null,
                 material,
-                bz.Physic.NONE,
+                bz.PhysicBehaviour.NONE,
                 BABYLON.PhysicsImpostor.BoxImpostor,
                 0.0
             );
@@ -857,7 +857,7 @@
             scene        :bz.Scene,
             fileName     :string,
             position     :BABYLON.Vector3,
-            physic       :bz.Physic,
+            physic       :bz.PhysicBehaviour,
             compoundType :bz.ModelCompoundType
         )
         : bz.Model
@@ -924,7 +924,7 @@
             mesh                :BABYLON.Mesh,
             rotation            :BABYLON.Vector3,
             material            :BABYLON.StandardMaterial,
-            physic              :bz.Physic,
+            physic              :bz.PhysicBehaviour,
             physicsImpostorType :number,
             volume              :number
         )

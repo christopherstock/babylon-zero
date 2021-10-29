@@ -38,8 +38,7 @@
                 new BABYLON.Color3( 0.2, 0.2, 0.2 ),
 
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-                bz.CameraType.FIRST_PERSON,
-                bz.GUIType.GAME
+                bz.CameraType.FIRST_PERSON
             );
         }
 
@@ -130,7 +129,7 @@
                 this.scene,
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( 15.0, 5.0, 17.5 ),
-                bz.Physic.SOLID_CONCRETE,
+                bz.PhysicBehaviour.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
 
@@ -142,7 +141,7 @@
                     this.scene,
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
-                    bz.Physic.LIGHT_WOOD,
+                    bz.PhysicBehaviour.LIGHT_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             );
@@ -222,7 +221,7 @@
                         this.scene,
                         bz.ModelFile.CRATE,
                         new BABYLON.Vector3( 10.0, 30.0, 5.0 ),
-                        bz.Physic.LIGHT_WOOD,
+                        bz.PhysicBehaviour.LIGHT_WOOD,
                         bz.ModelCompoundType.NONE
                     )
                 ),
@@ -248,7 +247,7 @@
                                 bz.Texture.WALL_GLASS,
                                 null,
 
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
 //                                bz.Physic.NONE,
 
                                 0.5,
@@ -268,7 +267,7 @@
                                 bz.Texture.WALL_GRASS,
                                 null,
 
-                                bz.Physic.SOLID_WOOD,
+                                bz.PhysicBehaviour.SOLID_WOOD,
                                 // bz.Physic.NONE,
 
                                 0.5,
@@ -357,7 +356,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -381,7 +380,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -429,7 +428,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 // bz.Physic.NONE,
                                 1.0,
                                 this.ambientColor
@@ -450,7 +449,7 @@
                                 this.scene,
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Physic.STATIC
+                                bz.PhysicBehaviour.STATIC
                             ),
                         ]
                     )
@@ -474,7 +473,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
                                 bz.Texture.WALL_TREE,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -497,7 +496,7 @@
                                 new BABYLON.Vector3( 0.0, 270.0, 0.0   ),
                                 bz.Texture.WALL_TREE,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -521,7 +520,7 @@
                                 new BABYLON.Vector3( 0.0, 45.0, 0.0   ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -545,7 +544,7 @@
                                 new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -568,7 +567,7 @@
                                 new BABYLON.Vector3( 0.0, 65.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -592,7 +591,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -616,7 +615,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -640,7 +639,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -664,7 +663,7 @@
                                 new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -688,7 +687,7 @@
                                 new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
                                 null,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 0.5,
                                 this.ambientColor
                             ),
@@ -714,7 +713,7 @@
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
                                 bz.SettingColor.COLOR_RGB_RED,
-                                bz.Physic.STATIC,
+                                bz.PhysicBehaviour.STATIC,
                                 this.ambientColor
                             ),
                         ]
@@ -737,7 +736,7 @@
                                 new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -761,7 +760,7 @@
                                 new BABYLON.Vector3( 0.0, 30.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -785,7 +784,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -809,7 +808,7 @@
                                 new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 0.5,
                                 this.ambientColor
                             ),
@@ -833,7 +832,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -857,7 +856,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -881,7 +880,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -905,7 +904,7 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
-                                bz.Physic.LIGHT_WOOD,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -921,7 +920,7 @@
                         this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                         new BABYLON.Vector3( -10.0, 20.0, 0.0 ),
-                        bz.Physic.SOLID_WOOD,
+                        bz.PhysicBehaviour.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
                 ),
@@ -934,7 +933,7 @@
                         this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                         new BABYLON.Vector3( -10.0, 20.0, 10.0 ),
-                        bz.Physic.SOLID_WOOD,
+                        bz.PhysicBehaviour.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
                 ),
@@ -947,7 +946,7 @@
                         this.scene,
                         bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                         new BABYLON.Vector3( -10.0, 20.0, 15.0 ),
-                        bz.Physic.SOLID_WOOD,
+                        bz.PhysicBehaviour.SOLID_WOOD,
                         bz.ModelCompoundType.NONE
                     )
                 ),

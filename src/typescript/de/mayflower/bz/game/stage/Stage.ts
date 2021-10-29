@@ -18,8 +18,6 @@
         protected           readonly        sceneBgColor            :BABYLON.Color4                         = null;
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
-        /** The initial GUI to set for this stage. */
-        protected           readonly        guiType                 :bz.GUIType                             = null;
 
         /** The key system to use in this stage. */
         protected                           keySystem               :bz.KeySystem                           = null;
@@ -74,8 +72,7 @@
             canvas        :bz.CanvasSystem,
             ambientColor  :BABYLON.Color3,
             sceneBgColor  :BABYLON.Color4,
-            initialCamera :bz.CameraType,
-            guiType       :bz.GUIType
+            initialCamera :bz.CameraType
         )
         {
             this.scene         = scene;
@@ -83,7 +80,6 @@
             this.ambientColor  = ambientColor;
             this.sceneBgColor  = sceneBgColor;
             this.initialCamera = initialCamera;
-            this.guiType       = guiType;
         }
 
         /** ************************************************************************************************************
@@ -506,20 +502,13 @@
         ***************************************************************************************************************/
         private createGUI() : bz.GUI
         {
-            switch ( this.guiType )
-            {
-                case bz.GUIType.GAME:
-                default:
-                {
-                    const gui:bz.GUIGame = new bz.GUIGame(
-                        this.scene.getNativeScene(),
-                        this.keySystem
-                    );
-                    gui.init();
+            const gui:bz.GUIGame = new bz.GUIGame(
+                this.scene.getNativeScene(),
+                this.keySystem
+            );
+            gui.init();
 
-                    return gui;
-                }
-            }
+            return gui;
         }
 
         /** ************************************************************************************************************

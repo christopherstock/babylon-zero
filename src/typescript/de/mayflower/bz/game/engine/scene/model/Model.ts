@@ -196,7 +196,7 @@
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Texture.WALL_GRASS,
                 null,
-                bz.Physic.NONE,
+                bz.PhysicBehaviour.NONE,
                 1.0,
                 BABYLON.Color3.Red()
             );
@@ -208,7 +208,7 @@
             }
 
             // set physics for compound
-            bz.Physic.COMPOUND.applyPhysicToMesh
+            bz.PhysicBehaviour.COMPOUND.applyPhysicToMesh
             (
                 scene.getNativeScene(),
                 this.compoundMesh,
@@ -499,7 +499,7 @@
                 {
                     bz.Debug.physic.log( ' Applying DEFAULT impostor to SCATTERED mesh ' );
 
-                    bz.Physic.SOLID_WOOD.applyPhysicToMesh
+                    bz.PhysicBehaviour.SOLID_WOOD.applyPhysicToMesh
                     (
                         scene,
                         mesh,

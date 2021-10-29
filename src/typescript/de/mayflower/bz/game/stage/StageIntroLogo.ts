@@ -33,8 +33,7 @@
 
                 bz.SettingColor.COLOR_RGB_BLACK,
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-                bz.CameraType.STATIONARY,
-                bz.GUIType.GAME
+                bz.CameraType.STATIONARY
             );
 
             this.rotY = 270.0;
@@ -154,7 +153,7 @@
                 this.scene,
                 bz.ModelFile.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                bz.Physic.NONE,
+                bz.PhysicBehaviour.NONE,
                 bz.ModelCompoundType.NONE
             );
 /*

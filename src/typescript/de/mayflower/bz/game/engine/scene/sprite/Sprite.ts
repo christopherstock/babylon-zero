@@ -71,7 +71,7 @@
                     BABYLON.Vector3.Zero(),
                     bz.Texture.WALL_GLASS,
                     null,
-                    bz.Physic.STATIC,
+                    bz.PhysicBehaviour.STATIC,
                     0.25,
                     bz.SettingColor.COLOR_RGB_WHITE
                 );
