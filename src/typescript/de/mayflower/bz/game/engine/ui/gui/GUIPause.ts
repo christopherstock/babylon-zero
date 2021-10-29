@@ -96,9 +96,9 @@
         *
         *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        public render( keySystem:bz.KeySystem ) : void
+        public render( game, keySystem:bz.KeySystem ) : void
         {
-            this.handlePauseKeys( keySystem );
+            this.handlePauseKeys( game, keySystem );
         }
 
         /** ************************************************************************************************************
@@ -126,7 +126,7 @@
         *
         *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handlePauseKeys( keySystem:bz.KeySystem ) : void
+        private handlePauseKeys( game, keySystem:bz.KeySystem ) : void
         {
             if
             (
@@ -156,7 +156,7 @@
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-                this.menu.performMenuItem();
+                this.menu.performMenuItem( game );
             }
         }
     }

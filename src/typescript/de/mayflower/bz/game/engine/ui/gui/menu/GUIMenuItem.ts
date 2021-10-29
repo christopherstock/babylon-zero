@@ -82,10 +82,8 @@
         /** ************************************************************************************************************
         *   Performs this menu item's associated action.
         ***************************************************************************************************************/
-        public perform() : void
+        public perform( game ) : void
         {
-            const game:bz.Game = bz.Main.game;
-
             switch ( this.action )
             {
                 case bz.GUIAction.RESUME_GAME:

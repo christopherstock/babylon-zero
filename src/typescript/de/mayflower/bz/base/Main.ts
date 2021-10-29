@@ -94,9 +94,6 @@
     *******************************************************************************************************************/
     export class Main
     {
-        /** The singleton instance of the game. TODO to non static! */
-        public      static          game                    :bz.Game                    = null;
-
         /** ************************************************************************************************************
         *   This method is invoked when the application starts.
         ***************************************************************************************************************/
@@ -112,7 +109,7 @@
             bz.Debug.acclaim.log();
 
             // create and init game
-            Main.game = new bz.Game();
-            Main.game.init();
+            const game = new bz.Game();
+            game.init();
         }
     }

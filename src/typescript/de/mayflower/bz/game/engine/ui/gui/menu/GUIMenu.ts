@@ -93,9 +93,9 @@
         /** ************************************************************************************************************
         *   Performs the action for the current selected menu item.
         ***************************************************************************************************************/
-        public performMenuItem() : void
+        public performMenuItem( game ) : void
         {
-            this.menuItems[ this.currentSelectedItem ].perform();
+            this.menuItems[ this.currentSelectedItem ].perform( game );
         }
 
         /** ************************************************************************************************************

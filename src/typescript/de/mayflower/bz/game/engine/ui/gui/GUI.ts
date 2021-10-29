@@ -118,7 +118,7 @@
 
             if ( pause )
             {
-                this.pauseGui.render( this.keySystem );
+                this.pauseGui.render( game, this.keySystem );
             }
         }
 
