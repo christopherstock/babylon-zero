@@ -16,7 +16,7 @@
         /** ************************************************************************************************************
         *   Inits all components of the game engine.
         ***************************************************************************************************************/
-        public init() : void
+        public init( game ) : void
         {
             bz.Debug.init.log( 'Init canvas' );
             this.canvasSystem = new bz.CanvasSystem();
@@ -40,11 +40,11 @@
 
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );
-            window.addEventListener( 'resize', () => { this.onWindowResize(); } );
+            window.addEventListener( 'resize', () => { this.onWindowResize( game ); } );
 
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );
-            window.addEventListener( 'blur', () => { this.onWindowBlur(); } );
+            window.addEventListener( 'blur', () => { this.onWindowBlur( game ); } );
         }
 
         /** ************************************************************************************************************
@@ -124,7 +124,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
         ***************************************************************************************************************/
-        private onWindowResize() : void
+        private onWindowResize( game ) : void
         {
             // resize loading screen
             this.loadingScreen.resizeLoadingDivToCanvasDimensions();
@@ -135,7 +135,7 @@
             if ( dimensionsChanged )
             {
                 // resize GUIs
-                bz.Main.game.adjustGameSizeToCanvasSize();
+                game.adjustGameSizeToCanvasSize();
 
                 // resize babylon.JS
                 this.babylonEngine.resize();
@@ -145,14 +145,14 @@
         /** ************************************************************************************************************
         *   Being invoked when the browser window loses the application focue.
         ***************************************************************************************************************/
-        private onWindowBlur() : void
+        private onWindowBlur( game ) : void
         {
             bz.Debug.canvas.log( 'Detected window focus lost - Releasing all keys' );
 
-            if ( bz.Main.game.getStage() !== null )
+            if ( game.getStage() !== null )
             {
-                bz.Main.game.getStage().getKeySystem().releaseAllKeys();
-                bz.Main.game.getStage().getMouseSystem().releasePointerLock();
+                game.getStage().getKeySystem().releaseAllKeys();
+                game.getStage().getMouseSystem().releasePointerLock();
             }
         }
     }

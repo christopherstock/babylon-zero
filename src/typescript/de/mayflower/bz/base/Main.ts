@@ -6,8 +6,6 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
-    *   TODO Reduce Complexity!
-    *
     *   =====================
     *   Primal
     *   =====================
@@ -99,27 +97,20 @@
 
         /** ************************************************************************************************************
         *   This method is invoked when the application starts.
-        *
-        *   TODO to non static!
         ***************************************************************************************************************/
         public main() : void
         {
+            // HTML document title and favicon
             bz.DOMUtil.setTitle(   bz.SettingBranding.TITLE   );
             bz.DOMUtil.setFavicon( bz.SettingResource.PATH_IMAGE_FAVICON + bz.SettingBranding.FAVICON );
 
-            this.acclaim();
-
-            Main.game = new bz.Game();
-            Main.game.init();
-        }
-
-        /** ************************************************************************************************************
-        *   Acclaims the debug console.
-        ***************************************************************************************************************/
-        private acclaim() : void
-        {
+            // log some output
             bz.Debug.acclaim.log( bz.SettingBranding.TITLE );
             bz.Debug.acclaim.log( bz.Version.getCurrent()  );
             bz.Debug.acclaim.log();
+
+            // create and init game
+            Main.game = new bz.Game();
+            Main.game.init();
         }
     }

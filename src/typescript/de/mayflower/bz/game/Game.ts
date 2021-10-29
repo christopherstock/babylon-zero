@@ -22,7 +22,7 @@
 
             // init the engine
             this.engine = new bz.Engine();
-            this.engine.init();
+            this.engine.init( this );
 
             // init the scene
             bz.Debug.init.log( 'Init scene' );
