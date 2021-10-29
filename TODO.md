@@ -5,6 +5,7 @@
 =====================
 Primal
 =====================
+TODO add constant rotation to sprite ??
 TODO pause menu / GUI must be over red hit effect!
 TODO debug and improve init process?
 TODO Flashlite on player - depending on wearpon.

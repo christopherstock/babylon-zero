@@ -10,6 +10,8 @@
         public      static  readonly    TREE                    :SpriteFile             = new SpriteFile( 'tree.png',       357 );
         /** The sprite 'tree white'. */
         public      static  readonly    TREE_WHITE              :SpriteFile             = new SpriteFile( 'treeWhite.png',  357 );
+        /** The sprite 'tree white'. */
+        public      static  readonly    PALM                    :SpriteFile             = new SpriteFile( 'palm.png',       357 );
         /** The sprite 'test'. */
         public      static  readonly    TEST                    :SpriteFile             = new SpriteFile( 'test.png',       64  );
 
@@ -18,6 +20,7 @@
         [
             SpriteFile.TREE,
             SpriteFile.TREE_WHITE,
+            SpriteFile.PALM,
             SpriteFile.TEST,
         ];
 

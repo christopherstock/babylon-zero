@@ -6,11 +6,14 @@
     *******************************************************************************************************************/
     export class StageOffice extends bz.Stage
     {
-        /** A testwise mesh 'chair'. */
+        private                             OFFSET_X                :number                                 = 200.0;
+        private                             OFFSET_Z                :number                                 = 200.0;
+
+        /** A testwise mesh - made from a single 3dsmax Mesh. */
         protected                           chairSingle             :bz.Model                               = null;
-        /** A testwise mesh 'chair'. */
+        /** A testwise mesh - made from multiple 3dsmax Meshes. */
         protected                           chairMulti              :bz.Model                               = null;
-        /** A testwise mesh 'chair'. */
+        /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
         protected                           chairMultiPhysics       :bz.Model                               = null;
 
         /** A testwise mesh 'compound spheres'. */
@@ -30,11 +33,7 @@
             super
             (
                 game,
-
-                // bz.SettingColor.COLOR_RGB_WHITE,
-                // lights out!
                 new BABYLON.Color3( 0.2, 0.2, 0.2 ),
-
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
                 bz.CameraType.FIRST_PERSON
             );
@@ -51,7 +50,11 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ), 13.0 ),
+                new BABYLON.Vector3(
+                    this.OFFSET_X + 8.0,
+                    ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
+                    this.OFFSET_Z + 13.0
+                ),
                 45.0,
                 this.ambientColor
             );
@@ -184,7 +187,7 @@
                 this.ambientColor
             );
 */
-            return [
+            const walls :bz.Wall[] = [
 /*
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
@@ -337,30 +340,6 @@
                     )
                 ),
 */
-                // static ground
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 0.0, -2.5, 0.0  ),
-                                bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, 2.5, 100.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_TEST,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
                 // test wall green
                 new bz.Wall
                 (
@@ -949,6 +928,14 @@
                 ),
 
             ];
+
+            const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls();
+            for ( const wall of levelGroundWalls )
+            {
+                walls.push( wall );
+            }
+
+            return walls;
         }
 
         /** ************************************************************************************************************
@@ -1019,8 +1006,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.DARK_SKY, 0.1 );
-            // return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 0.5 );
+            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 0.5 );
         }
 
         /** ************************************************************************************************************
@@ -1045,21 +1031,20 @@
             animatedTestSprite.animate( 0, 43, true );
 */
             return [
-/*
-                animatedTestSprite,
-*/
+
+                // animatedTestSprite,
+
                 new bz.Sprite
                 (
                     this.scene,
                     bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( 45.0, 0.0, 20.0  ),
+                    new BABYLON.Vector3( this.OFFSET_X + 45.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
-                    20.0,
+                    10.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES
                 ),
-
-
+/*
                 new bz.Sprite
                 (
                     this.scene,
@@ -1090,6 +1075,7 @@
                     bz.MeshPivotAnchor.CENTER_XYZ,
                     bz.SpriteCollidable.NO
                 ),
+*/
                 new bz.Sprite
                 (
                     this.scene,
@@ -1170,6 +1156,19 @@
                     1.0,
                     true
                 ),
+
+                // point light
+                bz.LightFactory.createPoint
+                (
+                    this.scene.getNativeScene(),
+                    new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.0, this.OFFSET_Z + 16.0 ),
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    50.0,
+                    1.0,
+                    true
+                ),
+
             ];
         }
 
@@ -1211,5 +1210,47 @@
 
             // green poison steam..
             // this.scene.enableFog( new BABYLON.Color3( 101 / 256, 206 / 256, 143 / 256 ), 0.05 );
+        }
+
+        private createLevelGroundWalls() : bz.Wall[]
+        {
+            return [
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 0.0, -2.5, 0.0  ),
+                                bz.MeshPivotAnchor.NONE,
+                                new BABYLON.Vector3( 200.0, 2.5, 200.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_TEST,
+                                null,
+                                bz.PhysicBehaviour.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( 200.0, -2.5, 200.0  ),
+                                bz.MeshPivotAnchor.NONE,
+                                new BABYLON.Vector3( this.OFFSET_X, 2.5, this.OFFSET_Z ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_TEST,
+                                null,
+                                bz.PhysicBehaviour.STATIC,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+            ]
         }
     }

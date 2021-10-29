@@ -60,11 +60,13 @@
             // create collider if desired
             if ( collidable === bz.SpriteCollidable.YES )
             {
-                const collisionWidth:number = ( width / 2 );
+                const collisionWidth:number = width; // ( width / 2 );
+                const colliderPos :BABYLON.Vector3 = position.clone();
+                colliderPos.y += ( height / 2 )
                 this.collider = bz.MeshFactory.createCylinder
                 (
                     scene,
-                    position.clone(),
+                    colliderPos,
                     anchor,
                     collisionWidth,
                     height,

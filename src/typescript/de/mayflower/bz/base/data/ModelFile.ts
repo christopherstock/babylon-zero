@@ -7,7 +7,7 @@
     export abstract class ModelFile
     {
         /** The model 'office chair'. */
-        public      static  readonly    OFFICE_CHAIR_1_MULTI_MESH   :string             = 'furniture/officeChair1.babylon';
+         public      static  readonly    OFFICE_CHAIR_1_MULTI_MESH   :string             = 'furniture/officeChair1.babylon';
         /** The model 'office chair 2'. */
         public      static  readonly    OFFICE_CHAIR_2_ONE_MESH     :string             = 'furniture/officeChair2.babylon';
         /** The model 'office chair 3'. */
