@@ -233,4 +233,14 @@
                 this.scene.togglePhysics();
             }
         }
+
+        public getScene() : bz.Scene
+        {
+            return this.scene;
+        }
+
+        public getEngine() : bz.Engine
+        {
+            return this.engine;
+        }
     }

@@ -70,7 +70,7 @@
         ***************************************************************************************************************/
         protected constructor
         (
-            game,
+            game          :bz.Game,
             scene         :bz.Scene,
             canvas        :bz.CanvasSystem,
             ambientColor  :BABYLON.Color3,
