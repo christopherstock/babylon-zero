@@ -109,9 +109,9 @@
         *
         *   @param pause     Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render( pause:boolean ) : void
+        public render( game, pause:boolean ) : void
         {
-            this.updateFps();
+            this.updateFps( game );
 
             this.messageManager.render();
             this.fxManager.render();
@@ -175,9 +175,9 @@
         /** ************************************************************************************************************
         *   Updates the Frames Per Second counter.
         ***************************************************************************************************************/
-        private updateFps() : void
+        private updateFps( game ) : void
         {
             // update and assign fps
-            this.fpsText.text = bz.Main.game.getFps().toFixed( 2 ) + ' fps';
+            this.fpsText.text = game.getFps().toFixed( 2 ) + ' fps';
         }
     }

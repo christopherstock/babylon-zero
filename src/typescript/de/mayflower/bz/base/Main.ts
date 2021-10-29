@@ -6,6 +6,8 @@
     /** ****************************************************************************************************************
     *   The main class containing the point of entry and a single game instance.
     *
+    *   TODO rename to App!
+    *
     *   =====================
     *   Primal
     *   =====================

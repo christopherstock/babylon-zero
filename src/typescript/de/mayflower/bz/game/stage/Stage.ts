@@ -8,6 +8,7 @@
     {
         // TODO extract all constructor- and readonly-fields to StageConfig
 
+        protected           readonly        game                    :bz.Scene                               = null;
         /** The scene that represents this stage. */
         protected           readonly        scene                   :bz.Scene                               = null;
         /** The canvas system this stage is displayed on. */
@@ -52,7 +53,7 @@
         /** A collection of all debug meshes in this stage. */
         private             readonly        debugMeshes             :BABYLON.Mesh[]                         = [];
 
-        /** Indicates pause state. */
+        /** Indicates pause state. TODO move to class Game ? */
         private                             pause                   :boolean                                = false;
 
         /** ************************************************************************************************************
@@ -68,6 +69,7 @@
         ***************************************************************************************************************/
         protected constructor
         (
+            game,
             scene         :bz.Scene,
             canvas        :bz.CanvasSystem,
             ambientColor  :BABYLON.Color3,
@@ -75,6 +77,7 @@
             initialCamera :bz.CameraType
         )
         {
+            this.game          = game;
             this.scene         = scene;
             this.canvas        = canvas;
             this.ambientColor  = ambientColor;
@@ -312,7 +315,7 @@
             }
 
             // render GUI
-            this.gui.render( this.pause );
+            this.gui.render( this.game, this.pause );
         }
 
         /** ************************************************************************************************************

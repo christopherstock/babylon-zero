@@ -24,10 +24,11 @@
         *   @param scene     The scene reference.
         *   @param canvas    The canvas system this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( scene:bz.Scene, canvas:bz.CanvasSystem )
+        public constructor( game:bz.Game, scene:bz.Scene, canvas:bz.CanvasSystem )
         {
             super
             (
+                game,
                 scene,
                 canvas,
 

@@ -66,6 +66,7 @@
                 case bz.StageId.OFFICE:
                 {
                     this.stage = new bz.StageOffice(
+                        this,
                         this.scene,
                         this.engine.getCanvasSystem()
                     );
@@ -75,6 +76,7 @@
                 case bz.StageId.INTRO_LOGO:
                 {
                     this.stage = new bz.StageIntroLogo(
+                        this,
                         this.scene,
                         this.engine.getCanvasSystem()
                     );

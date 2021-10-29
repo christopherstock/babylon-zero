@@ -4,6 +4,8 @@
 
     /** ****************************************************************************************************************
     *   Manages the Graphical User Interface that contains all GUI elements for one game level.
+    *
+    *   TODO merge with GUI !
     *******************************************************************************************************************/
     export class GUIGame extends bz.GUI
     {
@@ -56,9 +58,9 @@
         *
         *   @param pause Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render( pause:boolean ) : void
+        public render( game, pause:boolean ) : void
         {
-            super.render( pause );
+            super.render( game, pause );
         }
 
         /** ************************************************************************************************************
