@@ -54,7 +54,7 @@
         {
             this.game = game;
 
-            this.game.scene.getNativeScene().onPointerDown = (
+            this.game.getScene().getNativeScene().onPointerDown = (
                 assignDebugPointerDown
                 ? ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
                     this.onDebugPointerDown( evt, pickResult );

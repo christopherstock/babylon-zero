@@ -16,7 +16,7 @@
         /** ************************************************************************************************************
         *   Inits all components of the game engine.
         ***************************************************************************************************************/
-        public init( game ) : void
+        public init( game:bz.Game ) : void
         {
             bz.Debug.init.log( 'Init canvas' );
             this.canvasSystem = new bz.CanvasSystem();
@@ -124,7 +124,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
         ***************************************************************************************************************/
-        private onWindowResize( game ) : void
+        private onWindowResize( game:bz.Game ) : void
         {
             // resize loading screen
             this.loadingScreen.resizeLoadingDivToCanvasDimensions();
@@ -134,9 +134,6 @@
 
             if ( dimensionsChanged )
             {
-                // resize GUIs
-                game.adjustGameSizeToCanvasSize();
-
                 // resize babylon.JS
                 this.babylonEngine.resize();
             }

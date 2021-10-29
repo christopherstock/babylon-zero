@@ -9,7 +9,7 @@
         /** The game engine. */
         private                     engine                      :bz.Engine                  = null;
         /** The current game scene. */
-        public                      scene                       :bz.Scene                   = null;
+        private                     scene                       :bz.Scene                   = null;
         /** The current stage. */
         private                     stage                       :bz.Stage                   = null;
         /** The game GUI. */
