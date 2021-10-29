@@ -94,7 +94,7 @@
     *******************************************************************************************************************/
     export class Main
     {
-        /** The singleton instance of the game. */
+        /** The singleton instance of the game. TODO to non static! */
         public      static          game                    :bz.Game                    = null;
 
         /** ************************************************************************************************************
@@ -102,12 +102,12 @@
         *
         *   TODO to non static!
         ***************************************************************************************************************/
-        public static main() : void
+        public main() : void
         {
             bz.DOMUtil.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
             bz.DOMUtil.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
 
-            Main.acclaim();
+            this.acclaim();
 
             Main.game = new bz.Game();
             Main.game.init();
@@ -116,7 +116,7 @@
         /** ************************************************************************************************************
         *   Acclaims the debug console.
         ***************************************************************************************************************/
-        private static acclaim() : void
+        private acclaim() : void
         {
             bz.Debug.acclaim.log( bz.SettingEngine.BRANDING.getTitle()  );
             bz.Debug.acclaim.log( bz.Version.getCurrent() );
