@@ -372,13 +372,24 @@
         }
 
         /** ************************************************************************************************************
-        *   Creates the key system.
-        *
-        *   @return The created key system.
+        *   Alters the pause state for all sprites.
         ***************************************************************************************************************/
-        private createKeySystem() : bz.KeySystem
+        public setSpritePause( pause ) : void
         {
-            return new bz.KeySystem();
+            for ( const sprite of this.sprites )
+            {
+                sprite.setPause( pause );
+            }
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the parent game instance.
+        *
+        *   @return The parent game instance.
+        ***************************************************************************************************************/
+        public getGame() : bz.Game
+        {
+            return this.game;
         }
 
         /** ************************************************************************************************************
@@ -466,17 +477,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Alters the pause state for all sprites.
-        ***************************************************************************************************************/
-        public setSpritePause( pause ) : void
-        {
-            for ( const sprite of this.sprites )
-            {
-                sprite.setPause( pause );
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Determines all hit points of the given array of hit points that will be impacted by the specified shot.
         *
         *   @param hitPoints All hit points that possibly collide with the shot.
@@ -501,10 +501,5 @@
             }
 
             return impactHitPoints;
-        }
-
-        public getGame() : bz.Game
-        {
-            return this.game;
         }
     }

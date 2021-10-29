@@ -1,16 +1,11 @@
 
     /* eslint-disable max-len */
 
-    import * as bz from '../..';
-
     /** ****************************************************************************************************************
     *   Specifies all settings for the engine.
     *******************************************************************************************************************/
     export class SettingEngine
     {
-        /** The branding. */
-        public  static  readonly    BRANDING                                :bz.SettingBranding   = new bz.SettingBranding();
-
         /** The minimum canvas width. */
         public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;
         /** The minimum canvas height. */

@@ -26,13 +26,14 @@
         /** ************************************************************************************************************
         *   Creates a new wrapped sprite object from the specified sprite file.
         *
-        *   @param scene      The scene to create this sprite.
-        *   @param spriteFile The sprite file to create an instance from.
-        *   @param position   The vector to place the sprite.
-        *   @param width      The width of the sprite.
-        *   @param height     The height of the sprite.
-        *   @param anchor     The anchor for displaying this sprite.
-        *   @param collidable Specifies if this sprite should be collidable for the player and other game objects.
+        *   @param scene               The scene to create this sprite.
+        *   @param spriteFile          The sprite file to create an instance from.
+        *   @param position            The vector to place the sprite.
+        *   @param width               The width of the sprite.
+        *   @param height              The height of the sprite.
+        *   @param anchor              The anchor for displaying this sprite.
+        *   @param collidable          Specifies if this sprite should be collidable for other game objects.
+        *   @param collisionWidthRatio Ratio for collision cylinder width if collidable.
         *
         *   @return The created sprite instance.
         ***************************************************************************************************************/

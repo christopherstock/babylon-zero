@@ -133,7 +133,7 @@ module.exports = {
         'no-fallthrough': 'warn',
         'no-invalid-this': 'warn',
         'no-irregular-whitespace': 'off',
-        'no-multiple-empty-lines': 'off',
+        'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 0 }],
         'no-new-wrappers': 'warn',
         'no-shadow': [
             'warn',

@@ -6,18 +6,18 @@
     *******************************************************************************************************************/
     export class StageOffice extends bz.Stage
     {
-        private                             OFFSET_X                :number                                 = 200.0;
-        private                             OFFSET_Z                :number                                 = 200.0;
+        private                 readonly    OFFSET_X                :number                                 = 200.0;
+        private                 readonly    OFFSET_Z                :number                                 = 200.0;
 
         /** A testwise mesh - made from a single 3dsmax Mesh. */
-        protected                           chairSingle             :bz.Model                               = null;
+        private                             chairSingle             :bz.Model                               = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes. */
-        protected                           chairMulti              :bz.Model                               = null;
+        private                             chairMulti              :bz.Model                               = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
-        protected                           chairMultiPhysics       :bz.Model                               = null;
+        private                             chairMultiPhysics       :bz.Model                               = null;
 
         /** A testwise mesh 'compound spheres'. */
-        // protected                           compoundSpheres         :bz.Model                               = null;
+        // protected                        compoundSpheres         :bz.Model                               = null;
         /** The testwise rotation X for the testwise chair. */
         // protected                        chairRot                :number                                 = 0.0;
         /** Testwise camera target toggle. */
@@ -96,7 +96,9 @@
                 // add GUI messages to queue and start various debug actions
 
                 // explode compound spheres
-                this.game.getGUI().addGuiMessage( 'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']' );
+                this.game.getGUI().addGuiMessage(
+                    'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']'
+                );
                 // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
 
                 // perform a camera animation for the stationary target camera
@@ -349,8 +351,6 @@
                         ]
                     )
                 ),
-
-
 
                 new bz.Wall
                 (
@@ -615,150 +615,7 @@
                     )
                 ),
 
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // movable crate - big
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( -1.0,  3.0, 5.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
-                                new BABYLON.Vector3( 0.0, 30.0, 0.0 ),
-                                bz.Texture.WALL_WOOD,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // movable crate - different UVs for all sides
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 24.0,  0.0, 12.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 1.0, 2.0, 3.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_TEST,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // movable glass quader
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 2.0,  0.0, 2.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 1.0, 2.0, 3.0    ),
-                                new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
-                                bz.Texture.WALL_GLASS,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                0.5,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // small crate - density crafting
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 5.5, 0.0, 22.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 1.0, 1.0, 1.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_WOOD,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // medium crate - density crafting
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 5.5, 0.0, 25.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 2.0, 2.0, 2.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_WOOD,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // large crate - density crafting
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 5.5, 0.0, 30.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 3.0, 3.0, 3.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_WOOD,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
+                // add sphere
                 new bz.Wall
                 (
                     this,
@@ -821,7 +678,6 @@
                         bz.ModelCompoundType.NONE
                     )
                 ),
-
             ];
 
             const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls();
@@ -1088,6 +944,7 @@
             // this.scene.enableFog( new BABYLON.Color3( 101 / 256, 206 / 256, 143 / 256 ), 0.05 );
         }
 
+        // TODO move to StageContentsFactory ?? :)
         private createLevelGroundWalls() : bz.Wall[]
         {
             return [
@@ -1213,6 +1070,29 @@
                                 null,
                                 bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // movable glass quader
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
+                                new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
+                                bz.Texture.WALL_GLASS,
+                                null,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
+                                0.5,
                                 this.ambientColor
                             ),
                         ]

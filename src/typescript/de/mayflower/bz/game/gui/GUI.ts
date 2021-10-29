@@ -92,7 +92,7 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets visibility for the first player view components.
+        *   Sets visibility for the first player view components: wearponsImage and crosshair.
         *
         *   @param visible If the first player view components should be visible or not.
         ***************************************************************************************************************/

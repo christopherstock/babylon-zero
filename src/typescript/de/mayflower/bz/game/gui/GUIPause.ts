@@ -94,9 +94,10 @@
         /** ************************************************************************************************************
         *   Updates the pause GUI information for the current game tick.
         *
+        *   @param game      The game instance.
         *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        public render( game, keySystem:bz.KeySystem ) : void
+        public render( game:bz.Game, keySystem:bz.KeySystem ) : void
         {
             this.handlePauseKeys( game, keySystem );
         }
@@ -124,9 +125,10 @@
         /** ************************************************************************************************************
         *   Handles pressed keys in the pause menu.
         *
+        *   @param game      The game instance.
         *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        private handlePauseKeys( game, keySystem:bz.KeySystem ) : void
+        private handlePauseKeys( game:bz.Game, keySystem:bz.KeySystem ) : void
         {
             if
             (
