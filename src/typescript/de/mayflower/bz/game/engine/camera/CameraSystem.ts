@@ -31,8 +31,7 @@
         /** ************************************************************************************************************
         *   Sets up all scene cameras.
         *
-        *   @param scene                    The babylon.JS scene to create these cameras for.
-        *   @param canvas                   The canvas this camera system is linked to.
+        *   @param game                     The game instance.
         *
         *   @param positionFreeCamera       The startup position for the free camera.
         *   @param positionStationaryCamera The startup position for the stationary camera.
@@ -45,8 +44,7 @@
         ***************************************************************************************************************/
         public constructor
         (
-            scene                    :BABYLON.Scene,
-            canvas                   :HTMLCanvasElement,
+            game                     :bz.Game,
 
             positionFreeCamera       :BABYLON.Vector3,
             positionStationaryCamera :BABYLON.Vector3,
@@ -58,8 +56,8 @@
             targetFirstPersonCamera  :BABYLON.AbstractMesh
         )
         {
-            this.scene  = scene;
-            this.canvas = canvas;
+            this.scene  = game.getScene().getNativeScene();
+            this.canvas = game.getEngine().getCanvasSystem().getNativeCanvas();
 
             this.freeCamera        = bz.CameraFactory.createFreeCamera
             (

@@ -116,8 +116,7 @@
         {
             return new bz.CameraSystem
             (
-                this.scene.getNativeScene(),
-                this.game.getEngine().getCanvasSystem().getNativeCanvas(),
+                this.game,
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
