@@ -50,7 +50,7 @@
         ***************************************************************************************************************/
         protected createPlayer() : bz.Player
         {
-            return new bz.PlayerHuman
+            return new bz.Player
             (
                 this,
                 this.scene,
