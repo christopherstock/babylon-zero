@@ -14,8 +14,7 @@
     export * from './base/setting/SettingDebug';
     export * from './base/setting/SettingEngine';
     export * from './base/setting/SettingGUI';
-    export * from './base/setting/SettingPlayerHuman';
-    export * from './base/setting/SettingPlayerSpaceship';
+    export * from './base/setting/SettingPlayer';
     export * from './base/setting/SettingResource';
     export * from './base/setting/SettingStage';
 

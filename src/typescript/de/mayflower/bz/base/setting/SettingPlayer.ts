@@ -2,7 +2,7 @@
     /** ****************************************************************************************************************
     *   Specifies all adjustments and balancings for the human player.
     *******************************************************************************************************************/
-    export class SettingPlayerHuman
+    export class SettingPlayer
     {
         /** The player's diameter on the XZ axis. */
         public  static  readonly    DIAMETER_BODY_XZ                        :number             = 3.0;

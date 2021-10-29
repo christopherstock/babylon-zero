@@ -39,7 +39,7 @@
         *
         *   @param scene The babylon.JS scene to append all textures to.
         ***************************************************************************************************************/
-        public load(scene:BABYLON.Scene ) : void
+        public load( scene:BABYLON.Scene ) : void
         {
             bz.Debug.init.log( ' Preloading [' + String( this.fileNames.length ) + '] sounds' );
 

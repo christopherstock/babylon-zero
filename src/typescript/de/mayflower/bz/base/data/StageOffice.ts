@@ -23,8 +23,7 @@
         /** ************************************************************************************************************
         *   Creates a new test office.
         *
-        *   @param scene     The scene reference.
-        *   @param canvas    The canvas system this stage is displayed on.
+        *   @param game The game instance.
         ***************************************************************************************************************/
         public constructor( game:bz.Game )
         {
@@ -52,7 +51,7 @@
             (
                 this,
                 this.scene,
-                new BABYLON.Vector3( 8.0, ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 ), 13.0 ),
+                new BABYLON.Vector3( 8.0, ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ), 13.0 ),
                 45.0,
                 this.ambientColor
             );

@@ -23,7 +23,7 @@
         public  static  readonly        PLAYER_HUMAN        :PhysicBehaviour             = new PhysicBehaviour
         (
             bz.PhysicState.MOVABLE,
-            bz.SettingPlayerHuman.MASS,
+            bz.SettingPlayer.MASS,
             bz.PhysicFriction.NONE,
             bz.PhysicRestitution.NONE
         );
@@ -214,7 +214,7 @@
                 case bz.PhysicState.PLAYER:
                 {
                     return {
-                        mass:                               bz.SettingPlayerHuman.MASS,
+                        mass:                               bz.SettingPlayer.MASS,
                         friction:                           0.0,
                         restitution:                        0.0,
                         disableBidirectionalTransformation: false,

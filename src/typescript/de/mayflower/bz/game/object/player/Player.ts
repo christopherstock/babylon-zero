@@ -82,8 +82,8 @@
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
-                            bz.SettingPlayerHuman.DIAMETER_BODY_XZ,
-                            bz.SettingPlayerHuman.HEIGHT_Y_STANDING,
+                            bz.SettingPlayer.DIAMETER_BODY_XZ,
+                            bz.SettingPlayer.HEIGHT_Y_STANDING,
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_GLASS,
                             null,
@@ -110,14 +110,14 @@
                                 new BABYLON.Vector3(
                                     0.0,
                                     (
-                                        ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 )
-                                        - ( bz.SettingPlayerHuman.DIAMETER_HEAD / 2 )
+                                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 )
+                                        - ( bz.SettingPlayer.DIAMETER_HEAD / 2 )
                                     ),
                                     0.0
                                 )
                             ),
                             bz.MeshPivotAnchor.CENTER_XYZ,
-                            bz.SettingPlayerHuman.DIAMETER_HEAD,
+                            bz.SettingPlayer.DIAMETER_HEAD,
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
@@ -165,7 +165,7 @@
                             scene,
                             BABYLON.Vector3.Zero(),
                             bz.MeshPivotAnchor.CENTER_XYZ,
-                            bz.SettingPlayerHuman.DIAMETER_HEAD,
+                            bz.SettingPlayer.DIAMETER_HEAD,
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
                             null,
@@ -194,7 +194,7 @@
             this.rightHand.setParent( this.body );
 
             // set initial height
-            this.heightY     = bz.SettingPlayerHuman.HEIGHT_Y_STANDING;
+            this.heightY     = bz.SettingPlayer.HEIGHT_Y_STANDING;
             this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
 
             // apply initial rotation
@@ -282,18 +282,18 @@
                 // probably run
                 if ( keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )
                 {
-                    speedForward = bz.SettingPlayerHuman.RUN_IMPULSE;
+                    speedForward = bz.SettingPlayer.RUN_IMPULSE;
                 }
                 else
                 {
-                    speedForward = bz.SettingPlayerHuman.MOVE_IMPULSE;
+                    speedForward = bz.SettingPlayer.MOVE_IMPULSE;
                 }
 
                 this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
                 this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.rotation.y );
 
                 // shake head if enabled
-                if ( bz.SettingPlayerHuman.HEAD_SHAKING_ENABLED )
+                if ( bz.SettingPlayer.HEAD_SHAKING_ENABLED )
                 {
                     this.alterHeadShakeAngle( speedForward );
                 }
@@ -304,13 +304,13 @@
                 // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
             )
             {
-                this.moveDelta.x -= bz.SettingPlayerHuman.MOVE_IMPULSE * bz.MathUtil.sinDegrees( this.rotation.y );
-                this.moveDelta.z -= bz.SettingPlayerHuman.MOVE_IMPULSE * bz.MathUtil.cosDegrees( this.rotation.y );
+                this.moveDelta.x -= bz.SettingPlayer.MOVE_IMPULSE * bz.MathUtil.sinDegrees( this.rotation.y );
+                this.moveDelta.z -= bz.SettingPlayer.MOVE_IMPULSE * bz.MathUtil.cosDegrees( this.rotation.y );
 
                 // shake head if enabled
-                if ( bz.SettingPlayerHuman.HEAD_SHAKING_ENABLED )
+                if ( bz.SettingPlayer.HEAD_SHAKING_ENABLED )
                 {
-                    this.alterHeadShakeAngle( -bz.SettingPlayerHuman.MOVE_IMPULSE );
+                    this.alterHeadShakeAngle( -bz.SettingPlayer.MOVE_IMPULSE );
                 }
             }
 
@@ -321,8 +321,8 @@
                 // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
             )
             {
-                this.moveDelta.x -= bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-                this.moveDelta.z += bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+                this.moveDelta.x -= bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
+                this.moveDelta.z += bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
             }
             if
             (
@@ -330,40 +330,40 @@
                 // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
             )
             {
-                this.moveDelta.x += bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-                this.moveDelta.z -= bz.SettingPlayerHuman.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+                this.moveDelta.x += bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
+                this.moveDelta.z -= bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
             }
 
             // turn Y
             if ( keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
             {
-                this.rotationDelta.y = -bz.SettingPlayerHuman.SPEED_TURN;
+                this.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN;
             }
             if ( keySystem.isPressed( bz.KeyCodes.KEY_E ) )
             {
-                this.rotationDelta.y = bz.SettingPlayerHuman.SPEED_TURN;
+                this.rotationDelta.y = bz.SettingPlayer.SPEED_TURN;
             }
             const lastPointerMovementX :number = mouseSystem.getAndResetLastMouseMovementX();
             if ( lastPointerMovementX !== 0 )
             {
                 // noinspection JSSuspiciousNameCombination
-                this.rotationDelta.y += ( lastPointerMovementX * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER );
+                this.rotationDelta.y += ( lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER );
             }
 
             // look up / down
             if ( keySystem.isPressed( bz.KeyCodes.KEY_R ) )
             {
-                this.rotationDelta.z = -bz.SettingPlayerHuman.SPEED_LOOK_UP_DOWN;
+                this.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
             }
             if ( keySystem.isPressed( bz.KeyCodes.KEY_F ) )
             {
-                this.rotationDelta.z = bz.SettingPlayerHuman.SPEED_LOOK_UP_DOWN;
+                this.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
             }
             const lastPointerMovementY :number = mouseSystem.getAndResetLastMouseMovementY();
             if ( lastPointerMovementY !== 0 )
             {
                 // noinspection JSSuspiciousNameCombination
-                this.rotationDelta.z += ( lastPointerMovementY * bz.SettingPlayerHuman.POINTER_MOVEMENT_MULTIPLIER );
+                this.rotationDelta.z += ( lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER );
             }
 
             // fire
@@ -387,7 +387,7 @@
             }
 
             // jump
-            if ( bz.SettingPlayerHuman.JUMP_ENABLED )
+            if ( bz.SettingPlayer.JUMP_ENABLED )
             {
                 if ( keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
                 {
@@ -454,7 +454,7 @@
                 }
 
                 // force rotZ centering on horizontal movements if enabled
-                if ( bz.SettingPlayerHuman.ENABLE_CENTERING_ROT_Y_ON_WALKING )
+                if ( bz.SettingPlayer.ENABLE_CENTERING_ROT_Y_ON_WALKING )
                 {
                     if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
                     {
@@ -484,20 +484,20 @@
                 (
                     new BABYLON.Vector3
                     (
-                        ( velocity.x * bz.SettingPlayerHuman.MOVE_VELOCITY_MULTIPLIER ),
+                        ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MULTIPLIER ),
 
                         // check player falling
                         (
                             this.isFalling()
 
                             // scale up falling velocity
-                            ? ( velocity.y * bz.SettingPlayerHuman.FALLING_VELOCITY_MULTIPLIER )
+                            ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
 
                             // keep velocity
                             : velocity.y
                         ),
 
-                        ( velocity.z * bz.SettingPlayerHuman.MOVE_VELOCITY_MULTIPLIER )
+                        ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MULTIPLIER )
                     )
                 );
 
@@ -524,13 +524,13 @@
             {
                 this.rotation.z += this.rotationDelta.z;
 
-                if ( this.rotation.z > bz.SettingPlayerHuman.MAX_LOOK_UP_DOWN )
+                if ( this.rotation.z > bz.SettingPlayer.MAX_LOOK_UP_DOWN )
                 {
-                    this.rotation.z = bz.SettingPlayerHuman.MAX_LOOK_UP_DOWN;
+                    this.rotation.z = bz.SettingPlayer.MAX_LOOK_UP_DOWN;
                 }
-                else if ( this.rotation.z < -bz.SettingPlayerHuman.MAX_LOOK_UP_DOWN )
+                else if ( this.rotation.z < -bz.SettingPlayer.MAX_LOOK_UP_DOWN )
                 {
-                    this.rotation.z = -bz.SettingPlayerHuman.MAX_LOOK_UP_DOWN;
+                    this.rotation.z = -bz.SettingPlayer.MAX_LOOK_UP_DOWN;
                 }
 
                 this.rotationDelta.z = 0.0;
@@ -585,7 +585,7 @@
             }
 
             bz.Debug.player.log( 'Player jumps' );
-            this.moveDelta.y = bz.SettingPlayerHuman.JUMP_ASCEND_IMPULSE_Y;
+            this.moveDelta.y = bz.SettingPlayer.JUMP_ASCEND_IMPULSE_Y;
         }
 
         /** ************************************************************************************************************
@@ -595,13 +595,13 @@
         {
             if ( this.duck )
             {
-                if ( this.heightY > bz.SettingPlayerHuman.HEIGHT_Y_DUCKED )
+                if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKED )
                 {
-                    this.heightY -= bz.SettingPlayerHuman.SPEED_DUCKING;
+                    this.heightY -= bz.SettingPlayer.SPEED_DUCKING;
 
-                    if ( this.heightY < bz.SettingPlayerHuman.HEIGHT_Y_DUCKED )
+                    if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKED )
                     {
-                        this.heightY = bz.SettingPlayerHuman.HEIGHT_Y_DUCKED;
+                        this.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKED;
                     }
 
                     this.positionPlayerLimbs();
@@ -609,13 +609,13 @@
             }
             else
             {
-                if ( this.heightY < bz.SettingPlayerHuman.HEIGHT_Y_STANDING )
+                if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_STANDING )
                 {
-                    this.heightY += bz.SettingPlayerHuman.SPEED_STANDING_UP;
+                    this.heightY += bz.SettingPlayer.SPEED_STANDING_UP;
 
-                    if ( this.heightY > bz.SettingPlayerHuman.HEIGHT_Y_STANDING )
+                    if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_STANDING )
                     {
-                        this.heightY = bz.SettingPlayerHuman.HEIGHT_Y_STANDING;
+                        this.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
                     }
 
                     this.positionPlayerLimbs();
@@ -672,7 +672,7 @@
             {
                 if ( this.rotation.z > 0.0 )
                 {
-                    this.rotation.z -= bz.SettingPlayerHuman.SPEED_CENTER_LOOK_UP_DOWN;
+                    this.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
 
                     if ( this.rotation.z <= 0.0 )
                     {
@@ -681,7 +681,7 @@
                 }
                 else if ( this.rotation.z < 0.0 )
                 {
-                    this.rotation.z += bz.SettingPlayerHuman.SPEED_CENTER_LOOK_UP_DOWN;
+                    this.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
 
                     if ( this.rotation.z >= 0.0 )
                     {
@@ -752,7 +752,7 @@
             const headShakingModifierY:number =
             (
                 bz.MathUtil.sinDegrees( this.headShakingAngle )
-                * bz.SettingPlayerHuman.HEAD_SHAKING_RANGE_Y
+                * bz.SettingPlayer.HEAD_SHAKING_RANGE_Y
             );
 
             // bz.Debug.player.log( ' Head Shaking modifierY is [' + headShakingModifierY + ']' );
@@ -760,20 +760,20 @@
             this.head.position = new BABYLON.Vector3
             (
                 0.0,
-                ( halfPlayerHeight - ( bz.SettingPlayerHuman.DIAMETER_HEAD / 2 ) ) - headShakingModifierY,
+                ( halfPlayerHeight - ( bz.SettingPlayer.DIAMETER_HEAD / 2 ) ) - headShakingModifierY,
                 0.0
             );
 
             this.leftHand.position = new BABYLON.Vector3
             (
                 -1.0,
-                halfPlayerHeight - ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 ),
+                halfPlayerHeight - ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
                 0.0
             );
             this.rightHand.position = new BABYLON.Vector3
             (
                 1.0,
-                halfPlayerHeight - ( bz.SettingPlayerHuman.HEIGHT_Y_STANDING / 2 ),
+                halfPlayerHeight - ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
                 0.0
             );
  */
@@ -787,7 +787,7 @@
         private alterHeadShakeAngle( delta:number ) : void
         {
             // apply delta and normalize angle
-            this.headShakingAngle += ( delta * bz.SettingPlayerHuman.HEAD_SHAKING_VELOCITY_MULTIPLIER );
+            this.headShakingAngle += ( delta * bz.SettingPlayer.HEAD_SHAKING_VELOCITY_MULTIPLIER );
             this.headShakingAngle = bz.MathUtil.normalizeAngleDegrees( this.headShakingAngle );
 
             // bz.Debug.player.log( 'Head shake angle delta [' + delta + '] total [' + this.headShakingAngle + ']' );
@@ -805,7 +805,7 @@
         {
             return (
                     this.body.physicsImpostor !== undefined
-                &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayerHuman.FALLING_VELOCITY_Y
+                &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
             );
         }
     }

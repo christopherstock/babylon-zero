@@ -21,8 +21,7 @@
         /** ************************************************************************************************************
         *   Creates a new product viewer stage.
         *
-        *   @param scene     The scene reference.
-        *   @param canvas    The canvas system this stage is displayed on.
+        *   @param game The game instance.
         ***************************************************************************************************************/
         public constructor( game:bz.Game )
         {

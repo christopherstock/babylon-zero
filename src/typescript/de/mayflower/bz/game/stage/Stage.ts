@@ -50,13 +50,10 @@
         /** ************************************************************************************************************
         *   Creates a new custom stage.
         *
-        *   @param scene         The scene representing this stage.
-        *   @param canvas        The canvas system this stage is displayed on.
-        *   @param ambientColor  Specifies the ambient color of the babylon.JS scene
-        *                        and is set as the emissive color of all faces.
-        *   @param sceneBgColor  The background color of the scene.
+        *   @param game          The game instance.
+        *   @param ambientColor  The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
+        *   @param sceneBgColor  The background color of the babylon.JS scene.
         *   @param initialCamera The initial camera for this stage.
-        *   @param guiType       The type of GUI to set for this stage.
         ***************************************************************************************************************/
         protected constructor
         (
