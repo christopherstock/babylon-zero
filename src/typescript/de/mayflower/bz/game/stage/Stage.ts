@@ -8,11 +8,17 @@
     {
         // TODO extract all constructor- and readonly-fields to StageConfig
 
-        protected           readonly        game                    :bz.Scene                               = null;
-        /** The scene that represents this stage. */
+        /**  TODO remove from Stage? */
+        protected           readonly        game                    :bz.Game                               = null;
+        /** The scene that represents this stage. TODO remove from Stage? */
         protected           readonly        scene                   :bz.Scene                               = null;
-        /** The canvas system this stage is displayed on. */
+        /** The canvas system this stage is displayed on. TODO remove from Stage? */
         protected           readonly        canvas                  :bz.CanvasSystem                        = null;
+        /** Indicates pause state. TODO move to class Game ? */
+        private                             pause                   :boolean                                = false;
+        /** The game GUI. TODO move to Game?? */
+        protected                           gui                     :bz.GUI                                 = null;
+
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
         /** The scene background color is the clear color for the scene. */
@@ -50,11 +56,6 @@
         private             readonly        bulletHoles             :bz.BulletHole[]                        = [];
         /** A collection of all debug meshes in this stage. */
         private             readonly        debugMeshes             :BABYLON.Mesh[]                         = [];
-
-        /** Indicates pause state. TODO move to class Game ? */
-        private                             pause                   :boolean                                = false;
-        /** The game GUI. TODO move to Game?? */
-        protected                           gui                     :bz.GUI                                 = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.
