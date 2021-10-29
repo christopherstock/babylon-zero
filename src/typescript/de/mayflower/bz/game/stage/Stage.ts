@@ -8,9 +8,9 @@
     {
         // TODO extract all constructor- and readonly-fields to StageConfig
 
-        /**  TODO remove from Stage? */
+        /** The game instance. TODO remove from Stage? */
         public              readonly        game                    :bz.Game                               = null;
-        /** The scene that represents this stage. */
+        /** The scene instance of the game instance. */
         protected           readonly        scene                   :bz.Scene                               = null;
         /** Indicates pause state. TODO move to class Game ? */
         public                              pause                   :boolean                                = false;

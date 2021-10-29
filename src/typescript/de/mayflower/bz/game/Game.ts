@@ -8,11 +8,10 @@
     {
         /** The game engine. */
         private                     engine                      :bz.Engine                  = null;
-        /** The current stage. */
-        private                     stage                       :bz.Stage                   = null;
         /** The current game scene. */
         private                     scene                       :bz.Scene                   = null;
-
+        /** The current stage. */
+        private                     stage                       :bz.Stage                   = null;
         /** The game GUI. */
         private                     gui                         :bz.GUI                     = null;
 
