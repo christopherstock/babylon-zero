@@ -29,7 +29,7 @@
         public      static  readonly    WALL_GRASS                  :Texture                = new Texture( 'wall/grass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
         /** The texture 'wall glas'. */
         public      static  readonly    WALL_GLASS                  :Texture                = new Texture( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_GLASS,      bz.TextureType.WALL     );
-        /** The texture 'wall tree'. */
+        /** The texture 'wall tree'. TODO prune! */
         public      static  readonly    WALL_TREE                   :Texture                = new Texture( 'wall/tree.png',             bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
         /** The texture 'wall skin rosé'. */
         public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );

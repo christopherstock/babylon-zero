@@ -55,14 +55,15 @@
             this.game = game;
 
             // TODO extract to explicit methods for setting debugPointerDown or assignPointerLock!
-
-            this.game.getScene().getNativeScene().onPointerDown = (
-                assignDebugPointerDown
-                ? ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
-                    this.onDebugPointerDown( evt, pickResult );
-                }
-                : null
-            );
+            if ( assignDebugPointerDown )
+            {
+                this.game.getScene().getNativeScene().onPointerDown =
+                (
+                    ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
+                        this.onDebugPointerDown( evt, pickResult );
+                    }
+                );
+            }
 
             if ( assignPointerLock )
             {

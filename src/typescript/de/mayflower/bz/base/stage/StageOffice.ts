@@ -1037,64 +1037,46 @@
                 new bz.Sprite
                 (
                     this.scene,
-                    bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( this.OFFSET_X + 45.0, 0.0, this.OFFSET_Z + 20.0 ),
+                    bz.SpriteFile.PALM,
+                    new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
                     bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
-                    bz.SpriteCollidable.YES
-                ),
-/*
-                new bz.Sprite
-                (
-                    this.scene,
-                    bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( 45.0, 5.0, -35.0  ),
-                    10.0,
-                    20.0,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    bz.SpriteCollidable.NO
+                    bz.SpriteCollidable.YES,
+                    0.5
                 ),
                 new bz.Sprite
                 (
                     this.scene,
                     bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( 45.0, 5.0, -20.0  ),
+                    new BABYLON.Vector3( this.OFFSET_X + 50.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
-                    20.0,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    bz.SpriteCollidable.NO
+                    10.0,
+                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.SpriteCollidable.YES,
+                    0.5
+                ),
+                new bz.Sprite
+                (
+                    this.scene,
+                    bz.SpriteFile.PALM,
+                    new BABYLON.Vector3( this.OFFSET_X + 70.0, 0.0, this.OFFSET_Z + 10.0 ),
+                    10.0,
+                    10.0,
+                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.SpriteCollidable.YES,
+                    0.5
                 ),
                 new bz.Sprite
                 (
                     this.scene,
                     bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( 45.0, 5.0, -5.0  ),
+                    new BABYLON.Vector3( this.OFFSET_X + 80.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
-                    20.0,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    bz.SpriteCollidable.NO
-                ),
-*/
-                new bz.Sprite
-                (
-                    this.scene,
-                    bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( 45.0, 5.0, 10.0  ),
                     10.0,
-                    20.0,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    bz.SpriteCollidable.NO
-                ),
-                new bz.Sprite
-                (
-                    this.scene,
-                    bz.SpriteFile.TREE,
-                    new BABYLON.Vector3( 45.0, 5.0, -25.0  ),
-                    10.0,
-                    20.0,
-                    bz.MeshPivotAnchor.CENTER_XYZ,
-                    bz.SpriteCollidable.NO
+                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.SpriteCollidable.YES,
+                    0.5
                 ),
             ];
         }

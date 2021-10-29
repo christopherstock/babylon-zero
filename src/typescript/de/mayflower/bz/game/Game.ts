@@ -41,8 +41,8 @@
             this.keySystem   = new bz.KeySystem();
             this.mouseSystem = new bz.MouseSystem(
                 this,
-                false,
-                true
+                bz.SettingDebug.DEBUG_ENABLE_POINTER_DOWN_IMPULSE,
+                false
             )
         }
 

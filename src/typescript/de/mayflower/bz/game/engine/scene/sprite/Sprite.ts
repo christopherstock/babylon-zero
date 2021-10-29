@@ -38,13 +38,14 @@
         ***************************************************************************************************************/
         public constructor
         (
-            scene      :bz.Scene,
-            spriteFile :bz.SpriteFile,
-            position   :BABYLON.Vector3,
-            width      :number,
-            height     :number,
-            anchor     :bz.MeshPivotAnchor,
-            collidable :bz.SpriteCollidable
+            scene               :bz.Scene,
+            spriteFile          :bz.SpriteFile,
+            position            :BABYLON.Vector3,
+            width               :number,
+            height              :number,
+            anchor              :bz.MeshPivotAnchor,
+            collidable          :bz.SpriteCollidable,
+            collisionWidthRatio :number
         )
         {
             // create native sprite
@@ -60,7 +61,7 @@
             // create collider if desired
             if ( collidable === bz.SpriteCollidable.YES )
             {
-                const collisionWidth:number = width; // ( width / 2 );
+                const collisionWidth:number = ( width * collisionWidthRatio );
                 const colliderPos :BABYLON.Vector3 = position.clone();
                 colliderPos.y += ( height / 2 )
                 this.collider = bz.MeshFactory.createCylinder
@@ -74,7 +75,7 @@
                     bz.Texture.WALL_GLASS,
                     null,
                     bz.PhysicBehaviour.STATIC,
-                    0.25,
+                    ( !bz.SettingDebug.SHOW_DEBUG_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25 ),
                     bz.SettingColor.COLOR_RGB_WHITE
                 );
             }
