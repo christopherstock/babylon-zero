@@ -303,7 +303,7 @@
             }
 
             // render GUI
-            this.gui.render( this.game, this.pause );
+            this.gui.render( this.game, this.pause, this.keySystem );
         }
 
         /** ************************************************************************************************************
@@ -482,8 +482,7 @@
         private createGUI() : bz.GUI
         {
             const gui:bz.GUI = new bz.GUI(
-                this.scene.getNativeScene(),
-                this.keySystem
+                this.scene.getNativeScene()
             );
             gui.init();
 

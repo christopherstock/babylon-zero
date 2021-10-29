@@ -15,8 +15,6 @@
         private             readonly        messageManager          :bz.GUIMessageManager                   = null;
         /** The manager for GUI effects. */
         private             readonly        fxManager               :bz.GUIFxManager                        = null;
-        /** The key system connected to this GUI. */
-        private             readonly        keySystem               :bz.KeySystem                           = null;
 
         /** The pause GUI. */
         private             readonly        pauseGui                :bz.GUIPause                            = null;
@@ -32,11 +30,8 @@
         *   @param scene     The scene to create this GUI for.
         *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        public constructor( scene:BABYLON.Scene, keySystem:bz.KeySystem )
+        public constructor( scene:BABYLON.Scene )
         {
-            // reference the key system
-            this.keySystem = keySystem;
-
             // create foreground GUI
             this.guiFg = bz.GUIFactory.createGUI( scene, true );
 
@@ -122,7 +117,7 @@
         *
         *   @param pause     Specifies if the pause state is currently active.
         ***************************************************************************************************************/
-        public render( game, pause:boolean ) : void
+        public render( game, pause:boolean, keySystem ) : void
         {
             this.updateFps( game );
 
@@ -134,7 +129,7 @@
 
             if ( pause )
             {
-                this.pauseGui.render( game, this.keySystem );
+                this.pauseGui.render( game, keySystem );
             }
         }
 
