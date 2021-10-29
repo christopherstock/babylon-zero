@@ -11,7 +11,7 @@
         /** ************************************************************************************************************
         *   This method is invoked when the application starts.
         ***************************************************************************************************************/
-        public main() : void
+        public start() : void
         {
             // HTML document title and favicon
             bz.DOMUtil.setTitle(   bz.SettingBranding.TITLE   );

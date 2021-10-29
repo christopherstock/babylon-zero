@@ -22,21 +22,21 @@
     export * from './game/engine/Engine';
     export * from './game/Game';
 
-    export * from './game/engine/ui/gui/fx/GUIFx';
-    export * from './game/engine/ui/gui/fx/GUIFxManager';
-    export * from './game/engine/ui/gui/fx/GUIFxType';
+    export * from './game/engine/gui/fx/GUIFx';
+    export * from './game/engine/gui/fx/GUIFxManager';
+    export * from './game/engine/gui/fx/GUIFxType';
 
-    export * from './game/engine/ui/gui/menu/GUIAction';
-    export * from './game/engine/ui/gui/menu/GUIMenu';
-    export * from './game/engine/ui/gui/menu/GUIMenuItem';
+    export * from './game/engine/gui/menu/GUIAction';
+    export * from './game/engine/gui/menu/GUIMenu';
+    export * from './game/engine/gui/menu/GUIMenuItem';
 
-    export * from './game/engine/ui/gui/message/GUIMessage';
-    export * from './game/engine/ui/gui/message/GUIMessageManager';
+    export * from './game/engine/gui/message/GUIMessage';
+    export * from './game/engine/gui/message/GUIMessageManager';
 
-    export * from './game/engine/ui/gui/GUI';
-    export * from './game/engine/ui/gui/GUIFactory';
-    export * from './game/engine/ui/gui/GUIGame';
-    export * from './game/engine/ui/gui/GUIPause';
+    export * from './game/engine/gui/GUI';
+    export * from './game/engine/gui/GUIFactory';
+    export * from './game/engine/gui/GUIGame';
+    export * from './game/engine/gui/GUIPause';
 
     export * from './game/engine/ui/CanvasSystem';
     export * from './game/engine/ui/LightFactory';

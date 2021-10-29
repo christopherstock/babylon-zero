@@ -26,10 +26,6 @@
 
         /** The model 'Mayflower Logo'. */
         public      static  readonly    MF_LOGO                     :string             = 'presentation/mfLogo.babylon';
-        /** The model 'motorcycle helmet'. */
-        public      static  readonly    MOTORCYCLE_HELMET           :string             = 'presentation/motorcycleHelmet.babylon';
-        /** The model 'human body'. */
-        public      static  readonly    HUMAN_BODY                  :string             = 'presentation/man1.babylon';
 
         /** All filenames for all meshes. */
         public      static  readonly    ALL_MESH_FILES              :string[]           =
@@ -45,7 +41,5 @@
             ModelFile.SHELLS,
 
             ModelFile.MF_LOGO,
-            ModelFile.MOTORCYCLE_HELMET,
-            ModelFile.HUMAN_BODY,
         ];
     }

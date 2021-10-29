@@ -222,6 +222,7 @@
 
                 case bz.TextureType.MODEL:
                 {
+                    // return only the filename as model textures are loaded relative to the max file
                     return fileName;
                 }
             }
