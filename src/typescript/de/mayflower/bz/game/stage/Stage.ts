@@ -373,8 +373,10 @@
 
         /** ************************************************************************************************************
         *   Alters the pause state for all sprites.
+        *
+        *   @param pause The pause state to assign.
         ***************************************************************************************************************/
-        public setSpritePause( pause ) : void
+        public setSpritePause( pause:boolean ) : void
         {
             for ( const sprite of this.sprites )
             {

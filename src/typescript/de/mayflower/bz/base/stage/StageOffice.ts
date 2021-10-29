@@ -176,6 +176,31 @@
             );
 */
             let walls :bz.Wall[] = [
+
+                // add sphere
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            // sphere
+                            bz.MeshFactory.createSphere
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X + 10.5, 0.0, this.OFFSET_Z + 30.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                3.0,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_TEST,
+                                null,
+                                bz.PhysicBehaviour.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
 /*
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
@@ -609,31 +634,6 @@
                                 new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
                                 bz.SettingColor.COLOR_RGB_RED,
                                 bz.PhysicBehaviour.STATIC,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                // add sphere
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // sphere
-                            bz.MeshFactory.createSphere
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 10.5, 0.0, 30.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                3.0,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_TEST,
-                                null,
-                                bz.PhysicBehaviour.LIGHT_WOOD,
-                                1.0,
                                 this.ambientColor
                             ),
                         ]

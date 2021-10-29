@@ -311,14 +311,15 @@
         ***************************************************************************************************************/
         private onPointerLockChange() : void
         {
+            const nativeCanvas :HTMLCanvasElement = this.game.getEngine().getCanvasSystem().getNativeCanvas();
+
             if (
-                    document.pointerLockElement               === this.game.getEngine().getCanvasSystem().getNativeCanvas()
-                ||  ( document as any ).mozPointerLockElement === this.game.getEngine().getCanvasSystem().getNativeCanvas()
+                (    document        ).pointerLockElement    === nativeCanvas
+                || ( document as any ).mozPointerLockElement === nativeCanvas
             ) {
                 bz.Debug.pointer.log( 'The pointer lock status is now LOCKED' );
 
                 this.mouseLocked = true;
-
             }
             else
             {
