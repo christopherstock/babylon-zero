@@ -104,8 +104,8 @@
         ***************************************************************************************************************/
         public main() : void
         {
-            bz.DOMUtil.setTitle(   bz.SettingEngine.BRANDING.getTitle()   );
-            bz.DOMUtil.setFavicon( bz.SettingEngine.BRANDING.getFavicon() );
+            bz.DOMUtil.setTitle(   bz.SettingBranding.TITLE   );
+            bz.DOMUtil.setFavicon( bz.SettingResource.PATH_IMAGE_FAVICON + bz.SettingBranding.FAVICON );
 
             this.acclaim();
 
@@ -118,8 +118,8 @@
         ***************************************************************************************************************/
         private acclaim() : void
         {
-            bz.Debug.acclaim.log( bz.SettingEngine.BRANDING.getTitle()  );
-            bz.Debug.acclaim.log( bz.Version.getCurrent() );
+            bz.Debug.acclaim.log( bz.SettingBranding.TITLE );
+            bz.Debug.acclaim.log( bz.Version.getCurrent()  );
             bz.Debug.acclaim.log();
         }
     }

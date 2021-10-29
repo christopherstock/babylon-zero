@@ -31,7 +31,7 @@
             (
                 'url( '
                 + bz.SettingResource.PATH_IMAGE_LOADING
-                + bz.SettingEngine.BRANDING.getLoadingLogo()
+                + bz.SettingBranding.LOADING_LOGO
                 + ' )'
             );
             document.body.appendChild( this.loadingDiv );
