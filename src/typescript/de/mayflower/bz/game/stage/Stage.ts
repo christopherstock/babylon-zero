@@ -12,8 +12,6 @@
         public              readonly        game                    :bz.Game                               = null;
         /** The scene instance of the game instance. */
         protected           readonly        scene                   :bz.Scene                               = null;
-        /** Indicates pause state. TODO move to class Game ? */
-        public                              pause                   :boolean                                = false;
 
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
@@ -22,9 +20,9 @@
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
 
-        /** The key system to use in this stage. */
+        /** The key system to use in this stage. TODO to game ?? */
         public                              keySystem               :bz.KeySystem                           = null;
-        /** The mouse system to use in this stage. */
+        /** The mouse system to use in this stage. TODO to game ?? */
         protected                           mouseSystem             :bz.MouseSystem                         = null;
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
@@ -263,7 +261,7 @@
         public render() : void
         {
             // consider pause
-            if ( !this.pause )
+            if ( !this.game.pause )
             {
                 // handle level specific keys
                 this.handleLevelKeys( this.keySystem );
@@ -409,12 +407,12 @@
         public togglePause() : void
         {
             // toggle pause
-            this.pause = !this.pause;
+            this.game.pause = !this.game.pause;
 
-            bz.Debug.game.log( 'Toggle pause to [' + String( this.pause ) + ']');
+            bz.Debug.game.log( 'Toggle pause to [' + String( this.game.pause ) + ']');
 
             // stop or resume physics engine
-            this.scene.enablePhysics( !this.pause );
+            this.scene.enablePhysics( !this.game.pause );
 
             // propagate pause state to gui
             this.setGuiPause();
@@ -542,7 +540,7 @@
         ***************************************************************************************************************/
         private setGuiPause() : void
         {
-            this.game.getGUI().setPauseGuiVisibility( this.pause );
+            this.game.getGUI().setPauseGuiVisibility( this.game.pause );
         }
 
         /** ************************************************************************************************************
@@ -552,7 +550,7 @@
         {
             for ( const sprite of this.sprites )
             {
-                sprite.setPause( this.pause );
+                sprite.setPause( this.game.pause );
             }
         }
 

@@ -14,6 +14,8 @@
         private                     stage                       :bz.Stage                   = null;
         /** The game GUI. */
         private                     gui                         :bz.GUI                     = null;
+        /** Indicates pause state. TODO move to class Game ? */
+        public                      pause                       :boolean                    = false;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -87,6 +89,9 @@
             bz.Debug.stage.log( ' Initializing target stage [' + String( targetStage ) + ']' );
             this.stage.init();
 
+            // disable pause flag
+            this.pause = false;
+
             // assign remembered pause menu index
             this.stage.setPauseMenuIndex( lastPauseMenuItem );
 
@@ -155,7 +160,7 @@
             this.stage.render();
 
             // render GUI
-            this.gui.render( this, this.stage.pause, this.stage.keySystem );
+            this.gui.render( this, this.pause, this.stage.keySystem );
 
             // render scene
             this.scene.render();
