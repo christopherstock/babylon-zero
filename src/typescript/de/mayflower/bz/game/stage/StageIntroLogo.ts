@@ -24,13 +24,11 @@
         *   @param scene     The scene reference.
         *   @param canvas    The canvas system this stage is displayed on.
         ***************************************************************************************************************/
-        public constructor( game:bz.Game, scene:bz.Scene, canvas:bz.CanvasSystem )
+        public constructor( game:bz.Game )
         {
             super
             (
                 game,
-                scene,
-                canvas,
 
                 bz.SettingColor.COLOR_RGB_BLACK,
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,

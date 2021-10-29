@@ -65,21 +65,13 @@
             {
                 case bz.StageId.OFFICE:
                 {
-                    this.stage = new bz.StageOffice(
-                        this,
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
+                    this.stage = new bz.StageOffice( this );
                     break;
                 }
 
                 case bz.StageId.INTRO_LOGO:
                 {
-                    this.stage = new bz.StageIntroLogo(
-                        this,
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
+                    this.stage = new bz.StageIntroLogo( this                     );
                     break;
                 }
             }

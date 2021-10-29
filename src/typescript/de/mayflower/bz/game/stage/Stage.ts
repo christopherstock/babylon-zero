@@ -10,9 +10,8 @@
 
         /**  TODO remove from Stage? */
         protected           readonly        game                    :bz.Game                               = null;
-        /** The scene that represents this stage. TODO remove from Stage? */
+        /** The scene that represents this stage. */
         protected           readonly        scene                   :bz.Scene                               = null;
-
         /** Indicates pause state. TODO move to class Game ? */
         private                             pause                   :boolean                                = false;
         /** The game GUI. TODO move to Game?? */
@@ -70,15 +69,14 @@
         protected constructor
         (
             game          :bz.Game,
-            scene         :bz.Scene,
-            canvas        :bz.CanvasSystem,
             ambientColor  :BABYLON.Color3,
             sceneBgColor  :BABYLON.Color4,
             initialCamera :bz.CameraType
         )
         {
             this.game          = game;
-            this.scene         = scene;
+            this.scene         = game.getScene();
+
             this.ambientColor  = ambientColor;
             this.sceneBgColor  = sceneBgColor;
             this.initialCamera = initialCamera;
