@@ -1213,12 +1213,4 @@
             // green poison steam..
             // this.scene.enableFog( new BABYLON.Color3( 101 / 256, 206 / 256, 143 / 256 ), 0.05 );
         }
-
-        /** ************************************************************************************************************
-        *   Sets up the mouse system.
-        ***************************************************************************************************************/
-        protected createMouseSystem() : bz.MouseSystem
-        {
-            return new bz.MouseSystem( this, this.game.getEngine().getCanvasSystem(), false, true );
-        }
     }

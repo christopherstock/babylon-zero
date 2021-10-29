@@ -7,10 +7,8 @@
     *******************************************************************************************************************/
     export class MouseSystem
     {
-        /** The canvas this pointer system operates on. */
-        private             readonly    canvas                      :bz.CanvasSystem        = null;
-        /** The stage this pointer system operates on. */
-        private             readonly    stage                       :bz.Stage               = null;
+        /** The game instance. */
+        private             readonly    game                        :bz.Game                = null;
 
         /** Indicates that the mouse is currently locked inside the canvas. TODO use native flag in Canvas?! */
         private                         mouseLocked                 :boolean                = false;
@@ -43,23 +41,20 @@
         /** ************************************************************************************************************
         *   Creates a new Pointer System.
         *
-        *   @param stage                  The stage  this pointer system operates on.
-        *   @param canvas                 The canvas this pointer system operates on.
+        *   @param game                   The game instance.
         *   @param assignDebugPointerDown Specifies if a pointerDown event shall be assigned to the babylon.JS scene.
         *   @param assignPointerLock      Specifies if the pointer shall be locked on clicking onto the canvas.
         ***************************************************************************************************************/
         public constructor
         (
-            stage                  :bz.Stage,
-            canvas                 :bz.CanvasSystem,
+            game                   :bz.Game,
             assignDebugPointerDown :boolean,
             assignPointerLock      :boolean
         )
         {
-            this.stage  = stage;
-            this.canvas = canvas;
+            this.game = game;
 
-            this.stage.getScene().onPointerDown = (
+            this.game.scene.getNativeScene().onPointerDown = (
                 assignDebugPointerDown
                 ? ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
                     this.onDebugPointerDown( evt, pickResult );
@@ -69,9 +64,9 @@
 
             if ( assignPointerLock )
             {
-                this.canvas.getNativeCanvas().onclick     = ( me: MouseEvent ) :any => { this.onMouseClick( me ); };
-                this.canvas.getNativeCanvas().onmousedown = ( me: MouseEvent ) :any => { this.onMouseDown(  me ); };
-                this.canvas.getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => { this.onMouseUp(    me ); };
+                this.game.getEngine().getCanvasSystem().getNativeCanvas().onclick     = ( me: MouseEvent ) :any => { this.onMouseClick( me ); };
+                this.game.getEngine().getCanvasSystem().getNativeCanvas().onmousedown = ( me: MouseEvent ) :any => { this.onMouseDown(  me ); };
+                this.game.getEngine().getCanvasSystem().getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => { this.onMouseUp(    me ); };
             }
         }
 
@@ -81,10 +76,10 @@
         *   @param evt        The pointer event being propagated by the system.
         *   @param pickResult More information about the location of the 3D space where the pointer is down.
         ***************************************************************************************************************/
-        public onDebugPointerDown(evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
+        public onDebugPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
         {
             // check if a result is picked and if the stage is present
-            if ( pickResult.hit && this.stage !== null )
+            if ( pickResult.hit && this.game.getStage() !== null )
             {
                 bz.Debug.pointer.log( 'Picked a mesh on pointerDown' );
 
@@ -93,15 +88,15 @@
                 // horrible debug implementation
                 if
                 (
-                        this.stage.getCameraSystem().isFirstPersonCameraActive()
-                    &&  this.stage.getPlayer() !== null
+                        this.game.getStage().getCameraSystem().isFirstPersonCameraActive()
+                    &&  this.game.getStage().getPlayer() !== null
                 )
                 {
-                    src = this.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
+                    src = this.game.getStage().getPlayer().getThirdPersonCameraTargetMesh().position;
                 }
                 else
                 {
-                    src = this.stage.getCameraSystem().getActiveCamera().position;
+                    src = this.game.getStage().getCameraSystem().getActiveCamera().position;
                 }
 
                 const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
@@ -339,14 +334,14 @@
             );
 
             // eslint-disable-next-line @typescript-eslint/unbound-method
-            this.canvas.getNativeCanvas().requestPointerLock =
+            this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock =
             (
                     // eslint-disable-next-line @typescript-eslint/unbound-method
-                    this.canvas.getNativeCanvas().requestPointerLock
+                    this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock
                     // eslint-disable-next-line @typescript-eslint/unbound-method
-                ||  this.canvas.getNativeCanvas().mozRequestPointerLock
+                ||  this.game.getEngine().getCanvasSystem().getNativeCanvas().mozRequestPointerLock
             );
-            this.canvas.getNativeCanvas().requestPointerLock();
+            this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock();
         }
 
         /** ************************************************************************************************************
@@ -355,8 +350,8 @@
         private onPointerLockChange() : void
         {
             if (
-                    document.pointerLockElement               === this.canvas.getNativeCanvas()
-                ||  ( document as any ).mozPointerLockElement === this.canvas.getNativeCanvas()
+                    document.pointerLockElement               === this.game.getEngine().getCanvasSystem().getNativeCanvas()
+                ||  ( document as any ).mozPointerLockElement === this.game.getEngine().getCanvasSystem().getNativeCanvas()
             ) {
                 bz.Debug.pointer.log( 'The pointer lock status is now LOCKED' );
 

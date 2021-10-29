@@ -20,9 +20,6 @@
         /** The initial camera to set for this stage. */
         protected           readonly        initialCamera           :bz.CameraType                          = null;
 
-        /** The mouse system to use in this stage. TODO to game ?? */
-        protected                           mouseSystem             :bz.MouseSystem                         = null;
-
         /** The player instance. */
         protected                           player                  :bz.Player                              = null;
         /** A collection of all walls in this stage. */
@@ -158,13 +155,6 @@
         protected abstract setupFog() : void;
 
         /** ************************************************************************************************************
-        *   Sets up the mouse system.
-        *
-        *   @return The mouse system to use in this stage.
-        ***************************************************************************************************************/
-        protected abstract createMouseSystem() : bz.MouseSystem;
-
-        /** ************************************************************************************************************
         *   Inits the stage.
         ***************************************************************************************************************/
         public init() : void
@@ -180,7 +170,6 @@
             this.bots          = this.createBots();
             this.skybox        = this.createSkybox();
             this.sprites       = this.createSprites();
-            this.mouseSystem   = this.createMouseSystem();
             this.lights        = this.createLights();
 
             // set camera system
@@ -231,16 +220,6 @@
         public getCameraSystem() : bz.CameraSystem
         {
             return this.cameraSystem;
-        }
-
-        /** ************************************************************************************************************
-        *   Returns this stage's mouse system.
-        *
-        *   @return The pointer system of this stage.
-        ***************************************************************************************************************/
-        public getMouseSystem() : bz.MouseSystem
-        {
-            return this.mouseSystem;
         }
 
         /** ************************************************************************************************************

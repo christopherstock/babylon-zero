@@ -253,12 +253,4 @@
         {
             this.scene.disableFog();
         }
-
-        /** ************************************************************************************************************
-        *   Sets up the mouse system.
-        ***************************************************************************************************************/
-        protected createMouseSystem() : bz.MouseSystem
-        {
-            return new bz.MouseSystem( this, this.game.getEngine().getCanvasSystem(), false, false );
-        }
     }

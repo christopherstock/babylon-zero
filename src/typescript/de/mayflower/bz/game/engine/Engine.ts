@@ -145,14 +145,14 @@
         /** ************************************************************************************************************
         *   Being invoked when the browser window loses the application focue.
         ***************************************************************************************************************/
-        private onWindowBlur( game ) : void
+        private onWindowBlur( game:bz.Game ) : void
         {
             bz.Debug.canvas.log( 'Detected window focus lost - Releasing all keys' );
 
             if ( game.getStage() !== null )
             {
-                game.getStage().getKeySystem().releaseAllKeys();
-                game.getStage().getMouseSystem().releasePointerLock();
+                game.keySystem.releaseAllKeys();
+                game.mouseSystem.releasePointerLock();
             }
         }
     }

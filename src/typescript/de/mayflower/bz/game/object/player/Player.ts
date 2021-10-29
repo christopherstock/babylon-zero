@@ -1,5 +1,5 @@
 
-    import * as bz from '../../../index';
+    import * as bz from '../../..';
 
     /** ****************************************************************************************************************
     *   Represents a human player being controlled by the user.
@@ -268,7 +268,7 @@
         private handleUserInput() : void
         {
             const keySystem:bz.KeySystem = this.stage.game.keySystem;
-            const mouseSystem:bz.MouseSystem = this.stage.getMouseSystem();
+            const mouseSystem:bz.MouseSystem = this.stage.game.mouseSystem;
 
             // move forewards and backwards
             if

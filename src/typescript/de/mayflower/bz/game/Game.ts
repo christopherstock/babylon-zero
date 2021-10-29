@@ -1,5 +1,5 @@
 
-    import * as bz from '../index';
+    import * as bz from '..';
 
     /** ****************************************************************************************************************
     *   Manages the game logic.
@@ -9,7 +9,7 @@
         /** The game engine. */
         private                     engine                      :bz.Engine                  = null;
         /** The current game scene. */
-        private                     scene                       :bz.Scene                   = null;
+        public                      scene                       :bz.Scene                   = null;
         /** The current stage. */
         private                     stage                       :bz.Stage                   = null;
         /** The game GUI. */
@@ -18,6 +18,8 @@
         private                     pause                       :boolean                    = false;
         /** The key system to use in this stage. */
         public                      keySystem                   :bz.KeySystem               = null;
+        /** The mouse system to use in this stage. */
+        public                      mouseSystem                 :bz.MouseSystem             = null;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -35,8 +37,13 @@
             this.scene = new bz.Scene();
             this.scene.init( this.engine, () => { this.onInitGameEngineCompleted(); } );
 
-            // init the key system
-            this.keySystem = new bz.KeySystem();
+            // init the key and mouse system
+            this.keySystem   = new bz.KeySystem();
+            this.mouseSystem = new bz.MouseSystem(
+                this,
+                false,
+                true
+            )
         }
 
         /** ************************************************************************************************************
@@ -93,6 +100,10 @@
             // init the new stage
             bz.Debug.stage.log( ' Initializing target stage [' + String( targetStage ) + ']' );
             this.stage.init();
+
+            // release keys and pointer lock?
+            this.keySystem.releaseAllKeys();
+            this.mouseSystem.releasePointerLock();
 
             // disable pause flag
             this.pause = false;
