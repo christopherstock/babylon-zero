@@ -12,8 +12,7 @@
         protected           readonly        game                    :bz.Game                               = null;
         /** The scene that represents this stage. TODO remove from Stage? */
         protected           readonly        scene                   :bz.Scene                               = null;
-        /** The canvas system this stage is displayed on. TODO remove from Stage? */
-        protected           readonly        canvas                  :bz.CanvasSystem                        = null;
+
         /** Indicates pause state. TODO move to class Game ? */
         private                             pause                   :boolean                                = false;
         /** The game GUI. TODO move to Game?? */
@@ -80,7 +79,6 @@
         {
             this.game          = game;
             this.scene         = scene;
-            this.canvas        = canvas;
             this.ambientColor  = ambientColor;
             this.sceneBgColor  = sceneBgColor;
             this.initialCamera = initialCamera;
@@ -174,11 +172,6 @@
         protected abstract createMouseSystem() : bz.MouseSystem;
 
         /** ************************************************************************************************************
-        *   Being invoked when the stage setup is complete.
-        ***************************************************************************************************************/
-        protected abstract onInitComplete() : void;
-
-        /** ************************************************************************************************************
         *   Inits the stage.
         ***************************************************************************************************************/
         public init() : void
@@ -217,12 +210,6 @@
             {
                 this.createCoordinalAxis();
             }
-
-            // adjust GUI size
-            this.adjustGuiSizeToCanvasSize();
-
-            // invoke init complete callback
-            this.onInitComplete();
         }
 
         /** ************************************************************************************************************
@@ -435,18 +422,6 @@
                 );
                 this.addBulletHole( bulletHole );
             }
-        }
-
-        /** ************************************************************************************************************
-        *   Resizes fg and bg GUIs so they fit the current canvas size.
-        ***************************************************************************************************************/
-        public adjustGuiSizeToCanvasSize() : void
-        {
-            this.gui.updateSize
-            (
-                this.canvas.getWidth(),
-                this.canvas.getHeight()
-            );
         }
 
         /** ************************************************************************************************************

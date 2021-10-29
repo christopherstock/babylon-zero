@@ -119,7 +119,7 @@
             return new bz.CameraSystem
             (
                 this.scene.getNativeScene(),
-                this.canvas.getNativeCanvas(),
+                this.game.getEngine().getCanvasSystem().getNativeCanvas(),
 
                 new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
                 new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
@@ -262,13 +262,6 @@
         ***************************************************************************************************************/
         protected createMouseSystem() : bz.MouseSystem
         {
-            return new bz.MouseSystem( this, this.canvas, false, false );
-        }
-
-        /** ************************************************************************************************************
-        *   Being invoked when the stage setup is complete.
-        ***************************************************************************************************************/
-        protected onInitComplete() : void
-        {
+            return new bz.MouseSystem( this, this.game.getEngine().getCanvasSystem(), false, false );
         }
     }

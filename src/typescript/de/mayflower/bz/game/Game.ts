@@ -124,17 +124,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Adjusts all game elements to the current canvas size.
-        ***************************************************************************************************************/
-        public adjustGameSizeToCanvasSize() : void
-        {
-            if ( this.stage !== null )
-            {
-                this.stage.adjustGuiSizeToCanvasSize();
-            }
-        }
-
-        /** ************************************************************************************************************
         *   Being invoked when the game engine is completely initialized.
         ***************************************************************************************************************/
         private onInitGameEngineCompleted() : void

@@ -110,23 +110,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Updates the GUIs to the specified dimensions.
-        *
-        *   @param width  The width  to set as the new GUI width.
-        *   @param height The height to set as the new GUI height.
-        ***************************************************************************************************************/
-        public updateSize( width:number, height:number ) : void
-        {
-/*
-            // this will scale texts up and down - which cases an ugly behaviour!
-            this.guiFg.idealWidth  = width;
-            this.guiFg.idealHeight = height;
-
-            this.guiFg.scaleTo( width, height );
-*/
-        }
-
-        /** ************************************************************************************************************
         *   Disposes all elements of this GUI.
         ***************************************************************************************************************/
         public dispose() : void
