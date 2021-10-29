@@ -260,29 +260,25 @@
         ***************************************************************************************************************/
         public render() : void
         {
-            // consider pause
-            if ( !this.game.pause )
+            // handle level specific keys
+            this.handleLevelKeys( this.keySystem );
+
+            // render player
+            if ( this.player !== null )
             {
-                // handle level specific keys
-                this.handleLevelKeys( this.keySystem );
+                this.player.render();
+            }
 
-                // render player
-                if ( this.player !== null )
-                {
-                    this.player.render();
-                }
+            // render walls
+            for ( const wall of this.walls )
+            {
+                wall.render();
+            }
 
-                // render walls
-                for ( const wall of this.walls )
-                {
-                    wall.render();
-                }
-
-                // render items
-                for ( const item of this.items )
-                {
-                    item.render();
-                }
+            // render items
+            for ( const item of this.items )
+            {
+                item.render();
             }
         }
 
@@ -402,26 +398,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Toggles the stage to the pause state or vice versa.
-        ***************************************************************************************************************/
-        public togglePause() : void
-        {
-            // toggle pause
-            this.game.pause = !this.game.pause;
-
-            bz.Debug.game.log( 'Toggle pause to [' + String( this.game.pause ) + ']');
-
-            // stop or resume physics engine
-            this.scene.enablePhysics( !this.game.pause );
-
-            // propagate pause state to gui
-            this.setGuiPause();
-
-            // propagate pause state to all stage sprites
-            this.setSpritePause();
-        }
-
-        /** ************************************************************************************************************
         *   Delivers the current selected index of the pause menu.
         *
         *   @return The current active pause menu index.
@@ -536,21 +512,13 @@
         }
 
         /** ************************************************************************************************************
-        *   Alters the pause state for the GUI.
-        ***************************************************************************************************************/
-        private setGuiPause() : void
-        {
-            this.game.getGUI().setPauseGuiVisibility( this.game.pause );
-        }
-
-        /** ************************************************************************************************************
         *   Alters the pause state for all sprites.
         ***************************************************************************************************************/
-        private setSpritePause() : void
+        public setSpritePause( pause ) : void
         {
             for ( const sprite of this.sprites )
             {
-                sprite.setPause( this.game.pause );
+                sprite.setPause( pause );
             }
         }
 

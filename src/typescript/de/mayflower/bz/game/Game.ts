@@ -14,8 +14,8 @@
         private                     stage                       :bz.Stage                   = null;
         /** The game GUI. */
         private                     gui                         :bz.GUI                     = null;
-        /** Indicates pause state. TODO move to class Game ? */
-        public                      pause                       :boolean                    = false;
+        /** Indicates pause state. */
+        private                     pause                       :boolean                    = false;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -100,11 +100,23 @@
         }
 
         /** ************************************************************************************************************
-        *   Toggles the pause state for the current stage.
+        *   Toggles the game pause state.
         ***************************************************************************************************************/
         public togglePause() : void
         {
-            this.stage.togglePause();
+            // toggle pause
+            this.pause = !this.pause;
+
+            bz.Debug.game.log( 'Toggle pause to [' + String( this.pause ) + ']');
+
+            // stop or resume physics engine
+            this.scene.enablePhysics( !this.pause );
+
+            // propagate pause state to gui
+            this.gui.setPauseGuiVisibility( this.pause );
+
+            // propagate pause state to all stage sprites
+            this.stage.setSpritePause( this.pause );
         }
 
         /** ************************************************************************************************************
@@ -156,8 +168,11 @@
         ***************************************************************************************************************/
         private render() : void
         {
-            // render stage
-            this.stage.render();
+            // render stage if not paused
+            if ( !this.pause )
+            {
+                this.stage.render();
+            }
 
             // render GUI
             this.gui.render( this, this.pause, this.stage.keySystem );
@@ -219,7 +234,7 @@
             if ( keySystem.isPressed( bz.KeyCodes.KEY_ESCAPE ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_ESCAPE );
-                this.stage.togglePause();
+                this.togglePause();
             }
 
             // toggle physics
