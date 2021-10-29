@@ -14,7 +14,7 @@
         private                     scene                       :bz.Scene                   = null;
 
         /** The game GUI. */
-        public                      gui                         :bz.GUI                     = null;
+        private                     gui                         :bz.GUI                     = null;
 
         /** ************************************************************************************************************
         *   Inits the game from scratch.
@@ -155,6 +155,9 @@
             // render stage
             this.stage.render();
 
+            // render GUI
+            this.gui.render( this, this.stage.pause, this.stage.keySystem );
+
             // render scene
             this.scene.render();
 
@@ -231,5 +234,15 @@
         public getEngine() : bz.Engine
         {
             return this.engine;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the GUI instance.
+        *
+        *   @return The GUI instance.
+        ***************************************************************************************************************/
+        public getGUI() : bz.GUI
+        {
+            return this.gui;
         }
     }

@@ -95,11 +95,11 @@
                 // add GUI messages to queue and start various debug actions
 
                 // explode compound spheres
-                this.game.gui.addGuiMessage( 'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']' );
+                this.game.getGUI().addGuiMessage( 'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']' );
                 // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
 
                 // perform a camera animation for the stationary target camera
-                this.game.gui.addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
+                this.game.getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
                 this.getCameraSystem().animateCameraPosition
                 (
                     bz.CameraType.STATIONARY,
@@ -111,7 +111,7 @@
                 this.camTarget = !this.camTarget;
 
                 // show hurt GUI effect
-                this.addGuiFx( bz.GUIFxType.HURT );
+                this.game.getGUI().addGuiFx( bz.GUIFxType.HURT );
             }
         }
 
