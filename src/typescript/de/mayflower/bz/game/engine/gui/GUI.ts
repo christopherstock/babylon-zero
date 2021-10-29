@@ -113,8 +113,11 @@
         {
             this.updateFps( game );
 
-            this.messageManager.render();
-            this.fxManager.render();
+            if ( !pause )
+            {
+                this.messageManager.render();
+                this.fxManager.render();
+            }
 
             if ( pause )
             {
