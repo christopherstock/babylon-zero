@@ -508,30 +508,6 @@
         {
             switch ( this.guiType )
             {
-                case bz.GUIType.HUMAN_BODY_PARTITIONS:
-                {
-                    const gui:bz.GUIHumanBodyPartitions = new bz.GUIHumanBodyPartitions(
-                        this.scene.getNativeScene(),
-                        ( this as unknown as bz.HumanBodyPartitions ),
-                        this.keySystem
-                    );
-                    gui.init();
-
-                    return gui;
-                }
-
-                case bz.GUIType.PRODUCT_CONFIGURATOR:
-                {
-                    const gui:bz.GUIProductConfigurator = new bz.GUIProductConfigurator(
-                        this.scene.getNativeScene(),
-                        ( this as unknown as bz.ProductConfigurator ),
-                        this.keySystem
-                    );
-                    gui.init();
-
-                    return gui;
-                }
-
                 case bz.GUIType.GAME:
                 default:
                 {

@@ -1,10 +1,10 @@
 
-    import * as bz from '../../..';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   The 'intro logo' stage offers an exploration of a 3D model that can be viewed from all angles.
     *******************************************************************************************************************/
-    export class IntroLogo extends bz.Stage
+    export class StageIntroLogo extends bz.Stage
     {
         /** Rotation speed in degrees per tick. */
         private     static  readonly    ROTATION_SPEED          :number                     = 1.75;
@@ -57,7 +57,7 @@
             );
 
             // increase logo rotation
-            this.rotY += IntroLogo.ROTATION_SPEED;
+            this.rotY += StageIntroLogo.ROTATION_SPEED;
 
             // alter the light intensity
             ++this.currentTick;

@@ -102,31 +102,7 @@
 
                 case bz.GUIAction.SWITCH_TO_STAGE_2:
                 {
-                    game.switchStage( bz.StageId.ROOM_VIEWER );
-                    break;
-                }
-
-                case bz.GUIAction.SWITCH_TO_STAGE_3:
-                {
-                    game.switchStage( bz.StageId.PRODUCT_CONFIGURATOR );
-                    break;
-                }
-
-                case bz.GUIAction.SWITCH_TO_STAGE_4:
-                {
                     game.switchStage( bz.StageId.INTRO_LOGO );
-                    break;
-                }
-
-                case bz.GUIAction.SWITCH_TO_STAGE_5:
-                {
-                    game.switchStage( bz.StageId.HUMAN_BODY_PARTITIONS );
-                    break;
-                }
-
-                case bz.GUIAction.SWITCH_TO_STAGE_6:
-                {
-                    game.switchStage( bz.StageId.SPACESHIP );
                     break;
                 }
             }

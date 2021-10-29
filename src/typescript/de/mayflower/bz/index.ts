@@ -38,10 +38,7 @@
     export * from './game/engine/ui/gui/GUI';
     export * from './game/engine/ui/gui/GUIFactory';
     export * from './game/engine/ui/gui/GUIGame';
-    export * from './game/engine/ui/gui/GUIHumanBodyPartitions';
-    export * from './game/engine/ui/gui/GUIHumanPartitionDescription';
     export * from './game/engine/ui/gui/GUIPause';
-    export * from './game/engine/ui/gui/GUIProductConfigurator';
     export * from './game/engine/ui/gui/GUIType';
 
     export * from './game/engine/ui/CanvasSystem';
@@ -103,17 +100,8 @@
     export * from './base/data/SpriteFile';
     export * from './base/data/Texture';
     export * from './base/data/StageOffice';
+    export * from './game/stage/StageIntroLogo';
 
     export * from './util/DOMUtil';
     export * from './util/MathUtil';
     export * from './util/StringUtil';
-
-    export * from './game/stage/level/StageSpaceshipRun';
-
-    export * from './game/stage/presentation/IntroLogo';
-    export * from './game/stage/presentation/RoomViewer';
-
-    export * from './game/stage/presentation/hbp/HumanBodyPartitions';
-
-    export * from './game/stage/presentation/pc3d/HelmetState';
-    export * from './game/stage/presentation/pc3d/ProductConfigurator';

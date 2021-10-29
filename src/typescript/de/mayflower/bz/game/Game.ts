@@ -72,45 +72,9 @@
                     break;
                 }
 
-                case bz.StageId.ROOM_VIEWER:
-                {
-                    this.stage = new bz.RoomViewer(
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
-                    break;
-                }
-
-                case bz.StageId.PRODUCT_CONFIGURATOR:
-                {
-                    this.stage = new bz.ProductConfigurator(
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
-                    break;
-                }
-
                 case bz.StageId.INTRO_LOGO:
                 {
-                    this.stage = new bz.IntroLogo(
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
-                    break;
-                }
-
-                case bz.StageId.HUMAN_BODY_PARTITIONS:
-                {
-                    this.stage = new bz.HumanBodyPartitions(
-                        this.scene,
-                        this.engine.getCanvasSystem()
-                    );
-                    break;
-                }
-
-                case bz.StageId.SPACESHIP:
-                {
-                    this.stage = new bz.StageSpaceshipRun(
+                    this.stage = new bz.StageIntroLogo(
                         this.scene,
                         this.engine.getCanvasSystem()
                     );
