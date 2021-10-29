@@ -60,7 +60,7 @@
                 this.game.getScene().getNativeScene().onPointerDown =
                 (
                     ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
-                        this.onDebugPointerDown( evt, pickResult );
+                        this.game.onDebugPointerDown( evt, pickResult );
                     }
                 );
             }
@@ -72,51 +72,6 @@
                 this.game.getEngine().getCanvasSystem().getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => { this.onMouseUp(    me ); };
             }
         }
-
-        /** ************************************************************************************************************
-        *   Sets up and defines the DEBUG pointer callback.
-        *
-        *   @param evt        The pointer event being propagated by the system.
-        *   @param pickResult More information about the location of the 3D space where the pointer is down.
-        ***************************************************************************************************************/
-        public onDebugPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
-        {
-            // check if a result is picked and if the stage is present
-            if ( pickResult.hit && this.game.getStage() !== null )
-            {
-                bz.Debug.pointer.log( 'Picked a mesh on pointerDown' );
-
-                let src :BABYLON.Vector3;
-
-                // horrible debug implementation
-                if
-                (
-                        this.game.getStage().getCameraSystem().isFirstPersonCameraActive()
-                    &&  this.game.getStage().getPlayer() !== null
-                )
-                {
-                    src = this.game.getStage().getPlayer().getThirdPersonCameraTargetMesh().position;
-                }
-                else
-                {
-                    src = this.game.getStage().getCameraSystem().getActiveCamera().position;
-                }
-
-                const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
-                dir.normalize();
-
-                // horrible debug implementation
-                if
-                (
-                        pickResult.pickedMesh                             !== null
-                    &&  pickResult.pickedMesh.physicsImpostor             !== undefined
-                    &&  pickResult.pickedMesh.physicsImpostor.physicsBody !== null
-                )
-                {
-                    pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
-                }
-            }
-        };
 
         public getAndResetLastMouseMovementX() : number
         {

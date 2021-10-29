@@ -290,4 +290,49 @@
         {
             return this.mouseSystem;
         }
+
+        /** ************************************************************************************************************
+        *   Sets up and defines the DEBUG pointer callback.
+        *
+        *   @param evt        The pointer event being propagated by the system.
+        *   @param pickResult More information about the location of the 3D space where the pointer is down.
+        ***************************************************************************************************************/
+        public onDebugPointerDown( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) : void
+        {
+            // check if a result is picked and if the stage is present
+            if ( pickResult.hit && this.stage !== null )
+            {
+                bz.Debug.pointer.log( 'Picked a mesh on pointerDown' );
+
+                let src :BABYLON.Vector3;
+
+                // horrible debug implementation
+                if
+                (
+                        this.stage.getCameraSystem().isFirstPersonCameraActive()
+                    &&  this.stage.getPlayer() !== null
+                )
+                {
+                    src = this.stage.getPlayer().getThirdPersonCameraTargetMesh().position;
+                }
+                else
+                {
+                    src = this.stage.getCameraSystem().getActiveCamera().position;
+                }
+
+                const dir:BABYLON.Vector3 = pickResult.pickedPoint.subtract( src );
+                dir.normalize();
+
+                // horrible debug implementation
+                if
+                (
+                        pickResult.pickedMesh                             !== null
+                    &&  pickResult.pickedMesh.physicsImpostor             !== undefined
+                    &&  pickResult.pickedMesh.physicsImpostor.physicsBody !== null
+                )
+                {
+                    pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
+                }
+            }
+        };
     }

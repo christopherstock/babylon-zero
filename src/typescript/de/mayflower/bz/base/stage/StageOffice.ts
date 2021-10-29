@@ -51,9 +51,9 @@
                 this,
                 this.scene,
                 new BABYLON.Vector3(
-                    this.OFFSET_X + 8.0,
+                    this.OFFSET_X + 2.5,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                    this.OFFSET_Z + 13.0
+                    this.OFFSET_Z + 2.6
                 ),
                 45.0,
                 this.ambientColor
@@ -132,20 +132,6 @@
                 bz.PhysicBehaviour.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
-
-            const testCrate = new bz.Wall
-            (
-                this,
-                bz.MeshFactory.createImportedModel
-                (
-                    this.scene,
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
-                    bz.PhysicBehaviour.LIGHT_WOOD,
-                    bz.ModelCompoundType.NONE
-                )
-            );
-
 /*
             this.chairMulti = bz.MeshFactory.createImportedModel
             (
@@ -187,7 +173,7 @@
                 this.ambientColor
             );
 */
-            const walls :bz.Wall[] = [
+            let walls :bz.Wall[] = [
 /*
                 // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
                 new bz.Wall
@@ -210,8 +196,6 @@
                     this.compoundSpheres
                 ),
 */
-                testCrate,
-
                 // movable wooden crate
                 new bz.Wall
                 (
@@ -930,10 +914,9 @@
             ];
 
             const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls();
-            for ( const wall of levelGroundWalls )
-            {
-                walls.push( wall );
-            }
+            const boxesWalls       :bz.Wall[] = this.createBoxesWalls();
+            walls = walls.concat( levelGroundWalls );
+            walls = walls.concat( boxesWalls );
 
             return walls;
         }
@@ -1231,6 +1214,75 @@
                                 this.ambientColor
                             ),
                         ]
+                    )
+                ),
+            ]
+        }
+
+        private createBoxesWalls() : bz.Wall[]
+        {
+            return [
+
+                // wooden test crates
+
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.CRATE,
+                        new BABYLON.Vector3( this.OFFSET_X + 15.0, 0.0, this.OFFSET_Z + 15.0 ),
+                        bz.PhysicBehaviour.LIGHT_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.CRATE,
+                        new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 17.5 ),
+                        bz.PhysicBehaviour.LIGHT_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.CRATE,
+                        new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 15.0 ),
+                        bz.PhysicBehaviour.LIGHT_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.CRATE,
+                        new BABYLON.Vector3( this.OFFSET_X + 17.5, 2.5, this.OFFSET_Z + 17.5 ),
+                        bz.PhysicBehaviour.LIGHT_WOOD,
+                        bz.ModelCompoundType.NONE
+                    )
+                ),
+                new bz.Wall
+                (
+                    this,
+                    bz.MeshFactory.createImportedModel
+                    (
+                        this.scene,
+                        bz.ModelFile.CRATE,
+                        new BABYLON.Vector3( this.OFFSET_X + 17.5, 5.0, this.OFFSET_Z + 17.5 ),
+                        bz.PhysicBehaviour.LIGHT_WOOD,
+                        bz.ModelCompoundType.NONE
                     )
                 ),
             ]
