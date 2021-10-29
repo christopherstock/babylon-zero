@@ -5,12 +5,12 @@
 =====================
 Primal
 =====================
-TODO pause menu must be over red hit effect!
+TODO pause menu / GUI must be over red hit effect!
+TODO debug and improve init process?
 TODO Flashlite on player - depending on wearpon.
 TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Add slower panning on aiming/zooming with wearpon.
 TODO Fix setting a different pivot for meshes and objects AGAIN?
-TODO Add CI/CD pipeline via GitHub Actions! - Button to README!
 TODO introduce Stage Animation system as Animations (camera) do not stop on pausing the game.
 TODO remove all instance fields inits ( = null )
 TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
@@ -19,7 +19,6 @@ TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been
 TODO Solution to fix/remove screen shaking on collisions.
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
-TODO Reset Git Repository?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO Show wearpon's ammo in magazine and total.
 TODO Enable wearpon magazine and reloading!
@@ -34,6 +33,12 @@ TODO Try exploding models via particle system? (demo)
 TODO Find and prune classes with mixed static & non-static content
 
 =====================
+Dev Ops
+=====================
+TODO Add CI/CD pipeline via GitHub Actions! - Button to README!
+TODO Reset Git Repository?
+
+=====================
 Fx
 =====================
 TODO Add physically correct bullet drop (+sound) out after fire.
@@ -44,7 +49,7 @@ TODO Add explosion effects for sprites.
 TODO Add muzzle flash to gun on firing.
 
 =====================
-Complete MVP Tech-Demo 'Office '92', 1st minor, still life etc.
+MVP 1.0.0 - Tech-Demo 'Office '92' ?
 =====================
 TODO Create realistic models, lights and spacial sounds.
 
@@ -88,6 +93,6 @@ TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
 TODO Try water effects?
 TODO Try different player objects: physics for car!
 TODO Try 'gamelets' in the babylon.JS docs.
-TODO Try 360 Photodome? http://doc.babylonjs.com/how_to/360photodome
+TODO Try 360 Photodome? https://doc.babylonjs.com/how_to/360photodome
 TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
 ```

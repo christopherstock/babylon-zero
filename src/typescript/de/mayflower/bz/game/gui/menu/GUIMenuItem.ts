@@ -13,7 +13,7 @@
         private             readonly        action                      :bz.GUIAction                   = null;
 
         /** The text block that represents this menu item in the GUI. */
-        private                             textBlock                   :bjsg.TextBlock          = null;
+        private                             textBlock                   :bjsg.TextBlock                 = null;
 
         /** ************************************************************************************************************
         *   Creates a new menu item.

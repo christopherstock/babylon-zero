@@ -1,5 +1,5 @@
 
-    import * as bz from '../../..';
+    import * as bz from '../..';
 
     /** ****************************************************************************************************************
     *   Represents a human player being controlled by the user.

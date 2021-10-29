@@ -83,7 +83,7 @@
     export * from './game/object/Item';
     export * from './game/object/Wall';
 
-    export * from './game/object/player/Player';
+    export * from './game/object/Player';
 
     export * from './game/stage/Stage';
 
@@ -92,8 +92,8 @@
     export * from './base/data/SoundFile';
     export * from './base/data/SpriteFile';
     export * from './base/data/Texture';
+    export * from './base/data/StageIntroLogo';
     export * from './base/data/StageOffice';
-    export * from './game/stage/StageIntroLogo';
 
     export * from './util/DOMUtil';
     export * from './util/MathUtil';
