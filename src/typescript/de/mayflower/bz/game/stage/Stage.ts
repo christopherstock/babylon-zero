@@ -33,8 +33,6 @@
         /** A collection of all bots in this stage. */
         protected                           bots                    :bz.Bot[]                               = [];
 
-        /** The game GUI. */
-        protected                           gui                     :bz.GUI                                 = null;
         /** The camera system that manages all scene cameras. */
         protected                           cameraSystem            :bz.CameraSystem                        = null;
 
@@ -55,6 +53,8 @@
 
         /** Indicates pause state. TODO move to class Game ? */
         private                             pause                   :boolean                                = false;
+        /** The game GUI. TODO move to Game?? */
+        protected                           gui                     :bz.GUI                                 = null;
 
         /** ************************************************************************************************************
         *   Creates a new custom stage.

@@ -175,7 +175,7 @@
         /** ************************************************************************************************************
         *   Updates the Frames Per Second counter.
         ***************************************************************************************************************/
-        private updateFps( game ) : void
+        private updateFps( game:bz.Game ) : void
         {
             // update and assign fps
             this.fpsText.text = game.getFps().toFixed( 2 ) + ' fps';
