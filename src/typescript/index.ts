@@ -10,7 +10,7 @@
     *******************************************************************************************************************/
     window.onload = () : void  =>
     {
-        const main :bz.Main = new bz.Main();
+        const main :bz.WebApp = new bz.WebApp();
         main.main();
     };
 

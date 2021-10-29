@@ -1,7 +1,7 @@
 
     export * from './base/Debug';
     export * from './base/Version';
-    export * from './base/Main';
+    export * from './base/WebApp';
 
     export * from './game/engine/camera/CameraFactory';
     export * from './game/engine/camera/CameraSystem';
