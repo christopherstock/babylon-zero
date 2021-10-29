@@ -10,6 +10,7 @@ TODO Flashlite on player - depending on wearpon.
 TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Add slower panning on aiming/zooming with wearpon.
 TODO Fix setting a different pivot for meshes and objects AGAIN?
+TODO Add CI/CD pipeline via GitHub Actions! - Button to README!
 TODO introduce Stage Animation system as Animations (camera) do not stop on pausing the game.
 TODO remove all instance fields inits ( = null )
 TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )

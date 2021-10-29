@@ -34,7 +34,7 @@
             // check if picked by player
             if ( this.checkPick( this.stage.getPlayer().getModel() ) )
             {
-                this.stage.game.getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
+                this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
             }
 
             // testwise rotate this item

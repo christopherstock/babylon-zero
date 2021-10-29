@@ -9,7 +9,7 @@
         // TODO extract all constructor- and readonly-fields to StageConfig
 
         /** The game instance. TODO remove from Stage? */
-        public              readonly        game                    :bz.Game                               = null;
+        protected           readonly        game                    :bz.Game                               = null;
         /** The scene instance of the game instance. */
         protected           readonly        scene                   :bz.Scene                               = null;
 
@@ -504,5 +504,10 @@
             }
 
             return impactHitPoints;
+        }
+
+        public getGame() : bz.Game
+        {
+            return this.game;
         }
     }
