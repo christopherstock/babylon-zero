@@ -201,22 +201,14 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the native babylon.JS scene.
-        *
-        *   @return The player instance.
-        ***************************************************************************************************************/
-        public getScene() : BABYLON.Scene
-        {
-            return this.scene.getNativeScene();
-        }
-
-        /** ************************************************************************************************************
         *   Returns this stage's camera system.
         *
         *   @return The camera system of this stage.
         ***************************************************************************************************************/
         public getCameraSystem() : bz.CameraSystem
         {
+            // TODO remove! possibly 1 camera system (from stage to game) ?
+
             return this.cameraSystem;
         }
 

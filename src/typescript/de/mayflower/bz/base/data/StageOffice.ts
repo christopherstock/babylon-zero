@@ -99,7 +99,7 @@
 
                 // perform a camera animation for the stationary target camera
                 this.game.getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
-                this.getCameraSystem().animateCameraPosition
+                this.cameraSystem.animateCameraPosition
                 (
                     bz.CameraType.STATIONARY,
                     ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),

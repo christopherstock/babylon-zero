@@ -13,6 +13,7 @@ TODO Fix setting a different pivot for meshes and objects AGAIN?
 TODO introduce Stage Animation system as Animations (camera) do not stop on pausing the game.
 TODO remove all instance fields inits ( = null )
 TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
+TODO ditch package.json - update all libs
 TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
 TODO Solution to fix/remove screen shaking on collisions.
 TODO Create alternate lower cylinder for player that toggles on ducking?
@@ -29,6 +30,7 @@ TODO Sounds for shot, bullet hit and bullet drop.
 TODO Create 3d gun as 2nd scene in front?
 TODO Try exploding models via particle system? (demo)
      https://www.babylonjs-playground.com/#ML2LR9#0
+TODO Find and prune classes with mixed static & non-static content
 
 =====================
 Fx
