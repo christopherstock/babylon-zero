@@ -5,7 +5,7 @@
     /** ****************************************************************************************************************
     *   Represents a Graphical User Interface that is displayed in the foreground of the screen.
     *******************************************************************************************************************/
-    export abstract class GUI
+    export class GUI
     {
         /** The fullscreen gui in foreground. */
         protected           readonly        guiFg                   :bjsg.AdvancedDynamicTexture            = null;
@@ -21,13 +21,18 @@
         /** The pause GUI. */
         private             readonly        pauseGui                :bz.GUIPause                            = null;
 
+        /** The wearpon image. */
+        protected                           wearponImage            :bjsg.Image                         = null;
+        /** The corsshair. */
+        protected                           crosshair               :bjsg.Image                         = null;
+
         /** ************************************************************************************************************
         *   Creates a new abstract Heads Up Display.
         *
         *   @param scene     The scene to create this GUI for.
         *   @param keySystem The key system to use for key determination.
         ***************************************************************************************************************/
-        protected constructor( scene:BABYLON.Scene, keySystem:bz.KeySystem )
+        public constructor( scene:BABYLON.Scene, keySystem:bz.KeySystem )
         {
             // reference the key system
             this.keySystem = keySystem;
@@ -65,9 +70,32 @@
         }
 
         /** ************************************************************************************************************
-        *   Inits all GUI components for the 3D Product Configurator..
+        *   Initializes the Heads Up Display for a game level.
         ***************************************************************************************************************/
-        public abstract init() : void;
+        public init() : void
+        {
+            this.wearponImage = bz.GUIFactory.createImage
+            (
+                'wearpon/autoShotgun.png',
+                -bz.SettingGUI.GUI_BORDER_X,
+                0,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+                bjsg.Control.VERTICAL_ALIGNMENT_BOTTOM,
+                null
+            );
+            this.guiFg.addControl( this.wearponImage );
+
+            this.crosshair = bz.GUIFactory.createImage
+            (
+                'crosshair/default.png',
+                0,
+                0,
+                bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                bjsg.Control.VERTICAL_ALIGNMENT_CENTER,
+                null
+            );
+            this.guiFg.addControl( this.crosshair );
+        }
 
         /** ************************************************************************************************************
         *   Sets visibility for the first player view components.
@@ -76,7 +104,9 @@
         ***************************************************************************************************************/
         public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
         {
-            // change nothing
+            // change visibility for wearpon and crosshair
+            this.wearponImage.isVisible = visible;
+            this.crosshair.isVisible    = visible;
         }
 
         /** ************************************************************************************************************

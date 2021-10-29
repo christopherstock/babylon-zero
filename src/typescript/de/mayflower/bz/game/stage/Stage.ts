@@ -506,7 +506,7 @@
         ***************************************************************************************************************/
         private createGUI() : bz.GUI
         {
-            const gui:bz.GUIGame = new bz.GUIGame(
+            const gui:bz.GUI = new bz.GUI(
                 this.scene.getNativeScene(),
                 this.keySystem
             );

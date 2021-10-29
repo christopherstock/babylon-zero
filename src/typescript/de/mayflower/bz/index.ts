@@ -35,7 +35,6 @@
 
     export * from './game/engine/gui/GUI';
     export * from './game/engine/gui/GUIFactory';
-    export * from './game/engine/gui/GUIGame';
     export * from './game/engine/gui/GUIPause';
 
     export * from './game/engine/ui/CanvasSystem';
