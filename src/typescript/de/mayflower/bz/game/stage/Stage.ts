@@ -14,8 +14,6 @@
         protected           readonly        scene                   :bz.Scene                               = null;
         /** Indicates pause state. TODO move to class Game ? */
         private                             pause                   :boolean                                = false;
-        /** The game GUI. TODO move to Game?? */
-        protected                           gui                     :bz.GUI                                 = null;
 
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         protected           readonly        ambientColor            :BABYLON.Color3                         = null;
@@ -188,7 +186,6 @@
             this.keySystem     = this.createKeySystem();
             this.mouseSystem   = this.createMouseSystem();
             this.lights        = this.createLights();
-            this.gui           = this.createGUI();
 
             // set camera system
             this.setActiveCamera( this.initialCamera );
@@ -217,7 +214,7 @@
         ***************************************************************************************************************/
         public addGuiFx( type:bz.GUIFxType ) : void
         {
-            this.gui.addGuiFx( type );
+            this.game.gui.addGuiFx( type );
         }
 
         /** ************************************************************************************************************
@@ -301,7 +298,7 @@
             }
 
             // render GUI
-            this.gui.render( this.game, this.pause, this.keySystem );
+            this.game.gui.render( this.game, this.pause, this.keySystem );
         }
 
         /** ************************************************************************************************************
@@ -373,7 +370,7 @@
             this.cameraSystem.dispose();
 
             // dispose GUI
-            this.gui.dispose();
+            this.game.gui.dispose();
         }
 
         /** ************************************************************************************************************
@@ -385,7 +382,7 @@
             (
                 cameraId,
                 this.player,
-                this.gui
+                this.game.gui
             );
         }
 
@@ -449,7 +446,7 @@
         ***************************************************************************************************************/
         public getPauseMenuIndex() : number
         {
-            return this.gui.getPauseMenuIndex();
+            return this.game.gui.getPauseMenuIndex();
         }
 
         /** ************************************************************************************************************
@@ -459,7 +456,7 @@
         ***************************************************************************************************************/
         public setPauseMenuIndex( index:number ) : void
         {
-            this.gui.setPauseMenuIndex( index );
+            this.game.gui.setPauseMenuIndex( index );
         }
 
         /** ************************************************************************************************************
@@ -470,21 +467,6 @@
         private createKeySystem() : bz.KeySystem
         {
             return new bz.KeySystem();
-        }
-
-        /** ************************************************************************************************************
-        *   Creates the GUI for this stage.
-        *
-        *   @return The created GUI.
-        ***************************************************************************************************************/
-        private createGUI() : bz.GUI
-        {
-            const gui:bz.GUI = new bz.GUI(
-                this.scene.getNativeScene()
-            );
-            gui.init();
-
-            return gui;
         }
 
         /** ************************************************************************************************************
@@ -576,7 +558,7 @@
         ***************************************************************************************************************/
         private setGuiPause() : void
         {
-            this.gui.setPauseGuiVisibility( this.pause );
+            this.game.gui.setPauseGuiVisibility( this.pause );
         }
 
         /** ************************************************************************************************************

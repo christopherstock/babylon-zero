@@ -13,6 +13,9 @@
         /** The current game scene. */
         private                     scene                       :bz.Scene                   = null;
 
+        /** The game GUI. */
+        public                      gui                         :bz.GUI                     = null;
+
         /** ************************************************************************************************************
         *   Inits the game from scratch.
         ***************************************************************************************************************/
@@ -58,6 +61,7 @@
                 // dispose existent stage
                 bz.Debug.stage.log( 'Disposing the current stage' );
                 this.stage.dispose();
+                this.gui.dispose();
             }
 
             // assign the new stage
@@ -75,6 +79,10 @@
                     break;
                 }
             }
+
+            // init the GUI
+            this.gui = new bz.GUI( this.scene.getNativeScene() );
+            this.gui.init();
 
             // init the new stage
             bz.Debug.stage.log( ' Initializing target stage [' + String( targetStage ) + ']' );
