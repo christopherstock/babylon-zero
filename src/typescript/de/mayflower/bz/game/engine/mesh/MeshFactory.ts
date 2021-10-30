@@ -143,28 +143,35 @@
             );
         }
 
-        public static createHeightMapGround( scene:bz.Scene, emissiveColor, rotation, physic ) : BABYLON.Mesh
+        public static createHeightMapGround
+        (
+            scene       :bz.Scene,
+            position    :BABYLON.Vector3,
+            pivotAnchor,
+            size :BABYLON.Vector3,
+            emissiveColor,
+            rotation,
+            physic
+        )
+        : BABYLON.Mesh
         {
-            const width  :number = 50.0;
-            const height :number = 50.0;
             const subdivisions :number = 50;
-            const groundHeight :number = 50.0;
 
             const options = {
-                width: width,
-                height: height,
-                depth: 50.0,
+                width: size.x,
+                height: size.y,
+                depth: size.z,
                 subdivisions: subdivisions,
                 minHeight: 0,
-                maxHeight: groundHeight,
+                maxHeight: size.z,
                 onReady: () :void => {
                     const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
                     (
                         scene.getNativeScene(),
                         bz.Texture.WALL_GRASS,
                         false,
-                        width,
-                        height,
+                        size.x,
+                        size.z,
                         null,
                         1.0,
                         emissiveColor
@@ -190,9 +197,15 @@
                 scene.getNativeScene()
             );
 
-            ground.position.x = -40.0;
-            ground.position.y = 0;
-            ground.position.z = 50;
+            bz.MeshManipulation.setPositionAndPivot
+            (
+                ground,
+                position,
+                pivotAnchor,
+                size.x,
+                size.y,
+                size.z
+            );
 
             return ground;
         }
@@ -540,6 +553,9 @@
         }
 
         /** ************************************************************************************************************
+        *   TODO setting polygons is very buggy!
+        *   TODO may be an opportunity to fix the pivot again?
+        *
         *   Creates a polygon mesh.
         *
         *   @param scene         The scene where this mesh will be applied.

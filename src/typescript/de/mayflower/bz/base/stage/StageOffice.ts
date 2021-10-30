@@ -10,9 +10,9 @@
         private                 readonly    OFFSET_Z                :number                                 = 200.0;
 
         /** A testwise mesh - made from a single 3dsmax Mesh. */
-        private                             chairCompoundDestroyable             :bz.Model                               = null;
+        private                             chairCompoundDestroyable            :bz.Model                   = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes. */
-        private                             chairMulti              :bz.Model                               = null;
+        private                             chairMultiMeshesNoCompound          :bz.Model                   = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
         private                             chairMultiPhysics       :bz.Model                               = null;
 
@@ -125,7 +125,7 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            // import mesh model
+            // multi mesh chair with compound .. desired!
             this.chairCompoundDestroyable = bz.MeshFactory.createImportedModel
             (
                 this.scene,
@@ -133,6 +133,15 @@
                 new BABYLON.Vector3( this.OFFSET_X + 20.0, 5.0, this.OFFSET_Z + 25.5 ),
                 bz.PhysicBehaviour.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
+            );
+            // multi mesh chair without compound .. immediately collapses!
+            this.chairMultiMeshesNoCompound = bz.MeshFactory.createImportedModel
+            (
+                this.scene,
+                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
+                bz.PhysicBehaviour.SOLID_WOOD,
+                bz.ModelCompoundType.NONE
             );
 /*
             this.chairMulti = bz.MeshFactory.createImportedModel
@@ -185,6 +194,13 @@
                     10.0
                 ),
 
+                // office chair - multi meshed - destroyable compound
+                new bz.Wall
+                (
+                    this,
+                    this.chairMultiMeshesNoCompound
+                ),
+
                 // solid white sphere
                 new bz.Wall
                 (
@@ -192,7 +208,6 @@
                     new bz.Model
                     (
                         [
-                            // sphere
                             bz.MeshFactory.createSphere
                             (
                                 this.scene,
@@ -210,7 +225,7 @@
                     )
                 ),
 
-                // static elevated ground
+                // elevated grass ground
                 new bz.Wall
                 (
                     this,
@@ -221,12 +236,12 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3(
-                                    this.OFFSET_X + 5.0,
+                                    this.OFFSET_X + 0.0,
                                     -bz.MeshFactory.FACE_DEPTH,
-                                    this.OFFSET_Z + 50.0
+                                    this.OFFSET_Z + 60.0
                                 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
+                                new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  100.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
                                 bz.Texture.WALL_GRASS,
                                 null,
@@ -325,6 +340,9 @@
                             bz.MeshFactory.createHeightMapGround
                             (
                                 this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X + 25.0, 0.0, this.OFFSET_Z - 25.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 50.0, 50.0, 50.0 ),
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.PhysicBehaviour.STATIC
@@ -568,44 +586,6 @@
                                 this.ambientColor
                             ),
                         ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // triangle
-                            bz.MeshFactory.createPolygon
-                            (
-                                this.scene,
-                                [
-                                    new BABYLON.Vector3( 0.0,  0.0,  13.0    ),
-                                    new BABYLON.Vector3( 10.0, 0.0,  13.0    ),
-                                    new BABYLON.Vector3( 10.0, 0.0,  0.0     ),
-                                ],
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 270.0, 0.0, 0.0 ),
-                                bz.SettingColor.COLOR_RGB_RED,
-                                bz.PhysicBehaviour.STATIC,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    bz.MeshFactory.createImportedModel
-                    (
-                        this.scene,
-                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                        new BABYLON.Vector3( -10.0, 20.0, 0.0 ),
-                        bz.PhysicBehaviour.SOLID_WOOD,
-                        bz.ModelCompoundType.NONE
                     )
                 ),
 
