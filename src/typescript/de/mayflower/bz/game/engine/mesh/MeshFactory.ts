@@ -148,7 +148,7 @@
             scene       :bz.Scene,
             position    :BABYLON.Vector3,
             pivotAnchor,
-            size :BABYLON.Vector3,
+            size        :BABYLON.Vector3,
             emissiveColor,
             rotation,
             physic
@@ -159,11 +159,11 @@
 
             const options = {
                 width: size.x,
-                height: size.y,
-                depth: size.z,
+                height: size.z,
+                depth: size.y,
                 subdivisions: subdivisions,
                 minHeight: 0,
-                maxHeight: size.z,
+                maxHeight: size.y,
                 onReady: () :void => {
                     const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
                     (
