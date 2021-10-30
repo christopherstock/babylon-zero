@@ -330,7 +330,7 @@
                     )
                 ),
 */
-                // heightmap ground
+                // heightmap ground (hill)
                 new bz.Wall
                 (
                     this,

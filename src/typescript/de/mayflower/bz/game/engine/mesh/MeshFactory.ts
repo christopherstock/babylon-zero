@@ -170,8 +170,8 @@
                         scene.getNativeScene(),
                         bz.Texture.WALL_GRASS,
                         false,
-                        1, // size.x,
-                        1, // size.z,
+                        size.x,
+                        size.z,
                         null,
                         1.0,
                         emissiveColor
