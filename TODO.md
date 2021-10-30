@@ -6,6 +6,7 @@
 Primal
 =====================
 TODO add lots of default params! ( to MeshFactory ! )
+TODO add rotating MF Logo sprite!
 TODO add constant rotation to sprite ??
 TODO pause menu / GUI must be over red hit effect!
 TODO debug and improve init process?

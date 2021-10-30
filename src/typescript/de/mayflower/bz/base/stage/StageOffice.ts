@@ -330,7 +330,7 @@
                     )
                 ),
 */
-                // heightmap ground (hill)
+                // heightmap ground (hills)
                 new bz.Wall
                 (
                     this,
@@ -344,6 +344,7 @@
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 100.0,
                                 75.0,
+                                'res/image/texture/heightMap/heightMap1.png',
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.PhysicBehaviour.STATIC
@@ -351,49 +352,24 @@
                         ]
                     )
                 ),
-
+                // heightmap ground (hills)
                 new bz.Wall
                 (
                     this,
                     new bz.Model
                     (
                         [
-                            // tree - standing (crossed)
-                            bz.MeshFactory.createBox
+                            bz.MeshFactory.createHeightMapGround
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 5.0,  0.0, 20.0   ),
+                                new BABYLON.Vector3( this.OFFSET_X + 150.0, 0.0, this.OFFSET_Z - 50.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0   ),
-                                bz.Texture.WALL_TREE,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 6.5,  0.0, 18.5   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 3.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, 270.0, 0.0   ),
-                                bz.Texture.WALL_TREE,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
+                                100.0,
+                                75.0,
+                                'res/image/texture/heightMap/heightMap2.png',
+                                this.ambientColor,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.PhysicBehaviour.STATIC
                             ),
                         ]
                     )

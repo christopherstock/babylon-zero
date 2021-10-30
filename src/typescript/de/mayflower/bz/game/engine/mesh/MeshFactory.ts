@@ -147,9 +147,10 @@
         (
             scene       :bz.Scene,
             position    :BABYLON.Vector3,
-            pivotAnchor,
-                sideSize    :number,
+            pivotAnchor :bz.MeshPivotAnchor,
+            sideSize    :number,
             height      :number,
+            textureFile :string,
             emissiveColor,
             rotation,
             physic
@@ -192,8 +193,8 @@
                 },
             };
             let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
-                'ground',
-                'res/image/texture/heightMap/heightMap.png',
+                MeshFactory.createNextMeshId(),
+                textureFile,
                 options,
                 scene.getNativeScene()
             );
