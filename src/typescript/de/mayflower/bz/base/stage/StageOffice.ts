@@ -340,9 +340,10 @@
                             bz.MeshFactory.createHeightMapGround
                             (
                                 this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z - 50.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X + 50.0, 0.0, this.OFFSET_Z - 50.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 80.0, 75.0, 100.0 ),
+                                100.0,
+                                75.0,
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.PhysicBehaviour.STATIC

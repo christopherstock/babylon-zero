@@ -148,7 +148,8 @@
             scene       :bz.Scene,
             position    :BABYLON.Vector3,
             pivotAnchor,
-            size        :BABYLON.Vector3,
+                sideSize    :number,
+            height      :number,
             emissiveColor,
             rotation,
             physic
@@ -158,20 +159,20 @@
             const subdivisions :number = ( 100.0 );
 
             const options = {
-                width: size.x,
-                height: size.z,
-                depth: size.y,
+                width: sideSize,
+                height: sideSize,
+                depth: height,
                 subdivisions: subdivisions,
-                minHeight: 0,
-                maxHeight: size.y,
+                minHeight: 0.0,
+                maxHeight: height,
                 onReady: () :void => {
                     const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
                     (
                         scene.getNativeScene(),
                         bz.Texture.WALL_GRASS,
                         false,
-                        size.x,
-                        size.z,
+                        sideSize,
+                        sideSize,
                         null,
                         1.0,
                         emissiveColor
@@ -202,9 +203,9 @@
                 ground,
                 position,
                 pivotAnchor,
-                size.x,
-                size.y,
-                size.z
+                sideSize,
+                height,
+                sideSize
             );
 
             return ground;
