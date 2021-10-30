@@ -155,7 +155,7 @@
         )
         : BABYLON.Mesh
         {
-            const subdivisions :number = 50;
+            const subdivisions :number = ( 100.0 );
 
             const options = {
                 width: size.x,
@@ -170,8 +170,8 @@
                         scene.getNativeScene(),
                         bz.Texture.WALL_GRASS,
                         false,
-                        size.x,
-                        size.z,
+                        1, // size.x,
+                        1, // size.z,
                         null,
                         1.0,
                         emissiveColor
