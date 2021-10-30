@@ -26,6 +26,7 @@
             diffuseColor  :BABYLON.Color3,
             specularColor :BABYLON.Color3,
             groundColor   :BABYLON.Color3,
+            intensity     :number,
             enabled       :boolean
         )
         : BABYLON.HemisphericLight
@@ -40,6 +41,7 @@
             light.diffuse     = diffuseColor ;
             light.specular    = specularColor;
             light.groundColor = groundColor  ;
+            light.intensity   = intensity;
             light.setEnabled( enabled );
 
             return light;

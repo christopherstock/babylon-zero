@@ -10,7 +10,7 @@
         private                 readonly    OFFSET_Z                :number                                 = 200.0;
 
         /** A testwise mesh - made from a single 3dsmax Mesh. */
-        private                             chairCompoundDestroyable            :bz.Model                   = null;
+        private                             chairCompoundDestroyable            :bz.Wall                    = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes. */
         private                             chairMultiMeshesNoCompound          :bz.Model                   = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
@@ -129,13 +129,18 @@
         protected createWalls() : bz.Wall[]
         {
             // multi mesh chair with compound .. desired!
-            this.chairCompoundDestroyable = bz.MeshFactory.createImportedModel
+            this.chairCompoundDestroyable = new bz.Wall
             (
-                this.scene,
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 20.0, 5.0, this.OFFSET_Z + 25.5 ),
-                bz.PhysicBehaviour.SOLID_CONCRETE,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
+                this,
+                bz.MeshFactory.createImportedModel
+                (
+                    this.scene,
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    new BABYLON.Vector3( this.OFFSET_X + 20.0, 5.0, this.OFFSET_Z + 25.5 ),
+                    bz.PhysicBehaviour.SOLID_CONCRETE,
+                    bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
+                ),
+                10.0
             );
             // multi mesh chair without compound .. immediately collapses!
             this.chairMultiMeshesNoCompound = bz.MeshFactory.createImportedModel
@@ -190,12 +195,7 @@
             let walls :bz.Wall[] = [
 
                 // office chair - multi meshed - destroyable compound
-                new bz.Wall
-                (
-                    this,
-                    this.chairCompoundDestroyable,
-                    10.0
-                ),
+                this.chairCompoundDestroyable,
 
                 // office chair - multi meshed - destroyable compound
                 new bz.Wall
@@ -339,157 +339,14 @@
                     new bz.Model
                     (
                         [
-                            // plane - amiga at world origin
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 2.0,  4.0, bz.MeshFactory.FACE_DEPTH   ),
-                                new BABYLON.Vector3( 0.0, 45.0, 0.0   ),
-                                bz.Texture.WALL_AMIGA,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // plane - amiga plane 45° - BACKSIDE
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 15.0, 0.0, 6.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, -45.0, 0.0 ),
-                                bz.Texture.WALL_AMIGA,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // plane - amiga plane 45° - FRONTSIDE
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 21.0, 0.0, 30.0 - bz.MeshFactory.FACE_DEPTH ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, 65.0, 0.0 ),
-                                bz.Texture.WALL_AMIGA,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // plane - amiga 180° - FRONTSIDE
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 8.0, 0.0, 6.0 - bz.MeshFactory.FACE_DEPTH ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_GRASS,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // plane - amiga 180° - BACKSIDE
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 8.0, 0.0, 6.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 7.0, 7.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_GRASS,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
                             // box - amiga light frontside
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 20.0, 0.0, 11.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z + 0.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_AMIGA,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            // box - amiga light backside
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 10.0, 0.0, 18.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                                new BABYLON.Vector3( 0.0, 180.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
                                 null,
                                 bz.PhysicBehaviour.STATIC,
@@ -510,9 +367,9 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 2.0,  0.0, 15.0   ),
+                                new BABYLON.Vector3( this.OFFSET_X + 0.0,  2.5, this.OFFSET_Z + 0.0   ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 2.0, 3.0, bz.MeshFactory.FACE_DEPTH ),
+                                new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
                                 null,
@@ -521,32 +378,6 @@
                                 this.ambientColor
                             ),
                         ]
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    bz.MeshFactory.createImportedModel
-                    (
-                        this.scene,
-                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                        new BABYLON.Vector3( -10.0, 20.0, 10.0 ),
-                        bz.PhysicBehaviour.SOLID_WOOD,
-                        bz.ModelCompoundType.NONE
-                    )
-                ),
-
-                new bz.Wall
-                (
-                    this,
-                    bz.MeshFactory.createImportedModel
-                    (
-                        this.scene,
-                        bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                        new BABYLON.Vector3( -10.0, 20.0, 15.0 ),
-                        bz.PhysicBehaviour.SOLID_WOOD,
-                        bz.ModelCompoundType.NONE
                     )
                 ),
             ];
@@ -718,7 +549,6 @@
                     1.0,
                     true
                 ),
-
 /*
                 // hemispheric light
                 bz.LightFactory.createHemispheric
@@ -728,9 +558,10 @@
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                     new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    0.1,
                     false
                 ),
- */
+*/
 /*
                 // directional light ?
                 bz.LightFactory.createDirectional
@@ -808,11 +639,16 @@
         ***************************************************************************************************************/
         protected setupShadows() : void
         {
-            // set shadows for all walls
-            for ( const wall of this.walls )
+            if ( false )
             {
-                wall.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
+                // set shadows for all walls
+                for ( const wall of this.walls )
+                {
+                    wall.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
+                }
             }
+
+            this.chairCompoundDestroyable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
         }
 
         /** ************************************************************************************************************
@@ -878,25 +714,13 @@
                             bz.MeshFactory.createHeightMapGround
                             (
                                 this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 50.0, 0.0, this.OFFSET_Z - 50.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X + 200.0, 0.0, this.OFFSET_Z - 200.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
-                                100.0,
+                                400.0,
                                 15.0,
                                 'res/image/texture/heightMap/heightMap1.png',
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
-                                bz.PhysicBehaviour.STATIC
-                            ),
-                            bz.MeshFactory.createHeightMapGround
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 150.0, 0.0, this.OFFSET_Z - 50.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                100.0,
-                                75.0,
-                                'res/image/texture/heightMap/heightMap2.png',
-                                this.ambientColor,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.PhysicBehaviour.STATIC
                             ),
                         ]
