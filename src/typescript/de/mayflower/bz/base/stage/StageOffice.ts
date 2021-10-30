@@ -10,7 +10,7 @@
         private                 readonly    OFFSET_Z                :number                                 = 200.0;
 
         /** A testwise mesh - made from a single 3dsmax Mesh. */
-        private                             chairSingle             :bz.Model                               = null;
+        private                             chairCompoundDestroyable             :bz.Model                               = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes. */
         private                             chairMulti              :bz.Model                               = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
@@ -126,11 +126,11 @@
         protected createWalls() : bz.Wall[]
         {
             // import mesh model
-            this.chairSingle = bz.MeshFactory.createImportedModel
+            this.chairCompoundDestroyable = bz.MeshFactory.createImportedModel
             (
                 this.scene,
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 15.0, 5.0, 17.5 ),
+                new BABYLON.Vector3( this.OFFSET_X + 20.0, 5.0, this.OFFSET_Z + 25.5 ),
                 bz.PhysicBehaviour.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             );
@@ -177,7 +177,15 @@
 */
             let walls :bz.Wall[] = [
 
-                // add sphere
+                // office chair - multi meshed - destroyable compound
+                new bz.Wall
+                (
+                    this,
+                    this.chairCompoundDestroyable,
+                    10.0
+                ),
+
+                // solid white sphere
                 new bz.Wall
                 (
                     this,
@@ -195,6 +203,34 @@
                                 bz.Texture.WALL_TEST,
                                 null,
                                 bz.PhysicBehaviour.LIGHT_WOOD,
+                                1.0,
+                                this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                // static elevated ground
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3(
+                                    this.OFFSET_X + 5.0,
+                                    -bz.MeshFactory.FACE_DEPTH,
+                                    this.OFFSET_Z + 50.0
+                                ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
+                                bz.Texture.WALL_GRASS,
+                                null,
+                                bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
                             ),
@@ -223,13 +259,6 @@
                     this.compoundSpheres
                 ),
 */
-                // 3ds chair single-meshed
-                new bz.Wall
-                (
-                    this,
-                    this.chairSingle,
-                    3
-                ),
 /*
                 // tv
                 new bz.Wall
@@ -262,54 +291,6 @@
                 ),
 */
 /*
-                // red sphere from own model
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createSphere
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 10.0, 0.0, 10.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                3.0,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                null,
-                                bz.SettingColor.COLOR_RGB_RED,
-                                bz.Physic.SOLID_WOOD,
-                                1.0,
-                                bz.SettingColor.COLOR_RGB_RED // this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-*/
-                // test wall green
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 3.0, 2.5, 1.0  ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 15.0, 5.0, 0.5 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_GRASS,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-/*
                 // test wall (flying obstacle)
                 new bz.Wall
                 (
@@ -334,31 +315,6 @@
                     )
                 ),
 */
-                // static elevated ground
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 0.0, -bz.MeshFactory.FACE_DEPTH, 0.0  ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  40.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
-                                bz.Texture.WALL_GRASS,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                // bz.Physic.NONE,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
                 // heightmap ground
                 new bz.Wall
                 (
@@ -696,7 +652,6 @@
         protected createItems() : bz.Item[]
         {
             return [
-
                 new bz.Item
                 (
                     this,
@@ -704,12 +659,11 @@
                     (
                         this.scene,
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+                        new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 50.0 ),
                         null,
                         bz.ModelCompoundType.NONE
                     )
                 ),
-
                 new bz.Item
                 (
                     this,
@@ -717,12 +671,11 @@
                     (
                         this.scene,
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 25.0, 0.0, 20.0 ),
+                        new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 55.0 ),
                         null,
                         bz.ModelCompoundType.NONE
                     )
                 ),
-
                 new bz.Item
                 (
                     this,
@@ -730,12 +683,11 @@
                     (
                         this.scene,
                         bz.ModelFile.SHELLS,
-                        new BABYLON.Vector3( 30.0, 0.0, 20.0 ),
+                        new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 60.0 ),
                         null,
                         bz.ModelCompoundType.NONE
                     )
                 ),
-
             ];
         }
 
@@ -939,9 +891,8 @@
         protected setupFog() : void
         {
             this.scene.disableFog();
-
             // green poison steam..
-            // this.scene.enableFog( new BABYLON.Color3( 101 / 256, 206 / 256, 143 / 256 ), 0.05 );
+            // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 );
         }
 
         // TODO move to StageContentsFactory ?? :)

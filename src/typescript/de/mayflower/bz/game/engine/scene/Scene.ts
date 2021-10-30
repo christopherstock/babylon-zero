@@ -186,8 +186,8 @@
         ***************************************************************************************************************/
         public enableFog( color:BABYLON.Color3, density:number ) : void
         {
-            // Fog Mode '2' is faster!
-            this.babylonScene.fogMode    = BABYLON.Scene.FOGMODE_EXP;
+            // Fog Mode 'LINEAR' is faster!
+            this.babylonScene.fogMode    = BABYLON.Scene.FOGMODE_EXP2;
             this.babylonScene.fogColor   = color;
 
             // for exponential mode
