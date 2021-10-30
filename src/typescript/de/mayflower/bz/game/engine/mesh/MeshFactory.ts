@@ -145,21 +145,21 @@
 
         public static createHeightMapGround
         (
-            scene       :bz.Scene,
-            position    :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPivotAnchor,
-            sideSize    :number,
-            height      :number,
-            textureFile :string,
-            emissiveColor,
-            rotation,
-            physic
+            scene         :bz.Scene,
+            position      :BABYLON.Vector3,
+            pivotAnchor   :bz.MeshPivotAnchor,
+            sideSize      :number,
+            height        :number,
+            textureFile   :string,
+            emissiveColor :BABYLON.Color3,
+            rotation      :BABYLON.Vector3,
+            physic        :bz.PhysicBehaviour
         )
         : BABYLON.Mesh
         {
-            const subdivisions :number = ( 100.0 );
+            const subdivisions :number = sideSize;
 
-            const options = {
+            const options :any = {
                 width: sideSize,
                 height: sideSize,
                 depth: height,

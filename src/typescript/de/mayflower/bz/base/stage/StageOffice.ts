@@ -33,7 +33,10 @@
             super
             (
                 game,
-                new BABYLON.Color3( 0.2, 0.2, 0.2 ),
+
+                // new BABYLON.Color3( 0.1, 0.1, 0.1 ), // night
+                new BABYLON.Color3( 0.6, 0.6, 0.6 ), // evening
+
                 bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
                 bz.CameraType.FIRST_PERSON
             );
@@ -330,51 +333,6 @@
                     )
                 ),
 */
-                // heightmap ground (hills)
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createHeightMapGround
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 50.0, 0.0, this.OFFSET_Z - 50.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                100.0,
-                                75.0,
-                                'res/image/texture/heightMap/heightMap1.png',
-                                this.ambientColor,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.PhysicBehaviour.STATIC
-                            ),
-                        ]
-                    )
-                ),
-                // heightmap ground (hills)
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createHeightMapGround
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 150.0, 0.0, this.OFFSET_Z - 50.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                100.0,
-                                75.0,
-                                'res/image/texture/heightMap/heightMap2.png',
-                                this.ambientColor,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.PhysicBehaviour.STATIC
-                            ),
-                        ]
-                    )
-                ),
-
                 new bz.Wall
                 (
                     this,
@@ -749,18 +707,32 @@
         {
             return [
 
+                // point light
+                bz.LightFactory.createPoint
+                (
+                    this.scene.getNativeScene(),
+                    new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.0, this.OFFSET_Z + 16.0 ),
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                    50.0,
+                    1.0,
+                    true
+                ),
+
+/*
                 // hemispheric light
                 bz.LightFactory.createHemispheric
                 (
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-                    new BABYLON.Color3( 0.5, 0.5, 0.5 ),
+                    new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 0.1, 0.1, 0.1 ),
                     new BABYLON.Color3( 0.0, 0.0, 0.0 ),
                     false
                 ),
-
-                // directional light
+ */
+/*
+                // directional light ?
                 bz.LightFactory.createDirectional
                 (
                     this.scene.getNativeScene(),
@@ -772,7 +744,7 @@
                     false
                 ),
 
-                // spot light
+                // spot light ?
                 bz.LightFactory.createSpot
                 (
                     this.scene.getNativeScene(),
@@ -797,19 +769,20 @@
                     1.0,
                     true
                 ),
-
+*/
+/*
                 // point light
                 bz.LightFactory.createPoint
                 (
                     this.scene.getNativeScene(),
-                    new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.0, this.OFFSET_Z + 16.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.0, this.OFFSET_Z - 16.0 ),
                     new BABYLON.Color3( 1.0, 1.0, 1.0 ),
                     new BABYLON.Color3( 0.0, 0.0, 0.0 ),
                     50.0,
                     1.0,
                     true
                 ),
-
+*/
             ];
         }
 
@@ -821,7 +794,7 @@
         protected createShadowGenerators() : BABYLON.ShadowGenerator[]
         {
             const shadowGenerators:BABYLON.ShadowGenerator[] = [
-                new BABYLON.ShadowGenerator( 2048, ( this.lights[ 2 ] as BABYLON.SpotLight ) ),
+                new BABYLON.ShadowGenerator( 2048, ( this.lights[ 0 ] as BABYLON.PointLight ) ),
             ];
 
             shadowGenerators[ 0 ].useExponentialShadowMap = true;
@@ -856,6 +829,8 @@
         private createLevelGroundWalls() : bz.Wall[]
         {
             return [
+
+                // test planes
                 new bz.Wall
                 (
                     this,
@@ -888,6 +863,41 @@
                                 bz.PhysicBehaviour.STATIC,
                                 1.0,
                                 this.ambientColor
+                            ),
+                        ]
+                    )
+                ),
+
+                // heightmap ground (hills)
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createHeightMapGround
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X + 50.0, 0.0, this.OFFSET_Z - 50.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                100.0,
+                                15.0,
+                                'res/image/texture/heightMap/heightMap1.png',
+                                this.ambientColor,
+                                new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
+                                bz.PhysicBehaviour.STATIC
+                            ),
+                            bz.MeshFactory.createHeightMapGround
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X + 150.0, 0.0, this.OFFSET_Z - 50.0 ),
+                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                100.0,
+                                75.0,
+                                'res/image/texture/heightMap/heightMap2.png',
+                                this.ambientColor,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.PhysicBehaviour.STATIC
                             ),
                         ]
                     )
