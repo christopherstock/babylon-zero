@@ -676,21 +676,7 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( 0.0, -2.5, 0.0  ),
-                                bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, 2.5, 200.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_TEST,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 200.0, -2.5, 200.0  ),
+                                new BABYLON.Vector3( this.OFFSET_X, -2.5, this.OFFSET_Z  ),
                                 bz.MeshPivotAnchor.NONE,
                                 new BABYLON.Vector3( this.OFFSET_X, 2.5, this.OFFSET_Z ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -717,8 +703,8 @@
                                 new BABYLON.Vector3( this.OFFSET_X + 200.0, 0.0, this.OFFSET_Z - 200.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 400.0,
-                                15.0,
-                                'res/image/texture/heightMap/heightMap1.png',
+                                5.0,
+                                'res/image/texture/heightMap/heightMap5.png',
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
                                 bz.PhysicBehaviour.STATIC
