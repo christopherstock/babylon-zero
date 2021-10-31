@@ -318,12 +318,12 @@
             if ( keySystem.isPressed( bz.KeyCodes.KEY_1 ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_1 );
-                this.stage.setActiveCamera( bz.CameraType.FREE_CAMERA );
+                this.stage.setActiveCamera( bz.CameraType.FIRST_PERSON );
             }
             if ( keySystem.isPressed( bz.KeyCodes.KEY_2 ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_2 );
-                this.stage.setActiveCamera( bz.CameraType.STATIONARY );
+                this.stage.setActiveCamera( bz.CameraType.FREE_CAMERA );
             }
             if ( keySystem.isPressed( bz.KeyCodes.KEY_3 ) )
             {
@@ -333,7 +333,7 @@
             if ( keySystem.isPressed( bz.KeyCodes.KEY_4 ) )
             {
                 keySystem.setNeedsRelease( bz.KeyCodes.KEY_4 );
-                this.stage.setActiveCamera( bz.CameraType.FIRST_PERSON );
+                this.stage.setActiveCamera( bz.CameraType.STATIONARY );
             }
             if ( keySystem.isPressed( bz.KeyCodes.KEY_5 ) )
             {

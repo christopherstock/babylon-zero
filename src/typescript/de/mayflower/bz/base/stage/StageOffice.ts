@@ -605,9 +605,9 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X, -2.5, this.OFFSET_Z  ),
+                                new BABYLON.Vector3( this.OFFSET_X, 12.5, this.OFFSET_Z  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 200.0, 2.5, 200.0 ),
+                                new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
@@ -629,7 +629,7 @@
                             bz.MeshFactory.createHeightMapGround
                             (
                                 this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 200.0, 0.0, this.OFFSET_Z - 200.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 400.0,
                                 5.0,
