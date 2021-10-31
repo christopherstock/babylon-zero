@@ -6,8 +6,8 @@
     *******************************************************************************************************************/
     export class StageOffice extends bz.Stage
     {
-        private                 readonly    OFFSET_X                :number                                 = 200.0;
-        private                 readonly    OFFSET_Z                :number                                 = 200.0;
+        private                 readonly    OFFSET_X                :number                                 = 0.0;
+        private                 readonly    OFFSET_Z                :number                                 = 0.0;
 
         /** A testwise mesh - made from a single 3dsmax Mesh. */
         private                             chairCompoundDestroyable            :bz.Wall                    = null;
@@ -343,7 +343,7 @@
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z + 0.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 0.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -678,7 +678,7 @@
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X, -2.5, this.OFFSET_Z  ),
                                 bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( this.OFFSET_X, 2.5, this.OFFSET_Z ),
+                                new BABYLON.Vector3( 200.0, 2.5, 200.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
                                 null,
