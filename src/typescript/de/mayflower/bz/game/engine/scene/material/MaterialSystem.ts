@@ -101,7 +101,7 @@
                     textureV
                 );
 
-                material.backFaceCulling = texture.hasAlpha();
+                material.backFaceCulling = ( texture.hasAlpha() || alpha < 1.0 );
             }
             else if ( color !== null )
             {

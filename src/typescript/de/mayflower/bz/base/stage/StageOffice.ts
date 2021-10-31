@@ -207,7 +207,7 @@
                             bz.MeshFactory.createSphere
                             (
                                 this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X + 10.5, 0.0, this.OFFSET_Z + 30.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
                                 bz.MeshPivotAnchor.LOWEST_XYZ,
                                 3.0,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -220,7 +220,7 @@
                         ]
                     )
                 ),
-
+/*
                 // elevated grass ground
                 new bz.Wall
                 (
@@ -248,7 +248,7 @@
                         ]
                     )
                 ),
-
+*/
 /*
                 // tv
                 new bz.Wall
@@ -738,7 +738,7 @@
                     new bz.Model
                     (
                         [
-                            // movable glass quader
+                            // movable glass cube
                             bz.MeshFactory.createBox
                             (
                                 this.scene,
