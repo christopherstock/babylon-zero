@@ -12,9 +12,9 @@
         /** A testwise mesh - made from a single 3dsmax Mesh. */
         private                             chairCompoundDestroyable            :bz.Wall                    = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes. */
-        private                             chairMultiMeshesNoCompound          :bz.Model                   = null;
+        private                             chairMultiMeshesNoCompound          :bz.Wall                    = null;
         /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
-        private                             chairMultiPhysics       :bz.Model                               = null;
+        private                             chairCompoundSingleShotOff          :bz.Wall                    = null;
 
         /** A testwise mesh 'compound spheres'. */
         // protected                        compoundSpheres         :bz.Model                               = null;
@@ -143,40 +143,34 @@
                 10.0
             );
             // multi mesh chair without compound .. immediately collapses!
-            this.chairMultiMeshesNoCompound = bz.MeshFactory.createImportedModel
+            this.chairMultiMeshesNoCompound = new bz.Wall
             (
-                this.scene,
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
-                bz.PhysicBehaviour.SOLID_WOOD,
-                bz.ModelCompoundType.NONE
-            );
-/*
-            this.chairMulti = bz.MeshFactory.createImportedModel
-            (
-                this.scene,
-                bz.ModelFile.OFFICE_CHAIR_1,
-                new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
-                bz.Physic.CONCRETE,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
-            );
-            this.chairMultiPhysics = bz.MeshFactory.createImportedModel
-            (
-                this.scene,
-                bz.ModelFile.OFFICE_CHAIR_3,
-                new BABYLON.Vector3( 20.0, 4.0, 30.0 ),
-                null,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
-            );
-            this.compoundSpheres = bz.MeshFactory.createImportedModel
-            (
-                this.scene,
-                bz.ModelFile.DOUBLE_SPHERE_1,
-                new BABYLON.Vector3( 60.0, 10.0, 50.0 ),
-                null,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
+                this,
+                bz.MeshFactory.createImportedModel
+                (
+                    this.scene,
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
+                    bz.PhysicBehaviour.SOLID_WOOD,
+                    bz.ModelCompoundType.NONE
+                ),
+                10.0
             );
 
+            this.chairCompoundSingleShotOff = new bz.Wall
+            (
+                this,
+                bz.MeshFactory.createImportedModel
+                (
+                    this.scene,
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
+                    bz.PhysicBehaviour.CONCRETE,
+                    bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
+                ),
+                10.0
+            );
+/*
             const tv:BABYLON.Mesh = bz.MeshFactory.createBox
             (
                 this.scene,
@@ -198,11 +192,10 @@
                 this.chairCompoundDestroyable,
 
                 // office chair - multi meshed - destroyable compound
-                new bz.Wall
-                (
-                    this,
-                    this.chairMultiMeshesNoCompound
-                ),
+                this.chairCompoundSingleShotOff,
+
+                // office chair - multi meshed - single meshes destroyable
+                this.chairMultiMeshesNoCompound,
 
                 // solid white sphere
                 new bz.Wall
@@ -255,28 +248,7 @@
                         ]
                     )
                 ),
-/*
-                // black sphere UNCOMPOUND from imported model ( uses physic impostor from 3dsmax file! )
-                new bz.Wall
-                (
-                    this,
-                    bz.MeshFactory.createImportedModel
-                    (
-                        this.scene,
-                        bz.ModelFile.DOUBLE_SPHERE_1,
-                        new BABYLON.Vector3( 30.0, 10.0, 50.0 ),
-                        null,
-                        bz.ModelCompoundType.NONE
-                    )
-                ),
 
-                // black sphere COMPOUND from imported model ( uses physic impostor from 3dsmax file! )
-                new bz.Wall
-                (
-                    this,
-                    this.compoundSpheres
-                ),
-*/
 /*
                 // tv
                 new bz.Wall
@@ -286,49 +258,6 @@
                     (
                         [
                             tv,
-                        ]
-                    )
-                ),
-*/
-/*
-                // 3ds chair - multi-meshes with same physics
-                new bz.Wall
-                (
-                    this,
-                    this.chairMulti,
-                    5
-                ),
-*/
-/*
-                // 3ds chair - multi-meshes with specific physics
-                new bz.Wall
-                (
-                    this,
-                    this.chairMultiPhysics,
-                    5
-                ),
-*/
-/*
-                // test wall (flying obstacle)
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( 20.0, 3.0, 2.0  ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 15.0, 5.0, 5.0 ),
-                                new BABYLON.Vector3( 0.0, 270.0, 0.0 ),
-                                bz.Texture.WALL_WOOD,
-                                null,
-                                bz.Physic.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
                         ]
                     )
                 ),
