@@ -4,9 +4,8 @@
     /** ****************************************************************************************************************
     *   Specifies the physical behaviour of a body.
     *
-    *   TODO rename to PhysicSet ?
     *   TODO prune unused!
-    *   TODO outsource constant data to PhysicBehaviourData etc ?
+    *   TODO outsource constant data to PhysicBehaviourData, PhysicsSet etc ?
     *******************************************************************************************************************/
     export class PhysicBehaviour
     {

@@ -10,6 +10,7 @@ TODO add rotating MF Logo sprite!
 TODO add constant rotation to sprite ??
 TODO pause menu / GUI must be over red hit effect!
 TODO debug and improve init process?
+TODO static glass windows that shatter on shot
 TODO Flashlite on player - depending on wearpon.
 TODO Enable fullscreen toggle via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Add slower panning on aiming/zooming with wearpon.

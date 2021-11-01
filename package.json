@@ -10,8 +10,8 @@
     "bugs": "https://github.com/christopherstock/babylon-zero/issues",
     "scripts": {
         "typescript:compile": "tsc",
-        "webpack:dev": "webpack --mode=development --watch",
-        "webpack:production": "webpack --mode=production --watch",
+        "webpack:dev": "webpack --mode=development",
+        "webpack:production": "webpack --mode=production",
         "webpack:devserver": "webpack-dev-server --mode=development",
         "typedoc:generate": "typedoc --out doc --listInvalidSymbolLinks --name \"Ant Design meets The International Chuck Norris Database, (c) 2020 Mayflower GmbH\" src/typescript",
         "eslint:check": "eslint \"src/**/*.{ts,tsx}\"",
