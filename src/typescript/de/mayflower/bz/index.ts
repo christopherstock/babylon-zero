@@ -7,6 +7,7 @@
     export * from './game/engine/camera/CameraSystem';
     export * from './game/engine/camera/CameraType';
 
+    export * from './game/stage/StageConfig';
     export * from './game/stage/StageId';
 
     export * from './base/setting/SettingBranding';

@@ -10,24 +10,6 @@ on:
 
 jobs:
 
-  npm-start:
-    name: Start Node.js App
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout GitHub Repository
-      uses: actions/checkout@v2
-    - name: Use Node.js 14.18
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14.18
-        cache: 'npm'
-    - name: Install npm packages
-      run: npm install
-    - name: Start app
-      run: npm start &
-    - name: Send cURL Request to the Node.js App
-      run: curl -i 0.0.0.0:8181/user
-
   build-production:
     name: Build Production App
     runs-on: ubuntu-latest
@@ -42,12 +24,12 @@ jobs:
     - name: Install npm packages
       run: npm install
     - name: Build Production App Bundle
-      run: npm run webpack-production
+      run: npm run webpack:production
     - name: Upload Production App Bundle to Build Artefacts
       uses: actions/upload-artifact@v1
       with:
         name: app-bundle
-        path: public/app-bundle.js
+        path: dist/js/babylon-zero-*.js
 
   run-unit-tests:
     name: Unit Tests
@@ -69,7 +51,7 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: echo Running Jest Unit tests
-    - run: npm test
+    - run: npm test:jest
     - name: Upload Test Report Artefact
       uses: actions/upload-artifact@v1
       with:
@@ -95,7 +77,7 @@ jobs:
         cache: 'npm'
     - run: npm install
     - name: Run ESLint Scan on app sourcecode
-      run: npm run eslint-scan
+      run: npm run eslint:check
     - name: Generate ESLint Report from app sourcecode scan
       run: npm run eslint-report
     - name: Upload Linter Report Artefact
@@ -117,7 +99,7 @@ jobs:
         node-version: 14.18
         cache: 'npm'
     - run: npm install
-    - run: npm run jsdoc
+    - run: npm run typedoc:generate
     - name: Upload JSDoc documentation
       uses: actions/upload-artifact@v1
       with:
@@ -177,10 +159,12 @@ jobs:
         run: docker build . --tag express-js-app:14.18
       - name: Create and run Docker Container from Docker Image
         run: docker run --name express-js-app-container --detach --publish 45678:8181 --tty express-js-app:14.18
-      - name: Sleep 5 seconds (wait till Express.js app is running)
-        run: sleep 5s
-      - name: Send a cURL request to the Docker container
-        run: curl -i 0.0.0.0:45678/user
+
+      #- name: Sleep 5 seconds (wait till Express.js app is running)
+      #  run: sleep 5s
+      #- name: Send a cURL request to the Docker container
+      #  run: curl -i 0.0.0.0:45678/user
+
       - name: Stop the Docker Container
         run: docker stop express-js-app-container
       - name: Wait until Docker Container is down
