@@ -142,8 +142,10 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
-            // import logo
-            this.logo = bz.MeshFactory.createImportedModel
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
+            // mayflower logo
+            this.logo = meshFactory.createImportedModel
             (
                 this.scene,
                 bz.ModelFile.MF_LOGO,

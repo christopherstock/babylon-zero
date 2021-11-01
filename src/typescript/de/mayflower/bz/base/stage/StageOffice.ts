@@ -128,11 +128,13 @@
         ***************************************************************************************************************/
         protected createWalls() : bz.Wall[]
         {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
             // multi mesh chair with compound .. desired!
             this.chairCompoundDestroyable = new bz.Wall
             (
                 this,
-                bz.MeshFactory.createImportedModel
+                meshFactory.createImportedModel
                 (
                     this.scene,
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
@@ -146,7 +148,7 @@
             this.chairMultiMeshesNoCompound = new bz.Wall
             (
                 this,
-                bz.MeshFactory.createImportedModel
+                meshFactory.createImportedModel
                 (
                     this.scene,
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
@@ -160,7 +162,7 @@
             this.chairCompoundSingleShotOff = new bz.Wall
             (
                 this,
-                bz.MeshFactory.createImportedModel
+                meshFactory.createImportedModel
                 (
                     this.scene,
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
@@ -171,7 +173,7 @@
                 10.0
             );
 /*
-            const tv:BABYLON.Mesh = bz.MeshFactory.createBox
+            const tv:BABYLON.Mesh = meshFactory.createBox
             (
                 this.scene,
                 new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
@@ -204,7 +206,7 @@
                     new bz.Model
                     (
                         [
-                            bz.MeshFactory.createSphere
+                            meshFactory.createSphere
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
@@ -228,7 +230,7 @@
                     new bz.Model
                     (
                         [
-                            bz.MeshFactory.createBox
+                            meshFactory.createBox
                             (
                                 this.scene,
                                 new BABYLON.Vector3(
@@ -269,7 +271,7 @@
                     (
                         [
                             // box - amiga light frontside
-                            bz.MeshFactory.createBox
+                            meshFactory.createBox
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 0.0 ),
@@ -293,7 +295,7 @@
                     (
                         [
                             // movable glass pane
-                            bz.MeshFactory.createBox
+                            meshFactory.createBox
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0,  2.5, this.OFFSET_Z + 0.0   ),
@@ -326,11 +328,13 @@
         ***************************************************************************************************************/
         protected createItems() : bz.Item[]
         {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
             return [
                 new bz.Item
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.SHELLS,
@@ -342,7 +346,7 @@
                 new bz.Item
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.SHELLS,
@@ -354,7 +358,7 @@
                 new bz.Item
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.SHELLS,
@@ -383,7 +387,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return bz.MeshFactory.createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 0.5 );
+            return new bz.MeshFactory( this.scene ).createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 0.5 );
         }
 
         /** ************************************************************************************************************
@@ -593,6 +597,8 @@
         // TODO move to StageContentsFactory ?? :)
         private createLevelGroundWalls() : bz.Wall[]
         {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
             return [
                 // hills ( heightmap ground )
                 new bz.Wall
@@ -601,7 +607,7 @@
                     new bz.Model
                     (
                         [
-                            bz.MeshFactory.createHeightMapGround
+                            meshFactory.createHeightMapGround
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
@@ -624,7 +630,7 @@
                     new bz.Model
                     (
                         [
-                            bz.MeshFactory.createBox
+                            meshFactory.createBox
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X, 10.5, this.OFFSET_Z  ),
@@ -645,6 +651,8 @@
 
         private createBoxesWalls() : bz.Wall[]
         {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
             return [
 
                 // wooden test crates
@@ -652,7 +660,7 @@
                 new bz.Wall
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
@@ -664,7 +672,7 @@
                 new bz.Wall
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
@@ -676,7 +684,7 @@
                 new bz.Wall
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
@@ -688,7 +696,7 @@
                 new bz.Wall
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
@@ -700,7 +708,7 @@
                 new bz.Wall
                 (
                     this,
-                    bz.MeshFactory.createImportedModel
+                    meshFactory.createImportedModel
                     (
                         this.scene,
                         bz.ModelFile.CRATE,
@@ -715,7 +723,7 @@
                     new bz.Model
                     (
                         [
-                            bz.MeshFactory.createBox
+                            meshFactory.createBox
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
@@ -738,7 +746,7 @@
                     (
                         [
                             // movable glass cube
-                            bz.MeshFactory.createBox
+                            meshFactory.createBox
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),

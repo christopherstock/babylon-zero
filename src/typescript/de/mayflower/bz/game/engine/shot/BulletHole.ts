@@ -50,7 +50,7 @@
             // append the debug hit face normal
             if ( bz.SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL )
             {
-                this.createDebugHoleNormalLine( scene.getNativeScene() );
+                this.createDebugHoleNormalLine( scene );
             }
         }
 
@@ -80,7 +80,7 @@
         {
             const meshTexture:bz.Texture = bz.Texture.getAccordingBulletHoleTextureForMesh( this.hitPoint.getMesh() );
 
-            this.holeMesh = bz.MeshFactory.createDecal
+            this.holeMesh = new bz.MeshFactory( scene ).createDecal
             (
                 scene,
                 this.hitPoint.getPoint().clone(),
@@ -107,7 +107,8 @@
         private createDebugHoleSphere( scene:bz.Scene ) : void
         {
             // create debug bullet hole
-            this.debugSphereMesh = bz.MeshFactory.createSphere
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( scene );
+            this.debugSphereMesh = meshFactory.createSphere
             (
                 scene,
                 this.hitPoint.getPoint().clone(),
@@ -130,12 +131,12 @@
         *
         *   @param scene The native babylon.JS scene to create the bullet hole for.
         ***************************************************************************************************************/
-        private createDebugHoleNormalLine( scene:BABYLON.Scene ) : void
+        private createDebugHoleNormalLine( scene:bz.Scene ) : void
         {
             // create debug bullet hole
-            this.debugNormalLine = bz.MeshFactory.createLine
+            this.debugNormalLine = new bz.MeshFactory( scene ).createLine
             (
-                scene,
+                scene.getNativeScene(),
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE

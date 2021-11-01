@@ -189,7 +189,7 @@
         {
             this.enableSingleShotOffs = enableSingleShotOffs;
 
-            this.compoundMesh = bz.MeshFactory.createBox
+            this.compoundMesh = new bz.MeshFactory( scene ).createBox
             (
                 scene,
                 position,

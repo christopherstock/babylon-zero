@@ -328,7 +328,7 @@
             // add debug line
             if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )
             {
-                this.debugMeshes.push( shot.createDebugLine( this.scene.getNativeScene() ) );
+                this.debugMeshes.push( shot.createDebugLine( this.scene ) );
             }
 
             // determine all hit points without hurting the game objects
@@ -401,10 +401,12 @@
         ***************************************************************************************************************/
         private createCoordinalAxis() : void
         {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
             this.debugMeshes.push
             (
                 // axis x
-                bz.MeshFactory.createLine
+                meshFactory.createLine
                 (
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
@@ -413,7 +415,7 @@
                 ),
 
                 // axis y
-                bz.MeshFactory.createLine
+                meshFactory.createLine
                 (
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
@@ -422,7 +424,7 @@
                 ),
 
                 // axis z
-                bz.MeshFactory.createLine
+                meshFactory.createLine
                 (
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),

@@ -87,11 +87,11 @@
         *
         *   @return The debug line mesh that represents this shot.
         ***************************************************************************************************************/
-        public createDebugLine( scene:BABYLON.Scene ) : BABYLON.Mesh
+        public createDebugLine( scene:bz.Scene ) : BABYLON.Mesh
         {
-            return bz.MeshFactory.createLine
+            return new bz.MeshFactory( scene ).createLine
             (
-                scene,
+                scene.getNativeScene(),
                 this.source,
                 this.destination,
                 bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE

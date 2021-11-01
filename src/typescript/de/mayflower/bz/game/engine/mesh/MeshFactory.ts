@@ -12,6 +12,13 @@
         /** Next ID to assign for mesh creation. */
         private             static              nextMeshId              :number                     = 0;
 
+        private                                 scene                   :bz.Scene                   = null;
+
+        public constructor( scene:bz.Scene )
+        {
+            this.scene = scene;
+        }
+
         /** ************************************************************************************************************
         *   Returns the next id for a new mesh to create.
         *
@@ -27,7 +34,7 @@
         *
         *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
-        *   @param anchor   The anchor point of this mesh.
+        *   @param anchor        The anchor point of this mesh.
         *   @param size          The dimensions of this mesh for all axis.
         *   @param rotation      The initial rotation for all axis.
         *   @param texture       The texture to apply.
@@ -38,7 +45,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createBox
+        public createBox
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
@@ -131,7 +138,7 @@
 
             const volume:number = bz.MathUtil.getCubeVolume( size.x, size.y, size.z );
 
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene.getNativeScene(),
                 box,
@@ -143,7 +150,7 @@
             );
         }
 
-        public static createHeightMapGround
+        public createHeightMapGround
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
@@ -179,7 +186,7 @@
                         emissiveColor
                     );
 
-                    ground = MeshFactory.decorateMesh
+                    ground = this.decorateMesh
                     (
                         scene.getNativeScene(),
                         ground,
@@ -229,7 +236,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createCylinder
+        public createCylinder
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
@@ -311,7 +318,7 @@
 
             const volume:number = bz.MathUtil.getCylinderVolume( diameter, height );
 
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene.getNativeScene(),
                 cylinder,
@@ -339,7 +346,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSphere
+        public createSphere
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
@@ -387,7 +394,7 @@
 
             const volume:number = bz.MathUtil.getSphereVolume( diameter );
 
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene.getNativeScene(),
                 sphere,
@@ -420,7 +427,7 @@
         *
         *   @deprecated Lights will not automatically be calculated correctly by the babylon.JS engine!
         ***************************************************************************************************************/
-        public static createPlane
+        public createPlane
         (
             scene           :bz.Scene,
 
@@ -476,7 +483,7 @@
 
             const volume:number = bz.MathUtil.getCubeVolume( width, height, MeshFactory.FACE_DEPTH );
 
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene.getNativeScene(),
                 plane,
@@ -500,7 +507,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createLine
+        public createLine
         (
             scene       :BABYLON.Scene,
 
@@ -542,7 +549,7 @@
                 0.0
             );
 
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene,
                 line,
@@ -570,7 +577,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createPolygon
+        public createPolygon
         (
             scene         :bz.Scene,
 
@@ -625,7 +632,7 @@
                 emissiveColor
             );
 
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene.getNativeScene(),
                 polygon,
@@ -654,7 +661,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createDecal
+        public createDecal
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
@@ -699,7 +706,7 @@
             console.log( '>> parentMesh material z: ' + parentMesh.material.zOffset );
             console.log( '>>>>>> bullet hole z: '     + material.zOffset );
 */
-            return MeshFactory.decorateMesh
+            return this.decorateMesh
             (
                 scene.getNativeScene(),
                 decal,
@@ -720,7 +727,7 @@
         *
         *   @return The created skybox mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxCube
+        public createSkyBoxCube
         (
             scene   :BABYLON.Scene,
             skyBox  :bz.SkyBoxFile,
@@ -772,7 +779,7 @@
         *
         *   @return The created mesh.
         ***************************************************************************************************************/
-        public static createSkyBoxSphere
+        public createSkyBoxSphere
         (
             scene   :BABYLON.Scene,
             skyBox  :bz.SkyBoxFile,
@@ -870,7 +877,7 @@
         *
         *   @return A clone of the model with the specified filename.
         ***************************************************************************************************************/
-        public static createImportedModel
+        public createImportedModel
         (
             scene        :bz.Scene,
             fileName     :string,
@@ -936,7 +943,7 @@
         *   @param physicsImpostorType The kind of physic impostor to apply to this mesh.
         *   @param volume              The calculated volume of the mesh.
         ***************************************************************************************************************/
-        private static decorateMesh
+        private decorateMesh
         (
             scene               :BABYLON.Scene,
             mesh                :BABYLON.Mesh,
