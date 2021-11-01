@@ -42,7 +42,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPivotAnchor,
+            pivotAnchor   :bz.MeshPositionAnchor,
             size          :BABYLON.Vector3,
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
@@ -147,7 +147,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPivotAnchor,
+            pivotAnchor   :bz.MeshPositionAnchor,
             sideSize      :number,
             height        :number,
             textureFile   :string,
@@ -233,7 +233,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPivotAnchor,
+            pivotAnchor   :bz.MeshPositionAnchor,
             diameter      :number,
             height        :number,
             rotation      :BABYLON.Vector3,
@@ -343,7 +343,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPivotAnchor,
+            pivotAnchor   :bz.MeshPositionAnchor,
             diameter      :number,
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
@@ -425,7 +425,7 @@
             scene           :bz.Scene,
 
             position        :BABYLON.Vector3,
-            pivotAnchor     :bz.MeshPivotAnchor,
+            pivotAnchor     :bz.MeshPositionAnchor,
             width           :number,
             height          :number,
             rotation        :BABYLON.Vector3,
@@ -506,7 +506,7 @@
 
             start       :BABYLON.Vector3,
             end         :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPivotAnchor,
+            pivotAnchor :bz.MeshPositionAnchor,
             rotation    :BABYLON.Vector3,
 
             color       :BABYLON.Color4
@@ -576,7 +576,7 @@
 
             points        :BABYLON.Vector3[],
 
-            pivotAnchor   :bz.MeshPivotAnchor,
+            pivotAnchor   :bz.MeshPositionAnchor,
             rotation      :BABYLON.Vector3,
 
             color         :BABYLON.Color3,

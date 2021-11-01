@@ -111,7 +111,7 @@
             (
                 scene,
                 this.hitPoint.getPoint().clone(),
-                bz.MeshPivotAnchor.CENTER_XYZ,
+                bz.MeshPositionAnchor.CENTER_XYZ,
                 0.10,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,
@@ -138,7 +138,7 @@
                 scene,
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
-                bz.MeshPivotAnchor.CENTER_XYZ,
+                bz.MeshPositionAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE
             );

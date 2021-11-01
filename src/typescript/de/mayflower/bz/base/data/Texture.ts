@@ -7,6 +7,7 @@
     *   Specifies all textures to load.
     *
     *   TODO extract constant TextureData/TextureFile to new class !?
+    *   TODO extract 1st three params to new class TextureFile !!
     *******************************************************************************************************************/
     export class Texture
     {

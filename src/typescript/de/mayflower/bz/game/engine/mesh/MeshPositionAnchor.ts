@@ -1,8 +1,8 @@
 
     /** ****************************************************************************************************************
-    *   Specifies all valid anchors for a mesh.
+    *   Specifies all anchors for positioning a mesh or sprite.
     *******************************************************************************************************************/
-    export enum MeshPivotAnchor
+    export enum MeshPositionAnchor
     {
         /** No anchor for static non-moving objects like grounds. */
         NONE,

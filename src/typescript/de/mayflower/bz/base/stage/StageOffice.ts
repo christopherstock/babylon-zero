@@ -208,7 +208,7 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
                                 3.0,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
@@ -273,7 +273,7 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 0.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
@@ -297,7 +297,7 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0,  2.5, this.OFFSET_Z + 0.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
                                 new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
@@ -418,7 +418,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -429,7 +429,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -440,7 +440,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -451,7 +451,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -594,32 +594,7 @@
         private createLevelGroundWalls() : bz.Wall[]
         {
             return [
-
-                // test planes
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            bz.MeshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3( this.OFFSET_X, 12.5, this.OFFSET_Z  ),
-                                bz.MeshPivotAnchor.NONE,
-                                new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                bz.Texture.WALL_TEST,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-
-                // heightmap ground (hills)
+                // hills ( heightmap ground )
                 new bz.Wall
                 (
                     this,
@@ -630,13 +605,37 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
                                 400.0,
                                 5.0,
+                                // TODO add HeightMapFile
                                 'res/image/texture/heightMap/heightMap5.png',
                                 this.ambientColor,
                                 new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
                                 bz.PhysicBehaviour.STATIC
+                            ),
+                        ]
+                    )
+                ),
+                // ceiling
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            bz.MeshFactory.createBox
+                            (
+                                this.scene,
+                                new BABYLON.Vector3( this.OFFSET_X, 10.5, this.OFFSET_Z  ),
+                                bz.MeshPositionAnchor.NONE,
+                                new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                bz.Texture.WALL_TEST,
+                                null,
+                                bz.PhysicBehaviour.STATIC,
+                                1.0,
+                                this.ambientColor
                             ),
                         ]
                     )
@@ -720,7 +719,7 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
                                 new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
@@ -743,7 +742,7 @@
                             (
                                 this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
                                 new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,

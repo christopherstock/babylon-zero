@@ -69,7 +69,7 @@
 
     export * from './game/engine/mesh/MeshFactory';
     export * from './game/engine/mesh/MeshManipulation';
-    export * from './game/engine/mesh/MeshPivotAnchor';
+    export * from './game/engine/mesh/MeshPositionAnchor';
 
     export * from './base/physic/PhysicDensity';
     export * from './base/physic/PhysicFriction';

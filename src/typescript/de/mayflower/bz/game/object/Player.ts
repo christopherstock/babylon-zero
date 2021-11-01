@@ -81,7 +81,7 @@
                             position.clone().addInPlace(
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                             ),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            bz.MeshPositionAnchor.CENTER_XYZ,
                             bz.SettingPlayer.DIAMETER_BODY_XZ,
                             bz.SettingPlayer.HEIGHT_Y_STANDING,
                             BABYLON.Vector3.Zero(),
@@ -116,7 +116,7 @@
                                     0.0
                                 )
                             ),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            bz.MeshPositionAnchor.CENTER_XYZ,
                             bz.SettingPlayer.DIAMETER_HEAD,
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
@@ -131,7 +131,7 @@
                         (
                             scene,
                             position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            bz.MeshPositionAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
@@ -146,7 +146,7 @@
                         (
                             scene,
                             position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
-                            bz.MeshPivotAnchor.CENTER_XYZ,
+                            bz.MeshPositionAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,

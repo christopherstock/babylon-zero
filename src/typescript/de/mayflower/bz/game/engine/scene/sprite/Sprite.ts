@@ -44,7 +44,7 @@
             position            :BABYLON.Vector3,
             width               :number,
             height              :number,
-            anchor              :bz.MeshPivotAnchor,
+            anchor              :bz.MeshPositionAnchor,
             collidable          :bz.SpriteCollidable,
             collisionWidthRatio :number
         )
@@ -163,24 +163,24 @@
         *
         *   @param anchor The anchor that specifies the translation.
         ***************************************************************************************************************/
-        private translateByAnchor( anchor:bz.MeshPivotAnchor ) : void
+        private translateByAnchor( anchor:bz.MeshPositionAnchor ) : void
         {
             switch ( anchor )
             {
-                case bz.MeshPivotAnchor.NONE:
-                case bz.MeshPivotAnchor.CENTER_XYZ:
+                case bz.MeshPositionAnchor.NONE:
+                case bz.MeshPositionAnchor.CENTER_XYZ:
                 {
                     // this is the default bahaviour
                     break;
                 }
 
-                case bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y:
+                case bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y:
                 {
                     this.sprite.position.y += ( this.sprite.height / 2 );
                     break;
                 }
 
-                case bz.MeshPivotAnchor.LOWEST_XYZ:
+                case bz.MeshPositionAnchor.LOWEST_XYZ:
                 {
                     this.sprite.position.x += ( this.sprite.width  / 2 );
                     this.sprite.position.z += ( this.sprite.width  / 2 );

@@ -409,7 +409,7 @@
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                     new BABYLON.Vector3( bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0, 0.0 ),
-                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    bz.MeshPositionAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_RED_OPAQUE
                 ),
@@ -420,7 +420,7 @@
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                     new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0 ),
-                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    bz.MeshPositionAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE
                 ),
@@ -431,7 +431,7 @@
                     this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH ),
-                    bz.MeshPivotAnchor.LOWEST_XYZ,
+                    bz.MeshPositionAnchor.LOWEST_XYZ,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE
                 )
