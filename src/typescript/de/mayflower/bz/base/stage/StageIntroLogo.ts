@@ -147,7 +147,6 @@
             // mayflower logo
             this.logo = meshFactory.createImportedModel
             (
-                this.scene,
                 bz.ModelFile.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.PhysicBehaviour.NONE,

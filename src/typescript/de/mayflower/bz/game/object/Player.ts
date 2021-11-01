@@ -77,7 +77,6 @@
                         // Player.PLAYER_BODY_ID
                         new bz.MeshFactory( scene ).createCylinder
                         (
-                            scene,
                             position.clone().addInPlace(
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                             ),
@@ -105,7 +104,6 @@
                         // Player.PLAYER_HEAD_ID
                         new bz.MeshFactory( scene ).createSphere
                         (
-                            scene,
                             position.clone().addInPlace(
                                 new BABYLON.Vector3(
                                     0.0,
@@ -129,7 +127,6 @@
                         // Player.PLAYER_LEFT_HAND_ID
                         new bz.MeshFactory( scene ).createBox
                         (
-                            scene,
                             position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
                             bz.MeshPositionAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
@@ -144,7 +141,6 @@
                         // Player.PLAYER_RIGHT_HAND_ID
                         new bz.MeshFactory( scene ).createBox
                         (
-                            scene,
                             position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
                             bz.MeshPositionAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.25, 0.25, 0.25 ),

@@ -11,9 +11,14 @@
 
         /** Next ID to assign for mesh creation. */
         private             static              nextMeshId              :number                     = 0;
+        /** The scene where this mesh will be applied. */
+        private                     readonly    scene                   :bz.Scene                   = null;
 
-        private                                 scene                   :bz.Scene                   = null;
-
+        /** ************************************************************************************************************
+        *   Creates a mesh factory.
+        *
+        *   @param scene The scene where this mesh will be applied.
+        ***************************************************************************************************************/
         public constructor( scene:bz.Scene )
         {
             this.scene = scene;
@@ -32,7 +37,6 @@
         /** ************************************************************************************************************
         *   Creates a box mesh.
         *
-        *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
         *   @param anchor        The anchor point of this mesh.
         *   @param size          The dimensions of this mesh for all axis.
@@ -47,7 +51,6 @@
         ***************************************************************************************************************/
         public createBox
         (
-            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             anchor        :bz.MeshPositionAnchor,
             size          :BABYLON.Vector3,
@@ -111,7 +114,7 @@
 
                     faceUV: faceUV,
                 },
-                scene.getNativeScene()
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -124,9 +127,9 @@
                 size.z
             );
 
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
             (
-                scene.getNativeScene(),
+                this.scene.getNativeScene(),
                 texture,
                 true,
                 size.x,
@@ -140,7 +143,6 @@
 
             return this.decorateMesh
             (
-                scene.getNativeScene(),
                 box,
                 rotation,
                 material,
@@ -152,7 +154,6 @@
 
         public createHeightMapGround
         (
-            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             anchor   :bz.MeshPositionAnchor,
             sideSize      :number,
@@ -174,9 +175,9 @@
                 minHeight: 0.0,
                 maxHeight: height,
                 onReady: () :void => {
-                    const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+                    const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
                     (
-                        scene.getNativeScene(),
+                        this.scene.getNativeScene(),
                         bz.Texture.WALL_GRASS,
                         false,
                         sideSize,
@@ -188,7 +189,6 @@
 
                     ground = this.decorateMesh
                     (
-                        scene.getNativeScene(),
                         ground,
                         rotation,
                         material,
@@ -203,7 +203,7 @@
                 MeshFactory.createNextMeshId(),
                 textureFile,
                 options,
-                scene.getNativeScene()
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -222,7 +222,6 @@
         /** ************************************************************************************************************
         *   Creates a cylinder mesh.
         *
-        *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
         *   @param anchor     The anchor point of this mesh.
         *   @param diameter        The diameter of the cylinder.
@@ -238,7 +237,6 @@
         ***************************************************************************************************************/
         public createCylinder
         (
-            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             anchor   :bz.MeshPositionAnchor,
             diameter      :number,
@@ -291,7 +289,7 @@
 
                     faceUV:   faceUV,
                 },
-                scene.getNativeScene()
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -304,9 +302,9 @@
                 diameter
             );
 
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
             (
-                scene.getNativeScene(),
+                this.scene.getNativeScene(),
                 texture,
                 true,
                 diameter,
@@ -320,7 +318,6 @@
 
             return this.decorateMesh
             (
-                scene.getNativeScene(),
                 cylinder,
                 rotation,
                 material,
@@ -333,7 +330,6 @@
         /** ************************************************************************************************************
         *   Creates a sphere.
         *
-        *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
         *   @param anchor   The anchor point of this mesh.
         *   @param diameter      The diameter of the sphere.
@@ -348,7 +344,6 @@
         ***************************************************************************************************************/
         public createSphere
         (
-            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             anchor   :bz.MeshPositionAnchor,
             diameter      :number,
@@ -367,7 +362,7 @@
                 {
                     diameter: diameter,
                 },
-                scene.getNativeScene()
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -380,9 +375,9 @@
                 diameter
             );
 
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
             (
-                scene.getNativeScene(),
+                this.scene.getNativeScene(),
                 texture,
                 false,
                 diameter,
@@ -396,7 +391,6 @@
 
             return this.decorateMesh
             (
-                scene.getNativeScene(),
                 sphere,
                 rotation,
                 material,
@@ -410,7 +404,6 @@
         *   Creates a plane mesh. Shouldn't be used in a free 3d space because the side orientation is explicitly
         *   required in order to calculate light effects correctly.
         *
-        *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
         *   @param anchor     The anchor point of this mesh.
         *   @param width           Width  of the plane.
@@ -429,8 +422,6 @@
         ***************************************************************************************************************/
         public createPlane
         (
-            scene           :bz.Scene,
-
             position        :BABYLON.Vector3,
             anchor     :bz.MeshPositionAnchor,
             width           :number,
@@ -456,7 +447,7 @@
                     height:          height,
                     sideOrientation: sideOrientation,
                 },
-                scene.getNativeScene()
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -469,9 +460,9 @@
                 0.0
             );
 
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
             (
-                scene.getNativeScene(),
+                this.scene.getNativeScene(),
                 texture,
                 false,
                 width,
@@ -485,7 +476,6 @@
 
             return this.decorateMesh
             (
-                scene.getNativeScene(),
                 plane,
                 rotation,
                 material,
@@ -498,7 +488,6 @@
         /** ************************************************************************************************************
         *   Creates a line mesh.
         *
-        *   @param scene       The scene where this mesh will be applied.
         *   @param start       Start point of the line mesh.
         *   @param end         End point of the line mesh.
         *   @param anchor The anchor point of this mesh.
@@ -509,8 +498,6 @@
         ***************************************************************************************************************/
         public createLine
         (
-            scene       :BABYLON.Scene,
-
             start       :BABYLON.Vector3,
             end         :BABYLON.Vector3,
             color       :BABYLON.Color4,
@@ -536,7 +523,7 @@
                     ],
                     useVertexAlpha: true,
                 },
-                scene
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -551,7 +538,6 @@
 
             return this.decorateMesh
             (
-                scene,
                 line,
                 rotation,
                 null,
@@ -567,7 +553,6 @@
         *
         *   Creates a polygon mesh.
         *
-        *   @param scene         The scene where this mesh will be applied.
         *   @param points        All corner points for this polygon to create.
         *   @param anchor   The anchor point of this mesh.
         *   @param rotation      The initial rotation for all axis.
@@ -579,8 +564,6 @@
         ***************************************************************************************************************/
         public createPolygon
         (
-            scene         :bz.Scene,
-
             points        :BABYLON.Vector3[],
 
             anchor   :bz.MeshPositionAnchor,
@@ -608,7 +591,7 @@
 */
                     depth: MeshFactory.FACE_DEPTH,
                 },
-                scene.getNativeScene()
+                this.scene.getNativeScene()
             );
 
             bz.MeshManipulation.setStartPosition
@@ -620,9 +603,9 @@
                 0.0,
                 0.0
             );
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
             (
-                scene.getNativeScene(),
+                this.scene.getNativeScene(),
                 null,
                 false,
                 0.0,
@@ -634,7 +617,6 @@
 
             return this.decorateMesh
             (
-                scene.getNativeScene(),
                 polygon,
                 rotation,
                 material,
@@ -647,7 +629,6 @@
         /** ************************************************************************************************************
         *   Creates a decal.
         *
-        *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
         *   @param parentMesh    The mesh to apply this decal to.
         *   @param normal        The normal of the mesh to apply the decal to.
@@ -663,7 +644,6 @@
         ***************************************************************************************************************/
         public createDecal
         (
-            scene         :bz.Scene,
             position      :BABYLON.Vector3,
             parentMesh    :BABYLON.AbstractMesh,
             normal        :BABYLON.Vector3,
@@ -689,9 +669,9 @@
                 }
             );
 
-            const material:BABYLON.StandardMaterial = scene.getMaterialSystem().createMaterial
+            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
             (
-                scene.getNativeScene(),
+                this.scene.getNativeScene(),
                 texture,
                 true,
                 size.x,
@@ -708,7 +688,6 @@
 */
             return this.decorateMesh
             (
-                scene.getNativeScene(),
                 decal,
                 null,
                 material,
@@ -721,7 +700,6 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh from a cube texture ( six images ).
         *
-        *   @param scene   The scene to apply this mesh to.
         *   @param skyBox  The skybox to create.
         *   @param opacity The alpha value for the skybox texture.
         *
@@ -729,7 +707,6 @@
         ***************************************************************************************************************/
         public createSkyBoxCube
         (
-            scene   :BABYLON.Scene,
             skyBox  :bz.SkyBoxFile,
             opacity :number
         )
@@ -738,7 +715,7 @@
             const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
             (
                 bz.MaterialSystem.createNextMaterialId(),
-                scene
+                this.scene.getNativeScene()
             );
             const skyBoxName:string = skyBox.toString();
 
@@ -746,7 +723,7 @@
             skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
             (
                 bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName,
-                scene
+                this.scene.getNativeScene()
             );
             skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
@@ -762,7 +739,7 @@
             (
                 MeshFactory.createNextMeshId(),
                 { size: 1000.0 },
-                scene
+                this.scene.getNativeScene()
             );
             skybox.infiniteDistance = true;
             skybox.material         = skyboxMaterial;
@@ -773,7 +750,6 @@
         /** ************************************************************************************************************
         *   Creates a skybox mesh from a sphere texture ( single spherical image ).
         *
-        *   @param scene   The scene where this mesh will be applied.
         *   @param skyBox  The skybox to use.
         *   @param opacity The alpha value for the skybox texture.
         *
@@ -781,7 +757,6 @@
         ***************************************************************************************************************/
         public createSkyBoxSphere
         (
-            scene   :BABYLON.Scene,
             skyBox  :bz.SkyBoxFile,
             opacity :number
         )
@@ -832,12 +807,12 @@
             const texture:BABYLON.Texture = new BABYLON.Texture
             (
                 bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName + '.jpg',
-                scene
+                this.scene.getNativeScene()
             );
 
             const skyboxMaterial:BABYLON.ShaderMaterial = new BABYLON.ShaderMaterial(
                 bz.MaterialSystem.createNextMaterialId(),
-                scene,
+                this.scene.getNativeScene(),
                 {
                     vertexElement: 'vertexShaderCode',
                     fragmentElement: 'fragmentShaderCode',
@@ -856,7 +831,7 @@
             (
                 MeshFactory.createNextMeshId(),
                 100.0,
-                scene
+                this.scene.getNativeScene()
             );
             skybox.material         = skyboxMaterial;
             skybox.scaling          = new BABYLON.Vector3(-1, -1, -1);
@@ -868,7 +843,6 @@
         /** ************************************************************************************************************
         *   Returns a clone of the imported model with the specified filename.
         *
-        *   @param scene        The scene where this imported mesh is cloned into.
         *   @param fileName     The filename of the imported mesh to return a clone for.
         *   @param position     The position for this mesh to show up.
         *   @param physic       Specifies the physicsl behaviour of this imported model.
@@ -879,7 +853,6 @@
         ***************************************************************************************************************/
         public createImportedModel
         (
-            scene        :bz.Scene,
             fileName     :string,
             position     :BABYLON.Vector3,
             physic       :bz.PhysicBehaviour,
@@ -887,7 +860,7 @@
         )
         : bz.Model
         {
-            const originalModel :bz.Model = scene.getModelSystem().getOriginalModel( fileName );
+            const originalModel :bz.Model = this.scene.getModelSystem().getOriginalModel( fileName );
             const clonedModel   :bz.Model = originalModel.clone();
 
             // translate cloned model by position
@@ -906,7 +879,7 @@
                     impostors.push( physic.createPhysicImpostorParams( ( 1.0 / originalModel.getMeshCount() ) ) );
                 }
             }
-            clonedModel.assignImpostors( scene.getNativeScene(), impostors );
+            clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
 
             // create compound parent if requested
             switch ( compoundType )
@@ -918,13 +891,13 @@
 
                 case bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED:
                 {
-                    clonedModel.addCompoundMesh( scene, position, false );
+                    clonedModel.addCompoundMesh( this.scene, position, false );
                     break;
                 }
 
                 case bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED:
                 {
-                    clonedModel.addCompoundMesh( scene, position, true );
+                    clonedModel.addCompoundMesh( this.scene, position, true );
                     break;
                 }
             }
@@ -935,7 +908,6 @@
         /** ************************************************************************************************************
         *   Adds general mesh properties.
         *
-        *   @param scene               The scene where this mesh will be applied.
         *   @param mesh                The mesh to decorate.
         *   @param rotation            The initial rotation for all axis.
         *   @param material            The material to apply on this mesh.
@@ -945,7 +917,6 @@
         ***************************************************************************************************************/
         private decorateMesh
         (
-            scene               :BABYLON.Scene,
             mesh                :BABYLON.Mesh,
             rotation            :BABYLON.Vector3,
             material            :BABYLON.StandardMaterial,
@@ -966,7 +937,7 @@
             // buggy physics for primitives since babylon.JS 4.0.
             physic.applyPhysicToMesh
             (
-                scene,
+                this.scene.getNativeScene(),
                 mesh,
                 volume,
                 physicsImpostorType

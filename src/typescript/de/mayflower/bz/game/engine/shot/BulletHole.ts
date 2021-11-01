@@ -82,7 +82,6 @@
 
             this.holeMesh = new bz.MeshFactory( scene ).createDecal
             (
-                scene,
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getMesh(),
                 this.hitPoint.getNormal(),
@@ -110,7 +109,6 @@
             const meshFactory :bz.MeshFactory = new bz.MeshFactory( scene );
             this.debugSphereMesh = meshFactory.createSphere
             (
-                scene,
                 this.hitPoint.getPoint().clone(),
                 bz.MeshPositionAnchor.CENTER_XYZ,
                 0.10,
@@ -136,7 +134,6 @@
             // create debug bullet hole
             this.debugNormalLine = new bz.MeshFactory( scene ).createLine
             (
-                scene.getNativeScene(),
                 this.hitPoint.getPoint().clone(),
                 this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
                 bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE

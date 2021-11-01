@@ -136,7 +136,6 @@
                 this,
                 meshFactory.createImportedModel
                 (
-                    this.scene,
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                     new BABYLON.Vector3( this.OFFSET_X + 20.0, 5.0, this.OFFSET_Z + 25.5 ),
                     bz.PhysicBehaviour.SOLID_CONCRETE,
@@ -150,7 +149,6 @@
                 this,
                 meshFactory.createImportedModel
                 (
-                    this.scene,
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                     new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
                     bz.PhysicBehaviour.SOLID_WOOD,
@@ -164,7 +162,6 @@
                 this,
                 meshFactory.createImportedModel
                 (
-                    this.scene,
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                     new BABYLON.Vector3( 20.0, 3.75, 20.0 ),
                     bz.PhysicBehaviour.CONCRETE,
@@ -208,7 +205,6 @@
                         [
                             meshFactory.createSphere
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 3.0,
@@ -273,7 +269,6 @@
                             // box - amiga light frontside
                             meshFactory.createBox
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 0.0 ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
@@ -297,7 +292,6 @@
                             // movable glass pane
                             meshFactory.createBox
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0,  2.5, this.OFFSET_Z + 0.0   ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
@@ -336,7 +330,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 50.0 ),
                         null,
@@ -348,7 +341,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 55.0 ),
                         null,
@@ -360,7 +352,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.SHELLS,
                         new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 60.0 ),
                         null,
@@ -387,7 +378,7 @@
         ***************************************************************************************************************/
         protected createSkybox() : BABYLON.Mesh
         {
-            return new bz.MeshFactory( this.scene ).createSkyBoxCube( this.scene.getNativeScene(), bz.SkyBoxFile.BLUE_SKY, 0.5 );
+            return new bz.MeshFactory( this.scene ).createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 0.5 );
         }
 
         /** ************************************************************************************************************
@@ -609,7 +600,6 @@
                         [
                             meshFactory.createHeightMapGround
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 400.0,
@@ -632,7 +622,6 @@
                         [
                             meshFactory.createBox
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X, 10.5, this.OFFSET_Z  ),
                                 bz.MeshPositionAnchor.NONE,
                                 new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
@@ -662,7 +651,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.CRATE,
                         new BABYLON.Vector3( this.OFFSET_X + 15.0, 0.0, this.OFFSET_Z + 15.0 ),
                         bz.PhysicBehaviour.LIGHT_WOOD,
@@ -674,7 +662,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.CRATE,
                         new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 17.5 ),
                         bz.PhysicBehaviour.LIGHT_WOOD,
@@ -686,7 +673,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.CRATE,
                         new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 15.0 ),
                         bz.PhysicBehaviour.LIGHT_WOOD,
@@ -698,7 +684,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.CRATE,
                         new BABYLON.Vector3( this.OFFSET_X + 17.5, 2.5, this.OFFSET_Z + 17.5 ),
                         bz.PhysicBehaviour.LIGHT_WOOD,
@@ -710,7 +695,6 @@
                     this,
                     meshFactory.createImportedModel
                     (
-                        this.scene,
                         bz.ModelFile.CRATE,
                         new BABYLON.Vector3( this.OFFSET_X + 17.5, 5.0, this.OFFSET_Z + 17.5 ),
                         bz.PhysicBehaviour.LIGHT_WOOD,
@@ -725,7 +709,6 @@
                         [
                             meshFactory.createBox
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
@@ -748,7 +731,6 @@
                             // movable glass cube
                             meshFactory.createBox
                             (
-                                this.scene,
                                 new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5    ),

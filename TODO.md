@@ -5,6 +5,8 @@
 =====================
 Primal
 =====================
+TODO why so slow on firing?
+
 TODO add lots of default params! ( to MeshFactory ! )
 TODO add rotating MF Logo sprite!
 TODO add constant rotation to sprite ??

@@ -191,7 +191,6 @@
 
             this.compoundMesh = new bz.MeshFactory( scene ).createBox
             (
-                scene,
                 position,
                 bz.MeshPositionAnchor.CENTER_XYZ,
                 new BABYLON.Vector3( 0.001, 0.001, 0.001 ),

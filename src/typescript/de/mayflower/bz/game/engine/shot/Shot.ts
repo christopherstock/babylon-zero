@@ -91,7 +91,6 @@
         {
             return new bz.MeshFactory( scene ).createLine
             (
-                scene.getNativeScene(),
                 this.source,
                 this.destination,
                 bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE

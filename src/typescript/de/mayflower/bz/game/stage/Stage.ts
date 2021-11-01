@@ -408,7 +408,6 @@
                 // axis x
                 meshFactory.createLine
                 (
-                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                     new BABYLON.Vector3( bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_RED_OPAQUE
@@ -417,7 +416,6 @@
                 // axis y
                 meshFactory.createLine
                 (
-                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                     new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0 ),
                     bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE
@@ -426,7 +424,6 @@
                 // axis z
                 meshFactory.createLine
                 (
-                    this.scene.getNativeScene(),
                     new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                     new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH ),
                     bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE

@@ -67,7 +67,6 @@
                 colliderPos.y += ( height / 2 )
                 this.collider = new bz.MeshFactory( scene ).createCylinder
                 (
-                    scene,
                     colliderPos,
                     anchor,
                     collisionWidth,
