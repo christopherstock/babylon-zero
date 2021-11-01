@@ -43,20 +43,20 @@
         }
 
         /** ************************************************************************************************************
-        *   Sets the position and pivot to the specified mesh.
+        *   Sets the position to the specified mesh.
         *
         *   @param mesh        The mesh to apply position and pivot to.
         *   @param position    Where to place this mesh.
-        *   @param pivotAnchor The desired pivot anchor kind to set for this mesh.
+        *   @param anchor The desired pivot anchor kind to set for this mesh.
         *   @param width       The dimension x of this mesh.
         *   @param height      The dimension y of this mesh.
         *   @param depth       The dimension z of this mesh.
         ***************************************************************************************************************/
-        public static setPositionAndPivot
+        public static setStartPosition
         (
-            mesh        :BABYLON.AbstractMesh,
-            position    :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPositionAnchor,
+            mesh     :BABYLON.AbstractMesh,
+            position :BABYLON.Vector3,
+            anchor   :bz.MeshPositionAnchor,
 
             width       :number,
             height      :number,

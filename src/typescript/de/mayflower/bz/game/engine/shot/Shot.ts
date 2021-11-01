@@ -94,8 +94,6 @@
                 scene,
                 this.source,
                 this.destination,
-                bz.MeshPositionAnchor.LOWEST_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.SettingColor.COLOR_RGBA_YELLOW_OPAQUE
             );
         }

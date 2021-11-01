@@ -27,7 +27,7 @@
         *
         *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
-        *   @param pivotAnchor   The anchor point of this mesh.
+        *   @param anchor   The anchor point of this mesh.
         *   @param size          The dimensions of this mesh for all axis.
         *   @param rotation      The initial rotation for all axis.
         *   @param texture       The texture to apply.
@@ -42,7 +42,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPositionAnchor,
+            anchor        :bz.MeshPositionAnchor,
             size          :BABYLON.Vector3,
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
@@ -107,11 +107,11 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 box,
                 position,
-                pivotAnchor,
+                anchor,
                 size.x,
                 size.y,
                 size.z
@@ -147,7 +147,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshPositionAnchor,
             sideSize      :number,
             height        :number,
             textureFile   :string,
@@ -199,11 +199,11 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 ground,
                 position,
-                pivotAnchor,
+                anchor,
                 sideSize,
                 height,
                 sideSize
@@ -217,7 +217,7 @@
         *
         *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
-        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param anchor     The anchor point of this mesh.
         *   @param diameter        The diameter of the cylinder.
         *   @param height          The height of the cylinder.
         *   @param rotation        The initial rotation for all axis.
@@ -233,7 +233,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshPositionAnchor,
             diameter      :number,
             height        :number,
             rotation      :BABYLON.Vector3,
@@ -287,11 +287,11 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 cylinder,
                 position,
-                pivotAnchor,
+                anchor,
                 diameter,
                 height,
                 diameter
@@ -328,7 +328,7 @@
         *
         *   @param scene         The scene where this mesh will be applied.
         *   @param position      Where to place this mesh.
-        *   @param pivotAnchor   The anchor point of this mesh.
+        *   @param anchor   The anchor point of this mesh.
         *   @param diameter      The diameter of the sphere.
         *   @param rotation      The initial rotation for all axis.
         *   @param texture       The texture to apply.
@@ -343,7 +343,7 @@
         (
             scene         :bz.Scene,
             position      :BABYLON.Vector3,
-            pivotAnchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshPositionAnchor,
             diameter      :number,
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
@@ -363,11 +363,11 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 sphere,
                 position,
-                pivotAnchor,
+                anchor,
                 diameter,
                 diameter,
                 diameter
@@ -405,7 +405,7 @@
         *
         *   @param scene           The scene where this mesh will be applied.
         *   @param position        Where to place this mesh.
-        *   @param pivotAnchor     The anchor point of this mesh.
+        *   @param anchor     The anchor point of this mesh.
         *   @param width           Width  of the plane.
         *   @param height          Height of the plane.
         *   @param rotation        The initial rotation for all axis.
@@ -425,7 +425,7 @@
             scene           :bz.Scene,
 
             position        :BABYLON.Vector3,
-            pivotAnchor     :bz.MeshPositionAnchor,
+            anchor     :bz.MeshPositionAnchor,
             width           :number,
             height          :number,
             rotation        :BABYLON.Vector3,
@@ -452,11 +452,11 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 plane,
                 position,
-                pivotAnchor,
+                anchor,
                 width,
                 height,
                 0.0
@@ -494,7 +494,7 @@
         *   @param scene       The scene where this mesh will be applied.
         *   @param start       Start point of the line mesh.
         *   @param end         End point of the line mesh.
-        *   @param pivotAnchor The anchor point of this mesh.
+        *   @param anchor The anchor point of this mesh.
         *   @param rotation    The initial rotation for all axis.
         *   @param color       The solid color to apply.
         *
@@ -506,10 +506,10 @@
 
             start       :BABYLON.Vector3,
             end         :BABYLON.Vector3,
-            pivotAnchor :bz.MeshPositionAnchor,
-            rotation    :BABYLON.Vector3,
+            color       :BABYLON.Color4,
 
-            color       :BABYLON.Color4
+            anchor      :bz.MeshPositionAnchor = bz.MeshPositionAnchor.NONE,
+            rotation    :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
         )
         : BABYLON.Mesh
         {
@@ -532,11 +532,11 @@
                 scene
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 line,
                 BABYLON.Vector3.Zero(),
-                pivotAnchor,
+                anchor,
                 0.0,
                 0.0,
                 0.0
@@ -562,7 +562,7 @@
         *
         *   @param scene         The scene where this mesh will be applied.
         *   @param points        All corner points for this polygon to create.
-        *   @param pivotAnchor   The anchor point of this mesh.
+        *   @param anchor   The anchor point of this mesh.
         *   @param rotation      The initial rotation for all axis.
         *   @param color         The solid color to apply.
         *   @param physic        The physical attributes to apply for this mesh.
@@ -576,7 +576,7 @@
 
             points        :BABYLON.Vector3[],
 
-            pivotAnchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshPositionAnchor,
             rotation      :BABYLON.Vector3,
 
             color         :BABYLON.Color3,
@@ -604,11 +604,11 @@
                 scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setPositionAndPivot
+            bz.MeshManipulation.setStartPosition
             (
                 polygon,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                pivotAnchor,
+                anchor,
                 0.0,
                 0.0,
                 0.0
