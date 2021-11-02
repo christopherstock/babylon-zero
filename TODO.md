@@ -29,6 +29,7 @@ TODO Try morphing one mesh/model into another (crate to broken crate / chair to 
 TODO Show wearpon's ammo in magazine and total.
 TODO Enable wearpon magazine and reloading!
 TODO why are boxes mocing when shot passes them left?
+TODO message on picking up item
 TODO Enable loading of only required resources for the current scene?
 TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
 TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).

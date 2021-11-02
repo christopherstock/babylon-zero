@@ -55,22 +55,5 @@
         "earcut": "2.1.5",
         "jest-junit": "^13.0.0",
         "moment": "2.24.0"
-    },
-    "jest": {
-        "verbose": true,
-        "transform": {
-            ".(ts|tsx)": "ts-jest"
-        },
-        "testRegex": "(/src/test/.*\\.(test|spec))\\.(ts|tsx|js|jsx)$",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "jsx"
-        ],
-        "testURL": "http://localhost/",
-        "setupFiles": [
-            "<rootDir>/src/test/index.ts"
-        ]
     }
 }
