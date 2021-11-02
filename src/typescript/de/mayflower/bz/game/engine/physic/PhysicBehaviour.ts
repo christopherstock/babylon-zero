@@ -4,7 +4,6 @@
     /** ****************************************************************************************************************
     *   Specifies the physical behaviour of a body.
     *
-    *   TODO prune unused!
     *   TODO outsource constant data to PhysicBehaviourData, PhysicsSet etc ?
     *******************************************************************************************************************/
     export class PhysicBehaviour
@@ -23,15 +22,6 @@
         (
             bz.PhysicState.MOVABLE,
             bz.SettingPlayer.MASS,
-            bz.PhysicFriction.NONE,
-            bz.PhysicRestitution.NONE
-        );
-
-        /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-        public  static  readonly        PLAYER_SPACESHIP    :PhysicBehaviour             = new PhysicBehaviour
-        (
-            bz.PhysicState.STATIC,
-            bz.PhysicDensity.STATIC,
             bz.PhysicFriction.NONE,
             bz.PhysicRestitution.NONE
         );

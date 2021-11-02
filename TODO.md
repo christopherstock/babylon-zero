@@ -5,6 +5,7 @@
 =====================
 Showstoppers
 =====================
+TODO clear all TODOs in code.
 TODO message on picking up item
 TODO ditch package.json - update all libs
 TODO add constant rotation (angle) to sprite ??
@@ -36,6 +37,7 @@ TODO Player may not jump in air - deny jumping if player has no contact to the g
 =====================
 Fx
 =====================
+TODO sun flare effect
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
      https://doc.babylonjs.com/how_to/playing_sounds_and_music

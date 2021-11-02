@@ -9,7 +9,7 @@
         /** The game instance. */
         private             readonly    game                        :bz.Game                = null;
 
-        /** Indicates that the mouse is currently locked inside the canvas. TODO use native flag in Canvas?! */
+        /** Indicates that the mouse is currently locked inside the canvas. */
         private                         mouseLocked                 :boolean                = false;
 
         /** The last mouse drag X if the pointer is locked. */
@@ -372,6 +372,7 @@
         ***************************************************************************************************************/
         private onMouseMove( me:MouseEvent ) : void
         {
+            // only handle this event if the pointer is locked
             if ( this.mouseLocked )
             {
                 bz.Debug.pointer.log(

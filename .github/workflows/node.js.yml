@@ -26,6 +26,7 @@ jobs:
     - name: Build Production App Bundle
       run: npm run webpack:production
     - name: Upload Production App Bundle to Build Artefacts
+      if: '1' === '2'
       uses: actions/upload-artifact@v1
       with:
         name: app-bundle
@@ -145,6 +146,7 @@ jobs:
 
   dockerize:
     runs-on: ubuntu-latest
+    if: '1' === '2'
     needs: build-production
     name: Dockerize Production App
     steps:
