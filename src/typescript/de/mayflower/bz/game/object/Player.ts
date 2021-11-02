@@ -80,7 +80,7 @@
                             position.clone().addInPlace(
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                             ),
-                            bz.MeshPositionAnchor.CENTER_XYZ,
+                            bz.MeshAnchor.CENTER_XYZ,
                             bz.SettingPlayer.DIAMETER_BODY_XZ,
                             bz.SettingPlayer.HEIGHT_Y_STANDING,
                             BABYLON.Vector3.Zero(),
@@ -114,7 +114,7 @@
                                     0.0
                                 )
                             ),
-                            bz.MeshPositionAnchor.CENTER_XYZ,
+                            bz.MeshAnchor.CENTER_XYZ,
                             bz.SettingPlayer.DIAMETER_HEAD,
                             BABYLON.Vector3.Zero(),
                             bz.Texture.WALL_SKIN_ROSE,
@@ -130,12 +130,7 @@
                             emissiveColor,
                             position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
                             bz.Texture.WALL_SKIN_ROSE,
-                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-                            bz.PhysicBehaviour.NONE,
-                            1.0,
-                            bz.MeshPositionAnchor.CENTER_XYZ,
-                            BABYLON.Vector3.Zero(),
-                            null
+                            new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                         ),
 
                         // Player.PLAYER_RIGHT_HAND_ID
@@ -144,12 +139,7 @@
                             emissiveColor,
                             position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
                             bz.Texture.WALL_SKIN_ROSE,
-                            new BABYLON.Vector3( 0.25, 0.25, 0.25 ),
-                            bz.PhysicBehaviour.NONE,
-                            1.0,
-                            bz.MeshPositionAnchor.CENTER_XYZ,
-                            BABYLON.Vector3.Zero(),
-                            null
+                            new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                         ),
                     ]
                 ),

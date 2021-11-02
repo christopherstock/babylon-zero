@@ -194,12 +194,7 @@
                 BABYLON.Color3.Red(),
                 position,
                 bz.Texture.WALL_GRASS,
-                new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
-                bz.PhysicBehaviour.NONE,
-                1.0,
-                bz.MeshPositionAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null
+                new BABYLON.Vector3( 0.001, 0.001, 0.001 )
             );
 
             // set the compound mesh as parent for all meshes

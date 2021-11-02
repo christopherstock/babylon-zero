@@ -2,7 +2,7 @@
     /** ****************************************************************************************************************
     *   Specifies all anchors for positioning a mesh or sprite.
     *******************************************************************************************************************/
-    export enum MeshPositionAnchor
+    export enum MeshAnchor
     {
         /** The anchor is the center point of the mesh. This is the default behaviour */
         CENTER_XYZ,

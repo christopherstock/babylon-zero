@@ -110,7 +110,7 @@
             this.debugSphereMesh = meshFactory.createSphere
             (
                 this.hitPoint.getPoint().clone(),
-                bz.MeshPositionAnchor.CENTER_XYZ,
+                bz.MeshAnchor.CENTER_XYZ,
                 0.10,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 null,

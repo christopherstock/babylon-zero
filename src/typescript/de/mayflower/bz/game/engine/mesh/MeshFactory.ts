@@ -45,11 +45,11 @@
             position      :BABYLON.Vector3,
             texture       :bz.Texture,
             size          :BABYLON.Vector3,
-            physic        :bz.PhysicBehaviour,
-            materialAlpha :number,
-            anchor        :bz.MeshPositionAnchor,
-            rotation      :BABYLON.Vector3,
-            color         :BABYLON.Color3
+            physic        :bz.PhysicBehaviour    = bz.PhysicBehaviour.NONE,
+            materialAlpha :number                = 1.0,
+            anchor        :bz.MeshAnchor = bz.MeshAnchor.CENTER_XYZ,
+            rotation      :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            color         :BABYLON.Color3        = null
         )
         : BABYLON.Mesh
         {
@@ -145,7 +145,7 @@
         public createHeightMapGround
         (
             position      :BABYLON.Vector3,
-            anchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshAnchor,
             sideSize      :number,
             height        :number,
             textureFile   :string,
@@ -228,7 +228,7 @@
         public createCylinder
         (
             position      :BABYLON.Vector3,
-            anchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshAnchor,
             diameter      :number,
             height        :number,
             rotation      :BABYLON.Vector3,
@@ -335,7 +335,7 @@
         public createSphere
         (
             position      :BABYLON.Vector3,
-            anchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshAnchor,
             diameter      :number,
             rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
@@ -413,7 +413,7 @@
         public createPlane
         (
             position        :BABYLON.Vector3,
-            anchor     :bz.MeshPositionAnchor,
+            anchor     :bz.MeshAnchor,
             width           :number,
             height          :number,
             rotation        :BABYLON.Vector3,
@@ -492,7 +492,7 @@
             end         :BABYLON.Vector3,
             color       :BABYLON.Color4,
 
-            anchor      :bz.MeshPositionAnchor = bz.MeshPositionAnchor.CENTER_XYZ,
+            anchor      :bz.MeshAnchor = bz.MeshAnchor.CENTER_XYZ,
             rotation    :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
         )
         : BABYLON.Mesh
@@ -556,7 +556,7 @@
         (
             points        :BABYLON.Vector3[],
 
-            anchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshAnchor,
             rotation      :BABYLON.Vector3,
 
             color         :BABYLON.Color3,

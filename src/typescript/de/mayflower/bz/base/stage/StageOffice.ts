@@ -202,7 +202,7 @@
                             meshFactory.createSphere
                             (
                                 new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
-                                bz.MeshPositionAnchor.CENTER_XYZ,
+                                bz.MeshAnchor.CENTER_XYZ,
                                 3.0,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
@@ -240,11 +240,7 @@
                                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
                                 bz.Texture.WALL_AMIGA,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                null
+                                bz.PhysicBehaviour.STATIC
                             ),
                         ]
                     )
@@ -265,9 +261,7 @@
                                 new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
                                 bz.PhysicBehaviour.STATIC,
                                 0.5,
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
-                                null
+                                bz.MeshAnchor.LOWEST_XYZ
                             ),
                         ]
                     )
@@ -380,7 +374,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -391,7 +385,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -402,7 +396,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -413,7 +407,7 @@
                     new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
-                    bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -568,7 +562,7 @@
                             meshFactory.createHeightMapGround
                             (
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
-                                bz.MeshPositionAnchor.CENTER_XYZ,
+                                bz.MeshAnchor.CENTER_XYZ,
                                 400.0,
                                 5.0,
                                 // TODO add HeightMapFile
@@ -593,11 +587,7 @@
                                 new BABYLON.Vector3( this.OFFSET_X, 10.5, this.OFFSET_Z  ),
                                 bz.Texture.WALL_TEST,
                                 new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                                null
+                                bz.PhysicBehaviour.STATIC
                             ),
                         ]
                     )
@@ -682,9 +672,8 @@
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
                                 bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
-                                null
+                                bz.MeshAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0, 45.0, 0.0 )
                             ),
                         ]
                     )
@@ -704,9 +693,8 @@
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
                                 bz.PhysicBehaviour.LIGHT_WOOD,
                                 0.5,
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
-                                null
+                                bz.MeshAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0,  45.0, 0.0   )
                             ),
                         ]
                     )

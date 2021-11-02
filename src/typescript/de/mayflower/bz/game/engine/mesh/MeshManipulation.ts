@@ -56,7 +56,7 @@
         (
             mesh     :BABYLON.AbstractMesh,
             position :BABYLON.Vector3,
-            anchor   :bz.MeshPositionAnchor,
+            anchor   :bz.MeshAnchor,
 
             width       :number,
             height      :number,
@@ -66,7 +66,7 @@
         {
             switch ( anchor )
             {
-                case bz.MeshPositionAnchor.LOWEST_XYZ:
+                case bz.MeshAnchor.LOWEST_XYZ:
                 {
                     mesh.position = new BABYLON.Vector3(
                         position.x + ( width  / 2 ),
@@ -76,7 +76,7 @@
                     break;
                 }
 
-                case bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y:
+                case bz.MeshAnchor.CENTER_XZ_LOWEST_Y:
                 {
                     mesh.position = new BABYLON.Vector3(
                         position.x,
@@ -86,7 +86,7 @@
                     break;
                 }
 
-                case bz.MeshPositionAnchor.CENTER_XYZ:
+                case bz.MeshAnchor.CENTER_XYZ:
                 default:
                 {
                     // apply no translation (center XYZ)
