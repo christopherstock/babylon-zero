@@ -13,10 +13,10 @@
         "webpack:dev": "webpack --mode=development",
         "webpack:production": "webpack --mode=production",
         "webpack:devserver": "webpack-dev-server --mode=development",
-        "typedoc:generate": "typedoc --out doc --listInvalidSymbolLinks --name \"Ant Design meets The International Chuck Norris Database, (c) 2020 Mayflower GmbH\" src/typescript",
+        "test:jest": "jest --ci",
         "eslint:scan": "eslint \"{src,test}/**/*.{ts,tsx}\"",
         "eslint:report": "eslint --format junit -o public/linter-results.xml \"{src,test}/**/*.{ts,tsx}\"",
-        "test:jest": "jest --ci"
+        "typedoc:generate": "typedoc --out public/tsdoc --listInvalidSymbolLinks --name \"babylon-zero, (c) 2021 Mayflower GmbH\" src/typescript"
     },
     "devDependencies": {
         "@types/enzyme": "3.10.3",
