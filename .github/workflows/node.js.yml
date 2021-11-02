@@ -29,7 +29,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: app-bundle
-        path: dist/js/babylon-zero-**
+        path: dist/js/babylon-zero-v\d+\.\d+\.\d+\.js
 
   run-unit-tests:
     name: Unit Tests
