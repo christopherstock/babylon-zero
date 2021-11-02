@@ -14,7 +14,8 @@
         "webpack:production": "webpack --mode=production",
         "webpack:devserver": "webpack-dev-server --mode=development",
         "typedoc:generate": "typedoc --out doc --listInvalidSymbolLinks --name \"Ant Design meets The International Chuck Norris Database, (c) 2020 Mayflower GmbH\" src/typescript",
-        "eslint:check": "eslint \"src/**/*.{ts,tsx}\"",
+        "eslint:scan": "eslint \"{src,test}/**/*.{ts,tsx}\"",
+        "eslint:report": "eslint --format junit -o public/linter-results.xml \"{src,test}/**/*.{js,jsx}\"",
         "test:jest": "jest --ci"
     },
     "devDependencies": {

@@ -77,9 +77,9 @@ jobs:
         cache: 'npm'
     - run: npm install
     - name: Run ESLint Scan on app sourcecode
-      run: npm run eslint:check
+      run: npm run eslint:scan
     - name: Generate ESLint Report from app sourcecode scan
-      run: npm run eslint-report
+      run: npm run eslint:report
     - name: Upload Linter Report Artefact
       uses: actions/upload-artifact@v1
       with:

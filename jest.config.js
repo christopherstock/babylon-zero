@@ -1,6 +1,6 @@
 module.exports = {
     'testMatch': [
-        '**/*.(test|spec).js',
+        '**/*.(test|spec).(ts|tsx)',
     ],
     'collectCoverage': true,
     'coverageDirectory': 'public/coverage',
