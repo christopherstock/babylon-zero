@@ -40,7 +40,7 @@
         /** The length of the world coordinate axis. */
         public  static  readonly    DEBUG_COORDINATE_AXIS_LENGTH            :number             = 25.0;
 
-        public  static  readonly    SHOW_DEBUG_SPRITE_COLLISION_CYLINDER    :boolean            = ( false && SettingDebug.DEBUG_MODE );
+        public  static  readonly    SHOW_DEBUG_SPRITE_COLLISION_CYLINDER    :boolean            = ( true && SettingDebug.DEBUG_MODE );
 
         public  static  readonly    DEBUG_ENABLE_POINTER_DOWN_IMPULSE       :boolean            = ( true && SettingDebug.DEBUG_MODE );
         public  static  readonly    DEBUG_DISABLE_POINTER_LOCK              :boolean            = ( false && SettingDebug.DEBUG_MODE );

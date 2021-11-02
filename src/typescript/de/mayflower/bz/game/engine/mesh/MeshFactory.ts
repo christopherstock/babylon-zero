@@ -242,7 +242,7 @@
         public createCylinder
         (
             position      :BABYLON.Vector3,
-            anchor   :bz.MeshAnchor,
+            anchor        :bz.MeshAnchor,
             diameter      :number,
             height        :number,
             rotation      :BABYLON.Vector3,

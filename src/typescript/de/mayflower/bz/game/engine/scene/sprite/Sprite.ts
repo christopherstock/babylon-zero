@@ -31,9 +31,9 @@
         *   @param position            The vector to place the sprite.
         *   @param width               The width of the sprite.
         *   @param height              The height of the sprite.
-        *   @param anchor              The anchor for displaying this sprite.
         *   @param collidable          Specifies if this sprite should be collidable for other game objects.
         *   @param collisionWidthRatio Ratio for collision cylinder width if collidable.
+        *   @param anchor              The anchor for displaying this sprite.
         *
         *   @return The created sprite instance.
         ***************************************************************************************************************/
@@ -44,9 +44,9 @@
             position            :BABYLON.Vector3,
             width               :number,
             height              :number,
-            anchor              :bz.MeshAnchor,
-            collidable          :bz.SpriteCollidable,
-            collisionWidthRatio :number
+            collidable          :bz.SpriteCollidable = bz.SpriteCollidable.NO,
+            collisionWidthRatio :number              = 1.0,
+            anchor              :bz.MeshAnchor       = bz.MeshAnchor.CENTER_XZ_LOWEST_Y
         )
         {
             // create native sprite
@@ -63,11 +63,11 @@
             if ( collidable === bz.SpriteCollidable.YES )
             {
                 const collisionWidth:number = ( width * collisionWidthRatio );
-                const colliderPos :BABYLON.Vector3 = position.clone();
-                colliderPos.y += ( height / 2 )
+                // const colliderPos :BABYLON.Vector3 = position.clone();
+                // colliderPos.y += ( height / 2 )
                 this.collider = new bz.MeshFactory( scene ).createCylinder
                 (
-                    colliderPos,
+                    position,
                     anchor,
                     collisionWidth,
                     height,

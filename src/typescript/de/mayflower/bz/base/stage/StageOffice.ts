@@ -374,7 +374,6 @@
                     new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
-                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -385,7 +384,6 @@
                     new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
-                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -396,7 +394,6 @@
                     new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
                     10.0,
                     10.0,
-                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
                     0.5
                 ),
@@ -407,9 +404,9 @@
                     new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
                     10.0,
                     10.0,
-                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     bz.SpriteCollidable.YES,
-                    0.5
+                    0.5,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y
                 ),
             ];
         }
