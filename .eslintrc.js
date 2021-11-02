@@ -41,7 +41,13 @@ module.exports = {
             },
         ],
 
-        'indent': ['error'],
+        'indent': [
+            'error',
+            4,
+            {
+                ignoreComments: true
+            }
+        ],
 
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-unused-vars': 'off',

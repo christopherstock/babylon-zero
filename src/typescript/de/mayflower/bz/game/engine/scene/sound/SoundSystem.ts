@@ -1,108 +1,107 @@
+import * as bz from '../../../..';
 
-    import * as bz from '../../../..';
+/** ****************************************************************************************************************
+*   Loads and manages all desired sounds.
+*******************************************************************************************************************/
+export class SoundSystem
+{
+    /** Next ID to assign for sound creation. */
+    private             static      nextSoundId                     :number                         = 0;
 
-    /** ****************************************************************************************************************
-    *   Loads and manages all desired sounds.
-    *******************************************************************************************************************/
-    export class SoundSystem
+    /** All sound file names to load. */
+    private             readonly    fileNames                       :string[]                       = null;
+    /** The method to invoke when all sounds are loaded. */
+    private             readonly    onLoadComplete                  :() => void                     = null;
+
+    /** The number of currently loaded sounds. */
+    private                         loadedSoundCount                :number                         = 0;
+    /** All loaded sound objects. */
+    private                         sounds                          :BABYLON.Sound[]                = [];
+
+    /** ************************************************************************************************************
+    *   Preloads all images into memory.
+    *
+    *   @param fileNames      The names of all image files to load.
+    *   @param onLoadComplete The method to invoke when all image files are loaded.
+    ***************************************************************************************************************/
+    public constructor( fileNames:string[], onLoadComplete:()=>void )
     {
-        /** Next ID to assign for sound creation. */
-        private             static      nextSoundId                     :number                         = 0;
+        this.fileNames      = fileNames;
+        this.onLoadComplete = onLoadComplete;
 
-        /** All sound file names to load. */
-        private             readonly    fileNames                       :string[]                       = null;
-        /** The method to invoke when all sounds are loaded. */
-        private             readonly    onLoadComplete                  :() => void                     = null;
+        // set the global volume for all sounds
+        // BABYLON.Engine.audioEngine.setGlobalVolume( 1.0 );
+    }
 
-        /** The number of currently loaded sounds. */
-        private                         loadedSoundCount                :number                         = 0;
-        /** All loaded sound objects. */
-        private                         sounds                          :BABYLON.Sound[]                = [];
+    /** ************************************************************************************************************
+    *   Loads all specified sound files into system memory.
+    *
+    *   @param scene The babylon.JS scene to append all textures to.
+    ***************************************************************************************************************/
+    public load( scene:BABYLON.Scene ) : void
+    {
+        bz.Debug.init.log( ' Preloading [' + String( this.fileNames.length ) + '] sounds' );
 
-        /** ************************************************************************************************************
-        *   Preloads all images into memory.
-        *
-        *   @param fileNames      The names of all image files to load.
-        *   @param onLoadComplete The method to invoke when all image files are loaded.
-        ***************************************************************************************************************/
-        public constructor( fileNames:string[], onLoadComplete:()=>void )
+        if ( bz.SettingDebug.DISABLE_SOUND )
         {
-            this.fileNames      = fileNames;
-            this.onLoadComplete = onLoadComplete;
-
-            // set the global volume for all sounds
-            // BABYLON.Engine.audioEngine.setGlobalVolume( 1.0 );
+            this.onLoadComplete();
+            return;
         }
 
-        /** ************************************************************************************************************
-        *   Loads all specified sound files into system memory.
-        *
-        *   @param scene The babylon.JS scene to append all textures to.
-        ***************************************************************************************************************/
-        public load( scene:BABYLON.Scene ) : void
+        for ( const fileName of this.fileNames )
         {
-            bz.Debug.init.log( ' Preloading [' + String( this.fileNames.length ) + '] sounds' );
-
-            if ( bz.SettingDebug.DISABLE_SOUND )
-            {
-                this.onLoadComplete();
-                return;
-            }
-
-            for ( const fileName of this.fileNames )
-            {
-                this.sounds[ fileName ] = new BABYLON.Sound
-                (
-                    SoundSystem.createNextSoundId(),
-                    fileName,
-                    scene,
-                    () => { this.onLoadSound(); }
-                );
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Creates and plays a COPY of the specified audio object.
-        *
-        *   @param id   The ID of the audio object to play.
-        *   @param loop Specifies if playback for this sound should be repeated infinitely.
-        *
-        *   @return The promise from the play call or <code>null</code> if no sound was played.
-        ***************************************************************************************************************/
-        public playSound( id:string, loop:boolean = false ) : Promise<void>
-        {
-            if ( !bz.SettingDebug.DISABLE_SOUND )
-            {
-                bz.Debug.sound.log( 'Playing sound [' + id + ']' );
-
-                this.sounds[ id ].loop = loop;
-
-                return this.sounds[ id ].play();
-            }
-
-            return null;
-        }
-
-        /** ************************************************************************************************************
-        *   Being invoked when one sound was loaded completely.
-        ***************************************************************************************************************/
-        private onLoadSound() : void
-        {
-            if ( ++this.loadedSoundCount >= this.fileNames.length )
-            {
-                bz.Debug.init.log( ' All [' + String( this.fileNames.length ) + '] sounds loaded' );
-
-                this.onLoadComplete();
-            }
-        };
-
-        /** ************************************************************************************************************
-        *   Returns the next id for a new sound to create.
-        *
-        *   @return The next free unique id for a new sound to create.
-        ***************************************************************************************************************/
-        public static createNextSoundId() : string
-        {
-            return 'sound' + String( SoundSystem.nextSoundId++ );
+            this.sounds[ fileName ] = new BABYLON.Sound
+            (
+                SoundSystem.createNextSoundId(),
+                fileName,
+                scene,
+                () => { this.onLoadSound(); }
+            );
         }
     }
+
+    /** ************************************************************************************************************
+    *   Creates and plays a COPY of the specified audio object.
+    *
+    *   @param id   The ID of the audio object to play.
+    *   @param loop Specifies if playback for this sound should be repeated infinitely.
+    *
+    *   @return The promise from the play call or <code>null</code> if no sound was played.
+    ***************************************************************************************************************/
+    public playSound( id:string, loop:boolean = false ) : Promise<void>
+    {
+        if ( !bz.SettingDebug.DISABLE_SOUND )
+        {
+            bz.Debug.sound.log( 'Playing sound [' + id + ']' );
+
+            this.sounds[ id ].loop = loop;
+
+            return this.sounds[ id ].play();
+        }
+
+        return null;
+    }
+
+    /** ************************************************************************************************************
+    *   Being invoked when one sound was loaded completely.
+    ***************************************************************************************************************/
+    private onLoadSound() : void
+    {
+        if ( ++this.loadedSoundCount >= this.fileNames.length )
+        {
+            bz.Debug.init.log( ' All [' + String( this.fileNames.length ) + '] sounds loaded' );
+
+            this.onLoadComplete();
+        }
+    };
+
+    /** ************************************************************************************************************
+    *   Returns the next id for a new sound to create.
+    *
+    *   @return The next free unique id for a new sound to create.
+    ***************************************************************************************************************/
+    public static createNextSoundId() : string
+    {
+        return 'sound' + String( SoundSystem.nextSoundId++ );
+    }
+}

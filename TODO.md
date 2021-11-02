@@ -5,8 +5,6 @@
 =====================
 Showstoppers
 =====================
-TODO indent all codes!
-
 TODO clear all TODOs in code.
 TODO message on picking up item
 TODO ditch package.json - update all libs

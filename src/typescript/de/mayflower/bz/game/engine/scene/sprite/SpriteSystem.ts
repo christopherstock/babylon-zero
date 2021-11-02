@@ -1,71 +1,70 @@
+import * as bz from '../../../..';
 
-    import * as bz from '../../../..';
+/** ****************************************************************************************************************
+*   Specifies the sprite system.
+*******************************************************************************************************************/
+export class SpriteSystem
+{
+    /** Next ID to assign for sprite creation. */
+    private                         nextSpriteId                    :number                     = 0;
 
-    /** ****************************************************************************************************************
-    *   Specifies the sprite system.
-    *******************************************************************************************************************/
-    export class SpriteSystem
+    /** Holds all sprite managers - one for each sprite file. */
+    private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
+
+    /** All sprite files to load. */
+    private             readonly    filesToLoad                     :bz.SpriteFile[]            = [];
+
+    /** ************************************************************************************************************
+    *   Creates a new sprite system.
+    *
+    *   @param filesToLoad All sprite files to load.
+    ***************************************************************************************************************/
+    public constructor( filesToLoad:bz.SpriteFile[] )
     {
-        /** Next ID to assign for sprite creation. */
-        private                         nextSpriteId                    :number                     = 0;
+        this.filesToLoad = filesToLoad;
+    }
 
-        /** Holds all sprite managers - one for each sprite file. */
-        private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
-
-        /** All sprite files to load. */
-        private             readonly    filesToLoad                     :bz.SpriteFile[]            = [];
-
-        /** ************************************************************************************************************
-        *   Creates a new sprite system.
-        *
-        *   @param filesToLoad All sprite files to load.
-        ***************************************************************************************************************/
-        public constructor( filesToLoad:bz.SpriteFile[] )
+    /** ************************************************************************************************************
+    *   Creates one sprite manager for each sprite file.
+    *
+    *   @param scene The babylon.JS scene to append all textures to.
+    ***************************************************************************************************************/
+    public load( scene:BABYLON.Scene ) : void
+    {
+        for ( let i:number = 0; i < this.filesToLoad.length; ++i )
         {
-            this.filesToLoad = filesToLoad;
-        }
+            const spriteFile:bz.SpriteFile = this.filesToLoad[ i ];
 
-        /** ************************************************************************************************************
-        *   Creates one sprite manager for each sprite file.
-        *
-        *   @param scene The babylon.JS scene to append all textures to.
-        ***************************************************************************************************************/
-        public load( scene:BABYLON.Scene ) : void
-        {
-            for ( let i:number = 0; i < this.filesToLoad.length; ++i )
-            {
-                const spriteFile:bz.SpriteFile = this.filesToLoad[ i ];
-
-                this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
-                (
-                    'spriteManager' + String( i ),
-                    bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
-                    bz.SettingEngine.MAX_SPRITE_INSTANCES,
-                    spriteFile.frameSize,
-                    scene
-                );
-            }
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the next id for a new sprite to create.
-        *
-        *   @return The next free unique id for a new sprite to create.
-        ***************************************************************************************************************/
-        public createNextSpriteId() : string
-        {
-            return 'sprite' + String( this.nextSpriteId++ );
-        }
-
-        /** ************************************************************************************************************
-        *   Returns the sprite manager for the specified sprite file.
-        *
-        *   @param spriteFile The sprite file to receive the sprite manager for.
-        *
-        *   @return The sprite manager that was created for the speicified sprite file.
-        ***************************************************************************************************************/
-        public getSpriteManager( spriteFile:string ) : BABYLON.SpriteManager
-        {
-            return this.spriteManagers[ spriteFile ];
+            this.spriteManagers[ spriteFile.fileName ] = new BABYLON.SpriteManager
+            (
+                'spriteManager' + String( i ),
+                bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
+                bz.SettingEngine.MAX_SPRITE_INSTANCES,
+                spriteFile.frameSize,
+                scene
+            );
         }
     }
+
+    /** ************************************************************************************************************
+    *   Returns the next id for a new sprite to create.
+    *
+    *   @return The next free unique id for a new sprite to create.
+    ***************************************************************************************************************/
+    public createNextSpriteId() : string
+    {
+        return 'sprite' + String( this.nextSpriteId++ );
+    }
+
+    /** ************************************************************************************************************
+    *   Returns the sprite manager for the specified sprite file.
+    *
+    *   @param spriteFile The sprite file to receive the sprite manager for.
+    *
+    *   @return The sprite manager that was created for the speicified sprite file.
+    ***************************************************************************************************************/
+    public getSpriteManager( spriteFile:string ) : BABYLON.SpriteManager
+    {
+        return this.spriteManagers[ spriteFile ];
+    }
+}
