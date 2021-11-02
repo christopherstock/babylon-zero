@@ -215,35 +215,6 @@
                     )
                 ),
 /*
-                // elevated grass ground
-                new bz.Wall
-                (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            meshFactory.createBox
-                            (
-                                this.scene,
-                                new BABYLON.Vector3(
-                                    this.OFFSET_X + 0.0,
-                                    -bz.MeshFactory.FACE_DEPTH,
-                                    this.OFFSET_Z + 60.0
-                                ),
-                                bz.MeshPivotAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 40.0, bz.MeshFactory.FACE_DEPTH,  100.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 160.0 ),
-                                bz.Texture.WALL_GRASS,
-                                null,
-                                bz.PhysicBehaviour.STATIC,
-                                1.0,
-                                this.ambientColor
-                            ),
-                        ]
-                    )
-                ),
-*/
-/*
                 // tv
                 new bz.Wall
                 (
@@ -265,15 +236,15 @@
                             // box - amiga light frontside
                             meshFactory.createBox
                             (
-                                new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 0.0 ),
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                this.ambientColor,
+                                new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
                                 bz.Texture.WALL_AMIGA,
-                                null,
+                                new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 bz.PhysicBehaviour.STATIC,
                                 1.0,
-                                this.ambientColor
+                                bz.MeshPositionAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                null
                             ),
                         ]
                     )
@@ -288,16 +259,15 @@
                             // static glass pane
                             meshFactory.createBox
                             (
+                                this.ambientColor,
                                 new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
-                                new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
-                                // new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
-                                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
-                                null,
+                                new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
                                 bz.PhysicBehaviour.STATIC,
                                 0.5,
-                                this.ambientColor
+                                bz.MeshPositionAnchor.LOWEST_XYZ,
+                                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
+                                null
                             ),
                         ]
                     )
@@ -619,15 +589,15 @@
                         [
                             meshFactory.createBox
                             (
+                                this.ambientColor,
                                 new BABYLON.Vector3( this.OFFSET_X, 10.5, this.OFFSET_Z  ),
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
-                                null,
+                                new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
                                 bz.PhysicBehaviour.STATIC,
                                 1.0,
-                                this.ambientColor
+                                bz.MeshPositionAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                                null
                             ),
                         ]
                     )
@@ -706,15 +676,15 @@
                         [
                             meshFactory.createBox
                             (
+                                this.ambientColor,
                                 new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
-                                new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
-                                null,
+                                new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
                                 bz.PhysicBehaviour.LIGHT_WOOD,
                                 1.0,
-                                this.ambientColor
+                                bz.MeshPositionAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
+                                null
                             ),
                         ]
                     )
@@ -728,15 +698,15 @@
                             // movable glass cube
                             meshFactory.createBox
                             (
+                                this.ambientColor,
                                 new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
-                                bz.MeshPositionAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
-                                new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
-                                null,
+                                new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
                                 bz.PhysicBehaviour.LIGHT_WOOD,
                                 0.5,
-                                this.ambientColor
+                                bz.MeshPositionAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
+                                null
                             ),
                         ]
                     )

@@ -191,15 +191,15 @@
 
             this.compoundMesh = new bz.MeshFactory( scene ).createBox
             (
+                BABYLON.Color3.Red(),
                 position,
-                bz.MeshPositionAnchor.CENTER_XYZ,
-                new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.Texture.WALL_GRASS,
-                null,
+                new BABYLON.Vector3( 0.001, 0.001, 0.001 ),
                 bz.PhysicBehaviour.NONE,
                 1.0,
-                BABYLON.Color3.Red()
+                bz.MeshPositionAnchor.CENTER_XYZ,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null
             );
 
             // set the compound mesh as parent for all meshes

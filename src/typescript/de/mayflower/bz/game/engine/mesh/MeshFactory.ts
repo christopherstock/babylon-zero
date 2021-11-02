@@ -25,16 +25,6 @@
         }
 
         /** ************************************************************************************************************
-        *   Returns the next id for a new mesh to create.
-        *
-        *   @return The next free unique id for a new mesh to create.
-        ***************************************************************************************************************/
-        public static createNextMeshId() : string
-        {
-            return 'mesh' + String( MeshFactory.nextMeshId++ );
-        }
-
-        /** ************************************************************************************************************
         *   Creates a box mesh.
         *
         *   @param position      Where to place this mesh.
@@ -51,15 +41,15 @@
         ***************************************************************************************************************/
         public createBox
         (
+            emissiveColor :BABYLON.Color3,
             position      :BABYLON.Vector3,
-            anchor        :bz.MeshPositionAnchor,
-            size          :BABYLON.Vector3,
-            rotation      :BABYLON.Vector3,
             texture       :bz.Texture,
-            color         :BABYLON.Color3,
+            size          :BABYLON.Vector3,
             physic        :bz.PhysicBehaviour,
             materialAlpha :number,
-            emissiveColor :BABYLON.Color3
+            anchor        :bz.MeshPositionAnchor,
+            rotation      :BABYLON.Vector3,
+            color         :BABYLON.Color3
         )
         : BABYLON.Mesh
         {
@@ -944,5 +934,15 @@
             );
 
             return mesh;
+        }
+
+        /** ************************************************************************************************************
+        *   Returns the next id for a new mesh to create.
+        *
+        *   @return The next free unique id for a new mesh to create.
+        ***************************************************************************************************************/
+        public static createNextMeshId() : string
+        {
+            return 'mesh' + String( MeshFactory.nextMeshId++ );
         }
     }
