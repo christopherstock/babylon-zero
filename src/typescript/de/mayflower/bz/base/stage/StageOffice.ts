@@ -405,8 +405,7 @@
                     10.0,
                     10.0,
                     bz.SpriteCollidable.YES,
-                    0.5,
-                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y
+                    0.5
                 ),
             ];
         }

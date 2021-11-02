@@ -13,7 +13,12 @@ module.exports = {
         project: 'tsconfig.json',
         sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', '@typescript-eslint/tslint', 'eslint-plugin-prefer-arrow', 'eslint-plugin-import'],
+    plugins: [
+        '@typescript-eslint',
+        '@typescript-eslint/tslint',
+        'eslint-plugin-prefer-arrow',
+        'eslint-plugin-import'
+    ],
     rules: {
         '@typescript-eslint/typedef': [
             'warn',
