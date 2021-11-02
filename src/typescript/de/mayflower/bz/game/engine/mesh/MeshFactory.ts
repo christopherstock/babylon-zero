@@ -47,13 +47,12 @@
             size          :BABYLON.Vector3,
             physic        :bz.PhysicBehaviour    = bz.PhysicBehaviour.NONE,
             materialAlpha :number                = 1.0,
-            anchor        :bz.MeshAnchor = bz.MeshAnchor.CENTER_XYZ,
+            anchor        :bz.MeshAnchor         = bz.MeshAnchor.CENTER_XYZ,
             rotation      :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             color         :BABYLON.Color3        = null
         )
         : BABYLON.Mesh
         {
-            // TODO move faceUV determination to separate method
             let faceUV:BABYLON.Vector4[] = [];
 
             if ( texture !== null )
@@ -552,8 +551,7 @@
         }
 
         /** ************************************************************************************************************
-        *   TODO setting polygons is very buggy!
-        *   TODO may be an opportunity to fix the pivot again?
+        *   TODO adding a polygon is very buggy!
         *
         *   Creates a polygon mesh.
         *
@@ -747,99 +745,6 @@
             );
             skybox.infiniteDistance = true;
             skybox.material         = skyboxMaterial;
-
-            return skybox;
-        }
-
-        /** ************************************************************************************************************
-        *   Creates a skybox mesh from a sphere texture ( single spherical image ).
-        *
-        *   @param skyBox  The skybox to use.
-        *   @param opacity The alpha value for the skybox texture.
-        *
-        *   @return The created mesh.
-        ***************************************************************************************************************/
-        public createSkyBoxSphere
-        (
-            skyBox  :bz.SkyBoxFile,
-            opacity :number
-        )
-        : BABYLON.Mesh
-        {
-            if ( document.getElementById( 'vertexShaderCode' ) === null )
-            {
-                const vertexShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
-                vertexShaderCodeScript.type = 'application/vertexShader';
-                vertexShaderCodeScript.id   = 'vertexShaderCode';
-                vertexShaderCodeScript.innerHTML = '                                    ' +
-                '   precision highp float;                                              ' +
-                '   attribute vec3 position;                                            ' +
-                '   uniform mat4 world;                                                 ' +
-                '   uniform mat4 viewProjection;                                        ' +
-                '   varying vec3 vDirectionW;                                           ' +
-                '   void main(void) {                                                   ' +
-                '           gl_Position =  viewProjection * world * vec4(position, 1.0);' +
-                '           vDirectionW = normalize(vec3(world * vec4(position, 0.0))); ' +
-                '   }';
-                document.head.appendChild( vertexShaderCodeScript );
-            }
-
-            if ( document.getElementById( 'fragmentShaderCode' ) === null )
-            {
-                const fragmentShaderCodeScript:HTMLScriptElement = document.createElement( 'script' );
-                fragmentShaderCodeScript.type = 'application/fragmentShader';
-                fragmentShaderCodeScript.id   = 'fragmentShaderCode';
-                fragmentShaderCodeScript.innerHTML = '                                ' +
-                '    precision highp float;                                           ' +
-                '    uniform sampler2D textureSampler;                                ' +
-                '    varying vec3 vDirectionW;                                        ' +
-                '    void main(void) {                                                ' +
-                '        vec3 direction = normalize(vDirectionW);                     ' +
-                '        float t = clamp(direction.y * -0.5 + 0.5, 0.0, 1.0);         ' +
-                '        float s = atan(direction.z, direction.x) * 0.15915494 + 0.5; ' +
-                '        vec3 vReflectionUVW = vec3(s, t, 0);                         ' +
-                '        vec2 coords = vReflectionUVW.xy;                             ' +
-                '        coords.x = 1.0 - coords.x;                                   ' +
-                '        coords.y = 1.0 - coords.y;                                   ' +
-                '        gl_FragColor = texture2D(textureSampler, coords);            ' +
-                '    }';
-                document.head.appendChild( fragmentShaderCodeScript );
-            }
-
-            const skyBoxName:string = skyBox.toString();
-
-            const texture:BABYLON.Texture = new BABYLON.Texture
-            (
-                bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName + '.jpg',
-                this.scene.getNativeScene()
-            );
-
-            const skyboxMaterial:BABYLON.ShaderMaterial = new BABYLON.ShaderMaterial(
-                bz.MaterialSystem.createNextMaterialId(),
-                this.scene.getNativeScene(),
-                {
-                    vertexElement: 'vertexShaderCode',
-                    fragmentElement: 'fragmentShaderCode',
-                },
-                {
-                    needAlphaBlending: true,
-                    attributes: ['position'],
-                    uniforms:   ['world', 'viewProjection'],
-                    samplers:   ['textureSampler'],
-                }
-            );
-            skyboxMaterial.setTexture( 'textureSampler', texture );
-            skyboxMaterial.backFaceCulling = false;
-
-            const skybox:BABYLON.Mesh = BABYLON.Mesh.CreateBox
-            (
-                MeshFactory.createNextMeshId(),
-                100.0,
-                this.scene.getNativeScene()
-            );
-            skybox.material         = skyboxMaterial;
-            skybox.scaling          = new BABYLON.Vector3(-1, -1, -1);
-            skybox.infiniteDistance = true;
 
             return skybox;
         }

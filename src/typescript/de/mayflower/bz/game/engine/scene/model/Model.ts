@@ -194,7 +194,7 @@
                 BABYLON.Color3.Red(),
                 position,
                 bz.Texture.WALL_GRASS,
-                new BABYLON.Vector3( 0.001, 0.001, 0.001 )
+                new BABYLON.Vector3( bz.MeshFactory.FACE_DEPTH, bz.MeshFactory.FACE_DEPTH, bz.MeshFactory.FACE_DEPTH )
             );
 
             // set the compound mesh as parent for all meshes
