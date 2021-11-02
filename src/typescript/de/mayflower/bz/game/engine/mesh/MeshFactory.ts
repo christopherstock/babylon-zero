@@ -551,84 +551,6 @@
         }
 
         /** ************************************************************************************************************
-        *   TODO adding a polygon is very buggy!
-        *
-        *   Creates a polygon mesh.
-        *
-        *   @param points        All corner points for this polygon to create.
-        *   @param anchor   The anchor point of this mesh.
-        *   @param rotation      The initial rotation for all axis.
-        *   @param color         The solid color to apply.
-        *   @param physic        The physical attributes to apply for this mesh.
-        *   @param emissiveColor The emissive color for this material.
-        *
-        *   @return The created mesh.
-        ***************************************************************************************************************/
-        public createPolygon
-        (
-            points        :BABYLON.Vector3[],
-
-            anchor   :bz.MeshAnchor,
-            rotation      :BABYLON.Vector3,
-
-            color         :BABYLON.Color3,
-
-            physic        :bz.PhysicBehaviour,
-            emissiveColor :BABYLON.Color3
-        )
-        : BABYLON.Mesh
-        {
-            const polygon:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
-            (
-                MeshFactory.createNextMeshId(),
-                {
-                    shape: points,
-/*
-                    faceColors:
-                    [
-                        color,
-                        color,
-                        color,
-                    ],
-*/
-                    depth: MeshFactory.FACE_DEPTH,
-                },
-                this.scene.getNativeScene()
-            );
-
-            bz.MeshManipulation.setPositionByAnchor
-            (
-                polygon,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                anchor,
-                0.0,
-                0.0,
-                0.0
-            );
-            const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
-            (
-                this.scene.getNativeScene(),
-                null,
-                false,
-                0.0,
-                0.0,
-                color,
-                1.0,
-                emissiveColor
-            );
-
-            return this.decorateMesh
-            (
-                polygon,
-                rotation,
-                material,
-                physic,
-                BABYLON.PhysicsImpostor.BoxImpostor,
-                1.0
-            );
-        }
-
-        /** ************************************************************************************************************
         *   Creates a decal.
         *
         *   @param position      Where to place this mesh.
@@ -683,11 +605,11 @@
                 emissiveColor
             );
             material.zOffset = ( -1 - indexZ );
-/*
+    /*
             // why is the 1st bullet hole always flickering?
             console.log( '>> parentMesh material z: ' + parentMesh.material.zOffset );
             console.log( '>>>>>> bullet hole z: '     + material.zOffset );
-*/
+    */
             return this.decorateMesh
             (
                 decal,
@@ -731,9 +653,9 @@
 
             skyboxMaterial.diffuseColor  = bz.SettingColor.COLOR_RGB_BLACK;
             skyboxMaterial.specularColor = bz.SettingColor.COLOR_RGB_BLACK;
-/*
+    /*
             skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
-*/
+    */
             skyboxMaterial.alpha = opacity;
             skyboxMaterial.disableLighting = true;
 
