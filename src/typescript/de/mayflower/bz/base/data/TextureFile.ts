@@ -2,9 +2,9 @@
 
 import * as bz from '../..';
 
-/** ****************************************************************************************************************
+/** ********************************************************************************************************************
 *   Specifies all texture files to load with their according texture information.
-*******************************************************************************************************************/
+***********************************************************************************************************************/
 export class TextureFile
 {
     /** The texture file 'test'. */
@@ -35,13 +35,13 @@ export class TextureFile
     /** The UV tiling strategy to apply for this texture. */
     public              readonly    strategyUV              :bz.TextureUV       = null;
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a sprite configuration.
     *
     *   @param fileName        The filename of the image to load for this material.
     *   @param textureHasAlpha The size of a square frame in pixels.
     *   @param strategyUV      Mapping strategy to use for this texture.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public constructor( fileName:string, textureHasAlpha:bz.TextureHasAlpha, strategyUV:bz.TextureUV )
     {
         this.fileName        = fileName;

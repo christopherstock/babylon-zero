@@ -1,7 +1,7 @@
-/** ****************************************************************************************************************
+/** ********************************************************************************************************************
 *   The primal information from a native babylon.JS physics impostor.
 *   This class is designed to extract and store the most important information from the native impostor class.
-*******************************************************************************************************************/
+***********************************************************************************************************************/
 export class PhysicImpostorParams
 {
     /** The impostor type. */
@@ -13,12 +13,12 @@ export class PhysicImpostorParams
     /** The physical restitution. */
     public                  restitution                 :number                     = 0;
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a babylon.JS physics impostor from this params object and applies it onto the specified mesh.
     *
     *   @param mesh  The mesh to apply the babylon.JS physics impostor onto.
     *   @param scene The scene where the created physics impostor will be added to.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public applyPhysicsImpostor( mesh:BABYLON.AbstractMesh, scene:BABYLON.Scene ) : void
     {
         mesh.physicsImpostor = new BABYLON.PhysicsImpostor
@@ -37,13 +37,13 @@ export class PhysicImpostorParams
         );
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates the impostor params object from the specified babylon.JS physics impostor.
     *
     *   @param impostor The babylon.JS impostor to create the impostor params from.
     *
     *   @return The physical parameter compound object.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static fromImpostor( impostor:BABYLON.PhysicsImpostor ) : PhysicImpostorParams
     {
         const ret:PhysicImpostorParams = new PhysicImpostorParams();
@@ -56,7 +56,7 @@ export class PhysicImpostorParams
         return ret;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates the impostor params object from the specified primitive physical values.
     *
     *   @param type        The impostor type ( box or sphere ).
@@ -65,7 +65,7 @@ export class PhysicImpostorParams
     *   @param restitution The physical restitution.
     *
     *   @return The physical parameter compound object.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static fromParams
     (
         type        :number,

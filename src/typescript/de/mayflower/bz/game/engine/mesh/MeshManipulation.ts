@@ -1,18 +1,18 @@
 import * as bz from '../../..';
 
-/** ****************************************************************************************************************
+/** ********************************************************************************************************************
 *   Offers static functionality for manipulating meshes.
-*******************************************************************************************************************/
+***********************************************************************************************************************/
 export abstract class MeshManipulation
 {
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Specifies the absolute rotation of the specified mesh for all axis.
     *
     *   @param mesh The mesh to set the rotation for.
     *   @param rotX The x axis rotation (pitch)
     *   @param rotY The y axis rotation (yaw).
     *   @param rotZ The z axis rotation (roll).
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static setAbsoluteRotationXYZ( mesh:BABYLON.AbstractMesh, rotX:number, rotY:number, rotZ:number ) : void
     {
         mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
@@ -23,12 +23,12 @@ export abstract class MeshManipulation
         );
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Sets the position and pivot to the specified mesh.
     *
     *   @param mesh     The mesh to apply position and pivot to.
     *   @param position Where to place this mesh.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static translatePosition
     (
         mesh     :BABYLON.AbstractMesh,
@@ -41,7 +41,7 @@ export abstract class MeshManipulation
         mesh.position.z += position.z;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Sets the position to the specified mesh.
     *
     *   @param mesh     The mesh to apply position and pivot to.
@@ -50,7 +50,7 @@ export abstract class MeshManipulation
     *   @param width    The dimension x of this mesh.
     *   @param height   The dimension y of this mesh.
     *   @param depth    The dimension z of this mesh.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static setPositionByAnchor
     (
         mesh     :BABYLON.AbstractMesh,
@@ -95,7 +95,7 @@ export abstract class MeshManipulation
         }
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Starts a stored animation for the given mesh in the specified frame range.
     *
     *   @param scene      The scene to perform the animation in.
@@ -105,7 +105,7 @@ export abstract class MeshManipulation
     *   @param loop       Specifies if the animation shall be looped.
     *   @param onFinish   The method to perform when the amimation has completed.
     *                     Will never be invoked if the animation is looped.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static performAnimation
     (
         scene       :BABYLON.Scene,

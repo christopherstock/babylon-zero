@@ -1,15 +1,15 @@
 import * as bz   from '../..';
 import * as bjsg from 'babylonjs-gui';
 
-/** ****************************************************************************************************************
+/** ********************************************************************************************************************
 *   Creates all types of GUI components.
-*******************************************************************************************************************/
+***********************************************************************************************************************/
 export abstract class GUIFactory
 {
     /** Next ID to assign for GUI component creation. */
     private         static          nextGuiId                           :number                 = 0;
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a fullscreen GUI in bg or fg.
     *
     *   @param scene      The scene that contains this light.
@@ -17,7 +17,7 @@ export abstract class GUIFactory
     *                     <code>false</code> will put this GUI into the background.
     *
     *   @return The fullscreen GUI.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createGUI
     (
         scene      :BABYLON.Scene,
@@ -42,7 +42,7 @@ export abstract class GUIFactory
         return gui;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a rectangle for the GUI.
     *
     *   @param x           Position of the left edge.
@@ -53,7 +53,7 @@ export abstract class GUIFactory
     *   @param colorFill   A css value for the fill color.
     *
     *   @return The specified rectangle.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createRectangle
     (
         x             :number,
@@ -80,7 +80,7 @@ export abstract class GUIFactory
         return rectangle;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a text block for the GUI.
     *
     *   @param text          The text to set into the block.
@@ -96,7 +96,7 @@ export abstract class GUIFactory
     *   @param onPointerDown A callback to invoke when the pointer is down.
     *
     *   @return The specified text block.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createTextBlock
     (
         text          :string,
@@ -149,7 +149,7 @@ export abstract class GUIFactory
         return textBlock;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a line for the GUI.
     *   The line looks blurry and shabby - Consider using createRect with a height of one instead.
     *
@@ -162,7 +162,7 @@ export abstract class GUIFactory
     *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
     *
     *   @return The specified line.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createLine
     (
         x1          :number,
@@ -199,7 +199,7 @@ export abstract class GUIFactory
         return line;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates an image for the GUI.
     *
     *   @param filename    The name of the image file to display.
@@ -210,7 +210,7 @@ export abstract class GUIFactory
     *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
     *
     *   @return The specified image.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createImage
     (
         filename    :string,
@@ -247,11 +247,11 @@ export abstract class GUIFactory
         return image;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Returns the next id for a new gui component to create.
     *
     *   @return The next free unique id for a new gui component to create.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     private static createNextGuiId() : string
     {
         return 'gui' + String( GUIFactory.nextGuiId++ );

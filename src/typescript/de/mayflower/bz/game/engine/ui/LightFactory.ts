@@ -1,14 +1,14 @@
 import * as bz      from '../../..';
 
-/** ****************************************************************************************************************
+/** ********************************************************************************************************************
 *   Creates all types of lights.
-*******************************************************************************************************************/
+***********************************************************************************************************************/
 export abstract class LightFactory
 {
     /** Next ID to assign for light creation. */
     private         static          nextLightId          :number                 = 0;
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a hemispheric light.
     *
     *   @param scene         The scene that contains this light.
@@ -18,7 +18,7 @@ export abstract class LightFactory
     *   @param groundColor   The color for the ground to apply.
     *   @param intensity     Hemispheric light intensity.
     *   @param enabled       Specifies if this light shall be enabled by default.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createHemispheric
     (
         scene         :BABYLON.Scene,
@@ -47,7 +47,7 @@ export abstract class LightFactory
         return light;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a directional light.
     *
     *   @param scene         The scene that contains this light.
@@ -57,7 +57,7 @@ export abstract class LightFactory
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param enabled       Specifies if this light shall be enabled by default.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createDirectional
     (
         scene         :BABYLON.Scene,
@@ -86,7 +86,7 @@ export abstract class LightFactory
         return light;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a spot light.
     *
     *   @param scene         The scene that contains this light.
@@ -98,7 +98,7 @@ export abstract class LightFactory
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param range         How far the spot light shall reach.
     *   @param enabled       Specifies if this light shall be enabled by default.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createSpot
     (
         scene         :BABYLON.Scene,
@@ -131,7 +131,7 @@ export abstract class LightFactory
         return light;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a point light.
     *
     *   @param scene         The scene that contains this light.
@@ -141,7 +141,7 @@ export abstract class LightFactory
     *   @param range         How far the point light shall reach.
     *   @param intensity     The intensity of this light.
     *   @param enabled       Specifies if this light shall be enabled by default.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public static createPoint
     (
         scene         :BABYLON.Scene,
@@ -170,11 +170,11 @@ export abstract class LightFactory
         return light;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Returns the next id for a new light to create.
     *
     *   @return The next free unique id for a new light to create.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     private static createNextLightId() : string
     {
         return 'light' + String( LightFactory.nextLightId++ );

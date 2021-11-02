@@ -1,10 +1,10 @@
 import * as bz from '../../..';
 
-/** ****************************************************************************************************************
+/** ********************************************************************************************************************
 *   Specifies the physical behaviour of a body.
 *
 *   TODO outsource constant data to PhysicBehaviourData, PhysicsSet etc ?
-*******************************************************************************************************************/
+***********************************************************************************************************************/
 export class PhysicBehaviour
 {
     /** A non-collidable and non-gravitational affected physical state. */
@@ -88,14 +88,14 @@ export class PhysicBehaviour
     /** The density of this physics setting */
     private         readonly        restitution     :bz.PhysicRestitution   = null;
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates a new set of physical properties.
     *
     *   @param state       The general physical state for this setting.
     *   @param density     The density of this physical body setting.
     *   @param friction    The friction of this physical body setting.
     *   @param restitution The restitution of this physical body setting.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     private constructor
     (
         state       :bz.PhysicState,
@@ -110,14 +110,14 @@ export class PhysicBehaviour
         this.restitution = restitution;
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Applies the specified physical behaviour to the given mesh.
     *
     *   @param scene        The babylon.JS scene that manages this impostor.
     *   @param mesh         The native babylon.JS mesh to set the physical behaviour for.
     *   @param volume       The calculated volume of the mesh.
     *   @param impostorType The type of physics impostor to set.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public applyPhysicToMesh
     (
         scene        :BABYLON.Scene,
@@ -154,13 +154,13 @@ export class PhysicBehaviour
         }
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates the physical impostor parameters for these physic set.
     *
     *   @param volume The volume of the mesh to create the impostor parameters for.
     *
     *   @return The impostor parameters for these physical settings.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     public createPhysicImpostorParams( volume:number ) : bz.PhysicImpostorParams
     {
         return bz.PhysicImpostorParams.fromParams
@@ -172,13 +172,13 @@ export class PhysicBehaviour
         );
     }
 
-    /** ************************************************************************************************************
+    /** ****************************************************************************************************************
     *   Creates the physical impostor parameters for these physic set.
     *
     *   @param volume The volume of the mesh to create the impostor parameters for.
     *
     *   @return The impostor parameters for these physical settings.
-    ***************************************************************************************************************/
+    *******************************************************************************************************************/
     private createImpostorParams( volume:number ) : BABYLON.PhysicsImpostorParameters
     {
         let mass:number = 0.0;
