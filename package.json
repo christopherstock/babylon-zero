@@ -14,8 +14,8 @@
         "webpack:production": "webpack --mode=production",
         "webpack:devserver": "webpack-dev-server --mode=development",
         "test:jest": "jest --ci",
-        "eslint:scan": "eslint \"{src,test}/**/*.{ts,tsx}\"",
-        "eslint:report": "eslint --format junit -o public/linter-results.xml \"{src,test}/**/*.{ts,tsx}\"",
+        "eslint:scan": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+        "eslint:report": "eslint --format junit -o public/linter-results.xml \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
         "typedoc:generate": "typedoc --out public/tsdoc --listInvalidSymbolLinks --name \"babylon-zero, (c) 2021 Mayflower GmbH\" src/typescript"
     },
     "devDependencies": {

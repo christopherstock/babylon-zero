@@ -6,7 +6,6 @@ module.exports = {
     extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking'
-        // 'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -42,7 +41,7 @@ module.exports = {
         ],
 
         'indent': [
-            'error',
+            'warn',
             4,
             {
                 ignoreComments: true,
@@ -143,7 +142,7 @@ module.exports = {
         'no-fallthrough': 'warn',
         'no-invalid-this': 'warn',
         'no-irregular-whitespace': 'off',
-        'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 0 }],
+        'no-multiple-empty-lines': ['warn', { 'max': 1, 'maxEOF': 0 }],
         'no-new-wrappers': 'warn',
         'no-shadow': [
             'warn',

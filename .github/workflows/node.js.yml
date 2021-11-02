@@ -28,7 +28,7 @@ jobs:
     - name: Upload Production App Bundle to Build Artefacts
       uses: actions/upload-artifact@v2
       with:
-        name: app-bundle
+        # name: app-bundle
         path: dist/js/babylon-zero-v*.js
 
   run-unit-tests:
