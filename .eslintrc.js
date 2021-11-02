@@ -45,15 +45,14 @@ module.exports = {
             'error',
             4,
             {
-                ignoreComments: true
+                ignoreComments: true,
+                SwitchCase: 1,
             }
         ],
 
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-var-requires': 'off',
-
-        // '@typescript-eslint/indent': ['warn', 4, { outerIIFEBody: 2 } ],
 
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/member-delimiter-style': [
