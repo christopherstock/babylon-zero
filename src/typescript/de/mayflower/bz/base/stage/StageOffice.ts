@@ -16,10 +16,6 @@
         /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
         private                             chairCompoundSingleShotOff          :bz.Wall                    = null;
 
-        /** A testwise mesh 'compound spheres'. */
-        // protected                        compoundSpheres         :bz.Model                               = null;
-        /** The testwise rotation X for the testwise chair. */
-        // protected                        chairRot                :number                                 = 0.0;
         /** Testwise camera target toggle. */
         private                             camTarget               :boolean                                = false;
 

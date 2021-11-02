@@ -6,8 +6,6 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        // TODO extract all constructor- and readonly-fields to StageConfig
-
         /** The game instance. TODO remove from Stage? */
         protected           readonly        game                    :bz.Game                               = null;
         /** The scene instance of the game instance. */

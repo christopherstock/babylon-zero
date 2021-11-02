@@ -6,8 +6,7 @@
     /** ****************************************************************************************************************
     *   Specifies all textures to load.
     *
-    *   TODO extract constant TextureData/TextureFile to new class !?
-    *   TODO extract 1st three params to new class TextureFile !!
+    *   TODO extract 1st three params to new class TextureFile!
     *******************************************************************************************************************/
     export class Texture
     {
@@ -34,10 +33,10 @@
         public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
 
         /** The video texture 'wall test'. */
-        public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( 'test.mp4',                  bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
+        // public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( 'test.mp4',                  bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
 
         /** The model texture 'crate'. */
-        public      static  readonly    MODEL_CRATE                 :Texture                = new Texture( 'crate1.jpg',                bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_WOOD,       bz.TextureType.MODEL    );
+        // public      static  readonly    MODEL_CRATE                 :Texture                = new Texture( 'crate1.jpg',                bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_WOOD,       bz.TextureType.MODEL    );
 
         /** Contains all texture data objects. */
         public      static  readonly    ALL_TEXTURES                :Texture[]              =
@@ -54,9 +53,9 @@
             Texture.WALL_GLASS,
             Texture.WALL_SKIN_ROSE,
 
-            Texture.VIDEO_TEST,
+            // Texture.VIDEO_TEST,
 
-            Texture.MODEL_CRATE,
+            // Texture.MODEL_CRATE,
         ];
 
         /** The filename of this texture's image. */

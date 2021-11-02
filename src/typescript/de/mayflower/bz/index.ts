@@ -7,7 +7,6 @@
     export * from './game/engine/camera/CameraSystem';
     export * from './game/engine/camera/CameraType';
 
-    export * from './game/stage/StageConfig';
     export * from './game/stage/StageId';
 
     export * from './base/setting/SettingBranding';
@@ -93,6 +92,7 @@
     export * from './base/data/SoundFile';
     export * from './base/data/SpriteFile';
     export * from './base/data/Texture';
+    export * from './base/data/TextureFile';
     export * from './base/stage/StageIntroLogo';
     export * from './base/stage/StageOffice';
 
