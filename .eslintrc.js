@@ -28,8 +28,8 @@ module.exports = {
                 objectDestructuring: true,
                 parameter: true,
                 propertyDeclaration: true,
-                variableDeclaration: true
-            }
+                variableDeclaration: true,
+            },
         ],
         '@typescript-eslint/explicit-function-return-type': 'warn',
         '@typescript-eslint/consistent-type-definitions': 'warn',
@@ -46,7 +46,7 @@ module.exports = {
             {
                 ignoreComments: true,
                 SwitchCase: 1,
-            }
+            },
         ],
 
         '@typescript-eslint/no-inferrable-types': 'off',
@@ -90,8 +90,8 @@ module.exports = {
                 'objects': 'always-multiline',
                 'imports': 'always-multiline',
                 'exports': 'always-multiline',
-                'functions': 'never'
-            }
+                'functions': 'never',
+            },
         ],
         complexity: 'off',
         'require-jsdoc': [
@@ -103,9 +103,9 @@ module.exports = {
                     'MethodDefinition': true,
                     'ClassDeclaration': true,
                     'ArrowFunctionExpression': true,
-                    'FunctionExpression': true
-                }
-            }
+                    'FunctionExpression': true,
+                },
+            },
         ],
         'constructor-super': 'warn',
         curly: 'warn',
@@ -123,8 +123,8 @@ module.exports = {
             'warn',
             {
                 'code':     120,
-                'tabWidth': 4
-            }
+                'tabWidth': 4,
+            },
         ],
         'new-parens': 'off',
         'newline-per-chained-call': 'off',
@@ -144,20 +144,21 @@ module.exports = {
         'no-irregular-whitespace': 'warn',
         'no-multiple-empty-lines': ['warn', { 'max': 1, 'maxEOF': 0 }],
         'no-new-wrappers': 'warn',
-        'no-shadow': [
-            'warn',
-            {
-                hoist: 'all',
-            },
-        ],
+        'no-shadow': 'off',
         'no-throw-literal': 'warn',
         'no-trailing-spaces': 'warn',
         'no-undef-init': 'warn',
         'no-underscore-dangle': 'warn',
         'no-unsafe-finally': 'warn',
+        '@typescript-eslint/no-shadow': 'warn',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
         'no-unused-expressions': 'warn',
         'no-unused-labels': 'warn',
-        'object-shorthand': 'warn',
+        'object-shorthand': 'off',
         'one-var': ['warn', 'never'],
         'quote-props': 'off',
         radix: 'warn',
@@ -169,63 +170,63 @@ module.exports = {
         '@typescript-eslint/member-ordering': [
             'warn',
             {
-              'default': [
+                'default': [
 
-                'signature',
+                    'signature',
 
-                'public-static-field',
-                'protected-static-field',
-                'private-static-field',
+                    'public-static-field',
+                    'protected-static-field',
+                    'private-static-field',
 
-                'public-abstract-field',
-                'protected-abstract-field',
-                'private-abstract-field',
+                    'public-abstract-field',
+                    'protected-abstract-field',
+                    'private-abstract-field',
 
-                'public-instance-field',
-                'protected-instance-field',
-                'private-instance-field',
+                    'public-instance-field',
+                    'protected-instance-field',
+                    'private-instance-field',
 
-                'public-field',
-                'protected-field',
-                'private-field',
+                    'public-field',
+                    'protected-field',
+                    'private-field',
 
-                'static-field',
-                'instance-field',
-                'abstract-field',
+                    'static-field',
+                    'instance-field',
+                    'abstract-field',
 
-                'field',
+                    'field',
 
-                'constructor',
+                    'constructor',
 
-                'public-abstract-method',
-                'protected-abstract-method',
-                'private-abstract-method',
+                    'public-abstract-method',
+                    'protected-abstract-method',
+                    'private-abstract-method',
 
-                'public-instance-method',
-                'protected-instance-method',
-                'private-instance-method',
+                    'public-instance-method',
+                    'protected-instance-method',
+                    'private-instance-method',
 
-                'public-method',
-                'protected-method',
-                'private-method',
+                    'public-method',
+                    'protected-method',
+                    'private-method',
 
-                'public-static-method',
-                'protected-static-method',
-                'private-static-method',
+                    'public-static-method',
+                    'protected-static-method',
+                    'private-static-method',
 
-                'static-method',
-                'instance-method',
-                'abstract-method',
+                    'static-method',
+                    'instance-method',
+                    'abstract-method',
 
-                'method'
-              ]
-            }
+                    'method',
+                ],
+            },
         ],
         '@typescript-eslint/array-type': [
             'warn',
             {
-                'default': 'array'
-            }
-        ]
+                'default': 'array',
+            },
+        ],
     },
 };
