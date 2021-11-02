@@ -258,7 +258,7 @@ export class Player extends bz.GameObject
         // move forewards and backwards
         if
         (
-               keySystem.isPressed( bz.KeyCodes.KEY_W  )
+            keySystem.isPressed( bz.KeyCodes.KEY_W  )
             // || keySystem.isPressed( bz.KeyCodes.KEY_UP )
         )
         {
@@ -285,7 +285,7 @@ export class Player extends bz.GameObject
         }
         if
         (
-                keySystem.isPressed( bz.KeyCodes.KEY_S )
+            keySystem.isPressed( bz.KeyCodes.KEY_S )
             // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
         )
         {
@@ -302,7 +302,7 @@ export class Player extends bz.GameObject
         // strave
         if
         (
-               keySystem.isPressed( bz.KeyCodes.KEY_A    )
+            keySystem.isPressed( bz.KeyCodes.KEY_A    )
             // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
         )
         {
@@ -311,7 +311,7 @@ export class Player extends bz.GameObject
         }
         if
         (
-               keySystem.isPressed( bz.KeyCodes.KEY_D     )
+            keySystem.isPressed( bz.KeyCodes.KEY_D     )
             // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
         )
         {
@@ -475,11 +475,11 @@ export class Player extends bz.GameObject
                     (
                         this.isFalling()
 
-                        // scale up falling velocity
-                        ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
+                            // scale up falling velocity
+                            ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
 
-                        // keep velocity
-                        : velocity.y
+                            // keep velocity
+                            : velocity.y
                     ),
 
                     ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MULTIPLIER )
@@ -789,7 +789,7 @@ export class Player extends bz.GameObject
     private isFalling() : boolean
     {
         return (
-                this.body.physicsImpostor !== undefined
+            this.body.physicsImpostor !== undefined
             &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
         );
     }

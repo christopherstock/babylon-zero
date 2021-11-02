@@ -16,6 +16,7 @@ export abstract class LightFactory
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param groundColor   The color for the ground to apply.
+    *   @param intensity     Hemispheric light intensity.
     *   @param enabled       Specifies if this light shall be enabled by default.
     ***************************************************************************************************************/
     public static createHemispheric

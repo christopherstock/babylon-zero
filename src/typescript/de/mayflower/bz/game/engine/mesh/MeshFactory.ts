@@ -157,7 +157,7 @@ export class MeshFactory
     public createHeightMapGround
     (
         position      :BABYLON.Vector3,
-        anchor   :bz.MeshAnchor,
+        anchor        :bz.MeshAnchor,
         sideSize      :number,
         height        :number,
         textureFile   :string,

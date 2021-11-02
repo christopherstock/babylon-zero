@@ -142,9 +142,9 @@ export class MaterialSystem
         // do not clone native video textures! ( babylon.JS will hang otherwise! )
         const newTexture:BABYLON.Texture =
         (
-                texture.getIsVideoTexture()
-            ?   texture.getNativeTexture()
-            :   texture.cloneNativeTexture()
+            texture.getIsVideoTexture()
+                ? texture.getNativeTexture()
+                : texture.cloneNativeTexture()
         );
 
         if ( texture.getIsVideoTexture() )

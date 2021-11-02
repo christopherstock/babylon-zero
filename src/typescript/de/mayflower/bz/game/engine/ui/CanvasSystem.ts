@@ -48,7 +48,7 @@ export class CanvasSystem
 
         const dimensionsChanged:boolean =
         (
-               this.canvas.width  !== canvasWidth
+            this.canvas.width  !== canvasWidth
             || this.canvas.height !== canvasHeight
         );
 

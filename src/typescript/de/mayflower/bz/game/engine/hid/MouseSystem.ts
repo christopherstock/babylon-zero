@@ -332,7 +332,7 @@ export class MouseSystem
         this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock =
         (
                 // eslint-disable-next-line @typescript-eslint/unbound-method
-                this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock
+            this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock
                 // eslint-disable-next-line @typescript-eslint/unbound-method
             ||  this.game.getEngine().getCanvasSystem().getNativeCanvas().mozRequestPointerLock
         );

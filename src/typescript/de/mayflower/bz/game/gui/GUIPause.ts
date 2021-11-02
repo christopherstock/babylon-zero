@@ -131,7 +131,7 @@ export class GUIPause
     {
         if
         (
-                keySystem.isPressed( bz.KeyCodes.KEY_W  )
+            keySystem.isPressed( bz.KeyCodes.KEY_W  )
             ||  keySystem.isPressed( bz.KeyCodes.KEY_UP )
         )
         {
@@ -143,7 +143,7 @@ export class GUIPause
 
         if
         (
-                keySystem.isPressed( bz.KeyCodes.KEY_S    )
+            keySystem.isPressed( bz.KeyCodes.KEY_S    )
             ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
         )
         {

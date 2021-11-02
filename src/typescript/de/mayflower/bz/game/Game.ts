@@ -222,7 +222,7 @@ export class Game
             // horrible debug implementation
             if
             (
-                    this.stage.getCameraSystem().isFirstPersonCameraActive()
+                this.stage.getCameraSystem().isFirstPersonCameraActive()
                 &&  this.stage.getPlayer() !== null
             )
             {
@@ -239,7 +239,7 @@ export class Game
             // horrible debug implementation
             if
             (
-                    pickResult.pickedMesh                             !== null
+                pickResult.pickedMesh                             !== null
                 &&  pickResult.pickedMesh.physicsImpostor             !== undefined
                 &&  pickResult.pickedMesh.physicsImpostor.physicsBody !== null
             )

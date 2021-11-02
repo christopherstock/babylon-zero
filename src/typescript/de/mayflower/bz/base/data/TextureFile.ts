@@ -22,6 +22,7 @@ export class TextureFile
     *
     *   @param fileName        The filename of the image to load for this material.
     *   @param textureHasAlpha The size of a square frame in pixels.
+    *   @param strategyUV      Mapping strategy to use for this texture.
     ***************************************************************************************************************/
     public constructor( fileName:string, textureHasAlpha:bz.TextureHasAlpha, strategyUV:bz.TextureUV )
     {

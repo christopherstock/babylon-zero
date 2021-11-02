@@ -405,7 +405,7 @@ export class Model
         {
             if
             (
-                   mesh.physicsImpostor             !== undefined
+                mesh.physicsImpostor             !== undefined
                 && mesh.physicsImpostor.physicsBody !== null
                 && mesh.physicsImpostor.type        === BABYLON.PhysicsImpostor.SphereImpostor
             )

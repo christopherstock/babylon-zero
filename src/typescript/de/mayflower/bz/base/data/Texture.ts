@@ -127,8 +127,9 @@ export class Texture
                 videoTexture.video.play().then(
                     () :void => {
                         // no need to handle this promise fullfillment
-                    } )
-                    .catch( () :void => {
+                    }
+                ).catch(
+                    () :void => {
                         // no need to catch this promise error
                     }
                 );
