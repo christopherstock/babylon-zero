@@ -546,7 +546,9 @@
             // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 );
         }
 
-        // TODO move to StageContentsFactory ?? :)
+        /** ************************************************************************************************************
+        *   Creates the ground walls for this level.
+        ***************************************************************************************************************/
         private createLevelGroundWalls() : bz.Wall[]
         {
             const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
@@ -561,7 +563,7 @@
                         [
                             meshFactory.createHeightMapGround
                             (
-                                new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
+                                new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                                 bz.MeshAnchor.CENTER_XYZ,
                                 400.0,
                                 5.0,
@@ -595,6 +597,9 @@
             ]
         }
 
+        /** ************************************************************************************************************
+        *   Adds all boxes to this level.
+        ***************************************************************************************************************/
         private createBoxesWalls() : bz.Wall[]
         {
             const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );

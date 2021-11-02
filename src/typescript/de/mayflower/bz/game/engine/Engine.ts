@@ -40,7 +40,7 @@
 
             // add resize event listener
             bz.Debug.init.log( 'Init window resize handler' );
-            window.addEventListener( 'resize', () => { this.onWindowResize( game ); } );
+            window.addEventListener( 'resize', () => { this.onWindowResize(); } );
 
             // set the window blur handler
             bz.Debug.init.log( 'Initing window blur handler' );
@@ -124,7 +124,7 @@
         /** ************************************************************************************************************
         *   Being invoked when the size of the browser window is changed.
         ***************************************************************************************************************/
-        private onWindowResize( game:bz.Game ) : void
+        private onWindowResize() : void
         {
             // resize loading screen
             this.loadingScreen.resizeLoadingDivToCanvasDimensions();

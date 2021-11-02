@@ -142,6 +142,20 @@
             );
         }
 
+        /** ************************************************************************************************************
+        *   Creates a heightmap mesh.
+        *
+        *   @param position      Where to place this mesh.
+        *   @param anchor        The anchor point of this mesh.
+        *   @param sideSize      The dimension of one side (XZ) of the heightmap.
+        *   @param height        The ground height for the heightmap.
+        *   @param textureFile   The texture file to use for this heightmap.
+        *   @param emissiveColor The emissive color for this material.
+        *   @param rotation      The initial rotation for all axis.
+        *   @param physic        The physical attributes to apply for this mesh.
+        *
+        *   @return The created mesh.
+        ***************************************************************************************************************/
         public createHeightMapGround
         (
             position      :BABYLON.Vector3,

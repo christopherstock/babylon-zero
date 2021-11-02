@@ -77,6 +77,11 @@
             }
         }
 
+        /** ************************************************************************************************************
+        *   Returns the last mouse movement X and clears the stored value.
+        *
+        *   @return The last mouse movement X.
+        ***************************************************************************************************************/
         public getAndResetLastMouseMovementX() : number
         {
             const ret :number = this.lastMovementX;
@@ -84,6 +89,11 @@
             return ret;
         }
 
+        /** ************************************************************************************************************
+        *   Returns the last mouse movement Y and clears the stored value.
+        *
+        *   @return The last mouse movement Y.
+        ***************************************************************************************************************/
         public getAndResetLastMouseMovementY() : number
         {
             const ret :number = this.lastMovementY;
@@ -91,6 +101,13 @@
             return ret;
         }
 
+        /** ************************************************************************************************************
+        *   Delivers the 'down' state for the specified button ID.
+        *
+        *   @param buttonId The button ID to deliver the 'down' state for.
+        *
+        *   @return The button ID to deliver the 'down' state for.
+        ***************************************************************************************************************/
         public isMouseButtonDown( buttonId:number ) : boolean
         {
             switch ( buttonId )
@@ -114,6 +131,13 @@
             return false;
         }
 
+        /** ************************************************************************************************************
+        *   Consumes the specified pressed mouse button.
+        *
+        *   @param buttonId The button ID to consume.
+        *
+        *   @return If the specified button has actually be consumed.
+        ***************************************************************************************************************/
         public consumeMouseButtonDown( buttonId:number ) : boolean
         {
             switch ( buttonId )
@@ -152,6 +176,11 @@
             return false;
         }
 
+        /** ************************************************************************************************************
+        *   Flags the specified mouse button so it requires a release event before being able to be pressed again.
+        *
+        *   @param buttonId The button ID to flag as 'requires a release'.
+        ***************************************************************************************************************/
         public setButtonNeedsRelease( buttonId:number ) : void
         {
             switch ( buttonId )
@@ -179,7 +208,10 @@
             }
         }
 
-        // TODO remove after using native canvas flag!
+        /** ************************************************************************************************************
+        *   Unflags the 'locked mouse' state.
+        *   TODO remove after using native canvas flag!
+        ***************************************************************************************************************/
         public releasePointerLock() : void
         {
             this.mouseLocked = false;
@@ -287,6 +319,9 @@
             }
         }
 
+        /** ************************************************************************************************************
+        *   Requests the native 'pointer lock' mechanism to the native HTML canvas.
+        ***************************************************************************************************************/
         private requestPointerLock() : void
         {
             document.addEventListener( 'pointerlockchange',    () => { this.onPointerLockChange(); } );
