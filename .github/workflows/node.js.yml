@@ -26,7 +26,7 @@ jobs:
     - name: Build Production App Bundle
       run: npm run webpack:production
     - name: Upload Production App Bundle to Build Artefacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: app-bundle
         path: dist/js/babylon-zero-v\d+\.\d+\.\d+\.js
