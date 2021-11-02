@@ -45,14 +45,14 @@
         /** ************************************************************************************************************
         *   Sets the position to the specified mesh.
         *
-        *   @param mesh        The mesh to apply position and pivot to.
-        *   @param position    Where to place this mesh.
-        *   @param anchor The desired pivot anchor kind to set for this mesh.
-        *   @param width       The dimension x of this mesh.
-        *   @param height      The dimension y of this mesh.
-        *   @param depth       The dimension z of this mesh.
+        *   @param mesh     The mesh to apply position and pivot to.
+        *   @param position Where to place this mesh.
+        *   @param anchor   The desired pivot anchor kind to set for this mesh.
+        *   @param width    The dimension x of this mesh.
+        *   @param height   The dimension y of this mesh.
+        *   @param depth    The dimension z of this mesh.
         ***************************************************************************************************************/
-        public static setStartPosition
+        public static setPositionByAnchor
         (
             mesh     :BABYLON.AbstractMesh,
             position :BABYLON.Vector3,
@@ -64,7 +64,36 @@
         )
         : void
         {
-            mesh.position = position;
+            switch ( anchor )
+            {
+                case bz.MeshPositionAnchor.LOWEST_XYZ:
+                {
+                    mesh.position = new BABYLON.Vector3(
+                        position.x + ( width  / 2 ),
+                        position.y + ( height / 2 ),
+                        position.z + ( depth  / 2 )
+                    );
+                    break;
+                }
+
+                case bz.MeshPositionAnchor.CENTER_XZ_LOWEST_Y:
+                {
+                    mesh.position = new BABYLON.Vector3(
+                        position.x,
+                        position.y + ( height / 2 ),
+                        position.z
+                    );
+                    break;
+                }
+
+                case bz.MeshPositionAnchor.CENTER_XYZ:
+                default:
+                {
+                    // apply no translation (center XYZ)
+                    mesh.position = position;
+                    break;
+                }
+            }
         }
 
         /** ************************************************************************************************************

@@ -117,7 +117,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 box,
                 position,
@@ -206,7 +206,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 ground,
                 position,
@@ -292,7 +292,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 cylinder,
                 position,
@@ -365,7 +365,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 sphere,
                 position,
@@ -450,7 +450,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 plane,
                 position,
@@ -502,7 +502,7 @@
             end         :BABYLON.Vector3,
             color       :BABYLON.Color4,
 
-            anchor      :bz.MeshPositionAnchor = bz.MeshPositionAnchor.NONE,
+            anchor      :bz.MeshPositionAnchor = bz.MeshPositionAnchor.CENTER_XYZ,
             rotation    :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
         )
         : BABYLON.Mesh
@@ -526,7 +526,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 line,
                 BABYLON.Vector3.Zero(),
@@ -594,7 +594,7 @@
                 this.scene.getNativeScene()
             );
 
-            bz.MeshManipulation.setStartPosition
+            bz.MeshManipulation.setPositionByAnchor
             (
                 polygon,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -708,7 +708,7 @@
         public createSkyBoxCube
         (
             skyBox  :bz.SkyBoxFile,
-            opacity :number
+            opacity :number        = 1.0
         )
         : BABYLON.Mesh
         {

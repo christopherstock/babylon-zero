@@ -166,7 +166,6 @@
         {
             switch ( anchor )
             {
-                case bz.MeshPositionAnchor.NONE:
                 case bz.MeshPositionAnchor.CENTER_XYZ:
                 {
                     // this is the default bahaviour

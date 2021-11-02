@@ -206,7 +206,7 @@
                             meshFactory.createSphere
                             (
                                 new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.CENTER_XYZ,
                                 3.0,
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
@@ -270,7 +270,7 @@
                             meshFactory.createBox
                             (
                                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 0.0 ),
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.CENTER_XYZ,
                                 new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_AMIGA,
@@ -289,13 +289,14 @@
                     new bz.Model
                     (
                         [
-                            // movable glass pane
+                            // static glass pane
                             meshFactory.createBox
                             (
-                                new BABYLON.Vector3( this.OFFSET_X + 0.0,  2.5, this.OFFSET_Z + 0.0   ),
+                                new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                                 bz.MeshPositionAnchor.LOWEST_XYZ,
                                 new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
-                                new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
+                                // new BABYLON.Vector3( 0.0,  135.0, 0.0   ),
+                                new BABYLON.Vector3( 0.0,  0.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
                                 null,
                                 bz.PhysicBehaviour.STATIC,
@@ -601,7 +602,7 @@
                             meshFactory.createHeightMapGround
                             (
                                 new BABYLON.Vector3( this.OFFSET_X + 0.0, 0.0, this.OFFSET_Z - 0.0 ),
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.CENTER_XYZ,
                                 400.0,
                                 5.0,
                                 // TODO add HeightMapFile
@@ -623,7 +624,7 @@
                             meshFactory.createBox
                             (
                                 new BABYLON.Vector3( this.OFFSET_X, 10.5, this.OFFSET_Z  ),
-                                bz.MeshPositionAnchor.NONE,
+                                bz.MeshPositionAnchor.CENTER_XYZ,
                                 new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
                                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                                 bz.Texture.WALL_TEST,
@@ -710,7 +711,7 @@
                             meshFactory.createBox
                             (
                                 new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.CENTER_XYZ,
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
                                 new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
                                 bz.Texture.WALL_WOOD,
@@ -732,7 +733,7 @@
                             meshFactory.createBox
                             (
                                 new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
-                                bz.MeshPositionAnchor.LOWEST_XYZ,
+                                bz.MeshPositionAnchor.CENTER_XYZ,
                                 new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
                                 new BABYLON.Vector3( 0.0,  45.0, 0.0   ),
                                 bz.Texture.WALL_GLASS,
