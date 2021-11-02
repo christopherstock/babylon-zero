@@ -15,7 +15,6 @@ module.exports = {
     plugins: [
         '@typescript-eslint',
         '@typescript-eslint/tslint',
-        'eslint-plugin-prefer-arrow',
         'eslint-plugin-import'
     ],
     rules: {
@@ -32,7 +31,7 @@ module.exports = {
             }
         ],
         '@typescript-eslint/explicit-function-return-type': 'warn',
-        '@typescript-eslint/consistent-type-definitions': 'off',
+        '@typescript-eslint/consistent-type-definitions': 'warn',
         '@typescript-eslint/explicit-member-accessibility': [
             'warn',
             {
@@ -151,24 +150,14 @@ module.exports = {
             },
         ],
         'no-throw-literal': 'warn',
-        'no-trailing-spaces': 'off',
+        'no-trailing-spaces': 'warn',
         'no-undef-init': 'warn',
         'no-underscore-dangle': 'warn',
         'no-unsafe-finally': 'warn',
         'no-unused-expressions': 'warn',
         'no-unused-labels': 'warn',
-        'object-shorthand': 'off',
+        'object-shorthand': 'warn',
         'one-var': ['warn', 'never'],
-/*
-        'prefer-arrow/prefer-arrow-functions': [
-            'warn',
-            {
-                disallowPrototype: false,
-                allowNamedFunctions: false,
-                allowUnboundThis: true
-            },
-        ],
-*/
         'quote-props': 'off',
         radix: 'warn',
         'space-before-function-paren': 'off',
