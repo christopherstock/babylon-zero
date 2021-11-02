@@ -8,7 +8,25 @@ import * as bz from '../..';
 export class TextureFile
 {
     /** The texture file 'test'. */
-    public      static  readonly    TEST                        :TextureFile                = new TextureFile( 'wall/test.jpg',     bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    public      static  readonly    BULLET_HOLE_CONCRETE                :TextureFile                = new TextureFile( 'bulletHole/concrete.png',   bz.TextureHasAlpha.YES,  bz.TextureUV.ALL_TO_ONE );
+    /** The texture file 'test'. */
+    public      static  readonly    BULLET_HOLE_WOOD                    :TextureFile                = new TextureFile( 'bulletHole/wood.png',       bz.TextureHasAlpha.YES,  bz.TextureUV.ALL_TO_ONE );
+    /** The texture file 'test'. */
+    public      static  readonly    BULLET_HOLE_GLASS                   :TextureFile                = new TextureFile( 'bulletHole/glass.png',      bz.TextureHasAlpha.YES,  bz.TextureUV.ALL_TO_ONE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_TEST                           :TextureFile                = new TextureFile( 'wall/test.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_MAYFLOWER_LOGO                 :TextureFile                = new TextureFile( 'wall/mfLogo.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_AMIGA                          :TextureFile                = new TextureFile( 'wall/amiga.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_WOOD                           :TextureFile                = new TextureFile( 'wall/wood.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_GRASS                          :TextureFile                = new TextureFile( 'wall/grass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_GLASS                          :TextureFile                = new TextureFile( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'test'. */
+    public      static  readonly    WALL_SKIN_ROSE                      :TextureFile                = new TextureFile( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
 
     /** The filename of this texture's image. */
     public              readonly    fileName                :string             = null;
