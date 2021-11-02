@@ -104,5 +104,5 @@ export class ModelSystem
 
             this.onLoadComplete();
         }
-    };
+    }
 }

@@ -247,7 +247,7 @@ export class Game
                 pickResult.pickedMesh.applyImpulse( dir.scale( 10 ), pickResult.pickedPoint );
             }
         }
-    };
+    }
 
     /** ************************************************************************************************************
     *   Being invoked when the game engine is completely initialized.
@@ -271,7 +271,7 @@ export class Game
 
         // start physics engine not before now in order to prevent unwanted physical startup impulses! :)
         this.scene.enablePhysics( true );
-    };
+    }
 
     /** ************************************************************************************************************
     *   The render loop being invoked each game tick.
@@ -292,7 +292,7 @@ export class Game
 
         // handle global keys ( pause, camera changes, level switches etc. )
         this.handleGlobalKeys();
-    };
+    }
 
     /** ************************************************************************************************************
     *   Handles all keys for the menu.

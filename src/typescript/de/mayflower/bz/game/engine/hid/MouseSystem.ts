@@ -228,7 +228,7 @@ export class MouseSystem
         {
             this.requestPointerLock();
         }
-    };
+    }
 
     /** ************************************************************************************************************
     *   Being invoked when the mouse is down over the canvas.
@@ -360,7 +360,7 @@ export class MouseSystem
 
             this.mouseLocked = false;
         }
-    };
+    }
 
     /** ************************************************************************************************************
     *   Being invoked when the 'pointer-locked' mouse is moved.
@@ -384,5 +384,5 @@ export class MouseSystem
             this.lastMovementX = me.movementX;
             this.lastMovementY = me.movementY;
         }
-    };
+    }
 }

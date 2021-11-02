@@ -27,9 +27,6 @@ export class Item extends bz.GameObject
     ***************************************************************************************************************/
     public render() : void
     {
-        // invoke parent method
-        super.render();
-
         // check if picked by player
         if ( this.checkPick( this.stage.getPlayer().getModel() ) )
         {

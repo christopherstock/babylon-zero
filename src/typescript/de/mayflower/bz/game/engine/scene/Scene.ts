@@ -235,5 +235,5 @@ export class Scene
             this.onLoadingComplete
         );
         this.modelSystem.load( this.babylonScene );
-    };
+    }
 }

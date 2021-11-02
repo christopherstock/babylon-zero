@@ -136,7 +136,7 @@ export class Engine
             // resize babylon.JS
             this.babylonEngine.resize();
         }
-    };
+    }
 
     // noinspection JSMethodCanBeStatic
 

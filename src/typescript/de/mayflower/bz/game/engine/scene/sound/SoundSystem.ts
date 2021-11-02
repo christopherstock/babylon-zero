@@ -93,7 +93,7 @@ export class SoundSystem
 
             this.onLoadComplete();
         }
-    };
+    }
 
     /** ************************************************************************************************************
     *   Returns the next id for a new sound to create.

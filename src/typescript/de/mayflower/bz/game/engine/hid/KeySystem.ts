@@ -37,7 +37,7 @@ export class KeySystem
 
             bz.Debug.key.log( 'key pressed ['  + keyCode + ']' );
         }
-    };
+    }
 
     /** ************************************************************************************************************
     *   Being invoked by the system when a key is released.
@@ -58,7 +58,7 @@ export class KeySystem
         }
 */
         bz.Debug.key.log( 'key released ['  + keyCode + ']' );
-    };
+    }
 
     /** ************************************************************************************************************
     *   Checks if the key with the given keyCode is currently pressed.
