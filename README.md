@@ -3,6 +3,9 @@
 
 Experience sheer development passion in our workshop from 15.-18. May 2019 at the Mayflower Barcamp in Bayreuth!
 
+## Pipeline State
+![Pipeline State](https://github.com/christopherstock/babylon-zero/actions/workflows/node.js.yml/badge.svg)
+
 ## 1. Install all Node.js packages
 ```
 npm install

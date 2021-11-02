@@ -3,21 +3,15 @@
 
 ```
 =====================
-Dev Ops
-=====================
-TODO Add CI/CD pipeline via GitHub Actions! - Button to README!
-TODO Reset Git Repository?
-
-=====================
-Primal
+Showstoppers
 =====================
 TODO message on picking up item
 TODO ditch package.json - update all libs
 TODO add constant rotation (angle) to sprite ??
-TODO why so slow on firing repeatedly?
 TODO pause menu / GUI must be over red hit effect!
 TODO debug and improve init process?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
+TODO why so slow on firing repeatedly?
 TODO Solution to fix/remove screen flickering/shaking on collisions.
 TODO Find and prune classes with mixed static & non-static content
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
@@ -29,6 +23,7 @@ TODO Enable loading of only required resources for the current scene?
 MVP 1.0.0 - Tech-Demo 'Office '92' ?
 =====================
 TODO Create realistic models, lights and spacial sounds.
+TODO Reset Git Repository?
 
 =====================
 Player
@@ -81,10 +76,6 @@ New features
 TODO introduce Stage Animation system? as Animations (camera) do not stop on pausing the game.
 TODO Create wearpons with projectiles (exploding or non-exploding)..
 TODO Create explosive wearpons etc.
-
-=====================
-The Lab
-=====================
 TODO Try soft bodies.
 TODO Try babylon 101 scenes.
 TODO Try 'worker thread collisions'? seems obsolete.
@@ -94,8 +85,5 @@ TODO Try fur.
 TODO Try Impossible?: Show a video texture in the GUI.
 TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
 TODO Try water effects?
-TODO Try different player objects: physics for car!
-TODO Try 'gamelets' in the babylon.JS docs.
-TODO Try 360 Photodome? https://doc.babylonjs.com/how_to/360photodome
-TODO Try more babylon.JS tutorials and gamelets, features and playgrounds for gathering new features.
+TODO See 'gamelets' in the babylon.JS docs.
 ```
