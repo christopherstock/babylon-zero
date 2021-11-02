@@ -51,7 +51,7 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: echo Running Jest Unit tests
-    - run: npm test:jest
+    - run: npm run test:jest
     - name: Upload Test Report Artefact
       uses: actions/upload-artifact@v1
       with:

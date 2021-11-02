@@ -6,7 +6,7 @@
     *******************************************************************************************************************/
     export abstract class Stage
     {
-        /** The game instance. TODO remove from Stage? */
+        /** The game instance. */
         protected           readonly        game                    :bz.Game                               = null;
         /** The scene instance of the game instance. */
         protected           readonly        scene                   :bz.Scene                               = null;
@@ -202,8 +202,6 @@
         ***************************************************************************************************************/
         public getCameraSystem() : bz.CameraSystem
         {
-            // TODO remove! possibly 1 camera system (from stage to game) ?
-
             return this.cameraSystem;
         }
 
