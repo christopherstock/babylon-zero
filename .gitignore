@@ -15,11 +15,8 @@ node_modules
 # TypeScript build path
 bin
 
-# TypeDoc output
-doc
-
-# Jest coverage output
-coverage
+# CI/CD output
+public
 
 # huge files
 /_ASSETS/_AEP/promo8/assets/logo_Exploding.avi

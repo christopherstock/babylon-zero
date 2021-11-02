@@ -15,12 +15,9 @@
         "webpack:devserver": "webpack-dev-server --mode=development",
         "typedoc:generate": "typedoc --out doc --listInvalidSymbolLinks --name \"Ant Design meets The International Chuck Norris Database, (c) 2020 Mayflower GmbH\" src/typescript",
         "eslint:check": "eslint \"src/**/*.{ts,tsx}\"",
-        "test:all": "mocha --require ts-node/register --require ignore-styles --require src/test/index.ts src/test/**/*.ts src/test/**/*.tsx",
-        "test:jest": "jest",
-        "test:jest-coverage": "jest --coverage"
+        "test:jest": "jest --ci"
     },
     "devDependencies": {
-        "@types/chai": "4.1.7",
         "@types/enzyme": "3.10.3",
         "@types/jest": "25.2.3",
         "@types/moment": "2.13.0",
@@ -30,7 +27,6 @@
         "@typescript-eslint/eslint-plugin-tslint": "2.17.0",
         "@typescript-eslint/parser": "2.17.0",
         "awesome-typescript-loader": "5.2.1",
-        "chai": "4.2.0",
         "css-loader": "0.28.11",
         "enzyme": "3.10.0",
         "eslint": "6.8.0",
@@ -40,7 +36,6 @@
         "jest": "25.5.4",
         "less": "3.11.1",
         "less-loader": "4.1.0",
-        "mocha": "5.2.0",
         "source-map-loader": "0.2.4",
         "style-loader": "0.20.3",
         "ts-jest": "26.0.0",
@@ -57,6 +52,7 @@
         "babylonjs-gui": "4.1.0",
         "cannon": "0.6.2",
         "earcut": "2.1.5",
+        "jest-junit": "^13.0.0",
         "moment": "2.24.0"
     },
     "jest": {

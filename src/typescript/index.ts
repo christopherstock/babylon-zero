@@ -1,5 +1,5 @@
 
-    import * as bz from './de/mayflower/bz';
+    import { WebApp } from './de/mayflower/bz/base/WebApp';
 /*
     ( global as any ).BABYLON = require( 'babylonjs' );
     ( global as any ).CANNON  = require( 'cannon' );
@@ -10,7 +10,7 @@
     *******************************************************************************************************************/
     window.onload = () : void  =>
     {
-        const webApp :bz.WebApp = new bz.WebApp();
+        const webApp :WebApp = new WebApp();
         webApp.start();
     };
 
