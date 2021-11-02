@@ -30,7 +30,7 @@ export class PhysicImpostorParams
                 friction:     this.friction,
                 restitution:  this.restitution,
 
-                // TODO try on simple objects?
+                // changing to 'true' seems not to change anything even on compounds :p
                 ignoreParent: false,
             },
             scene

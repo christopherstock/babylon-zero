@@ -562,7 +562,7 @@ private createLevelGroundWalls() : bz.Wall[]
                         bz.MeshAnchor.CENTER_XYZ,
                         400.0,
                         5.0,
-                        // TODO add HeightMapFile
+                        // TODO add new Texture type 'heightmap' to class Texture ?
                         'res/image/texture/heightMap/heightMap5.png',
                         this.ambientColor,
                         new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
