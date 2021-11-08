@@ -98,6 +98,7 @@ export class HitPoint
                 + '[' + String( this.mesh.physicsImpostor.mass ) + ']'
             );
 
+            // this operation sadly lacks some performance - understandable
             this.mesh.applyImpulse( this.direction.scale( force ), this.point );
         }
         else

@@ -3,7 +3,8 @@ import * as bz from '../../..';
 /** ********************************************************************************************************************
 *   Specifies the physical behaviour of a body.
 *
-*   TODO outsource constant data to PhysicBehaviourData, PhysicsSet etc ?
+*   TODO Simplify 'density': just using mass everywhere - seems much simpler!
+*   TODO outsource constant data (from constructor) to PhysicsSet etc ?
 ***********************************************************************************************************************/
 export class PhysicBehaviour
 {
@@ -197,7 +198,7 @@ export class PhysicBehaviour
                 break;
             }
 
-// TODO never passed if Player is an imported model !! .. enable explicit physics setting!
+// TODO never passed if Player is an imported model !! .. enable explicit physics setting!?
 /*
             case bz.PhysicState.PLAYER:
             {
