@@ -30,7 +30,7 @@ export class PhysicBehaviour
     public  static  readonly        LIGHT_WOOD      :PhysicBehaviour                 = new PhysicBehaviour
     (
         bz.PhysicState.MOVABLE,
-        bz.PhysicDensity.LIGHT_WOOD,
+        0.5,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE
     );
@@ -39,7 +39,7 @@ export class PhysicBehaviour
     public  static  readonly        SOLID_WOOD      :PhysicBehaviour                 = new PhysicBehaviour
     (
         bz.PhysicState.MOVABLE,
-        bz.PhysicDensity.SOLID_WOOD,
+        1.0,
         bz.PhysicFriction.MEDIUM,
         bz.PhysicRestitution.MEDIUM
     );
@@ -48,7 +48,7 @@ export class PhysicBehaviour
     public  static  readonly        CONCRETE        :PhysicBehaviour                 = new PhysicBehaviour
     (
         bz.PhysicState.MOVABLE,
-        bz.PhysicDensity.CONCRETE,
+        1.5,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE
     );
@@ -57,7 +57,7 @@ export class PhysicBehaviour
     public  static  readonly        SOLID_CONCRETE  :PhysicBehaviour                 = new PhysicBehaviour
     (
         bz.PhysicState.MOVABLE,
-        bz.PhysicDensity.SOLID_CONCRETE,
+        2.5,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE
     );
@@ -66,7 +66,7 @@ export class PhysicBehaviour
     public  static  readonly        COMPOUND        :PhysicBehaviour                 = new PhysicBehaviour
     (
         bz.PhysicState.MOVABLE,
-        bz.PhysicDensity.DEFAULT,
+        1.0,
         bz.PhysicFriction.MEDIUM,
         bz.PhysicRestitution.MEDIUM
     );
@@ -75,7 +75,7 @@ export class PhysicBehaviour
     public  static  readonly        STATIC          :PhysicBehaviour                 = new PhysicBehaviour
     (
         bz.PhysicState.STATIC,
-        bz.PhysicDensity.STATIC,
+        0.0,
         bz.PhysicFriction.MEDIUM,
         bz.PhysicRestitution.MEDIUM
     );
@@ -83,7 +83,7 @@ export class PhysicBehaviour
     /** The general physic state of this physics setting. */
     private         readonly        state           :bz.PhysicState         = null;
     /** The density of this physics setting. */
-    private         readonly        density         :bz.PhysicDensity       = null;
+    private         readonly        density         :number                 = 0.0;
     /** The friction of this physics setting */
     private         readonly        friction        :bz.PhysicFriction      = null;
     /** The density of this physics setting */
@@ -100,7 +100,7 @@ export class PhysicBehaviour
     private constructor
     (
         state       :bz.PhysicState,
-        density     :bz.PhysicDensity,
+        density     :number,
         friction    :bz.PhysicFriction,
         restitution :bz.PhysicRestitution
     )
