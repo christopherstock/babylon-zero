@@ -5,6 +5,7 @@
 =====================
 Showstoppers
 =====================
+TODO Add boxes with different texture and weight! (steel crate etc)
 TODO Add shelves.
 TODO Scale up/down all chairs and some models?
 TODO Debug low performance on multiple shots?

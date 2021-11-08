@@ -177,6 +177,7 @@ export class PhysicBehaviour
     *   Creates the physical impostor parameters for these physic set.
     *
     *   @param volume The volume of the mesh to create the impostor parameters for.
+    *                 TODO remove with weight.
     *
     *   @return The impostor parameters for these physical settings.
     *******************************************************************************************************************/
@@ -205,9 +206,10 @@ export class PhysicBehaviour
         }
 
         return {
-            mass:                               mass,
-            friction:                           this.friction,
-            restitution:                        this.restitution,
+            mass:        mass,
+            friction:    this.friction,
+            restitution: this.restitution,
+
             disableBidirectionalTransformation: false,
         };
     }
