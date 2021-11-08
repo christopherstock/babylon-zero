@@ -206,7 +206,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WALL_TEST,
                             null,
-                            bz.PhysicBody.LIGHT_WOOD,
+                            bz.PhysicBody.WHITE_TEST_SPHERE,
                             1.0,
                             this.ambientColor
                         ),
@@ -609,7 +609,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 15.0, 0.0, this.OFFSET_Z + 15.0 ),
-                    bz.PhysicBody.LIGHT_WOOD,
+                    bz.PhysicBody.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -620,7 +620,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicBody.LIGHT_WOOD,
+                    bz.PhysicBody.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -631,7 +631,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 15.0 ),
-                    bz.PhysicBody.LIGHT_WOOD,
+                    bz.PhysicBody.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -642,7 +642,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 2.5, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicBody.LIGHT_WOOD,
+                    bz.PhysicBody.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -653,7 +653,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 5.0, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicBody.LIGHT_WOOD,
+                    bz.PhysicBody.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
