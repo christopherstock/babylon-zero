@@ -24,6 +24,6 @@ export class SettingResource
 
     /** Relative path from index.html where all texture images reside. */
     public  static  readonly    PATH_IMAGE_TEXTURE                      :string             = 'res/image/texture/';
-    /** Relative path from index.html where all video textures reside. */
+    /** Relative path from index.html where all video textures reside. TODO unify/prune? */
     public  static  readonly    PATH_VIDEO_TEXTURE                      :string             = 'res/video/texture/';
 }

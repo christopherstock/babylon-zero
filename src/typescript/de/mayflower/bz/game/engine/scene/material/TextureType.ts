@@ -8,7 +8,4 @@ export enum TextureType
 
     /** An animated video texture. */
     VIDEO,
-
-    /** An embedded texture for a babylon.JS model. */
-    MODEL,
 }

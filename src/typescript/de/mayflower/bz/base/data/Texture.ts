@@ -4,38 +4,33 @@ import * as bz from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies all textures to load.
-*
-*   TODO extract 1st three params to new class TextureFile!
 ***********************************************************************************************************************/
 export class Texture
 {
     /** The texture 'bullet hole concreate'. */
-    public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( 'bulletHole/concrete.png',   bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_CONCRETE, null,                           bz.TextureType.WALL     );
     /** The texture 'bullet hole wood'. */
-    public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( 'bulletHole/wood.png',       bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_WOOD,     null,                           bz.TextureType.WALL     );
     /** The texture 'bullet hole glass'. */
-    public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( 'bulletHole/glass.png',      bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE,    null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_GLASS,    null,                           bz.TextureType.WALL     );
 
     /** The texture 'wall test'. */
-    public      static  readonly    WALL_TEST                   :Texture                = new Texture( 'wall/test.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_CONCRETE,   bz.TextureType.WALL     );
+    public      static  readonly    WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST,            Texture.BULLET_HOLE_CONCRETE,   bz.TextureType.WALL     );
     /** The texture 'wall mayflower logo'. */
-    public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( 'wall/mfLogo.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO,  Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
     /** The texture 'wall amiga'. */
-    public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( 'wall/amiga.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( bz.TextureFile.WALL_AMIGA,           Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
     /** The texture 'wall wood'. */
-    public      static  readonly    WALL_WOOD                   :Texture                = new Texture( 'wall/wood.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_WOOD                   :Texture                = new Texture( bz.TextureFile.WALL_WOOD,            Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
     /** The texture 'wall grass'. */
-    public      static  readonly    WALL_GRASS                  :Texture                = new Texture( 'wall/grass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_GRASS                  :Texture                = new Texture( bz.TextureFile.WALL_GRASS,           Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
     /** The texture 'wall glas'. */
-    public      static  readonly    WALL_GLASS                  :Texture                = new Texture( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_GLASS,      bz.TextureType.WALL     );
+    public      static  readonly    WALL_GLASS                  :Texture                = new Texture( bz.TextureFile.WALL_GLASS,           Texture.BULLET_HOLE_GLASS,      bz.TextureType.WALL     );
     /** The texture 'wall skin rosé'. */
-    public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE,       Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
 
     /** The video texture 'wall test'. */
     // public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( 'test.mp4',                  bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
-
-    /** The model texture 'crate'. */
-    // public      static  readonly    MODEL_CRATE                 :Texture                = new Texture( 'crate1.jpg',                bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_WOOD,       bz.TextureType.MODEL    );
 
     /** Contains all texture data objects. */
     public      static  readonly    ALL_TEXTURES                :Texture[]              =
@@ -74,27 +69,24 @@ export class Texture
     /** ****************************************************************************************************************
     *   Creates a texture configuration.
     *
-    *   @param fileName          The filename of the image to load for this material.
-    *   @param textureHasAlpha   Specifies alpha occurance in texture image.
-    *   @param strategyUV        The UV tiling strategy for this texture.
+    *   @param file              The texture file to create this Texture from.
     *   @param bulletHoleTexture The texture for bullet holes that occur onto this texture.
     *   @param textureType       The type of this texture.
     *******************************************************************************************************************/
     public constructor
     (
-        fileName          :string,
-        textureHasAlpha   :bz.TextureHasAlpha,
-        strategyUV        :bz.TextureUV,
+        file              :bz.TextureFile,
         bulletHoleTexture :bz.Texture,
         textureType       :bz.TextureType
     )
     {
+        this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
 
-        this.fileName          = this.getFileName( fileName );
-        this.textureHasAlpha   = textureHasAlpha;
-        this.strategyUV        = strategyUV;
-        this.bulletHoleTexture = bulletHoleTexture;
+        this.fileName          = this.getFileName( file.fileName );
+        this.textureHasAlpha   = file.textureHasAlpha;
+        this.strategyUV        = file.strategyUV;
+
     }
 
     /** ****************************************************************************************************************
@@ -135,12 +127,6 @@ export class Texture
                 );
 
                 this.nativeTexture = videoTexture;
-                break;
-            }
-
-            case bz.TextureType.MODEL:
-            {
-                // do not load model textures explicitly
                 break;
             }
         }
@@ -215,12 +201,6 @@ export class Texture
             case bz.TextureType.VIDEO:
             {
                 return bz.SettingResource.PATH_VIDEO_TEXTURE + fileName;
-            }
-
-            case bz.TextureType.MODEL:
-            {
-                // return only the filename as model textures are loaded relative to the max file
-                return fileName;
             }
         }
 
