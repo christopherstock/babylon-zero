@@ -132,7 +132,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 20.0, 5.0, this.OFFSET_Z + 35.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 20.0, 3.5, this.OFFSET_Z + 35.0 ),
                 bz.PhysicBehaviour.SOLID_CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             ),
@@ -158,7 +158,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 20.0, 3.75, 45.0 ),
+                new BABYLON.Vector3( 20.0, 3.5, 45.0 ),
                 bz.PhysicBehaviour.CONCRETE,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
@@ -562,8 +562,7 @@ export class StageOffice extends bz.Stage
                             bz.MeshAnchor.CENTER_XYZ,
                             400.0,
                             5.0,
-                            // TODO use TextureFile into class Texture!
-                            'res/image/texture/heightMap/valley.png',
+                            bz.TextureFile.HEIGHTMAP_VALLEY,
                             this.ambientColor,
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
                             bz.PhysicBehaviour.STATIC

@@ -198,18 +198,6 @@ export class PhysicBehaviour
                 break;
             }
 
-// TODO never passed if Player is an imported model !! .. enable explicit physics setting!?
-/*
-            case bz.PhysicState.PLAYER:
-            {
-                return {
-                    mass:                               bz.SettingPlayer.MASS,
-                    friction:                           0.0,
-                    restitution:                        0.0,
-                    disableBidirectionalTransformation: false,
-                };
-            }
-*/
             case bz.PhysicState.NONE:
             {
                 break;

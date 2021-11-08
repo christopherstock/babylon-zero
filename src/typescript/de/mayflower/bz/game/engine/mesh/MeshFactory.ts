@@ -160,7 +160,7 @@ export class MeshFactory
         anchor        :bz.MeshAnchor,
         sideSize      :number,
         height        :number,
-        textureFile   :string,
+        textureFile   :bz.TextureFile,
         emissiveColor :BABYLON.Color3,
         rotation      :BABYLON.Vector3,
         physic        :bz.PhysicBehaviour
@@ -201,7 +201,7 @@ export class MeshFactory
         };
         let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
             MeshFactory.createNextMeshId(),
-            textureFile,
+            ( bz.SettingResource.PATH_IMAGE_TEXTURE + textureFile.fileName ),
             options,
             this.scene.getNativeScene()
         );

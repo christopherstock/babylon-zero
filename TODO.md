@@ -5,8 +5,9 @@
 =====================
 Showstoppers
 =====================
+TODO Add shelves.
+TODO Scale up/down all chairs and some models?
 TODO Debug low performance on multiple shots?
-TODO Scale down all chairs?
 TODO light physixc object + shot on it physics!
 TODO clear all TODOs in code.
 TODO message on picking up item
