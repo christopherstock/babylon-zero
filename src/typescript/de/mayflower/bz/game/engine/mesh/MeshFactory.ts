@@ -167,13 +167,11 @@ export class MeshFactory
     )
     : BABYLON.Mesh
     {
-        const subdivisions :number = sideSize;
-
         const options :any = {
             width: sideSize,
             height: sideSize,
             depth: height,
-            subdivisions: subdivisions,
+            subdivisions: sideSize,
             minHeight: 0.0,
             maxHeight: height,
             onReady: () :void => {

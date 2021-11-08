@@ -5,6 +5,9 @@
 =====================
 Showstoppers
 =====================
+TODO Debug low performance on multiple shots?
+TODO Scale down all chairs?
+TODO light physixc object + shot on it physics!
 TODO clear all TODOs in code.
 TODO message on picking up item
 TODO ditch package.json - update all libs
