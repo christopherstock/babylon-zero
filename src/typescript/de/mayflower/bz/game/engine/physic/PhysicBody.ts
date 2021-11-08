@@ -6,87 +6,97 @@ import * as bz from '../../..';
 *   TODO Simplify 'density': just using mass everywhere - seems much simpler!
 *   TODO outsource constant data (from constructor) to PhysicsSet etc ?
 ***********************************************************************************************************************/
-export class PhysicBehaviour
+export class PhysicBody
 {
     /** A non-collidable and non-gravitational affected physical state. */
-    public  static  readonly        NONE                :PhysicBehaviour             = new PhysicBehaviour
+    public  static  readonly        NONE                :PhysicBody             = new PhysicBody
     (
         bz.PhysicState.NONE,
         null,
         bz.PhysicFriction.NONE,
-        bz.PhysicRestitution.NONE
+        bz.PhysicRestitution.NONE,
+        -1
     );
 
     /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-    public  static  readonly        PLAYER_HUMAN        :PhysicBehaviour             = new PhysicBehaviour
+    public  static  readonly        PLAYER_HUMAN        :PhysicBody             = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         bz.SettingPlayer.MASS,
         bz.PhysicFriction.NONE,
-        bz.PhysicRestitution.NONE
+        bz.PhysicRestitution.NONE,
+        -1
     );
 
     /** Props for light wood. */
-    public  static  readonly        LIGHT_WOOD      :PhysicBehaviour                 = new PhysicBehaviour
+    public  static  readonly        LIGHT_WOOD      :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         0.5,
         bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE
+        bz.PhysicRestitution.NONE,
+        -1
     );
 
     /** Props for solid wood. */
-    public  static  readonly        SOLID_WOOD      :PhysicBehaviour                 = new PhysicBehaviour
+    public  static  readonly        SOLID_WOOD      :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         1.0,
         bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM
+        bz.PhysicRestitution.MEDIUM,
+        -1
     );
 
     /** Props for concrete. */
-    public  static  readonly        CONCRETE        :PhysicBehaviour                 = new PhysicBehaviour
+    public  static  readonly        CONCRETE        :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         1.5,
         bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE
+        bz.PhysicRestitution.NONE,
+        -1
     );
 
     /** Props for solid concrete. */
-    public  static  readonly        SOLID_CONCRETE  :PhysicBehaviour                 = new PhysicBehaviour
+    public  static  readonly        SOLID_CONCRETE  :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         2.5,
         bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE
+        bz.PhysicRestitution.NONE,
+        -1
     );
 
     /** Props for a physical compound object. */
-    public  static  readonly        COMPOUND        :PhysicBehaviour                 = new PhysicBehaviour
+    public  static  readonly        COMPOUND        :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         1.0,
         bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM
+        bz.PhysicRestitution.MEDIUM,
+        -1
     );
 
     /** Physical properties for a non-moving and collidable body. */
-    public  static  readonly        STATIC          :PhysicBehaviour                 = new PhysicBehaviour
+    public  static  readonly        STATIC          :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.STATIC,
         0.0,
         bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM
+        bz.PhysicRestitution.MEDIUM,
+        -1
     );
 
-    /** The general physic state of this physics setting. */
+    /** The general physic state of this physics object. */
     private         readonly        state           :bz.PhysicState         = null;
     /** The density of this physics setting. */
     private         readonly        density         :number                 = 0.0;
+    /** The weight of this physics setting. */
+    private         readonly        weight          :number                 = 0.0;
     /** The friction of this physics setting */
     private         readonly        friction        :bz.PhysicFriction      = null;
-    /** The density of this physics setting */
+    /** The restitution of this physics setting */
     private         readonly        restitution     :bz.PhysicRestitution   = null;
 
     /** ****************************************************************************************************************
@@ -96,19 +106,22 @@ export class PhysicBehaviour
     *   @param density     The density of this physical body setting.
     *   @param friction    The friction of this physical body setting.
     *   @param restitution The restitution of this physical body setting.
+    *   @param weight      The weight of this physical body in kilograms.
     *******************************************************************************************************************/
     private constructor
     (
         state       :bz.PhysicState,
         density     :number,
         friction    :bz.PhysicFriction,
-        restitution :bz.PhysicRestitution
+        restitution :bz.PhysicRestitution,
+        weight      :number
     )
     {
         this.state       = state;
         this.density     = density;
         this.friction    = friction;
         this.restitution = restitution;
+        this.weight      = weight;
     }
 
     /** ****************************************************************************************************************
@@ -164,10 +177,13 @@ export class PhysicBehaviour
     *******************************************************************************************************************/
     public createPhysicImpostorParams( volume:number ) : bz.PhysicImpostorParams
     {
+        const newMass :number = ( volume * this.density );
+        console.log( '>> B >> volume * density: ' + (newMass) );
+
         return bz.PhysicImpostorParams.fromParams
         (
             BABYLON.PhysicsImpostor.BoxImpostor,
-            ( volume * this.density ),
+            newMass,
             this.friction,
             this.restitution
         );
@@ -195,7 +211,10 @@ export class PhysicBehaviour
 
             case bz.PhysicState.MOVABLE:
             {
-                mass = ( volume * this.density );
+                const newMass = ( volume * this.density );
+                console.log( '>> A >> volume * density: ' +  + newMass );
+
+                mass = newMass;
                 break;
             }
 

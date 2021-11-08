@@ -44,7 +44,7 @@ export class MeshFactory
         position      :BABYLON.Vector3,
         texture       :bz.Texture,
         size          :BABYLON.Vector3,
-        physic        :bz.PhysicBehaviour    = bz.PhysicBehaviour.NONE,
+        physic        :bz.PhysicBody         = bz.PhysicBody.NONE,
         materialAlpha :number                = 1.0,
         anchor        :bz.MeshAnchor         = bz.MeshAnchor.CENTER_XYZ,
         rotation      :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -163,7 +163,7 @@ export class MeshFactory
         textureFile   :bz.TextureFile,
         emissiveColor :BABYLON.Color3,
         rotation      :BABYLON.Vector3,
-        physic        :bz.PhysicBehaviour
+        physic        :bz.PhysicBody
     )
     : BABYLON.Mesh
     {
@@ -244,7 +244,7 @@ export class MeshFactory
         rotation      :BABYLON.Vector3,
         texture       :bz.Texture,
         color         :BABYLON.Color3,
-        physic        :bz.PhysicBehaviour,
+        physic        :bz.PhysicBody,
         materialAlpha :number,
         emissiveColor :BABYLON.Color3
     )
@@ -350,7 +350,7 @@ export class MeshFactory
         rotation      :BABYLON.Vector3,
         texture       :bz.Texture,
         color         :BABYLON.Color3,
-        physic        :bz.PhysicBehaviour,
+        physic        :bz.PhysicBody,
         materialAlpha :number,
         emissiveColor :BABYLON.Color3
     )
@@ -432,7 +432,7 @@ export class MeshFactory
 
         color           :BABYLON.Color3,
 
-        physic          :bz.PhysicBehaviour,
+        physic          :bz.PhysicBody,
         materialAlpha   :number,
         emissiveColor   :BABYLON.Color3,
         sideOrientation :number
@@ -541,7 +541,7 @@ export class MeshFactory
             line,
             rotation,
             null,
-            bz.PhysicBehaviour.NONE,
+            bz.PhysicBody.NONE,
             BABYLON.PhysicsImpostor.BoxImpostor,
             0.0
         );
@@ -612,7 +612,7 @@ export class MeshFactory
             decal,
             null,
             material,
-            bz.PhysicBehaviour.NONE,
+            bz.PhysicBody.NONE,
             BABYLON.PhysicsImpostor.BoxImpostor,
             0.0
         );
@@ -683,7 +683,7 @@ export class MeshFactory
     (
         fileName     :string,
         position     :BABYLON.Vector3,
-        physic       :bz.PhysicBehaviour,
+        physic       :bz.PhysicBody,
         compoundType :bz.ModelCompoundType
     )
     : bz.Model
@@ -748,7 +748,7 @@ export class MeshFactory
         mesh                :BABYLON.Mesh,
         rotation            :BABYLON.Vector3,
         material            :BABYLON.StandardMaterial,
-        physic              :bz.PhysicBehaviour,
+        physic              :bz.PhysicBody,
         physicsImpostorType :number,
         volume              :number
     )

@@ -203,7 +203,7 @@ export class Model
         }
 
         // set physics for compound
-        bz.PhysicBehaviour.COMPOUND.applyPhysicToMesh
+        bz.PhysicBody.COMPOUND.applyPhysicToMesh
         (
             scene.getNativeScene(),
             this.compoundMesh,
@@ -494,7 +494,7 @@ export class Model
             {
                 bz.Debug.physic.log( ' Applying DEFAULT impostor to SCATTERED mesh ' );
 
-                bz.PhysicBehaviour.SOLID_WOOD.applyPhysicToMesh
+                bz.PhysicBody.SOLID_WOOD.applyPhysicToMesh
                 (
                     scene,
                     mesh,

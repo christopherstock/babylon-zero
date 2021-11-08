@@ -74,7 +74,7 @@ export * from './base/physic/PhysicRestitution';
 
 export * from './game/engine/physic/PhysicImpostorParams';
 export * from './game/engine/physic/PhysicState';
-export * from './game/engine/physic/PhysicBehaviour';
+export * from './game/engine/physic/PhysicBody';
 
 export * from './game/object/GameObject';
 export * from './game/object/Bot';

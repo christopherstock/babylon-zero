@@ -85,7 +85,7 @@ export class Player extends bz.GameObject
                         BABYLON.Vector3.Zero(),
                         bz.Texture.WALL_GLASS,
                         null,
-                        bz.PhysicBehaviour.PLAYER_HUMAN,
+                        bz.PhysicBody.PLAYER_HUMAN,
                         0.5,
                         emissiveColor
                     ),
@@ -118,7 +118,7 @@ export class Player extends bz.GameObject
                         BABYLON.Vector3.Zero(),
                         bz.Texture.WALL_SKIN_ROSE,
                         null,
-                        bz.PhysicBehaviour.NONE,
+                        bz.PhysicBody.NONE,
                         1.0,
                         emissiveColor
                     ),

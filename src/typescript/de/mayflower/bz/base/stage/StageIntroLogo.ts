@@ -149,7 +149,7 @@ export class StageIntroLogo extends bz.Stage
         (
             bz.ModelFile.MF_LOGO,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            bz.PhysicBehaviour.NONE,
+            bz.PhysicBody.NONE,
             bz.ModelCompoundType.NONE
         );
 /*
