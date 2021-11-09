@@ -91,6 +91,7 @@ export * from './base/data/SoundFile';
 export * from './base/data/SpriteFile';
 export * from './base/data/TextureFile';
 export * from './base/data/Texture';
+export * from './base/physic/PhysicObject';
 export * from './base/stage/StageIntroLogo';
 export * from './base/stage/StageOffice';
 
