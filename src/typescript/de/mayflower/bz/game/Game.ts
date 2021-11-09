@@ -256,7 +256,7 @@ export class Game
     {
         bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
 
-        this.switchStage( bz.SettingStage.STAGE_STARTUP );
+        this.switchStage( bz.SettingEngine.STAGE_STARTUP );
     }
 
     /** ****************************************************************************************************************

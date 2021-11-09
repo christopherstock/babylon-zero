@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+import * as bz from '../..';
+
 /** ********************************************************************************************************************
 *   Specifies all settings for the engine.
 ***********************************************************************************************************************/
@@ -9,6 +11,9 @@ export class SettingEngine
     public  static  readonly    CANVAS_MIN_WIDTH                        :number             = 800;
     /** The minimum canvas height. */
     public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
+
+    /** The stage the application starts up with. TODO to SettingGame ! */
+    public  static  readonly    STAGE_STARTUP                           :bz.StageId         = bz.StageId.OFFICE;
 
     /** Follow camera height offset. */
     public  static  readonly    CAMERA_FOLLOW_HEIGHT_OFFSET             :number             = 0.0; // 6.0;
@@ -35,17 +40,16 @@ export class SettingEngine
     /** The delay between each sprite animation frame change in ms. */
     public  static  readonly    SPRITE_FRAME_DELAY                      :number             = 100;
 
-    // TODO extract physics to SettingPhysics
-
     /** The physics engine iteration count per render cycle. */
-    public  static  readonly    PHYSICS_ENGINE_ITERATIONS               :number             = 5;       // 5000 = no shaking but horribly slow!
+    public  static  readonly    PHYSIC_ENGINE_ITERATIONS                :number             = 5;       // 5000 = no shaking but horribly slow!
     /** The diameter of the collison epsilon used for all collision detections. */
-    public  static  readonly    PHYSICS_COLLISION_EPSILON_SIZE          :number             = 500.0;    // no effect?
+    public  static  readonly    PHYSIC_COLLISION_EPSILON_SIZE           :number             = 500.0;    // no effect?
     /** The calculating time step amount for one tick of the physical engine. */
-    public  static  readonly    PHYSICS_TIME_STEP_DEFAULT               :number             = ( 1 / 60 );
-    /** The calculating time step amount for one paused tick of the physical engine. 0 is not working! */
-    // TODO try 0 again ??
-    public  static  readonly    PHYSICS_TIME_STEP_PAUSED                :number             = 0.00000000000000000000000000000000000001;
+    public  static  readonly    PHYSIC_TIME_STEP_DEFAULT                :number             = ( 1 / 60 );
+    /** The calculating time step amount for one paused tick of the physical engine. 0 is NOT working! */
+    public  static  readonly    PHYSIC_TIME_STEP_PAUSED                 :number             = 0.00000000000000000000000000000000000001;
+    /** The global scene gravity. */
+    public  static  readonly    PHYSIC_GLOBAL_STAGE_GRAVITY             :BABYLON.Vector3    = new BABYLON.Vector3( 0, -7.5, 0 );
 
     /** Maximum instances of concurrent sprites. */
     public  static  readonly    MAX_SPRITE_INSTANCES                    :number             = 255;

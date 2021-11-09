@@ -35,7 +35,7 @@ export class Engine
         this.babylonEngine.enableOfflineSupport = false;
 
         // set collision epsilon .. this effects collision detection
-        BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.PHYSICS_COLLISION_EPSILON_SIZE;
+        BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.PHYSIC_COLLISION_EPSILON_SIZE;
 
         // add resize event listener
         bz.Debug.init.log( 'Init window resize handler' );

@@ -160,12 +160,12 @@ export class Scene
 
         if ( enabled )
         {
-            this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_DEFAULT );
+            this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSIC_TIME_STEP_DEFAULT );
             this.physicsRunning = true;
         }
         else
         {
-            this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSICS_TIME_STEP_PAUSED );
+            this.physicsPlugin.setTimeStep( bz.SettingEngine.PHYSIC_TIME_STEP_PAUSED );
             this.physicsRunning = false;
         }
     }
@@ -208,7 +208,7 @@ export class Scene
         this.physicsPlugin = new BABYLON.CannonJSPlugin
         (
             true,
-            bz.SettingEngine.PHYSICS_ENGINE_ITERATIONS
+            bz.SettingEngine.PHYSIC_ENGINE_ITERATIONS
         );
 
         // stop physics engine immediately
@@ -217,7 +217,7 @@ export class Scene
         // enable physics engine and stop it immediately in order to prevent unwanted startup impulses!
         this.babylonScene.enablePhysics
         (
-            bz.SettingStage.STAGE_GRAVITY_GLOBAL,
+            bz.SettingEngine.PHYSIC_GLOBAL_STAGE_GRAVITY,
             this.physicsPlugin
         );
     }
