@@ -5,12 +5,11 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO GUI for pause menu must be OVER red hit effect!
 TODO Add boxes with different texture and weight! (steel crate etc)
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
-
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
-TODO GUI for pause menu must be OVER red hit effect!
 TODO Find and prune classes with mixed static & non-static content
 TODO debug and improve init process?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
@@ -25,16 +24,13 @@ Player
 TODO Fix ducking
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Fix jumping
-TODO Player may not jump in air - deny jumping if player has no contact to the ground!
+TODO Deny jumping if player has no contact to the ground!
 
 =====================
 Fx
 =====================
 TODO add light to physics object + shot on it physics?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
-TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
-     https://doc.babylonjs.com/how_to/playing_sounds_and_music
-TODO Sounds for shot, bullet hit and bullet drop.
 TODO add rotating MF Logo sprite?
 TODO Debug low performance on multiple shots?
 TODO Enable loading of only required resources for the current scene?
@@ -44,10 +40,17 @@ TODO static glass windows that shatter on shot
 TODO Add physically correct bullet drop (+sound) out after fire.
 TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
 TODO Particle FX (physical) for wall rubble!
-TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Add explosion effects for sprites.
 TODO Add muzzle flash to gun on firing.
+TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Solution to fix/remove screen flickering/shaking on collisions.
+
+=====================
+Sounds
+=====================
+TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
+     https://doc.babylonjs.com/how_to/playing_sounds_and_music
+TODO Sounds for shot, bullet hit and bullet drop.
 
 =====================
 Wearpons
