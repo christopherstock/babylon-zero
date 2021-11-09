@@ -414,20 +414,34 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected createLights() : BABYLON.Light[]
     {
-        return [
+        // point light
 
-            // point light
-            bz.LightFactory.createPoint
-            (
+        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
+        (
+            this.scene.getNativeScene(),
+            new BABYLON.Vector3( this.OFFSET_X + 20.0, 2.5, this.OFFSET_Z + 20.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+            50.0,
+            1.0,
+            true
+        );
+/*
+        // Create the "God Rays" effect (volumetric light scattering) - godreys need to be disposed!
+        const godrays :BABYLON.VolumetricLightScatteringPostProcess = (
+            bz.LightFactory.createVolumetricLightScatteringPostProcess(
                 this.scene.getNativeScene(),
-                new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.0, this.OFFSET_Z + 16.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                50.0,
-                1.0,
-                true
-            ),
-    /*
+                new BABYLON.Vector3(-150, 150, 150),
+                new BABYLON.Vector3(100, 100, 100),
+                this.cameraSystem.firstPersonCamera,
+                this.engine
+            )
+        );
+        pointLight.position = godrays.mesh.position;
+*/
+        return [
+            pointLight,
+/*
             // hemispheric light
             bz.LightFactory.createHemispheric
             (
@@ -439,8 +453,8 @@ export class StageOffice extends bz.Stage
                 0.1,
                 false
             ),
-    */
-    /*
+*/
+/*
             // directional light ?
             bz.LightFactory.createDirectional
             (
@@ -478,8 +492,8 @@ export class StageOffice extends bz.Stage
                 1.0,
                 true
             ),
-    */
-    /*
+*/
+/*
             // point light
             bz.LightFactory.createPoint
             (
@@ -491,7 +505,7 @@ export class StageOffice extends bz.Stage
                 1.0,
                 true
             ),
-    */
+*/
         ];
     }
 
