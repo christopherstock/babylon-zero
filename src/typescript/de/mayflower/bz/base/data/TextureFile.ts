@@ -36,11 +36,11 @@ export class TextureFile
     public      static  readonly    VIDEO_TEST                          :TextureFile                = new TextureFile( 'video/news.mp4',            bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE );
 
     /** The filename of this texture's image. */
-    public              readonly    fileName                :string             = null;
+    public              readonly    fileName                            :string             = null;
     /** Specifies if this texture contains alpha information. */
-    public              readonly    textureHasAlpha         :bz.TextureHasAlpha = null;
+    public              readonly    textureHasAlpha                     :bz.TextureHasAlpha = null;
     /** The UV tiling strategy to apply for this texture. */
-    public              readonly    strategyUV              :bz.TextureUV       = null;
+    public              readonly    strategyUV                          :bz.TextureUV       = null;
 
     /** ****************************************************************************************************************
     *   Creates a sprite configuration.

@@ -203,6 +203,15 @@ export class Texture
             // pick texture filename
             const meshTextureFileName:string = mesh.material.getActiveTextures()[ 0 ].name;
 
+            // TODO outsource hardcoded model texture mapping
+            switch ( meshTextureFileName )
+            {
+                case 'crate1.jpg':
+                {
+                    return Texture.BULLET_HOLE_WOOD;
+                }
+            }
+
             // compare with all existent textures
             for ( const texture of Texture.ALL_TEXTURES )
             {
