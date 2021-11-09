@@ -5,6 +5,7 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO Add fire sprite
 TODO Add suitable textures!
 TODO Add boxes with different texture and weight! (steel crate etc) - fix all bullet holes!
 TODO Scale up/down all chairs and some models?

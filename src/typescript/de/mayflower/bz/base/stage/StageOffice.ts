@@ -300,7 +300,6 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected createSprites() : bz.Sprite[]
     {
-    /*
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
@@ -309,14 +308,13 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
             10.0,
             20.0,
-            bz.MeshPivotAnchor.CENTER_XZ_LOWEST_Y,
             bz.SpriteCollidable.NO
         );
         animatedTestSprite.animate( 0, 43, true );
-    */
+
         return [
 
-            // animatedTestSprite,
+            animatedTestSprite,
 
             new bz.Sprite
             (
@@ -603,7 +601,7 @@ export class StageOffice extends bz.Stage
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             ),
-            10.0
+            5.0
         );
         // multi mesh chair without compound .. immediately collapses!
         this.chairMultiMeshesNoCompound = new bz.Wall
@@ -616,7 +614,7 @@ export class StageOffice extends bz.Stage
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
-            10.0
+            5.0
         );
         // office chair - multi meshed - single meshes destroyable
         this.chairCompoundSingleShotOff = new bz.Wall
@@ -629,7 +627,7 @@ export class StageOffice extends bz.Stage
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
-            10.0
+            5.0
         );
 
         return [

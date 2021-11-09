@@ -48,8 +48,8 @@
         "tslint": "^6.1.3"
     },
     "dependencies": {
-        "babylonjs": "4.2.0",
-        "babylonjs-gui": "4.2.0",
+        "babylonjs": "4.1.0",
+        "babylonjs-gui": "4.1.0",
         "cannon": "0.6.2",
         "earcut": "2.1.5",
         "jest-junit": "^13.0.0",
