@@ -92,7 +92,7 @@ export class Game
             }
         }
 
-        // init the GUI
+        // reset and init GUI
         this.gui = new bz.GUI( this.scene.getNativeScene() );
         this.gui.init();
 

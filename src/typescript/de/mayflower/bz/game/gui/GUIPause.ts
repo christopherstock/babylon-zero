@@ -67,9 +67,6 @@ export class GUIPause
             ( bz.SettingGUI.GUI_BORDER_Y + 100 ),
             bz.SettingGUI.GUI_WRAP_PAUSE_MENU_ITEMS
         );
-
-        // initially hide all components
-        this.setVisibility( false );
     }
 
     /** ****************************************************************************************************************

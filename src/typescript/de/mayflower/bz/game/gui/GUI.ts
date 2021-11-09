@@ -43,8 +43,9 @@ export class GUI
         this.guiMessages = bz.GUIFactory.createGUI( scene, true );
         this.guiPause    = bz.GUIFactory.createGUI( scene, true );
 
-        // pause GUI
+        // create pause GUI and initially hide it
         this.pauseGui = new bz.GUIPause( this.guiPause );
+        this.pauseGui.setVisibility( false );
 
         // FPS text
         this.fpsText = bz.GUIFactory.createTextBlock
