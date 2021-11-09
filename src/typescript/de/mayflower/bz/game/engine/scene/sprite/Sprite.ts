@@ -33,6 +33,7 @@ export class Sprite
     *   @param collidable          Specifies if this sprite should be collidable for other game objects.
     *   @param collisionWidthRatio Ratio for collision cylinder width if collidable.
     *   @param anchor              The anchor for displaying this sprite.
+    *   @param rotationDegree      The front face rotation of the sprite in degrees.
     *
     *   @return The created sprite instance.
     *******************************************************************************************************************/
@@ -45,7 +46,8 @@ export class Sprite
         height              :number,
         collidable          :bz.SpriteCollidable = bz.SpriteCollidable.NO,
         collisionWidthRatio :number              = 1.0,
-        anchor              :bz.MeshAnchor       = bz.MeshAnchor.CENTER_XZ_LOWEST_Y
+        anchor              :bz.MeshAnchor       = bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+        rotationDegree      :number              = 0.0
     )
     {
         // create native sprite
@@ -57,6 +59,8 @@ export class Sprite
         this.sprite.position = position.clone();
         this.sprite.width    = width;
         this.sprite.height   = height;
+
+        this.sprite.angle    = bz.MathUtil.degreesToRad( rotationDegree );
 
         // create collider if desired
         if ( collidable === bz.SpriteCollidable.YES )

@@ -372,7 +372,9 @@ export class StageOffice extends bz.Stage
                 10.0,
                 10.0,
                 bz.SpriteCollidable.YES,
-                0.5
+                0.5,
+                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                bz.MathUtil.getRandomInt( -10.0, 10.0 )
             ),
             new bz.Sprite
             (
@@ -392,7 +394,9 @@ export class StageOffice extends bz.Stage
                 10.0,
                 10.0,
                 bz.SpriteCollidable.YES,
-                0.5
+                0.5,
+                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                bz.MathUtil.getRandomInt( -10.0, 10.0 )
             ),
             new bz.Sprite
             (

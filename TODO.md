@@ -5,19 +5,20 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO ditch package.json - and update all libs
+
 TODO Add boxes with different texture and weight! (steel crate etc)
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
 
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
-TODO ditch package.json - and update all libs
-TODO add constant rotation (angle) to sprite?
 TODO GUI for pause menu must be OVER red hit effect!
 TODO Find and prune classes with mixed static & non-static content
 TODO debug and improve init process?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
 TODO Create realistic models, lights and spacial sounds.
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
+TODO Models (item shell boxes) with different Textures?
 TODO Reset Git Repository?
 
 =====================
