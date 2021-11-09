@@ -304,13 +304,13 @@ export class StageOffice extends bz.Stage
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
             this.scene,
-            bz.SpriteFile.TEST,
-            new BABYLON.Vector3( 70.0, 0.0, 50.0  ),
+            bz.SpriteFile.FIRE,
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
             10.0,
             20.0,
             bz.SpriteCollidable.NO
         );
-        animatedTestSprite.animate( 0, 43, true );
+        animatedTestSprite.animate( 0, 24, true );
 
         return [
 
@@ -371,7 +371,6 @@ export class StageOffice extends bz.Stage
     protected createLights() : BABYLON.Light[]
     {
         // point light
-
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.scene.getNativeScene(),
