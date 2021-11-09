@@ -31,9 +31,11 @@ export class Version
     private     static  readonly    V_0_1_0                 :Version            = new Version( '0.1.0',  'BLOATWARE',                '29.10.2021, 08:36:12 GMT+1' );
     /** The project's version v.0.2.0. */
     private     static  readonly    V_0_2_0                 :Version            = new Version( '0.2.0',  'SLIM',                     '29.10.2021, 08:52:53 GMT+1' );
+    /** The project's version v.0.3.0. */
+    private     static  readonly    V_0_3_0                 :Version            = new Version( '0.3.0',  'NEIß',                     '09.11.2021, 11:32:21 GMT+1' );
 
     /** The project's current version. */
-    private     static  readonly    CURRENT_VERSION         :Version            = Version.V_0_1_0;
+    private     static  readonly    CURRENT_VERSION         :Version            = Version.V_0_3_0;
 
     /** This version's specifier. */
     private             readonly    version                 :string             = null;

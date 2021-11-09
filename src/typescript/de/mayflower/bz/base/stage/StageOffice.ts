@@ -524,9 +524,9 @@ export class StageOffice extends bz.Stage
             {
                 wall.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
             }
-        }
 
-        this.chairCompoundDestroyable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
+            // this.chairCompoundDestroyable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
+        }
     }
 
     /** ****************************************************************************************************************
