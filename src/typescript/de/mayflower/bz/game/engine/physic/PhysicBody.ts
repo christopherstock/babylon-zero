@@ -7,30 +7,6 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class PhysicBody
 {
-    /** A non-collidable and non-gravitational affected physical state. */
-    public  static  readonly        NONE                :PhysicBody                 = new PhysicBody( bz.PhysicObject.NONE );
-
-    /** Physical properties for a non-moving and collidable body. */
-    public  static  readonly        STATIC              :PhysicBody                 = new PhysicBody( bz.PhysicObject.STATIC );
-
-    /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-    public  static  readonly        PLAYER_HUMAN        :PhysicBody                 = new PhysicBody( bz.PhysicObject.PLAYER_HUMAN );
-
-    /** A wooden crate. */
-    public  static  readonly        CRATE_WOOD          :PhysicBody                 = new PhysicBody( bz.PhysicObject.CRATE_WOOD );
-
-    /** A steel crate. */
-    public  static  readonly        CRATE_STEEL         :PhysicBody                 = new PhysicBody( bz.PhysicObject.CRATE_STEEL );
-
-    /** Synthetic impostor for scattered meshes. */
-    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicBody                 = new PhysicBody( bz.PhysicObject.SYNTHETIC_IMPOSTOR );
-
-    /** Props for solid concrete. */
-    public  static  readonly        OFFICE_CHAIR        :PhysicBody                 = new PhysicBody( bz.PhysicObject.OFFICE_CHAIR );
-
-    /** Props for white test sphere wood. */
-    public  static  readonly        WHITE_TEST_SPHERE   :PhysicBody                 = new PhysicBody( bz.PhysicObject.WHITE_TEST_SPHERE );
-
     /** The physical object behaviour of this physics body. */
     private         readonly        obj                 :bz.PhysicObject            = null;
 
@@ -39,7 +15,7 @@ export class PhysicBody
     *
     *   @param obj The physical object behaviour of this physics body.
     *******************************************************************************************************************/
-    private constructor( obj:bz.PhysicObject )
+    public constructor( obj:bz.PhysicObject )
     {
         this.obj = obj;
     }

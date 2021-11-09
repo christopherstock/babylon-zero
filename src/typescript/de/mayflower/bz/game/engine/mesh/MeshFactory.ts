@@ -44,7 +44,7 @@ export class MeshFactory
         position      :BABYLON.Vector3,
         texture       :bz.Texture,
         size          :BABYLON.Vector3,
-        physic        :bz.PhysicBody         = bz.PhysicBody.NONE,
+        physic        :bz.PhysicObject       = bz.PhysicObject.NONE,
         materialAlpha :number                = 1.0,
         anchor        :bz.MeshAnchor         = bz.MeshAnchor.CENTER_XYZ,
         rotation      :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -160,7 +160,7 @@ export class MeshFactory
         textureFile   :bz.TextureFile,
         emissiveColor :BABYLON.Color3,
         rotation      :BABYLON.Vector3,
-        physic        :bz.PhysicBody
+        physic        :bz.PhysicObject
     )
     : BABYLON.Mesh
     {
@@ -240,7 +240,7 @@ export class MeshFactory
         rotation      :BABYLON.Vector3,
         texture       :bz.Texture,
         color         :BABYLON.Color3,
-        physic        :bz.PhysicBody,
+        physic        :bz.PhysicObject,
         materialAlpha :number,
         emissiveColor :BABYLON.Color3
     )
@@ -343,7 +343,7 @@ export class MeshFactory
         rotation      :BABYLON.Vector3,
         texture       :bz.Texture,
         color         :BABYLON.Color3,
-        physic        :bz.PhysicBody,
+        physic        :bz.PhysicObject,
         materialAlpha :number,
         emissiveColor :BABYLON.Color3
     )
@@ -413,7 +413,7 @@ export class MeshFactory
     public createPlane
     (
         position        :BABYLON.Vector3,
-        anchor     :bz.MeshAnchor,
+        anchor          :bz.MeshAnchor,
         width           :number,
         height          :number,
         rotation        :BABYLON.Vector3,
@@ -422,7 +422,7 @@ export class MeshFactory
 
         color           :BABYLON.Color3,
 
-        physic          :bz.PhysicBody,
+        physic          :bz.PhysicObject,
         materialAlpha   :number,
         emissiveColor   :BABYLON.Color3,
         sideOrientation :number
@@ -528,7 +528,7 @@ export class MeshFactory
             line,
             rotation,
             null,
-            bz.PhysicBody.NONE,
+            bz.PhysicObject.NONE,
             BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
@@ -598,7 +598,7 @@ export class MeshFactory
             decal,
             null,
             material,
-            bz.PhysicBody.NONE,
+            bz.PhysicObject.NONE,
             BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
@@ -668,7 +668,7 @@ export class MeshFactory
     (
         fileName     :string,
         position     :BABYLON.Vector3,
-        physic       :bz.PhysicBody,
+        physic       :bz.PhysicObject,
         compoundType :bz.ModelCompoundType
     )
     : bz.Model
@@ -687,9 +687,11 @@ export class MeshFactory
         }
         else
         {
+            const physicBody :bz.PhysicBody = new bz.PhysicBody( physic );
+
             for ( let i:number = 0; i < originalModel.getMeshCount(); ++i )
             {
-                impostors.push( physic.createPhysicImpostorBoxParams() );
+                impostors.push( physicBody.createPhysicImpostorBoxParams() );
             }
         }
         clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
@@ -732,7 +734,7 @@ export class MeshFactory
         mesh                :BABYLON.Mesh,
         rotation            :BABYLON.Vector3,
         material            :BABYLON.StandardMaterial,
-        physic              :bz.PhysicBody,
+        physic              :bz.PhysicObject,
         physicsImpostorType :number
     )
     : BABYLON.Mesh
@@ -746,7 +748,7 @@ export class MeshFactory
         }
 
         // buggy physics for primitives since babylon.JS 4.0.
-        physic.applyPhysicToMesh
+        new bz.PhysicBody( physic ).applyPhysicToMesh
         (
             this.scene.getNativeScene(),
             mesh,

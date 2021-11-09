@@ -114,7 +114,7 @@ export class BulletHole
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             null,
             bz.SettingColor.COLOR_RGB_ORANGE,
-            bz.PhysicBody.NONE,
+            bz.PhysicObject.NONE,
             1.0,
             bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
         );
