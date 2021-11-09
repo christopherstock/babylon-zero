@@ -5,8 +5,6 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO ditch package.json - and update all libs
-
 TODO Add boxes with different texture and weight! (steel crate etc)
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.

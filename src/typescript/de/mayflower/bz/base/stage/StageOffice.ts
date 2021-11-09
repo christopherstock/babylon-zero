@@ -430,86 +430,9 @@ export class StageOffice extends bz.Stage
             1.0,
             true
         );
-/*
-        // Create the "God Rays" effect (volumetric light scattering) - godreys need to be disposed!
-        const godrays :BABYLON.VolumetricLightScatteringPostProcess = (
-            bz.LightFactory.createVolumetricLightScatteringPostProcess(
-                this.scene.getNativeScene(),
-                new BABYLON.Vector3(-150, 150, 150),
-                new BABYLON.Vector3(100, 100, 100),
-                this.cameraSystem.firstPersonCamera,
-                this.engine
-            )
-        );
-        pointLight.position = godrays.mesh.position;
-*/
+
         return [
             pointLight,
-/*
-            // hemispheric light
-            bz.LightFactory.createHemispheric
-            (
-                this.scene.getNativeScene(),
-                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                0.1,
-                false
-            ),
-*/
-/*
-            // directional light ?
-            bz.LightFactory.createDirectional
-            (
-                this.scene.getNativeScene(),
-                new BABYLON.Vector3( 0.5, -1.0, 0.0 ),
-                new BABYLON.Vector3( 20.0, 20.0, 20.0 ),
-                1.0,
-                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                new BABYLON.Color3( 1.0, 0.5, 0.0 ),
-                false
-            ),
-
-            // spot light ?
-            bz.LightFactory.createSpot
-            (
-                this.scene.getNativeScene(),
-                new BABYLON.Vector3( 15.0, 20.0, 15.0 ),
-                new BABYLON.Vector3( 0.0, -1.0, 0.0 ),
-                30.0,
-                2,
-                new BABYLON.Color3( 0.5, 0.5, 0.5 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                50.0,
-                false
-            ),
-
-            // point light
-            bz.LightFactory.createPoint
-            (
-                this.scene.getNativeScene(),
-                new BABYLON.Vector3( 15.0, 3.0, 16.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                50.0,
-                1.0,
-                true
-            ),
-*/
-/*
-            // point light
-            bz.LightFactory.createPoint
-            (
-                this.scene.getNativeScene(),
-                new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.0, this.OFFSET_Z - 16.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                50.0,
-                1.0,
-                true
-            ),
-*/
         ];
     }
 
