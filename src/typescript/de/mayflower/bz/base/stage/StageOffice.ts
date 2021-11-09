@@ -159,7 +159,7 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( 20.0, 3.5, 45.0 ),
-                bz.PhysicBody.CONCRETE,
+                bz.PhysicBody.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
             10.0

@@ -3,7 +3,7 @@ import * as bz from '../../..';
 /** ********************************************************************************************************************
 *   Specifies the physical behaviour of a body.
 *
-*   TODO Simplify 'density': just using mass everywhere - seems much simpler!
+*   TODO Simplify / Remove 'density': just using mass everywhere - seems much simpler!
 *   TODO outsource constant data (from constructor) to base/data/PhysicsSet etc ?
 ***********************************************************************************************************************/
 export class PhysicBody
@@ -48,16 +48,6 @@ export class PhysicBody
         1.0
     );
 
-    /** Props for concrete. */
-    public  static  readonly        CONCRETE            :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicState.MOVABLE,
-        1.5,
-        bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE,
-        -1
-    );
-
     /** Props for solid concrete. */
     public  static  readonly        OFFICE_CHAIR        :PhysicBody                 = new PhysicBody
     (
@@ -75,7 +65,7 @@ export class PhysicBody
         0.0,
         bz.PhysicFriction.MEDIUM,
         bz.PhysicRestitution.MEDIUM,
-        -1
+        0
     );
 
     /** Props for light wood. */
