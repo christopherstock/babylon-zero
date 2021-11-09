@@ -31,6 +31,7 @@ export class Item extends bz.GameObject
         if ( this.checkPick( this.stage.getPlayer().getModel() ) )
         {
             this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
+            this.stage.getGame().getGUI().addGuiMessage( 'Picked up a clip' );
         }
 
         // testwise rotate this item
@@ -69,7 +70,7 @@ export class Item extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
-    *   Flags this item picked and makes it invisible.
+    *   Flags this item as 'picked' and makes it invisible.
     *******************************************************************************************************************/
     private pick() : void
     {

@@ -5,11 +5,10 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Add sunflare spot.
 TODO Add boxes with different texture and weight! (steel crate etc)
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
-TODO add HudMessage on picking up item
+
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
 TODO ditch package.json - and update all libs
 TODO add constant rotation (angle) to sprite?
@@ -32,7 +31,6 @@ TODO Player may not jump in air - deny jumping if player has no contact to the g
 =====================
 Fx
 =====================
-TODO sun flare effect
 TODO add light to physics object + shot on it physics?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
