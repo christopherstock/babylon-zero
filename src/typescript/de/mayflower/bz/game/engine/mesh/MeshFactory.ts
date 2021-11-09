@@ -127,16 +127,13 @@ export class MeshFactory
             emissiveColor
         );
 
-        const volume:number = bz.MathUtil.getCubeVolume( size.x, size.y, size.z );
-
         return this.decorateMesh
         (
             box,
             rotation,
             material,
             physic,
-            BABYLON.PhysicsImpostor.BoxImpostor,
-            volume
+            BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
 
@@ -193,8 +190,7 @@ export class MeshFactory
                     rotation,
                     material,
                     physic,
-                    BABYLON.PhysicsImpostor.HeightmapImpostor,
-                    0.0
+                    BABYLON.PhysicsImpostor.HeightmapImpostor
                 );
 
             },
@@ -314,16 +310,13 @@ export class MeshFactory
             emissiveColor
         );
 
-        const volume:number = bz.MathUtil.getCylinderVolume( diameter, height );
-
         return this.decorateMesh
         (
             cylinder,
             rotation,
             material,
             physic,
-            BABYLON.PhysicsImpostor.CylinderImpostor,
-            volume
+            BABYLON.PhysicsImpostor.CylinderImpostor
         );
     }
 
@@ -387,16 +380,13 @@ export class MeshFactory
             emissiveColor
         );
 
-        const volume:number = bz.MathUtil.getSphereVolume( diameter );
-
         return this.decorateMesh
         (
             sphere,
             rotation,
             material,
             physic,
-            BABYLON.PhysicsImpostor.SphereImpostor,
-            volume
+            BABYLON.PhysicsImpostor.SphereImpostor
         );
     }
 
@@ -472,16 +462,13 @@ export class MeshFactory
             emissiveColor
         );
 
-        const volume:number = bz.MathUtil.getCubeVolume( width, height, MeshFactory.FACE_DEPTH );
-
         return this.decorateMesh
         (
             plane,
             rotation,
             material,
             physic,
-            BABYLON.PhysicsImpostor.BoxImpostor,
-            volume
+            BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
 
@@ -542,8 +529,7 @@ export class MeshFactory
             rotation,
             null,
             bz.PhysicBody.NONE,
-            BABYLON.PhysicsImpostor.BoxImpostor,
-            0.0
+            BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
 
@@ -613,8 +599,7 @@ export class MeshFactory
             null,
             material,
             bz.PhysicBody.NONE,
-            BABYLON.PhysicsImpostor.BoxImpostor,
-            0.0
+            BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
 
@@ -704,7 +689,7 @@ export class MeshFactory
         {
             for ( let i:number = 0; i < originalModel.getMeshCount(); ++i )
             {
-                impostors.push( physic.createPhysicImpostorParams( ( 1.0 / originalModel.getMeshCount() ) ) );
+                impostors.push( physic.createPhysicImpostorParams() );
             }
         }
         clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
@@ -741,7 +726,6 @@ export class MeshFactory
     *   @param material            The material to apply on this mesh.
     *   @param physic              The physical attributes to apply for this mesh.
     *   @param physicsImpostorType The kind of physic impostor to apply to this mesh.
-    *   @param volume              The calculated volume of the mesh.
     *******************************************************************************************************************/
     private decorateMesh
     (
@@ -749,8 +733,7 @@ export class MeshFactory
         rotation            :BABYLON.Vector3,
         material            :BABYLON.StandardMaterial,
         physic              :bz.PhysicBody,
-        physicsImpostorType :number,
-        volume              :number
+        physicsImpostorType :number
     )
     : BABYLON.Mesh
     {

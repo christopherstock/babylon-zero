@@ -29,7 +29,7 @@ export class SoundSystem
         this.fileNames      = fileNames;
         this.onLoadComplete = onLoadComplete;
 
-        // set the global volume for all sounds
+        // sets the global volume for all sounds
         // BABYLON.Engine.audioEngine.setGlobalVolume( 1.0 );
     }
 

@@ -156,11 +156,9 @@ export class PhysicBody
     /** ****************************************************************************************************************
     *   Creates the physical impostor parameters for these physic set.
     *
-    *   @param volume The volume of the mesh to create the impostor parameters for.
-    *
     *   @return The impostor parameters for these physical settings.
     *******************************************************************************************************************/
-    public createPhysicImpostorParams( volume:number ) : bz.PhysicImpostorParams
+    public createPhysicImpostorParams() : bz.PhysicImpostorParams
     {
         const mass :number = this.weight;
 

@@ -11,6 +11,7 @@ TODO Add shelves.
 TODO Scale up/down all chairs and some models?
 TODO Debug low performance on multiple shots?
 TODO light physixc object + shot on it physics!
+TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
 TODO clear all TODOs in code.
 TODO message on picking up item
 TODO ditch package.json - update all libs
