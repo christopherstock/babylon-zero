@@ -767,7 +767,6 @@ export class MeshFactory
         (
             this.scene.getNativeScene(),
             mesh,
-            volume,
             physicsImpostorType
         );
 

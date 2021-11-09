@@ -13,9 +13,6 @@ export class SettingPlayer
     /** The player's height on ducking. */
     public  static  readonly    HEIGHT_Y_DUCKED                         :number             = 2.0;
 
-    /** The player's physical mass. */
-    public  static  readonly    MASS                                    :number             = 50.0;
-
     /** The player's physical force downscale multiplier for horizontal movements. */
     public  static  readonly    MOVE_VELOCITY_MULTIPLIER                :number             = 0.5;
     /** The player's physical force upscale multiplier descending. */

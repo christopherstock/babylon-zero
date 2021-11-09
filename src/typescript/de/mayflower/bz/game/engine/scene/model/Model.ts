@@ -207,7 +207,6 @@ export class Model
         (
             scene.getNativeScene(),
             this.compoundMesh,
-            1.0,
             BABYLON.PhysicsImpostor.BoxImpostor
         );
     }
@@ -498,7 +497,6 @@ export class Model
                 (
                     scene,
                     mesh,
-                    1.0,
                     BABYLON.PhysicsImpostor.BoxImpostor
                 );
             }
