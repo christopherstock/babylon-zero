@@ -689,7 +689,7 @@ export class MeshFactory
         {
             for ( let i:number = 0; i < originalModel.getMeshCount(); ++i )
             {
-                impostors.push( physic.createPhysicImpostorParams() );
+                impostors.push( physic.createPhysicImpostorBoxParams() );
             }
         }
         clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );

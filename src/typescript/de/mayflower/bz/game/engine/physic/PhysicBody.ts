@@ -2,8 +2,6 @@ import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Specifies the physical behaviour of a body.
-*
-*   TODO outsource constant data (from constructor) to base/data/PhysicsSet etc ?
 ***********************************************************************************************************************/
 export class PhysicBody
 {
@@ -13,6 +11,15 @@ export class PhysicBody
         bz.PhysicBehaviour.NONE,
         bz.PhysicFriction.NONE,
         bz.PhysicRestitution.NONE,
+        0
+    );
+
+    /** Physical properties for a non-moving and collidable body. */
+    public  static  readonly        STATIC              :PhysicBody                 = new PhysicBody
+    (
+        bz.PhysicBehaviour.STATIC,
+        bz.PhysicFriction.MEDIUM,
+        bz.PhysicRestitution.MEDIUM,
         0
     );
 
@@ -61,15 +68,6 @@ export class PhysicBody
         0.10
     );
 
-    /** Physical properties for a non-moving and collidable body. */
-    public  static  readonly        STATIC              :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.STATIC,
-        bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM,
-        0
-    );
-
     /** Props for white test sphere wood. */
     public  static  readonly        WHITE_TEST_SPHERE           :PhysicBody                 = new PhysicBody
     (
@@ -79,8 +77,8 @@ export class PhysicBody
         7.0
     );
 
-    /** The general physic state of this physics object. */
-    private         readonly        state           :bz.PhysicBehaviour         = null;
+    /** The general physical behaviour of this physics object. */
+    private         readonly        behaviour       :bz.PhysicBehaviour         = null;
     /** The friction of this physics setting */
     private         readonly        friction        :bz.PhysicFriction      = null;
     /** The restitution of this physics setting */
@@ -91,20 +89,20 @@ export class PhysicBody
     /** ****************************************************************************************************************
     *   Creates a new set of physical properties.
     *
-    *   @param state       The general physical state for this setting.
+    *   @param behaviour       The general physical state for this setting.
     *   @param friction    The friction of this physical body setting.
     *   @param restitution The restitution of this physical body setting.
     *   @param weight      The weight of this physical body in kilograms.
     *******************************************************************************************************************/
     private constructor
     (
-        state       :bz.PhysicBehaviour,
+        behaviour   :bz.PhysicBehaviour,
         friction    :bz.PhysicFriction,
         restitution :bz.PhysicRestitution,
         weight      :number
     )
     {
-        this.state       = state;
+        this.behaviour   = behaviour;
         this.friction    = friction;
         this.restitution = restitution;
         this.weight      = weight;
@@ -125,7 +123,7 @@ export class PhysicBody
     )
     : void
     {
-        switch ( this.state )
+        switch ( this.behaviour )
         {
             case bz.PhysicBehaviour.STATIC:
             case bz.PhysicBehaviour.MOVABLE:
@@ -157,7 +155,7 @@ export class PhysicBody
     *
     *   @return The impostor parameters for these physical settings.
     *******************************************************************************************************************/
-    public createPhysicImpostorParams() : bz.PhysicImpostorParams
+    public createPhysicImpostorBoxParams() : bz.PhysicImpostorParams
     {
         const mass :number = this.weight;
 
@@ -179,7 +177,7 @@ export class PhysicBody
     {
         let mass:number = 0.0;
 
-        switch ( this.state )
+        switch ( this.behaviour )
         {
             case bz.PhysicBehaviour.STATIC:
             {
