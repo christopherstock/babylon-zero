@@ -1,5 +1,4 @@
 import * as bz from '../..';
-import { MeshAnchor } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' level.
@@ -175,7 +174,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( ( 4 * 0.640 ), ( 4 * 0.360 ), 1.0 ),
             bz.PhysicSet.CRATE_WOOD,
             1.0,
-            MeshAnchor.CENTER_XYZ,
+            bz.MeshAnchor.CENTER_XYZ,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 )
         );
 

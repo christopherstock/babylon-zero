@@ -3,30 +3,22 @@
 
 ```
 =====================
-MVP 1.0.0 - Tech-Demo 'Office '92' ?
+MVP 1.0.0 - Tech-Demo
 =====================
 TODO Add sunflare spot.
 TODO Add boxes with different texture and weight! (steel crate etc)
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
 TODO add HudMessage on picking up item
-
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
-TODO Debug low performance on multiple shots?
-TODO ditch package.json - update all libs
-TODO add constant rotation (angle) to sprite ??
-TODO pause menu / GUI must be over red hit effect!
+TODO ditch package.json - and update all libs
+TODO add constant rotation (angle) to sprite?
+TODO GUI for pause menu must be OVER red hit effect!
+TODO Find and prune classes with mixed static & non-static content
 TODO debug and improve init process?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
-TODO why so slow on firing repeatedly?
-TODO add light to physics object + shot on it physics?
-TODO Solution to fix/remove screen flickering/shaking on collisions.
-TODO Find and prune classes with mixed static & non-static content
-TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
-TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
-TODO why are boxes moving when shot passes them left?
-TODO Enable loading of only required resources for the current scene?
 TODO Create realistic models, lights and spacial sounds.
+TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Reset Git Repository?
 
 =====================
@@ -41,12 +33,16 @@ TODO Player may not jump in air - deny jumping if player has no contact to the g
 Fx
 =====================
 TODO sun flare effect
+TODO add light to physics object + shot on it physics?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
      https://doc.babylonjs.com/how_to/playing_sounds_and_music
 TODO Sounds for shot, bullet hit and bullet drop.
 TODO add rotating MF Logo sprite?
+TODO Debug low performance on multiple shots?
+TODO Enable loading of only required resources for the current scene?
 TODO Flashlite on player - depending on wearpon.
+TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
 TODO static glass windows that shatter on shot
 TODO Add physically correct bullet drop (+sound) out after fire.
 TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
@@ -54,6 +50,7 @@ TODO Particle FX (physical) for wall rubble!
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Add explosion effects for sprites.
 TODO Add muzzle flash to gun on firing.
+TODO Solution to fix/remove screen flickering/shaking on collisions.
 
 =====================
 Wearpons
