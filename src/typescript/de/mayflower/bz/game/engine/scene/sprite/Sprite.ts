@@ -73,7 +73,7 @@ export class Sprite
                 BABYLON.Vector3.Zero(),
                 bz.Texture.WALL_GLASS,
                 null,
-                bz.PhysicObject.STATIC,
+                bz.PhysicSet.STATIC,
                 ( !bz.SettingDebug.SHOW_DEBUG_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25 ),
                 bz.SettingColor.COLOR_RGB_WHITE
             );

@@ -134,7 +134,7 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( this.OFFSET_X + 20.0, 3.5, this.OFFSET_Z + 35.0 ),
-                bz.PhysicObject.OFFICE_CHAIR,
+                bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             ),
             10.0
@@ -147,7 +147,7 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
-                bz.PhysicObject.OFFICE_CHAIR,
+                bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
             10.0
@@ -160,7 +160,7 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( 20.0, 3.5, 45.0 ),
-                bz.PhysicObject.OFFICE_CHAIR,
+                bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
             10.0
@@ -172,7 +172,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
             bz.Texture.VIDEO_TEST,
             new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
-            bz.PhysicObject.CRATE_WOOD,
+            bz.PhysicSet.CRATE_WOOD,
             1.0,
             MeshAnchor.CENTER_XYZ,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 )
@@ -204,7 +204,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                             bz.Texture.WALL_TEST,
                             null,
-                            bz.PhysicObject.WHITE_TEST_SPHERE,
+                            bz.PhysicSet.WHITE_TEST_SPHERE,
                             1.0,
                             this.ambientColor
                         ),
@@ -237,7 +237,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_AMIGA,
                             new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                            bz.PhysicObject.STATIC
+                            bz.PhysicSet.STATIC
                         ),
                     ]
                 )
@@ -256,7 +256,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
-                            bz.PhysicObject.STATIC,
+                            bz.PhysicSet.STATIC,
                             0.5,
                             bz.MeshAnchor.LOWEST_XYZ
                         ),
@@ -563,7 +563,7 @@ export class StageOffice extends bz.Stage
                             bz.TextureFile.HEIGHTMAP_VALLEY,
                             this.ambientColor,
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
-                            bz.PhysicObject.STATIC
+                            bz.PhysicSet.STATIC
                         ),
                     ]
                 )
@@ -581,7 +581,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X, 15.5, this.OFFSET_Z  ),
                             bz.Texture.WALL_TEST,
                             new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
-                            bz.PhysicObject.STATIC
+                            bz.PhysicSet.STATIC
                         ),
                     ]
                 )
@@ -607,7 +607,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 15.0, 0.0, this.OFFSET_Z + 15.0 ),
-                    bz.PhysicObject.CRATE_WOOD,
+                    bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -618,7 +618,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicObject.CRATE_WOOD,
+                    bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -629,7 +629,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 15.0 ),
-                    bz.PhysicObject.CRATE_WOOD,
+                    bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -640,7 +640,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 2.5, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicObject.CRATE_WOOD,
+                    bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -651,7 +651,7 @@ export class StageOffice extends bz.Stage
                 (
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( this.OFFSET_X + 17.5, 5.0, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicObject.CRATE_WOOD,
+                    bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
             ),
@@ -667,7 +667,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
-                            bz.PhysicObject.CRATE_STEEL,
+                            bz.PhysicSet.CRATE_STEEL,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.0, 45.0, 0.0 )
@@ -688,7 +688,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
-                            bz.PhysicObject.CRATE_STEEL,
+                            bz.PhysicSet.CRATE_STEEL,
                             0.5,
                             bz.MeshAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.0,  45.0, 0.0   )

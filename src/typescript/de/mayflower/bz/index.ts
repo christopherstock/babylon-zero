@@ -71,7 +71,7 @@ export * from './base/physic/PhysicFriction';
 export * from './base/physic/PhysicRestitution';
 
 export * from './game/engine/physic/PhysicBehaviour';
-export * from './base/physic/PhysicObject';
+export * from './base/physic/PhysicSet';
 export * from './game/engine/physic/PhysicImpostorParams';
 export * from './game/engine/physic/PhysicBody';
 

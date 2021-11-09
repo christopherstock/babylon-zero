@@ -2,13 +2,11 @@ import * as bz from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies different physical objects
-*
-*   TODO rename to Physic ?
 ***********************************************************************************************************************/
-export class PhysicObject
+export class PhysicSet
 {
     /** A non-collidable and non-gravitational affected physical state. */
-    public  static  readonly        NONE                :PhysicObject           = new PhysicObject
+    public  static  readonly        NONE                :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.NONE,
         bz.PhysicFriction.NONE,
@@ -17,7 +15,7 @@ export class PhysicObject
     );
 
     /** Physical properties for a non-moving and collidable body. */
-    public  static  readonly        STATIC              :PhysicObject           = new PhysicObject
+    public  static  readonly        STATIC              :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.STATIC,
         bz.PhysicFriction.MEDIUM,
@@ -26,7 +24,7 @@ export class PhysicObject
     );
 
     /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-    public  static  readonly        PLAYER_HUMAN        :PhysicObject           = new PhysicObject
+    public  static  readonly        PLAYER_HUMAN        :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.NONE,
@@ -35,7 +33,7 @@ export class PhysicObject
     );
 
     /** A wooden crate. */
-    public  static  readonly        CRATE_WOOD          :PhysicObject           = new PhysicObject
+    public  static  readonly        CRATE_WOOD          :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -44,7 +42,7 @@ export class PhysicObject
     );
 
     /** A steel crate. */
-    public  static  readonly        CRATE_STEEL         :PhysicObject           = new PhysicObject
+    public  static  readonly        CRATE_STEEL         :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -53,7 +51,7 @@ export class PhysicObject
     );
 
     /** Synthetic impostor for scattered meshes. */
-    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicObject           = new PhysicObject
+    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.MEDIUM,
@@ -62,7 +60,7 @@ export class PhysicObject
     );
 
     /** Props for solid concrete. */
-    public  static  readonly        OFFICE_CHAIR        :PhysicObject           = new PhysicObject
+    public  static  readonly        OFFICE_CHAIR        :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -71,7 +69,7 @@ export class PhysicObject
     );
 
     /** Props for white test sphere wood. */
-    public  static  readonly        WHITE_TEST_SPHERE   :PhysicObject           = new PhysicObject
+    public  static  readonly        WHITE_TEST_SPHERE   :PhysicSet           = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,

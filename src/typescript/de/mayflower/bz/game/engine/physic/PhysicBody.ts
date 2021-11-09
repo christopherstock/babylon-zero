@@ -8,14 +8,14 @@ import * as bz from '../../..';
 export class PhysicBody
 {
     /** The physical object behaviour of this physics body. */
-    private         readonly        obj                 :bz.PhysicObject            = null;
+    private         readonly        obj                 :bz.PhysicSet            = null;
 
     /** ****************************************************************************************************************
     *   Creates a new physical body.
     *
     *   @param obj The physical object behaviour of this physics body.
     *******************************************************************************************************************/
-    public constructor( obj:bz.PhysicObject )
+    public constructor( obj:bz.PhysicSet )
     {
         this.obj = obj;
     }

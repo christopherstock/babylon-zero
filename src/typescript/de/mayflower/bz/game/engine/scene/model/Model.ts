@@ -203,7 +203,7 @@ export class Model
         }
 
         // set physics for compound
-        new bz.PhysicBody( bz.PhysicObject.SYNTHETIC_IMPOSTOR ).applyPhysicToMesh
+        new bz.PhysicBody( bz.PhysicSet.SYNTHETIC_IMPOSTOR ).applyPhysicToMesh
         (
             scene.getNativeScene(),
             this.compoundMesh,
@@ -493,7 +493,7 @@ export class Model
             {
                 bz.Debug.physic.log( ' Applying DEFAULT (synthetic) impostor to SCATTERED mesh ' );
 
-                new bz.PhysicBody( bz.PhysicObject.SYNTHETIC_IMPOSTOR ).applyPhysicToMesh
+                new bz.PhysicBody( bz.PhysicSet.SYNTHETIC_IMPOSTOR ).applyPhysicToMesh
                 (
                     scene,
                     mesh,
