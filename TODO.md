@@ -3,33 +3,29 @@
 
 ```
 =====================
-Showstoppers
+MVP 1.0.0 - Tech-Demo 'Office '92' ?
 =====================
 TODO Add sunflare spot.
 TODO Add boxes with different texture and weight! (steel crate etc)
-TODO Add shelves.
 TODO Scale up/down all chairs and some models?
-TODO Debug low performance on multiple shots?
-TODO light physixc object + shot on it physics!
+TODO Add shelves.
+TODO add HudMessage on picking up item
+
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
-TODO clear all TODOs in code.
-TODO message on picking up item
+TODO Debug low performance on multiple shots?
 TODO ditch package.json - update all libs
 TODO add constant rotation (angle) to sprite ??
 TODO pause menu / GUI must be over red hit effect!
 TODO debug and improve init process?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
 TODO why so slow on firing repeatedly?
+TODO add light to physics object + shot on it physics?
 TODO Solution to fix/remove screen flickering/shaking on collisions.
 TODO Find and prune classes with mixed static & non-static content
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
 TODO why are boxes moving when shot passes them left?
 TODO Enable loading of only required resources for the current scene?
-
-=====================
-MVP 1.0.0 - Tech-Demo 'Office '92' ?
-=====================
 TODO Create realistic models, lights and spacial sounds.
 TODO Reset Git Repository?
 
