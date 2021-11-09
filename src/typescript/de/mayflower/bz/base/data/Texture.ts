@@ -81,7 +81,7 @@ export class Texture
         this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
 
-        this.fileName          = this.getFileName( file.fileName );
+        this.fileName          = ( bz.SettingResource.PATH_IMAGE_TEXTURE + file.fileName );
         this.textureHasAlpha   = file.textureHasAlpha;
         this.strategyUV        = file.strategyUV;
 
@@ -178,31 +178,6 @@ export class Texture
     public getStrategyUV() : bz.TextureUV
     {
         return this.strategyUV;
-    }
-
-    /** ****************************************************************************************************************
-    *   Delivers the full qualified filename to this texture resource file.
-    *
-    *   @param fileName The partial filename to this texture resource file.
-    *
-    *   @return The full qualified filename to this texture resource file.
-    *******************************************************************************************************************/
-    private getFileName( fileName:string ) : string
-    {
-        switch ( this.textureType )
-        {
-            case bz.TextureType.WALL:
-            {
-                return bz.SettingResource.PATH_IMAGE_TEXTURE + fileName;
-            }
-
-            case bz.TextureType.VIDEO:
-            {
-                return bz.SettingResource.PATH_VIDEO_TEXTURE + fileName;
-            }
-        }
-
-        return '';
     }
 
     /** ****************************************************************************************************************

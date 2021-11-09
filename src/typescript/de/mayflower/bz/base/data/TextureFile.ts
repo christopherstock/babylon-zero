@@ -33,7 +33,7 @@ export class TextureFile
     public      static  readonly    HEIGHTMAP_VALLEY                    :TextureFile                = new TextureFile( 'heightMap/valley.png',      bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE );
 
     /** The texture file 'test video'. */
-    public      static  readonly    VIDEO_TEST                          :TextureFile                = new TextureFile( 'test.mp4',                  bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE );
+    public      static  readonly    VIDEO_TEST                          :TextureFile                = new TextureFile( 'video/test.mp4',            bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE );
 
     /** The filename of this texture's image. */
     public              readonly    fileName                :string             = null;

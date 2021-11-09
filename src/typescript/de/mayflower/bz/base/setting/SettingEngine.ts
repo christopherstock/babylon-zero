@@ -12,7 +12,7 @@ export class SettingEngine
     /** The minimum canvas height. */
     public  static  readonly    CANVAS_MIN_HEIGHT                       :number             = 600;
 
-    /** The stage the application starts up with. TODO to SettingGame ! */
+    /** The stage the application starts up with. */
     public  static  readonly    STAGE_STARTUP                           :bz.StageId         = bz.StageId.OFFICE;
 
     /** Follow camera height offset. */
