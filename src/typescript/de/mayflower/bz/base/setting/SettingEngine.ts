@@ -61,10 +61,11 @@ export class SettingEngine
 
     /** The HTML page title. */
     public  static  readonly    BRANDING_TITLE                          :string             = 'babylon-zero, (c) 2021 Mayflower GmbH';
-
     /** The HTML page favicon. */
     public  static  readonly    BRANDING_FAVICON                        :string             = 'mayflower.ico';
-
     /** The loading screen logo. */
     public  static  readonly    BRANDING_LOADING_LOGO                   :string             = 'loadingMf.png';
+
+    /** The bg color for the GUI. */
+    public  static  readonly    PAUSE_GUI_BG_COLOR                      :string             = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
 }

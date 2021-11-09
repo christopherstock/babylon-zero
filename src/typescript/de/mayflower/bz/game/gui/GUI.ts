@@ -6,22 +6,29 @@ import * as bjsg from 'babylonjs-gui';
 ***********************************************************************************************************************/
 export class GUI
 {
-    /** The fullscreen gui in foreground. */
-    private             readonly        guiFg                   :bjsg.AdvancedDynamicTexture            = null;
+    /** The 'player' fullscreen gui lies on the lowest layer. */
+    private             readonly        guiPlayer                   :bjsg.AdvancedDynamicTexture            = null;
+    /** The 'effects' fullscreen gui lies over the player GUI. */
+    private             readonly        guiEffects                  :bjsg.AdvancedDynamicTexture            = null;
+    /** The 'messages' fullscreen gui lies over the effects GUI. */
+    private             readonly        guiMessages                 :bjsg.AdvancedDynamicTexture            = null;
+    /** The 'pause' fullscreen gui lies over the messages GUI. */
+    private             readonly        guiPause                    :bjsg.AdvancedDynamicTexture            = null;
+
     /** The FPS text block. */
-    private             readonly        fpsText                 :bjsg.TextBlock                         = null;
+    private             readonly        fpsText                     :bjsg.TextBlock                         = null;
     /** The manager for GUI messages. */
-    private             readonly        messageManager          :bz.GUIMessageManager                   = null;
+    private             readonly        messageManager              :bz.GUIMessageManager                   = null;
     /** The manager for GUI effects. */
-    private             readonly        fxManager               :bz.GUIFxManager                        = null;
+    private             readonly        fxManager                   :bz.GUIFxManager                        = null;
 
     /** The pause GUI. */
-    private             readonly        pauseGui                :bz.GUIPause                            = null;
+    private             readonly        pauseGui                    :bz.GUIPause                            = null;
 
     /** The wearpon image. */
-    private                             wearponImage            :bjsg.Image                             = null;
+    private                             wearponImage                :bjsg.Image                             = null;
     /** The corsshair. */
-    private                             crosshair               :bjsg.Image                             = null;
+    private                             crosshair                   :bjsg.Image                             = null;
 
     /** ****************************************************************************************************************
     *   Creates a new abstract Heads Up Display.
@@ -30,11 +37,14 @@ export class GUI
     *******************************************************************************************************************/
     public constructor( scene:BABYLON.Scene )
     {
-        // create foreground GUI
-        this.guiFg = bz.GUIFactory.createGUI( scene, true );
+        // create all native foreground GUI
+        this.guiPlayer   = bz.GUIFactory.createGUI( scene, true );
+        this.guiEffects  = bz.GUIFactory.createGUI( scene, true );
+        this.guiMessages = bz.GUIFactory.createGUI( scene, true );
+        this.guiPause    = bz.GUIFactory.createGUI( scene, true );
 
         // pause GUI
-        this.pauseGui = new bz.GUIPause( this.guiFg );
+        this.pauseGui = new bz.GUIPause( this.guiPause );
 
         // FPS text
         this.fpsText = bz.GUIFactory.createTextBlock
@@ -51,7 +61,7 @@ export class GUI
             bjsg.Control.VERTICAL_ALIGNMENT_TOP,
             null
         );
-        this.guiFg.addControl( this.fpsText );
+        this.guiMessages.addControl( this.fpsText );
         if ( !bz.SettingDebug.SHOW_FPS )
         {
             this.fpsText.isVisible = false;
@@ -76,7 +86,7 @@ export class GUI
             bjsg.Control.VERTICAL_ALIGNMENT_BOTTOM,
             null
         );
-        this.guiFg.addControl( this.wearponImage );
+        this.guiPlayer.addControl( this.wearponImage );
 
         this.crosshair = bz.GUIFactory.createImage
         (
@@ -87,7 +97,7 @@ export class GUI
             bjsg.Control.VERTICAL_ALIGNMENT_CENTER,
             null
         );
-        this.guiFg.addControl( this.crosshair );
+        this.guiPlayer.addControl( this.crosshair );
     }
 
     /** ****************************************************************************************************************
@@ -107,7 +117,10 @@ export class GUI
     *******************************************************************************************************************/
     public dispose() : void
     {
-        this.guiFg.dispose();
+        this.guiPlayer.dispose();
+        this.guiEffects.dispose();
+        this.guiMessages.dispose();
+        this.guiPause.dispose();
     }
 
     /** ****************************************************************************************************************
@@ -140,7 +153,7 @@ export class GUI
     *******************************************************************************************************************/
     public addGuiMessage( msg:string ) : void
     {
-        this.messageManager.addGuiMessage( this.guiFg, msg );
+        this.messageManager.addGuiMessage( this.guiMessages, msg );
     }
 
     /** ****************************************************************************************************************
@@ -150,7 +163,7 @@ export class GUI
     *******************************************************************************************************************/
     public addGuiFx( type:bz.GUIFxType ) : void
     {
-        this.fxManager.addGuiFx( this.guiFg, type );
+        this.fxManager.addGuiFx( this.guiEffects, type );
     }
 
     /** ****************************************************************************************************************

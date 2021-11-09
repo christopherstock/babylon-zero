@@ -29,10 +29,6 @@ export abstract class GUIFactory
         (
             GUIFactory.createNextGuiId(),
             foreground
-/*
-            scene,
-            BABYLON.Texture.NEAREST_SAMPLINGMODE
-*/
         );
 
         gui.renderAtIdealSize = true;

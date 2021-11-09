@@ -6,11 +6,6 @@ import * as bjsg from 'babylonjs-gui'
 ***********************************************************************************************************************/
 export class GUIPause
 {
-    /** The bg color for the GUI. */
-    private     static  readonly        GUI_COLOR_BG            :string                                 = (
-        'rgba( 100, 100, 100, 0.25 )'
-    );
-
     /** All items of the GUI menu. */
     private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
     [
@@ -33,7 +28,7 @@ export class GUIPause
     *******************************************************************************************************************/
     public constructor( guiFg:bjsg.AdvancedDynamicTexture )
     {
-        // bg
+        // paws bg
         this.bg = bz.GUIFactory.createRectangle
         (
             0,
@@ -41,7 +36,7 @@ export class GUIPause
             0,
             0,
             bz.SettingColor.COLOR_CSS_TRANSPARENT,
-            GUIPause.GUI_COLOR_BG
+            bz.SettingEngine.PAUSE_GUI_BG_COLOR
         );
         this.bg.width  = '100%';
         this.bg.height = '100%';

@@ -5,8 +5,8 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO GUI for pause menu must be OVER red hit effect!
-TODO Add boxes with different texture and weight! (steel crate etc)
+TODO Add suitable textures!
+TODO Add boxes with different texture and weight! (steel crate etc) - fix all bullet holes!
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
