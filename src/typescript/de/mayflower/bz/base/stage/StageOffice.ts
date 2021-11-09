@@ -125,7 +125,7 @@ export class StageOffice extends bz.Stage
     {
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
 
-        // multi mesh chair with compound .. desired!
+        // multi mesh chair with compound .. scatters after being shot multiple times!
         this.chairCompoundDestroyable = new bz.Wall
         (
             this,
@@ -133,7 +133,7 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( this.OFFSET_X + 20.0, 3.5, this.OFFSET_Z + 35.0 ),
-                bz.PhysicBody.SOLID_CONCRETE,
+                bz.PhysicBody.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             ),
             10.0
@@ -146,7 +146,7 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
                 new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
-                bz.PhysicBody.SOLID_WOOD,
+                bz.PhysicBody.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
             10.0
@@ -669,7 +669,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
-                            bz.PhysicBody.LIGHT_WOOD,
+                            bz.PhysicBody.CRATE_STEEL,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.0, 45.0, 0.0 )
@@ -690,7 +690,7 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
-                            bz.PhysicBody.LIGHT_WOOD,
+                            bz.PhysicBody.CRATE_STEEL,
                             0.5,
                             bz.MeshAnchor.CENTER_XYZ,
                             new BABYLON.Vector3( 0.0,  45.0, 0.0   )

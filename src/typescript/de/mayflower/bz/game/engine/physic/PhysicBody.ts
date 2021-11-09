@@ -4,7 +4,7 @@ import * as bz from '../../..';
 *   Specifies the physical behaviour of a body.
 *
 *   TODO Simplify 'density': just using mass everywhere - seems much simpler!
-*   TODO outsource constant data (from constructor) to PhysicsSet etc ?
+*   TODO outsource constant data (from constructor) to base/data/PhysicsSet etc ?
 ***********************************************************************************************************************/
 export class PhysicBody
 {
@@ -15,7 +15,7 @@ export class PhysicBody
         null,
         bz.PhysicFriction.NONE,
         bz.PhysicRestitution.NONE,
-        -1
+        0
     );
 
     /** The player has very special physical attributes with the primal goal to keep the user entertained. */
@@ -38,14 +38,14 @@ export class PhysicBody
         2.5
     );
 
-    /** Props for solid wood. */
-    public  static  readonly        SOLID_WOOD          :PhysicBody                 = new PhysicBody
+    /** Synthetic impostor for scattered meshes. */
+    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         1.0,
         bz.PhysicFriction.MEDIUM,
         bz.PhysicRestitution.MEDIUM,
-        -1
+        1.0
     );
 
     /** Props for concrete. */
@@ -59,23 +59,13 @@ export class PhysicBody
     );
 
     /** Props for solid concrete. */
-    public  static  readonly        SOLID_CONCRETE      :PhysicBody                 = new PhysicBody
+    public  static  readonly        OFFICE_CHAIR        :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         2.5,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE,
-        -1
-    );
-
-    /** Props for a physical compound object. */
-    public  static  readonly        COMPOUND            :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicState.MOVABLE,
-        1.0,
-        bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM,
-        -1
+        0.10
     );
 
     /** Physical properties for a non-moving and collidable body. */
@@ -89,13 +79,13 @@ export class PhysicBody
     );
 
     /** Props for light wood. */
-    public  static  readonly        LIGHT_WOOD          :PhysicBody                 = new PhysicBody
+    public  static  readonly        CRATE_STEEL                 :PhysicBody                 = new PhysicBody
     (
         bz.PhysicState.MOVABLE,
         0.5,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE,
-        -1
+        7.75
     );
 
     /** Props for white test sphere wood. */
