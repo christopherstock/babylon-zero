@@ -170,6 +170,43 @@ export abstract class LightFactory
         return light;
     }
 
+    public static createVolumetricLightScatteringPostProcess
+    (
+        scene       :BABYLON.Scene,
+        position    :BABYLON.Vector3,
+        scaling     :BABYLON.Vector3,
+        boundCamera :BABYLON.Camera,
+        engine      :BABYLON.Engine
+    )
+    : BABYLON.VolumetricLightScatteringPostProcess
+    {
+        const godrays:BABYLON.VolumetricLightScatteringPostProcess = new BABYLON.VolumetricLightScatteringPostProcess(
+            'godrays',
+            2.0,
+            boundCamera,
+            null,
+            100,
+            BABYLON.Texture.BILINEAR_SAMPLINGMODE,
+            engine,
+            false
+        );
+
+        // By default it uses a billboard to render the sun, just apply the desired texture
+        // position and scale
+        (godrays.mesh.material as BABYLON.StandardMaterial).diffuseTexture = new BABYLON.Texture(
+            bz.SettingResource.PATH_IMAGE_TEXTURE + 'postProcess/sun.png',
+            scene,
+            true,
+            false,
+            BABYLON.Texture.BILINEAR_SAMPLINGMODE
+        );
+        (godrays.mesh.material as BABYLON.StandardMaterial).diffuseTexture.hasAlpha = true;
+        godrays.mesh.position = position;
+        godrays.mesh.scaling  = scaling;
+
+        return godrays;
+    }
+
     /** ****************************************************************************************************************
     *   Returns the next id for a new light to create.
     *
