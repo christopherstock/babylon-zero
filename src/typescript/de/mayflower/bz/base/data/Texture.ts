@@ -30,7 +30,7 @@ export class Texture
     public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE,       Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
 
     /** The video texture 'wall test'. */
-    // public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( 'test.mp4',                  bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,    Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
+    public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST,           Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
 
     /** Contains all texture data objects. */
     public      static  readonly    ALL_TEXTURES                :Texture[]              =
@@ -47,9 +47,7 @@ export class Texture
         Texture.WALL_GLASS,
         Texture.WALL_SKIN_ROSE,
 
-        // Texture.VIDEO_TEST,
-
-        // Texture.MODEL_CRATE,
+        Texture.VIDEO_TEST,
     ];
 
     /** The filename of this texture's image. */

@@ -1,4 +1,5 @@
 import * as bz from '../..';
+import { MeshAnchor } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' level.
@@ -164,22 +165,19 @@ export class StageOffice extends bz.Stage
             ),
             10.0
         );
-    /*
+
         const tv:BABYLON.Mesh = meshFactory.createBox
         (
-            this.scene,
+            this.ambientColor,
             new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
-            bz.MeshPivotAnchor.LOWEST_XYZ,
-            new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), bz.MeshFactory.FACE_DEPTH ),
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             bz.Texture.VIDEO_TEST,
-            null,
-            // bz.Physic.STATIC,
-            bz.Physic.NONE,
+            new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
+            bz.PhysicObject.CRATE_WOOD,
             1.0,
-            this.ambientColor
+            MeshAnchor.CENTER_XYZ,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
         );
-    */
+
         let walls :bz.Wall[] = [
 
             // office chair - multi meshed - destroyable compound
@@ -213,7 +211,7 @@ export class StageOffice extends bz.Stage
                     ]
                 )
             ),
-    /*
+
             // tv
             new bz.Wall
             (
@@ -225,14 +223,14 @@ export class StageOffice extends bz.Stage
                     ]
                 )
             ),
-    */
+
+            // box - amiga light frontside
             new bz.Wall
             (
                 this,
                 new bz.Model
                 (
                     [
-                        // box - amiga light frontside
                         meshFactory.createBox
                         (
                             this.ambientColor,
@@ -245,13 +243,13 @@ export class StageOffice extends bz.Stage
                 )
             ),
 
+            // static glass pane
             new bz.Wall
             (
                 this,
                 new bz.Model
                 (
                     [
-                        // static glass pane
                         meshFactory.createBox
                         (
                             this.ambientColor,
