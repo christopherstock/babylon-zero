@@ -125,104 +125,17 @@ export class StageOffice extends bz.Stage
     {
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
 
-        const tv:BABYLON.Mesh = meshFactory.createBox
-        (
-            this.ambientColor,
-            new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
-            bz.Texture.VIDEO_TEST,
-            // new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
-            new BABYLON.Vector3( ( 4 * 0.640 ), ( 4 * 0.360 ), 1.0 ),
-            bz.PhysicSet.CRATE_WOOD,
-            1.0,
-            bz.MeshAnchor.CENTER_XYZ,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-        );
-
-        let walls :bz.Wall[] = [
-
-            // solid white sphere
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createSphere
-                        (
-                            new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
-                            bz.MeshAnchor.CENTER_XYZ,
-                            3.0,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.Texture.WALL_TEST,
-                            null,
-                            bz.PhysicSet.WHITE_TEST_SPHERE,
-                            1.0,
-                            this.ambientColor
-                        ),
-                    ]
-                )
-            ),
-
-            // tv
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        tv,
-                    ]
-                )
-            ),
-
-            // box - amiga light frontside
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            this.ambientColor,
-                            new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
-                            bz.Texture.WALL_AMIGA,
-                            new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                            bz.PhysicSet.STATIC
-                        ),
-                    ]
-                )
-            ),
-
-            // static glass pane
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            this.ambientColor,
-                            new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
-                            bz.Texture.WALL_GLASS,
-                            new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
-                            bz.PhysicSet.STATIC,
-                            0.5,
-                            bz.MeshAnchor.LOWEST_XYZ
-                        ),
-                    ]
-                )
-            ),
-        ];
+        let walls :bz.Wall[] = [];
 
         const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls( meshFactory );
-        const boxesWalls       :bz.Wall[] = this.createBoxesWalls( meshFactory );
-        const chairsWalls      :bz.Wall[] = this.createChairsWalls( meshFactory );
+        const boxesWalls       :bz.Wall[] = this.createBoxesWalls(       meshFactory );
+        const chairsWalls      :bz.Wall[] = this.createChairsWalls(      meshFactory );
+        const stuffWalls       :bz.Wall[] = this.createStuffWalls(        meshFactory );
 
         walls = walls.concat( levelGroundWalls );
         walls = walls.concat( boxesWalls       );
         walls = walls.concat( chairsWalls      );
+        walls = walls.concat( stuffWalls       );
 
         return walls;
     }
@@ -449,8 +362,8 @@ export class StageOffice extends bz.Stage
                         (
                             new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                             bz.MeshAnchor.CENTER_XYZ,
-                            400.0,
-                            5.0,
+                            300.0,
+                            10.0,
                             bz.TextureFile.HEIGHTMAP_VALLEY,
                             this.ambientColor,
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
@@ -633,6 +546,99 @@ export class StageOffice extends bz.Stage
             this.chairCompoundDestroyable,
             this.chairMultiMeshesNoCompound,
             this.chairCompoundSingleShotOff,
+        ];
+    }
+
+    private createStuffWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
+    {
+        // tv
+        const tv:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                [
+                    meshFactory.createBox
+                    (
+                        this.ambientColor,
+                        new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
+                        bz.Texture.VIDEO_TEST,
+                        // new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
+                        new BABYLON.Vector3( ( 4 * 0.640 ), ( 4 * 0.360 ), 1.0 ),
+                        bz.PhysicSet.CRATE_WOOD,
+                        1.0,
+                        bz.MeshAnchor.CENTER_XYZ,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    ),
+                ]
+            )
+        );
+
+        return [
+            tv,
+
+            // solid white sphere
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createSphere
+                        (
+                            new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
+                            bz.MeshAnchor.CENTER_XYZ,
+                            3.0,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                            bz.Texture.WALL_TEST,
+                            null,
+                            bz.PhysicSet.WHITE_TEST_SPHERE,
+                            1.0,
+                            this.ambientColor
+                        ),
+                    ]
+                )
+            ),
+
+            // box - amiga light frontside
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            this.ambientColor,
+                            new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
+                            bz.Texture.WALL_AMIGA,
+                            new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
+                            bz.PhysicSet.STATIC
+                        ),
+                    ]
+                )
+            ),
+
+            // static glass pane
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            this.ambientColor,
+                            new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
+                            bz.Texture.WALL_GLASS,
+                            new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            0.5,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            ),
         ];
     }
 }

@@ -14,7 +14,7 @@ export class SpriteFile
     /** The sprite 'test'. */
     public      static  readonly    TEST                    :SpriteFile             = new SpriteFile( 'test.png',       64  );
     /** The sprite 'fire'. */
-    public      static  readonly    FIRE                    :SpriteFile             = new SpriteFile( 'fire1.png',      128 );
+    public      static  readonly    FIRE                    :SpriteFile             = new SpriteFile( 'fire.png',       128 );
 
     /** Lists all sprite files in an array. */
     public      static  readonly    ALL_SPRITE_FILES        :SpriteFile[]           =
