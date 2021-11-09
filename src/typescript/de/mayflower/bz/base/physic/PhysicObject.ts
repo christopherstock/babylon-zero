@@ -78,13 +78,13 @@ export class PhysicObject
     );
 
     /** The general physical behaviour of this physics object. */
-    private         readonly        behaviour           :bz.PhysicBehaviour     = null;
+    public          readonly        behaviour           :bz.PhysicBehaviour     = null;
     /** The friction of this physics setting */
-    private         readonly        friction            :bz.PhysicFriction      = null;
+    public          readonly        friction            :bz.PhysicFriction      = null;
     /** The restitution of this physics setting */
-    private         readonly        restitution         :bz.PhysicRestitution   = null;
+    public          readonly        restitution         :bz.PhysicRestitution   = null;
     /** The weight of this physics setting. */
-    private         readonly        weight              :number                 = 0.0;
+    public          readonly        weight              :number                 = 0.0;
 
     /** ****************************************************************************************************************
     *   Creates a new set of physical properties.

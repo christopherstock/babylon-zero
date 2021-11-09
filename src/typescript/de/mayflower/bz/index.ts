@@ -72,8 +72,9 @@ export * from './game/engine/mesh/MeshAnchor';
 export * from './base/physic/PhysicFriction';
 export * from './base/physic/PhysicRestitution';
 
-export * from './game/engine/physic/PhysicImpostorParams';
 export * from './game/engine/physic/PhysicBehaviour';
+export * from './base/physic/PhysicObject';
+export * from './game/engine/physic/PhysicImpostorParams';
 export * from './game/engine/physic/PhysicBody';
 
 export * from './game/object/GameObject';
@@ -91,7 +92,6 @@ export * from './base/data/SoundFile';
 export * from './base/data/SpriteFile';
 export * from './base/data/TextureFile';
 export * from './base/data/Texture';
-export * from './base/physic/PhysicObject';
 export * from './base/stage/StageIntroLogo';
 export * from './base/stage/StageOffice';
 

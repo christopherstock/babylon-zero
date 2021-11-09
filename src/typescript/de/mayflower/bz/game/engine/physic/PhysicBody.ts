@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import * as bz from '../../..';
 
 /** ********************************************************************************************************************
@@ -6,106 +8,40 @@ import * as bz from '../../..';
 export class PhysicBody
 {
     /** A non-collidable and non-gravitational affected physical state. */
-    public  static  readonly        NONE                :PhysicBody             = new PhysicBody
-    (
-        bz.PhysicBehaviour.NONE,
-        bz.PhysicFriction.NONE,
-        bz.PhysicRestitution.NONE,
-        0
-    );
+    public  static  readonly        NONE                :PhysicBody                 = new PhysicBody( bz.PhysicObject.NONE );
 
     /** Physical properties for a non-moving and collidable body. */
-    public  static  readonly        STATIC              :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.STATIC,
-        bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM,
-        0
-    );
+    public  static  readonly        STATIC              :PhysicBody                 = new PhysicBody( bz.PhysicObject.STATIC );
 
     /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-    public  static  readonly        PLAYER_HUMAN        :PhysicBody             = new PhysicBody
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.NONE,
-        bz.PhysicRestitution.NONE,
-        1413.0
-    );
+    public  static  readonly        PLAYER_HUMAN        :PhysicBody                 = new PhysicBody( bz.PhysicObject.PLAYER_HUMAN );
 
     /** A wooden crate. */
-    public  static  readonly        CRATE_WOOD          :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE,
-        2.5
-    );
+    public  static  readonly        CRATE_WOOD          :PhysicBody                 = new PhysicBody( bz.PhysicObject.CRATE_WOOD );
 
     /** A steel crate. */
-    public  static  readonly        CRATE_STEEL                 :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE,
-        7.75
-    );
+    public  static  readonly        CRATE_STEEL         :PhysicBody                 = new PhysicBody( bz.PhysicObject.CRATE_STEEL );
 
     /** Synthetic impostor for scattered meshes. */
-    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM,
-        1.0
-    );
+    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicBody                 = new PhysicBody( bz.PhysicObject.SYNTHETIC_IMPOSTOR );
 
     /** Props for solid concrete. */
-    public  static  readonly        OFFICE_CHAIR        :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE,
-        0.10
-    );
+    public  static  readonly        OFFICE_CHAIR        :PhysicBody                 = new PhysicBody( bz.PhysicObject.OFFICE_CHAIR );
 
     /** Props for white test sphere wood. */
-    public  static  readonly        WHITE_TEST_SPHERE           :PhysicBody                 = new PhysicBody
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE,
-        7.0
-    );
+    public  static  readonly        WHITE_TEST_SPHERE   :PhysicBody                 = new PhysicBody( bz.PhysicObject.WHITE_TEST_SPHERE );
 
-    /** The general physical behaviour of this physics object. */
-    private         readonly        behaviour       :bz.PhysicBehaviour         = null;
-    /** The friction of this physics setting */
-    private         readonly        friction        :bz.PhysicFriction      = null;
-    /** The restitution of this physics setting */
-    private         readonly        restitution     :bz.PhysicRestitution   = null;
-    /** The weight of this physics setting. */
-    private         readonly        weight          :number                 = 0.0;
+    /** The physical object behaviour of this physics body. */
+    private         readonly        obj                 :bz.PhysicObject            = null;
 
     /** ****************************************************************************************************************
-    *   Creates a new set of physical properties.
+    *   Creates a new physical body.
     *
-    *   @param behaviour       The general physical state for this setting.
-    *   @param friction    The friction of this physical body setting.
-    *   @param restitution The restitution of this physical body setting.
-    *   @param weight      The weight of this physical body in kilograms.
+    *   @param obj The physical object behaviour of this physics body.
     *******************************************************************************************************************/
-    private constructor
-    (
-        behaviour   :bz.PhysicBehaviour,
-        friction    :bz.PhysicFriction,
-        restitution :bz.PhysicRestitution,
-        weight      :number
-    )
+    private constructor( obj:bz.PhysicObject )
     {
-        this.behaviour   = behaviour;
-        this.friction    = friction;
-        this.restitution = restitution;
-        this.weight      = weight;
+        this.obj = obj;
     }
 
     /** ****************************************************************************************************************
@@ -123,7 +59,7 @@ export class PhysicBody
     )
     : void
     {
-        switch ( this.behaviour )
+        switch ( this.obj.behaviour )
         {
             case bz.PhysicBehaviour.STATIC:
             case bz.PhysicBehaviour.MOVABLE:
@@ -157,14 +93,14 @@ export class PhysicBody
     *******************************************************************************************************************/
     public createPhysicImpostorBoxParams() : bz.PhysicImpostorParams
     {
-        const mass :number = this.weight;
+        const mass :number = this.obj.weight;
 
         return bz.PhysicImpostorParams.fromParams
         (
             BABYLON.PhysicsImpostor.BoxImpostor,
             mass,
-            this.friction,
-            this.restitution
+            this.obj.friction,
+            this.obj.restitution
         );
     }
 
@@ -177,7 +113,7 @@ export class PhysicBody
     {
         let mass:number = 0.0;
 
-        switch ( this.behaviour )
+        switch ( this.obj.behaviour )
         {
             case bz.PhysicBehaviour.STATIC:
             {
@@ -187,7 +123,7 @@ export class PhysicBody
 
             case bz.PhysicBehaviour.MOVABLE:
             {
-                mass = this.weight;
+                mass = this.obj.weight;
                 break;
             }
 
@@ -199,8 +135,8 @@ export class PhysicBody
 
         return {
             mass:        mass,
-            friction:    this.friction,
-            restitution: this.restitution,
+            friction:    this.obj.friction,
+            restitution: this.obj.restitution,
 
             disableBidirectionalTransformation: false,
         };
