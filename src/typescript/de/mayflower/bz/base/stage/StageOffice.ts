@@ -400,7 +400,7 @@ export class StageOffice extends bz.Stage
     {
         return [
 
-            // wooden test crates
+            // wooden crates from 3ds models
             new bz.Wall
             (
                 this,
@@ -456,6 +456,8 @@ export class StageOffice extends bz.Stage
                     bz.ModelCompoundType.NONE
                 )
             ),
+
+            // metal box
             new bz.Wall
             (
                 this,
@@ -466,7 +468,7 @@ export class StageOffice extends bz.Stage
                         (
                             this.ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
-                            bz.Texture.WALL_WOOD,
+                            bz.Texture.WALL_METAL,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
                             bz.PhysicSet.CRATE_STEEL,
                             1.0,

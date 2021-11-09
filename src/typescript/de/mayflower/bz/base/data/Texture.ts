@@ -13,6 +13,8 @@ export class Texture
     public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_WOOD,     null,                           bz.TextureType.WALL     );
     /** The texture 'bullet hole glass'. */
     public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_GLASS,    null,                           bz.TextureType.WALL     );
+    /** The texture 'bullet hole metal'. */
+    public      static  readonly    BULLET_HOLE_METAL           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_METAL,    null,                           bz.TextureType.WALL     );
 
     /** The texture 'wall test'. */
     public      static  readonly    WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST,            Texture.BULLET_HOLE_CONCRETE,   bz.TextureType.WALL     );
@@ -28,6 +30,8 @@ export class Texture
     public      static  readonly    WALL_GLASS                  :Texture                = new Texture( bz.TextureFile.WALL_GLASS,           Texture.BULLET_HOLE_GLASS,      bz.TextureType.WALL     );
     /** The texture 'wall skin rosé'. */
     public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE,       Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    /** The texture 'wall metal'. */
+    public      static  readonly    WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL,           Texture.BULLET_HOLE_METAL,      bz.TextureType.WALL     );
 
     /** The video texture 'wall test'. */
     public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST,           Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
@@ -38,6 +42,7 @@ export class Texture
         Texture.BULLET_HOLE_CONCRETE,
         Texture.BULLET_HOLE_WOOD,
         Texture.BULLET_HOLE_GLASS,
+        Texture.BULLET_HOLE_METAL,
 
         Texture.WALL_TEST,
         Texture.WALL_MAYFLOWER_LOGO,
@@ -46,13 +51,14 @@ export class Texture
         Texture.WALL_GRASS,
         Texture.WALL_GLASS,
         Texture.WALL_SKIN_ROSE,
+        Texture.WALL_METAL,
 
         Texture.VIDEO_TEST,
     ];
 
     /** The filename of this texture's image. */
     private             readonly    fileName                    :string                 = null;
-    /** The according bullet hole texture for this texture. */
+    /** The according bullet hole texture for this texture. TODO prune to TextureFile ! */
     private             readonly    bulletHoleTexture           :bz.Texture             = null;
     /** Specifies if this texture has an alpha channel. */
     private             readonly    textureHasAlpha             :bz.TextureHasAlpha     = null;
@@ -78,6 +84,7 @@ export class Texture
         textureType       :bz.TextureType
     )
     {
+        // TODO prune redundandy!
         this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
 
@@ -204,6 +211,7 @@ export class Texture
             const meshTextureFileName:string = mesh.material.getActiveTextures()[ 0 ].name;
 
             // TODO outsource hardcoded model texture mapping
+            // TODO extract also BulletHoleType to TextureFile as type TextureFile !
             switch ( meshTextureFileName )
             {
                 case 'crate1.jpg':

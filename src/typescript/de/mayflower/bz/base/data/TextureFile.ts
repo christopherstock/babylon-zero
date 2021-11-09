@@ -13,6 +13,8 @@ export class TextureFile
     public      static  readonly    BULLET_HOLE_WOOD                    :TextureFile                = new TextureFile( 'bulletHole/wood.png',       bz.TextureHasAlpha.YES,  bz.TextureUV.ALL_TO_ONE );
     /** The texture file 'bullet hole glass'. */
     public      static  readonly    BULLET_HOLE_GLASS                   :TextureFile                = new TextureFile( 'bulletHole/glass.png',      bz.TextureHasAlpha.YES,  bz.TextureUV.ALL_TO_ONE );
+    /** The texture file 'bullet hole glass'. */
+    public      static  readonly    BULLET_HOLE_METAL                   :TextureFile                = new TextureFile( 'bulletHole/metal.png',      bz.TextureHasAlpha.YES,  bz.TextureUV.ALL_TO_ONE );
 
     /** The texture file 'wall test'. */
     public      static  readonly    WALL_TEST                           :TextureFile                = new TextureFile( 'wall/test.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
@@ -28,6 +30,8 @@ export class TextureFile
     public      static  readonly    WALL_GLASS                          :TextureFile                = new TextureFile( 'wall/glass.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
     /** The texture file 'wall skin rose'. */
     public      static  readonly    WALL_SKIN_ROSE                      :TextureFile                = new TextureFile( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
+    /** The texture file 'wall metal'. */
+    public      static  readonly    WALL_METAL                          :TextureFile                = new TextureFile( 'wall/metal.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE );
 
     /** The texture file 'heightmap valley'. */
     public      static  readonly    HEIGHTMAP_VALLEY                    :TextureFile                = new TextureFile( 'heightMap/valley.png',      bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE );
