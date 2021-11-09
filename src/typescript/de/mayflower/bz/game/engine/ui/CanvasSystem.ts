@@ -58,7 +58,7 @@ export class CanvasSystem
 
         bz.Debug.canvas.log
         (
-            'Updated canvas dimensions to ['
+            'Set canvas dimensions ['
             + String( canvasWidth ) + 'x' + String( canvasHeight ) + '] '
             + 'changed [' + String( dimensionsChanged ) + ']'
         );

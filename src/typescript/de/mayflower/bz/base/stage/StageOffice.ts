@@ -125,46 +125,6 @@ export class StageOffice extends bz.Stage
     {
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
 
-        // multi mesh chair with compound .. scatters after being shot multiple times!
-        this.chairCompoundDestroyable = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 20.0, 3.5, this.OFFSET_Z + 35.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
-            ),
-            10.0
-        );
-        // multi mesh chair without compound .. immediately collapses!
-        this.chairMultiMeshesNoCompound = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.NONE
-            ),
-            10.0
-        );
-
-        this.chairCompoundSingleShotOff = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 20.0, 3.5, 45.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
-            ),
-            10.0
-        );
-
         const tv:BABYLON.Mesh = meshFactory.createBox
         (
             this.ambientColor,
@@ -179,15 +139,6 @@ export class StageOffice extends bz.Stage
         );
 
         let walls :bz.Wall[] = [
-
-            // office chair - multi meshed - destroyable compound
-            this.chairCompoundDestroyable,
-
-            // office chair - multi meshed - destroyable compound
-            this.chairCompoundSingleShotOff,
-
-            // office chair - multi meshed - single meshes destroyable
-            this.chairMultiMeshesNoCompound,
 
             // solid white sphere
             new bz.Wall
@@ -265,10 +216,13 @@ export class StageOffice extends bz.Stage
             ),
         ];
 
-        const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls();
-        const boxesWalls       :bz.Wall[] = this.createBoxesWalls();
+        const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls( meshFactory );
+        const boxesWalls       :bz.Wall[] = this.createBoxesWalls( meshFactory );
+        const chairsWalls      :bz.Wall[] = this.createChairsWalls( meshFactory );
+
         walls = walls.concat( levelGroundWalls );
-        walls = walls.concat( boxesWalls );
+        walls = walls.concat( boxesWalls       );
+        walls = walls.concat( chairsWalls      );
 
         return walls;
     }
@@ -483,11 +437,10 @@ export class StageOffice extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates the ground walls for this level.
     *******************************************************************************************************************/
-    private createLevelGroundWalls() : bz.Wall[]
+    private createLevelGroundWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
         return [
+
             // hills ( heightmap ground )
             new bz.Wall
             (
@@ -533,14 +486,11 @@ export class StageOffice extends bz.Stage
     /** ****************************************************************************************************************
     *   Adds all boxes to this level.
     *******************************************************************************************************************/
-    private createBoxesWalls() : bz.Wall[]
+    private createBoxesWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
         return [
 
             // wooden test crates
-
             new bz.Wall
             (
                 this,
@@ -638,5 +588,54 @@ export class StageOffice extends bz.Stage
                 )
             ),
         ]
+    }
+
+    private createChairsWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
+    {
+        // multi mesh chair with compound .. scatters after being shot multiple times!
+        this.chairCompoundDestroyable = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                new BABYLON.Vector3( this.OFFSET_X + 20.0, 3.5, this.OFFSET_Z + 35.0 ),
+                bz.PhysicSet.OFFICE_CHAIR,
+                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
+            ),
+            10.0
+        );
+        // multi mesh chair without compound .. immediately collapses!
+        this.chairMultiMeshesNoCompound = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
+                bz.PhysicSet.OFFICE_CHAIR,
+                bz.ModelCompoundType.NONE
+            ),
+            10.0
+        );
+        // office chair - multi meshed - single meshes destroyable
+        this.chairCompoundSingleShotOff = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                new BABYLON.Vector3( 20.0, 3.5, 45.0 ),
+                bz.PhysicSet.OFFICE_CHAIR,
+                bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
+            ),
+            10.0
+        );
+
+        return [
+            this.chairCompoundDestroyable,
+            this.chairMultiMeshesNoCompound,
+            this.chairCompoundSingleShotOff,
+        ];
     }
 }

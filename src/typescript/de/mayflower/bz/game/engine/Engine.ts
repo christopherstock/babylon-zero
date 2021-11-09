@@ -42,7 +42,7 @@ export class Engine
         window.addEventListener( 'resize', () => { this.onWindowResize(); } );
 
         // set the window blur handler
-        bz.Debug.init.log( 'Initing window blur handler' );
+        bz.Debug.init.log( 'Init window blur handler' );
         window.addEventListener( 'blur', () => { this.onWindowBlur( game ); } );
     }
 

@@ -28,7 +28,7 @@ export class Debug
     /** Debugs player move, rotate, ducking. */
     public      static      readonly    player              :Debug              = new Debug( true  );
     /** Debugs physic calculations. */
-    public      static      readonly    physic              :Debug              = new Debug( true  );
+    public      static      readonly    physic              :Debug              = new Debug( false );
     /** Debugs camera behaviours and journeys. */
     public      static      readonly    camera              :Debug              = new Debug( true  );
 
