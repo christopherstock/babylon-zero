@@ -58,4 +58,13 @@ export class SettingEngine
 
     /** The default field of view of the 1st person camera. */
     public  static  readonly    DEFAULT_FIELD_OF_VIEW                   :number             = 1.0;
+
+    /** The HTML page title. */
+    public  static  readonly    BRANDING_TITLE                          :string             = 'babylon-zero, (c) 2021 Mayflower GmbH';
+
+    /** The HTML page favicon. */
+    public  static  readonly    BRANDING_FAVICON                        :string             = 'mayflower.ico';
+
+    /** The loading screen logo. */
+    public  static  readonly    BRANDING_LOADING_LOGO                   :string             = 'loadingMf.png';
 }

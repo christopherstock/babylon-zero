@@ -30,7 +30,7 @@ export class LoadingScreen implements BABYLON.ILoadingScreen
         (
             'url( '
             + bz.SettingResource.PATH_IMAGE_LOADING
-            + bz.SettingBranding.LOADING_LOGO
+            + bz.SettingEngine.BRANDING_LOADING_LOGO
             + ' )'
         );
         document.body.appendChild( this.loadingDiv );

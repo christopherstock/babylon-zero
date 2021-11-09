@@ -24,5 +24,5 @@ export class SettingGUI
     public      static  readonly        GUI_FONT_SIZE_DEFAULT               :number         = 20.0;
 
     /** If navigation through pause menu items is wrapped before first and after last item. */
-    public      static  readonly        WRAP_PAUSE_MENU_ITEMS               :boolean        = true;
+    public      static  readonly        GUI_WRAP_PAUSE_MENU_ITEMS           :boolean        = true;
 }

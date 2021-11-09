@@ -70,7 +70,7 @@ export class GUIPause
             guiFg,
             GUIPause.GUI_MENU_ITEMS,
             ( bz.SettingGUI.GUI_BORDER_Y + 100 ),
-            bz.SettingGUI.WRAP_PAUSE_MENU_ITEMS
+            bz.SettingGUI.GUI_WRAP_PAUSE_MENU_ITEMS
         );
 
         // initially hide all components

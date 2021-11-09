@@ -8,7 +8,6 @@ export * from './game/engine/camera/CameraType';
 
 export * from './game/stage/StageId';
 
-export * from './base/setting/SettingBranding';
 export * from './base/setting/SettingColor';
 export * from './base/setting/SettingDebug';
 export * from './base/setting/SettingEngine';

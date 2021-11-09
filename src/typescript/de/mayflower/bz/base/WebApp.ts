@@ -13,11 +13,11 @@ export class WebApp
     public start() : void
     {
         // HTML document title and favicon
-        bz.DOMUtil.setTitle(   bz.SettingBranding.TITLE   );
-        bz.DOMUtil.setFavicon( bz.SettingResource.PATH_IMAGE_FAVICON + bz.SettingBranding.FAVICON );
+        bz.DOMUtil.setTitle(   bz.SettingEngine.BRANDING_TITLE   );
+        bz.DOMUtil.setFavicon( bz.SettingResource.PATH_IMAGE_FAVICON + bz.SettingEngine.BRANDING_FAVICON );
 
         // log some output
-        bz.Debug.acclaim.log( bz.SettingBranding.TITLE );
+        bz.Debug.acclaim.log( bz.SettingEngine.BRANDING_TITLE );
         bz.Debug.acclaim.log( bz.Version.getCurrent()  );
         bz.Debug.acclaim.log();
 
