@@ -204,16 +204,6 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates all sprites that appear in the stage.
-    *
-    *   @return All sprites that appear in this stage.
-    *******************************************************************************************************************/
-    protected createSprites() : bz.Sprite[]
-    {
-        return [];
-    }
-
-    /** ****************************************************************************************************************
     *   Creates all lights that appear in this level.
     *
     *   @return All lights that appear in this stage.

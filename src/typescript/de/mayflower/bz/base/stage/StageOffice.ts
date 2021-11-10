@@ -121,6 +121,75 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected createStageContents() : void
     {
+        // create and animate a sprite
+        const animatedTestSprite:bz.Sprite = new bz.Sprite
+        (
+            this.scene,
+            bz.SpriteFile.FIRE,
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            10.0,
+            20.0,
+            bz.SpriteCollidable.NO
+        );
+        animatedTestSprite.animate( 0, 24, true );
+
+        this.addSprite( animatedTestSprite );
+
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.scene,
+                bz.SpriteFile.PALM,
+                new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5,
+                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                bz.MathUtil.getRandomInt( -10.0, 10.0 )
+            )
+        );
+
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.scene,
+                bz.SpriteFile.TREE,
+                new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5
+            )
+        );
+
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.scene,
+                bz.SpriteFile.PALM,
+                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5,
+                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                bz.MathUtil.getRandomInt( -10.0, 10.0 )
+            )
+        );
+
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.scene,
+                bz.SpriteFile.TREE,
+                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5
+            )
+        );
     }
 
     /** ****************************************************************************************************************
@@ -211,76 +280,6 @@ export class StageOffice extends bz.Stage
     protected createSkybox() : BABYLON.Mesh
     {
         return new bz.MeshFactory( this.scene ).createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 0.5 );
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates all sprites that appear in the stage.
-    *
-    *   @return All sprites that appear in this stage.
-    *******************************************************************************************************************/
-    protected createSprites() : bz.Sprite[]
-    {
-        // create and animate a sprite
-        const animatedTestSprite:bz.Sprite = new bz.Sprite
-        (
-            this.scene,
-            bz.SpriteFile.FIRE,
-            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-            10.0,
-            20.0,
-            bz.SpriteCollidable.NO
-        );
-        animatedTestSprite.animate( 0, 24, true );
-
-        return [
-
-            animatedTestSprite,
-
-            new bz.Sprite
-            (
-                this.scene,
-                bz.SpriteFile.PALM,
-                new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5,
-                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                bz.MathUtil.getRandomInt( -10.0, 10.0 )
-            ),
-            new bz.Sprite
-            (
-                this.scene,
-                bz.SpriteFile.TREE,
-                new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5
-            ),
-            new bz.Sprite
-            (
-                this.scene,
-                bz.SpriteFile.PALM,
-                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5,
-                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                bz.MathUtil.getRandomInt( -10.0, 10.0 )
-            ),
-            new bz.Sprite
-            (
-                this.scene,
-                bz.SpriteFile.TREE,
-                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5
-            ),
-        ];
     }
 
     /** ****************************************************************************************************************

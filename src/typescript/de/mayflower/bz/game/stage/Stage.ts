@@ -32,7 +32,7 @@ export abstract class Stage
     /** The skybox that surrounds the whole stage. */
     protected                           skybox                  :BABYLON.Mesh                           = null;
     /** A collection of all sprites that appear in this stage. */
-    protected                           sprites                 :bz.Sprite[]                            = [];
+    private                             sprites                 :bz.Sprite[]                            = [];
 
     /** A collection of all lights that appear in this stage. */
     protected                           lights                  :BABYLON.Light[]                        = [];
@@ -121,13 +121,6 @@ export abstract class Stage
     protected abstract createSkybox() : BABYLON.Mesh;
 
     /** ****************************************************************************************************************
-    *   Creates all sprites that appear in the stage.
-    *
-    *   @return All sprites that appear in this stage.
-    *******************************************************************************************************************/
-    protected abstract createSprites() : bz.Sprite[];
-
-    /** ****************************************************************************************************************
     *   Creates all lights that appear in this level.
     *
     *   @return All lights that appear in this stage.
@@ -156,8 +149,12 @@ export abstract class Stage
     *******************************************************************************************************************/
     public init() : void
     {
+        // assign scene colors
         this.scene.getNativeScene().ambientColor = this.ambientColor;
         this.scene.getNativeScene().clearColor   = this.sceneBgColor;
+
+        // create all stage contents
+        this.createStageContents();
 
         // create all game objects
         this.player        = this.createPlayer();
@@ -166,7 +163,6 @@ export abstract class Stage
         this.items         = this.createItems();
         this.bots          = this.createBots();
         this.skybox        = this.createSkybox();
-        this.sprites       = this.createSprites();
         this.lights        = this.createLights();
 
         // set camera system
@@ -392,6 +388,16 @@ export abstract class Stage
     public getGame() : bz.Game
     {
         return this.game;
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a sprite to the level.
+    *
+    *   @param sprite The sprite to add to this level.
+    *******************************************************************************************************************/
+    protected addSprite( sprite:bz.Sprite ) : void
+    {
+        this.sprites.push( sprite );
     }
 
     /** ****************************************************************************************************************
