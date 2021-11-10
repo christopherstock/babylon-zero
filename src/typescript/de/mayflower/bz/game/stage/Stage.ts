@@ -93,13 +93,6 @@ export abstract class Stage
     protected abstract createStageContents() : void;
 
     /** ****************************************************************************************************************
-    *   Creates and returns all items this stage consists of.
-    *
-    *   @return All items of this stage.
-    *******************************************************************************************************************/
-    protected abstract createItems() : bz.Item[];
-
-    /** ****************************************************************************************************************
     *   Creates and returns all bots this stage consists of.
     *
     *   @return All bots of this stage.
@@ -152,7 +145,6 @@ export abstract class Stage
         // create all game objects
         this.player        = this.createPlayer();
         this.cameraSystem  = this.createCameraSystem();
-        this.items         = this.createItems();
         this.bots          = this.createBots();
         this.skybox        = this.createSkybox();
         this.lights        = this.createLights();
@@ -400,6 +392,16 @@ export abstract class Stage
     protected addWall( wall:bz.Wall ) : void
     {
         this.walls.push( wall );
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds an item to the level.
+    *
+    *   @param item The item to add to this level.
+    *******************************************************************************************************************/
+    protected addItem( item:bz.Item ) : void
+    {
+        this.items.push( item );
     }
 
     /** ****************************************************************************************************************

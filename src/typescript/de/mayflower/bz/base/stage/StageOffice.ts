@@ -197,18 +197,8 @@ export class StageOffice extends bz.Stage
         this.addBoxesWalls(       meshFactory );
         this.addChairsWalls(      meshFactory );
         this.addStuffWalls(        meshFactory );
-    }
 
-    /** ****************************************************************************************************************
-    *   Creates and returns all items this stage consists of.
-    *
-    *   @return All items of this stage.
-    *******************************************************************************************************************/
-    protected createItems() : bz.Item[]
-    {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
-        return [
+        this.addItem(
             new bz.Item
             (
                 this,
@@ -219,7 +209,9 @@ export class StageOffice extends bz.Stage
                     null,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
+        this.addItem(
             new bz.Item
             (
                 this,
@@ -230,7 +222,9 @@ export class StageOffice extends bz.Stage
                     null,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
+        this.addItem(
             new bz.Item
             (
                 this,
@@ -241,8 +235,8 @@ export class StageOffice extends bz.Stage
                     null,
                     bz.ModelCompoundType.NONE
                 )
-            ),
-        ];
+            )
+        );
     }
 
     /** ****************************************************************************************************************

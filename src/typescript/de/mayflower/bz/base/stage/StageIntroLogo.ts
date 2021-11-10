@@ -163,16 +163,6 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates and returns all items this stage consists of.
-    *
-    *   @return All items of this stage.
-    *******************************************************************************************************************/
-    protected createItems() : bz.Item[]
-    {
-        return [];
-    }
-
-    /** ****************************************************************************************************************
     *   Creates and returns all bots this stage consists of.
     *
     *   @return All bots of this stage.
