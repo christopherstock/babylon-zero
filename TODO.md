@@ -5,9 +5,9 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Add suitable textures!
-TODO Add room/house creation method.
 TODO Stop player from jumping around when falling etc?
+TODO Add room/house creation method.
+TODO Add suitable textures!
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
 TODO Create realistic models and lights.

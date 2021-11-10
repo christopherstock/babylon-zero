@@ -31,11 +31,6 @@ export class Game
         this.engine = new bz.Engine();
         this.engine.init( this );
 
-        // init the scene
-        bz.Debug.init.log( 'Init scene' );
-        this.scene = new bz.Scene();
-        this.scene.init( this.engine, () => { this.onInitGameEngineCompleted(); } );
-
         // init the key and mouse system
         this.keySystem   = new bz.KeySystem();
         this.mouseSystem = new bz.MouseSystem(
@@ -43,6 +38,11 @@ export class Game
             bz.SettingDebug.DEBUG_ENABLE_POINTER_DOWN_IMPULSE,
             !bz.SettingDebug.DEBUG_DISABLE_POINTER_LOCK
         )
+
+        // init the scene
+        bz.Debug.init.log( 'Init scene' );
+        this.scene = new bz.Scene();
+        this.scene.init( this.engine, () => { this.onInitGameEngineCompleted(); } );
     }
 
     /** ****************************************************************************************************************
