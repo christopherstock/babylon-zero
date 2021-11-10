@@ -407,9 +407,10 @@ export abstract class Stage
     }
 
     protected addRoomWalls(
-        meshFactory:bz.MeshFactory,
-        position:BABYLON.Vector3,
-        size:BABYLON.Vector3
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        size        :BABYLON.Vector3,
+        rotY        :number
     )
     : void
     {
@@ -423,12 +424,13 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( position.x, position.y, position.z ),
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), position.y, position.z ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.LOWEST_XYZ
+                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                            new BABYLON.Vector3( 0.0, rotY, 0.0 )
                         ),
                     ]
                 )
@@ -443,18 +445,19 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( position.x, position.y, position.z + size.z ),
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), position.y, position.z + size.z ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.LOWEST_XYZ
+                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                            new BABYLON.Vector3( 0.0, rotY, 0.0 )
                         ),
                     ]
                 )
             )
         );
-
+/*
         // 2 walls on z axis
         this.addWall(
             new bz.Wall
@@ -471,7 +474,7 @@ export abstract class Stage
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                            new BABYLON.Vector3( 0.0, ( 90.0 + rotY ), 0.0 )
                         ),
                     ]
                 )
@@ -492,12 +495,13 @@ export abstract class Stage
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                            new BABYLON.Vector3( 0.0, ( 90.0 + rotY ), 0.0 )
                         ),
                     ]
                 )
             )
         );
+*/
     }
 
     /** ****************************************************************************************************************
