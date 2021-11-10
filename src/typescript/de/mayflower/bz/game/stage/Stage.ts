@@ -10,6 +10,8 @@ export abstract class Stage
     /** The scene instance of the game instance. */
     protected           readonly        scene                   :bz.Scene                               = null;
 
+    // TODO extract constant level config to class StageConfig !
+
     /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
     protected           readonly        ambientColor            :BABYLON.Color3                         = null;
     /** The scene background color is the clear color for the scene. */
@@ -20,13 +22,15 @@ export abstract class Stage
     /** The player instance. */
     protected                           player                  :bz.Player                              = null;
     /** A collection of all walls in this stage. */
-    protected                           walls                   :bz.Wall[]                              = [];
+    protected           readonly        walls                   :bz.Wall[]                              = [];
     /** A collection of all items in this stage. */
-    protected                           items                   :bz.Item[]                              = [];
+    protected           readonly        items                   :bz.Item[]                              = [];
     /** A collection of all bots in this stage. */
-    protected                           bots                    :bz.Bot[]                               = [];
+    protected           readonly        bots                    :bz.Bot[]                               = [];
     /** A collection of all sprites that appear in this stage. */
-    protected                           sprites                 :bz.Sprite[]                            = [];
+    protected           readonly        sprites                 :bz.Sprite[]                            = [];
+    /** A collection of all lights that appear in this stage. */
+    protected           readonly        lights                  :BABYLON.Light[]                        = [];
 
 
 
@@ -34,8 +38,6 @@ export abstract class Stage
     protected                           cameraSystem            :bz.CameraSystem                        = null;
     /** The skybox that surrounds the whole stage. */
     protected                           skybox                  :BABYLON.Mesh                           = null;
-    /** A collection of all lights that appear in this stage. */
-    protected                           lights                  :BABYLON.Light[]                        = [];
     /** A collection of all shadowGenerators that appear in this stage. */
     protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
 
@@ -93,13 +95,6 @@ export abstract class Stage
     protected abstract createSkybox() : BABYLON.Mesh;
 
     /** ****************************************************************************************************************
-    *   Creates all lights that appear in this level.
-    *
-    *   @return All lights that appear in this stage.
-    *******************************************************************************************************************/
-    protected abstract createLights() : BABYLON.Light[];
-
-    /** ****************************************************************************************************************
     *   Creates all shadow generators that appear in this level.
     *
     *   @return All shadow generators that appear in this stage.
@@ -131,7 +126,6 @@ export abstract class Stage
         // create all game objects
         this.cameraSystem  = this.createCameraSystem();
         this.skybox        = this.createSkybox();
-        this.lights        = this.createLights();
 
         // set camera system
         this.setActiveCamera( this.initialCamera );
@@ -359,6 +353,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Sets the player for this level.
+    *
+    *   @param player The player to set to this level.
+    *******************************************************************************************************************/
+    protected setPlayer( player:bz.Player ) : void
+    {
+        this.player = player;
+    }
+
+    /** ****************************************************************************************************************
     *   Adds a sprite to the level.
     *
     *   @param sprite The sprite to add to this level.
@@ -389,6 +393,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Adds a light to the level.
+    *
+    *   @param light The light to add to this level.
+    *******************************************************************************************************************/
+    protected addLight( light:BABYLON.Light ) : void
+    {
+        this.lights.push( light );
+    }
+
+    /** ****************************************************************************************************************
     *   Adds a bot to the level.
     *
     *   @param bot The bot to add to this level.
@@ -396,16 +410,6 @@ export abstract class Stage
     protected addBot( bot:bz.Item ) : void
     {
         this.bots.push( bot );
-    }
-
-    /** ****************************************************************************************************************
-    *   Sets the player for this level.
-    *
-    *   @param player The player to set to this level.
-    *******************************************************************************************************************/
-    protected setPlayer( player:bz.Player ) : void
-    {
-        this.player = player;
     }
 
     /** ****************************************************************************************************************

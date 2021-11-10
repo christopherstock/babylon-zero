@@ -13,7 +13,7 @@ export class StageIntroLogo extends bz.Stage
     /** Referenced point light. */
     private                         pointLight              :BABYLON.PointLight         = null;
     /** Current logo rotation Y. */
-    private                         rotY                    :number                     = 0.0;
+    private                         logoRotY                :number                     = 0.0;
     /** Notifies current frame. */
     private                         currentTick             :number                     = 0;
 
@@ -33,7 +33,7 @@ export class StageIntroLogo extends bz.Stage
             bz.CameraType.STATIONARY
         );
 
-        this.rotY = 270.0;
+        this.logoRotY = 270.0;
     }
 
     /** ****************************************************************************************************************
@@ -48,12 +48,12 @@ export class StageIntroLogo extends bz.Stage
         this.logo.getModel().setAbsoluteRotationXYZ
         (
             270.0,
-            this.rotY,
+            this.logoRotY,
             90.0
         );
 
         // increase logo rotation
-        this.rotY += StageIntroLogo.ROTATION_SPEED;
+        this.logoRotY += StageIntroLogo.ROTATION_SPEED;
 
         // alter the light intensity
         ++this.currentTick;
@@ -120,6 +120,18 @@ export class StageIntroLogo extends bz.Stage
         const material:BABYLON.StandardMaterial = this.logo.getMesh( 0 ).material as BABYLON.StandardMaterial;
         material.specularColor = new BABYLON.Color3( 0.949, 0.713, 0.498 );
 */
+        this.pointLight = bz.LightFactory.createPoint
+        (
+            this.scene.getNativeScene(),
+            new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            0.0,
+            2.5,
+            true
+        );
+
+        this.addLight( this.pointLight );
     }
 
     /** ****************************************************************************************************************
@@ -160,27 +172,6 @@ export class StageIntroLogo extends bz.Stage
     protected createSkybox() : BABYLON.Mesh
     {
         return null;
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates all lights that appear in this level.
-    *
-    *   @return All lights that appear in this stage.
-    *******************************************************************************************************************/
-    protected createLights() : BABYLON.Light[]
-    {
-        this.pointLight = bz.LightFactory.createPoint
-        (
-            this.scene.getNativeScene(),
-            new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            0.0,
-            2.5,
-            true
-        );
-
-        return [ this.pointLight ];
     }
 
     /** ****************************************************************************************************************

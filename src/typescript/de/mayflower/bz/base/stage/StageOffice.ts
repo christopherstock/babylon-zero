@@ -231,25 +231,7 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
-    }
 
-    /** ****************************************************************************************************************
-    *   Sets up the skybox.
-    *
-    *   @return The created skybox for this stage.
-    *******************************************************************************************************************/
-    protected createSkybox() : BABYLON.Mesh
-    {
-        return new bz.MeshFactory( this.scene ).createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 0.5 );
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates all lights that appear in this level.
-    *
-    *   @return All lights that appear in this stage.
-    *******************************************************************************************************************/
-    protected createLights() : BABYLON.Light[]
-    {
         // point light
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
@@ -261,10 +243,17 @@ export class StageOffice extends bz.Stage
             1.0,
             true
         );
+        this.addLight( pointLight );
+    }
 
-        return [
-            pointLight,
-        ];
+    /** ****************************************************************************************************************
+    *   Sets up the skybox.
+    *
+    *   @return The created skybox for this stage.
+    *******************************************************************************************************************/
+    protected createSkybox() : BABYLON.Mesh
+    {
+        return new bz.MeshFactory( this.scene ).createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 0.5 );
     }
 
     /** ****************************************************************************************************************
