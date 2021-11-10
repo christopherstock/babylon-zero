@@ -1,5 +1,5 @@
-import * as bz   from '../../..';
-import * as bjsg from 'babylonjs-gui';
+import * as bz          from '../../..';
+import * as BABYLON_GUI from 'babylonjs-gui';
 
 /** ********************************************************************************************************************
 *   Manages all GUI messages shown in the GUI.
@@ -23,7 +23,7 @@ export class GUIMessageManager
     *   @param gui The gui to add the text message to.
     *   @param msg The message to add to the message queue.
     *******************************************************************************************************************/
-    public addGuiMessage( gui:bjsg.AdvancedDynamicTexture, msg:string ) : void
+    public addGuiMessage(gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string ) : void
     {
         this.messageQueue.push
         (

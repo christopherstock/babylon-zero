@@ -1,5 +1,5 @@
-import * as bz   from '../../..';
-import * as bjsg from 'babylonjs-gui'
+import * as bz          from '../../..';
+import * as BABYLON_GUI from 'babylonjs-gui'
 
 /** ********************************************************************************************************************
 *   Represents one GUI fx that's displayed in fullscreen and slowly disappearing.
@@ -10,7 +10,7 @@ export class GUIFx
     private                             lifetimeTicks               :number                             = 0;
 
     /** The fullscreen rect that represents this fx. */
-    private             readonly        fxRect                      :bjsg.Rectangle                     = null;
+    private             readonly        fxRect                      :BABYLON_GUI.Rectangle                     = null;
 
     /** ****************************************************************************************************************
     *   Creates a new GUI effect.
@@ -20,7 +20,7 @@ export class GUIFx
     *******************************************************************************************************************/
     public constructor
     (
-        gui  :bjsg.AdvancedDynamicTexture,
+        gui  :BABYLON_GUI.AdvancedDynamicTexture,
         type :bz.GUIFxType
     )
     {

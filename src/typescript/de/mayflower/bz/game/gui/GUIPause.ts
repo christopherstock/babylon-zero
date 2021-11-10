@@ -1,5 +1,5 @@
-import * as bz   from '../..';
-import * as bjsg from 'babylonjs-gui'
+import * as bz          from '../..';
+import * as BABYLON_GUI from 'babylonjs-gui'
 
 /** ********************************************************************************************************************
 *   Represents the Graphical User Interface of the pause screen / menu.
@@ -15,11 +15,11 @@ export class GUIPause
     ];
 
     /** The translucent background. */
-    private             readonly        bg                      :bjsg.Rectangle                 = null;
+    private             readonly        bg                      :BABYLON_GUI.Rectangle                 = null;
     /** The 'pause explanation' textblock. */
-    private             readonly        explanation             :bjsg.TextBlock                 = null;
+    private             readonly        explanation             :BABYLON_GUI.TextBlock                 = null;
     /** The 'pause menu' headline text. */
-    private             readonly        menuHeadline                :bjsg.TextBlock                 = null;
+    private             readonly        menuHeadline                :BABYLON_GUI.TextBlock                 = null;
     /** The GUI menu. */
     private             readonly        menu                    :bz.GUIMenu                     = null;
 
@@ -28,7 +28,7 @@ export class GUIPause
     *
     *   @param guiFg The gui to append all components to.
     *******************************************************************************************************************/
-    public constructor( guiFg:bjsg.AdvancedDynamicTexture )
+    public constructor( guiFg:BABYLON_GUI.AdvancedDynamicTexture )
     {
         // paws bg
         this.bg = bz.GUIFactory.createRectangle

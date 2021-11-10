@@ -1,5 +1,5 @@
-import * as bz   from '../..';
-import * as bjsg from 'babylonjs-gui';
+import * as bz          from '../..';
+import * as BABYLON_GUI from 'babylonjs-gui';
 
 /** ********************************************************************************************************************
 *   Represents a Graphical User Interface that is displayed in the foreground of the screen.
@@ -7,16 +7,16 @@ import * as bjsg from 'babylonjs-gui';
 export class GUI
 {
     /** The 'player' fullscreen gui lies on the lowest layer. */
-    private             readonly        guiPlayer                   :bjsg.AdvancedDynamicTexture            = null;
+    private             readonly        guiPlayer                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'effects' fullscreen gui lies over the player GUI. */
-    private             readonly        guiEffects                  :bjsg.AdvancedDynamicTexture            = null;
+    private             readonly        guiEffects                  :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'messages' fullscreen gui lies over the effects GUI. */
-    private             readonly        guiMessages                 :bjsg.AdvancedDynamicTexture            = null;
+    private             readonly        guiMessages                 :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'pause' fullscreen gui lies over the messages GUI. */
-    private             readonly        guiPause                    :bjsg.AdvancedDynamicTexture            = null;
+    private             readonly        guiPause                    :BABYLON_GUI.AdvancedDynamicTexture     = null;
 
     /** The FPS text block. */
-    private             readonly        fpsText                     :bjsg.TextBlock                         = null;
+    private             readonly        fpsText                     :BABYLON_GUI.TextBlock                  = null;
     /** The manager for GUI messages. */
     private             readonly        messageManager              :bz.GUIMessageManager                   = null;
     /** The manager for GUI effects. */
@@ -26,9 +26,9 @@ export class GUI
     private             readonly        pauseGui                    :bz.GUIPause                            = null;
 
     /** The wearpon image. */
-    private                             wearponImage                :bjsg.Image                             = null;
+    private                             wearponImage                :BABYLON_GUI.Image                      = null;
     /** The corsshair. */
-    private                             crosshair                   :bjsg.Image                             = null;
+    private                             crosshair                   :BABYLON_GUI.Image                      = null;
 
     /** ****************************************************************************************************************
     *   Creates a new abstract Heads Up Display.
@@ -58,8 +58,8 @@ export class GUI
             bz.SettingGUI.GUI_BORDER_Y,
             250,
             25,
-            bjsg.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-            bjsg.Control.VERTICAL_ALIGNMENT_TOP,
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+            BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
         );
         this.guiMessages.addControl( this.fpsText );
@@ -83,8 +83,8 @@ export class GUI
             'wearpon/autoShotgun.png',
             -bz.SettingGUI.GUI_BORDER_X,
             0,
-            bjsg.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-            bjsg.Control.VERTICAL_ALIGNMENT_BOTTOM,
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+            BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
             null
         );
         this.guiPlayer.addControl( this.wearponImage );
@@ -94,8 +94,8 @@ export class GUI
             'crosshair/default.png',
             0,
             0,
-            bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
-            bjsg.Control.VERTICAL_ALIGNMENT_CENTER,
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+            BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER,
             null
         );
         this.guiPlayer.addControl( this.crosshair );
@@ -195,6 +195,25 @@ export class GUI
     public setPauseMenuIndex( index:number ) : void
     {
         this.pauseGui.setPauseMenuIndex( index );
+    }
+
+    /** ****************************************************************************************************************
+    *   Zooms the GUI wearpon image by the specified ratio.
+    *
+    *   @param zoomRatio The current zoom factor - from 0.0 (no zoom) to 1.0 (max zoom).
+    *******************************************************************************************************************/
+    public zoomWearponImage( zoomRatio:number ) : void
+    {
+        console.log( '>> zoom wearpon image: ..' + zoomRatio );
+
+        this.wearponImage.scaleX = ( 1.0 + zoomRatio );
+        this.wearponImage.scaleY = ( 1.0 + zoomRatio );
+        this.wearponImage.left   = (
+            -bz.SettingGUI.GUI_BORDER_X + ( zoomRatio * ( this.wearponImage.widthInPixels  / 2 ) )
+        );
+        this.wearponImage.top    = (
+            -0.0                        + ( zoomRatio * ( this.wearponImage.heightInPixels / 2 ) )
+        );
     }
 
     /** ****************************************************************************************************************

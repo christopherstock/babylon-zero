@@ -58,6 +58,8 @@ export class SettingEngine
 
     /** The default field of view of the 1st person camera. */
     public  static  readonly    DEFAULT_FIELD_OF_VIEW                   :number             = 1.0;
+    public  static  readonly    CURRENT_WEARPON_MAX_ZOOM                :number             = 0.5;
+    public  static  readonly    CURRENT_WEARPON_ZOOM_SPEED              :number             = 0.05;
 
     /** The HTML page title. */
     public  static  readonly    BRANDING_TITLE                          :string             = 'babylon-zero, (c) 2021 Mayflower GmbH';

@@ -588,35 +588,36 @@ export class Player extends bz.GameObject
 
     /** ****************************************************************************************************************
     *   Checks if the player's field of view changes.
-    *
-    *   TODO zoom HUD wearpon too!
     *******************************************************************************************************************/
     private checkFieldOfViewChange() : void
     {
-        const CURRENT_WEARPON_MAX_ZOOM   :number = 0.5;
-        const CURRENT_WEARPON_ZOOM_SPEED :number = 0.05;
-
         const cameraSystem:bz.CameraSystem = this.stage.getCameraSystem();
 
         if ( this.zoom )
         {
-            if ( this.fieldOfView > CURRENT_WEARPON_MAX_ZOOM )
+            if ( this.fieldOfView > bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
             {
-                this.fieldOfView -= CURRENT_WEARPON_ZOOM_SPEED;
+                this.fieldOfView -= bz.SettingEngine.CURRENT_WEARPON_ZOOM_SPEED;
 
-                if ( this.fieldOfView < CURRENT_WEARPON_MAX_ZOOM )
+                if ( this.fieldOfView < bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
                 {
-                    this.fieldOfView = CURRENT_WEARPON_MAX_ZOOM;
+                    this.fieldOfView = bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM;
                 }
 
                 cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
+                this.stage.getGame().getGUI().zoomWearponImage(
+                    1.0 - (
+                        ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
+                        - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
+                    )
+                );
             }
         }
         else
         {
             if ( this.fieldOfView < bz.SettingEngine.DEFAULT_FIELD_OF_VIEW )
             {
-                this.fieldOfView += CURRENT_WEARPON_ZOOM_SPEED;
+                this.fieldOfView += bz.SettingEngine.CURRENT_WEARPON_ZOOM_SPEED;
 
                 if ( this.fieldOfView > bz.SettingEngine.DEFAULT_FIELD_OF_VIEW )
                 {
@@ -624,6 +625,12 @@ export class Player extends bz.GameObject
                 }
 
                 cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
+                this.stage.getGame().getGUI().zoomWearponImage(
+                    1.0 - (
+                        ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
+                        - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
+                    )
+                );
             }
         }
     }

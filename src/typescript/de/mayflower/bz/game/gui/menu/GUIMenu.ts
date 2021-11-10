@@ -1,5 +1,5 @@
-import * as bz   from '../../..';
-import * as bjsg from 'babylonjs-gui';
+import * as bz          from '../../..';
+import * as BABYLON_GUI from 'babylonjs-gui';
 
 /** ********************************************************************************************************************
 *   Represents a menu shown in the GUI.
@@ -24,7 +24,7 @@ export class GUIMenu
     *******************************************************************************************************************/
     public constructor
     (
-        guiFg         :bjsg.AdvancedDynamicTexture,
+        guiFg         :BABYLON_GUI.AdvancedDynamicTexture,
         menuItems     :bz.GUIMenuItem[],
         y             :number,
         wrapSelection :boolean

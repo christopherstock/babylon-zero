@@ -1,5 +1,5 @@
-import * as bz   from '../../..';
-import * as bjsg from 'babylonjs-gui';
+import * as bz          from '../../..';
+import * as BABYLON_GUI from 'babylonjs-gui';
 
 /** ********************************************************************************************************************
 *   Represents one menu item shown in the GUI menu.
@@ -12,7 +12,7 @@ export class GUIMenuItem
     private             readonly        action                      :bz.GUIAction                   = null;
 
     /** The text block that represents this menu item in the GUI. */
-    private                             textBlock                   :bjsg.TextBlock                 = null;
+    private                             textBlock                   :BABYLON_GUI.TextBlock          = null;
 
     /** ****************************************************************************************************************
     *   Creates a new menu item.
@@ -32,7 +32,7 @@ export class GUIMenuItem
     *   @param guiFg The GUI to append this menu item text block to.
     *   @param y     The position Y for this menu item's text block.
     *******************************************************************************************************************/
-    public createTextBlock( guiFg:bjsg.AdvancedDynamicTexture, y:number ) : void
+    public createTextBlock(guiFg:BABYLON_GUI.AdvancedDynamicTexture, y:number ) : void
     {
         this.textBlock = bz.GUIFactory.createTextBlock
         (
@@ -44,8 +44,8 @@ export class GUIMenuItem
             y,
             500,
             25,
-            bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
-            bjsg.Control.VERTICAL_ALIGNMENT_TOP,
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+            BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
         );
 

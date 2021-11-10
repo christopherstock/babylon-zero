@@ -1,5 +1,5 @@
-import * as bz   from '../..';
-import * as bjsg from 'babylonjs-gui';
+import * as bz          from '../..';
+import * as BABYLON_GUI from 'babylonjs-gui';
 
 /** ********************************************************************************************************************
 *   Creates all types of GUI components.
@@ -23,9 +23,9 @@ export abstract class GUIFactory
         scene      :BABYLON.Scene,
         foreground :boolean
     )
-    : bjsg.AdvancedDynamicTexture
+    : BABYLON_GUI.AdvancedDynamicTexture
     {
-        const gui:bjsg.AdvancedDynamicTexture = bjsg.AdvancedDynamicTexture.CreateFullscreenUI
+        const gui:BABYLON_GUI.AdvancedDynamicTexture = BABYLON_GUI.AdvancedDynamicTexture.CreateFullscreenUI
         (
             GUIFactory.createNextGuiId(),
             foreground
@@ -59,9 +59,9 @@ export abstract class GUIFactory
         colorBorder   :string,
         colorFill     :string
     )
-    : bjsg.Rectangle
+    : BABYLON_GUI.Rectangle
     {
-        const rectangle:bjsg.Rectangle = new bjsg.Rectangle( GUIFactory.createNextGuiId() );
+        const rectangle:BABYLON_GUI.Rectangle = new BABYLON_GUI.Rectangle( GUIFactory.createNextGuiId() );
 
         rectangle.left       = x;
         rectangle.top        = y;
@@ -70,8 +70,8 @@ export abstract class GUIFactory
         rectangle.color      = colorBorder;
         rectangle.background = colorFill;
 
-        rectangle.horizontalAlignment = bjsg.Control.HORIZONTAL_ALIGNMENT_LEFT;
-        rectangle.verticalAlignment   = bjsg.Control.VERTICAL_ALIGNMENT_TOP;
+        rectangle.horizontalAlignment = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        rectangle.verticalAlignment   = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP;
 
         return rectangle;
     }
@@ -103,13 +103,13 @@ export abstract class GUIFactory
         y             :number,
         width         :number,
         height        :number,
-        alignmentHorz :number = bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
-        alignmentVert :number = bjsg.Control.VERTICAL_ALIGNMENT_TOP,
+        alignmentHorz :number = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+        alignmentVert :number = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
         onPointerDown :() => void = ():void => { /* empty */ }
     )
-    : bjsg.TextBlock
+    : BABYLON_GUI.TextBlock
     {
-        const textBlock:bjsg.TextBlock = new bjsg.TextBlock(  GUIFactory.createNextGuiId()  );
+        const textBlock:BABYLON_GUI.TextBlock = new BABYLON_GUI.TextBlock(  GUIFactory.createNextGuiId()  );
 
         textBlock.text     = text;
         textBlock.left     = x;
@@ -171,9 +171,9 @@ export abstract class GUIFactory
         color       :string,
         shadowColor :string
     )
-    : bjsg.Line
+    : BABYLON_GUI.Line
     {
-        const line:bjsg.Line = new bjsg.Line
+        const line:BABYLON_GUI.Line = new BABYLON_GUI.Line
         (
             GUIFactory.createNextGuiId()
         );
@@ -218,9 +218,9 @@ export abstract class GUIFactory
         alignVert   :number,
         shadowColor :string
     )
-    : bjsg.Image
+    : BABYLON_GUI.Image
     {
-        const image:bjsg.Image = new bjsg.Image
+        const image:BABYLON_GUI.Image = new BABYLON_GUI.Image
         (
             GUIFactory.createNextGuiId(),
             bz.SettingResource.PATH_IMAGE_GUI + filename
@@ -229,7 +229,7 @@ export abstract class GUIFactory
         image.horizontalAlignment = alignHorz;
         image.verticalAlignment   = alignVert;
         image.autoScale           = true;
-        image.stretch             = bjsg.Image.STRETCH_NONE;
+        image.stretch             = BABYLON_GUI.Image.STRETCH_NONE;
 
         image.left = x;
         image.top  = y;
