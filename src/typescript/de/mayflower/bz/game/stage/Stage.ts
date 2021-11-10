@@ -10,15 +10,6 @@ export abstract class Stage
     /** The scene instance of the game instance. */
     protected           readonly        scene                   :bz.Scene                               = null;
 
-    // TODO extract constant stage config to class StageConfig ! => all constant stage startup settings to one place!
-
-    /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
-    protected           readonly        ambientColor            :BABYLON.Color3                         = null;
-    /** The scene background color is the clear color for the scene. */
-    protected           readonly        sceneBgColor            :BABYLON.Color4                         = null;
-    /** The initial camera to set for this stage. */
-    protected           readonly        initialCamera           :bz.CameraType                          = null;
-
     /** The player instance. */
     protected                           player                  :bz.Player                              = null;
     /** The skybox that surrounds the whole stage. */
@@ -43,6 +34,13 @@ export abstract class Stage
     private             readonly        bulletHoles             :bz.BulletHole[]                        = [];
     /** A collection of all debug meshes in this stage. */
     private             readonly        debugMeshes             :BABYLON.Mesh[]                         = [];
+
+    /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
+    protected           readonly        ambientColor            :BABYLON.Color3                         = null;
+    /** The scene background color is the clear color for the scene. */
+    protected           readonly        sceneBgColor            :BABYLON.Color4                         = null;
+    /** The initial camera to set for this stage. */
+    protected           readonly        initialCamera           :bz.CameraType                          = null;
 
     /** ****************************************************************************************************************
     *   Creates a new custom stage.

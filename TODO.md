@@ -10,6 +10,7 @@ TODO Add suitable textures!
 TODO Add room/house creation method.
 TODO Stop player from jumping around when falling etc?
 TODO Scale up/down all chairs and some models?
+TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
 TODO Add shelves.
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
 TODO Create realistic models, lights.
@@ -59,7 +60,6 @@ TODO Sounds for shot, bullet hit and bullet drop.
 Wearpons
 =====================
 TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
-TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
 TODO Add slower panning on aiming/zooming with wearpon.
 TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom, muzzle-flash ..
 TODO Show wearpon's ammo in magazine and total.
