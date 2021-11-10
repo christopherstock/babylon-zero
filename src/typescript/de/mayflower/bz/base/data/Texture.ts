@@ -8,33 +8,33 @@ import * as bz from '../..';
 export class Texture
 {
     /** The texture 'bullet hole concreate'. */
-    public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_CONCRETE, null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_CONCRETE,                            bz.TextureType.WALL     );
     /** The texture 'bullet hole wood'. */
-    public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_WOOD,     null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_WOOD,                                bz.TextureType.WALL     );
     /** The texture 'bullet hole glass'. */
-    public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_GLASS,    null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_GLASS,                               bz.TextureType.WALL     );
     /** The texture 'bullet hole metal'. */
-    public      static  readonly    BULLET_HOLE_METAL           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_METAL,    null,                           bz.TextureType.WALL     );
+    public      static  readonly    BULLET_HOLE_METAL           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_METAL,                               bz.TextureType.WALL     );
 
     /** The texture 'wall test'. */
-    public      static  readonly    WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST,            Texture.BULLET_HOLE_CONCRETE,   bz.TextureType.WALL     );
+    public      static  readonly    WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST,            bz.TextureType.WALL     );
     /** The texture 'wall mayflower logo'. */
-    public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO,  Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO,  bz.TextureType.WALL     );
     /** The texture 'wall amiga'. */
-    public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( bz.TextureFile.WALL_AMIGA,           Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( bz.TextureFile.WALL_AMIGA,               bz.TextureType.WALL     );
     /** The texture 'wall wood'. */
-    public      static  readonly    WALL_WOOD                   :Texture                = new Texture( bz.TextureFile.WALL_WOOD,            Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_WOOD                   :Texture                = new Texture( bz.TextureFile.WALL_WOOD,                   bz.TextureType.WALL     );
     /** The texture 'wall grass'. */
-    public      static  readonly    WALL_GRASS                  :Texture                = new Texture( bz.TextureFile.WALL_GRASS,           Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_GRASS                  :Texture                = new Texture( bz.TextureFile.WALL_GRASS,           bz.TextureType.WALL     );
     /** The texture 'wall glas'. */
-    public      static  readonly    WALL_GLASS                  :Texture                = new Texture( bz.TextureFile.WALL_GLASS,           Texture.BULLET_HOLE_GLASS,      bz.TextureType.WALL     );
+    public      static  readonly    WALL_GLASS                  :Texture                = new Texture( bz.TextureFile.WALL_GLASS,           bz.TextureType.WALL     );
     /** The texture 'wall skin rosé'. */
-    public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE,       Texture.BULLET_HOLE_WOOD,       bz.TextureType.WALL     );
+    public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE,       bz.TextureType.WALL     );
     /** The texture 'wall metal'. */
-    public      static  readonly    WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL,           Texture.BULLET_HOLE_METAL,      bz.TextureType.WALL     );
+    public      static  readonly    WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL,           bz.TextureType.WALL     );
 
     /** The video texture 'wall test'. */
-    public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST,           Texture.BULLET_HOLE_GLASS,      bz.TextureType.VIDEO    );
+    public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST,           bz.TextureType.VIDEO    );
 
     /** Contains all texture data objects. */
     public      static  readonly    ALL_TEXTURES                :Texture[]              =
@@ -59,8 +59,6 @@ export class Texture
     /** The according texture file. */
     private             readonly    file                        :bz.TextureFile         = null;
 
-    /** The according bullet hole texture for this texture. TODO prune to TextureFile ! */
-    private             readonly    bulletHoleTexture           :bz.Texture             = null;
     /** Specifies the type of texture. */
     private             readonly    textureType                 :bz.TextureType         = null;
 
@@ -77,13 +75,11 @@ export class Texture
     public constructor
     (
         file              :bz.TextureFile,
-        bulletHoleTexture :bz.Texture,
         textureType       :bz.TextureType
     )
     {
         this.file = file;
 
-        this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
     }
 
@@ -221,9 +217,15 @@ export class Texture
             {
                 if ( texture.file.fileName === meshTextureFileName )
                 {
-                    if ( texture.bulletHoleTexture !== null )
+                    if ( texture.file.bulletHoleTexture !== null )
                     {
-                        return texture.bulletHoleTexture;
+                        for ( const tex of Texture.ALL_TEXTURES )
+                        {
+                            if ( tex.file.fileName === texture.file.bulletHoleTexture.fileName )
+                            {
+                                return tex;
+                            }
+                        }
                     }
                 }
             }
