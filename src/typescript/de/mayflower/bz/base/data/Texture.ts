@@ -190,13 +190,10 @@ export class Texture
             // pick texture filename
             const meshTextureFileName:string = mesh.material.getActiveTextures()[ 0 ].name;
 
-            // TODO outsource hardcoded model texture mapping
-            switch ( meshTextureFileName )
+            const bulletHoleTexture :Texture = Texture.getBulletHoleTextureForModelTexture( meshTextureFileName );
+            if ( bulletHoleTexture !== null )
             {
-                case 'crate1.jpg':
-                {
-                    return Texture.BULLET_HOLE_WOOD;
-                }
+                return bulletHoleTexture;
             }
 
             // compare with all existent textures
@@ -219,5 +216,18 @@ export class Texture
         }
 
         return DEFAULT_BULLET_HOLE_TEXTURE;
+    }
+
+    private static getBulletHoleTextureForModelTexture( meshTextureFileName:string ) :bz.Texture
+    {
+        switch ( meshTextureFileName )
+        {
+            case 'crate1.jpg':
+            {
+                return Texture.BULLET_HOLE_WOOD;
+            }
+        }
+
+        return null;
     }
 }

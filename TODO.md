@@ -5,15 +5,12 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO prune ALL whitespace in variable definitions!!
 TODO Add suitable textures!
 TODO Add room/house creation method.
-TODO Add 'view blocker' (H-Block) with dynamic stage switch?
-TODO Enable dynamic stage switch with player staying on same position ??
 TODO Stop player from jumping around when falling etc?
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
-TODO Create realistic models, lights.
+TODO Create realistic models and lights.
 TODO Models (item shell boxes) with different Textures?
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Reset Git Repository?
@@ -29,6 +26,12 @@ TODO Fix ducking
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Fix jumping
 TODO Deny jumping if player has no contact to the ground!
+
+=====================
+Stage
+=====================
+TODO Add 'view blocker' (H-Block) with dynamic stage switch?
+TODO Enable dynamic stage switch with player staying on same position ??
 
 =====================
 Fx
