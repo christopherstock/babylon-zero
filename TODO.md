@@ -5,14 +5,17 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
+
 TODO prune ALL whitespace in variable definitions!!
 TODO Add suitable textures!
 TODO Add room/house creation method.
+TODO Add 'view blocker' (H-Block) with dynamic stage switch?
+TODO Enable dynamic stage switch with player staying on same position ??
 TODO Stop player from jumping around when falling etc?
 TODO Scale up/down all chairs and some models?
 TODO Also zoom the wearpon in the GUI on zooming with the wearpon. ( anchor 2d img left top )
 TODO Add shelves.
-TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
 TODO Create realistic models, lights.
 TODO Models (item shell boxes) with different Textures?
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
@@ -59,9 +62,9 @@ TODO Sounds for shot, bullet hit and bullet drop.
 =====================
 Wearpons
 =====================
+TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, bullet-hole-size, zoom, muzzle-flash ..
 TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
 TODO Add slower panning on aiming/zooming with wearpon.
-TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, zoom, muzzle-flash ..
 TODO Show wearpon's ammo in magazine and total.
 TODO Enable wearpon magazine and reloading!
 TODO Create 3d gun as 2nd scene in front?

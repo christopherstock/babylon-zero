@@ -610,6 +610,8 @@ export class Player extends bz.GameObject
 
     /** ****************************************************************************************************************
     *   Checks if the player's field of view changes.
+    *
+    *   TODO zoom HUD wearpon too!
     *******************************************************************************************************************/
     private checkFieldOfViewChange() : void
     {

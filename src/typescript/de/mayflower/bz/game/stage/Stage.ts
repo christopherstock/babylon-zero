@@ -90,26 +90,6 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Returns the player instance.
-    *
-    *   @return The player instance.
-    *******************************************************************************************************************/
-    public getPlayer() : bz.Player
-    {
-        return this.player;
-    }
-
-    /** ****************************************************************************************************************
-    *   Returns this stage's camera system.
-    *
-    *   @return The camera system of this stage.
-    *******************************************************************************************************************/
-    public getCameraSystem() : bz.CameraSystem
-    {
-        return this.cameraSystem;
-    }
-
-    /** ****************************************************************************************************************
     *   Renders all stage concernings for one tick of the game loop.
     *******************************************************************************************************************/
     public render() : void
@@ -295,11 +275,31 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Returns the player instance.
+    *
+    *   @return The player instance.
+    *******************************************************************************************************************/
+    public getPlayer() : bz.Player
+    {
+        return this.player;
+    }
+
+    /** ****************************************************************************************************************
+    *   Returns this stage's camera system.
+    *
+    *   @return The camera system of this stage.
+    *******************************************************************************************************************/
+    public getCameraSystem() : bz.CameraSystem
+    {
+        return this.cameraSystem;
+    }
+
+    /** ****************************************************************************************************************
     *   Returns the according scene.
     *
     *   @return The scene this stage belongs to.
     *******************************************************************************************************************/
-    public getScene() : bz.Scene
+    protected getScene() : bz.Scene
     {
         return this.scene;
     }
@@ -309,7 +309,7 @@ export abstract class Stage
     *
     *   @return The config for this stage.
     *******************************************************************************************************************/
-    public getConfig() : bz.StageConfig
+    protected getConfig() : bz.StageConfig
     {
         return this.config;
     }
