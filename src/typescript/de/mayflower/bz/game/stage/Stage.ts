@@ -67,11 +67,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this stage.
-    *
-    *   @return The camera system for this stage.
+    *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
-    protected abstract createCameraSystem() : bz.CameraSystem;
+    protected abstract createStageConfig() : bz.StageConfig;
 
     /** ****************************************************************************************************************
     *   Handles stage specific keys.
@@ -82,6 +80,13 @@ export abstract class Stage
     *   Creates all stage contents.
     *******************************************************************************************************************/
     protected abstract createStageContents() : void;
+
+    /** ****************************************************************************************************************
+    *   Creates the camera system that manages all cameras that appear in this stage.
+    *
+    *   @return The camera system for this stage.
+    *******************************************************************************************************************/
+    protected abstract createCameraSystem() : bz.CameraSystem;
 
     /** ****************************************************************************************************************
     *   Inits the stage.

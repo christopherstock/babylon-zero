@@ -96,6 +96,18 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
+    *   Creates the stage config that is applied on initializing this stage.
+    *******************************************************************************************************************/
+    protected createStageConfig() : bz.StageConfig
+    {
+        return new bz.StageConfig(
+            bz.SettingColor.COLOR_RGB_BLACK,
+            bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
+            bz.CameraType.STATIONARY
+        );
+    }
+
+    /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
     protected createStageContents() : void

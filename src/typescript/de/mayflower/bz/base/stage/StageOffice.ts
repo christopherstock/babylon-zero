@@ -96,6 +96,19 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
+    *   Creates the stage config that is applied on initializing this stage.
+    *******************************************************************************************************************/
+    protected createStageConfig() : bz.StageConfig
+    {
+        return new bz.StageConfig(
+            // new BABYLON.Color3( 0.1, 0.1, 0.1 ), // night
+            new BABYLON.Color3( 0.6, 0.6, 0.6 ), // evening
+            bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
+            bz.CameraType.FIRST_PERSON
+        );
+    }
+
+    /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
     protected createStageContents() : void
