@@ -128,6 +128,14 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
+    *   Handles stage specific keys.
+    *******************************************************************************************************************/
+    protected handleStageKeys() : void
+    {
+        // no stage specific keys to handle - this is a 'view only' stage
+    }
+
+    /** ****************************************************************************************************************
     *   Creates the camera system that manages all cameras that appear in this stage.
     *
     *   @return The camera system for this stage.
@@ -147,13 +155,5 @@ export class StageIntroLogo extends bz.Stage
             null,
             null
         );
-    }
-
-    /** ****************************************************************************************************************
-    *   Handles stage specific keys.
-    *******************************************************************************************************************/
-    protected handleStageKeys() : void
-    {
-        // no stage keys supported as this is a 'view only' stage
     }
 }

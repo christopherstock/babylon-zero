@@ -19,64 +19,6 @@ export class StageOffice extends bz.Stage
     private                             camTarget                       :boolean                    = false;
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this stage.
-    *
-    *   @return The camera system for this stage.
-    *******************************************************************************************************************/
-    protected createCameraSystem() : bz.CameraSystem
-    {
-        return new bz.CameraSystem
-        (
-            this.game,
-
-            new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
-            new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
-
-            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
-            this.player.getThirdPersonCameraTargetMesh(),
-            this.player.getThirdPersonCameraTargetMesh(),
-            this.player.getFirstPersonCameraTargetMesh()
-        );
-    }
-
-    /** ****************************************************************************************************************
-    *   Handles stage specific keys.
-    *******************************************************************************************************************/
-    protected handleStageKeys() : void
-    {
-        const keySystem :bz.KeySystem = this.game.getKeySystem();
-
-        if ( keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
-        {
-            keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
-
-            // add GUI messages to queue and start various debug actions
-
-            // explode compound spheres
-            this.game.getGUI().addGuiMessage(
-                'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']'
-            );
-            // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
-
-            // perform a camera animation for the stationary target camera
-            this.game.getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
-            this.cameraSystem.animateCameraPosition
-            (
-                bz.CameraType.STATIONARY,
-                ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
-                2.5,
-                new BABYLON.PowerEase(),
-                () => { bz.Debug.camera.log( 'Cam reached target' ) }
-            );
-            this.camTarget = !this.camTarget;
-
-            // show hurt GUI effect
-            this.game.getGUI().addGuiFx( bz.GUIFxType.HURT );
-        }
-    }
-
-    /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
     protected createStageConfig() : bz.StageConfig
@@ -247,6 +189,64 @@ export class StageOffice extends bz.Stage
 
         // add shadows for point light
         this.addShadowGenerator( pointLight );
+    }
+
+    /** ****************************************************************************************************************
+    *   Handles stage specific keys.
+    *******************************************************************************************************************/
+    protected handleStageKeys() : void
+    {
+        const keySystem :bz.KeySystem = this.game.getKeySystem();
+
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
+        {
+            keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
+
+            // add GUI messages to queue and start various debug actions
+
+            // explode compound spheres
+            this.game.getGUI().addGuiMessage(
+                'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']'
+            );
+            // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
+
+            // perform a camera animation for the stationary target camera
+            this.game.getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
+            this.cameraSystem.animateCameraPosition
+            (
+                bz.CameraType.STATIONARY,
+                ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
+                2.5,
+                new BABYLON.PowerEase(),
+                () => { bz.Debug.camera.log( 'Cam reached target' ) }
+            );
+            this.camTarget = !this.camTarget;
+
+            // show hurt GUI effect
+            this.game.getGUI().addGuiFx( bz.GUIFxType.HURT );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Creates the camera system that manages all cameras that appear in this stage.
+    *
+    *   @return The camera system for this stage.
+    *******************************************************************************************************************/
+    protected createCameraSystem() : bz.CameraSystem
+    {
+        return new bz.CameraSystem
+        (
+            this.game,
+
+            new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
+            new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
+            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+
+            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+            this.player.getThirdPersonCameraTargetMesh(),
+            this.player.getThirdPersonCameraTargetMesh(),
+            this.player.getFirstPersonCameraTargetMesh()
+        );
     }
 
     /** ****************************************************************************************************************
