@@ -88,18 +88,6 @@ export abstract class Stage
     protected abstract createStageContents() : void;
 
     /** ****************************************************************************************************************
-    *   Creates all shadow generators that appear in this stage.
-    *
-    *   @return All shadow generators that appear in this stage.
-    *******************************************************************************************************************/
-    protected abstract createShadowGenerators() : BABYLON.ShadowGenerator[];
-
-    /** ****************************************************************************************************************
-    *   Sets up shadows for all meshes.
-    *******************************************************************************************************************/
-    protected abstract setupShadows() : void;
-
-    /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
     public init() : void
@@ -115,17 +103,10 @@ export abstract class Stage
         this.cameraSystem  = this.createCameraSystem();
         this.setActiveCamera( this.initialCamera );
 
-        // create shadow generators
-        if ( bz.SettingEngine.ENABLE_SHADOWS )
-        {
-            this.shadowGenerators = this.createShadowGenerators();
-            this.setupShadows();
-        }
-
-        // create debug axis
+        // add debug axis
         if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
         {
-            this.createCoordinalAxis();
+            this.addCoordinalAxis();
         }
     }
 
@@ -403,11 +384,35 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Adds a shadow generator for the specified shadow light.
+    *******************************************************************************************************************/
+    protected addShadowGenerator( light:BABYLON.IShadowLight ) : void
+    {
+        if ( !bz.SettingEngine.ENABLE_SHADOWS ) {
+            return;
+        }
+
+        const shadowGenerator:BABYLON.ShadowGenerator = new BABYLON.ShadowGenerator( 2048, light );
+        shadowGenerator.useExponentialShadowMap = true;
+        shadowGenerator.usePoissonSampling      = true;
+
+        this.shadowGenerators.push( shadowGenerator );
+
+        // set shadows for all walls (best quality but costs lots of performance)
+        for ( const wall of this.walls )
+        {
+            wall.getModel().applyShadowGenerator( shadowGenerator );
+        }
+        // also working for single models, testwise
+        // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
+    }
+
+    /** ****************************************************************************************************************
     *   Sets up the coordinal axis lines. X Y and Z axes are aligned by the LEFT HAND RULE.
     *
     *   @return A collection of all meshes that build the coordinal axis lines.
     *******************************************************************************************************************/
-    private createCoordinalAxis() : void
+    private addCoordinalAxis() : void
     {
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
 

@@ -163,22 +163,4 @@ export class StageIntroLogo extends bz.Stage
     {
         // no stage keys supported as this is a 'view only' stage
     }
-
-    /** ****************************************************************************************************************
-    *   Creates all shadow generators that appear in this stage.
-    *
-    *   @return All shadow generators that appear in this stage.
-    *******************************************************************************************************************/
-    protected createShadowGenerators() : BABYLON.ShadowGenerator[]
-    {
-        return [];
-    }
-
-    /** ****************************************************************************************************************
-    *   Sets up shadows for all meshes.
-    *******************************************************************************************************************/
-    protected setupShadows() : void
-    {
-        // no shadows for the MF Logo ?
-    }
 }

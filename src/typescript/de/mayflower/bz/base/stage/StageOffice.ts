@@ -250,40 +250,9 @@ export class StageOffice extends bz.Stage
 
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
-    }
 
-    /** ****************************************************************************************************************
-    *   Creates all shadow generators that appear in this stage.
-    *
-    *   @return All shadow generators that appear in this stage.
-    *******************************************************************************************************************/
-    protected createShadowGenerators() : BABYLON.ShadowGenerator[]
-    {
-        const shadowGenerators:BABYLON.ShadowGenerator[] = [
-            new BABYLON.ShadowGenerator( 2048, ( this.lights[ 0 ] as BABYLON.PointLight ) ),
-        ];
-
-        shadowGenerators[ 0 ].useExponentialShadowMap = true;
-        shadowGenerators[ 0 ].usePoissonSampling      = true;
-
-        return shadowGenerators;
-    }
-
-    /** ****************************************************************************************************************
-    *   Sets up shadows for all meshes.
-    *******************************************************************************************************************/
-    protected setupShadows() : void
-    {
-        if ( false )
-        {
-            // set shadows for all walls
-            for ( const wall of this.walls )
-            {
-                wall.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
-            }
-
-            // this.chairCompoundDestroyable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
-        }
+        // add shadows
+        this.addShadowGenerator( pointLight );
     }
 
     /** ****************************************************************************************************************
