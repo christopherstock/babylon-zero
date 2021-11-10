@@ -88,6 +88,11 @@ export abstract class Stage
     protected abstract handleLevelKeys() : void;
 
     /** ****************************************************************************************************************
+    *   Creates all stage contents.
+    *******************************************************************************************************************/
+    protected abstract createStageContents() : void;
+
+    /** ****************************************************************************************************************
     *   Creates and returns all walls this stage consists of.
     *
     *   @return All walls of this stage.

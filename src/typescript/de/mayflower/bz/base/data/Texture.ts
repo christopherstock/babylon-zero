@@ -58,7 +58,6 @@ export class Texture
 
     /** The according texture file. */
     private             readonly    file                        :bz.TextureFile         = null;
-
     /** The babylon.JS texture data. */
     private                         nativeTexture               :BABYLON.Texture        = null;
 

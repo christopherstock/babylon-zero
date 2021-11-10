@@ -144,6 +144,7 @@ export class MaterialSystem
         (
             texture.getIsVideoTexture()
                 ? texture.getNativeTexture()
+                // TODO is seems that cloning is not required and getNativeTexture is also sufficient here?
                 : texture.cloneNativeTexture()
         );
 

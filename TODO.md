@@ -5,20 +5,19 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Revise TextureFile and Texture redundancies
 TODO Add suitable textures!
+TODO Add room/house creation method.
 TODO Stop player from jumping around when falling etc?
-TODO Add boxes with different texture and weight! (steel crate etc) - fix all bullet holes!
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
 TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
-TODO Find and prune classes with mixed static & non-static content
-TODO debug and improve init process?
-TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
-TODO Create realistic models, lights and spacial sounds.
-TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
+TODO Create realistic models, lights.
 TODO Models (item shell boxes) with different Textures?
+TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Reset Git Repository?
+TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
+TODO debug and improve init process?
+TODO Find and prune classes with mixed static & non-static content
 
 =====================
 Player
