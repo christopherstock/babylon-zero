@@ -413,8 +413,6 @@ export abstract class Stage
     )
     : void
     {
-        if (true) return;
-
         // 2 walls on x axis
         this.addWall(
             new bz.Wall
@@ -467,7 +465,28 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( position.x, position.y, position.z ),
+                            new BABYLON.Vector3( position.x, position.y, ( position.z + size.z / 2 ) ),
+                            bz.Texture.WALL_WOOD,
+                            new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ,
+                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                        ),
+                    ]
+                )
+            )
+        );
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( ( position.x - size.z / 2 ), position.y, ( position.z + size.z / 2 ) ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
