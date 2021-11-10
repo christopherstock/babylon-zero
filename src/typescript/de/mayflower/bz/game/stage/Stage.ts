@@ -70,7 +70,7 @@ export abstract class Stage
         // create stage config
         this.config = this.createStageConfig();
 
-        // assign scene colors
+        // assign scene colors from config
         this.scene.getNativeScene().ambientColor = this.config.ambientColor;
         this.scene.getNativeScene().clearColor   = this.config.sceneBgColor;
 

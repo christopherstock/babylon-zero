@@ -5,8 +5,6 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO ggf, key-explanation in pause menu? and 'story intro phrase'?
-
 TODO prune ALL whitespace in variable definitions!!
 TODO Add suitable textures!
 TODO Add room/house creation method.

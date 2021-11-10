@@ -103,9 +103,9 @@ export abstract class GUIFactory
         y             :number,
         width         :number,
         height        :number,
-        alignmentHorz :number,
-        alignmentVert :number,
-        onPointerDown :() => void
+        alignmentHorz :number = bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
+        alignmentVert :number = bjsg.Control.VERTICAL_ALIGNMENT_TOP,
+        onPointerDown :() => void = ():void => { /* empty */ }
     )
     : bjsg.TextBlock
     {
@@ -118,6 +118,8 @@ export abstract class GUIFactory
         textBlock.height   = String( height   ) + 'px';
         textBlock.fontSize = String( fontSize ) + 'px';
         textBlock.color    = color;
+
+        textBlock.lineSpacing = String( 2 ) + 'px';
 
         if ( shadowColor !== null )
         {

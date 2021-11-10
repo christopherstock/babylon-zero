@@ -16,8 +16,10 @@ export class GUIPause
 
     /** The translucent background. */
     private             readonly        bg                      :bjsg.Rectangle                 = null;
-    /** The 'pause' headline text. */
-    private             readonly        headline                :bjsg.TextBlock                 = null;
+    /** The 'pause explanation' textblock. */
+    private             readonly        explanation             :bjsg.TextBlock                 = null;
+    /** The 'pause menu' headline text. */
+    private             readonly        menuHeadline                :bjsg.TextBlock                 = null;
     /** The GUI menu. */
     private             readonly        menu                    :bz.GUIMenu                     = null;
 
@@ -42,29 +44,49 @@ export class GUIPause
         this.bg.height = '100%';
         guiFg.addControl( this.bg );
 
-        // headline
-        this.headline = bz.GUIFactory.createTextBlock
+        // explanation
+        this.explanation = bz.GUIFactory.createTextBlock
+        (
+            'WORUM GEHT ES HIER?\n\n'
+                + 'Das müssen Sie selbst herausfinden.' + '\n'
+                + 'Interagieren Sie mit Objekten' + '\n'
+                + 'und finden Sie heraus, was passiert ist.' + '\n'
+                + 'Verwenden Sie die folgenden Keys:' + '\n\n'
+                + 'W A S D = Fortbewegen' + '\n'
+                + 'Q E = Horizontal drehen' + '\n'
+                + 'T G = Vertikal drehen' + '\n'
+                + 'X = Zielen' + '\n'
+                + 'Ctlr/Strg = Feuer' + '\n',
+            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
+            bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
+            0,
+            bz.SettingGUI.GUI_BORDER_Y,
+            500,
+            500
+        );
+        guiFg.addControl( this.explanation );
+
+        // menu headline
+        this.menuHeadline = bz.GUIFactory.createTextBlock
         (
             'PAUSE MENU',
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,
-            bz.SettingGUI.GUI_BORDER_Y,
+            ( bz.SettingGUI.GUI_BORDER_Y + 350.0 ),
             250,
-            25,
-            bjsg.Control.HORIZONTAL_ALIGNMENT_CENTER,
-            bjsg.Control.VERTICAL_ALIGNMENT_TOP,
-            null
+            50
         );
-        guiFg.addControl( this.headline );
+        guiFg.addControl( this.menuHeadline );
 
         // create GUI menu
         this.menu = new bz.GUIMenu
         (
             guiFg,
             GUIPause.GUI_MENU_ITEMS,
-            ( bz.SettingGUI.GUI_BORDER_Y + 100 ),
+            ( bz.SettingGUI.GUI_BORDER_Y + 350 + 50 ),
             bz.SettingGUI.GUI_WRAP_PAUSE_MENU_ITEMS
         );
     }
@@ -76,8 +98,9 @@ export class GUIPause
     *******************************************************************************************************************/
     public setVisibility( visible:boolean ) : void
     {
-        this.headline.isVisible = visible;
-        this.bg.isVisible       = visible;
+        this.menuHeadline.isVisible    = visible;
+        this.explanation.isVisible = visible;
+        this.bg.isVisible          = visible;
 
         this.menu.setVisibility( visible );
     }
