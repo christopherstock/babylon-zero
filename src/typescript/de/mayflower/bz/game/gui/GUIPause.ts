@@ -9,8 +9,8 @@ export class GUIPause
     /** All items of the GUI menu. */
     private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
     [
-        new bz.GUIMenuItem( 'Level 1 - Office',                  bz.GUIAction.SWITCH_TO_STAGE_1 ),
-        new bz.GUIMenuItem( 'Level 2 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_2 ),
+        new bz.GUIMenuItem( 'Stage 1 - Office',                  bz.GUIAction.SWITCH_TO_STAGE_1 ),
+        new bz.GUIMenuItem( 'Stage 2 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_2 ),
         new bz.GUIMenuItem( 'Resume Game',                       bz.GUIAction.RESUME_GAME       ),
     ];
 

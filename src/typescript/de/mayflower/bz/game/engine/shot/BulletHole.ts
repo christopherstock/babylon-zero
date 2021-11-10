@@ -10,7 +10,7 @@ export class BulletHole
 
     /** The hit point this bullet hole is created for. */
     private             readonly    hitPoint                        :bz.HitPoint                        = null;
-    /** The emissive color of the level where this bullet hole is created. */
+    /** The emissive color of the stage where this bullet hole is created. */
     private             readonly    emissiveColor                   :BABYLON.Color3                     = null;
 
     /** The decal mesh of this bullet hole. */
@@ -25,7 +25,7 @@ export class BulletHole
     *
     *   @param scene         The scene to create the bullet hole for.
     *   @param hitPoint      The hit pooint to create this bullet hole for.
-    *   @param emissiveColor The emissive color of the level where this bullet hole is applied.
+    *   @param emissiveColor The emissive color of the stage where this bullet hole is applied.
     *******************************************************************************************************************/
     public constructor
     (

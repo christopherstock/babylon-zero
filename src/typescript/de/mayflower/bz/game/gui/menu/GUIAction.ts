@@ -6,8 +6,8 @@ export enum GUIAction
     /** Resume to the game screen. */
     RESUME_GAME,
 
-    /** Switch to level 1. */
+    /** Switch to stage 1. */
     SWITCH_TO_STAGE_1,
-    /** Switch to level 2. */
+    /** Switch to stage 2. */
     SWITCH_TO_STAGE_2,
 }

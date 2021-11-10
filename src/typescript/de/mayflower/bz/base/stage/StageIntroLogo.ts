@@ -135,7 +135,7 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this level.
+    *   Creates the camera system that manages all cameras that appear in this stage.
     *
     *   @return The camera system for this stage.
     *******************************************************************************************************************/
@@ -157,15 +157,15 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Handles level specific keys.
+    *   Handles stage specific keys.
     *******************************************************************************************************************/
-    protected handleLevelKeys() : void
+    protected handleStageKeys() : void
     {
-        // no level keys supported as this is a 'view only' stage
+        // no stage keys supported as this is a 'view only' stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates all shadow generators that appear in this level.
+    *   Creates all shadow generators that appear in this stage.
     *
     *   @return All shadow generators that appear in this stage.
     *******************************************************************************************************************/

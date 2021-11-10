@@ -38,7 +38,7 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this level.
+    *   Creates the camera system that manages all cameras that appear in this stage.
     *
     *   @return The camera system for this stage.
     *******************************************************************************************************************/
@@ -60,9 +60,9 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Handles level specific keys.
+    *   Handles stage specific keys.
     *******************************************************************************************************************/
-    protected handleLevelKeys() : void
+    protected handleStageKeys() : void
     {
         const keySystem :bz.KeySystem = this.game.getKeySystem();
 
@@ -187,10 +187,10 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        this.addLevelGroundWalls( meshFactory );
-        this.addBoxesWalls(       meshFactory );
-        this.addChairsWalls(      meshFactory );
-        this.addStuffWalls(        meshFactory );
+        this.addGroundWalls( meshFactory );
+        this.addBoxesWalls(  meshFactory );
+        this.addChairsWalls( meshFactory );
+        this.addStuffWalls(  meshFactory );
 
         this.addItem(
             new bz.Item
@@ -250,7 +250,7 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates all shadow generators that appear in this level.
+    *   Creates all shadow generators that appear in this stage.
     *
     *   @return All shadow generators that appear in this stage.
     *******************************************************************************************************************/
@@ -294,9 +294,9 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates the ground walls for this level.
+    *   Creates the ground walls for this stage.
     *******************************************************************************************************************/
-    private addLevelGroundWalls( meshFactory:bz.MeshFactory ) : void
+    private addGroundWalls( meshFactory:bz.MeshFactory ) : void
     {
         // hills ( heightmap ground )
         this.addWall(
@@ -345,7 +345,7 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds all boxes to this level.
+    *   Adds all boxes to this stage.
     *******************************************************************************************************************/
     private addBoxesWalls( meshFactory:bz.MeshFactory ) : void
     {

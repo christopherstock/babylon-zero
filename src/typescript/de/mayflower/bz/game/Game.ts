@@ -290,7 +290,7 @@ export class Game
         // render scene
         this.scene.render();
 
-        // handle global keys ( pause, camera changes, level switches etc. )
+        // handle global keys ( pause, camera, stage switch )
         this.handleGlobalKeys();
     }
 

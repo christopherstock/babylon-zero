@@ -10,7 +10,7 @@ export abstract class Stage
     /** The scene instance of the game instance. */
     protected           readonly        scene                   :bz.Scene                               = null;
 
-    // TODO extract constant level config to class StageConfig ! => all constant level startup settings to one place!
+    // TODO extract constant stage config to class StageConfig ! => all constant stage startup settings to one place!
 
     /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
     protected           readonly        ambientColor            :BABYLON.Color3                         = null;
@@ -71,16 +71,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this level.
+    *   Creates the camera system that manages all cameras that appear in this stage.
     *
     *   @return The camera system for this stage.
     *******************************************************************************************************************/
     protected abstract createCameraSystem() : bz.CameraSystem;
 
     /** ****************************************************************************************************************
-    *   Handles level specific keys.
+    *   Handles stage specific keys.
     *******************************************************************************************************************/
-    protected abstract handleLevelKeys() : void;
+    protected abstract handleStageKeys() : void;
 
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -88,7 +88,7 @@ export abstract class Stage
     protected abstract createStageContents() : void;
 
     /** ****************************************************************************************************************
-    *   Creates all shadow generators that appear in this level.
+    *   Creates all shadow generators that appear in this stage.
     *
     *   @return All shadow generators that appear in this stage.
     *******************************************************************************************************************/
@@ -162,8 +162,8 @@ export abstract class Stage
     *******************************************************************************************************************/
     public render() : void
     {
-        // handle level specific keys
-        this.handleLevelKeys();
+        // handle stage specific keys
+        this.handleStageKeys();
 
         // render player
         if ( this.player !== null )
@@ -185,7 +185,7 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Disposes all babylon.JS resources of this level.
+    *   Disposes all babylon.JS resources of this stage.
     *******************************************************************************************************************/
     public dispose() : void
     {
@@ -343,9 +343,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Sets the player for this level.
+    *   Sets the player for this stage.
     *
-    *   @param player The player to set to this level.
+    *   @param player The player to set to this stage.
     *******************************************************************************************************************/
     protected setPlayer( player:bz.Player ) : void
     {
@@ -353,7 +353,7 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a skybox to the level. TODO rename all to 'stage'
+    *   Adds a skybox to the stage. TODO rename all to 'stage'
     *******************************************************************************************************************/
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
@@ -361,9 +361,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a sprite to the level.
+    *   Adds a sprite to the stage.
     *
-    *   @param sprite The sprite to add to this level.
+    *   @param sprite The sprite to add to this stage.
     *******************************************************************************************************************/
     protected addSprite( sprite:bz.Sprite ) : void
     {
@@ -371,9 +371,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a wall to the level.
+    *   Adds a wall to the stage.
     *
-    *   @param wall The wall to add to this level.
+    *   @param wall The wall to add to this stage.
     *******************************************************************************************************************/
     protected addWall( wall:bz.Wall ) : void
     {
@@ -381,9 +381,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds an item to the level.
+    *   Adds an item to the stage.
     *
-    *   @param item The item to add to this level.
+    *   @param item The item to add to this stage.
     *******************************************************************************************************************/
     protected addItem( item:bz.Item ) : void
     {
@@ -391,9 +391,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a light to the level.
+    *   Adds a light to the stage.
     *
-    *   @param light The light to add to this level.
+    *   @param light The light to add to this stage.
     *******************************************************************************************************************/
     protected addLight( light:BABYLON.Light ) : void
     {
@@ -401,9 +401,9 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a bot to the level.
+    *   Adds a bot to the stage.
     *
-    *   @param bot The bot to add to this level.
+    *   @param bot The bot to add to this stage.
     *******************************************************************************************************************/
     protected addBot( bot:bz.Item ) : void
     {

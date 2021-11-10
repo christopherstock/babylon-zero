@@ -221,7 +221,7 @@ export class Player extends bz.GameObject
         // alter height
         this.checkHeightChange();
 
-        // interact with level
+        // check fire action
         this.checkFire();
     }
 

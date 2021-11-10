@@ -18,6 +18,7 @@ TODO Reset Git Repository?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
 TODO debug and improve init process?
 TODO Find and prune classes with mixed static & non-static content
+TODO Try cool physics pause (scene cam) feature.
 
 =====================
 Player

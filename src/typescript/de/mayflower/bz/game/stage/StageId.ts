@@ -3,8 +3,8 @@
 ***********************************************************************************************************************/
 export enum StageId
 {
-    /** The rotating Mayflower logo. */
+    /** The cinematic intro stage shows the rotating Mayflower logo and some lights. */
     INTRO_LOGO,
-    /** The test office level. */
+    /** The test office stage. */
     OFFICE,
 }
