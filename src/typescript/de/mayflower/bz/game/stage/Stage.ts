@@ -25,15 +25,15 @@ export abstract class Stage
     protected                           items                   :bz.Item[]                              = [];
     /** A collection of all bots in this stage. */
     protected                           bots                    :bz.Bot[]                               = [];
+    /** A collection of all sprites that appear in this stage. */
+    protected                           sprites                 :bz.Sprite[]                            = [];
+
+
 
     /** The camera system that manages all scene cameras. */
     protected                           cameraSystem            :bz.CameraSystem                        = null;
-
     /** The skybox that surrounds the whole stage. */
     protected                           skybox                  :BABYLON.Mesh                           = null;
-    /** A collection of all sprites that appear in this stage. */
-    private                             sprites                 :bz.Sprite[]                            = [];
-
     /** A collection of all lights that appear in this stage. */
     protected                           lights                  :BABYLON.Light[]                        = [];
     /** A collection of all shadowGenerators that appear in this stage. */
@@ -93,13 +93,6 @@ export abstract class Stage
     protected abstract createStageContents() : void;
 
     /** ****************************************************************************************************************
-    *   Creates and returns all bots this stage consists of.
-    *
-    *   @return All bots of this stage.
-    *******************************************************************************************************************/
-    protected abstract createBots() : bz.Bot[];
-
-    /** ****************************************************************************************************************
     *   Sets up the skybox.
     *
     *   @return The created skybox for this stage.
@@ -145,7 +138,6 @@ export abstract class Stage
         // create all game objects
         this.player        = this.createPlayer();
         this.cameraSystem  = this.createCameraSystem();
-        this.bots          = this.createBots();
         this.skybox        = this.createSkybox();
         this.lights        = this.createLights();
 
@@ -402,6 +394,16 @@ export abstract class Stage
     protected addItem( item:bz.Item ) : void
     {
         this.items.push( item );
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a bot to the level.
+    *
+    *   @param bot The bot to add to this level.
+    *******************************************************************************************************************/
+    protected addBot( bot:bz.Item ) : void
+    {
+        this.bots.push( bot );
     }
 
     /** ****************************************************************************************************************

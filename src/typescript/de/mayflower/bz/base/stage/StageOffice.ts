@@ -240,16 +240,6 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates and returns all bots this stage consists of.
-    *
-    *   @return All bots of this stage.
-    *******************************************************************************************************************/
-    protected createBots() : bz.Bot[]
-    {
-        return [];
-    }
-
-    /** ****************************************************************************************************************
     *   Sets up the skybox.
     *
     *   @return The created skybox for this stage.
