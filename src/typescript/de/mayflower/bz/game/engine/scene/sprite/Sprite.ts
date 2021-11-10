@@ -68,7 +68,7 @@ export class Sprite
             const collisionWidth:number = ( width * collisionWidthRatio );
             // const colliderPos :BABYLON.Vector3 = position.clone();
             // colliderPos.y += ( height / 2 )
-            this.collider = new bz.MeshFactory( scene ).createCylinder
+            this.collider = new bz.MeshFactory( scene, bz.SettingColor.COLOR_RGB_WHITE ).createCylinder
             (
                 position,
                 anchor,

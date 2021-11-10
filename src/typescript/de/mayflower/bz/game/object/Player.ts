@@ -74,7 +74,7 @@ export class Player extends bz.GameObject
                 [
 
                     // Player.PLAYER_BODY_ID
-                    new bz.MeshFactory( scene ).createCylinder
+                    new bz.MeshFactory( scene, emissiveColor ).createCylinder
                     (
                         position.clone().addInPlace(
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 )
@@ -101,7 +101,7 @@ export class Player extends bz.GameObject
                     ).getMesh( 0 ),
 */
                     // Player.PLAYER_HEAD_ID
-                    new bz.MeshFactory( scene ).createSphere
+                    new bz.MeshFactory( scene, emissiveColor ).createSphere
                     (
                         position.clone().addInPlace(
                             new BABYLON.Vector3(
@@ -124,7 +124,7 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_LEFT_HAND_ID
-                    new bz.MeshFactory( scene ).createBox
+                    new bz.MeshFactory( scene, emissiveColor ).createBox
                     (
                         emissiveColor,
                         position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
@@ -133,7 +133,7 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_RIGHT_HAND_ID
-                    new bz.MeshFactory( scene ).createBox
+                    new bz.MeshFactory( scene, emissiveColor ).createBox
                     (
                         emissiveColor,
                         position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),

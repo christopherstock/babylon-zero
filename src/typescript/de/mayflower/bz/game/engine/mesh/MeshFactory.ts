@@ -12,15 +12,19 @@ export class MeshFactory
     private             static              nextMeshId              :number                     = 0;
     /** The scene where this mesh will be applied. */
     private                     readonly    scene                   :bz.Scene                   = null;
+    /** The emissive color to set for all created meshes. */
+    private                     readonly    emissiveColor           :BABYLON.Color3             = null;
 
     /** ****************************************************************************************************************
     *   Creates a mesh factory.
     *
-    *   @param scene The scene where this mesh will be applied.
+    *   @param scene         The scene where this mesh will be applied.
+    *   @param emissiveColor The emissive color to set for all created meshes.
     *******************************************************************************************************************/
-    public constructor( scene:bz.Scene )
+    public constructor( scene:bz.Scene, emissiveColor:BABYLON.Color3 )
     {
-        this.scene = scene;
+        this.scene         = scene;
+        this.emissiveColor = emissiveColor;
     }
 
     /** ****************************************************************************************************************

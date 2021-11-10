@@ -79,7 +79,7 @@ export class BulletHole
     {
         const meshTexture:bz.Texture = bz.Texture.getAccordingBulletHoleTextureForMesh( this.hitPoint.getMesh() );
 
-        this.holeMesh = new bz.MeshFactory( scene ).createDecal
+        this.holeMesh = new bz.MeshFactory( scene, this.emissiveColor ).createDecal
         (
             this.hitPoint.getPoint().clone(),
             this.hitPoint.getMesh(),
@@ -105,7 +105,7 @@ export class BulletHole
     private createDebugHoleSphere( scene:bz.Scene ) : void
     {
         // create debug bullet hole
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( scene );
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( scene, bz.SettingColor.COLOR_RGB_ORANGE );
         this.debugSphereMesh = meshFactory.createSphere
         (
             this.hitPoint.getPoint().clone(),
@@ -131,7 +131,7 @@ export class BulletHole
     private createDebugHoleNormalLine( scene:bz.Scene ) : void
     {
         // create debug bullet hole
-        this.debugNormalLine = new bz.MeshFactory( scene ).createLine
+        this.debugNormalLine = new bz.MeshFactory( scene, bz.SettingColor.COLOR_RGB_ORANGE ).createLine
         (
             this.hitPoint.getPoint().clone(),
             this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),

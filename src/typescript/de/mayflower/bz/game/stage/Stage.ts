@@ -75,7 +75,7 @@ export abstract class Stage
         this.scene.getNativeScene().clearColor   = this.config.sceneBgColor;
 
         // create all stage contents
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
         this.createStageContents( meshFactory );
 
         // create cameras and set initial cam
@@ -329,7 +329,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
-        this.skybox = new bz.MeshFactory( this.scene ).createSkyBoxCube( file, alpha );
+        this.skybox = new bz.MeshFactory( this.scene, this.config.ambientColor ).createSkyBoxCube( file, alpha );
     }
 
     /** ****************************************************************************************************************
@@ -435,7 +435,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     private addCoordinalAxis() : void
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
 
         this.debugMeshes.push
         (

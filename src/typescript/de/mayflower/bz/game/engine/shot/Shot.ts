@@ -88,7 +88,7 @@ export class Shot
     *******************************************************************************************************************/
     public createDebugLine( scene:bz.Scene ) : BABYLON.Mesh
     {
-        return new bz.MeshFactory( scene ).createLine
+        return new bz.MeshFactory( scene, bz.SettingColor.COLOR_RGB_YELLOW ).createLine
         (
             this.source,
             this.destination,

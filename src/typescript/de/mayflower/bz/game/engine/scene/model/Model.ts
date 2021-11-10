@@ -188,7 +188,7 @@ export class Model
     {
         this.enableSingleShotOffs = enableSingleShotOffs;
 
-        this.compoundMesh = new bz.MeshFactory( scene ).createBox
+        this.compoundMesh = new bz.MeshFactory( scene, BABYLON.Color3.Red() ).createBox
         (
             BABYLON.Color3.Red(),
             position,
