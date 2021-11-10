@@ -591,7 +591,8 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     private checkFieldOfViewChange() : void
     {
-        const cameraSystem:bz.CameraSystem = this.stage.getCameraSystem();
+        const cameraSystem :bz.CameraSystem = this.stage.getCameraSystem();
+        let   fovChanged   :boolean         = false;
 
         if ( this.zoom )
         {
@@ -604,13 +605,7 @@ export class Player extends bz.GameObject
                     this.fieldOfView = bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM;
                 }
 
-                cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
-                this.stage.getGame().getGUI().zoomWearponImage(
-                    1.0 - (
-                        ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
-                        - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
-                    )
-                );
+                fovChanged = true;
             }
         }
         else
@@ -624,14 +619,19 @@ export class Player extends bz.GameObject
                     this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
                 }
 
-                cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
-                this.stage.getGame().getGUI().zoomWearponImage(
-                    1.0 - (
-                        ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
-                        - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
-                    )
-                );
+                fovChanged = true;
             }
+        }
+
+        if ( fovChanged )
+        {
+            cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
+            this.stage.getGame().getGUI().zoomWearponImage(
+                1.0 - (
+                    ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
+                    - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
+                )
+            );
         }
     }
 

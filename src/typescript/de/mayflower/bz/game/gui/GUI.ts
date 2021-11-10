@@ -204,8 +204,6 @@ export class GUI
     *******************************************************************************************************************/
     public zoomWearponImage( zoomRatio:number ) : void
     {
-        console.log( '>> zoom wearpon image: ..' + zoomRatio );
-
         this.wearponImage.scaleX = ( 1.0 + zoomRatio );
         this.wearponImage.scaleY = ( 1.0 + zoomRatio );
         this.wearponImage.left   = (
