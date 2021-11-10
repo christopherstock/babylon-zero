@@ -10,6 +10,9 @@ export abstract class Stage
     /** The scene instance of the game instance. */
     protected           readonly        scene                   :bz.Scene                               = null;
 
+    /** The stage config. */
+    protected                           config                  :bz.StageConfig                         = null;
+
     /** The player instance. */
     protected                           player                  :bz.Player                              = null;
     /** The skybox that surrounds the whole stage. */
@@ -35,35 +38,15 @@ export abstract class Stage
     /** A collection of all debug meshes in this stage. */
     private             readonly        debugMeshes             :BABYLON.Mesh[]                         = [];
 
-    /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
-    protected           readonly        ambientColor            :BABYLON.Color3                         = null;
-    /** The scene background color is the clear color for the scene. */
-    protected           readonly        sceneBgColor            :BABYLON.Color4                         = null;
-    /** The initial camera to set for this stage. */
-    protected           readonly        initialCamera           :bz.CameraType                          = null;
-
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
     *
     *   @param game          The game instance.
-    *   @param ambientColor  The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
-    *   @param sceneBgColor  The background color of the babylon.JS scene.
-    *   @param initialCamera The initial camera for this stage.
     *******************************************************************************************************************/
-    protected constructor
-    (
-        game          :bz.Game,
-        ambientColor  :BABYLON.Color3,
-        sceneBgColor  :BABYLON.Color4,
-        initialCamera :bz.CameraType
-    )
+    public constructor( game :bz.Game )
     {
         this.game          = game;
         this.scene         = game.getScene();
-
-        this.ambientColor  = ambientColor;
-        this.sceneBgColor  = sceneBgColor;
-        this.initialCamera = initialCamera;
     }
 
     /** ****************************************************************************************************************
@@ -93,16 +76,19 @@ export abstract class Stage
     *******************************************************************************************************************/
     public init() : void
     {
+        // create stage config
+        this.config = this.createStageConfig();
+
         // assign scene colors
-        this.scene.getNativeScene().ambientColor = this.ambientColor;
-        this.scene.getNativeScene().clearColor   = this.sceneBgColor;
+        this.scene.getNativeScene().ambientColor = this.config.ambientColor;
+        this.scene.getNativeScene().clearColor   = this.config.sceneBgColor;
 
         // create all stage contents
         this.createStageContents();
 
         // create camera system and set initial camera
         this.cameraSystem  = this.createCameraSystem();
-        this.setActiveCamera( this.initialCamera );
+        this.setActiveCamera( this.config.initialCamera );
 
         // add debug axis
         if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
@@ -266,7 +252,7 @@ export abstract class Stage
             const bulletHole:bz.BulletHole = impactHitPoint.causeImpact
             (
                 this.scene,
-                this.ambientColor,
+                this.config.ambientColor,
                 shot.getDamage()
             );
             this.addBulletHole( bulletHole );

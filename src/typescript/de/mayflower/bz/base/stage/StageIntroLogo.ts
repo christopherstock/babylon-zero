@@ -13,28 +13,9 @@ export class StageIntroLogo extends bz.Stage
     /** Referenced point light. */
     private                         pointLight              :BABYLON.PointLight         = null;
     /** Current logo rotation Y. */
-    private                         logoRotY                :number                     = 0.0;
+    private                         logoRotY                :number                     = 270.0;
     /** Notifies current frame. */
     private                         currentTick             :number                     = 0;
-
-    /** ****************************************************************************************************************
-    *   Creates a new product viewer stage.
-    *
-    *   @param game The game instance.
-    *******************************************************************************************************************/
-    public constructor( game:bz.Game )
-    {
-        super
-        (
-            game,
-
-            bz.SettingColor.COLOR_RGB_BLACK,
-            bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-            bz.CameraType.STATIONARY
-        );
-
-        this.logoRotY = 270.0;
-    }
 
     /** ****************************************************************************************************************
     *   Renders all stage concernings for one tick of the game loop.

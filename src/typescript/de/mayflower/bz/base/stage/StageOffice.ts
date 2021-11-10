@@ -19,25 +19,6 @@ export class StageOffice extends bz.Stage
     private                             camTarget                       :boolean                    = false;
 
     /** ****************************************************************************************************************
-    *   Creates a new test office.
-    *
-    *   @param game The game instance.
-    *******************************************************************************************************************/
-    public constructor( game:bz.Game )
-    {
-        super
-        (
-            game,
-
-            // new BABYLON.Color3( 0.1, 0.1, 0.1 ), // night
-            new BABYLON.Color3( 0.6, 0.6, 0.6 ), // evening
-
-            bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-            bz.CameraType.FIRST_PERSON
-        );
-    }
-
-    /** ****************************************************************************************************************
     *   Creates the camera system that manages all cameras that appear in this stage.
     *
     *   @return The camera system for this stage.
@@ -126,7 +107,7 @@ export class StageOffice extends bz.Stage
                     this.OFFSET_Z + 3.5
                 ),
                 45.0,
-                this.ambientColor
+                this.config.ambientColor
             )
         );
 
@@ -288,7 +269,7 @@ export class StageOffice extends bz.Stage
                             300.0,
                             10.0,
                             bz.TextureFile.HEIGHTMAP_VALLEY,
-                            this.ambientColor,
+                            this.config.ambientColor,
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
                             bz.PhysicSet.STATIC
                         ),
@@ -307,7 +288,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.ambientColor,
+                            this.config.ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X, 15.5, this.OFFSET_Z  ),
                             bz.Texture.WALL_TEST,
                             new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
@@ -405,7 +386,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.ambientColor,
+                            this.config.ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
                             bz.Texture.WALL_METAL,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
@@ -429,7 +410,7 @@ export class StageOffice extends bz.Stage
                         // movable glass cube
                         meshFactory.createBox
                         (
-                            this.ambientColor,
+                            this.config.ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
@@ -502,7 +483,7 @@ export class StageOffice extends bz.Stage
                 [
                     meshFactory.createBox
                     (
-                        this.ambientColor,
+                        this.config.ambientColor,
                         new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
                         bz.Texture.VIDEO_TEST,
                         // new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
@@ -536,7 +517,7 @@ export class StageOffice extends bz.Stage
                             null,
                             bz.PhysicSet.WHITE_TEST_SPHERE,
                             1.0,
-                            this.ambientColor
+                            this.config.ambientColor
                         ),
                     ]
                 )
@@ -553,7 +534,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.ambientColor,
+                            this.config.ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_AMIGA,
                             new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
@@ -574,7 +555,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.ambientColor,
+                            this.config.ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),

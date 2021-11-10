@@ -6,11 +6,11 @@ import * as bz from '../..';
 export class StageConfig
 {
     /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
-    protected           readonly        ambientColor            :BABYLON.Color3                         = null;
+    public              readonly        ambientColor            :BABYLON.Color3                         = null;
     /** The scene background color is the clear color for the scene. */
-    protected           readonly        sceneBgColor            :BABYLON.Color4                         = null;
+    public              readonly        sceneBgColor            :BABYLON.Color4                         = null;
     /** The initial camera to set for this stage. */
-    protected           readonly        initialCamera           :bz.CameraType                          = null;
+    public              readonly        initialCamera           :bz.CameraType                          = null;
 
     /** ****************************************************************************************************************
     *   Creates a stage config.
