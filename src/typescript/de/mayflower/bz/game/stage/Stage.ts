@@ -409,8 +409,7 @@ export abstract class Stage
     protected addRoomWalls(
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
-        size        :BABYLON.Vector3,
-        rotY        :number
+        size        :BABYLON.Vector3
     )
     : void
     {
@@ -424,13 +423,13 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), position.y, position.z ),
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y / 2 ), position.z ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, rotY, 0.0 )
+                            bz.MeshAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                         ),
                     ]
                 )
@@ -445,13 +444,13 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), position.y, position.z + size.z ),
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y / 2 ), position.z + size.z ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, rotY, 0.0 )
+                            bz.MeshAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                         ),
                     ]
                 )
@@ -468,13 +467,13 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( position.x, position.y, ( position.z + size.z / 2 ) ),
+                            new BABYLON.Vector3( position.x, ( position.y + size.y / 2 ), ( position.z + size.z / 2 ) ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, ( 90.0 + rotY ), 0.0 )
+                            bz.MeshAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
                         ),
                     ]
                 )
@@ -489,13 +488,59 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( ( position.x + size.x ), position.y, ( position.z + size.z / 2 ) ),
+                            new BABYLON.Vector3( ( position.x + size.x ), ( position.y + size.y / 2 ), ( position.z + size.z / 2 ) ),
                             bz.Texture.WALL_WOOD,
                             new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, ( 90.0 + rotY ), 0.0 )
+                            bz.MeshAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                        ),
+                    ]
+                )
+            )
+        );
+
+        // ceiling
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y ), ( position.z + size.z / 2 ) ),
+                            bz.Texture.WALL_METAL,
+                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                        ),
+                    ]
+                )
+            )
+        );
+
+        // floor
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + bz.SettingEngine.FACE_DEPTH ), ( position.z + size.z / 2 ) ),
+                            bz.Texture.WALL_AMIGA,
+                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.CENTER_XYZ,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                         ),
                     ]
                 )
