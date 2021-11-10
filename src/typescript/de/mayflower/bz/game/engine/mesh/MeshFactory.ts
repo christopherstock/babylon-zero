@@ -6,14 +6,14 @@ import * as bz from '../../..';
 export class MeshFactory
 {
     /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
-    public              static  readonly    FACE_DEPTH              :number                     = 0.0001;
+    public  static readonly FACE_DEPTH      :number                     = 0.0001;
 
     /** Next ID to assign for mesh creation. */
-    private             static              nextMeshId              :number                     = 0;
+    private static          nextMeshId      :number                     = 0;
     /** The scene where this mesh will be applied. */
-    private                     readonly    scene                   :bz.Scene                   = null;
+    private        readonly scene           :bz.Scene                   = null;
     /** The emissive color to set for all created meshes. */
-    private                     readonly    emissiveColor           :BABYLON.Color3             = null;
+    private        readonly emissiveColor   :BABYLON.Color3             = null;
 
     /** ****************************************************************************************************************
     *   Creates a mesh factory.
@@ -38,21 +38,19 @@ export class MeshFactory
     *   @param color         The solid color to apply.
     *   @param physic        The physical attributes to apply for this mesh.
     *   @param materialAlpha The opacity for this mesh.
-    *   @param emissiveColor The emissive color for this material.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
     public createBox
     (
-        emissiveColor :BABYLON.Color3,
         position      :BABYLON.Vector3,
         texture       :bz.Texture,
         size          :BABYLON.Vector3,
         physic        :bz.PhysicSet       = bz.PhysicSet.NONE,
-        materialAlpha :number                = 1.0,
-        anchor        :bz.MeshAnchor         = bz.MeshAnchor.CENTER_XYZ,
-        rotation      :BABYLON.Vector3       = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-        color         :BABYLON.Color3        = null
+        materialAlpha :number             = 1.0,
+        anchor        :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
+        rotation      :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        color         :BABYLON.Color3     = null
     )
     : BABYLON.Mesh
     {
@@ -128,7 +126,7 @@ export class MeshFactory
             size.z,
             color,
             materialAlpha,
-            emissiveColor
+            this.emissiveColor
         );
 
         return this.decorateMesh
@@ -149,7 +147,6 @@ export class MeshFactory
     *   @param sideSize      The dimension of one side (XZ) of the heightmap.
     *   @param height        The ground height for the heightmap.
     *   @param textureFile   The texture file to use for this heightmap.
-    *   @param emissiveColor The emissive color for this material.
     *   @param rotation      The initial rotation for all axis.
     *   @param physic        The physical attributes to apply for this mesh.
     *
@@ -162,7 +159,6 @@ export class MeshFactory
         sideSize      :number,
         height        :number,
         textureFile   :bz.TextureFile,
-        emissiveColor :BABYLON.Color3,
         rotation      :BABYLON.Vector3,
         physic        :bz.PhysicSet
     )
@@ -185,7 +181,7 @@ export class MeshFactory
                     sideSize,
                     null,
                     1.0,
-                    emissiveColor
+                    this.emissiveColor
                 );
 
                 ground = this.decorateMesh
@@ -231,7 +227,6 @@ export class MeshFactory
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
     *   @param materialAlpha   The opacity for this mesh.
-    *   @param emissiveColor   The emissive color for this material.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
@@ -245,8 +240,7 @@ export class MeshFactory
         texture       :bz.Texture,
         color         :BABYLON.Color3,
         physic        :bz.PhysicSet,
-        materialAlpha :number,
-        emissiveColor :BABYLON.Color3
+        materialAlpha :number
     )
     : BABYLON.Mesh
     {
@@ -311,7 +305,7 @@ export class MeshFactory
             height,
             color,
             materialAlpha,
-            emissiveColor
+            this.emissiveColor
         );
 
         return this.decorateMesh
@@ -335,7 +329,6 @@ export class MeshFactory
     *   @param color         The solid color to apply.
     *   @param physic        The physical attributes to apply for this mesh.
     *   @param materialAlpha The opacity for this mesh.
-    *   @param emissiveColor The emissive color for this material.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
@@ -348,8 +341,7 @@ export class MeshFactory
         texture       :bz.Texture,
         color         :BABYLON.Color3,
         physic        :bz.PhysicSet,
-        materialAlpha :number,
-        emissiveColor :BABYLON.Color3
+        materialAlpha :number          = 1.0
     )
     : BABYLON.Mesh
     {
@@ -381,7 +373,7 @@ export class MeshFactory
             diameter,
             color,
             materialAlpha,
-            emissiveColor
+            this.emissiveColor
         );
 
         return this.decorateMesh
@@ -407,7 +399,6 @@ export class MeshFactory
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
     *   @param materialAlpha   The opacity for this mesh.
-    *   @param emissiveColor   The emissive color for this material.
     *   @param sideOrientation The orientation sattribute is required for correct light effects.
     *
     *   @return The created mesh.
@@ -428,7 +419,6 @@ export class MeshFactory
 
         physic          :bz.PhysicSet,
         materialAlpha   :number,
-        emissiveColor   :BABYLON.Color3,
         sideOrientation :number
     )
     : BABYLON.Mesh
@@ -463,7 +453,7 @@ export class MeshFactory
             height,
             color,
             materialAlpha,
-            emissiveColor
+            this.emissiveColor
         );
 
         return this.decorateMesh
@@ -549,7 +539,6 @@ export class MeshFactory
     *   @param texture       The texture to apply.
     *   @param color         The solid color to apply.
     *   @param materialAlpha The opacity for this mesh.
-    *   @param emissiveColor The emissive color for this material.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
@@ -563,8 +552,7 @@ export class MeshFactory
         indexZ        :number,
         texture       :bz.Texture,
         color         :BABYLON.Color3,
-        materialAlpha :number,
-        emissiveColor :BABYLON.Color3
+        materialAlpha :number
     )
     : BABYLON.Mesh
     {
@@ -589,7 +577,7 @@ export class MeshFactory
             size.y,
             color,
             materialAlpha,
-            emissiveColor
+            this.emissiveColor
         );
         material.zOffset = ( -1 - indexZ );
 /*
@@ -615,12 +603,7 @@ export class MeshFactory
     *
     *   @return The created skybox mesh.
     *******************************************************************************************************************/
-    public createSkyBoxCube
-    (
-        skyBox  :bz.SkyBoxFile,
-        opacity :number        = 1.0
-    )
-    : BABYLON.Mesh
+    public createSkyBoxCube( skyBox:bz.SkyBoxFile, opacity:number = 1.0 ) : BABYLON.Mesh
     {
         const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
         (
@@ -639,9 +622,9 @@ export class MeshFactory
 
         skyboxMaterial.diffuseColor  = bz.SettingColor.COLOR_RGB_BLACK;
         skyboxMaterial.specularColor = bz.SettingColor.COLOR_RGB_BLACK;
-/*
-        skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
-*/
+
+        // skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
+
         skyboxMaterial.alpha = opacity;
         skyboxMaterial.disableLighting = true;
 

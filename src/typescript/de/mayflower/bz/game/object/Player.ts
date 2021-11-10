@@ -86,8 +86,7 @@ export class Player extends bz.GameObject
                         bz.Texture.WALL_GLASS,
                         null,
                         bz.PhysicSet.PLAYER_HUMAN,
-                        0.5,
-                        emissiveColor
+                        0.5
                     ),
 /*
                     // Player.PLAYER_BODY_ID
@@ -118,15 +117,12 @@ export class Player extends bz.GameObject
                         BABYLON.Vector3.Zero(),
                         bz.Texture.WALL_SKIN_ROSE,
                         null,
-                        bz.PhysicSet.NONE,
-                        1.0,
-                        emissiveColor
+                        bz.PhysicSet.NONE
                     ),
 
                     // Player.PLAYER_LEFT_HAND_ID
                     new bz.MeshFactory( scene, emissiveColor ).createBox
                     (
-                        emissiveColor,
                         position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
                         bz.Texture.WALL_SKIN_ROSE,
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
@@ -135,30 +131,12 @@ export class Player extends bz.GameObject
                     // Player.PLAYER_RIGHT_HAND_ID
                     new bz.MeshFactory( scene, emissiveColor ).createBox
                     (
-                        emissiveColor,
                         position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
                         bz.Texture.WALL_SKIN_ROSE,
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                     ),
                 ]
             ),
-
-/*
-                    // Player.PLAYER_HEAD_ID
-                    bz.MeshFactory.createSphere
-                    (
-                        scene,
-                        BABYLON.Vector3.Zero(),
-                        bz.MeshPivotAnchor.CENTER_XYZ,
-                        bz.SettingPlayer.DIAMETER_HEAD,
-                        BABYLON.Vector3.Zero(),
-                        bz.Texture.WALL_SKIN_ROSE,
-                        null,
-                        bz.Physic.NONE,
-                        1.0,
-                        emissiveColor
-                    ),
-*/
             bz.GameObject.UNBREAKABLE
         );
 

@@ -89,8 +89,7 @@ export class BulletHole
             this.hitPoint.getGameObjectNextBulletHoleIndexZ(),
             meshTexture,
             null,
-            1.0,
-            this.emissiveColor
+            1.0
         );
 
         // stick to parent
@@ -115,8 +114,7 @@ export class BulletHole
             null,
             bz.SettingColor.COLOR_RGB_ORANGE,
             bz.PhysicSet.NONE,
-            1.0,
-            bz.SettingColor.COLOR_RGB_ORANGE // this.ambientColor
+            1.0
         );
 
         // stick to parent

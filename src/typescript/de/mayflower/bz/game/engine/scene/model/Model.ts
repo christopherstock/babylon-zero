@@ -190,7 +190,6 @@ export class Model
 
         this.compoundMesh = new bz.MeshFactory( scene, BABYLON.Color3.Red() ).createBox
         (
-            BABYLON.Color3.Red(),
             position,
             bz.Texture.WALL_GRASS,
             new BABYLON.Vector3( bz.MeshFactory.FACE_DEPTH, bz.MeshFactory.FACE_DEPTH, bz.MeshFactory.FACE_DEPTH )
