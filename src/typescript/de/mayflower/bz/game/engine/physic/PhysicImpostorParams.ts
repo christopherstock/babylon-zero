@@ -5,13 +5,13 @@
 export class PhysicImpostorParams
 {
     /** The impostor type. */
-    public                  type                        :number                     = 0;
+    public type        :number = 0;
     /** The physical mass. */
-    public                  mass                        :number                     = 0;
+    public mass        :number = 0;
     /** The physical friction. */
-    public                  friction                    :number                     = 0;
+    public friction    :number = 0;
     /** The physical restitution. */
-    public                  restitution                 :number                     = 0;
+    public restitution :number = 0;
 
     /** ****************************************************************************************************************
     *   Creates a babylon.JS physics impostor from this params object and applies it onto the specified mesh.

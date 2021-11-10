@@ -6,35 +6,35 @@ import * as bz      from '../../..';
 export class MouseSystem
 {
     /** The game instance. */
-    private             readonly    game                        :bz.Game                = null;
+    private readonly game                               :bz.Game        = null;
 
     /** Indicates that the mouse is currently locked inside the canvas. */
-    private                         mouseLocked                 :boolean                = false;
+    private          mouseLocked                        :boolean        = false;
 
     /** The last mouse drag X if the pointer is locked. */
-    private                         lastMovementX               :number                 = 0;
+    private          lastMovementX                      :number         = 0;
     /** The last mouse drag Y if the pointer is locked. */
-    private                         lastMovementY               :number                 = 0;
+    private          lastMovementY                      :number         = 0;
     /** Indicates if the left mouse key is currently down. */
-    private                         downMouseButtonLeft         :boolean                = false;
+    private          downMouseButtonLeft                :boolean        = false;
     /** Indicates if the center mouse key is currently down. */
-    private                         downMouseButtonCenter       :boolean                = false;
+    private          downMouseButtonCenter              :boolean        = false;
     /** Indicates if the right mouse key is currently down. */
-    private                         downMouseButtonRight        :boolean                = false;
+    private          downMouseButtonRight               :boolean        = false;
 
     /** Indicates if the left mouse key was down but not consumed. */
-    private                         unconsumedDownMouseButtonLeft       :boolean        = false;
+    private          unconsumedDownMouseButtonLeft      :boolean        = false;
     /** Indicates if the center mouse key is currently down. */
-    private                         unconsumedDownMouseButtonCenter     :boolean        = false;
+    private          unconsumedDownMouseButtonCenter    :boolean        = false;
     /** Indicates if the right mouse key is currently down. */
-    private                         unconsumedDownMouseButtonRight      :boolean        = false;
+    private          unconsumedDownMouseButtonRight     :boolean        = false;
 
     /** Indicates that the left mouse button needs to be released before next press is accepted. */
-    private                         needsReleaseButtonLeft      :boolean                = false;
+    private          needsReleaseButtonLeft             :boolean        = false;
     /** Indicates that the center mouse button needs to be released before next press is accepted. */
-    private                         needsReleaseButtonCenter    :boolean                = false;
+    private          needsReleaseButtonCenter           :boolean        = false;
     /** Indicates that the right mouse button needs to be released before next press is accepted. */
-    private                         needsReleaseButtonRight     :boolean                = false;
+    private          needsReleaseButtonRight            :boolean        = false;
 
     /** ****************************************************************************************************************
     *   Creates a new Pointer System.

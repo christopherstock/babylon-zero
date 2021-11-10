@@ -6,60 +6,60 @@
 export abstract class KeyCodes
 {
     /** The keycode that represents the 'ARROW LEFT' key. */
-    public      static  readonly    KEY_LEFT                :string                         = 'ArrowLeft';
+    public static readonly KEY_LEFT             :string = 'ArrowLeft';
     /** The keycode that represents the 'ARROW UP' key. */
-    public      static  readonly    KEY_UP                  :string                         = 'ArrowUp';
+    public static readonly KEY_UP               :string = 'ArrowUp';
     /** The keycode that represents the 'ARROW RIGHT' key. */
-    public      static  readonly    KEY_RIGHT               :string                         = 'ArrowRight';
+    public static readonly KEY_RIGHT            :string = 'ArrowRight';
     /** The keycode that represents the 'ARROW DOWN' key. */
-    public      static  readonly    KEY_DOWN                :string                         = 'ArrowDown';
+    public static readonly KEY_DOWN             :string = 'ArrowDown';
 
     /** The keycode that represents the 'W' key. */
-    public      static  readonly    KEY_W                   :string                         = 'KeyW';
+    public static readonly KEY_W                :string = 'KeyW';
     /** The keycode that represents the 'A' key. */
-    public      static  readonly    KEY_A                   :string                         = 'KeyA';
+    public static readonly KEY_A                :string = 'KeyA';
     /** The keycode that represents the 'S' key. */
-    public      static  readonly    KEY_S                   :string                         = 'KeyS';
+    public static readonly KEY_S                :string = 'KeyS';
     /** The keycode that represents the 'D' key. */
-    public      static  readonly    KEY_D                   :string                         = 'KeyD';
+    public static readonly KEY_D                :string = 'KeyD';
 
     /** The keycode that represents the 'Q' key. */
-    public      static  readonly    KEY_Q                   :string                         = 'KeyQ';
+    public static readonly KEY_Q                :string = 'KeyQ';
     /** The keycode that represents the 'E' key. */
-    public      static  readonly    KEY_E                   :string                         = 'KeyE';
+    public static readonly KEY_E                :string = 'KeyE';
 
     /** The keycode that represents the 'G' key. */
-    public      static  readonly    KEY_G                   :string                         = 'KeyG';
+    public static readonly KEY_G                :string = 'KeyG';
     /** The keycode that represents the 'T' key. */
-    public      static  readonly    KEY_T                   :string                         = 'KeyT';
+    public static readonly KEY_T                :string = 'KeyT';
 
     /** The keycode that represents the 'Y' key. This is affected by the EN keyboard scheme. */
-    public      static  readonly    KEY_Y                   :string                         = 'KeyZ';
+    public static readonly KEY_Y                :string = 'KeyZ';
     /** The keycode that represents the 'X' key. */
-    public      static  readonly    KEY_X                   :string                         = 'KeyX';
+    public static readonly KEY_X                :string = 'KeyX';
 
     /** The keycode that represents the 'P' key. */
-    public      static  readonly    KEY_P                   :string                         = 'KeyP';
+    public static readonly KEY_P                :string = 'KeyP';
 
     /** The keycode that represents the 'ENTER' key. */
-    public      static  readonly    KEY_ENTER               :string                         = 'Enter';
+    public static readonly KEY_ENTER            :string = 'Enter';
     /** The keycode that represents the 'ESCAPE' key. */
-    public      static  readonly    KEY_ESCAPE              :string                         = 'Escape';
+    public static readonly KEY_ESCAPE           :string = 'Escape';
     /** The keycode that represents the 'SPACE' key. */
-    public      static  readonly    KEY_SPACE               :string                         = 'Space';
+    public static readonly KEY_SPACE            :string = 'Space';
     /** The keycode that represents the 'LEFT CONTROL' key. */
-    public      static  readonly    KEY_CTRL_LEFT           :string                         = 'ControlLeft';
+    public static readonly KEY_CTRL_LEFT        :string = 'ControlLeft';
     /** The keycode that represents the 'LEFT SHIFT' key. */
-    public      static  readonly    KEY_SHIFT_LEFT          :string                         = 'ShiftLeft';
+    public static readonly KEY_SHIFT_LEFT       :string = 'ShiftLeft';
 
     /** The keycode that represents the '1' key. */
-    public      static  readonly    KEY_1                   :string                         = 'Digit1';
+    public static readonly KEY_1                :string = 'Digit1';
     /** The keycode that represents the '2' key. */
-    public      static  readonly    KEY_2                   :string                         = 'Digit2';
+    public static readonly KEY_2                :string = 'Digit2';
     /** The keycode that represents the '3' key. */
-    public      static  readonly    KEY_3                   :string                         = 'Digit3';
+    public static readonly KEY_3                :string = 'Digit3';
     /** The keycode that represents the '4' key. */
-    public      static  readonly    KEY_4                   :string                         = 'Digit4';
+    public static readonly KEY_4                :string = 'Digit4';
     /** The keycode that represents the '5' key. */
-    public      static  readonly    KEY_5                   :string                         = 'Digit5';
+    public static readonly KEY_5                :string = 'Digit5';
 }

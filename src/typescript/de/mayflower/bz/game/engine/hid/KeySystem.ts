@@ -6,9 +6,9 @@ import * as bz from '../../..';
 export class KeySystem
 {
     /** All 'pressed' information for all keys. */
-    private                         keysPressed             :boolean[]                      = [];
+    private keysPressed     :boolean[] = [];
     /** All 'needs release' information for all keys. */
-    private                         keysNeedRelease         :boolean[]                      = [];
+    private keysNeedRelease :boolean[] = [];
 
     /** ****************************************************************************************************************
     *   Creates a new key system.

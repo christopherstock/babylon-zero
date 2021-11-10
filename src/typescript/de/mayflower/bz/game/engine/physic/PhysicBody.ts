@@ -8,7 +8,7 @@ import * as bz from '../../..';
 export class PhysicBody
 {
     /** The physical object behaviour of this physics body. */
-    private         readonly        obj                 :bz.PhysicSet            = null;
+    private readonly set :bz.PhysicSet            = null;
 
     /** ****************************************************************************************************************
     *   Creates a new physical body.
@@ -17,7 +17,7 @@ export class PhysicBody
     *******************************************************************************************************************/
     public constructor( obj:bz.PhysicSet )
     {
-        this.obj = obj;
+        this.set = obj;
     }
 
     /** ****************************************************************************************************************
@@ -35,7 +35,7 @@ export class PhysicBody
     )
     : void
     {
-        switch ( this.obj.behaviour )
+        switch ( this.set.behaviour )
         {
             case bz.PhysicBehaviour.STATIC:
             case bz.PhysicBehaviour.MOVABLE:
@@ -69,14 +69,14 @@ export class PhysicBody
     *******************************************************************************************************************/
     public createPhysicImpostorBoxParams() : bz.PhysicImpostorParams
     {
-        const mass :number = this.obj.weight;
+        const mass :number = this.set.weight;
 
         return bz.PhysicImpostorParams.fromParams
         (
             BABYLON.PhysicsImpostor.BoxImpostor,
             mass,
-            this.obj.friction,
-            this.obj.restitution
+            this.set.friction,
+            this.set.restitution
         );
     }
 
@@ -89,7 +89,7 @@ export class PhysicBody
     {
         let mass:number = 0.0;
 
-        switch ( this.obj.behaviour )
+        switch ( this.set.behaviour )
         {
             case bz.PhysicBehaviour.STATIC:
             {
@@ -99,7 +99,7 @@ export class PhysicBody
 
             case bz.PhysicBehaviour.MOVABLE:
             {
-                mass = this.obj.weight;
+                mass = this.set.weight;
                 break;
             }
 
@@ -111,8 +111,8 @@ export class PhysicBody
 
         return {
             mass:        mass,
-            friction:    this.obj.friction,
-            restitution: this.obj.restitution,
+            friction:    this.set.friction,
+            restitution: this.set.restitution,
 
             disableBidirectionalTransformation: false,
         };
