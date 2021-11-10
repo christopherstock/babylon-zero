@@ -134,26 +134,4 @@ export class StageIntroLogo extends bz.Stage
     {
         // no stage specific keys to handle - this is a 'view only' stage
     }
-
-    /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this stage.
-    *
-    *   @return The camera system for this stage.
-    *******************************************************************************************************************/
-    protected createCameraSystem() : bz.CameraSystem
-    {
-        return new bz.CameraSystem
-        (
-            this.game,
-
-            new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-            new BABYLON.Vector3( 150.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-
-            new BABYLON.Vector3( 0.0,   0.0, 0.0 ),
-            new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
-            null,
-            null
-        );
-    }
 }

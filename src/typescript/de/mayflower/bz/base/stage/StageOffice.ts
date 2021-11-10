@@ -228,28 +228,6 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this stage.
-    *
-    *   @return The camera system for this stage.
-    *******************************************************************************************************************/
-    protected createCameraSystem() : bz.CameraSystem
-    {
-        return new bz.CameraSystem
-        (
-            this.game,
-
-            new BABYLON.Vector3( 10.0, 10.0, 10.0 ),
-            new BABYLON.Vector3( 20.0, 5.0,  20.0 ),
-            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
-
-            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
-            this.player.getThirdPersonCameraTargetMesh(),
-            this.player.getThirdPersonCameraTargetMesh(),
-            this.player.getFirstPersonCameraTargetMesh()
-        );
-    }
-
-    /** ****************************************************************************************************************
     *   Creates the ground walls for this stage.
     *******************************************************************************************************************/
     private addGroundWalls( meshFactory:bz.MeshFactory ) : void

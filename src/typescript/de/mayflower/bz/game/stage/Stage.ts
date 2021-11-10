@@ -65,13 +65,6 @@ export abstract class Stage
     protected abstract handleStageKeys() : void;
 
     /** ****************************************************************************************************************
-    *   Creates the camera system that manages all cameras that appear in this stage.
-    *
-    *   @return The camera system for this stage.
-    *******************************************************************************************************************/
-    protected abstract createCameraSystem() : bz.CameraSystem;
-
-    /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
     public init() : void
@@ -86,8 +79,8 @@ export abstract class Stage
         // create all stage contents
         this.createStageContents();
 
-        // create camera system and set initial camera
-        this.cameraSystem  = this.createCameraSystem();
+        // create cameras and set initial cam
+        this.cameraSystem = this.createCameraSystem();
         this.setActiveCamera( this.config.initialCamera );
 
         // add debug axis
@@ -392,6 +385,28 @@ export abstract class Stage
         }
         // also working for single models, testwise
         // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
+    }
+
+    /** ****************************************************************************************************************
+    *   Creates the camera system that manages all cameras that appear in this stage.
+    *
+    *   @return The camera system for this stage.
+    *******************************************************************************************************************/
+    private createCameraSystem() : bz.CameraSystem
+    {
+        return new bz.CameraSystem
+        (
+            this.game,
+
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 150.0, 0.0,  0.0 ),
+            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+
+            new BABYLON.Vector3( 0.0,  0.0,  0.0  ),
+            new BABYLON.Vector3( 0.0,   0.0, 0.0  ),
+            ( this.player === null ? null : this.player.getThirdPersonCameraTargetMesh() ),
+            ( this.player === null ? null : this.player.getFirstPersonCameraTargetMesh() )
+        );
     }
 
     /** ****************************************************************************************************************
