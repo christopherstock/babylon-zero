@@ -28,10 +28,10 @@ export abstract class KeyCodes
     /** The keycode that represents the 'E' key. */
     public      static  readonly    KEY_E                   :string                         = 'KeyE';
 
-    /** The keycode that represents the 'F' key. */
-    public      static  readonly    KEY_F                   :string                         = 'KeyF';
-    /** The keycode that represents the 'R' key. */
-    public      static  readonly    KEY_R                   :string                         = 'KeyR';
+    /** The keycode that represents the 'G' key. */
+    public      static  readonly    KEY_G                   :string                         = 'KeyG';
+    /** The keycode that represents the 'T' key. */
+    public      static  readonly    KEY_T                   :string                         = 'KeyT';
 
     /** The keycode that represents the 'Y' key. This is affected by the EN keyboard scheme. */
     public      static  readonly    KEY_Y                   :string                         = 'KeyZ';

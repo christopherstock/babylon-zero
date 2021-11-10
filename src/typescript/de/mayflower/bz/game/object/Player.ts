@@ -336,11 +336,11 @@ export class Player extends bz.GameObject
         }
 
         // look up / down
-        if ( keySystem.isPressed( bz.KeyCodes.KEY_R ) )
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_T ) )
         {
             this.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
         }
-        if ( keySystem.isPressed( bz.KeyCodes.KEY_F ) )
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_G ) )
         {
             this.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
         }

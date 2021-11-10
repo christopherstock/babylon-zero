@@ -171,14 +171,6 @@ export class Scene
     }
 
     /** ****************************************************************************************************************
-    *   Disables fog for the native scene.
-    *******************************************************************************************************************/
-    public disableFog() : void
-    {
-        this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
-    }
-
-    /** ****************************************************************************************************************
     *   Enables fog for the native scene.
     *
     *   @param color   The fog color to set or <code>null</code> if no fog shall be set.
@@ -197,6 +189,14 @@ export class Scene
         this.babylonScene.fogStart = 20.0;
         this.babylonScene.fogEnd = 60.0;
 */
+    }
+
+    /** ****************************************************************************************************************
+    *   Disables fog for the native scene.
+    *******************************************************************************************************************/
+    public disableFog() : void
+    {
+        this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
     }
 
     /** ****************************************************************************************************************

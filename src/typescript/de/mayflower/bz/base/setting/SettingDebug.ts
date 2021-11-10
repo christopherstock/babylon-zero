@@ -15,7 +15,7 @@ export class SettingDebug
 
     /** Disables all sounds. */
     public  static  readonly    DISABLE_SOUND                           :boolean            = true;
-    /** Enabled menu debug keys for switching camera and stages. */
+    /** Enabled menu debug keys for camera and stage switch. */
     public  static  readonly    ENABLE_DEBUG_KEYS                       :boolean            = ( true  && SettingDebug.DEBUG_MODE );
 
     /** The ellipsoid for the free debug camera (only when collisions are active). */

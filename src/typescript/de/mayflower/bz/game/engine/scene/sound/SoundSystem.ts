@@ -40,7 +40,7 @@ export class SoundSystem
     *******************************************************************************************************************/
     public load( scene:BABYLON.Scene ) : void
     {
-        bz.Debug.init.log( ' Preloading [' + String( this.fileNames.length ) + '] sounds' );
+        bz.Debug.init.log( ' Preload [' + String( this.fileNames.length ) + '] sounds' );
 
         if ( bz.SettingDebug.DISABLE_SOUND )
         {

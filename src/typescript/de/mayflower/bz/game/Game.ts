@@ -53,7 +53,7 @@ export class Game
     public switchStage( targetStage:bz.StageId ) : void
     {
         bz.Debug.stage.log( '' );
-        bz.Debug.stage.log( 'Switching to target stage [' + String( targetStage ) + ']' );
+        bz.Debug.stage.log( 'Switch to target stage [' + String( targetStage ) + ']' );
 
         // stop physics engine immediately
         this.scene.enablePhysics( false );
@@ -97,7 +97,7 @@ export class Game
         this.gui.init();
 
         // init the new stage
-        bz.Debug.stage.log( ' Initializing target stage [' + String( targetStage ) + ']' );
+        bz.Debug.stage.log( ' Initialize target stage [' + String( targetStage ) + ']' );
         this.stage.init();
 
         // release keys and pointer lock

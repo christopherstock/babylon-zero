@@ -32,7 +32,7 @@ export class ModelSystem
     *******************************************************************************************************************/
     public load( scene:BABYLON.Scene ) : void
     {
-        bz.Debug.init.log( ' Importing [' + String( this.fileNames.length ) + '] model files' );
+        bz.Debug.init.log( ' Import [' + String( this.fileNames.length ) + '] model files' );
 
         for ( const fileName of this.fileNames )
         {
@@ -74,7 +74,7 @@ export class ModelSystem
                 null,
                 ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
 
-                    bz.Debug.init.err( 'ERROR on importing model [' + file + ']' );
+                    bz.Debug.init.err( 'ERROR on model import [' + file + ']' );
 
                     // simulate load
                     this.onLoadModel();

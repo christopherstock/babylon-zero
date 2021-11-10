@@ -245,8 +245,11 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
-        // blue sky 0.5 alpha
+        // blue skybox half alpha
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
+
+        // add fog
+        // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
     }
 
     /** ****************************************************************************************************************
@@ -281,16 +284,6 @@ export class StageOffice extends bz.Stage
 
             // this.chairCompoundDestroyable.getModel().applyShadowGenerator( this.shadowGenerators[ 0 ] );
         }
-    }
-
-    /** ****************************************************************************************************************
-    *   Sets up shadows for all meshes.
-    *******************************************************************************************************************/
-    protected setupFog() : void
-    {
-        this.scene.disableFog();
-        // green poison steam..
-        // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 );
     }
 
     /** ****************************************************************************************************************

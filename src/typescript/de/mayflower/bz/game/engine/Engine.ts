@@ -71,7 +71,7 @@ export class Engine
         }
         else
         {
-            bz.Debug.init.log( 'Hiding loading UI' );
+            bz.Debug.init.log( 'Hide loading UI' );
 
             this.babylonEngine.hideLoadingUI();
         }
@@ -87,13 +87,13 @@ export class Engine
     {
         if ( active )
         {
-            bz.Debug.init.log( 'Starting render loop' );
+            bz.Debug.init.log( 'Start render loop' );
 
             this.babylonEngine.runRenderLoop( renderLoop );
         }
         else
         {
-            bz.Debug.stage.log( 'Stopping render loop' );
+            bz.Debug.stage.log( 'Stop render loop' );
 
             // remove all render loop functions! ( passing renderLoop explicilty won't remove it in bjs 4.1.0 )
             this.babylonEngine.stopRenderLoop();

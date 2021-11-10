@@ -181,12 +181,4 @@ export class StageIntroLogo extends bz.Stage
     {
         // no shadows for the MF Logo ?
     }
-
-    /** ****************************************************************************************************************
-    *   Sets up shadows for all meshes.
-    *******************************************************************************************************************/
-    protected setupFog() : void
-    {
-        this.scene.disableFog();
-    }
 }

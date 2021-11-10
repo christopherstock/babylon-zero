@@ -100,11 +100,6 @@ export abstract class Stage
     protected abstract setupShadows() : void;
 
     /** ****************************************************************************************************************
-    *   Sets up fog for this stage.
-    *******************************************************************************************************************/
-    protected abstract setupFog() : void;
-
-    /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
     public init() : void
@@ -126,9 +121,6 @@ export abstract class Stage
             this.shadowGenerators = this.createShadowGenerators();
             this.setupShadows();
         }
-
-        // enable fog if desired
-        this.setupFog();
 
         // create debug axis
         if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
