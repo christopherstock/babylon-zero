@@ -22,8 +22,10 @@ export class Texture
     public static readonly WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO );
     /** The texture 'wall amiga'. */
     public static readonly WALL_AMIGA                  :Texture                = new Texture( bz.TextureFile.WALL_AMIGA );
-    /** The texture 'wall wood'. */
-    public static readonly WALL_WOOD                   :Texture                = new Texture( bz.TextureFile.WALL_WOOD );
+    /** The texture 'wall wood horizontal'. */
+    public static readonly WALL_WOOD_HORZ              :Texture                = new Texture( bz.TextureFile.WALL_WOOD_HORZ );
+    /** The texture 'wall wood vertical'. */
+    public static readonly WALL_WOOD_VERT              :Texture                = new Texture( bz.TextureFile.WALL_WOOD_VERT );
     /** The texture 'wall grass'. */
     public static readonly WALL_GRASS                  :Texture                = new Texture( bz.TextureFile.WALL_GRASS );
     /** The texture 'wall glas'. */
@@ -32,6 +34,19 @@ export class Texture
     public static readonly WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE );
     /** The texture 'wall metal'. */
     public static readonly WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL );
+
+    /** The texture 'wall metal'. */
+    public static readonly WALL_BRICKS                 :Texture                = new Texture( bz.TextureFile.WALL_BRICKS );
+    /** The texture 'wall metal'. */
+    public static readonly WALL_CARPET                 :Texture                = new Texture( bz.TextureFile.WALL_CARPET );
+    /** The texture 'wall metal'. */
+    public static readonly WALL_CEILING                :Texture                = new Texture( bz.TextureFile.WALL_CEILING );
+    /** The texture 'wall metal'. */
+    public static readonly WALL_CONCRETE               :Texture                = new Texture( bz.TextureFile.WALL_CONCRETE );
+    /** The texture 'wall metal'. */
+    public static readonly WALL_LEATHER                :Texture                = new Texture( bz.TextureFile.WALL_LEATHER );
+    /** The texture 'wall metal'. */
+    public static readonly WALL_MARBLE                 :Texture                = new Texture( bz.TextureFile.WALL_MARBLE );
 
     /** The video texture 'wall test'. */
     public static readonly VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST );
@@ -47,11 +62,19 @@ export class Texture
         Texture.WALL_TEST,
         Texture.WALL_MAYFLOWER_LOGO,
         Texture.WALL_AMIGA,
-        Texture.WALL_WOOD,
+        Texture.WALL_WOOD_HORZ,
+        Texture.WALL_WOOD_VERT,
         Texture.WALL_GRASS,
         Texture.WALL_GLASS,
         Texture.WALL_SKIN_ROSE,
         Texture.WALL_METAL,
+
+        Texture.WALL_BRICKS,
+        Texture.WALL_CARPET,
+        Texture.WALL_CEILING,
+        Texture.WALL_CONCRETE,
+        Texture.WALL_LEATHER,
+        Texture.WALL_MARBLE,
 
         Texture.VIDEO_TEST,
     ];

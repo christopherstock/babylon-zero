@@ -59,6 +59,8 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingEngine.WALL_HEIGHT, 40.0 )
         );
 
+
+
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
