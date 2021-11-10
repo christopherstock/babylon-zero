@@ -5,18 +5,18 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageOffice extends bz.Stage
 {
-    private                 readonly    OFFSET_X                :number                                 = 0.0;
-    private                 readonly    OFFSET_Z                :number                                 = 0.0;
+    private                 readonly    OFFSET_X                        :number                     = 0.0;
+    private                 readonly    OFFSET_Z                        :number                     = 0.0;
 
     /** A testwise mesh - made from a single 3dsmax Mesh. */
-    private                             chairCompoundDestroyable            :bz.Wall                    = null;
+    private                             chairCompoundDestroyable        :bz.Wall                    = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes. */
-    private                             chairMultiMeshesNoCompound          :bz.Wall                    = null;
+    private                             chairMultiMeshesNoCompound      :bz.Wall                    = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
-    private                             chairCompoundSingleShotOff          :bz.Wall                    = null;
+    private                             chairCompoundSingleShotOff      :bz.Wall                    = null;
 
     /** Testwise camera target toggle. */
-    private                             camTarget               :boolean                                = false;
+    private                             camTarget                       :boolean                    = false;
 
     /** ****************************************************************************************************************
     *   Creates a new test office.
@@ -34,27 +34,6 @@ export class StageOffice extends bz.Stage
 
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON
-        );
-    }
-
-    /** ****************************************************************************************************************
-    *   Sets up the player for this stage.
-    *
-    *   @return The player instance for this stage.
-    *******************************************************************************************************************/
-    protected createPlayer() : bz.Player
-    {
-        return new bz.Player
-        (
-            this,
-            this.scene,
-            new BABYLON.Vector3(
-                this.OFFSET_X + 3.5,
-                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                this.OFFSET_Z + 3.5
-            ),
-            45.0,
-            this.ambientColor
         );
     }
 
@@ -122,6 +101,21 @@ export class StageOffice extends bz.Stage
     protected createStageContents() : void
     {
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
+        this.setPlayer(
+            new bz.Player
+            (
+                this,
+                this.scene,
+                new BABYLON.Vector3(
+                    this.OFFSET_X + 3.5,
+                    ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
+                    this.OFFSET_Z + 3.5
+                ),
+                45.0,
+                this.ambientColor
+            )
+        );
 
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite

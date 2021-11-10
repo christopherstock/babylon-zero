@@ -123,16 +123,6 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Sets up the player for this stage.
-    *
-    *   @return The player instance for this stage.
-    *******************************************************************************************************************/
-    protected createPlayer() : bz.Player
-    {
-        return null;
-    }
-
-    /** ****************************************************************************************************************
     *   Creates the camera system that manages all cameras that appear in this level.
     *
     *   @return The camera system for this stage.
