@@ -6,7 +6,7 @@ import * as bz from '../..';
 export class PhysicSet
 {
     /** A non-collidable and non-gravitational affected physical state. */
-    public  static  readonly        NONE                :PhysicSet           = new PhysicSet
+    public static readonly NONE                 :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.NONE,
         bz.PhysicFriction.NONE,
@@ -15,7 +15,7 @@ export class PhysicSet
     );
 
     /** Physical properties for a non-moving and collidable body. */
-    public  static  readonly        STATIC              :PhysicSet           = new PhysicSet
+    public static readonly STATIC               :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.STATIC,
         bz.PhysicFriction.MEDIUM,
@@ -24,7 +24,7 @@ export class PhysicSet
     );
 
     /** The player has very special physical attributes with the primal goal to keep the user entertained. */
-    public  static  readonly        PLAYER_HUMAN        :PhysicSet           = new PhysicSet
+    public static readonly PLAYER_HUMAN         :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.NONE,
@@ -33,7 +33,7 @@ export class PhysicSet
     );
 
     /** A wooden crate. */
-    public  static  readonly        CRATE_WOOD          :PhysicSet           = new PhysicSet
+    public static readonly CRATE_WOOD           :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -42,7 +42,7 @@ export class PhysicSet
     );
 
     /** A steel crate. */
-    public  static  readonly        CRATE_STEEL         :PhysicSet           = new PhysicSet
+    public static readonly CRATE_STEEL          :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -51,7 +51,7 @@ export class PhysicSet
     );
 
     /** Synthetic impostor for scattered meshes. */
-    public  static  readonly        SYNTHETIC_IMPOSTOR  :PhysicSet           = new PhysicSet
+    public static readonly SYNTHETIC_IMPOSTOR   :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.MEDIUM,
@@ -60,7 +60,7 @@ export class PhysicSet
     );
 
     /** Props for solid concrete. */
-    public  static  readonly        OFFICE_CHAIR        :PhysicSet           = new PhysicSet
+    public static readonly OFFICE_CHAIR         :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -69,7 +69,7 @@ export class PhysicSet
     );
 
     /** Props for white test sphere wood. */
-    public  static  readonly        WHITE_TEST_SPHERE   :PhysicSet           = new PhysicSet
+    public static readonly WHITE_TEST_SPHERE    :PhysicSet     = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
@@ -78,13 +78,13 @@ export class PhysicSet
     );
 
     /** The general physical behaviour of this physics object. */
-    public          readonly        behaviour           :bz.PhysicBehaviour     = null;
+    public readonly behaviour       :bz.PhysicBehaviour     = null;
     /** The friction of this physics setting */
-    public          readonly        friction            :bz.PhysicFriction      = null;
+    public readonly friction        :bz.PhysicFriction      = null;
     /** The restitution of this physics setting */
-    public          readonly        restitution         :bz.PhysicRestitution   = null;
+    public readonly restitution     :bz.PhysicRestitution   = null;
     /** The weight of this physics setting. */
-    public          readonly        weight              :number                 = 0.0;
+    public readonly weight          :number                 = 0.0;
 
     /** ****************************************************************************************************************
     *   Creates a new set of physical properties.

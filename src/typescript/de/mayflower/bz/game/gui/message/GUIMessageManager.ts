@@ -7,7 +7,7 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export class GUIMessageManager
 {
     /** All GUI messages currently displayed. */
-    private             readonly        messageQueue            :bz.GUIMessage[]                        = [];
+    private readonly messageQueue :bz.GUIMessage[] = [];
 
     /** ****************************************************************************************************************
     *   Renders this GUI message manager for one game tick.

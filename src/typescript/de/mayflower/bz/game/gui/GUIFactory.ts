@@ -7,7 +7,7 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export abstract class GUIFactory
 {
     /** Next ID to assign for GUI component creation. */
-    private         static          nextGuiId                           :number                 = 0;
+    private static nextGuiId :number = 0;
 
     /** ****************************************************************************************************************
     *   Creates a fullscreen GUI in bg or fg.

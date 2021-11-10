@@ -6,14 +6,14 @@ import * as bz from '../../../..';
 export class ModelSystem
 {
     /** All model file names to load. */
-    private             readonly    fileNames                       :string[]                       = null;
+    private readonly fileNames              :string[]               = null;
     /** The method to invoke when all model files are loaded. */
-    private             readonly    onLoadComplete                  :()=>void                       = null;
+    private readonly onLoadComplete         :()=>void               = null;
 
     /** The number of currently loaded model files. */
-    private                         loadedModelCount                :number                         = 0;
+    private          loadedModelCount       :number                 = 0;
     /** All loaded mesh objects. */
-    private                         models                          :bz.Model[]                     = [];
+    private          models                 :bz.Model[]             = [];
 
     /** ****************************************************************************************************************
     *   Creates a new model import system.

@@ -6,26 +6,26 @@ import * as bz from '../../..';
 export class CameraSystem
 {
     /** Next ID to assign for animation creation. */
-    private     static              nextCameraAnimationId           :number                                 = 0;
+    private static          nextCameraAnimationId   :number                         = 0;
 
     /** The currently active camera type. */
-    private                         activeCameraType                :bz.CameraType                          = null;
+    private                 activeCameraType        :bz.CameraType                  = null;
 
     /** The native babylon.JS scene these cameras belong to. */
-    private             readonly    scene                           :BABYLON.Scene                          = null;
+    private        readonly scene                   :BABYLON.Scene                  = null;
     /** The canvas this camera system is connected with. */
-    private             readonly    canvas                          :HTMLCanvasElement                      = null;
+    private        readonly canvas                  :HTMLCanvasElement              = null;
 
     /** The free controllable babylon.JS (debug) camera. */
-    private             readonly    freeCamera                      :BABYLON.FreeCamera                     = null;
+    private        readonly freeCamera              :BABYLON.FreeCamera             = null;
     /** The stationary and targeted babylon.JS camera. */
-    private             readonly    stationaryCamera                :BABYLON.TargetCamera                   = null;
+    private        readonly stationaryCamera        :BABYLON.TargetCamera           = null;
     /** The follow babylon.JS camera. */
-    private             readonly    followCamera                    :BABYLON.FollowCamera                   = null;
+    private        readonly followCamera            :BABYLON.FollowCamera           = null;
     /** The first person babylon.JS camera. */
-    private             readonly    firstPersonCamera               :BABYLON.FreeCamera                     = null;
+    private        readonly firstPersonCamera       :BABYLON.FreeCamera             = null;
     /** The babylon.JS axis camera. */
-    private             readonly    arcRotateCamera                 :BABYLON.ArcRotateCamera                = null;
+    private        readonly arcRotateCamera         :BABYLON.ArcRotateCamera        = null;
 
     /** ****************************************************************************************************************
     *   Sets up all scene cameras.

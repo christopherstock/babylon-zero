@@ -6,14 +6,14 @@ import * as bz      from '../../..';
 export class LoadingScreen implements BABYLON.ILoadingScreen
 {
     /** Pointless interface implementation field. */
-    public                          loadingUIBackgroundColor            :string                     = '';
+    public  readonly loadingUIBackgroundColor :string                   = '';
     /** Pointless interface implementation field. */
-    public                          loadingUIText                       :string                     = '';
+    public  readonly loadingUIText            :string                   = '';
 
     /** The canvas being used by the game engine. */
-    private             readonly    canvas                              :HTMLCanvasElement          = null;
+    private readonly canvas                   :HTMLCanvasElement        = null;
     /** The div that contains the loading image. */
-    private             readonly    loadingDiv                          :HTMLDivElement             = null;
+    private readonly loadingDiv               :HTMLDivElement           = null;
 
     /** ****************************************************************************************************************
     *   Creates the custom loading screen.

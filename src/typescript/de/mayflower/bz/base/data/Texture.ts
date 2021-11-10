@@ -8,36 +8,36 @@ import * as bz from '../..';
 export class Texture
 {
     /** The texture 'bullet hole concreate'. */
-    public      static  readonly    BULLET_HOLE_CONCRETE        :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_CONCRETE );
+    public static readonly BULLET_HOLE_CONCRETE        :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_CONCRETE );
     /** The texture 'bullet hole wood'. */
-    public      static  readonly    BULLET_HOLE_WOOD            :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_WOOD );
+    public static readonly BULLET_HOLE_WOOD            :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_WOOD );
     /** The texture 'bullet hole glass'. */
-    public      static  readonly    BULLET_HOLE_GLASS           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_GLASS );
+    public static readonly BULLET_HOLE_GLASS           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_GLASS );
     /** The texture 'bullet hole metal'. */
-    public      static  readonly    BULLET_HOLE_METAL           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_METAL );
+    public static readonly BULLET_HOLE_METAL           :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_METAL );
 
     /** The texture 'wall test'. */
-    public      static  readonly    WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST );
+    public static readonly WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST );
     /** The texture 'wall mayflower logo'. */
-    public      static  readonly    WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO );
+    public static readonly WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO );
     /** The texture 'wall amiga'. */
-    public      static  readonly    WALL_AMIGA                  :Texture                = new Texture( bz.TextureFile.WALL_AMIGA );
+    public static readonly WALL_AMIGA                  :Texture                = new Texture( bz.TextureFile.WALL_AMIGA );
     /** The texture 'wall wood'. */
-    public      static  readonly    WALL_WOOD                   :Texture                = new Texture( bz.TextureFile.WALL_WOOD );
+    public static readonly WALL_WOOD                   :Texture                = new Texture( bz.TextureFile.WALL_WOOD );
     /** The texture 'wall grass'. */
-    public      static  readonly    WALL_GRASS                  :Texture                = new Texture( bz.TextureFile.WALL_GRASS );
+    public static readonly WALL_GRASS                  :Texture                = new Texture( bz.TextureFile.WALL_GRASS );
     /** The texture 'wall glas'. */
-    public      static  readonly    WALL_GLASS                  :Texture                = new Texture( bz.TextureFile.WALL_GLASS );
+    public static readonly WALL_GLASS                  :Texture                = new Texture( bz.TextureFile.WALL_GLASS );
     /** The texture 'wall skin rosé'. */
-    public      static  readonly    WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE );
+    public static readonly WALL_SKIN_ROSE              :Texture                = new Texture( bz.TextureFile.WALL_SKIN_ROSE );
     /** The texture 'wall metal'. */
-    public      static  readonly    WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL );
+    public static readonly WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL );
 
     /** The video texture 'wall test'. */
-    public      static  readonly    VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST );
+    public static readonly VIDEO_TEST                  :Texture                = new Texture( bz.TextureFile.VIDEO_TEST );
 
     /** Contains all texture data objects. */
-    public      static  readonly    ALL_TEXTURES                :Texture[]              =
+    public static readonly ALL_TEXTURES                :Texture[]              =
     [
         Texture.BULLET_HOLE_CONCRETE,
         Texture.BULLET_HOLE_WOOD,
@@ -57,9 +57,9 @@ export class Texture
     ];
 
     /** The according texture file. */
-    private             readonly    file                        :bz.TextureFile         = null;
+    private readonly file           :bz.TextureFile         = null;
     /** The babylon.JS texture data. */
-    private                         nativeTexture               :BABYLON.Texture        = null;
+    private          nativeTexture  :BABYLON.Texture        = null;
 
     /** ****************************************************************************************************************
     *   Creates a texture configuration.

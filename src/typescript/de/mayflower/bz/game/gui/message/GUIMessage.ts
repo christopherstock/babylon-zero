@@ -7,10 +7,10 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export class GUIMessage
 {
     /** The number of ticks this message is still visible. */
-    private                             lifetimeTicks               :number                             = 0;
+    private          lifetimeTicks :number                  = 0;
 
     /** The text block that contains this single message. */
-    private             readonly        messageText                 :BABYLON_GUI.TextBlock                     = null;
+    private readonly messageText   :BABYLON_GUI.TextBlock   = null;
 
     /** ****************************************************************************************************************
     *   Creates a new message text.

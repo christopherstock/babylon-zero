@@ -6,11 +6,11 @@ import * as bz from '../..';
 export class Engine
 {
     /** The canvas system. */
-    private                     canvasSystem                :bz.CanvasSystem                    = null;
+    private canvasSystem    :bz.CanvasSystem            = null;
     /** The babylon.JS engine. */
-    private                     babylonEngine               :BABYLON.Engine                     = null;
+    private babylonEngine   :BABYLON.Engine             = null;
     /** The custom loading screen. */
-    private                     loadingScreen               :bz.LoadingScreen                   = null;
+    private loadingScreen   :bz.LoadingScreen           = null;
 
     /** ****************************************************************************************************************
     *   Inits all components of the game engine.

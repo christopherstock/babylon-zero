@@ -7,7 +7,7 @@ import * as BABYLON_GUI from 'babylonjs-gui'
 export class GUIFxManager
 {
     /** All GUI effects currently displayed. */
-    private             readonly        fxQueue             :bz.GUIFx[]                         = [];
+    private readonly fxQueue :bz.GUIFx[] = [];
 
     /** ****************************************************************************************************************
     *   Renders this GUI message manager for one game tick.

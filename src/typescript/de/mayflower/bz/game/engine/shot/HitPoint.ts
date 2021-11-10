@@ -6,17 +6,17 @@ import * as bz from '../../..';
 export class HitPoint
 {
     /** The exact collision point. */
-    private         readonly    point                           :BABYLON.Vector3                = null;
+    private readonly point      :BABYLON.Vector3        = null;
     /** The affected mesh of the game object. */
-    private         readonly    mesh                            :BABYLON.AbstractMesh           = null;
+    private readonly mesh       :BABYLON.AbstractMesh   = null;
     /** The normal of the face this hit point impacts. */
-    private         readonly    normal                          :BABYLON.Vector3                = null;
+    private readonly normal     :BABYLON.Vector3        = null;
     /** The distance from the shot source to this hit point. */
-    private         readonly    distance                        :number                         = null;
+    private readonly distance   :number                 = null;
     /** The direction of the shot that caused this hit point. */
-    private         readonly    direction                       :BABYLON.Vector3                = null;
+    private readonly direction  :BABYLON.Vector3        = null;
     /** The affected game object. */
-    private         readonly    gameObject                      :bz.GameObject                  = null;
+    private readonly gameObject :bz.GameObject          = null;
 
     /** ****************************************************************************************************************
     *   Creates a new hit point that carries collision information.

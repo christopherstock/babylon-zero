@@ -6,21 +6,21 @@ import * as bz from '../../../..';
 export class Sprite
 {
     /** The wrapped native babylon.JS sprite instance. */
-    private             readonly            sprite                          :BABYLON.Sprite             = null;
+    private readonly sprite                         :BABYLON.Sprite             = null;
     /** The possible collider - A cylinder body for this sprite. */
-    private             readonly            collider                        :BABYLON.AbstractMesh       = null;
+    private readonly collider                       :BABYLON.AbstractMesh       = null;
 
     /** Saves if this sprite is animated. */
-    private                                 isAnimated                      :boolean                    = false;
+    private          isAnimated                     :boolean                    = false;
     /** Saves current animation's start frame. */
-    private                                 animationFrameFrom              :number                     = 0;
+    private          animationFrameFrom             :number                     = 0;
     /** Saves current animation's end frame. */
-    private                                 animationFrameTo                :number                     = 0;
+    private          animationFrameTo               :number                     = 0;
     /** Saves current animation's looping property. */
-    private                                 animationFrameLooped            :boolean                    = false;
+    private          animationFrameLooped           :boolean                    = false;
 
     /** Saves the last visible sprite animation frame index. */
-    private                                 lastSpriteAnimationIndex        :number                     = -1;
+    private          lastSpriteAnimationIndex       :number                     = -1;
 
     /** ****************************************************************************************************************
     *   Creates a new wrapped sprite object from the specified sprite file.

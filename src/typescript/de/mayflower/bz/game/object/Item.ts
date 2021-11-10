@@ -6,10 +6,9 @@ import * as bz from '../..';
 export class Item extends bz.GameObject
 {
     /** Flags that this item has been picked. */
-    private                 picked              :boolean                        = false;
-
+    private picked :boolean = false;
     /** Current rotation Y for this item. */
-    private                 rotY                :number                         = 0.0;
+    private rotY   :number  = 0.0;
 
     /** ****************************************************************************************************************
     *   Creates a new item.

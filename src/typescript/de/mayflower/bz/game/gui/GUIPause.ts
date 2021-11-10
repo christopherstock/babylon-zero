@@ -7,7 +7,7 @@ import * as BABYLON_GUI from 'babylonjs-gui'
 export class GUIPause
 {
     /** All items of the GUI menu. */
-    private     static  readonly        GUI_MENU_ITEMS          :bz.GUIMenuItem[]                       =
+    private static readonly GUI_MENU_ITEMS  :bz.GUIMenuItem[]           =
     [
         new bz.GUIMenuItem( 'Stage 1 - Office',                  bz.GUIAction.SWITCH_TO_STAGE_1 ),
         new bz.GUIMenuItem( 'Stage 2 - Intro Logo',              bz.GUIAction.SWITCH_TO_STAGE_2 ),
@@ -15,13 +15,13 @@ export class GUIPause
     ];
 
     /** The translucent background. */
-    private             readonly        bg                      :BABYLON_GUI.Rectangle                 = null;
+    private        readonly bg              :BABYLON_GUI.Rectangle      = null;
     /** The 'pause explanation' textblock. */
-    private             readonly        explanation             :BABYLON_GUI.TextBlock                 = null;
+    private        readonly explanation     :BABYLON_GUI.TextBlock      = null;
     /** The 'pause menu' headline text. */
-    private             readonly        menuHeadline                :BABYLON_GUI.TextBlock                 = null;
+    private        readonly menuHeadline    :BABYLON_GUI.TextBlock      = null;
     /** The GUI menu. */
-    private             readonly        menu                    :bz.GUIMenu                     = null;
+    private        readonly menu            :bz.GUIMenu                 = null;
 
     /** ****************************************************************************************************************
     *   Initializes all components of the pause screen and adds them to the given component.

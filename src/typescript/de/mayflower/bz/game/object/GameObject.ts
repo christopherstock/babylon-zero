@@ -6,21 +6,21 @@ import * as bz from '../..';
 export abstract class GameObject
 {
     /** An energy amount that represents that this game object is unbreakable. */
-    public      static  readonly        UNBREAKABLE                 :number                         = -1;
+    public    static readonly UNBREAKABLE          :number   = -1;
 
     /** The stage this game object belongs to. */
-    protected           readonly        stage                       :bz.Stage                       = null;
+    protected        readonly stage                :bz.Stage = null;
     /** All meshes this game object consists of. */
-    protected           readonly        model                       :bz.Model                       = null;
+    protected        readonly model                :bz.Model = null;
     /** The initial energy of this game object. */
-    private             readonly        initialEnergy               :number                         = 0;
+    private          readonly initialEnergy        :number   = 0;
 
     /** The current energy of this wall. */
-    private                             energy                      :number                         = 0;
+    private                   energy               :number   = 0;
     /** Flags if this wall is broken. */
-    private                             destroyed                   :boolean                        = false;
+    private                   destroyed            :boolean  = false;
     /** The next z-index for the bullet hole to assign. */
-    private                             nextBulletHoleZIndex        :number                         = 0;
+    private                   nextBulletHoleZIndex :number   = 0;
 
     /** ****************************************************************************************************************
     *   Creates a new game object.

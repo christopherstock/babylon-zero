@@ -5,20 +5,20 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class BulletHole
 {
-    /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
-    private     static  readonly    BULLET_HOLE_DEPTH               :number                             = 0.025;
+    /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! TODO to SettingEngine */
+    private static readonly BULLET_HOLE_DEPTH           :number                 = 0.025;
 
     /** The hit point this bullet hole is created for. */
-    private             readonly    hitPoint                        :bz.HitPoint                        = null;
+    private        readonly hitPoint                    :bz.HitPoint            = null;
     /** The emissive color of the stage where this bullet hole is created. */
-    private             readonly    emissiveColor                   :BABYLON.Color3                     = null;
+    private        readonly emissiveColor               :BABYLON.Color3         = null;
 
     /** The decal mesh of this bullet hole. */
-    private                         holeMesh                        :BABYLON.Mesh                       = null;
+    private                 holeMesh                    :BABYLON.Mesh           = null;
     /** The debug sphere mesh of this bullet hole. */
-    private                         debugSphereMesh                 :BABYLON.Mesh                       = null;
+    private                 debugSphereMesh             :BABYLON.Mesh           = null;
     /** The debug normal line of the hit face. */
-    private                         debugNormalLine                 :BABYLON.Mesh                       = null;
+    private                 debugNormalLine             :BABYLON.Mesh           = null;
 
     /** ****************************************************************************************************************
     *   Creates a new bullet hole.

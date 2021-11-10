@@ -6,7 +6,7 @@ import * as bz      from '../../..';
 export abstract class LightFactory
 {
     /** Next ID to assign for light creation. */
-    private         static          nextLightId          :number                 = 0;
+    private static nextLightId :number = 0;
 
     /** ****************************************************************************************************************
     *   Creates a hemispheric light.

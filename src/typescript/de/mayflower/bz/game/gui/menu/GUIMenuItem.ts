@@ -7,12 +7,12 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export class GUIMenuItem
 {
     /** The label of this menu item. */
-    private             readonly        label                       :string                         = null;
+    private readonly label      :string                         = null;
     /** The action to execute on performing this menu item. */
-    private             readonly        action                      :bz.GUIAction                   = null;
+    private readonly action     :bz.GUIAction                   = null;
 
     /** The text block that represents this menu item in the GUI. */
-    private                             textBlock                   :BABYLON_GUI.TextBlock          = null;
+    private          textBlock  :BABYLON_GUI.TextBlock          = null;
 
     /** ****************************************************************************************************************
     *   Creates a new menu item.

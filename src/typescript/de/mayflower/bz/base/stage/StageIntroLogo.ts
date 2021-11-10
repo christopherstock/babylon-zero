@@ -6,16 +6,16 @@ import * as bz from '../..';
 export class StageIntroLogo extends bz.Stage
 {
     /** Rotation speed in degrees per tick. */
-    private     static  readonly    ROTATION_SPEED          :number                     = 1.75;
+    private static readonly ROTATION_SPEED      :number                     = 1.75;
 
     /** Referenced imported logo. */
-    protected                       logo                    :bz.Wall                    = null;
+    protected               logo                :bz.Wall                    = null;
     /** Referenced point light. */
-    private                         pointLight              :BABYLON.PointLight         = null;
+    private                 pointLight          :BABYLON.PointLight         = null;
     /** Current logo rotation Y. */
-    private                         logoRotY                :number                     = 270.0;
+    private                 logoRotY            :number                     = 270.0;
     /** Notifies current frame. */
-    private                         currentTick             :number                     = 0;
+    private                 currentTick         :number                     = 0;
 
     /** ****************************************************************************************************************
     *   Renders all stage concernings for one tick of the game loop.

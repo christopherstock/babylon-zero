@@ -7,12 +7,12 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export class GUIMenu
 {
     /** The menu items texts. */
-    private             readonly        menuItems                   :bz.GUIMenuItem[]               = [];
+    private readonly menuItems              :bz.GUIMenuItem[]               = [];
     /** Specifies if selection wrapping is enabled by selecting items out of bounds. */
-    private             readonly        wrapSelection               :boolean                        = false;
+    private readonly wrapSelection          :boolean                        = false;
 
     /** The index of the current selected item of the pause menu. */
-    private                             currentSelectedItem         :number                         = 0;
+    private          currentSelectedItem    :number                         = 0;
 
     /** ****************************************************************************************************************
     *   Creates a new GUI menu.

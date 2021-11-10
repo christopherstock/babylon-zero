@@ -6,20 +6,20 @@ import * as bz from '../../..';
 export class Shot
 {
     /** The source point of the shot. */
-    private             readonly    source              :BABYLON.Vector3                        = null;
+    private readonly source         :BABYLON.Vector3    = null;
     /** The rotation of the shot source. */
-    private             readonly    rotation            :BABYLON.Vector3                        = null;
+    private readonly rotation       :BABYLON.Vector3    = null;
     /** The maximum range of this shot. */
-    private             readonly    range               :number                                 = 0.0;
+    private readonly range          :number             = 0.0;
     /** Specifies if this shot is wall breaking. */
-    private             readonly    wallBreaking        :boolean                                = false;
+    private readonly wallBreaking   :boolean            = false;
     /** The damage this shot causes onto game objects. */
-    private             readonly    damage              :number                                 = 0;
+    private readonly damage         :number             = 0;
 
     /** The destination point of the shot. */
-    private             readonly    destination         :BABYLON.Vector3                        = null;
+    private readonly destination    :BABYLON.Vector3    = null;
     /** The ray that contains the mapped shot information for babylon.JS. */
-    private             readonly    ray                 :BABYLON.Ray                            = null;
+    private readonly ray            :BABYLON.Ray        = null;
 
     /** ****************************************************************************************************************
     *   Creates a new shot.

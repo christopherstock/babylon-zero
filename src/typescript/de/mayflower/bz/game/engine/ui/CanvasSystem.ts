@@ -6,9 +6,9 @@ import * as bz from '../../..';
 export class CanvasSystem
 {
     /** The native HTML5 canvas element. */
-    private         readonly    canvas                  :HTMLCanvasElement              = null;
+    private readonly canvas        :HTMLCanvasElement     = null;
     /** The canvas rendering context. */
-    private         readonly    canvasContext           :WebGLRenderingContext          = null;
+    private readonly canvasContext :WebGLRenderingContext = null;
 
     /** ****************************************************************************************************************
     *   Constructs a new canvas system.

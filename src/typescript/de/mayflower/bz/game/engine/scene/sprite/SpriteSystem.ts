@@ -6,13 +6,13 @@ import * as bz from '../../../..';
 export class SpriteSystem
 {
     /** Next ID to assign for sprite creation. */
-    private                         nextSpriteId                    :number                     = 0;
+    private          nextSpriteId       :number                     = 0;
 
     /** Holds all sprite managers - one for each sprite file. */
-    private                         spriteManagers                  :BABYLON.SpriteManager[]    = [];
+    private          spriteManagers     :BABYLON.SpriteManager[]    = [];
 
     /** All sprite files to load. */
-    private             readonly    filesToLoad                     :bz.SpriteFile[]            = [];
+    private readonly filesToLoad        :bz.SpriteFile[]            = [];
 
     /** ****************************************************************************************************************
     *   Creates a new sprite system.

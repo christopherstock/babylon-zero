@@ -2,6 +2,8 @@ import * as bz from '../..';
 
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
+*
+*   TODO extract some components to separate class?
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {

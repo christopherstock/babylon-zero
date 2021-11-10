@@ -8,15 +8,15 @@ import * as bz from '../../../..';
 export class Model
 {
     /** All meshes belonging to this model. */
-    private             readonly            meshes                  :BABYLON.AbstractMesh[]             = null;
+    private readonly meshes                 :BABYLON.AbstractMesh[]             = null;
 
     /** The compound mesh for all meshes. */
-    private                                 compoundMesh            :BABYLON.AbstractMesh               = null;
+    private          compoundMesh           :BABYLON.AbstractMesh               = null;
     /** The physical impostors for all meshes of this model. */
-    private                                 impostors               :bz.PhysicImpostorParams[]          = null;
+    private          impostors              :bz.PhysicImpostorParams[]          = null;
 
     /** Specifies if the compound enables single meshes to be shot off. */
-    private                                 enableSingleShotOffs    :boolean                            = false;
+    private          enableSingleShotOffs   :boolean                            = false;
 
     /** ****************************************************************************************************************
     *   Creates a new model consisting of the specified meshes.

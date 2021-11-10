@@ -7,24 +7,24 @@ import * as bz from '../../..';
 export class Scene
 {
     /** The current babylon.JS scene. */
-    private                     babylonScene                :BABYLON.Scene                      = null;
+    private babylonScene            :BABYLON.Scene                      = null;
     /** The physics plugin being used in the scene. */
-    private                     physicsPlugin               :BABYLON.IPhysicsEnginePlugin       = null;
+    private physicsPlugin           :BABYLON.IPhysicsEnginePlugin       = null;
 
     /** The material system. */
-    private                     materialSystem              :bz.MaterialSystem                  = null;
+    private materialSystem          :bz.MaterialSystem                  = null;
     /** The sprite system. */
-    private                     spriteSystem                :bz.SpriteSystem                    = null;
+    private spriteSystem            :bz.SpriteSystem                    = null;
     /** The sound system. */
-    private                     soundSystem                 :bz.SoundSystem                     = null;
+    private soundSystem             :bz.SoundSystem                     = null;
     /** The mesh import system. */
-    private                     modelSystem                 :bz.ModelSystem                     = null;
+    private modelSystem             :bz.ModelSystem                     = null;
 
     /** The callback to invoke when the scene is fully loaded. */
-    private                     onLoadingComplete           :() => void                         = null;
+    private onLoadingComplete       :() => void                         = null;
 
     /** Specifies if the physics are currently running. */
-    private                     physicsRunning              :boolean                            = false;
+    private physicsRunning          :boolean                            = false;
 
     /** ****************************************************************************************************************
     *   Inits the babylon.JS scene.

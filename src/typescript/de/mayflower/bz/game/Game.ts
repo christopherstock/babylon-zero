@@ -6,19 +6,19 @@ import * as bz from '..';
 export class Game
 {
     /** The game engine. */
-    private                     engine                      :bz.Engine                  = null;
+    private engine      :bz.Engine      = null;
     /** The current game scene. */
-    private                     scene                       :bz.Scene                   = null;
+    private scene       :bz.Scene       = null;
     /** The current stage. */
-    private                     stage                       :bz.Stage                   = null;
+    private stage       :bz.Stage       = null;
     /** The game GUI. */
-    private                     gui                         :bz.GUI                     = null;
+    private gui         :bz.GUI         = null;
     /** Indicates pause state. */
-    private                     pause                       :boolean                    = false;
+    private pause       :boolean        = false;
     /** The key system to use in this stage. */
-    private                     keySystem                   :bz.KeySystem               = null;
+    private keySystem   :bz.KeySystem   = null;
     /** The mouse system to use in this stage. */
-    private                     mouseSystem                 :bz.MouseSystem             = null;
+    private mouseSystem :bz.MouseSystem = null;
 
     /** ****************************************************************************************************************
     *   Inits the game from scratch.

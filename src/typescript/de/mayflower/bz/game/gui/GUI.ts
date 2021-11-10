@@ -7,28 +7,28 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export class GUI
 {
     /** The 'player' fullscreen gui lies on the lowest layer. */
-    private             readonly        guiPlayer                   :BABYLON_GUI.AdvancedDynamicTexture     = null;
+    private readonly guiPlayer      :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'effects' fullscreen gui lies over the player GUI. */
-    private             readonly        guiEffects                  :BABYLON_GUI.AdvancedDynamicTexture     = null;
+    private readonly guiEffects     :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'messages' fullscreen gui lies over the effects GUI. */
-    private             readonly        guiMessages                 :BABYLON_GUI.AdvancedDynamicTexture     = null;
+    private readonly guiMessages    :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'pause' fullscreen gui lies over the messages GUI. */
-    private             readonly        guiPause                    :BABYLON_GUI.AdvancedDynamicTexture     = null;
+    private readonly guiPause       :BABYLON_GUI.AdvancedDynamicTexture     = null;
 
     /** The FPS text block. */
-    private             readonly        fpsText                     :BABYLON_GUI.TextBlock                  = null;
+    private readonly fpsText        :BABYLON_GUI.TextBlock                  = null;
     /** The manager for GUI messages. */
-    private             readonly        messageManager              :bz.GUIMessageManager                   = null;
+    private readonly messageManager :bz.GUIMessageManager                   = null;
     /** The manager for GUI effects. */
-    private             readonly        fxManager                   :bz.GUIFxManager                        = null;
+    private readonly fxManager      :bz.GUIFxManager                        = null;
 
     /** The pause GUI. */
-    private             readonly        pauseGui                    :bz.GUIPause                            = null;
+    private readonly pauseGui       :bz.GUIPause                            = null;
 
     /** The wearpon image. */
-    private                             wearponImage                :BABYLON_GUI.Image                      = null;
+    private          wearponImage   :BABYLON_GUI.Image                      = null;
     /** The corsshair. */
-    private                             crosshair                   :BABYLON_GUI.Image                      = null;
+    private          crosshair      :BABYLON_GUI.Image                      = null;
 
     /** ****************************************************************************************************************
     *   Creates a new abstract Heads Up Display.

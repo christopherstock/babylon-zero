@@ -6,17 +6,17 @@ import * as bz from '../../../..';
 export class SoundSystem
 {
     /** Next ID to assign for sound creation. */
-    private             static      nextSoundId                     :number                         = 0;
+    private static          nextSoundId         :number                     = 0;
 
     /** All sound file names to load. */
-    private             readonly    fileNames                       :string[]                       = null;
+    private        readonly fileNames           :string[]                   = null;
     /** The method to invoke when all sounds are loaded. */
-    private             readonly    onLoadComplete                  :() => void                     = null;
+    private        readonly onLoadComplete      :() => void                 = null;
 
     /** The number of currently loaded sounds. */
-    private                         loadedSoundCount                :number                         = 0;
+    private                 loadedSoundCount    :number                     = 0;
     /** All loaded sound objects. */
-    private                         sounds                          :BABYLON.Sound[]                = [];
+    private                 sounds              :BABYLON.Sound[]            = [];
 
     /** ****************************************************************************************************************
     *   Preloads all images into memory.

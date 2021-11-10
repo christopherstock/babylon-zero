@@ -6,10 +6,10 @@ import * as bz from '../../../..';
 export class MaterialSystem
 {
     /** Next ID to assign for material creation. */
-    private     static              nextMaterialId              :number                 = 0;
+    private static          nextMaterialId      :number                 = 0;
 
     /** All textures to load. */
-    private             readonly    textures                    :bz.Texture[]           = [];
+    private        readonly textures            :bz.Texture[]           = [];
 
     /** ****************************************************************************************************************
     *   Creates a new material system.

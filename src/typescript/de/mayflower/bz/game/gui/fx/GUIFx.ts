@@ -7,10 +7,10 @@ import * as BABYLON_GUI from 'babylonjs-gui'
 export class GUIFx
 {
     /** The number of ticks this fx is still visible. */
-    private                             lifetimeTicks               :number                             = 0;
+    private          lifetimeTicks :number                      = 0;
 
     /** The fullscreen rect that represents this fx. */
-    private             readonly        fxRect                      :BABYLON_GUI.Rectangle                     = null;
+    private readonly fxRect        :BABYLON_GUI.Rectangle       = null;
 
     /** ****************************************************************************************************************
     *   Creates a new GUI effect.

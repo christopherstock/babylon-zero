@@ -5,18 +5,18 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageOffice extends bz.Stage
 {
-    private                 readonly    OFFSET_X                        :number                     = 0.0;
-    private                 readonly    OFFSET_Z                        :number                     = 0.0;
+    private readonly OFFSET_X                       :number                 = 0.0;
+    private readonly OFFSET_Z                       :number                 = 0.0;
 
     /** A testwise mesh - made from a single 3dsmax Mesh. */
-    private                             chairCompoundDestroyable        :bz.Wall                    = null;
+    private          chairCompoundDestroyable       :bz.Wall                = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes. */
-    private                             chairMultiMeshesNoCompound      :bz.Wall                    = null;
+    private          chairMultiMeshesNoCompound     :bz.Wall                = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
-    private                             chairCompoundSingleShotOff      :bz.Wall                    = null;
+    private          chairCompoundSingleShotOff     :bz.Wall                = null;
 
     /** Testwise camera target toggle. */
-    private                             camTarget                       :boolean                    = false;
+    private          camTarget                      :boolean                = false;
 
     /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
