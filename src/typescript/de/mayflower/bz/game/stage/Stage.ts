@@ -33,13 +33,11 @@ export abstract class Stage
     protected           readonly        sprites                 :bz.Sprite[]                            = [];
     /** A collection of all lights that appear in this stage. */
     protected           readonly        lights                  :BABYLON.Light[]                        = [];
-
-
+    /** A collection of all shadowGenerators that appear in this stage. */
+    protected           readonly        shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
 
     /** The camera system that manages all scene cameras. */
     protected                           cameraSystem            :bz.CameraSystem                        = null;
-    /** A collection of all shadowGenerators that appear in this stage. */
-    protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
 
     /** A collection of all bullet holes in this stage. */
     private             readonly        bulletHoles             :bz.BulletHole[]                        = [];
