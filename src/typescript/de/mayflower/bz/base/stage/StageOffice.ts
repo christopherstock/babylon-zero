@@ -251,7 +251,7 @@ export class StageOffice extends bz.Stage
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
 
-        // add shadows
+        // add shadows for point light
         this.addShadowGenerator( pointLight );
     }
 
