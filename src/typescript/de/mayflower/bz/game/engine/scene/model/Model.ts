@@ -192,7 +192,7 @@ export class Model
         (
             position,
             bz.Texture.WALL_GRASS,
-            new BABYLON.Vector3( bz.MeshFactory.FACE_DEPTH, bz.MeshFactory.FACE_DEPTH, bz.MeshFactory.FACE_DEPTH )
+            new BABYLON.Vector3( bz.SettingEngine.FACE_DEPTH, bz.SettingEngine.FACE_DEPTH, bz.SettingEngine.FACE_DEPTH )
         );
 
         // set the compound mesh as parent for all meshes

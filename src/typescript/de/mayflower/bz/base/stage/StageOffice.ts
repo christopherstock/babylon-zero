@@ -525,7 +525,7 @@ export class StageOffice extends bz.Stage
                         (
                             new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_GLASS,
-                            new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),
+                            new BABYLON.Vector3( 2.5, 5.0, bz.SettingEngine.FACE_DEPTH ),
                             bz.PhysicSet.STATIC,
                             0.5,
                             bz.MeshAnchor.LOWEST_XYZ

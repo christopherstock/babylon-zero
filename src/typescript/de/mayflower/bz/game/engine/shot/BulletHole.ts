@@ -5,9 +5,6 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class BulletHole
 {
-    /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! TODO to SettingEngine */
-    private static readonly BULLET_HOLE_DEPTH           :number                 = 0.025;
-
     /** The hit point this bullet hole is created for. */
     private        readonly hitPoint                    :bz.HitPoint            = null;
     /** The emissive color of the stage where this bullet hole is created. */
@@ -84,7 +81,7 @@ export class BulletHole
             this.hitPoint.getPoint().clone(),
             this.hitPoint.getMesh(),
             this.hitPoint.getNormal(),
-            new BABYLON.Vector3( 0.2, 0.2, BulletHole.BULLET_HOLE_DEPTH ),
+            new BABYLON.Vector3( 0.2, 0.2, bz.SettingEngine.BULLET_HOLE_DEPTH ),
             bz.MathUtil.getRandomInt( 0, 359 ),
             this.hitPoint.getGameObjectNextBulletHoleIndexZ(),
             meshTexture,
