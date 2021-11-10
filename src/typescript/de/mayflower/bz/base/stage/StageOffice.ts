@@ -34,29 +34,27 @@ export class StageOffice extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected createStageContents() : void
+    protected createStageContents( meshFactory:bz.MeshFactory ) : void
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
         this.setPlayer(
             new bz.Player
             (
                 this,
-                this.scene,
+                this.getScene(),
                 new BABYLON.Vector3(
                     this.OFFSET_X + 3.5,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
                     this.OFFSET_Z + 3.5
                 ),
                 45.0,
-                this.config.ambientColor
+                this.getConfig().ambientColor
             )
         );
 
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
-            this.scene,
+            this.getScene(),
             bz.SpriteFile.FIRE,
             new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
             10.0,
@@ -70,7 +68,7 @@ export class StageOffice extends bz.Stage
         this.addSprite(
             new bz.Sprite
             (
-                this.scene,
+                this.getScene(),
                 bz.SpriteFile.PALM,
                 new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
                 10.0,
@@ -85,7 +83,7 @@ export class StageOffice extends bz.Stage
         this.addSprite(
             new bz.Sprite
             (
-                this.scene,
+                this.getScene(),
                 bz.SpriteFile.TREE,
                 new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
                 10.0,
@@ -98,7 +96,7 @@ export class StageOffice extends bz.Stage
         this.addSprite(
             new bz.Sprite
             (
-                this.scene,
+                this.getScene(),
                 bz.SpriteFile.PALM,
                 new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
                 10.0,
@@ -113,7 +111,7 @@ export class StageOffice extends bz.Stage
         this.addSprite(
             new bz.Sprite
             (
-                this.scene,
+                this.getScene(),
                 bz.SpriteFile.TREE,
                 new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
                 10.0,
@@ -171,7 +169,7 @@ export class StageOffice extends bz.Stage
         // point light
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
-            this.scene.getNativeScene(),
+            this.getScene().getNativeScene(),
             new BABYLON.Vector3( this.OFFSET_X + 20.0, 2.5, this.OFFSET_Z + 20.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
@@ -196,7 +194,7 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected handleStageKeys() : void
     {
-        const keySystem :bz.KeySystem = this.game.getKeySystem();
+        const keySystem :bz.KeySystem = this.getGame().getKeySystem();
 
         if ( keySystem.isPressed( bz.KeyCodes.KEY_ENTER ) )
         {
@@ -205,14 +203,14 @@ export class StageOffice extends bz.Stage
             // add GUI messages to queue and start various debug actions
 
             // explode compound spheres
-            this.game.getGUI().addGuiMessage(
+            this.getGame().getGUI().addGuiMessage(
                 'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']'
             );
             // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
 
             // perform a camera animation for the stationary target camera
-            this.game.getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
-            this.cameraSystem.animateCameraPosition
+            this.getGame().getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
+            this.getCameraSystem().animateCameraPosition
             (
                 bz.CameraType.STATIONARY,
                 ( this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3( 40.0, 10.0, 40.0 ) ),
@@ -223,7 +221,7 @@ export class StageOffice extends bz.Stage
             this.camTarget = !this.camTarget;
 
             // show hurt GUI effect
-            this.game.getGUI().addGuiFx( bz.GUIFxType.HURT );
+            this.getGame().getGUI().addGuiFx( bz.GUIFxType.HURT );
         }
     }
 
@@ -247,7 +245,7 @@ export class StageOffice extends bz.Stage
                             300.0,
                             10.0,
                             bz.TextureFile.HEIGHTMAP_VALLEY,
-                            this.config.ambientColor,
+                            this.getConfig().ambientColor,
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
                             bz.PhysicSet.STATIC
                         ),
@@ -266,7 +264,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.config.ambientColor,
+                            this.getConfig().ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X, 15.5, this.OFFSET_Z  ),
                             bz.Texture.WALL_TEST,
                             new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
@@ -364,7 +362,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.config.ambientColor,
+                            this.getConfig().ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
                             bz.Texture.WALL_METAL,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
@@ -388,7 +386,7 @@ export class StageOffice extends bz.Stage
                         // movable glass cube
                         meshFactory.createBox
                         (
-                            this.config.ambientColor,
+                            this.getConfig().ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
@@ -461,7 +459,7 @@ export class StageOffice extends bz.Stage
                 [
                     meshFactory.createBox
                     (
-                        this.config.ambientColor,
+                        this.getConfig().ambientColor,
                         new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
                         bz.Texture.VIDEO_TEST,
                         // new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
@@ -495,7 +493,7 @@ export class StageOffice extends bz.Stage
                             null,
                             bz.PhysicSet.WHITE_TEST_SPHERE,
                             1.0,
-                            this.config.ambientColor
+                            this.getConfig().ambientColor
                         ),
                     ]
                 )
@@ -512,7 +510,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.config.ambientColor,
+                            this.getConfig().ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_AMIGA,
                             new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
@@ -533,7 +531,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            this.config.ambientColor,
+                            this.getConfig().ambientColor,
                             new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 5.0, bz.MeshFactory.FACE_DEPTH ),

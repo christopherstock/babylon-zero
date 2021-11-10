@@ -6,37 +6,35 @@ import * as bz from '../..';
 export abstract class Stage
 {
     /** The game instance. */
-    protected           readonly        game                    :bz.Game                               = null;
+    private readonly game               :bz.Game                    = null;
     /** The scene instance of the game instance. */
-    protected           readonly        scene                   :bz.Scene                               = null;
+    private readonly scene              :bz.Scene                   = null;
+
+    /** A collection of all walls in this stage. */
+    private readonly walls              :bz.Wall[]                  = [];
+    /** A collection of all items in this stage. */
+    private readonly items              :bz.Item[]                  = [];
+    /** A collection of all bots in this stage. */
+    private readonly bots               :bz.Bot[]                   = [];
+    /** A collection of all sprites that appear in this stage. */
+    private readonly sprites            :bz.Sprite[]                = [];
+    /** A collection of all lights that appear in this stage. */
+    private readonly lights             :BABYLON.Light[]            = [];
+    /** A collection of all shadowGenerators that appear in this stage. */
+    private readonly shadowGenerators   :BABYLON.ShadowGenerator[]  = [];
+    /** A collection of all bullet holes in this stage. */
+    private readonly bulletHoles        :bz.BulletHole[]            = [];
+    /** A collection of all debug meshes in this stage. */
+    private readonly debugMeshes        :BABYLON.Mesh[]             = [];
 
     /** The stage config. */
-    protected                           config                  :bz.StageConfig                         = null;
-
-    /** The player instance. */
-    protected                           player                  :bz.Player                              = null;
-    /** The skybox that surrounds the whole stage. */
-    protected                           skybox                  :BABYLON.Mesh                           = null;
-    /** A collection of all walls in this stage. */
-    protected           readonly        walls                   :bz.Wall[]                              = [];
-    /** A collection of all items in this stage. */
-    protected           readonly        items                   :bz.Item[]                              = [];
-    /** A collection of all bots in this stage. */
-    protected           readonly        bots                    :bz.Bot[]                               = [];
-    /** A collection of all sprites that appear in this stage. */
-    protected           readonly        sprites                 :bz.Sprite[]                            = [];
-    /** A collection of all lights that appear in this stage. */
-    protected           readonly        lights                  :BABYLON.Light[]                        = [];
-    /** A collection of all shadowGenerators that appear in this stage. */
-    protected           readonly        shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
-
+    private          config             :bz.StageConfig             = null;
     /** The camera system that manages all scene cameras. */
-    protected                           cameraSystem            :bz.CameraSystem                        = null;
-
-    /** A collection of all bullet holes in this stage. */
-    private             readonly        bulletHoles             :bz.BulletHole[]                        = [];
-    /** A collection of all debug meshes in this stage. */
-    private             readonly        debugMeshes             :BABYLON.Mesh[]                         = [];
+    private          cameraSystem       :bz.CameraSystem            = null;
+    /** The player instance. */
+    private          player             :bz.Player                  = null;
+    /** The skybox that surrounds the whole stage. */
+    private          skybox             :BABYLON.Mesh               = null;
 
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
@@ -45,8 +43,8 @@ export abstract class Stage
     *******************************************************************************************************************/
     public constructor( game :bz.Game )
     {
-        this.game          = game;
-        this.scene         = game.getScene();
+        this.game  = game;
+        this.scene = game.getScene();
     }
 
     /** ****************************************************************************************************************
@@ -57,7 +55,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected abstract createStageContents() : void;
+    protected abstract createStageContents( meshFactory:bz.MeshFactory ) : void;
 
     /** ****************************************************************************************************************
     *   Handles stage specific keys.
@@ -77,7 +75,8 @@ export abstract class Stage
         this.scene.getNativeScene().clearColor   = this.config.sceneBgColor;
 
         // create all stage contents
-        this.createStageContents();
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+        this.createStageContents( meshFactory );
 
         // create cameras and set initial cam
         this.cameraSystem = this.createCameraSystem();
@@ -293,6 +292,26 @@ export abstract class Stage
     public getGame() : bz.Game
     {
         return this.game;
+    }
+
+    /** ****************************************************************************************************************
+    *   Returns the according scene.
+    *
+    *   @return The scene this stage belongs to.
+    *******************************************************************************************************************/
+    public getScene() : bz.Scene
+    {
+        return this.scene;
+    }
+
+    /** ****************************************************************************************************************
+    *   Returns the according config.
+    *
+    *   @return The config for this stage.
+    *******************************************************************************************************************/
+    public getConfig() : bz.StageConfig
+    {
+        return this.config;
     }
 
     /** ****************************************************************************************************************

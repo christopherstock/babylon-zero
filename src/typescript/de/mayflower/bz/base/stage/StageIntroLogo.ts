@@ -91,10 +91,8 @@ export class StageIntroLogo extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected createStageContents() : void
+    protected createStageContents( meshFactory:bz.MeshFactory ) : void
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
         // mayflower logo
         this.logo = new bz.Wall(
             this,
@@ -115,7 +113,7 @@ export class StageIntroLogo extends bz.Stage
 */
         this.pointLight = bz.LightFactory.createPoint
         (
-            this.scene.getNativeScene(),
+            this.getScene().getNativeScene(),
             new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
