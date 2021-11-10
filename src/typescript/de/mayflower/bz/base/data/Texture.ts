@@ -218,6 +218,11 @@ export class Texture
         return DEFAULT_BULLET_HOLE_TEXTURE;
     }
 
+    /** ****************************************************************************************************************
+    *   Delivers the BulletHole Texture for a 3ds max model's texture file specification.
+    *
+    *   @param meshTextureFileName The filename of the 3ds max model's used texture -- without any directory component.
+    *******************************************************************************************************************/
     private static getBulletHoleTextureForModelTexture( meshTextureFileName:string ) :bz.Texture
     {
         switch ( meshTextureFileName )

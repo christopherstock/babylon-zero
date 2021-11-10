@@ -170,6 +170,15 @@ export abstract class LightFactory
         return light;
     }
 
+    /** ****************************************************************************************************************
+    *   Creates a 'volumic scattered light' post processing effect onto the specified light.
+    *
+    *   @param scene         The scene that contains this light.
+    *   @param position      Where this light is located.
+    *   @param scaling       Scale to apply to the light mesh.
+    *   @param boundCamera   The camera to apply this post processing effect to.
+    *   @param engine        The parent engine reference.
+    *******************************************************************************************************************/
     public static createVolumetricLightScatteringPostProcess
     (
         scene       :BABYLON.Scene,

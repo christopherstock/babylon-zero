@@ -276,6 +276,8 @@ export class StageOffice extends bz.Stage
 
     /** ****************************************************************************************************************
     *   Adds all boxes to this stage.
+    *
+    *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
     private addBoxesWalls( meshFactory:bz.MeshFactory ) : void
     {
@@ -397,6 +399,11 @@ export class StageOffice extends bz.Stage
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds all chairs to this stage.
+    *
+    *   @param meshFactory The MeshFactory instance.
+    *******************************************************************************************************************/
     private addChairsWalls( meshFactory:bz.MeshFactory ) : void
     {
         // multi mesh chair with compound .. scatters after being shot multiple times!
@@ -444,6 +451,11 @@ export class StageOffice extends bz.Stage
         this.addWall( this.chairCompoundSingleShotOff );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds all stuff walls to this stage.
+    *
+    *   @param meshFactory The MeshFactory instance.
+    *******************************************************************************************************************/
     private addStuffWalls( meshFactory:bz.MeshFactory ) : void
     {
         // tv
