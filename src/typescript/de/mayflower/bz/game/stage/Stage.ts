@@ -453,7 +453,7 @@ export abstract class Stage
         let hitPoints:bz.HitPoint[] = [];
 
         // check collision with walls
-        bz.Debug.fire.log( ' Checking shot collision with [' + String( this.walls.length ) + '] walls' );
+        bz.Debug.fire.log( ' Check shot collision with [' + String( this.walls.length ) + '] walls' );
         for ( const wall of this.walls )
         {
             hitPoints = hitPoints.concat( wall.determineHitPoints( shot ) );

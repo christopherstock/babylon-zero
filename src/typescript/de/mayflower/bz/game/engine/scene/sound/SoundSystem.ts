@@ -72,7 +72,7 @@ export class SoundSystem
     {
         if ( !bz.SettingDebug.DISABLE_SOUND )
         {
-            bz.Debug.sound.log( 'Playing sound [' + id + ']' );
+            bz.Debug.sound.log( 'Play sound [' + id + ']' );
 
             this.sounds[ id ].loop = loop;
 
@@ -89,7 +89,7 @@ export class SoundSystem
     {
         if ( ++this.loadedSoundCount >= this.fileNames.length )
         {
-            bz.Debug.init.log( ' All [' + String( this.fileNames.length ) + '] sounds loaded' );
+            bz.Debug.init.log( ' Sound load complete [' + String( this.fileNames.length ) + '] files' );
 
             this.onLoadComplete();
         }

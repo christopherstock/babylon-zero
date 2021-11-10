@@ -350,13 +350,13 @@ export class MouseSystem
             (    document        ).pointerLockElement    === nativeCanvas
             || ( document as any ).mozPointerLockElement === nativeCanvas
         ) {
-            bz.Debug.pointer.log( 'The pointer lock status is now LOCKED' );
+            bz.Debug.pointer.log( 'Pointer lock status is now LOCKED' );
 
             this.mouseLocked = true;
         }
         else
         {
-            bz.Debug.pointer.log( 'The pointer lock status is now UNLOCKED' );
+            bz.Debug.pointer.log( 'Pointer lock status is now UNLOCKED' );
 
             this.mouseLocked = false;
         }

@@ -35,7 +35,7 @@ export class KeySystem
         {
             this.keysPressed[ keyCode ] = true;
 
-            bz.Debug.key.log( 'key pressed ['  + keyCode + ']' );
+            bz.Debug.key.log( 'Key pressed ['  + keyCode + ']' );
         }
     }
 
@@ -57,7 +57,7 @@ export class KeySystem
             bz.Main.game.engine.babylonEngine.switchFullscreen( true );
         }
 */
-        bz.Debug.key.log( 'key released ['  + keyCode + ']' );
+        bz.Debug.key.log( 'Key released ['  + keyCode + ']' );
     }
 
     /** ****************************************************************************************************************
@@ -90,7 +90,7 @@ export class KeySystem
     *******************************************************************************************************************/
     public releaseAllKeys() : void
     {
-        bz.Debug.key.log( 'releasing all keys' );
+        bz.Debug.key.log( 'Release all keys' );
 
         this.keysPressed = [];
     }

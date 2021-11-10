@@ -5,6 +5,7 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO prune ALL whitespace in variable definitions!!
 TODO Add suitable textures!
 TODO Add room/house creation method.
 TODO Stop player from jumping around when falling etc?

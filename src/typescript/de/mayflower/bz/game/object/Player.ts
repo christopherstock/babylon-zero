@@ -547,7 +547,7 @@ export class Player extends bz.GameObject
     {
         this.duck = !this.duck;
 
-        bz.Debug.player.log( 'Player ducking: [' + String( this.duck ) + ']' );
+        bz.Debug.player.log( 'Player toggle duck to: [' + String( this.duck ) + ']' );
     }
 
     /** ****************************************************************************************************************
@@ -565,7 +565,7 @@ export class Player extends bz.GameObject
         // deny jumping if currently falling
         if ( this.isFalling() )
         {
-            bz.Debug.player.log( 'Player jumping denied caused by falling' );
+            bz.Debug.player.log( 'Player jump denied caused by falling' );
             return;
         }
 
@@ -688,7 +688,7 @@ export class Player extends bz.GameObject
             this.fire = false;
 
             bz.Debug.fire.log();
-            bz.Debug.fire.log( 'Player is firing' );
+            bz.Debug.fire.log( 'Player fires' );
 
             // create shot and apply it onto the stage
             const shot:bz.Shot = this.createShot();

@@ -71,7 +71,7 @@ export class Game
             lastPauseMenuItem = this.stage.getPauseMenuIndex();
 
             // dispose existent stage
-            bz.Debug.stage.log( 'Disposing the current stage' );
+            bz.Debug.stage.log( 'Dispose current stage' );
             this.stage.dispose();
             this.gui.dispose();
         }
@@ -97,7 +97,7 @@ export class Game
         this.gui.init();
 
         // init the new stage
-        bz.Debug.stage.log( ' Initialize target stage [' + String( targetStage ) + ']' );
+        bz.Debug.stage.log( ' Init target stage [' + String( targetStage ) + ']' );
         this.stage.init();
 
         // release keys and pointer lock
@@ -254,7 +254,7 @@ export class Game
     *******************************************************************************************************************/
     private onInitGameEngineCompleted() : void
     {
-        bz.Debug.init.log( 'onInitGameEngineCompleted being invoked' );
+        bz.Debug.init.log( 'Init game engine complete' );
 
         this.switchStage( bz.SettingEngine.STAGE_STARTUP );
     }
@@ -264,7 +264,7 @@ export class Game
     *******************************************************************************************************************/
     private initSceneCompleted() : void
     {
-        bz.Debug.init.log( 'System callback: Scene initialization completed' );
+        bz.Debug.init.log( 'System callback: BABYLON.Scene.executeWhenReady' );
 
         this.engine.setLoadingUiVisibility( false );
         this.engine.setRenderLoopExecution( true, () => { this.render(); } );

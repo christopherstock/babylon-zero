@@ -221,7 +221,7 @@ export class Model
     {
         if ( this.compoundMesh !== null )
         {
-            bz.Debug.physic.log( 'Removing compound parent from model' );
+            bz.Debug.physic.log( 'Remove compound parent from model' );
 
             // remove the compound from all meshes
             for ( let i:number = 0; i < this.meshes.length; ++i )
@@ -266,7 +266,7 @@ export class Model
     *******************************************************************************************************************/
     public assignImpostors( scene:BABYLON.Scene, impostors:bz.PhysicImpostorParams[] ) : void
     {
-        bz.Debug.physic.log( 'Applying impostors to cloned meshes:' );
+        bz.Debug.physic.log( 'Apply impostors to cloned meshes:' );
 
         // save impostors for later use ( e.g. when the model scatters )
         this.impostors = impostors;
@@ -281,7 +281,7 @@ export class Model
             {
                 bz.Debug.physic.log
                 (
-                    ' Applying impostor to mesh '
+                    ' Apply impostor to mesh '
                     + '[' + String( impostor.type        ) + ']'
                     + '[' + String( impostor.mass        ) + ']'
                     + '[' + String( impostor.friction    ) + ']'
@@ -491,7 +491,7 @@ export class Model
             // apply impostor
             if ( impostor === null )
             {
-                bz.Debug.physic.log( ' Applying DEFAULT (synthetic) impostor to SCATTERED mesh ' );
+                bz.Debug.physic.log( ' Apply DEFAULT (synthetic) impostor to SCATTERED mesh ' );
 
                 new bz.PhysicBody( bz.PhysicSet.SYNTHETIC_IMPOSTOR ).applyPhysicToMesh
                 (
@@ -504,7 +504,7 @@ export class Model
             {
                 bz.Debug.physic.log
                 (
-                    ' Applying impostor to SCATTERED mesh '
+                    ' Apply impostor to SCATTERED mesh '
                     + '[' + String( impostor.type        ) + ']'
                     + '[' + String( impostor.mass        ) + ']'
                     + '[' + String( impostor.friction    ) + ']'

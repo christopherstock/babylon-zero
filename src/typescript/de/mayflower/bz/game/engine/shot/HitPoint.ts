@@ -103,7 +103,7 @@ export class HitPoint
         }
         else
         {
-            bz.Debug.fire.log( 'applying impulse not suitable: mesh has no physics impostor' );
+            bz.Debug.fire.log( 'apply impulse not suitable: mesh has no physics impostor' );
         }
     }
 

@@ -100,7 +100,7 @@ export class ModelSystem
     {
         if ( ++this.loadedModelCount >= this.fileNames.length )
         {
-            bz.Debug.init.log( ' All [' + String( this.fileNames.length ) + '] models loaded' );
+            bz.Debug.init.log( ' Model import complete [' + String( this.fileNames.length ) + '] files' );
 
             this.onLoadComplete();
         }

@@ -1,7 +1,7 @@
 import * as bz from '../..';
 
 /** ********************************************************************************************************************
-*   Manages all game engine components.
+*   Manages the native Babylon.js engine.
 ***********************************************************************************************************************/
 export class Engine
 {
@@ -25,7 +25,7 @@ export class Engine
         this.loadingScreen = new bz.LoadingScreen( this.canvasSystem.getNativeCanvas() );
 
         // init babylon.JS engine, set and show custom loading screen
-        bz.Debug.init.log( 'Init babylon.JS engine' );
+        bz.Debug.init.log( 'Init Babylon.JS engine' );
         this.babylonEngine = new BABYLON.Engine( this.canvasSystem.getNativeCanvas(), true );
         if ( bz.SettingEngine.CUSTOM_LOADING_SCREEN )
         {
@@ -65,7 +65,7 @@ export class Engine
     {
         if ( visible )
         {
-            bz.Debug.stage.log( 'Showing loading UI' );
+            bz.Debug.stage.log( 'Show loading UI' );
 
             this.babylonEngine.displayLoadingUI();
         }
@@ -145,7 +145,7 @@ export class Engine
     *******************************************************************************************************************/
     private onWindowBlur( game:bz.Game ) : void
     {
-        bz.Debug.canvas.log( 'Detected window focus lost - Releasing all keys' );
+        bz.Debug.canvas.log( 'Detected window focus lost - Release all keys' );
 
         if ( game.getStage() !== null )
         {
