@@ -10,7 +10,7 @@ export abstract class Stage
     /** The scene instance of the game instance. */
     protected           readonly        scene                   :bz.Scene                               = null;
 
-    // TODO extract constant level config to class StageConfig !
+    // TODO extract constant level config to class StageConfig ! => all constant level startup settings to one place!
 
     /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
     protected           readonly        ambientColor            :BABYLON.Color3                         = null;
@@ -21,6 +21,8 @@ export abstract class Stage
 
     /** The player instance. */
     protected                           player                  :bz.Player                              = null;
+    /** The skybox that surrounds the whole stage. */
+    protected                           skybox                  :BABYLON.Mesh                           = null;
     /** A collection of all walls in this stage. */
     protected           readonly        walls                   :bz.Wall[]                              = [];
     /** A collection of all items in this stage. */
@@ -36,8 +38,6 @@ export abstract class Stage
 
     /** The camera system that manages all scene cameras. */
     protected                           cameraSystem            :bz.CameraSystem                        = null;
-    /** The skybox that surrounds the whole stage. */
-    protected                           skybox                  :BABYLON.Mesh                           = null;
     /** A collection of all shadowGenerators that appear in this stage. */
     protected                           shadowGenerators        :BABYLON.ShadowGenerator[]              = [];
 
@@ -88,13 +88,6 @@ export abstract class Stage
     protected abstract createStageContents() : void;
 
     /** ****************************************************************************************************************
-    *   Sets up the skybox.
-    *
-    *   @return The created skybox for this stage.
-    *******************************************************************************************************************/
-    protected abstract createSkybox() : BABYLON.Mesh;
-
-    /** ****************************************************************************************************************
     *   Creates all shadow generators that appear in this level.
     *
     *   @return All shadow generators that appear in this stage.
@@ -123,11 +116,8 @@ export abstract class Stage
         // create all stage contents
         this.createStageContents();
 
-        // create all game objects
+        // create camera system and set initial camera
         this.cameraSystem  = this.createCameraSystem();
-        this.skybox        = this.createSkybox();
-
-        // set camera system
         this.setActiveCamera( this.initialCamera );
 
         // create shadow generators
@@ -360,6 +350,14 @@ export abstract class Stage
     protected setPlayer( player:bz.Player ) : void
     {
         this.player = player;
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a skybox to the level. TODO rename all to 'stage'
+    *******************************************************************************************************************/
+    protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
+    {
+        this.skybox = new bz.MeshFactory( this.scene ).createSkyBoxCube( file, alpha );
     }
 
     /** ****************************************************************************************************************

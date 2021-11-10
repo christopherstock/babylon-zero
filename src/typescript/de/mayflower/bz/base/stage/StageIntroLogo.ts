@@ -165,16 +165,6 @@ export class StageIntroLogo extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Sets up the skybox.
-    *
-    *   @return The created skybox for this stage.
-    *******************************************************************************************************************/
-    protected createSkybox() : BABYLON.Mesh
-    {
-        return null;
-    }
-
-    /** ****************************************************************************************************************
     *   Creates all shadow generators that appear in this level.
     *
     *   @return All shadow generators that appear in this stage.

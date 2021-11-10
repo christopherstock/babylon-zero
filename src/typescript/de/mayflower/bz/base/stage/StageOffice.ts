@@ -244,16 +244,9 @@ export class StageOffice extends bz.Stage
             true
         );
         this.addLight( pointLight );
-    }
 
-    /** ****************************************************************************************************************
-    *   Sets up the skybox.
-    *
-    *   @return The created skybox for this stage.
-    *******************************************************************************************************************/
-    protected createSkybox() : BABYLON.Mesh
-    {
-        return new bz.MeshFactory( this.scene ).createSkyBoxCube( bz.SkyBoxFile.BLUE_SKY, 0.5 );
+        // blue sky 0.5 alpha
+        this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
     }
 
     /** ****************************************************************************************************************
