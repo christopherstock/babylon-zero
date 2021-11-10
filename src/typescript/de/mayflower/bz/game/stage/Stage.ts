@@ -325,7 +325,7 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a skybox to the stage. TODO rename all to 'stage'
+    *   Adds a skybox to the stage.
     *******************************************************************************************************************/
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {

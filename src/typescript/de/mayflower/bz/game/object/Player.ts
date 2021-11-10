@@ -3,7 +3,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
 *
-*   TODO extract some components to separate class?
+*   TODO extract some components to separate class? body set, move/rotate set?
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {

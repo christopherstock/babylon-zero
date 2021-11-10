@@ -5,7 +5,7 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class MeshFactory
 {
-    /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
+    /** Implicit depth for 2D faces ( e.g. planes or polygons ). TODO to SettingEngine */
     public  static readonly FACE_DEPTH      :number                     = 0.0001;
 
     /** Next ID to assign for mesh creation. */

@@ -145,6 +145,7 @@ export class MaterialSystem
             texture.getIsVideoTexture()
                 ? texture.getNativeTexture()
                 // TODO is seems that cloning is not required and getNativeTexture is also sufficient here?
+                // TODO maybe try to use the internal Babylon.js texture cache? - no preloading!
                 : texture.cloneNativeTexture()
         );
 
