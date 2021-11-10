@@ -73,6 +73,10 @@ export class SettingEngine
 
     /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
     public static readonly FACE_DEPTH                               :number             = 0.0001;
+    /** Unified wall depth for building constructions. */
+    public static readonly WALL_DEPTH                               :number             = 0.2;
+    /** Unified wall height (y) for building constructions. */
+    public static readonly WALL_HEIGHT                              :number             = 6.0;
     /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
     public static readonly BULLET_HOLE_DEPTH                        :number             = 0.025;
 }

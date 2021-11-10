@@ -36,6 +36,7 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected createStageContents( meshFactory:bz.MeshFactory ) : void
     {
+        // player
         this.setPlayer(
             new bz.Player
             (
@@ -49,6 +50,13 @@ export class StageOffice extends bz.Stage
                 45.0,
                 this.getConfig().ambientColor
             )
+        );
+
+        // add room 1
+        this.addRoomWalls(
+            meshFactory,
+            new BABYLON.Vector3( 1.0, 0.0, 1.0 ),
+            new BABYLON.Vector3( 20.0, bz.SettingEngine.WALL_HEIGHT, 40.0 )
         );
 
         // create and animate a sprite
@@ -515,7 +523,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z ),
+                            new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 22.5 ),
                             bz.Texture.WALL_AMIGA,
                             new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
                             bz.PhysicSet.STATIC
@@ -535,7 +543,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
+                            new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z + 30.0 ),
                             bz.Texture.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 5.0, bz.SettingEngine.FACE_DEPTH ),
                             bz.PhysicSet.STATIC,

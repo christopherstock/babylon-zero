@@ -406,6 +406,81 @@ export abstract class Stage
         // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
     }
 
+    protected addRoomWalls(
+        meshFactory:bz.MeshFactory,
+        position:BABYLON.Vector3,
+        size:BABYLON.Vector3
+    )
+    : void
+    {
+        if (true) return;
+
+        // 2 walls on x axis
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( position.x, position.y, position.z ),
+                            bz.Texture.WALL_WOOD,
+                            new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            )
+        );
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( position.x, position.y, position.z + size.z ),
+                            bz.Texture.WALL_WOOD,
+                            new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            )
+        );
+
+        // 2 walls on z axis
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( position.x, position.y, position.z ),
+                            bz.Texture.WALL_WOOD,
+                            new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ,
+                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                        ),
+                    ]
+                )
+            )
+        );
+    }
+
     /** ****************************************************************************************************************
     *   Creates the camera system that manages all cameras that appear in this stage.
     *
