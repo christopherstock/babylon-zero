@@ -121,6 +121,8 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected createStageContents() : void
     {
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
@@ -190,30 +192,11 @@ export class StageOffice extends bz.Stage
                 0.5
             )
         );
-    }
 
-    /** ****************************************************************************************************************
-    *   Creates and returns all walls this stage consists of.
-    *
-    *   @return All walls of this stage.
-    *******************************************************************************************************************/
-    protected createWalls() : bz.Wall[]
-    {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
-        let walls :bz.Wall[] = [];
-
-        const levelGroundWalls :bz.Wall[] = this.createLevelGroundWalls( meshFactory );
-        const boxesWalls       :bz.Wall[] = this.createBoxesWalls(       meshFactory );
-        const chairsWalls      :bz.Wall[] = this.createChairsWalls(      meshFactory );
-        const stuffWalls       :bz.Wall[] = this.createStuffWalls(        meshFactory );
-
-        walls = walls.concat( levelGroundWalls );
-        walls = walls.concat( boxesWalls       );
-        walls = walls.concat( chairsWalls      );
-        walls = walls.concat( stuffWalls       );
-
-        return walls;
+        this.addLevelGroundWalls( meshFactory );
+        this.addBoxesWalls(       meshFactory );
+        this.addChairsWalls(      meshFactory );
+        this.addStuffWalls(        meshFactory );
     }
 
     /** ****************************************************************************************************************
@@ -353,11 +336,10 @@ export class StageOffice extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates the ground walls for this level.
     *******************************************************************************************************************/
-    private createLevelGroundWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
+    private addLevelGroundWalls( meshFactory:bz.MeshFactory ) : void
     {
-        return [
-
-            // hills ( heightmap ground )
+        // hills ( heightmap ground )
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -377,8 +359,11 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
-            // ceiling
+            )
+        );
+
+        // ceiling
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -395,18 +380,17 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
-        ]
+            )
+        );
     }
 
     /** ****************************************************************************************************************
     *   Adds all boxes to this level.
     *******************************************************************************************************************/
-    private createBoxesWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
+    private addBoxesWalls( meshFactory:bz.MeshFactory ) : void
     {
-        return [
-
-            // wooden crates from 3ds models
+        // wooden crates from 3ds models
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -417,7 +401,10 @@ export class StageOffice extends bz.Stage
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
+
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -428,7 +415,10 @@ export class StageOffice extends bz.Stage
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
+
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -439,7 +429,10 @@ export class StageOffice extends bz.Stage
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
+
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -450,7 +443,10 @@ export class StageOffice extends bz.Stage
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
+
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -461,9 +457,11 @@ export class StageOffice extends bz.Stage
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
                 )
-            ),
+            )
+        );
 
-            // metal box
+        // metal box
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -483,7 +481,10 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
+            )
+        );
+
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -504,11 +505,11 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
-        ]
+            )
+        );
     }
 
-    private createChairsWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
+    private addChairsWalls( meshFactory:bz.MeshFactory ) : void
     {
         // multi mesh chair with compound .. scatters after being shot multiple times!
         this.chairCompoundDestroyable = new bz.Wall
@@ -550,14 +551,12 @@ export class StageOffice extends bz.Stage
             5.0
         );
 
-        return [
-            this.chairCompoundDestroyable,
-            this.chairMultiMeshesNoCompound,
-            this.chairCompoundSingleShotOff,
-        ];
+        this.addWall( this.chairCompoundDestroyable   );
+        this.addWall( this.chairMultiMeshesNoCompound );
+        this.addWall( this.chairCompoundSingleShotOff );
     }
 
-    private createStuffWalls( meshFactory:bz.MeshFactory ) : bz.Wall[]
+    private addStuffWalls( meshFactory:bz.MeshFactory ) : void
     {
         // tv
         const tv:bz.Wall = new bz.Wall
@@ -582,10 +581,10 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        return [
-            tv,
+        this.addWall( tv );
 
-            // solid white sphere
+        // solid white sphere
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -606,9 +605,11 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
+            )
+        );
 
-            // box - amiga light frontside
+        // box - amiga light frontside
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -625,9 +626,11 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
+            )
+        );
 
-            // static glass pane
+        // static glass pane
+        this.addWall(
             new bz.Wall
             (
                 this,
@@ -646,7 +649,7 @@ export class StageOffice extends bz.Stage
                         ),
                     ]
                 )
-            ),
-        ];
+            )
+        );
     }
 }

@@ -9,7 +9,7 @@ export class StageIntroLogo extends bz.Stage
     private     static  readonly    ROTATION_SPEED          :number                     = 1.75;
 
     /** Referenced imported logo. */
-    protected                       logo                    :bz.Model                   = null;
+    protected                       logo                    :bz.Wall                    = null;
     /** Referenced point light. */
     private                         pointLight              :BABYLON.PointLight         = null;
     /** Current logo rotation Y. */
@@ -45,7 +45,7 @@ export class StageIntroLogo extends bz.Stage
         super.render();
 
         // rotate logo
-        this.logo.setAbsoluteRotationXYZ
+        this.logo.getModel().setAbsoluteRotationXYZ
         (
             270.0,
             this.rotY,
@@ -100,6 +100,26 @@ export class StageIntroLogo extends bz.Stage
     *******************************************************************************************************************/
     protected createStageContents() : void
     {
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
+
+        // mayflower logo
+        this.logo = new bz.Wall(
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.MF_LOGO,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                bz.PhysicSet.NONE,
+                bz.ModelCompoundType.NONE
+            )
+        );
+
+        this.addWall( this.logo );
+/*
+        // manipulate material colors for logo
+        const material:BABYLON.StandardMaterial = this.logo.getMesh( 0 ).material as BABYLON.StandardMaterial;
+        material.specularColor = new BABYLON.Color3( 0.949, 0.713, 0.498 );
+*/
     }
 
     /** ****************************************************************************************************************
@@ -140,37 +160,6 @@ export class StageIntroLogo extends bz.Stage
     protected handleLevelKeys() : void
     {
         // no level keys supported as this is a 'view only' stage
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates and returns all walls this stage consists of.
-    *
-    *   @return All walls of this stage.
-    *******************************************************************************************************************/
-    protected createWalls() : bz.Wall[]
-    {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene );
-
-        // mayflower logo
-        this.logo = meshFactory.createImportedModel
-        (
-            bz.ModelFile.MF_LOGO,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            bz.PhysicSet.NONE,
-            bz.ModelCompoundType.NONE
-        );
-/*
-        // manipulate material colors for logo
-        const material:BABYLON.StandardMaterial = this.logo.getMesh( 0 ).material as BABYLON.StandardMaterial;
-        material.specularColor = new BABYLON.Color3( 0.949, 0.713, 0.498 );
-*/
-        return [
-            new bz.Wall
-            (
-                this,
-                this.logo
-            ),
-        ];
     }
 
     /** ****************************************************************************************************************
