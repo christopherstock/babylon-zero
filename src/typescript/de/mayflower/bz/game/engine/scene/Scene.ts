@@ -62,17 +62,17 @@ export class Scene
         // create physics engine
         this.createPhysicsEngine();
 
-        // init all materials
+        // init all materials TODO check if it's required to really load all textures here?
         bz.Debug.init.log( 'Init materials' );
         this.materialSystem = new bz.MaterialSystem( bz.Texture.ALL_TEXTURES );
         this.materialSystem.load( this.babylonScene );
 
-        // init all sprites
+        // init all sprites TODO check if it's required to really load all sprites here?
         bz.Debug.init.log( 'Init sprites' );
         this.spriteSystem = new bz.SpriteSystem( bz.SpriteFile.ALL_SPRITE_FILES );
         this.spriteSystem.load( this.babylonScene );
 
-        // init all sounds
+        // init all sounds TODO check if it's required to really load all sounds here?
         bz.Debug.init.log( 'Init sounds' );
         this.soundSystem = new bz.SoundSystem(
             bz.SoundFile.ALL_SOUND_FILES,
@@ -227,7 +227,7 @@ export class Scene
     *******************************************************************************************************************/
     private onSoundsLoaded() : void
     {
-        // init model importer
+        // init model importer TODO check if it's required to really load all models here?
         bz.Debug.init.log( 'Init model importer' );
         this.modelSystem = new bz.ModelSystem
         (

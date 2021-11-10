@@ -5,7 +5,7 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Add fire sprite
+TODO Revise TextureFile and Texture redundancies
 TODO Add suitable textures!
 TODO Stop player from jumping around when falling etc?
 TODO Add boxes with different texture and weight! (steel crate etc) - fix all bullet holes!

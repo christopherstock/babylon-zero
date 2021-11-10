@@ -56,14 +56,11 @@ export class Texture
         Texture.VIDEO_TEST,
     ];
 
-    /** The filename of this texture's image. */
-    private             readonly    fileName                    :string                 = null;
+    /** The according texture file. */
+    private             readonly    file                        :bz.TextureFile         = null;
+
     /** The according bullet hole texture for this texture. TODO prune to TextureFile ! */
     private             readonly    bulletHoleTexture           :bz.Texture             = null;
-    /** Specifies if this texture has an alpha channel. */
-    private             readonly    textureHasAlpha             :bz.TextureHasAlpha     = null;
-    /** The UV tiling strategy to apply for this texture. */
-    private             readonly    strategyUV                  :bz.TextureUV           = null;
     /** Specifies the type of texture. */
     private             readonly    textureType                 :bz.TextureType         = null;
 
@@ -84,14 +81,10 @@ export class Texture
         textureType       :bz.TextureType
     )
     {
-        // TODO prune redundandy!
+        this.file = file;
+
         this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
-
-        this.fileName          = ( bz.SettingResource.PATH_IMAGE_TEXTURE + file.fileName );
-        this.textureHasAlpha   = file.textureHasAlpha;
-        this.strategyUV        = file.strategyUV;
-
     }
 
     /** ****************************************************************************************************************
@@ -106,7 +99,10 @@ export class Texture
             case bz.TextureType.WALL:
             {
                 // create default texture
-                this.nativeTexture = new BABYLON.Texture( this.fileName, scene );
+                this.nativeTexture = new BABYLON.Texture(
+                    this.file.fileName,
+                    scene
+                );
                 break;
             }
 
@@ -114,8 +110,8 @@ export class Texture
             {
                 // create video texture and mute audio
                 const videoTexture:BABYLON.VideoTexture = new BABYLON.VideoTexture(
-                    this.fileName,
-                    this.fileName,
+                    this.file.fileName,
+                    this.file.fileName,
                     scene,
                     true
                 );
@@ -123,11 +119,11 @@ export class Texture
                 videoTexture.video.autoplay = true;
                 videoTexture.video.play().then(
                     () :void => {
-                        // no need to handle this promise fullfillment
+                        // handle promise fullfillment
                     }
                 ).catch(
                     () :void => {
-                        // no need to catch this promise error
+                        // catch promise error
                     }
                 );
 
@@ -174,7 +170,7 @@ export class Texture
     *******************************************************************************************************************/
     public hasAlpha() : boolean
     {
-        return ( this.textureHasAlpha === bz.TextureHasAlpha.YES );
+        return ( this.file.textureHasAlpha === bz.TextureHasAlpha.YES );
     }
 
     /** ****************************************************************************************************************
@@ -184,7 +180,7 @@ export class Texture
     *******************************************************************************************************************/
     public getStrategyUV() : bz.TextureUV
     {
-        return this.strategyUV;
+        return this.file.strategyUV;
     }
 
     /** ****************************************************************************************************************
@@ -223,7 +219,7 @@ export class Texture
             // compare with all existent textures
             for ( const texture of Texture.ALL_TEXTURES )
             {
-                if ( texture.fileName === meshTextureFileName )
+                if ( texture.file.fileName === meshTextureFileName )
                 {
                     if ( texture.bulletHoleTexture !== null )
                     {

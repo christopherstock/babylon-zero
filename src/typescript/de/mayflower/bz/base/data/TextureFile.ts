@@ -55,7 +55,7 @@ export class TextureFile
     *******************************************************************************************************************/
     public constructor( fileName:string, textureHasAlpha:bz.TextureHasAlpha, strategyUV:bz.TextureUV )
     {
-        this.fileName        = fileName;
+        this.fileName        = ( bz.SettingResource.PATH_IMAGE_TEXTURE + fileName );
         this.textureHasAlpha = textureHasAlpha;
         this.strategyUV      = strategyUV;
     }

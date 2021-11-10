@@ -197,7 +197,7 @@ export class MeshFactory
         };
         let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
             MeshFactory.createNextMeshId(),
-            ( bz.SettingResource.PATH_IMAGE_TEXTURE + textureFile.fileName ),
+            textureFile.fileName,
             options,
             this.scene.getNativeScene()
         );
