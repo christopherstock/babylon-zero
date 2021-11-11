@@ -35,8 +35,10 @@ export class Texture
     /** The texture 'wall metal'. */
     public static readonly WALL_METAL                  :Texture                = new Texture( bz.TextureFile.WALL_METAL );
 
-    /** The texture 'wall metal'. */
-    public static readonly WALL_BRICKS                 :Texture                = new Texture( bz.TextureFile.WALL_BRICKS );
+    /** The texture 'bricks 1'. */
+    public static readonly WALL_BRICKS_1               :Texture                = new Texture( bz.TextureFile.WALL_BRICKS_1 );
+    /** The texture 'bricks 2'. */
+    public static readonly WALL_BRICKS_2               :Texture                = new Texture( bz.TextureFile.WALL_BRICKS_2 );
     /** The texture 'wall metal'. */
     public static readonly WALL_CARPET                 :Texture                = new Texture( bz.TextureFile.WALL_CARPET );
     /** The texture 'wall metal'. */
@@ -69,7 +71,8 @@ export class Texture
         Texture.WALL_SKIN_ROSE,
         Texture.WALL_METAL,
 
-        Texture.WALL_BRICKS,
+        Texture.WALL_BRICKS_1,
+        Texture.WALL_BRICKS_2,
         Texture.WALL_CARPET,
         Texture.WALL_CEILING,
         Texture.WALL_CONCRETE,

@@ -34,16 +34,18 @@ export class TextureFile
     public static readonly WALL_SKIN_ROSE               :TextureFile            = new TextureFile( 'wall/skinRose.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL );
     /** The texture file 'wall metal'. */
     public static readonly WALL_METAL                   :TextureFile            = new TextureFile( 'wall/metal.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL );
-    /** The texture file 'bricks'. */
-    public static readonly WALL_BRICKS                  :TextureFile            = new TextureFile( 'wall/bricks.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
+    /** The texture file 'bricks 1'. */
+    public static readonly WALL_BRICKS_1                :TextureFile            = new TextureFile( 'wall/bricks1.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
+    /** The texture file 'bricks 2'. */
+    public static readonly WALL_BRICKS_2                :TextureFile            = new TextureFile( 'wall/bricks2.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     /** The texture file 'carpet'. */
     public static readonly WALL_CARPET                  :TextureFile            = new TextureFile( 'wall/carpet.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'ceiling'. */
-    public static readonly WALL_CEILING                 :TextureFile            = new TextureFile( 'wall/ceiling.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
+    public static readonly WALL_CEILING                 :TextureFile            = new TextureFile( 'wall/ceiling.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'concrete'. */
-    public static readonly WALL_CONCRETE                :TextureFile            = new TextureFile( 'wall/concrete.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
+    public static readonly WALL_CONCRETE                :TextureFile            = new TextureFile( 'wall/concrete.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'leather'. */
-    public static readonly WALL_LEATHER                 :TextureFile            = new TextureFile( 'wall/leather.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
+    public static readonly WALL_LEATHER                 :TextureFile            = new TextureFile( 'wall/leather.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'marble'. */
     public static readonly WALL_MARBLE                  :TextureFile            = new TextureFile( 'wall/marble.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
 
