@@ -36,4 +36,17 @@ export class PlayerPhysic
         this.leftHand.setParent(  this.body );
         this.rightHand.setParent( this.body );
     }
+
+    /** ****************************************************************************************************************
+    *   Determines if the player is currently falling.
+    *
+    *   @return <code>true</code> if the player is currently falling.
+    *******************************************************************************************************************/
+    public isFalling() : boolean
+    {
+        return (
+            this.body.physicsImpostor !== undefined
+            &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
+        );
+    }
 }

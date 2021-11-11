@@ -56,6 +56,7 @@ export class GUIPause
                 + 'Q E = Horizontal drehen' + '\n'
                 + 'T G = Vertikal drehen' + '\n'
                 + 'X = Zielen' + '\n'
+                + 'Y = Ducken' + '\n'
                 + 'Ctlr/Strg = Feuer' + '\n',
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,

@@ -6,31 +6,31 @@ import * as bz from '../..';
 export class Player extends bz.GameObject
 {
     /** The current height of the player. Changes on ducking. */
-    private                         heightY                     :number                             = 0.0;
+    private heightY                 :number             = 0.0;
     /** Flags if rotZ view centering should occur this tick. */
-    private                         centerRotZ                  :boolean                            = false;
+    private centerRotZ              :boolean            = false;
     /** The current angle for the sinus calculation of the head shaking. */
-    private                         headShakingAngle            :number                             = 0.0;
+    private headShakingAngle        :number             = 0.0;
 
     /** Flags if fire should be performed this tick. */
-    private                         fire                        :boolean                            = false;
+    private fire                    :boolean            = false;
     /** Flags if the player currently wants to duck. */
-    private                         duck                        :boolean                            = false;
+    private duck                    :boolean            = false;
 
     /** Flags if the player currently wants to zoom. */
-    private                         zoom                        :boolean                            = false;
+    private zoom                    :boolean            = false;
     /** The current field of view of the player. Changes on zooming. */
-    private                         fieldOfView                 :number                             = 0.0;
+    private fieldOfView             :number             = 0.0;
 
     /** Current rotation. */
-    private                         rotation                    :BABYLON.Vector3                    = null;
+    private rotation                :BABYLON.Vector3    = null;
     /** Current rotation delta. */
-    private                         rotationDelta               :BABYLON.Vector3                    = null;
+    private rotationDelta           :BABYLON.Vector3    = null;
     /** Current move delta. */
-    private                         moveDelta                   :BABYLON.Vector3                    = null;
+    private moveDelta               :BABYLON.Vector3    = null;
 
     /** All player physic settings. */
-    private                         playerPhysics               :bz.PlayerPhysic                    = null;
+    private playerPhysics           :bz.PlayerPhysic    = null;
 
     /** ****************************************************************************************************************
     *   Creates a new player instance.
@@ -428,7 +428,7 @@ export class Player extends bz.GameObject
 
                     // check player falling
                     (
-                        this.isFalling()
+                        this.playerPhysics.isFalling()
 
                             // scale up falling velocity
                             ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
@@ -518,7 +518,7 @@ export class Player extends bz.GameObject
         }
 */
         // deny jumping if currently falling
-        if ( this.isFalling() )
+        if ( this.playerPhysics.isFalling() )
         {
             bz.Debug.player.log( 'Player jump denied caused by falling' );
             return;
@@ -535,13 +535,13 @@ export class Player extends bz.GameObject
     {
         if ( this.duck )
         {
-            if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKED )
+            if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKING )
             {
                 this.heightY -= bz.SettingPlayer.SPEED_DUCKING;
 
-                if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKED )
+                if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKING )
                 {
-                    this.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKED;
+                    this.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKING;
                 }
 
                 this.positionPlayerLimbs();
@@ -741,18 +741,5 @@ export class Player extends bz.GameObject
 
         // update player limbs positions
         this.positionPlayerLimbs();
-    }
-
-    /** ****************************************************************************************************************
-    *   Determines if the player is currently falling.
-    *
-    *   @return <code>true</code> if the player is currently falling.
-    *******************************************************************************************************************/
-    private isFalling() : boolean
-    {
-        return (
-            this.playerPhysics.body.physicsImpostor !== undefined
-            &&  this.playerPhysics.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
-        );
     }
 }
