@@ -4,14 +4,14 @@
 export class SettingPlayer
 {
     /** The player's weight in kg. */
-    public static readonly PLAYER_MASS                              :number             = 1413.0;
+    public static readonly PLAYER_MASS                              :number             = 1414.0;
 
     /** The player's physical force horizontal impulse for moving. */
-    public static readonly MOVE_IMPULSE                             :number             = 25000.0;
+    public static readonly IMPULSE_MOVE                             :number             = 25000.0;
     /** The player's physical force horizontal impulse for running. */
-    public static readonly RUN_IMPULSE                              :number             = 50000.0;
+    public static readonly IMPULSE_RUN                              :number             = 50000.0;
     /** The player's physical force horizontal impulse for straving. */
-    public static readonly SPEED_STRAVE                             :number             = 20000.0;
+    public static readonly IMPULSE_STRAVE                           :number             = 20000.0;
     /** The player's physical velocity y that determines falling. */
     public static readonly FALLING_VELOCITY_Y                       :number             = -1.0;
 

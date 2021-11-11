@@ -200,11 +200,11 @@ export class Player extends bz.GameObject
             // probably run
             if ( keySystem.isPressed( bz.KeyCodes.KEY_SHIFT_LEFT  ) )
             {
-                speedForward = bz.SettingPlayer.RUN_IMPULSE;
+                speedForward = bz.SettingPlayer.IMPULSE_RUN;
             }
             else
             {
-                speedForward = bz.SettingPlayer.MOVE_IMPULSE;
+                speedForward = bz.SettingPlayer.IMPULSE_MOVE;
             }
 
             this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
@@ -222,13 +222,13 @@ export class Player extends bz.GameObject
             // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
         )
         {
-            this.moveDelta.x -= bz.SettingPlayer.MOVE_IMPULSE * bz.MathUtil.sinDegrees( this.rotation.y );
-            this.moveDelta.z -= bz.SettingPlayer.MOVE_IMPULSE * bz.MathUtil.cosDegrees( this.rotation.y );
+            this.moveDelta.x -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.sinDegrees( this.rotation.y );
+            this.moveDelta.z -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.cosDegrees( this.rotation.y );
 
             // shake head if enabled
             if ( bz.SettingPlayer.HEAD_SHAKING_ENABLED )
             {
-                this.alterHeadShakeAngle( -bz.SettingPlayer.MOVE_IMPULSE );
+                this.alterHeadShakeAngle( -bz.SettingPlayer.IMPULSE_MOVE );
             }
         }
 
@@ -239,8 +239,8 @@ export class Player extends bz.GameObject
             // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
         )
         {
-            this.moveDelta.x -= bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-            this.moveDelta.z += bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+            this.moveDelta.x -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
+            this.moveDelta.z += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
         }
         if
         (
@@ -248,8 +248,8 @@ export class Player extends bz.GameObject
             // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
         )
         {
-            this.moveDelta.x += bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-            this.moveDelta.z -= bz.SettingPlayer.SPEED_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+            this.moveDelta.x += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
+            this.moveDelta.z -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
         }
 
         // turn Y
@@ -398,21 +398,30 @@ export class Player extends bz.GameObject
         {
             // suppress linear velocities for X and Z axis
             const velocity:BABYLON.Vector3 = this.playerPhysics.body.physicsImpostor.getLinearVelocity();
+
+            console.log( 'velocity y: ' + velocity.y );
+
             this.playerPhysics.body.physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
                 (
                     ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION ),
 
-                    // check player falling
+                    // check player ascending
                     (
-                        this.playerPhysics.isFalling()
+                        velocity.y > 0.0
+
+                        // negate player velocity y if ascending
+                        ? ( -2 * velocity.y )
+
+                        // check player falling
+                        : this.playerPhysics.isFalling()
 
                             // scale up falling velocity
                             ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
 
                             // keep velocity
-                            : velocity.y
+                            : ( velocity.y )
                     ),
 
                     ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )
