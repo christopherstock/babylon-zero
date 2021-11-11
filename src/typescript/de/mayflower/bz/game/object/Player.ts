@@ -372,7 +372,7 @@ export class Player extends bz.GameObject
             }
 
             // force rotZ centering on horizontal movements if enabled
-            if ( bz.SettingPlayer.ENABLE_CENTERING_ROT_Y_ON_WALKING )
+            if ( bz.SettingPlayer.ENABLE_CENTERING_ROT_Z_ON_WALKING )
             {
                 if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
                 {
@@ -396,13 +396,13 @@ export class Player extends bz.GameObject
     {
         if ( this.playerPhysics.body.physicsImpostor !== undefined )
         {
-            // suppress linear velocities except Y
+            // suppress linear velocities for X and Z axis
             const velocity:BABYLON.Vector3 = this.playerPhysics.body.physicsImpostor.getLinearVelocity();
             this.playerPhysics.body.physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
                 (
-                    ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MULTIPLIER ),
+                    ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION ),
 
                     // check player falling
                     (
@@ -415,7 +415,7 @@ export class Player extends bz.GameObject
                             : velocity.y
                     ),
 
-                    ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MULTIPLIER )
+                    ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )
                 )
             );
 
@@ -442,13 +442,13 @@ export class Player extends bz.GameObject
         {
             this.rotation.z += this.rotationDelta.z;
 
-            if ( this.rotation.z > bz.SettingPlayer.MAX_LOOK_UP_DOWN )
+            if ( this.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
             {
-                this.rotation.z = bz.SettingPlayer.MAX_LOOK_UP_DOWN;
+                this.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
             }
-            else if ( this.rotation.z < -bz.SettingPlayer.MAX_LOOK_UP_DOWN )
+            else if ( this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
             {
-                this.rotation.z = -bz.SettingPlayer.MAX_LOOK_UP_DOWN;
+                this.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
             }
 
             this.rotationDelta.z = 0.0;
