@@ -515,7 +515,7 @@ export class Player extends bz.GameObject
         {
             if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKING )
             {
-                this.heightY -= bz.SettingPlayer.SPEED_DUCKING;
+                this.heightY -= bz.SettingPlayer.SPEED_DUCK_DOWN;
 
                 if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKING )
                 {
@@ -529,7 +529,7 @@ export class Player extends bz.GameObject
         {
             if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_STANDING )
             {
-                this.heightY += bz.SettingPlayer.SPEED_STANDING_UP;
+                this.heightY += bz.SettingPlayer.SPEED_STAND_UP;
 
                 if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_STANDING )
                 {
