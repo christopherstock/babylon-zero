@@ -2,20 +2,9 @@ import * as bz from '../..';
 
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
-*
-*   TODO extract some components to separate class? body set, move/rotate set?
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
-    /** The id of the player's body mesh in the mesh array. */
-    private     static  readonly    PLAYER_BODY_ID              :number                             = 0;
-    /** The id of the player's head mesh in the mesh array. */
-    private     static  readonly    PLAYER_HEAD_ID              :number                             = 1;
-    /** The id of the player's left hand mesh in the mesh array. */
-    private     static  readonly    PLAYER_LEFT_HAND_ID         :number                             = 2;
-    /** The id of the player's left hand mesh in the mesh array. */
-    private     static  readonly    PLAYER_RIGHT_HAND_ID        :number                             = 3;
-
     /** The current height of the player. Changes on ducking. */
     private                         heightY                     :number                             = 0.0;
     /** Flags if rotZ view centering should occur this tick. */
@@ -40,14 +29,8 @@ export class Player extends bz.GameObject
     /** Current move delta. */
     private                         moveDelta                   :BABYLON.Vector3                    = null;
 
-    /** The referenced body mesh. */
-    private             readonly    body                        :BABYLON.AbstractMesh               = null;
-    /** The referenced head mesh. */
-    private             readonly    head                        :BABYLON.AbstractMesh               = null;
-    /** The referenced left hand mesh. */
-    private             readonly    leftHand                    :BABYLON.AbstractMesh               = null;
-    /** The referenced right hand mesh. */
-    private             readonly    rightHand                   :BABYLON.AbstractMesh               = null;
+    /** All player physic settings. */
+    private                         playerPhysics               :bz.PlayerPhysic                    = null;
 
     /** ****************************************************************************************************************
     *   Creates a new player instance.
@@ -142,21 +125,13 @@ export class Player extends bz.GameObject
             bz.GameObject.UNBREAKABLE
         );
 
+        // new player physics instance
+        this.playerPhysics = new bz.PlayerPhysic( this.model );
+
         // assign initial rotation, rotation delta and move delta
         this.rotation      = new BABYLON.Vector3( 0.0, rotY, 0.0 );
         this.rotationDelta = BABYLON.Vector3.Zero();
         this.moveDelta     = BABYLON.Vector3.Zero();
-
-        // reference the body and all limbs
-        this.body      = this.model.getMesh( Player.PLAYER_BODY_ID       );
-        this.head      = this.model.getMesh( Player.PLAYER_HEAD_ID       );
-        this.leftHand  = this.model.getMesh( Player.PLAYER_LEFT_HAND_ID  );
-        this.rightHand = this.model.getMesh( Player.PLAYER_RIGHT_HAND_ID );
-
-        // stick all limbs to body
-        this.head.setParent(      this.body );
-        this.leftHand.setParent(  this.body );
-        this.rightHand.setParent( this.body );
 
         // set initial height
         this.heightY     = bz.SettingPlayer.HEIGHT_Y_STANDING;
@@ -213,7 +188,7 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     public getFirstPersonCameraTargetMesh() : BABYLON.AbstractMesh
     {
-        return this.head;
+        return this.playerPhysics.head;
     }
 
     /** ****************************************************************************************************************
@@ -224,7 +199,7 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     public getThirdPersonCameraTargetMesh() : BABYLON.AbstractMesh
     {
-        return this.body;
+        return this.playerPhysics.body;
     }
 
     /** ****************************************************************************************************************
@@ -388,7 +363,7 @@ export class Player extends bz.GameObject
             if ( DIRECT_MOVEMENT )
             {
                 // apply direct move delta
-                this.body.moveWithCollisions
+                this.playerPhysics.body.moveWithCollisions
                 (
                     new BABYLON.Vector3
                     (
@@ -401,11 +376,11 @@ export class Player extends bz.GameObject
             else
             {
                 // apply physical impulse
-                if ( this.body.physicsImpostor !== undefined )
+                if ( this.playerPhysics.body.physicsImpostor !== undefined )
                 {
                     // this.body.physicsImpostor.setDeltaPosition ??
 
-                    this.body.physicsImpostor.applyImpulse
+                    this.playerPhysics.body.physicsImpostor.applyImpulse
                     (
                         new BABYLON.Vector3
                         (
@@ -413,7 +388,7 @@ export class Player extends bz.GameObject
                             this.moveDelta.y,
                             this.moveDelta.z
                         ),
-                        this.body.position
+                        this.playerPhysics.body.position
                     );
                 }
             }
@@ -441,11 +416,11 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     private manipulateVelocities() : void
     {
-        if ( this.body.physicsImpostor !== undefined )
+        if ( this.playerPhysics.body.physicsImpostor !== undefined )
         {
             // suppress linear velocities except Y
-            const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
-            this.body.physicsImpostor.setLinearVelocity
+            const velocity:BABYLON.Vector3 = this.playerPhysics.body.physicsImpostor.getLinearVelocity();
+            this.playerPhysics.body.physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
                 (
@@ -467,7 +442,7 @@ export class Player extends bz.GameObject
             );
 
             // completely suppress angular velocities
-            this.body.physicsImpostor.setAngularVelocity
+            this.playerPhysics.body.physicsImpostor.setAngularVelocity
             (
                 BABYLON.Vector3.Zero()
             );
@@ -504,7 +479,7 @@ export class Player extends bz.GameObject
         // rotate body
         bz.MeshManipulation.setAbsoluteRotationXYZ
         (
-            this.body,
+            this.playerPhysics.body,
             0.0, // this.rotation.z,
             this.rotation.y,
             0.0
@@ -513,7 +488,7 @@ export class Player extends bz.GameObject
         // rotate head
         bz.MeshManipulation.setAbsoluteRotationXYZ
         (
-            this.head,
+            this.playerPhysics.head,
             this.rotation.z,
             0.0,
             0.0
@@ -695,7 +670,7 @@ export class Player extends bz.GameObject
         const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
         const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
 
-        const source      :BABYLON.Vector3 = this.head.absolutePosition;
+        const source      :BABYLON.Vector3 = this.playerPhysics.head.absolutePosition;
         const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
         (
             this.rotation.z + divergenceZ,
@@ -730,27 +705,25 @@ export class Player extends bz.GameObject
         );
 
         // bz.Debug.player.log( ' Head Shaking modifierY is [' + headShakingModifierY + ']' );
-/*
-        this.head.position = new BABYLON.Vector3
+        this.playerPhysics.head.position = new BABYLON.Vector3
         (
             0.0,
             ( halfPlayerHeight - ( bz.SettingPlayer.DIAMETER_HEAD / 2 ) ) - headShakingModifierY,
             0.0
         );
 
-        this.leftHand.position = new BABYLON.Vector3
+        this.playerPhysics.leftHand.position = new BABYLON.Vector3
         (
             -1.0,
             halfPlayerHeight - ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
             0.0
         );
-        this.rightHand.position = new BABYLON.Vector3
+        this.playerPhysics.rightHand.position = new BABYLON.Vector3
         (
             1.0,
             halfPlayerHeight - ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
             0.0
         );
-*/
     }
 
     /** ****************************************************************************************************************
@@ -778,8 +751,8 @@ export class Player extends bz.GameObject
     private isFalling() : boolean
     {
         return (
-            this.body.physicsImpostor !== undefined
-            &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
+            this.playerPhysics.body.physicsImpostor !== undefined
+            &&  this.playerPhysics.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
         );
     }
 }

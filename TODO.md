@@ -26,11 +26,13 @@ TODO Fix ducking
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Fix jumping
 TODO Deny jumping if player has no contact to the ground!
+TODO Fix head shaking.
 
 =====================
 Stage
 =====================
 TODO Add 'view blocker' (H-Block) with dynamic stage switch?
+TODO Create Event Pipeline for altering stage contents + activation triggers!
 TODO Enable dynamic stage switch with player staying on same position ??
 
 =====================

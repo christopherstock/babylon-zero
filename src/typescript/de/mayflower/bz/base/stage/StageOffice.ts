@@ -65,6 +65,8 @@ export class StageOffice extends bz.Stage
 
 
 
+
+
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (

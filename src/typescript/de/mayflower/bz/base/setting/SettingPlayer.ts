@@ -44,7 +44,7 @@ export class SettingPlayer
     public static readonly SPEED_STANDING_UP                       :number             = 0.25;
 
     /** Enable player head shaking. */
-    public static readonly HEAD_SHAKING_ENABLED                    :boolean            = true;
+    public static readonly HEAD_SHAKING_ENABLED                    :boolean            = false;
     /** The player's head shaking velocity multiplier. */
     public static readonly HEAD_SHAKING_VELOCITY_MULTIPLIER        :number             = 0.04;
     /** The player's head shaking range Y. */
