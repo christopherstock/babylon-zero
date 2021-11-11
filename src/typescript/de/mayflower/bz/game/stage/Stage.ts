@@ -417,7 +417,6 @@ export abstract class Stage
     )
     : void
     {
-        const DOOR_SIZE      :number = 5.0;
         const FLOOR_OFFSET_Y :number = ( 5 * bz.SettingEngine.FACE_DEPTH );
 
         const roomWalls :bz.Wall[] = [
@@ -431,9 +430,9 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y / 2 ), position.z ),
+                            new BABYLON.Vector3( ( position.x + ( ( size.x - bz.SettingEngine.DOOR_SIZE ) / 2 ) ), ( position.y + size.y / 2 ), position.z ),
                             textureWall,
-                            new BABYLON.Vector3( ( size.x - DOOR_SIZE ), size.y, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3( ( size.x - bz.SettingEngine.DOOR_SIZE ), size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,

@@ -6,27 +6,28 @@
 MVP 1.0.0 - Tech-Demo
 =====================
 TODO Stop player from jumping around when falling etc?
+
 TODO Add room/house creation method.
 TODO Add suitable textures!
 TODO Scale up/down all chairs and some models?
 TODO Add shelves.
 TODO Create realistic models and lights.
-TODO Models (item shell boxes) with different Textures?
+TODO Models (item shell boxes) with changine/different Textures?
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Reset Git Repository?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
-TODO debug and improve init process?
-TODO Find and prune classes with mixed static & non-static content
 TODO Try cool physics pause (scene cam) feature.
 
 =====================
 Player
 =====================
-TODO Fix ducking
+TODO Fix ducking?
+TODO Fix jumping!
 TODO Create alternate lower cylinder for player that toggles on ducking?
-TODO Fix jumping
 TODO Deny jumping if player has no contact to the ground!
 TODO Fix head shaking.
+TODO debug and improve init process?
+TODO Find all classes with mixed static & non-static content
 
 =====================
 Stage

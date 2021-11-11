@@ -77,6 +77,9 @@ export class SettingEngine
     public static readonly WALL_DEPTH                               :number             = 0.2;
     /** Unified wall height (y) for building constructions. */
     public static readonly WALL_HEIGHT                              :number             = 6.0;
+    /** Unified door width for building constructions. */
+    public static readonly DOOR_SIZE                                :number             = 3.0;
+
     /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
     public static readonly BULLET_HOLE_DEPTH                        :number             = 0.025;
 }

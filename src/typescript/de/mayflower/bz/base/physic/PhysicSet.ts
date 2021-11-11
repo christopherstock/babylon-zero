@@ -29,7 +29,7 @@ export class PhysicSet
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.NONE,
         bz.PhysicRestitution.NONE,
-        1413.0
+        bz.SettingPlayer.PLAYER_MASS
     );
 
     /** A wooden crate. */

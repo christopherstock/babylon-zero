@@ -73,17 +73,7 @@ export class Player extends bz.GameObject
                         bz.PhysicSet.PLAYER_HUMAN,
                         0.5
                     ),
-/*
-                    // Player.PLAYER_BODY_ID
-                    bz.MeshFactory.createImportedModel
-                    (
-                        scene,
-                        bz.ModelFile.CRATE,
-                        position.clone(),
-                        bz.Physic.PLAYER_HUMAN,
-                        bz.ModelCompoundType.NONE
-                    ).getMesh( 0 ),
-*/
+
                     // Player.PLAYER_HEAD_ID
                     new bz.MeshFactory( scene, emissiveColor ).createSphere
                     (
@@ -142,18 +132,6 @@ export class Player extends bz.GameObject
 
         // apply positions for all limbs
         this.positionPlayerLimbs();
-/*
-        // set a collision event handler for the body
-        if ( false )
-        {
-            this.body.physicsImpostor.onCollideEvent = (
-                collider     :BABYLON.PhysicsImpostor,
-                collidedWith :BABYLON.PhysicsImpostor
-            ) : void => {
-                console.log( ' Colliding!' );
-            };
-        }
-*/
     }
 
     /** ****************************************************************************************************************
