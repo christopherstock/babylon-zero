@@ -409,7 +409,8 @@ export abstract class Stage
     protected addRoomWalls(
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
-        size        :BABYLON.Vector3
+        size        :BABYLON.Vector3,
+        rotZ        :number
     )
     : void
     {
@@ -540,6 +541,15 @@ export abstract class Stage
 
         // add all room walls to the level
         for ( const roomWall of roomWalls ) {
+            for ( let i:number = 0; i < roomWall.getModel().getMeshCount(); ++i )
+            {
+                bz.MeshManipulation.rotateAroundAxisY(
+                    roomWall.getModel().getMesh(i),
+                    position.x,
+                    position.z,
+                    rotZ
+                );
+            }
             this.addWall( roomWall );
         }
     }

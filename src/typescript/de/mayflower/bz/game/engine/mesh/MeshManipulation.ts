@@ -24,6 +24,28 @@ export abstract class MeshManipulation
     }
 
     /** ****************************************************************************************************************
+    *   Rotates the given mesh around the specified Y axis.
+    *
+    *   @param mesh The mesh to rotate around axis Y.
+    *   @param x    Pivot point X.
+    *   @param z    Pivot point Z.
+    *   @param rotY Rotation on axis Y to apply, in degrees.
+    *******************************************************************************************************************/
+    public static rotateAroundAxisY( mesh:BABYLON.AbstractMesh, x:number, z:number, rotY:number ) : void
+    {
+
+/*
+        mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
+        (
+            bz.MathUtil.degreesToRad( rotY ),
+            bz.MathUtil.degreesToRad( rotX ),
+            bz.MathUtil.degreesToRad( rotZ )
+        );
+*/
+
+    }
+
+    /** ****************************************************************************************************************
     *   Sets the position and pivot to the specified mesh.
     *
     *   @param mesh     The mesh to apply position and pivot to.
