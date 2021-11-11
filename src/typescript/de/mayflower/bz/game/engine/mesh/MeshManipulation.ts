@@ -33,7 +33,11 @@ export abstract class MeshManipulation
     *******************************************************************************************************************/
     public static rotateAroundAxisY( mesh:BABYLON.AbstractMesh, x:number, z:number, rotY:number ) : void
     {
-
+        mesh.rotateAround(
+            new BABYLON.Vector3( x, 0.0, z ),
+            new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+            bz.MathUtil.degreesToRad( rotY )
+        );
 /*
         mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
         (

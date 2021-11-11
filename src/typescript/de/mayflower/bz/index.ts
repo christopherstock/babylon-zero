@@ -81,6 +81,7 @@ export * from './game/object/Item';
 export * from './game/object/Wall';
 
 export * from './game/object/Player';
+export * from './game/object/PlayerPhysic';
 
 export * from './game/stage/Stage';
 
