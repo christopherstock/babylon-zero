@@ -413,8 +413,9 @@ export abstract class Stage
     )
     : void
     {
-        // 2 walls on x axis
-        this.addWall(
+        const roomWalls :bz.Wall[] = [
+
+            // 2 walls on x axis
             new bz.Wall
             (
                 this,
@@ -433,9 +434,7 @@ export abstract class Stage
                         ),
                     ]
                 )
-            )
-        );
-        this.addWall(
+            ),
             new bz.Wall
             (
                 this,
@@ -454,11 +453,9 @@ export abstract class Stage
                         ),
                     ]
                 )
-            )
-        );
+            ),
 
-        // 2 walls on z axis
-        this.addWall(
+            // 2 walls on z axis
             new bz.Wall
             (
                 this,
@@ -477,9 +474,7 @@ export abstract class Stage
                         ),
                     ]
                 )
-            )
-        );
-        this.addWall(
+            ),
             new bz.Wall
             (
                 this,
@@ -498,11 +493,9 @@ export abstract class Stage
                         ),
                     ]
                 )
-            )
-        );
+            ),
 
-        // ceiling
-        this.addWall(
+            // ceiling
             new bz.Wall
             (
                 this,
@@ -521,11 +514,9 @@ export abstract class Stage
                         ),
                     ]
                 )
-            )
-        );
+            ),
 
-        // floor
-        this.addWall(
+            // floor
             new bz.Wall
             (
                 this,
@@ -544,8 +535,13 @@ export abstract class Stage
                         ),
                     ]
                 )
-            )
-        );
+            ),
+        ];
+
+        // add all room walls to the level
+        for ( const roomWall of roomWalls ) {
+            this.addWall( roomWall );
+        }
     }
 
     /** ****************************************************************************************************************
