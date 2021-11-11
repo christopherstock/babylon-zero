@@ -1,4 +1,5 @@
 import * as bz from '../..';
+import { SettingPlayer } from '../..';
 
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
@@ -407,7 +408,11 @@ export class Player extends bz.GameObject
 
                     // check player ascending
                     (
-                        velocity.y
+                        velocity.y >= 1.0
+                        ? velocity.y * 0.5
+                        : velocity.y <= -1.0
+                            ? velocity.y * 0.5
+                            : velocity.y
 
                         // negate player velocity y if ascending
 //                      true ? velocity.y :

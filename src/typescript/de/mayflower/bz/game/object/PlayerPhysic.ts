@@ -46,7 +46,7 @@ export class PlayerPhysic
     {
         return (
             this.body.physicsImpostor !== undefined
-            &&  this.body.physicsImpostor.getLinearVelocity().y < bz.SettingPlayer.FALLING_VELOCITY_Y
+            &&  this.body.physicsImpostor.getLinearVelocity().y <= bz.SettingPlayer.FALLING_VELOCITY_Y
         );
     }
 }

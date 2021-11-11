@@ -12,6 +12,7 @@ export class SettingPlayer
     public static readonly IMPULSE_RUN                              :number             = 50000.0;
     /** The player's physical force horizontal impulse for straving. */
     public static readonly IMPULSE_STRAVE                           :number             = 20000.0;
+
     /** The player's physical velocity y that determines falling. */
     public static readonly FALLING_VELOCITY_Y                       :number             = -1.0;
 
