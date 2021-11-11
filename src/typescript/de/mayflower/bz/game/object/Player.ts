@@ -409,21 +409,10 @@ export class Player extends bz.GameObject
                     // check player ascending
                     (
                         velocity.y >= 1.0
-                        ? velocity.y * 0.5
-                        : velocity.y <= -1.0
-                            ? velocity.y * 0.5
-                            : velocity.y
-
-                        // negate player velocity y if ascending
-//                      true ? velocity.y :
-//                      velocity.y > 0.0
-//                      ? ( -2 * velocity.y ) :
-                        // check player falling
-//                      this.playerPhysics.isFalling()
-                        // scale up falling velocity
-//                      ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
-                            // keep velocity
-//                      : ( velocity.y )
+                            ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
+                            : velocity.y <= -1.0
+                                ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
+                                : velocity.y
                     ),
 
                     ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )

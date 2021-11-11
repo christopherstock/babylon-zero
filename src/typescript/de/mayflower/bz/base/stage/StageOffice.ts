@@ -57,10 +57,12 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( -40.0, 0.0, 25.0 ),
             new BABYLON.Vector3( 20.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
-            0.0,
+            45.0,
             bz.Texture.WALL_BRICKS_2,
             bz.Texture.WALL_CARPET,
-            bz.Texture.WALL_CEILING
+            bz.Texture.WALL_CEILING,
+            [],
+            []
         );
 
 

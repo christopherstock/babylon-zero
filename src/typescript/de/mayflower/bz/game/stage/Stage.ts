@@ -413,7 +413,9 @@ export abstract class Stage
         rotZ           :number,
         textureWall    :bz.Texture,
         textureFloor   :bz.Texture,
-        textureCeiling :bz.Texture
+        textureCeiling :bz.Texture,
+        windowsX1      :number[] = [],
+        doorsX1        :number[] = []
     )
     : void
     {
@@ -421,7 +423,7 @@ export abstract class Stage
 
         const roomWalls :bz.Wall[] = [
 
-            // 2 walls on x axis
+            // wall X1
             new bz.Wall
             (
                 this,
@@ -441,6 +443,8 @@ export abstract class Stage
                     ]
                 )
             ),
+
+            // wall X2
             new bz.Wall
             (
                 this,
@@ -461,7 +465,7 @@ export abstract class Stage
                 )
             ),
 
-            // 2 walls on z axis
+            // wall Z1
             new bz.Wall
             (
                 this,
@@ -481,6 +485,8 @@ export abstract class Stage
                     ]
                 )
             ),
+
+            // wall Z2
             new bz.Wall
             (
                 this,
@@ -544,16 +550,13 @@ export abstract class Stage
             ),
         ];
 
-        // add all room walls to the level
+        // rotate all room walls to the level
         for ( const roomWall of roomWalls ) {
-            for ( let i:number = 0; i < roomWall.getModel().getMeshCount(); ++i )
-            {
-                roomWall.getModel().rotateAroundAxisY(
-                    position.x,
-                    position.z,
-                    rotZ
-                );
-            }
+            roomWall.getModel().rotateAroundAxisY(
+                position.x,
+                position.z,
+                rotZ
+            );
             this.addWall( roomWall );
         }
     }
