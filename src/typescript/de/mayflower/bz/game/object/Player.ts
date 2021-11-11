@@ -399,8 +399,6 @@ export class Player extends bz.GameObject
             // suppress linear velocities for X and Z axis
             const velocity:BABYLON.Vector3 = this.playerPhysics.body.physicsImpostor.getLinearVelocity();
 
-            console.log( 'velocity y: ' + velocity.y );
-
             this.playerPhysics.body.physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
@@ -409,19 +407,18 @@ export class Player extends bz.GameObject
 
                     // check player ascending
                     (
-                        velocity.y > 0.0
+                        velocity.y
 
                         // negate player velocity y if ascending
-                        ? ( -2 * velocity.y )
-
+//                      true ? velocity.y :
+//                      velocity.y > 0.0
+//                      ? ( -2 * velocity.y ) :
                         // check player falling
-                        : this.playerPhysics.isFalling()
-
-                            // scale up falling velocity
-                            ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
-
+//                      this.playerPhysics.isFalling()
+                        // scale up falling velocity
+//                      ? ( velocity.y * bz.SettingPlayer.FALLING_VELOCITY_MULTIPLIER )
                             // keep velocity
-                            : ( velocity.y )
+//                      : ( velocity.y )
                     ),
 
                     ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )

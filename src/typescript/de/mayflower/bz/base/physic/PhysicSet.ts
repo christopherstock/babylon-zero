@@ -19,7 +19,7 @@ export class PhysicSet
     (
         bz.PhysicBehaviour.STATIC,
         bz.PhysicFriction.MEDIUM,
-        bz.PhysicRestitution.MEDIUM,
+        bz.PhysicRestitution.NONE,
         0
     );
 
