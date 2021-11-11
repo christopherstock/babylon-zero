@@ -417,6 +417,9 @@ export abstract class Stage
     )
     : void
     {
+        const DOOR_SIZE      :number = 5.0;
+        const FLOOR_OFFSET_Y :number = ( 5 * bz.SettingEngine.FACE_DEPTH );
+
         const roomWalls :bz.Wall[] = [
 
             // 2 walls on x axis
@@ -430,7 +433,7 @@ export abstract class Stage
                         (
                             new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y / 2 ), position.z ),
                             textureWall,
-                            new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3( ( size.x - DOOR_SIZE ), size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,
@@ -449,7 +452,7 @@ export abstract class Stage
                         (
                             new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y / 2 ), position.z + size.z ),
                             textureWall,
-                            new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3( ( size.x ), size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,
@@ -470,7 +473,7 @@ export abstract class Stage
                         (
                             new BABYLON.Vector3( position.x, ( position.y + size.y / 2 ), ( position.z + size.z / 2 ) ),
                             textureWall,
-                            new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3( ( size.z ), size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,
@@ -489,7 +492,7 @@ export abstract class Stage
                         (
                             new BABYLON.Vector3( ( position.x + size.x ), ( position.y + size.y / 2 ), ( position.z + size.z / 2 ) ),
                             textureWall,
-                            new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3( ( size.z ), size.y, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.CENTER_XYZ,
@@ -529,7 +532,7 @@ export abstract class Stage
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + bz.SettingEngine.FACE_DEPTH ), ( position.z + size.z / 2 ) ),
+                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + FLOOR_OFFSET_Y ), ( position.z + size.z / 2 ) ),
                             textureFloor,
                             new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
                             bz.PhysicSet.STATIC,
@@ -546,8 +549,7 @@ export abstract class Stage
         for ( const roomWall of roomWalls ) {
             for ( let i:number = 0; i < roomWall.getModel().getMeshCount(); ++i )
             {
-                bz.MeshManipulation.rotateAroundAxisY(
-                    roomWall.getModel().getMesh(i),
+                roomWall.getModel().rotateAroundAxisY(
                     position.x,
                     position.z,
                     rotZ

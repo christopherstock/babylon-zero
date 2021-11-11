@@ -154,6 +154,14 @@ export class Model
         }
     }
 
+    public rotateAroundAxisY( x:number, z:number, rotY:number ) : void
+    {
+        for ( const mesh of this.meshes )
+        {
+            bz.MeshManipulation.rotateAroundAxisY( mesh, x, z,rotY );
+        }
+    }
+
     /** ****************************************************************************************************************
     *   Checks an intersection with the specified model.
     *

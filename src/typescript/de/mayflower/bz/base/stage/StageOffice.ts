@@ -55,7 +55,7 @@ export class StageOffice extends bz.Stage
         // add room 1
         this.addRoomWalls(
             meshFactory,
-            new BABYLON.Vector3( -5.0, 0.0, -5.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 20.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             90.0,
             bz.Texture.WALL_BRICKS_2,
