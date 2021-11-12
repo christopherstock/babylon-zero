@@ -14,15 +14,19 @@ export class StageFactory
         position       :BABYLON.Vector3,
         size           :BABYLON.Vector3,
         rotZ           :number,
+        addWallA       :boolean,
         textureWallA   :bz.Texture,
         doorsWallA     :number[] = [],
         windowsWallA   :number[] = [],
+        addWallB       :boolean,
         textureWallB   :bz.Texture,
         doorsWallB     :number[] = [],
         windowsWallB   :number[] = [],
+        addWallC       :boolean,
         textureWallC   :bz.Texture,
         doorsWallC     :number[] = [],
         windowsWallC   :number[] = [],
+        addWallD       :boolean,
         textureWallD   :bz.Texture,
         doorsWallD     :number[] = [],
         windowsWallD   :number[] = [],
@@ -34,53 +38,65 @@ export class StageFactory
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
 
-        StageFactory.createWall(
-            roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
-            position.x,
-            size.x,
-            position.y,
-            size.y,
-            position.z,
-            0.0,
-            textureWallA,
-            bz.Texture.WALL_GLASS
-        );
+        if ( addWallA )
+        {
+            StageFactory.createWall(
+                roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
+                position.x,
+                size.x,
+                position.y,
+                size.y,
+                position.z,
+                0.0,
+                textureWallA,
+                bz.Texture.WALL_GLASS
+            );
+        }
 
-        StageFactory.createWall(
-            roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
-            position.x + size.x + bz.SettingEngine.WALL_DEPTH,
-            size.z,
-            position.y,
-            size.y,
-            position.z,
-            -90.0,
-            textureWallB,
-            bz.Texture.WALL_GLASS
-        );
+        if ( addWallB )
+        {
+            StageFactory.createWall(
+                roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
+                position.x + size.x + bz.SettingEngine.WALL_DEPTH,
+                size.z,
+                position.y,
+                size.y,
+                position.z,
+                -90.0,
+                textureWallB,
+                bz.Texture.WALL_GLASS
+            );
+        }
 
-        StageFactory.createWall(
-            roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
-            position.x + size.x + bz.SettingEngine.WALL_DEPTH,
-            size.x,
-            position.y,
-            size.y,
-            position.z + size.z + bz.SettingEngine.WALL_DEPTH,
-            -180.0,
-            textureWallC,
-            bz.Texture.WALL_GLASS
-        );
+        if ( addWallC )
+        {
+            StageFactory.createWall(
+                roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
+                position.x + size.x + bz.SettingEngine.WALL_DEPTH,
+                size.x,
+                position.y,
+                size.y,
+                position.z + size.z + bz.SettingEngine.WALL_DEPTH,
+                -180.0,
+                textureWallC,
+                bz.Texture.WALL_GLASS
+            );
+        }
 
-        StageFactory.createWall(
-            roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
-            position.x,
-            size.z,
-            position.y,
-            size.y,
-            position.z + size.z + bz.SettingEngine.WALL_DEPTH,
-            -270.0,
-            textureWallD,
-            bz.Texture.WALL_GLASS
-        );
+        if ( addWallD )
+        {
+            StageFactory.createWall(
+                roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
+                position.x,
+                size.z,
+                position.y,
+                size.y,
+                position.z + size.z + bz.SettingEngine.WALL_DEPTH,
+                -270.0,
+                textureWallD,
+                bz.Texture.WALL_GLASS
+            );
+        }
 
         // ceiling
         const ceiling :bz.Wall = new bz.Wall
