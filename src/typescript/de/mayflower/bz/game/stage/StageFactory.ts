@@ -5,6 +5,9 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageFactory
 {
+    /** ****************************************************************************************************************
+    *   Creates one room.
+    *******************************************************************************************************************/
     public static addRoomWalls(
         stage          :bz.Stage,
         meshFactory    :bz.MeshFactory,
@@ -175,6 +178,9 @@ export class StageFactory
         return freeWalls;
     }
 
+    /** ****************************************************************************************************************
+    *   Creates one straight wall for a room.
+    *******************************************************************************************************************/
     private static createWall(
         roomWalls      :bz.Wall[],
         doorsPos       :number[],
@@ -211,7 +217,11 @@ export class StageFactory
                         (
                             new BABYLON.Vector3( x + doorPos, y + sizeY - bz.SettingEngine.DOOR_FRAME_HEIGHT, z ),
                             textureWall,
-                            new BABYLON.Vector3( bz.SettingEngine.DOOR_WIDTH, bz.SettingEngine.DOOR_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3(
+                                bz.SettingEngine.DOOR_WIDTH,
+                                bz.SettingEngine.DOOR_FRAME_HEIGHT,
+                                bz.SettingEngine.WALL_DEPTH
+                            ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ
@@ -239,9 +249,17 @@ export class StageFactory
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + windowPos, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, z ),
+                            new BABYLON.Vector3(
+                                x + windowPos,
+                                y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT,
+                                z
+                            ),
                             textureWall,
-                            new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3(
+                                bz.SettingEngine.WINDOW_WIDTH,
+                                bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT,
+                                bz.SettingEngine.WALL_DEPTH
+                            ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ
@@ -260,9 +278,17 @@ export class StageFactory
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + windowPos, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT, z ),
+                            new BABYLON.Vector3(
+                                x + windowPos,
+                                y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT,
+                                z
+                            ),
                             textureGlass,
-                            new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3(
+                                bz.SettingEngine.WINDOW_WIDTH,
+                                bz.SettingEngine.WINDOW_HEIGHT,
+                                bz.SettingEngine.WALL_DEPTH
+                            ),
                             bz.PhysicSet.STATIC,
                             0.25,
                             bz.MeshAnchor.LOWEST_XYZ
@@ -283,7 +309,11 @@ export class StageFactory
                         (
                             new BABYLON.Vector3( x + windowPos, y, z ),
                             textureWall,
-                            new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3(
+                                bz.SettingEngine.WINDOW_WIDTH,
+                                bz.SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT,
+                                bz.SettingEngine.WALL_DEPTH
+                            ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ
@@ -308,7 +338,11 @@ export class StageFactory
                         (
                             new BABYLON.Vector3( freeWalls[ i ], y, z ),
                             textureWall,
-                            new BABYLON.Vector3( ( freeWalls[ i + 1 ] - freeWalls[ i ] ), sizeY, bz.SettingEngine.WALL_DEPTH ),
+                            new BABYLON.Vector3(
+                                ( freeWalls[ i + 1 ] - freeWalls[ i ] ),
+                                sizeY,
+                                bz.SettingEngine.WALL_DEPTH
+                            ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ

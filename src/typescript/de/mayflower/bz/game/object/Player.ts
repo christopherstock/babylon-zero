@@ -1,5 +1,4 @@
 import * as bz from '../..';
-import { SettingPlayer } from '../..';
 
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
@@ -7,31 +6,31 @@ import { SettingPlayer } from '../..';
 export class Player extends bz.GameObject
 {
     /** The current height of the player. Changes on ducking. */
-    private heightY                 :number             = 0.0;
+    private          heightY            :number             = 0.0;
     /** Flags if rotZ view centering should occur this tick. */
-    private centerRotZ              :boolean            = false;
+    private          centerRotZ         :boolean            = false;
     /** The current angle for the sinus calculation of the head shaking. */
-    private headShakingAngle        :number             = 0.0;
+    private          headShakingAngle   :number             = 0.0;
 
     /** Flags if fire should be performed this tick. */
-    private fire                    :boolean            = false;
+    private          fire               :boolean            = false;
     /** Flags if the player currently wants to duck. */
-    private duck                    :boolean            = false;
+    private          duck               :boolean            = false;
 
     /** Flags if the player currently wants to zoom. */
-    private zoom                    :boolean            = false;
+    private          zoom               :boolean            = false;
     /** The current field of view of the player. Changes on zooming. */
-    private fieldOfView             :number             = 0.0;
+    private          fieldOfView        :number             = 0.0;
 
     /** Current rotation. */
-    private rotation                :BABYLON.Vector3    = null;
+    private readonly rotation           :BABYLON.Vector3    = null;
     /** Current rotation delta. */
-    private rotationDelta           :BABYLON.Vector3    = null;
+    private readonly rotationDelta      :BABYLON.Vector3    = null;
     /** Current move delta. */
-    private moveDelta               :BABYLON.Vector3    = null;
+    private readonly moveDelta          :BABYLON.Vector3    = null;
 
     /** All player physic settings. */
-    private playerPhysics           :bz.PlayerPhysic    = null;
+    private readonly playerPhysics      :bz.PlayerPhysic    = null;
 
     /** ****************************************************************************************************************
     *   Creates a new player instance.
@@ -382,7 +381,9 @@ export class Player extends bz.GameObject
             }
 
             // reset move deltas
-            this.moveDelta = BABYLON.Vector3.Zero();
+            this.moveDelta.x = 0.0;
+            this.moveDelta.y = 0.0;
+            this.moveDelta.z = 0.0;
         }
         else
         {

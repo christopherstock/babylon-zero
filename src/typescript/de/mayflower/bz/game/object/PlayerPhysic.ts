@@ -23,6 +23,11 @@ export class PlayerPhysic
     /** The referenced right hand mesh. */
     public        readonly rightHand                    :BABYLON.AbstractMesh               = null;
 
+    /** ****************************************************************************************************************
+    *   Create a new physical body handling for the player.
+    *
+    *   @param model The player model.
+    *******************************************************************************************************************/
     public constructor( model:bz.Model )
     {
         // reference the body and all limbs

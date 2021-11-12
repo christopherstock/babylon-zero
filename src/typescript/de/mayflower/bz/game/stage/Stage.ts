@@ -295,6 +295,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Adds a wall to the stage.
+    *
+    *   @param wall The wall to add to this stage.
+    *******************************************************************************************************************/
+    public addWall( wall:bz.Wall ) : void
+    {
+        this.walls.push( wall );
+    }
+
+    /** ****************************************************************************************************************
     *   Returns the according scene.
     *
     *   @return The scene this stage belongs to.
@@ -340,16 +350,6 @@ export abstract class Stage
     protected addSprite( sprite:bz.Sprite ) : void
     {
         this.sprites.push( sprite );
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds a wall to the stage.
-    *
-    *   @param wall The wall to add to this stage.
-    *******************************************************************************************************************/
-    public addWall( wall:bz.Wall ) : void
-    {
-        this.walls.push( wall );
     }
 
     /** ****************************************************************************************************************

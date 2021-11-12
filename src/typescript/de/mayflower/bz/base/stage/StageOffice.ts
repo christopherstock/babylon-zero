@@ -43,9 +43,9 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X - 5.0,
+                    this.OFFSET_X + 10.0,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                    this.OFFSET_Z - 5.0
+                    this.OFFSET_Z + 10.0
                 ),
                 45.0,
                 this.getConfig().ambientColor
@@ -57,7 +57,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 50.0, bz.SettingEngine.WALL_HEIGHT, 70.0 ),
+            new BABYLON.Vector3( 20.0, bz.SettingEngine.WALL_HEIGHT, 30.0 ),
             0.0,
             bz.Texture.WALL_TEST,
             [ 20.0 ],
@@ -75,7 +75,8 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CEILING
         );
 
-        this.addGroundWalls( meshFactory );
+        // add ground walls
+        // this.addGroundWalls( meshFactory );
 
         // blue skybox half alpha
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
@@ -197,7 +198,7 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
-
+*/
         // point light
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
@@ -210,7 +211,7 @@ export class StageOffice extends bz.Stage
             true
         );
         this.addLight( pointLight );
-
+/*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
 
