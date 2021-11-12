@@ -121,12 +121,20 @@ export class StageFactory
         const busyWallsX1 :BABYLON.Vector2[] = [];
         for ( const windowX1 of windowsX1 )
         {
-            busyWallsX1.push( new BABYLON.Vector2( position.x + windowX1, position.x + windowX1 + bz.SettingEngine.WINDOW_WIDTH ) );
+            StageFactory.pushSortedByX(
+                busyWallsX1,
+                new BABYLON.Vector2( position.x + windowX1, position.x + windowX1 + bz.SettingEngine.WINDOW_WIDTH )
+            );
         }
         for ( const doorX1 of doorsX1 )
         {
-            busyWallsX1.push( new BABYLON.Vector2( position.x + doorX1, position.x + doorX1 + bz.SettingEngine.DOOR_WIDTH ) );
+            StageFactory.pushSortedByX(
+                busyWallsX1,
+                new BABYLON.Vector2( position.x + doorX1, position.x + doorX1 + bz.SettingEngine.DOOR_WIDTH )
+            );
         }
+
+        console.log( busyWallsX1 );
 
         const freeWallsX1 :number[] = [];
         freeWallsX1.push( position.x );
@@ -280,5 +288,10 @@ export class StageFactory
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
             stage.addWall( roomWall );
         }
+    }
+
+    private static pushSortedByX( busyWalls:BABYLON.Vector2[], vecArr:BABYLON.Vector2 ) :void
+    {
+        busyWalls.push( vecArr );
     }
 }

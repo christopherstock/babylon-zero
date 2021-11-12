@@ -63,8 +63,8 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_BRICKS_2,
             bz.Texture.WALL_CARPET,
             bz.Texture.WALL_CEILING,
-            [ 25.0, 30.0, 35.0 ],
-            [ 5.0, 10.0, 15.0, ]
+            [ 20.0, 25.0, 30.0, 40.0 ],
+            [ 5.0, 10.0, 15.0, 35.0 ]
         );
 
 
