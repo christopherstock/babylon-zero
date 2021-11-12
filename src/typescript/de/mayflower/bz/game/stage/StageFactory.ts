@@ -115,24 +115,28 @@ export class StageFactory
             roomWalls.push( bottomWindowFrameX1 );
         }
 
+
         // wall X1
 
         // collect all busy walls X1
-        const busyWallsX1 :BABYLON.Vector2[] = [];
+        let busyWallsX1 :BABYLON.Vector2[] = [];
         for ( const windowX1 of windowsX1 )
         {
-            StageFactory.pushSortedByX(
-                busyWallsX1,
+            busyWallsX1.push(
                 new BABYLON.Vector2( position.x + windowX1, position.x + windowX1 + bz.SettingEngine.WINDOW_WIDTH )
             );
         }
         for ( const doorX1 of doorsX1 )
         {
-            StageFactory.pushSortedByX(
-                busyWallsX1,
+            busyWallsX1.push(
                 new BABYLON.Vector2( position.x + doorX1, position.x + doorX1 + bz.SettingEngine.DOOR_WIDTH )
             );
         }
+        busyWallsX1 = busyWallsX1.sort(
+            ( a:BABYLON.Vector2, b:BABYLON.Vector2 ) => {
+                return ( a.x > b.x ? 1 : -1 );
+            }
+        );
 
         console.log( busyWallsX1 );
 
@@ -144,6 +148,7 @@ export class StageFactory
             freeWallsX1.push( busyWallX1.y );
         }
         freeWallsX1.push( position.x + size.x );
+
 
         for ( let i = 0; i < freeWallsX1.length; i += 2 )
         {
@@ -288,10 +293,5 @@ export class StageFactory
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
             stage.addWall( roomWall );
         }
-    }
-
-    private static pushSortedByX( busyWalls:BABYLON.Vector2[], vecArr:BABYLON.Vector2 ) :void
-    {
-        busyWalls.push( vecArr );
     }
 }
