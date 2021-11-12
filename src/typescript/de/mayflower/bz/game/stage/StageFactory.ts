@@ -130,12 +130,18 @@ export class StageFactory
         let busyWalls :BABYLON.Vector2[] = [];
         for ( const window of windows )
         {
+            if ( start + window >= start + size ) {
+                continue;
+            }
             busyWalls.push(
                 new BABYLON.Vector2( start + window, start + window + bz.SettingEngine.WINDOW_WIDTH )
             );
         }
         for ( const door of doors )
         {
+            if ( start + door >= start + size ) {
+                continue;
+            }
             busyWalls.push(
                 new BABYLON.Vector2( start + door, start + door + bz.SettingEngine.DOOR_WIDTH )
             );
@@ -161,7 +167,6 @@ export class StageFactory
     }
 
     private static createWall(
-        // TODO prevent overdrawing of doors and windows
         roomWalls      :bz.Wall[],
         doorsPos       :number[],
         windowsPos     :number[],
@@ -186,6 +191,10 @@ export class StageFactory
         // door frames
         for ( const doorPos of doorsPos )
         {
+            if ( doorPos >= sizeX ) {
+                continue;
+            }
+
             const doorFrame :bz.Wall = new bz.Wall
             (
                 stage,
@@ -209,8 +218,12 @@ export class StageFactory
         }
 
         // window frames
-        for ( const window of windowsPos )
+        for ( const windowPos of windowsPos )
         {
+            if ( windowPos >= sizeX ) {
+                continue;
+            }
+
             // top window frame
             const topWindowFrame :bz.Wall = new bz.Wall
             (
@@ -220,7 +233,7 @@ export class StageFactory
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + window, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, z ),
+                            new BABYLON.Vector3( x + windowPos, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, z ),
                             textureWall,
                             new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
@@ -241,7 +254,7 @@ export class StageFactory
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + window, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT, z ),
+                            new BABYLON.Vector3( x + windowPos, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT, z ),
                             textureGlass,
                             new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
@@ -262,7 +275,7 @@ export class StageFactory
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + window, y, z ),
+                            new BABYLON.Vector3( x + windowPos, y, z ),
                             textureWall,
                             new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
                             bz.PhysicSet.STATIC,
