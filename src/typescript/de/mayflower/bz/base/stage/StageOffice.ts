@@ -43,15 +43,33 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X + 10.0,
+                    this.OFFSET_X + 2.5,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                    this.OFFSET_Z + 10.0
+                    this.OFFSET_Z + 2.5
                 ),
-                45.0,
+                70.0,
                 this.getConfig().ambientColor
             )
         );
+
+        // add room 1
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 30.0, bz.SettingEngine.WALL_HEIGHT, 30.0 ),
+            0.0,
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_CARPET_2,
+            bz.Texture.WALL_CEILING
+        );
+
 /*
+//            bz.Texture.WALL_STONES_3,
+
         // add passway
         bz.StageFactory.addRoomWalls(
             this,
@@ -79,20 +97,6 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CEILING
         );
 */
-        // add room 1
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 30.0, bz.SettingEngine.WALL_HEIGHT, 30.0 ),
-            0.0,
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_STONES_3,
-            bz.Texture.WALL_CEILING
-        );
 
         // add ground walls
         // this.addGroundWalls( meshFactory );

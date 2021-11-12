@@ -47,17 +47,14 @@ export class GUIPause
         // explanation
         this.explanation = bz.GUIFactory.createTextBlock
         (
-            'WORUM GEHT ES HIER?\n\n'
-                + 'Das müssen Sie selbst herausfinden.' + '\n'
-                + 'Interagieren Sie mit Objekten' + '\n'
-                + 'und finden Sie heraus, was passiert ist.' + '\n'
-                + 'Verwenden Sie die folgenden Keys:' + '\n\n'
-                + 'W A S D = Fortbewegen' + '\n'
-                + 'Q E = Horizontal drehen' + '\n'
-                + 'T G = Vertikal drehen' + '\n'
-                + 'X = Zielen' + '\n'
-                + 'Y = Ducken' + '\n'
-                + 'Ctlr/Strg = Feuer' + '\n',
+            'Try to find out what is happening!\n\n'
+                + 'Interact with the environment and use the following keys:' + '\n\n'
+                + 'W A S D = Walk and Strave' + '\n'
+                + 'Q E = Turn Left/Right' + '\n'
+                + 'T G = Look Up/Down' + '\n'
+                + 'X = Aim' + '\n'
+                + 'Y = Duck' + '\n'
+                + 'Ctlr/Strg = Fire' + '\n',
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
@@ -71,7 +68,7 @@ export class GUIPause
         // menu headline
         this.menuHeadline = bz.GUIFactory.createTextBlock
         (
-            'PAUSE MENU',
+            'Paws Menu',
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
