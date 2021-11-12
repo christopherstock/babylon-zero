@@ -616,6 +616,7 @@ export abstract class Stage
                 ]
             )
         );
+        roomWalls.push( ceiling );
 
         // floor
         const floor :bz.Wall = new bz.Wall
@@ -637,27 +638,21 @@ export abstract class Stage
                 ]
             )
         )
+        roomWalls.push( floor );
 
         // rotate all Z walls by 90.0° around pivot
         wallZ1.getModel().rotateAroundAxisY( position.x, position.z, 90.0 );
         wallZ2.getModel().rotateAroundAxisY( ( position.x + size.x ), ( position.z + size.z ), 90.0 );
 
         roomWalls.push(
-//            wallX1,
             wallX2,
             wallZ1,
-            wallZ2,
-            ceiling,
-            floor
+            wallZ2
         );
 
-        // rotate ALL walls around pivot
+        // rotate ALL walls around pivot and all all walls to stage
         for ( const roomWall of roomWalls ) {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
-        }
-
-        // add all walls to stage
-        for ( const roomWall of roomWalls ) {
             this.addWall( roomWall );
         }
     }
