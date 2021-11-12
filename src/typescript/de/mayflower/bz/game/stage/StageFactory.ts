@@ -46,19 +46,22 @@ export class StageFactory
             bz.Texture.WALL_GLASS
         );
 
-
-
-
-
-/*
         StageFactory.createWall(
             roomWalls, doorsPos, windowsPos, stage, meshFactory,
-            position.x, size.z, position.y, size.y, position.z,
-            90.0, ( position.x + size.x ), ( position.z + size.z ),
+            position.x + size.x + bz.SettingEngine.WALL_DEPTH,
+            size.x,
+            position.y,
+            size.y,
+            position.z + size.z + bz.SettingEngine.WALL_DEPTH,
+            -180.0, position.x + size.x + bz.SettingEngine.WALL_DEPTH, position.z + size.z + bz.SettingEngine.WALL_DEPTH,
             bz.Texture.WALL_BRICKS_2,
             bz.Texture.WALL_GLASS
         );
-*/
+
+
+
+
+
         // ceiling
         const ceiling :bz.Wall = new bz.Wall
         (
