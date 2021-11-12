@@ -51,7 +51,7 @@ export class StageOffice extends bz.Stage
                 this.getConfig().ambientColor
             )
         );
-
+/*
         // add passway
         bz.StageFactory.addRoomWalls(
             this,
@@ -78,32 +78,19 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CARPET,
             bz.Texture.WALL_CEILING
         );
-
-
+*/
         // add room 1
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 20.0, bz.SettingEngine.WALL_HEIGHT, 30.0 ),
+            new BABYLON.Vector3( 30.0, bz.SettingEngine.WALL_HEIGHT, 30.0 ),
             0.0,
-            true,
-            bz.Texture.WALL_TEST,
-            [ 20.0 ],
-            [ 5.0 ],
-            true,
-            bz.Texture.WALL_AMIGA,
-            [ 20.0 ],
-            [ 5.0 ],
-            true,
-            bz.Texture.WALL_GRASS,
-            [ 20.0 ],
-            [ 5.0 ],
-            true,
-            bz.Texture.WALL_BRICKS_2,
-            [ 20.0 ],
-            [ 5.0 ],
-            bz.Texture.WALL_CARPET,
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_STONES_3,
             bz.Texture.WALL_CEILING
         );
 

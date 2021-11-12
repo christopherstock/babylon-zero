@@ -18,6 +18,8 @@ export class Texture
 
     /** The texture 'wall test'. */
     public static readonly WALL_TEST                   :Texture                = new Texture( bz.TextureFile.WALL_TEST );
+    /** The texture 'wall stones 3'. */
+    public static readonly WALL_STONES_3               :Texture                = new Texture( bz.TextureFile.WALL_STONES_3 );
     /** The texture 'wall mayflower logo'. */
     public static readonly WALL_MAYFLOWER_LOGO         :Texture                = new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO );
     /** The texture 'wall amiga'. */
@@ -62,6 +64,7 @@ export class Texture
         Texture.BULLET_HOLE_METAL,
 
         Texture.WALL_TEST,
+        Texture.WALL_STONES_3,
         Texture.WALL_MAYFLOWER_LOGO,
         Texture.WALL_AMIGA,
         Texture.WALL_WOOD_HORZ,
