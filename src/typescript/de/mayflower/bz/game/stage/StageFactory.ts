@@ -116,26 +116,51 @@ export class StageFactory
         }
 
         // wall X1
-/*
-        const wallX1 :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
+
+        // collect all busy walls X1
+        const busyWallsX1 :BABYLON.Vector2[] = [];
+        for ( const windowX1 of windowsX1 )
+        {
+            busyWallsX1.push( new BABYLON.Vector2( position.x + windowX1, position.x + windowX1 + bz.SettingEngine.WINDOW_WIDTH ) );
+        }
+        for ( const doorX1 of doorsX1 )
+        {
+            busyWallsX1.push( new BABYLON.Vector2( position.x + doorX1, position.x + doorX1 + bz.SettingEngine.DOOR_WIDTH ) );
+        }
+
+        const freeWallsX1 :number[] = [];
+        freeWallsX1.push( position.x );
+        for ( const busyWallX1 of busyWallsX1 )
+        {
+            freeWallsX1.push( busyWallX1.x );
+            freeWallsX1.push( busyWallX1.y );
+        }
+        freeWallsX1.push( position.x + size.x );
+
+        for ( let i = 0; i < freeWallsX1.length; i += 2 )
+        {
+            const wallX1 :bz.Wall = new bz.Wall
             (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( position.x, position.y, position.z ),
-                        bz.Texture.WALL_TEST,
-                        new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
-                    ),
-                ]
-            )
-        );
-*/
+                stage,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( freeWallsX1[ i ], position.y, position.z ),
+                            bz.Texture.WALL_TEST,
+                            new BABYLON.Vector3( ( freeWallsX1[ i + 1 ] - freeWallsX1[ i ] ), size.y, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            );
+
+            roomWalls.push( wallX1 );
+        }
+
         // wall X2
         const wallX2 :bz.Wall = new bz.Wall
         (
