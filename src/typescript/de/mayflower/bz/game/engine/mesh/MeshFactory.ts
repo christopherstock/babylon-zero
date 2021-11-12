@@ -88,6 +88,22 @@ export class MeshFactory
                     ];
                     break;
                 }
+
+                case bz.TextureUV.TILED_BY_HALF_SIZE:
+                {
+                    faceUV =
+                    [
+                        new BABYLON.Vector4( 0.0, 0.0, -size.x / 2, -size.y / 2 ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.x / 2,  size.y / 2  ),
+
+                        new BABYLON.Vector4( 0.0, 0.0, -size.y / 2, -size.z / 2 ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.y / 2,  size.z / 2  ),
+
+                        new BABYLON.Vector4( 0.0, 0.0, -size.z / 2, -size.x / 2 ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.z / 2,  size.x / 2  ),
+                    ];
+                    break;
+                }
             }
         }
 

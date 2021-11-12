@@ -37,7 +37,7 @@ export class TextureFile
     /** The texture file 'bricks 1'. */
     public static readonly WALL_BRICKS_1                :TextureFile            = new TextureFile( 'wall/bricks1.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     /** The texture file 'bricks 2'. */
-    public static readonly WALL_BRICKS_2                :TextureFile            = new TextureFile( 'wall/bricks2.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
+    public static readonly WALL_BRICKS_2                :TextureFile            = new TextureFile( 'wall/bricks2.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_HALF_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     /** The texture file 'carpet'. */
     public static readonly WALL_CARPET                  :TextureFile            = new TextureFile( 'wall/carpet.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'ceiling'. */

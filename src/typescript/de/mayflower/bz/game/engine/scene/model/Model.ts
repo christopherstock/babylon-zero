@@ -133,7 +133,7 @@ export class Model
     }
 
     /** ****************************************************************************************************************
-    *   Rotates all meshes if this model.
+    *   Rotates all meshes of this model around the model's center point.
     *
     *   @param rotX The rotation X in degrees.
     *   @param rotY The rotation Y in degrees.
@@ -154,6 +154,13 @@ export class Model
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Rotates all meshes of this model along axis Y around the given point.
+    *
+    *   @param x    Pivot point X.
+    *   @param z    Pivot point Z.
+    *   @param rotY The rotation Y in degrees to apply.
+    *******************************************************************************************************************/
     public rotateAroundAxisY( x:number, z:number, rotY:number ) : void
     {
         for ( const mesh of this.meshes )
