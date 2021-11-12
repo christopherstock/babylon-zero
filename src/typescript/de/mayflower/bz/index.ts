@@ -68,11 +68,10 @@ export * from './game/engine/mesh/MeshFactory';
 export * from './game/engine/mesh/MeshManipulation';
 export * from './game/engine/mesh/MeshAnchor';
 
-export * from './base/physic/PhysicFriction';
-export * from './base/physic/PhysicRestitution';
-
+export * from './game/engine/physic/PhysicFriction';
+export * from './game/engine/physic/PhysicRestitution';
 export * from './game/engine/physic/PhysicBehaviour';
-export * from './base/physic/PhysicSet';
+export * from './base/data/PhysicSet';
 export * from './game/engine/physic/PhysicImpostorParams';
 export * from './game/engine/physic/PhysicBody';
 
