@@ -58,9 +58,17 @@ export class StageFactory
             bz.Texture.WALL_GLASS
         );
 
-
-
-
+        StageFactory.createWall(
+            roomWalls, doorsPos, windowsPos, stage, meshFactory,
+            position.x,
+            size.z,
+            position.y,
+            size.y,
+            position.z + size.z + bz.SettingEngine.WALL_DEPTH,
+            -270.0, position.x, position.z + size.z + bz.SettingEngine.WALL_DEPTH,
+            bz.Texture.WALL_WOOD_VERT,
+            bz.Texture.WALL_GLASS
+        );
 
         // ceiling
         const ceiling :bz.Wall = new bz.Wall
@@ -153,6 +161,7 @@ export class StageFactory
     }
 
     private static createWall(
+        // TODO prevent overdrawing of doors and windows
         roomWalls      :bz.Wall[],
         doorsPos       :number[],
         windowsPos     :number[],
@@ -164,6 +173,7 @@ export class StageFactory
         sizeY          :number,
         z              :number,
         rotY           :number,
+        // TODO remove pivots with x z
         rotationPivotX :number,
         rotationPivotZ :number,
         textureWall    :bz.Texture,
