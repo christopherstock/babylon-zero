@@ -419,10 +419,8 @@ export abstract class Stage
     )
     : void
     {
-        // TODO to SettingEngine
-        const FLOOR_OFFSET_Y :number = ( 5 * bz.SettingEngine.FACE_DEPTH );
-/*
         // wall X1 - door frames
+/*
         for ( const doorX1 of doorsX1 )
         {
             roomWalls.push(
@@ -564,7 +562,7 @@ export abstract class Stage
                 [
                     meshFactory.createBox
                     (
-                        new BABYLON.Vector3( position.x, ( position.y + FLOOR_OFFSET_Y ), position.z ),
+                        new BABYLON.Vector3( position.x, ( position.y + bz.SettingEngine.FLOOR_OFFSET_Y ), position.z ),
                         textureFloor,
                         new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
                         bz.PhysicSet.STATIC,

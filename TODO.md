@@ -5,6 +5,8 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO prevent visible room wall corners?
+
 TODO Stop player from jumping around when falling etc?
 
 TODO Add room/house creation method.

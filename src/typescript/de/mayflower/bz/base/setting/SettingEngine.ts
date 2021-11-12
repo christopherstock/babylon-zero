@@ -78,7 +78,12 @@ export class SettingEngine
     /** Unified wall height (y) for building constructions. */
     public static readonly WALL_HEIGHT                              :number             = 6.0;
     /** Unified door width for building constructions. */
-    public static readonly DOOR_SIZE                                :number             = 3.0;
+    public static readonly DOOR_WIDTH                               :number             = 3.0;
+    /** Unified door frame height for building constructions. */
+    public static readonly DOOR_FRAME_HEIGHT                        :number             = 0.5;
+
+    /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
+    public static readonly FLOOR_OFFSET_Y                           :number             = ( 5 * SettingEngine.FACE_DEPTH );
 
     /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
     public static readonly BULLET_HOLE_DEPTH                        :number             = 0.025;
