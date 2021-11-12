@@ -17,7 +17,7 @@ TODO Try cool physics pause (scene cam) feature.
 =====================
 Player
 =====================
-TODO Fix ducking?
+TODO Fix ducking? => concerning heightY and shot height ?
 TODO Fix jumping!
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!

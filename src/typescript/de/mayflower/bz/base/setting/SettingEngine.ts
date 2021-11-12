@@ -83,16 +83,16 @@ export class SettingEngine
     /** Unified door width for building constructions. */
     public static readonly DOOR_WIDTH                               :number             = 5.0;
     /** Unified door height for building constructions. */
-    public static readonly DOOR_HEIGHT                              :number             = 7.5;
+    public static readonly DOOR_HEIGHT                              :number             = 8.5;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.DOOR_HEIGHT );
 
     /** Unified window width for building constructions. */
-    public static readonly WINDOW_WIDTH                             :number             = 3.5;
+    public static readonly WINDOW_WIDTH                             :number             = 4.5;
     /** Unified window height for building constructions. */
-    public static readonly WINDOW_HEIGHT                            :number             = 3.5;
+    public static readonly WINDOW_HEIGHT                            :number             = 4.5;
     /** Unified door frame height for building constructions. */
-    public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 2.5;
+    public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 1.5;
     /** Unified window bottom frame height for building constructions. */
     public static readonly WINDOW_BOTTOM_FRAME_HEIGHT               :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.WINDOW_HEIGHT - SettingEngine.WINDOW_TOP_FRAME_HEIGHT );
 
