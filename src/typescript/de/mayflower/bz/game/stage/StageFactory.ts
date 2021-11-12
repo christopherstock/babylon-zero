@@ -14,19 +14,15 @@ export class StageFactory
         position       :BABYLON.Vector3,
         size           :BABYLON.Vector3,
         rotZ           :number,
-        addWallA       :boolean,
         textureWallA   :bz.Texture,
         doorsWallA     :number[] = [],
         windowsWallA   :number[] = [],
-        addWallB       :boolean,
         textureWallB   :bz.Texture,
         doorsWallB     :number[] = [],
         windowsWallB   :number[] = [],
-        addWallC       :boolean,
         textureWallC   :bz.Texture,
         doorsWallC     :number[] = [],
         windowsWallC   :number[] = [],
-        addWallD       :boolean,
         textureWallD   :bz.Texture,
         doorsWallD     :number[] = [],
         windowsWallD   :number[] = [],
@@ -38,7 +34,7 @@ export class StageFactory
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
 
-        if ( addWallA )
+        if ( textureWallA !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
@@ -53,7 +49,7 @@ export class StageFactory
             );
         }
 
-        if ( addWallB )
+        if ( textureWallB !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
@@ -68,7 +64,7 @@ export class StageFactory
             );
         }
 
-        if ( addWallC )
+        if ( textureWallC !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
@@ -83,7 +79,7 @@ export class StageFactory
             );
         }
 
-        if ( addWallD )
+        if ( textureWallD !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
@@ -99,48 +95,54 @@ export class StageFactory
         }
 
         // ceiling
-        const ceiling :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
+        if ( textureCeiling !== null )
+        {
+            const ceiling :bz.Wall = new bz.Wall
             (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( position.x, ( position.y + size.y ), position.z ),
-                        textureCeiling,
-                        new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                    ),
-                ]
-            )
-        );
-        roomWalls.push( ceiling );
+                stage,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( position.x, ( position.y + size.y ), position.z ),
+                            textureCeiling,
+                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                        ),
+                    ]
+                )
+            );
+            roomWalls.push( ceiling );
+        }
 
         // floor
-        const floor :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
+        if ( textureFloor !== null )
+        {
+            const floor :bz.Wall = new bz.Wall
             (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( position.x, ( position.y + bz.SettingEngine.FLOOR_OFFSET_Y ), position.z ),
-                        textureFloor,
-                        new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                    ),
-                ]
+                stage,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( position.x, ( position.y + bz.SettingEngine.FLOOR_OFFSET_Y ), position.z ),
+                            textureFloor,
+                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                        ),
+                    ]
+                )
             )
-        )
-        roomWalls.push( floor );
+            roomWalls.push( floor );
+        }
 
         // rotate ALL walls around pivot and add all walls to stage
         for ( const roomWall of roomWalls ) {

@@ -24,8 +24,7 @@ export class StageOffice extends bz.Stage
     protected createStageConfig() : bz.StageConfig
     {
         return new bz.StageConfig(
-            // new BABYLON.Color3( 0.1, 0.1, 0.1 ), // night
-            new BABYLON.Color3( 0.6, 0.6, 0.6 ), // evening
+            new BABYLON.Color3( 0.6, 0.6, 0.6 ), // evening, 0.1 = night, 1.0 = day
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON
         );
@@ -36,6 +35,12 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     protected createStageContents( meshFactory:bz.MeshFactory ) : void
     {
+        // blue skybox
+        this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
+
+        // ground walls
+        this.addGroundWalls( meshFactory );
+
         // player
         this.setPlayer(
             new bz.Player
@@ -52,24 +57,38 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // add room 1
+        // add small office
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 30.0, bz.SettingEngine.WALL_HEIGHT, 30.0 ),
+            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
-            true, bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_WOOD_HORZ, [], [],
+             null, null, null,
+            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_WOOD_HORZ, [ 1.0 ], [],
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
 
-/*
-//            bz.Texture.WALL_STONES_3,
+        // light square
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 40.0, 0.0, bz.SettingEngine.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 - 2 * bz.SettingEngine.HALLWAY_WIDTH ),
+            0.0,
+            null, [], [],
+             null, null, null,
+            null, [], [],
+            null, [ 1.0 ], [],
+            bz.Texture.WALL_STONES_3,
+            null
+        );
 
+
+/*
         // add passway
         bz.StageFactory.addRoomWalls(
             this,
@@ -98,11 +117,6 @@ export class StageOffice extends bz.Stage
         );
 */
 
-        // add ground walls
-        // this.addGroundWalls( meshFactory );
-
-        // blue skybox half alpha
-        this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
 /*
         this.addBoxesWalls(  meshFactory );
@@ -226,7 +240,7 @@ export class StageOffice extends bz.Stage
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.getScene().getNativeScene(),
-            new BABYLON.Vector3( this.OFFSET_X + 20.0, 2.5, this.OFFSET_Z + 20.0 ),
+            new BABYLON.Vector3( this.OFFSET_X + 45.0, 2.5, this.OFFSET_Z + 15.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
             50.0,
@@ -240,7 +254,7 @@ export class StageOffice extends bz.Stage
 
         // add shadows for point light
         this.addShadowGenerator( pointLight );
- */
+*/
     }
 
     /** ****************************************************************************************************************
@@ -294,10 +308,10 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createHeightMapGround
                         (
-                            new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z ),
+                            new BABYLON.Vector3( this.OFFSET_X + 20.0, 0.0, this.OFFSET_Z + 40 ),
                             bz.MeshAnchor.CENTER_XYZ,
-                            300.0,
-                            10.0,
+                            400.0,
+                            15.0,
                             bz.TextureFile.HEIGHTMAP_VALLEY,
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
                             bz.PhysicSet.STATIC
@@ -308,6 +322,7 @@ export class StageOffice extends bz.Stage
         );
 
         // ceiling
+/*
         this.addWall(
             new bz.Wall
             (
@@ -326,6 +341,7 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
+*/
     }
 
     /** ****************************************************************************************************************

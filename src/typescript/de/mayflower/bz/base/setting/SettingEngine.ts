@@ -86,6 +86,8 @@ export class SettingEngine
     public static readonly DOOR_HEIGHT                              :number             = 8.5;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.DOOR_HEIGHT );
+    /** Unified width for a hallway in building constructions. */
+    public static readonly HALLWAY_WIDTH                            :number             = 10.0;
 
     /** Unified window width for building constructions. */
     public static readonly WINDOW_WIDTH                             :number             = 4.5;
