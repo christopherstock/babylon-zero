@@ -117,40 +117,8 @@ export class StageFactory
 
 
         // wall X1
-
-        // collect all busy walls X1
-        let busyWallsX1 :BABYLON.Vector2[] = [];
-        for ( const windowX1 of windowsX1 )
-        {
-            busyWallsX1.push(
-                new BABYLON.Vector2( position.x + windowX1, position.x + windowX1 + bz.SettingEngine.WINDOW_WIDTH )
-            );
-        }
-        for ( const doorX1 of doorsX1 )
-        {
-            busyWallsX1.push(
-                new BABYLON.Vector2( position.x + doorX1, position.x + doorX1 + bz.SettingEngine.DOOR_WIDTH )
-            );
-        }
-        busyWallsX1 = busyWallsX1.sort(
-            ( a:BABYLON.Vector2, b:BABYLON.Vector2 ) => {
-                return ( a.x > b.x ? 1 : -1 );
-            }
-        );
-
-        console.log( busyWallsX1 );
-
-        const freeWallsX1 :number[] = [];
-        freeWallsX1.push( position.x );
-        for ( const busyWallX1 of busyWallsX1 )
-        {
-            freeWallsX1.push( busyWallX1.x );
-            freeWallsX1.push( busyWallX1.y );
-        }
-        freeWallsX1.push( position.x + size.x );
-
-
-        for ( let i = 0; i < freeWallsX1.length; i += 2 )
+        const freeWallsX1 :number[] = StageFactory.calculateFreeWalls( position.x, size.x, windowsX1, doorsX1 );
+        for ( let i:number = 0; i < freeWallsX1.length; i += 2 )
         {
             const wallX1 :bz.Wall = new bz.Wall
             (
@@ -293,5 +261,41 @@ export class StageFactory
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
             stage.addWall( roomWall );
         }
+    }
+
+    private static calculateFreeWalls( start:number, size:number, windows:number[], doors:number[] ) : number[]
+    {
+        // collect all busy walls
+        let busyWalls :BABYLON.Vector2[] = [];
+        for ( const window of windows )
+        {
+            busyWalls.push(
+                new BABYLON.Vector2( start + window, start + window + bz.SettingEngine.WINDOW_WIDTH )
+            );
+        }
+        for ( const door of doors )
+        {
+            busyWalls.push(
+                new BABYLON.Vector2( start + door, start + door + bz.SettingEngine.DOOR_WIDTH )
+            );
+        }
+
+        // sort busy walls by 1st value (X)
+        busyWalls = busyWalls.sort(
+            ( a:BABYLON.Vector2, b:BABYLON.Vector2 ) => {
+                return ( a.x > b.x ? 1 : -1 );
+            }
+        );
+
+        const freeWalls :number[] = [];
+        freeWalls.push( start );
+        for ( const busyWall of busyWalls )
+        {
+            freeWalls.push( busyWall.x );
+            freeWalls.push( busyWall.y );
+        }
+        freeWalls.push( start + size );
+
+        return freeWalls;
     }
 }
