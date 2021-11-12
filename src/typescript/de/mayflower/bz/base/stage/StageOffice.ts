@@ -75,6 +75,17 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CEILING
         );
 
+        this.addGroundWalls( meshFactory );
+
+        // blue skybox half alpha
+        this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
+
+/*
+        this.addBoxesWalls(  meshFactory );
+        this.addChairsWalls( meshFactory );
+        this.addStuffWalls(  meshFactory );
+*/
+/*
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
@@ -145,10 +156,7 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        this.addGroundWalls( meshFactory );
-        this.addBoxesWalls(  meshFactory );
-        this.addChairsWalls( meshFactory );
-        this.addStuffWalls(  meshFactory );
+        // add 3 items
 
         this.addItem(
             new bz.Item
@@ -203,14 +211,12 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
-        // blue skybox half alpha
-        this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
-
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
 
         // add shadows for point light
         this.addShadowGenerator( pointLight );
+ */
     }
 
     /** ****************************************************************************************************************

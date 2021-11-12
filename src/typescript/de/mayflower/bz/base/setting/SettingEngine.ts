@@ -89,7 +89,7 @@ export class SettingEngine
     /** Unified window height for building constructions. */
     public static readonly WINDOW_HEIGHT                            :number             = 2.0;
     /** Unified door frame height for building constructions. */
-    public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 0.75;
+    public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 1.0;
     /** Unified window bottom frame height for building constructions. */
     public static readonly WINDOW_BOTTOM_FRAME_HEIGHT               :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.WINDOW_HEIGHT - SettingEngine.WINDOW_TOP_FRAME_HEIGHT );
 

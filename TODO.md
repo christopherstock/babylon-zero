@@ -5,17 +5,10 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO prevent visible room wall corners?
-
-TODO Stop player from jumping around when falling etc?
-
-TODO Add room/house creation method.
-TODO Add suitable textures!
-TODO Scale up/down all chairs and some models?
-TODO Add shelves.
+TODO Add nice textures
+TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?
 TODO Create realistic models and lights.
 TODO Models (item shell boxes) with changine/different Textures?
-TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO Reset Git Repository?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
 TODO Try cool physics pause (scene cam) feature.
@@ -30,6 +23,11 @@ TODO Deny jumping if player has no contact to the ground!
 TODO Fix head shaking.
 TODO debug and improve init process?
 TODO Find all classes with mixed static & non-static content
+
+=====================
+UX
+=====================
+TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 
 =====================
 Stage
@@ -77,6 +75,7 @@ TODO Create 3d gun as 2nd scene in front?
 =====================
 Characters
 =====================
+TODO Add bots as sprites in 1st instance
 TODO Create (different?) characters from primitives or mesh objects??
 TODO Create class Character, the abstract class of Player and Bot.
 TODO Checkout babylon.JS bones and skeletons?
