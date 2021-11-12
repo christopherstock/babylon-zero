@@ -414,14 +414,51 @@ export abstract class Stage
         textureWall    :bz.Texture,
         textureFloor   :bz.Texture,
         textureCeiling :bz.Texture,
-        windowsX1      :number[] = [],
-        doorsX1        :number[] = []
+        doorsX1        :number[] = [],
+        windowsX1      :number[] = []
     )
     : void
     {
         const FLOOR_OFFSET_Y :number = ( 5 * bz.SettingEngine.FACE_DEPTH );
 
-        const roomWalls :bz.Wall[] = [
+        const roomWalls :bz.Wall[] = [];
+/*
+        // wall X1 - door frames
+        for ( const doorX1 of doorsX1 )
+        {
+            roomWalls.push(
+
+                // wall X1
+                new bz.Wall
+                (
+                    this,
+                    new bz.Model
+                    (
+                        [
+                            meshFactory.createBox
+                            (
+                                new BABYLON.Vector3( ( doorX1 + ( ( size.x - bz.SettingEngine.DOOR_SIZE ) / 2 ) ), ( position.y + size.y / 2 ), position.z ),
+                                textureWall,
+                                new BABYLON.Vector3( bz.SettingEngine.DOOR_SIZE, size.y, bz.SettingEngine.WALL_DEPTH ),
+                                bz.PhysicSet.STATIC,
+                                1.0,
+                                bz.MeshAnchor.CENTER_XYZ,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                            ),
+                        ]
+                    )
+                ),
+
+            );
+        }
+*/
+        // wall X1 - window frames
+
+
+        // wall X1 - wall elements
+
+
+        roomWalls.push(
 
             // wall X1
             new bz.Wall
@@ -443,6 +480,7 @@ export abstract class Stage
                     ]
                 )
             ),
+
 
             // wall X2
             new bz.Wall
@@ -547,8 +585,8 @@ export abstract class Stage
                         ),
                     ]
                 )
-            ),
-        ];
+            )
+        );
 
         // rotate all room walls to the level
         for ( const roomWall of roomWalls ) {
