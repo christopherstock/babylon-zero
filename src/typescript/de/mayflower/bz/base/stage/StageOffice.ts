@@ -43,11 +43,11 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X - 3.5,
+                    this.OFFSET_X - 5.0,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                    this.OFFSET_Z - 3.5
+                    this.OFFSET_Z - 5.0
                 ),
-                -45.0,
+                45.0,
                 this.getConfig().ambientColor
             )
         );
@@ -55,7 +55,8 @@ export class StageOffice extends bz.Stage
         // add room 1
         this.addRoomWalls(
             meshFactory,
-            new BABYLON.Vector3( -40.0, 0.0, 25.0 ),
+            // new BABYLON.Vector3( -40.0, 0.0, 25.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 60.0 ),
             0.0,
             bz.Texture.WALL_BRICKS_2,

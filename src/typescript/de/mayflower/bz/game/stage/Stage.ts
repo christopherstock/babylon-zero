@@ -419,9 +419,8 @@ export abstract class Stage
     )
     : void
     {
+        // TODO to SettingEngine
         const FLOOR_OFFSET_Y :number = ( 5 * bz.SettingEngine.FACE_DEPTH );
-
-        const roomWalls :bz.Wall[] = [];
 /*
         // wall X1 - door frames
         for ( const doorX1 of doorsX1 )
@@ -455,146 +454,149 @@ export abstract class Stage
         // wall X1 - window frames
 
 
-        // wall X1 - wall elements
-
-
-        roomWalls.push(
-
-            // wall X1
-            new bz.Wall
+        // wall X1
+        const wallX1 :bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
             (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( ( position.x + ( ( size.x - bz.SettingEngine.DOOR_SIZE ) / 2 ) ), ( position.y + size.y / 2 ), position.z ),
-                            textureWall,
-                            new BABYLON.Vector3( ( size.x - bz.SettingEngine.DOOR_SIZE ), size.y, bz.SettingEngine.WALL_DEPTH ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                        ),
-                    ]
-                )
-            ),
-
-
-            // wall X2
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y / 2 ), position.z + size.z ),
-                            textureWall,
-                            new BABYLON.Vector3( ( size.x ), size.y, bz.SettingEngine.WALL_DEPTH ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                        ),
-                    ]
-                )
-            ),
-
-            // wall Z1
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( position.x, ( position.y + size.y / 2 ), ( position.z + size.z / 2 ) ),
-                            textureWall,
-                            new BABYLON.Vector3( ( size.z ), size.y, bz.SettingEngine.WALL_DEPTH ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
-                        ),
-                    ]
-                )
-            ),
-
-            // wall Z2
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( ( position.x + size.x ), ( position.y + size.y / 2 ), ( position.z + size.z / 2 ) ),
-                            textureWall,
-                            new BABYLON.Vector3( ( size.z ), size.y, bz.SettingEngine.WALL_DEPTH ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
-                        ),
-                    ]
-                )
-            ),
-
-            // ceiling
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + size.y ), ( position.z + size.z / 2 ) ),
-                            textureCeiling,
-                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                        ),
-                    ]
-                )
-            ),
-
-            // floor
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( ( position.x + size.x / 2 ), ( position.y + FLOOR_OFFSET_Y ), ( position.z + size.z / 2 ) ),
-                            textureFloor,
-                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                        ),
-                    ]
-                )
+                [
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( position.x, position.y, position.z ),
+                        textureWall,
+                        new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    ),
+                ]
             )
         );
 
-        // rotate all room walls to the level
+        // wall X2
+        const wallX2 :bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                [
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( position.x, position.y, ( position.z + size.z ) ),
+                        textureWall,
+                        new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    ),
+                ]
+            )
+        );
+
+        // wall Z1
+        const wallZ1 :bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                [
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( position.x, position.y, position.z ),
+                        textureWall,
+                        new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    ),
+                ]
+            )
+        );
+
+        // wall Z2
+        const wallZ2 :bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                [
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( ( position.x + size.x ), position.y, ( position.z + size.z ) ),
+                        textureWall,
+                        new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    ),
+                ]
+            )
+        );
+
+        // ceiling
+        const ceiling :bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                [
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( position.x, ( position.y + size.y ), position.z ),
+                        textureCeiling,
+                        new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    ),
+                ]
+            )
+        );
+
+        // floor
+        const floor :bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                [
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( position.x, ( position.y + FLOOR_OFFSET_Y ), position.z ),
+                        textureFloor,
+                        new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    ),
+                ]
+            )
+        )
+
+        // rotate all Z walls by 90.0° around pivot
+        wallZ1.getModel().rotateAroundAxisY( position.x, position.z, -90.0 );
+        wallZ2.getModel().rotateAroundAxisY( ( position.x + size.x ), ( position.z + size.z ), 90.0 );
+
+        const roomWalls :bz.Wall[] = [];
+        roomWalls.push(
+            wallX1,
+            wallX2,
+            wallZ1,
+            wallZ2,
+            ceiling,
+            floor
+        );
+
+        // rotate ALL walls around pivot
         for ( const roomWall of roomWalls ) {
-            roomWall.getModel().rotateAroundAxisY(
-                position.x,
-                position.z,
-                rotZ
-            );
+            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
+        }
+
+        // add all walls to stage
+        for ( const roomWall of roomWalls ) {
             this.addWall( roomWall );
         }
     }
