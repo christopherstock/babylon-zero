@@ -32,15 +32,15 @@ export class SettingPlayer
     /** The player's speed for standing up in world coordinates per tick. */
     public static readonly SPEED_STAND_UP                           :number             = 0.25;
 
+    /** The player's height on the Y axis. */
+    public static readonly HEIGHT_Y_STANDING                        :number             = 5.0;
+    /** The player's height on ducking. */
+    public static readonly HEIGHT_Y_DUCKING                         :number             = 2.0;
+
     /** The player's diameter on the XZ axis. */
     public static readonly DIAMETER_BODY_XZ                         :number             = 3.0;
     /** The player's head diameter on all axis. */
     public static readonly DIAMETER_HEAD                            :number             = 1.0;
-
-    /** The player's height on the Y axis. */
-    public static readonly HEIGHT_Y_STANDING                        :number             = 4.0;
-    /** The player's height on ducking. */
-    public static readonly HEIGHT_Y_DUCKING                         :number             = 2.0;
 
     /** Enable player head shaking. */
     public static readonly HEAD_SHAKING_ENABLED                     :boolean            = false;

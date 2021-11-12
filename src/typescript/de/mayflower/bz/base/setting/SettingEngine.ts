@@ -76,20 +76,20 @@ export class SettingEngine
     /** Unified wall depth for building constructions. */
     public static readonly WALL_DEPTH                               :number             = 0.2;
     /** Unified wall height (y) for building constructions. */
-    public static readonly WALL_HEIGHT                              :number             = 6.0;
+    public static readonly WALL_HEIGHT                              :number             = 10.0;
     /** Unified door width for building constructions. */
-    public static readonly DOOR_WIDTH                               :number             = 3.0;
+    public static readonly DOOR_WIDTH                               :number             = 5.0;
     /** Unified door height for building constructions. */
-    public static readonly DOOR_HEIGHT                              :number             = 4.5;
+    public static readonly DOOR_HEIGHT                              :number             = 7.5;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.DOOR_HEIGHT );
 
     /** Unified window width for building constructions. */
-    public static readonly WINDOW_WIDTH                             :number             = 2.0;
+    public static readonly WINDOW_WIDTH                             :number             = 3.5;
     /** Unified window height for building constructions. */
-    public static readonly WINDOW_HEIGHT                            :number             = 2.0;
+    public static readonly WINDOW_HEIGHT                            :number             = 3.5;
     /** Unified door frame height for building constructions. */
-    public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 1.0;
+    public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 2.5;
     /** Unified window bottom frame height for building constructions. */
     public static readonly WINDOW_BOTTOM_FRAME_HEIGHT               :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.WINDOW_HEIGHT - SettingEngine.WINDOW_TOP_FRAME_HEIGHT );
 
