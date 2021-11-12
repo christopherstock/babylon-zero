@@ -11,11 +11,20 @@ export class StageFactory
         position       :BABYLON.Vector3,
         size           :BABYLON.Vector3,
         rotZ           :number,
-        textureWall    :bz.Texture,
+        textureWallA   :bz.Texture,
+        doorsWallA     :number[] = [],
+        windowsWallA   :number[] = [],
+        textureWallB   :bz.Texture,
+        doorsWallB     :number[] = [],
+        windowsWallB   :number[] = [],
+        textureWallC   :bz.Texture,
+        doorsWallC     :number[] = [],
+        windowsWallC   :number[] = [],
+        textureWallD   :bz.Texture,
+        doorsWallD     :number[] = [],
+        windowsWallD   :number[] = [],
         textureFloor   :bz.Texture,
-        textureCeiling :bz.Texture,
-        doorsPos       :number[] = [],
-        windowsPos     :number[] = []
+        textureCeiling :bz.Texture
     )
     : void
     {
@@ -23,50 +32,50 @@ export class StageFactory
         const roomWalls :bz.Wall[] = [];
 
         StageFactory.createWall(
-            roomWalls, doorsPos, windowsPos, stage, meshFactory,
+            roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
             position.x,
             size.x,
             position.y,
             size.y,
             position.z,
-            0.0, position.x, position.z,
-            bz.Texture.WALL_TEST,
+            0.0,
+            textureWallA,
             bz.Texture.WALL_GLASS
         );
 
         StageFactory.createWall(
-            roomWalls, doorsPos, windowsPos, stage, meshFactory,
+            roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
             position.x + size.x + bz.SettingEngine.WALL_DEPTH,
             size.z,
             position.y,
             size.y,
             position.z,
-            -90.0, position.x + size.x + bz.SettingEngine.WALL_DEPTH, position.z,
-            bz.Texture.WALL_METAL,
+            -90.0,
+            textureWallB,
             bz.Texture.WALL_GLASS
         );
 
         StageFactory.createWall(
-            roomWalls, doorsPos, windowsPos, stage, meshFactory,
+            roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
             position.x + size.x + bz.SettingEngine.WALL_DEPTH,
             size.x,
             position.y,
             size.y,
             position.z + size.z + bz.SettingEngine.WALL_DEPTH,
-            -180.0, position.x + size.x + bz.SettingEngine.WALL_DEPTH, position.z + size.z + bz.SettingEngine.WALL_DEPTH,
-            bz.Texture.WALL_BRICKS_2,
+            -180.0,
+            textureWallC,
             bz.Texture.WALL_GLASS
         );
 
         StageFactory.createWall(
-            roomWalls, doorsPos, windowsPos, stage, meshFactory,
+            roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
             position.x,
             size.z,
             position.y,
             size.y,
             position.z + size.z + bz.SettingEngine.WALL_DEPTH,
-            -270.0, position.x, position.z + size.z + bz.SettingEngine.WALL_DEPTH,
-            bz.Texture.WALL_WOOD_VERT,
+            -270.0,
+            textureWallD,
             bz.Texture.WALL_GLASS
         );
 
@@ -178,9 +187,6 @@ export class StageFactory
         sizeY          :number,
         z              :number,
         rotY           :number,
-        // TODO remove pivots with x z
-        rotationPivotX :number,
-        rotationPivotZ :number,
         textureWall    :bz.Texture,
         textureGlass   :bz.Texture
     )
@@ -316,7 +322,7 @@ export class StageFactory
         // rotate if desired
         for ( const wall of walls )
         {
-            wall.getModel().rotateAroundAxisY( rotationPivotX, rotationPivotZ, rotY );
+            wall.getModel().rotateAroundAxisY( x, z, rotY );
         }
 
         // add all to walls array

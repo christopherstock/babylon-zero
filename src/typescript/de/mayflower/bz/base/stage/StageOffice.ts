@@ -59,11 +59,20 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 25.0, bz.SettingEngine.WALL_HEIGHT, 50.0 ),
             0.0,
-            bz.Texture.WALL_BRICKS_2,
-            bz.Texture.WALL_CARPET,
-            bz.Texture.WALL_CEILING,
+            bz.Texture.WALL_TEST,
             [ 20.0, 25.0, 30.0, 40.0 ],
-            [ 5.0, 10.0, 15.0, 35.0 ]
+            [ 5.0, 10.0, 15.0, 35.0 ],
+            bz.Texture.WALL_AMIGA,
+            [ 20.0, 25.0, 30.0, 40.0 ],
+            [ 5.0, 10.0, 15.0, 35.0 ],
+            bz.Texture.WALL_GRASS,
+            [ 20.0, 25.0, 30.0, 40.0 ],
+            [ 5.0, 10.0, 15.0, 35.0 ],
+            bz.Texture.WALL_BRICKS_2,
+            [ 20.0, 25.0, 30.0, 40.0 ],
+            [ 5.0, 10.0, 15.0, 35.0 ],
+            bz.Texture.WALL_CARPET,
+            bz.Texture.WALL_CEILING
         );
 
         // create and animate a sprite
