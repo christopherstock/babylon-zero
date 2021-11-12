@@ -24,78 +24,39 @@ export class StageFactory
 
         StageFactory.createWall(
             roomWalls, doorsPos, windowsPos, stage, meshFactory,
-            position.x, size.x, position.y, size.y, position.z,
-            0.0,
+            position.x,
+            size.x,
+            position.y,
+            size.y,
+            position.z,
+            0.0, position.x, position.z,
             bz.Texture.WALL_TEST,
             bz.Texture.WALL_GLASS
         );
 
         StageFactory.createWall(
             roomWalls, doorsPos, windowsPos, stage, meshFactory,
-            position.x + size.x, size.z, position.y, size.y, position.z + bz.SettingEngine.WALL_DEPTH,
-            -90.0,
+            position.x + size.x + bz.SettingEngine.WALL_DEPTH,
+            size.z,
+            position.y,
+            size.y,
+            position.z,
+            -90.0, position.x + size.x + bz.SettingEngine.WALL_DEPTH, position.z,
             bz.Texture.WALL_METAL,
             bz.Texture.WALL_GLASS
         );
+
+
+
+
+
 /*
-        // walls X2
-        const wallX2 :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( position.x + bz.SettingEngine.WALL_DEPTH, position.y, ( position.z + size.z ) ),
-                        bz.Texture.WALL_METAL,
-                        new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
-                    ),
-                ]
-            )
-        );
-
-        // wall Z1
-        const wallZ1 :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( ( position.x - size.z - bz.SettingEngine.WALL_DEPTH ), position.y, position.z ),
-                        bz.Texture.WALL_BRICKS_2,
-                        new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
-                    ),
-                ]
-            )
-        );
-
-        // wall Z2
-        const wallZ2 :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( ( position.x + size.x ), position.y, ( position.z + size.z ) ),
-                        bz.Texture.WALL_WOOD_VERT,
-                        new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
-                    ),
-                ]
-            )
+        StageFactory.createWall(
+            roomWalls, doorsPos, windowsPos, stage, meshFactory,
+            position.x, size.z, position.y, size.y, position.z,
+            90.0, ( position.x + size.x ), ( position.z + size.z ),
+            bz.Texture.WALL_BRICKS_2,
+            bz.Texture.WALL_GLASS
         );
 */
         // ceiling
@@ -189,19 +150,21 @@ export class StageFactory
     }
 
     private static createWall(
-        roomWalls    :bz.Wall[],
-        doorsPos     :number[],
-        windowsPos   :number[],
-        stage        :bz.Stage,
-        meshFactory  :bz.MeshFactory,
-        x            :number,
-        sizeX        :number,
-        y            :number,
-        sizeY        :number,
-        z            :number,
-        rotY         :number,
-        textureWall  :bz.Texture,
-        textureGlass :bz.Texture
+        roomWalls      :bz.Wall[],
+        doorsPos       :number[],
+        windowsPos     :number[],
+        stage          :bz.Stage,
+        meshFactory    :bz.MeshFactory,
+        x              :number,
+        sizeX          :number,
+        y              :number,
+        sizeY          :number,
+        z              :number,
+        rotY           :number,
+        rotationPivotX :number,
+        rotationPivotZ :number,
+        textureWall    :bz.Texture,
+        textureGlass   :bz.Texture
     )
     : void
     {
@@ -327,7 +290,7 @@ export class StageFactory
         // rotate if desired
         for ( const wall of walls )
         {
-            wall.getModel().rotateAroundAxisY( x, z, rotY );
+            wall.getModel().rotateAroundAxisY( rotationPivotX, rotationPivotZ, rotY );
         }
 
         // add all to walls array

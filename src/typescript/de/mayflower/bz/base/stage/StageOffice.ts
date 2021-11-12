@@ -56,7 +56,6 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            // new BABYLON.Vector3( -40.0, 0.0, 25.0 ),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 50.0, bz.SettingEngine.WALL_HEIGHT, 100.0 ),
             0.0,
@@ -66,8 +65,6 @@ export class StageOffice extends bz.Stage
             [ 20.0, 25.0, 30.0, 40.0 ],
             [ 5.0, 10.0, 15.0, 35.0 ]
         );
-
-
 
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
