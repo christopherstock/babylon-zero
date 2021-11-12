@@ -53,7 +53,8 @@ export class StageOffice extends bz.Stage
         );
 
         // add room 1
-        this.addRoomWalls(
+        bz.StageFactory.addRoomWalls(
+            this,
             meshFactory,
             // new BABYLON.Vector3( -40.0, 0.0, 25.0 ),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -65,8 +66,6 @@ export class StageOffice extends bz.Stage
             [ 20.0, 25.0, 35.0, ],
             [ 5.0, 10.0, 15.0, 30.0, ]
         );
-
-
 
 
 
