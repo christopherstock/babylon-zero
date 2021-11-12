@@ -419,43 +419,104 @@ export abstract class Stage
     )
     : void
     {
+        // all walls to add to the stage at the end of this method
+        const roomWalls :bz.Wall[] = [];
+
         // wall X1 - door frames
         for ( const doorX1 of doorsX1 )
         {
-/*
-            roomWalls.push(
-
-                // wall X1
-                new bz.Wall
+            const doorFrameX1 :bz.Wall = new bz.Wall
+            (
+                this,
+                new bz.Model
                 (
-                    this,
-                    new bz.Model
-                    (
-                        [
-                            meshFactory.createBox
-                            (
-                                new BABYLON.Vector3( ( doorX1 + ( ( size.x - bz.SettingEngine.DOOR_SIZE ) / 2 ) ), ( position.y + size.y / 2 ), position.z ),
-                                textureWall,
-                                new BABYLON.Vector3( bz.SettingEngine.DOOR_SIZE, size.y, bz.SettingEngine.WALL_DEPTH ),
-                                bz.PhysicSet.STATIC,
-                                1.0,
-                                bz.MeshAnchor.CENTER_XYZ,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                            ),
-                        ]
-                    )
-                ),
-
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( doorX1, position.y + size.y - bz.SettingEngine.DOOR_FRAME_HEIGHT, position.z ),
+                            bz.Texture.WALL_TEST,
+                            new BABYLON.Vector3( bz.SettingEngine.DOOR_WIDTH, bz.SettingEngine.DOOR_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
             );
-*/
+
+            roomWalls.push( doorFrameX1 );
         }
 
         // wall X1 - window frames
-        for ( const doorX1 of doorsX1 )
+        for ( const windowX1 of windowsX1 )
         {
+            // top window frame X1
+            const topWindowFrameX1 :bz.Wall = new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( windowX1, position.y + size.y - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, position.z ),
+                            bz.Texture.WALL_TEST,
+                            new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            );
+
+            // window glass X1
+            const windowGlassX1 :bz.Wall = new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( windowX1, position.y + size.y - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT, position.z ),
+                            bz.Texture.WALL_GLASS,
+                            new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            0.25,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            );
+
+            // bottom window frame X1
+            const bottomWindowFrameX1 :bz.Wall = new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( windowX1, position.y, position.z ),
+                            bz.Texture.WALL_TEST,
+                            new BABYLON.Vector3( bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            );
+
+            roomWalls.push( topWindowFrameX1    );
+            roomWalls.push( windowGlassX1       );
+            roomWalls.push( bottomWindowFrameX1 );
         }
 
         // wall X1
+/*
         const wallX1 :bz.Wall = new bz.Wall
         (
             this,
@@ -474,7 +535,7 @@ export abstract class Stage
                 ]
             )
         );
-
+*/
         // wall X2
         const wallX2 :bz.Wall = new bz.Wall
         (
@@ -581,9 +642,8 @@ export abstract class Stage
         wallZ1.getModel().rotateAroundAxisY( position.x, position.z, 90.0 );
         wallZ2.getModel().rotateAroundAxisY( ( position.x + size.x ), ( position.z + size.z ), 90.0 );
 
-        const roomWalls :bz.Wall[] = [];
         roomWalls.push(
-            wallX1,
+//            wallX1,
             wallX2,
             wallZ1,
             wallZ2,
