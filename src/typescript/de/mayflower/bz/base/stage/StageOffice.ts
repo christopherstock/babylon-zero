@@ -87,35 +87,49 @@ export class StageOffice extends bz.Stage
             null
         );
 
-
-/*
-        // add passway
+        // passways around light square
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 50.0, 0.0, 25.0 ),
-            new BABYLON.Vector3( 30.0, bz.SettingEngine.WALL_HEIGHT, 5.0 ),
+            new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
             0.0,
-            true,
-            bz.Texture.WALL_TEST,
-            [ 20.0 ],
-            [ 5.0 ],
-            false,
-            bz.Texture.WALL_AMIGA,
-            [ 20.0 ],
-            [ 5.0 ],
-            true,
-            bz.Texture.WALL_GRASS,
-            [ 20.0 ],
-            [ 5.0 ],
-            false,
-            bz.Texture.WALL_BRICKS_2,
-            [ 20.0 ],
-            [ 5.0 ],
-            bz.Texture.WALL_CARPET,
+             bz.Texture.WALL_WOOD_HORZ, [], [],
+            null, [], [],
+            null, [], [],
+            null, [ 1.0 ], [],
+            bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
-*/
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 40.0, 0.0, 40.0 - bz.SettingEngine.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
+            0.0,
+             null, [], [],
+            null, [], [],
+            bz.Texture.WALL_WOOD_HORZ, [], [],
+            null, [ 1.0 ], [],
+            bz.Texture.WALL_CARPET_2,
+            bz.Texture.WALL_CEILING
+        );
+
+        // add big office
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
+            0.0,
+            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_WOOD_HORZ, [ 1.0 ], [],
+             null, null, null,
+            bz.Texture.WALL_CARPET_2,
+            bz.Texture.WALL_CEILING
+        );
+
 
 
 /*
@@ -308,7 +322,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createHeightMapGround
                         (
-                            new BABYLON.Vector3( this.OFFSET_X + 20.0, 0.0, this.OFFSET_Z + 40 ),
+                            new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 40 ),
                             bz.MeshAnchor.CENTER_XYZ,
                             400.0,
                             15.0,
