@@ -22,6 +22,10 @@ export class StageFactory
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
 
+
+        // StageFactory.createWallX1( roomWalls );
+
+
         // wall X1 - door frames
         for ( const doorX1 of doorsX1 )
         {
@@ -116,7 +120,7 @@ export class StageFactory
         }
 
 
-        // wall X1
+        // walls X1
         const freeWallsX1 :number[] = StageFactory.calculateFreeWalls( position.x, size.x, windowsX1, doorsX1 );
         for ( let i:number = 0; i < freeWallsX1.length; i += 2 )
         {
@@ -142,7 +146,11 @@ export class StageFactory
             roomWalls.push( wallX1 );
         }
 
-        // wall X2
+
+
+
+
+        // walls X2
         const wallX2 :bz.Wall = new bz.Wall
         (
             stage,
