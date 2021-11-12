@@ -420,9 +420,9 @@ export abstract class Stage
     : void
     {
         // wall X1 - door frames
-/*
         for ( const doorX1 of doorsX1 )
         {
+/*
             roomWalls.push(
 
                 // wall X1
@@ -447,10 +447,13 @@ export abstract class Stage
                 ),
 
             );
-        }
 */
-        // wall X1 - window frames
+        }
 
+        // wall X1 - window frames
+        for ( const doorX1 of doorsX1 )
+        {
+        }
 
         // wall X1
         const wallX1 :bz.Wall = new bz.Wall
@@ -481,7 +484,7 @@ export abstract class Stage
                 [
                     meshFactory.createBox
                     (
-                        new BABYLON.Vector3( position.x, position.y, ( position.z + size.z ) ),
+                        new BABYLON.Vector3( position.x + bz.SettingEngine.WALL_DEPTH, position.y, ( position.z + size.z ) ),
                         bz.Texture.WALL_METAL,
                         new BABYLON.Vector3( size.x, size.y, bz.SettingEngine.WALL_DEPTH ),
                         bz.PhysicSet.STATIC,
@@ -501,7 +504,7 @@ export abstract class Stage
                 [
                     meshFactory.createBox
                     (
-                        new BABYLON.Vector3( position.x, position.y, position.z ),
+                        new BABYLON.Vector3( ( position.x - size.z - bz.SettingEngine.WALL_DEPTH ), position.y, position.z ),
                         bz.Texture.WALL_BRICKS_2,
                         new BABYLON.Vector3( size.z, size.y, bz.SettingEngine.WALL_DEPTH ),
                         bz.PhysicSet.STATIC,
@@ -575,7 +578,7 @@ export abstract class Stage
         )
 
         // rotate all Z walls by 90.0° around pivot
-        wallZ1.getModel().rotateAroundAxisY( position.x, position.z, -90.0 );
+        wallZ1.getModel().rotateAroundAxisY( position.x, position.z, 90.0 );
         wallZ2.getModel().rotateAroundAxisY( ( position.x + size.x ), ( position.z + size.z ), 90.0 );
 
         const roomWalls :bz.Wall[] = [];
