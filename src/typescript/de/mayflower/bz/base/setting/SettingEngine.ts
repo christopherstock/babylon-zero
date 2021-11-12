@@ -40,6 +40,9 @@ export class SettingEngine
     /** The delay between each sprite animation frame change in ms. */
     public static readonly SPRITE_FRAME_DELAY                       :number             = 100;
 
+    /** Default ratio from texture mapping to face size. */
+    public static readonly TEXTURE_DEFAULT_MAPPING_UV               :number             = 0.5;
+
     /** The physics engine iteration count per render cycle. */
     public static readonly PHYSIC_ENGINE_ITERATIONS                 :number             = 5;       // 5000 = no shaking but horribly slow!
     /** The diameter of the collison epsilon used for all collision detections. */

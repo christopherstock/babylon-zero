@@ -84,13 +84,6 @@ export class MaterialSystem
                         break;
                     }
 
-                    case bz.TextureUV.TILED_BY_HALF_SIZE:
-                    {
-                        textureU = sizeU;
-                        textureV = sizeV;
-                        break;
-                    }
-
                     case bz.TextureUV.ALL_TO_ONE:
                     {
                         textureU = 1.0;

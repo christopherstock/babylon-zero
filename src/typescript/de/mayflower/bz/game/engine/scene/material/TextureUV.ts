@@ -8,6 +8,4 @@ export enum TextureUV
 
     /** One texture dimension per 1.0 world unit. */
     TILED_BY_SIZE,
-
-    TILED_BY_HALF_SIZE,
 }

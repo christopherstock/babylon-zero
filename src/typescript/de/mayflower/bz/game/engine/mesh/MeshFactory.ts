@@ -77,30 +77,14 @@ export class MeshFactory
                 {
                     faceUV =
                     [
-                        new BABYLON.Vector4( 0.0, 0.0, -size.x, -size.y ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.x,  size.y  ),
+                        new BABYLON.Vector4( 0.0, 0.0, -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.x  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,  size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -size.y, -size.z ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.y,  size.z  ),
+                        new BABYLON.Vector4( 0.0, 0.0, -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.y  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,  size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -size.z, -size.x ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.z,  size.x  ),
-                    ];
-                    break;
-                }
-
-                case bz.TextureUV.TILED_BY_HALF_SIZE:
-                {
-                    faceUV =
-                    [
-                        new BABYLON.Vector4( 0.0, 0.0, -size.x / 2, -size.y / 2 ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.x / 2,  size.y / 2  ),
-
-                        new BABYLON.Vector4( 0.0, 0.0, -size.y / 2, -size.z / 2 ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.y / 2,  size.z / 2  ),
-
-                        new BABYLON.Vector4( 0.0, 0.0, -size.z / 2, -size.x / 2 ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.z / 2,  size.x / 2  ),
+                        new BABYLON.Vector4( 0.0, 0.0, -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4( 0.0, 0.0, size.z  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,  size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
                     ];
                     break;
                 }
