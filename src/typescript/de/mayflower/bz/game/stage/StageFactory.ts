@@ -23,21 +23,12 @@ export class StageFactory
         const roomWalls :bz.Wall[] = [];
 
         StageFactory.createWallX1(
-            roomWalls,
-            doorsX1,
-            windowsX1,
-            stage,
-            meshFactory,
-            position.x,
-            size.x,
-            position.y,
-            size.y,
-            position.z,
-            0.0,
+            roomWalls, doorsX1, windowsX1, stage, meshFactory,
+            position.x, size.x, position.y, size.y, position.z, 0.0,
             bz.Texture.WALL_TEST,
             bz.Texture.WALL_GLASS
         );
-
+/*
         // walls X2
         const wallX2 :bz.Wall = new bz.Wall
         (
@@ -97,7 +88,7 @@ export class StageFactory
                 ]
             )
         );
-
+*/
         // ceiling
         const ceiling :bz.Wall = new bz.Wall
         (
@@ -141,17 +132,18 @@ export class StageFactory
             )
         )
         roomWalls.push( floor );
-
+/*
         // rotate all Z walls by 90.0° around pivot
         wallZ1.getModel().rotateAroundAxisY( position.x, position.z, 90.0 );
         wallZ2.getModel().rotateAroundAxisY( ( position.x + size.x ), ( position.z + size.z ), 90.0 );
-
+*/
+/*
         roomWalls.push(
             wallX2,
             wallZ1,
             wallZ2
         );
-
+*/
         // rotate ALL walls around pivot and all all walls to stage
         for ( const roomWall of roomWalls ) {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
