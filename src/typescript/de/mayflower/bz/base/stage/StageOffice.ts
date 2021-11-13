@@ -149,8 +149,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight2 );
-/*
-        this.addBoxesWalls(  meshFactory );
+
+        // boxes pile
+        this.addBoxesWalls( meshFactory, new BABYLON.Vector3( this.OFFSET_X + 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 ) );
+/**
         this.addChairsWalls( meshFactory );
         this.addStuffWalls(  meshFactory );
 */
@@ -364,11 +366,12 @@ export class StageOffice extends bz.Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds all boxes to this stage.
+    *   Adds a pile of boxes to this stage.
     *
     *   @param meshFactory The MeshFactory instance.
+    *   @param pos         center bottom position of the boxes pile to set.
     *******************************************************************************************************************/
-    private addBoxesWalls( meshFactory:bz.MeshFactory ) : void
+    private addBoxesWalls( meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
     {
         // wooden crates from 3ds models
         this.addWall(

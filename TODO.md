@@ -5,7 +5,6 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO fix player dodging on startup -- when it comes to Heightmaps ?
 TODO Add boxes and all level elements - prune all unused!
 TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?
 
