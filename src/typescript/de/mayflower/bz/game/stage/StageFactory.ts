@@ -99,7 +99,7 @@ export class StageFactory
                         (
                             new BABYLON.Vector3( position.x, ( position.y + size.y ), position.z ),
                             textureCeiling,
-                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                            new BABYLON.Vector3( size.x, bz.SettingEngine.DEPTH_FLOOR_CEILING, size.z ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ,
@@ -124,7 +124,7 @@ export class StageFactory
                         (
                             new BABYLON.Vector3( position.x, ( position.y + bz.SettingEngine.FLOOR_OFFSET_Y ), position.z ),
                             textureFloor,
-                            new BABYLON.Vector3( size.x, bz.SettingEngine.FACE_DEPTH, size.z ),
+                            new BABYLON.Vector3( size.x, bz.SettingEngine.DEPTH_FLOOR_CEILING, size.z ),
                             bz.PhysicSet.STATIC,
                             1.0,
                             bz.MeshAnchor.LOWEST_XYZ,

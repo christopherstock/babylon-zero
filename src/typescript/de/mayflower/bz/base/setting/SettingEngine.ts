@@ -58,6 +58,8 @@ export class SettingEngine
     public static readonly MAX_SPRITE_INSTANCES                     :number             = 255;
     /** Maximum instances of bullet holes in one stage. */
     public static readonly MAX_BULLET_HOLES                         :number             = 255;
+    /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
+    public static readonly BULLET_HOLE_DEPTH                        :number             = 0.025;
 
     /** The default field of view of the 1st person camera. */
     public static readonly DEFAULT_FIELD_OF_VIEW                    :number             = 1.0;
@@ -74,8 +76,6 @@ export class SettingEngine
     /** The bg color for the GUI. */
     public static readonly PAUSE_GUI_BG_COLOR                       :string             = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
 
-    /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
-    public static readonly FACE_DEPTH                               :number             = 0.0001;
     /** Unified wall depth for building constructions. */
     public static readonly WALL_DEPTH                               :number             = 0.2;
     /** Unified wall height (y) for building constructions. */
@@ -88,6 +88,8 @@ export class SettingEngine
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.DOOR_HEIGHT );
     /** Unified width for a hallway in building constructions. */
     public static readonly HALLWAY_WIDTH                            :number             = 10.0;
+    /** Unified floor and ceiling depth for building constructions. */
+    public static readonly DEPTH_FLOOR_CEILING                      :number             = 0.1;
 
     /** Unified window width for building constructions. */
     public static readonly WINDOW_WIDTH                             :number             = 4.5;
@@ -98,9 +100,9 @@ export class SettingEngine
     /** Unified window bottom frame height for building constructions. */
     public static readonly WINDOW_BOTTOM_FRAME_HEIGHT               :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.WINDOW_HEIGHT - SettingEngine.WINDOW_TOP_FRAME_HEIGHT );
 
+    // TODO prune! increase box size in ceilings etc.
+    /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
+    public static readonly FACE_DEPTH                               :number             = 0.0001;
     /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
     public static readonly FLOOR_OFFSET_Y                           :number             = ( 5 * SettingEngine.FACE_DEPTH );
-
-    /** This depth asserts being drawn correctly on spheres and not be too scaled around corners! */
-    public static readonly BULLET_HOLE_DEPTH                        :number             = 0.025;
 }
