@@ -10,10 +10,10 @@ export class StageOffice extends bz.Stage
 
     /** A testwise mesh - made from a single 3dsmax Mesh. */
     private          chairCompoundDestroyable       :bz.Wall                = null;
-    /** A testwise mesh - made from multiple 3dsmax Meshes. */
-    private          chairMultiMeshesNoCompound     :bz.Wall                = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
     private          chairCompoundSingleShotOff     :bz.Wall                = null;
+    /** A testwise mesh - made from multiple 3dsmax Meshes. */
+    private          chairMultiMeshesNoCompound     :bz.Wall                = null;
 
     /** Testwise camera target toggle. */
     private          camTarget                      :boolean                = false;
@@ -170,8 +170,9 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( this.OFFSET_X + 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
         );
-/**
+
         this.addChairsWalls( meshFactory );
+/*
         this.addStuffWalls(  meshFactory );
 */
 /*
@@ -397,22 +398,9 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 20.0, 3.5, this.OFFSET_Z + 35.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 5.0, 3.5, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
-            ),
-            5.0
-        );
-        // multi mesh chair without compound .. immediately collapses!
-        this.chairMultiMeshesNoCompound = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X - 5.0, 18.0, this.OFFSET_Z + 35.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.NONE
             ),
             5.0
         );
@@ -423,16 +411,29 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 20.0, 3.5, 45.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 10.0, 3.5, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
             5.0
         );
+        // multi mesh chair without compound .. immediately collapses!
+        this.chairMultiMeshesNoCompound = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                new BABYLON.Vector3( this.OFFSET_X + 15.0, 3.5, this.OFFSET_Z + 30.0 ),
+                bz.PhysicSet.OFFICE_CHAIR,
+                bz.ModelCompoundType.NONE
+            ),
+            5.0
+        );
 
         this.addWall( this.chairCompoundDestroyable   );
-        this.addWall( this.chairMultiMeshesNoCompound );
         this.addWall( this.chairCompoundSingleShotOff );
+        this.addWall( this.chairMultiMeshesNoCompound );
     }
 
     /** ****************************************************************************************************************

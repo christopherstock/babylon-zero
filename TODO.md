@@ -5,7 +5,6 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Add boxes and all level elements - prune all unused!
 TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?
 
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
