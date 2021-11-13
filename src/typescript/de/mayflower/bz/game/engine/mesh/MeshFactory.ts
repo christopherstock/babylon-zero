@@ -688,6 +688,9 @@ export class MeshFactory
         // translate cloned model by position
         clonedModel.translatePosition( position );
 
+        // scale cloned model
+        // clonedModel.scaleSize( new BABYLON.Vector3( 1.0, 1.0, 1.0 ) );
+
         // extract or create physics impostors and assign them to the cloned model
         let impostors :bz.PhysicImpostorParams[] = [];
         if ( physic === null )

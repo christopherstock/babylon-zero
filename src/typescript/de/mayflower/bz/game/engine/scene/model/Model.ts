@@ -133,6 +133,19 @@ export class Model
     }
 
     /** ****************************************************************************************************************
+    *   Scales all meshes of the model by the given ratio.
+    *
+    *   @param ratio The scale ratio to apply to all three axes.
+    *******************************************************************************************************************/
+    public scaleSize( ratio:BABYLON.Vector3 ) : void
+    {
+        for ( const mesh of this.meshes )
+        {
+            bz.MeshManipulation.scaleSize( mesh, ratio )
+        }
+    }
+
+    /** ****************************************************************************************************************
     *   Rotates all meshes of this model around the model's center point.
     *
     *   @param rotX The rotation X in degrees.
@@ -417,9 +430,9 @@ export class Model
     }
 
     /** ****************************************************************************************************************
-    *   Scales down the linear and angular velocities of all SPHERICAL meshes this model consists of by one percent.
+    *   Mitigates the linear and angular velocities of all SPHERICAL meshes this model consists of by one percent.
     *******************************************************************************************************************/
-    public lowerSphereVelocities() : void
+    public mitigateSphereVelocities() : void
     {
         for ( const mesh of this.meshes )
         {
@@ -437,7 +450,7 @@ export class Model
     }
 
     /** ****************************************************************************************************************
-    *   Scales down the linear velocity of all meshes this model consists of by one percent.
+    *   Mitigates the linear velocity of all meshes this model consists of by one percent.
     *******************************************************************************************************************/
     public lowerLinearVelocity() : void
     {
@@ -451,7 +464,7 @@ export class Model
     }
 
     /** ****************************************************************************************************************
-    *   Scales down the angular velocity of all meshes this model consists of by one percent.
+    *   Mitigates the angular velocity of all meshes this model consists of by one percent.
     *******************************************************************************************************************/
     public lowerAngularVelocity() : void
     {

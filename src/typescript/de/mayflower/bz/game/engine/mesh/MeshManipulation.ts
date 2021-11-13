@@ -68,6 +68,24 @@ export abstract class MeshManipulation
     }
 
     /** ****************************************************************************************************************
+    *   Scales the size of the given mesh.
+    *
+    *   @param mesh  The mesh to scale size for.
+    *   @param ratio The scale ratio to apply to all three axis.
+    *******************************************************************************************************************/
+    public static scaleSize
+    (
+        mesh  :BABYLON.AbstractMesh,
+        ratio :BABYLON.Vector3
+    )
+    : void
+    {
+        console.log( 'scaling: ' + mesh.scaling );
+
+        mesh.scaling = ratio;
+    }
+
+    /** ****************************************************************************************************************
     *   Sets the position to the specified mesh.
     *
     *   @param mesh     The mesh to apply position and pivot to.

@@ -23,6 +23,6 @@ export class Wall extends bz.GameObject
     public render() : void
     {
         // lower velocities for sphere impostered meshes
-        this.getModel().lowerSphereVelocities();
+        this.getModel().mitigateSphereVelocities();
     }
 }
