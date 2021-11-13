@@ -118,8 +118,7 @@ export class StageIntroLogo extends bz.Stage
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             0.0,
-            2.5,
-            true
+            2.5
         );
 
         this.addLight( this.pointLight );

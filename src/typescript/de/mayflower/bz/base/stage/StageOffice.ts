@@ -24,7 +24,7 @@ export class StageOffice extends bz.Stage
     protected createStageConfig() : bz.StageConfig
     {
         return new bz.StageConfig(
-            new BABYLON.Color3( 0.6, 0.6, 0.6 ), // evening, 0.1 = night, 1.0 = day
+            new BABYLON.Color3( 0.1, 0.1, 0.1 ),
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON
         );
@@ -48,11 +48,11 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X + 2.5,
+                    this.OFFSET_X + 2.0,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                    this.OFFSET_Z + 2.5
+                    this.OFFSET_Z + 2.0
                 ),
-                70.0,
+                100.0,
                 this.getConfig().ambientColor
             )
         );
@@ -71,6 +71,18 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
+
+        // point light in small office
+        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
+        (
+            this.getScene().getNativeScene(),
+            new BABYLON.Vector3( this.OFFSET_X + 10.0, 5.0, this.OFFSET_Z + 5.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+            100.0,
+            1.0
+        );
+        this.addLight( pointLight );
 
         // light square
         bz.StageFactory.addRoomWalls(
@@ -130,18 +142,17 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CEILING
         );
 
-        // outside point light
-        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
+        // point light in 2nd office
+        const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.getScene().getNativeScene(),
-            new BABYLON.Vector3( this.OFFSET_X + 125.0, 2.5, this.OFFSET_Z + 15.0 ),
+            new BABYLON.Vector3( this.OFFSET_X + 115.0, 5.0, this.OFFSET_Z + 15.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            50.0,
-            1.0,
-            true
+            100.0,
+            1.0
         );
-        this.addLight( pointLight );
+        this.addLight( pointLight2 );
 /*
         this.addBoxesWalls(  meshFactory );
         this.addChairsWalls( meshFactory );

@@ -17,7 +17,6 @@ export abstract class LightFactory
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param groundColor   The color for the ground to apply.
     *   @param intensity     Hemispheric light intensity.
-    *   @param enabled       Specifies if this light shall be enabled by default.
     *******************************************************************************************************************/
     public static createHemispheric
     (
@@ -26,8 +25,7 @@ export abstract class LightFactory
         diffuseColor  :BABYLON.Color3,
         specularColor :BABYLON.Color3,
         groundColor   :BABYLON.Color3,
-        intensity     :number,
-        enabled       :boolean
+        intensity     :number
     )
     : BABYLON.HemisphericLight
     {
@@ -42,7 +40,6 @@ export abstract class LightFactory
         light.specular    = specularColor;
         light.groundColor = groundColor  ;
         light.intensity   = intensity;
-        light.setEnabled( enabled );
 
         return light;
     }
@@ -56,7 +53,6 @@ export abstract class LightFactory
     *   @param intensity     The intensity of this light.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
-    *   @param enabled       Specifies if this light shall be enabled by default.
     *******************************************************************************************************************/
     public static createDirectional
     (
@@ -65,8 +61,7 @@ export abstract class LightFactory
         position      :BABYLON.Vector3,
         intensity     :number,
         diffuseColor  :BABYLON.Color3,
-        specularColor :BABYLON.Color3,
-        enabled       :boolean
+        specularColor :BABYLON.Color3
     )
     : BABYLON.DirectionalLight
     {
@@ -81,7 +76,6 @@ export abstract class LightFactory
         light.intensity = 1.0;
         light.diffuse   = diffuseColor;
         light.specular  = specularColor;
-        light.setEnabled( enabled );
 
         return light;
     }
@@ -97,7 +91,6 @@ export abstract class LightFactory
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param range         How far the spot light shall reach.
-    *   @param enabled       Specifies if this light shall be enabled by default.
     *******************************************************************************************************************/
     public static createSpot
     (
@@ -108,8 +101,7 @@ export abstract class LightFactory
         exponent      :number,
         diffuseColor  :BABYLON.Color3,
         specularColor :BABYLON.Color3,
-        range         :number,
-        enabled       :boolean
+        range         :number
     )
     : BABYLON.SpotLight
     {
@@ -126,7 +118,6 @@ export abstract class LightFactory
         light.diffuse  = diffuseColor ;
         light.specular = specularColor;
         light.range    = range;
-        light.setEnabled( enabled );
 
         return light;
     }
@@ -140,7 +131,6 @@ export abstract class LightFactory
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param range         How far the point light shall reach.
     *   @param intensity     The intensity of this light.
-    *   @param enabled       Specifies if this light shall be enabled by default.
     *******************************************************************************************************************/
     public static createPoint
     (
@@ -150,7 +140,6 @@ export abstract class LightFactory
         specularColor :BABYLON.Color3,
         range         :number,
         intensity     :number,
-        enabled       :boolean
     )
     : BABYLON.PointLight
     {
@@ -165,7 +154,6 @@ export abstract class LightFactory
         light.diffuse   = diffuseColor;
         light.specular  = specularColor;
         light.range     = range;
-        light.setEnabled( enabled );
 
         return light;
     }
