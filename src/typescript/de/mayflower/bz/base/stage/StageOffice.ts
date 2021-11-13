@@ -48,7 +48,7 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X + 62.5,
+                    this.OFFSET_X + 2.5,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
                     this.OFFSET_Z + 2.5
                 ),
@@ -56,7 +56,7 @@ export class StageOffice extends bz.Stage
                 this.getConfig().ambientColor
             )
         );
-/*
+
         // small office
         bz.StageFactory.addRoomWalls(
             this,
@@ -65,7 +65,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.Texture.WALL_WOOD_HORZ, [], [],
-             null, [], [],
+            null, [], [],
             bz.Texture.WALL_WOOD_HORZ, [], [],
             bz.Texture.WALL_WOOD_HORZ, [], [],
             bz.Texture.WALL_CARPET_2,
@@ -94,7 +94,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
             0.0,
-             bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.Texture.WALL_WOOD_HORZ, [], [],
             null, [], [],
             null, [], [],
             null, [ 1.0 ], [],
@@ -107,14 +107,14 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, 0.0, 40.0 - bz.SettingEngine.HALLWAY_WIDTH ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
             0.0,
-             null, [], [],
+            null, [], [],
             null, [], [],
             bz.Texture.WALL_WOOD_HORZ, [], [],
             null, [ 1.0 ], [],
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
-*/
+
         // 2nd office
         bz.StageFactory.addRoomWalls(
             this,
@@ -123,7 +123,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [ 1.0 ], [],
+            bz.Texture.WALL_WOOD_HORZ, [ 10.0 ], [],
             bz.Texture.WALL_WOOD_HORZ, [], [],
             null, [], [],
             bz.Texture.WALL_CARPET_2,
@@ -142,8 +142,6 @@ export class StageOffice extends bz.Stage
             true
         );
         this.addLight( pointLight );
-
-
 /*
         this.addBoxesWalls(  meshFactory );
         this.addChairsWalls( meshFactory );
