@@ -39,7 +39,7 @@ export class StageOffice extends bz.Stage
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
         // ground walls
-        // this.addGroundWalls( meshFactory );
+        this.addGroundWalls( meshFactory );
 
         // player
         this.setPlayer(

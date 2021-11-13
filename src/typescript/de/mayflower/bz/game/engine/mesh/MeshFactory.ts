@@ -196,6 +196,7 @@ export class MeshFactory
             minHeight: 0.0,
             maxHeight: height,
             onReady: () :void => {
+
                 const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
                 (
                     this.scene.getNativeScene(),
@@ -207,7 +208,6 @@ export class MeshFactory
                     1.0,
                     this.emissiveColor
                 );
-
                 ground = this.decorateMesh
                 (
                     ground,
@@ -217,6 +217,16 @@ export class MeshFactory
                     BABYLON.PhysicsImpostor.HeightmapImpostor
                 );
 
+                // set position after applying physics in order to prevent startup dodges etc.
+                bz.MeshManipulation.setPositionByAnchor
+                (
+                    ground,
+                    position,
+                    anchor,
+                    sideSize,
+                    height,
+                    sideSize
+                );
             },
         };
         let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
@@ -224,16 +234,6 @@ export class MeshFactory
             textureFile.fileName,
             options,
             this.scene.getNativeScene()
-        );
-
-        bz.MeshManipulation.setPositionByAnchor
-        (
-            ground,
-            position,
-            anchor,
-            sideSize,
-            height,
-            sideSize
         );
 
         return ground;
