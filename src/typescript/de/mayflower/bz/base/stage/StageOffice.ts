@@ -56,7 +56,7 @@ export class StageOffice extends bz.Stage
                 this.getConfig().ambientColor
             )
         );
-
+/*
         // small office
         bz.StageFactory.addRoomWalls(
             this,
@@ -114,7 +114,7 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
-
+*/
         // 2nd office
         bz.StageFactory.addRoomWalls(
             this,
