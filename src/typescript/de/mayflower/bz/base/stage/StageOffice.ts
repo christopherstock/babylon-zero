@@ -82,7 +82,7 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
-        // light square
+        // light yard
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
@@ -150,8 +150,26 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight2 );
 
-        // boxes pile
-        this.addBoxesWalls( meshFactory, new BABYLON.Vector3( this.OFFSET_X + 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 ) );
+        // boxes pile in small office
+        bz.StageFactory.addBoxesWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( this.OFFSET_X + 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
+        );
+
+        // boxes pile in light yard
+        bz.StageFactory.addBoxesWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( this.OFFSET_X + 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
+        );
+
+        // boxes pile in 2nd office
+        bz.StageFactory.addBoxesWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( this.OFFSET_X + 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
+        );
 /**
         this.addChairsWalls( meshFactory );
         this.addStuffWalls(  meshFactory );
@@ -363,132 +381,6 @@ export class StageOffice extends bz.Stage
             )
         );
 */
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds a pile of boxes to this stage.
-    *
-    *   @param meshFactory The MeshFactory instance.
-    *   @param pos         center bottom position of the boxes pile to set.
-    *******************************************************************************************************************/
-    private addBoxesWalls( meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
-    {
-        // wooden crates from 3ds models
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( this.OFFSET_X + 15.0, 0.0, this.OFFSET_Z + 15.0 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                )
-            )
-        );
-
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                )
-            )
-        );
-
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( this.OFFSET_X + 17.5, 0.0, this.OFFSET_Z + 15.0 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                )
-            )
-        );
-
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( this.OFFSET_X + 17.5, 2.5, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                )
-            )
-        );
-
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( this.OFFSET_X + 17.5, 5.0, this.OFFSET_Z + 17.5 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                )
-            )
-        );
-
-        // metal box
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( this.OFFSET_X + 25.0, 2.5, this.OFFSET_Z + 25.0   ),
-                            bz.Texture.WALL_METAL,
-                            new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
-                            bz.PhysicSet.CRATE_STEEL,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0, 45.0, 0.0 )
-                        ),
-                    ]
-                )
-            )
-        );
-
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        // movable glass cube
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( this.OFFSET_X + 3.0,  2.5, this.OFFSET_Z + 20.0   ),
-                            bz.Texture.WALL_GLASS,
-                            new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
-                            bz.PhysicSet.CRATE_STEEL,
-                            0.5,
-                            bz.MeshAnchor.CENTER_XYZ,
-                            new BABYLON.Vector3( 0.0,  45.0, 0.0   )
-                        ),
-                    ]
-                )
-            )
-        );
     }
 
     /** ****************************************************************************************************************

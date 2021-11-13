@@ -159,6 +159,128 @@ export class StageFactory
     }
 
     /** ****************************************************************************************************************
+    *   Adds a pile of boxes to this stage.
+    *
+    *   @param stage       The stage to apply the pile of boxes to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param pos         center bottom position of the boxes pile to set.
+    *******************************************************************************************************************/
+    public static addBoxesWalls( stage:bz.Stage, meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
+    {
+        // wooden crates
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( pos.x, pos.y, pos.z ),
+                    bz.PhysicSet.CRATE_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            )
+        );
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 ),
+                    bz.PhysicSet.CRATE_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            )
+        );
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ),
+                    bz.PhysicSet.CRATE_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            )
+        );
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 ),
+                    bz.PhysicSet.CRATE_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            )
+        );
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CRATE,
+                    new BABYLON.Vector3( pos.x + 2.5, pos.y + 2 * 2.5, pos.z + 2.5 ),
+                    bz.PhysicSet.CRATE_WOOD,
+                    bz.ModelCompoundType.NONE
+                )
+            )
+        );
+
+        // metal boxes
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( pos.x + 5.5, pos.y, pos.z + 10.0 ),
+                            bz.Texture.WALL_METAL,
+                            new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
+                            bz.PhysicSet.CRATE_STEEL,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ,
+                            new BABYLON.Vector3( 0.0, 45.0, 0.0 )
+                        ),
+                    ]
+                )
+            )
+        );
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    [
+                        // movable glass cube
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( pos.x - 2.5,  pos.y, pos.z + 3.5   ),
+                            bz.Texture.WALL_GLASS,
+                            new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
+                            bz.PhysicSet.CRATE_STEEL,
+                            0.5,
+                            bz.MeshAnchor.LOWEST_XYZ,
+                            new BABYLON.Vector3( 0.0,  30.0, 0.0   )
+                        ),
+                    ]
+                )
+            )
+        );
+    }
+
+    /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
     private static calculateFreeWalls( start:number, size:number, windows:number[], doors:number[] ) : number[]
