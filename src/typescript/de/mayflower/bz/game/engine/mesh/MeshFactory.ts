@@ -388,7 +388,7 @@ export class MeshFactory
     *   required in order to calculate light effects correctly.
     *
     *   @param position        Where to place this mesh.
-    *   @param anchor     The anchor point of this mesh.
+    *   @param anchor          The anchor point of this mesh.
     *   @param width           Width  of the plane.
     *   @param height          Height of the plane.
     *   @param rotation        The initial rotation for all axis.
@@ -399,8 +399,6 @@ export class MeshFactory
     *   @param sideOrientation The orientation sattribute is required for correct light effects.
     *
     *   @return The created mesh.
-    *
-    *   @deprecated Lights will not automatically be calculated correctly by the babylon.JS engine!
     *******************************************************************************************************************/
     public createPlane
     (

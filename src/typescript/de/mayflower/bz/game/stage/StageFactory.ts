@@ -128,23 +128,22 @@ export class StageFactory
                 new bz.Model
                 (
                     [
-                        meshFactory.createBox
+                        meshFactory.createPlane
                         (
                             new BABYLON.Vector3(
-                                ( position.x + bz.SettingEngine.WALL_DEPTH / 2 ),
+                                ( position.x + ( size.x + bz.SettingEngine.WALL_DEPTH ) / 2 ),
                                 ( position.y + bz.SettingEngine.FLOOR_OFFSET_Y ),
-                                ( position.z + bz.SettingEngine.WALL_DEPTH / 2 )
+                                ( position.z + ( size.z + bz.SettingEngine.WALL_DEPTH ) / 2 )
                             ),
+                            bz.MeshAnchor.CENTER_XYZ,
+                            size.x,
+                            size.z,
+                            new BABYLON.Vector3( 90.0, 0.0, 0.0 ),
                             textureFloor,
-                            new BABYLON.Vector3(
-                                size.x,
-                                bz.SettingEngine.DEPTH_FLOOR_CEILING,
-                                size.z
-                            ),
+                            null,
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.LOWEST_XYZ,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                            0
                         ),
                     ]
                 )
