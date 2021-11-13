@@ -39,7 +39,7 @@ export class StageOffice extends bz.Stage
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
         // ground walls
-        this.addGroundWalls( meshFactory );
+        // this.addGroundWalls( meshFactory );
 
         // player
         this.setPlayer(
@@ -81,7 +81,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
-
+/*
         // light yard
         bz.StageFactory.addRoomWalls(
             this,
@@ -170,7 +170,7 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( this.OFFSET_X + 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
         );
-
+*/
         this.addChairsWalls( meshFactory );
 /*
         this.addStuffWalls(  meshFactory );
