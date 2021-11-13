@@ -100,9 +100,6 @@ export class SettingEngine
     /** Unified window bottom frame height for building constructions. */
     public static readonly WINDOW_BOTTOM_FRAME_HEIGHT               :number             = ( SettingEngine.WALL_HEIGHT - SettingEngine.WINDOW_HEIGHT - SettingEngine.WINDOW_TOP_FRAME_HEIGHT );
 
-    // TODO prune! increase box size in ceilings etc.
-    /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
-    public static readonly FACE_DEPTH                               :number             = 0.0001;
     /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
-    public static readonly FLOOR_OFFSET_Y                           :number             = ( 5 * SettingEngine.FACE_DEPTH );
+    public static readonly FLOOR_OFFSET_Y                           :number             = 0.001;
 }

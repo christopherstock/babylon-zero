@@ -203,11 +203,18 @@ export class Model
     {
         this.enableSingleShotOffs = enableSingleShotOffs;
 
+        /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
+        const COMPOUND_MESH_SIZE :number = 0.001;
+
         this.compoundMesh = new bz.MeshFactory( scene, BABYLON.Color3.Red() ).createBox
         (
             position,
             bz.Texture.WALL_GRASS,
-            new BABYLON.Vector3( bz.SettingEngine.FACE_DEPTH, bz.SettingEngine.FACE_DEPTH, bz.SettingEngine.FACE_DEPTH )
+            new BABYLON.Vector3(
+                COMPOUND_MESH_SIZE,
+                COMPOUND_MESH_SIZE,
+                COMPOUND_MESH_SIZE
+            )
         );
 
         // set the compound mesh as parent for all meshes

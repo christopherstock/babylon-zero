@@ -608,27 +608,5 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
-
-        // static glass pane
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( this.OFFSET_X, 0.0, this.OFFSET_Z + 30.0 ),
-                            bz.Texture.WALL_GLASS,
-                            new BABYLON.Vector3( 2.5, 5.0, bz.SettingEngine.FACE_DEPTH ),
-                            bz.PhysicSet.STATIC,
-                            0.5,
-                            bz.MeshAnchor.LOWEST_XYZ
-                        ),
-                    ]
-                )
-            )
-        );
     }
 }
