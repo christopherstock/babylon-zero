@@ -138,8 +138,8 @@ export abstract class LightFactory
         position      :BABYLON.Vector3,
         diffuseColor  :BABYLON.Color3,
         specularColor :BABYLON.Color3,
-        range         :number,
-        intensity     :number,
+        range         :number = 100.0,
+        intensity     :number = 2.0
     )
     : BABYLON.PointLight
     {

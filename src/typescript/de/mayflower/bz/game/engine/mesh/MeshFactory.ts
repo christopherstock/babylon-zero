@@ -77,14 +77,41 @@ export class MeshFactory
                 {
                     faceUV =
                     [
-                        new BABYLON.Vector4( 0.0, 0.0, -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.x  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,  size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            size.x  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
 
-                        new BABYLON.Vector4( 0.0, 0.0, -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.y  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,  size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-
-                        new BABYLON.Vector4( 0.0, 0.0, -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-                        new BABYLON.Vector4( 0.0, 0.0, size.z  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,  size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            size.y  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            size.z  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
                     ];
                     break;
                 }

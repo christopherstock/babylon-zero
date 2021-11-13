@@ -5,10 +5,12 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO fix flickering lights on floors and ceilings?
+TODO fix player dodging on startup -- when it comes to Heightmaps ?
+TODO Add boxes and all level elements - prune all unused!
+TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?
+
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
 TODO Add nice textures
-TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?
 TODO Create realistic models and lights.
 TODO Models (item shell boxes) with changine/different Textures?
 TODO Reset Git Repository?
@@ -25,6 +27,7 @@ TODO Deny jumping if player has no contact to the ground!
 TODO Fix head shaking.
 TODO debug and improve init process?
 TODO Find all classes with mixed static & non-static content
+TODO create player die effect (tilt cylinder and head etc.)
 
 =====================
 UX

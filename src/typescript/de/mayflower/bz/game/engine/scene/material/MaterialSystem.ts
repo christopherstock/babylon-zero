@@ -79,8 +79,8 @@ export class MaterialSystem
                 {
                     case bz.TextureUV.TILED_BY_SIZE:
                     {
-                        textureU = sizeU;
-                        textureV = sizeV;
+                        textureU = ( sizeU * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureV = ( sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         break;
                     }
 

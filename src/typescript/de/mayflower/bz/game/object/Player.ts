@@ -65,7 +65,7 @@ export class Player extends bz.GameObject
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                         ),
                         bz.MeshAnchor.CENTER_XYZ,
-                        bz.SettingPlayer.DIAMETER_BODY_XZ,
+                        bz.SettingPlayer.DIAMETER_BODY,
                         bz.SettingPlayer.HEIGHT_Y_STANDING,
                         BABYLON.Vector3.Zero(),
                         bz.Texture.WALL_GLASS,

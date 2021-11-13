@@ -39,7 +39,7 @@ export class StageOffice extends bz.Stage
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
         // ground walls
-        this.addGroundWalls( meshFactory );
+        // this.addGroundWalls( meshFactory );
 
         // player
         this.setPlayer(
@@ -48,11 +48,11 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X + 2.0,
-                    ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
-                    this.OFFSET_Z + 2.0
+                    ( this.OFFSET_X + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                    ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
+                    ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
-                100.0,
+                85.0,
                 this.getConfig().ambientColor
             )
         );
@@ -78,9 +78,7 @@ export class StageOffice extends bz.Stage
             this.getScene().getNativeScene(),
             new BABYLON.Vector3( this.OFFSET_X + 10.0, 5.0, this.OFFSET_Z + 5.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            100.0,
-            1.0
+            new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
 
@@ -148,9 +146,7 @@ export class StageOffice extends bz.Stage
             this.getScene().getNativeScene(),
             new BABYLON.Vector3( this.OFFSET_X + 115.0, 5.0, this.OFFSET_Z + 15.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            100.0,
-            1.0
+            new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight2 );
 /*
