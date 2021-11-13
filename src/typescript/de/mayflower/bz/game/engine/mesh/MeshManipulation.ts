@@ -80,8 +80,6 @@ export abstract class MeshManipulation
     )
     : void
     {
-        console.log( 'scaling: ' + mesh.scaling );
-
         mesh.scaling = ratio;
     }
 

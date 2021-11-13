@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+// noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 
 /** ********************************************************************************************************************
 *   Contains the project history with all current and completed version information.

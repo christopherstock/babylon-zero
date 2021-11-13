@@ -24,7 +24,7 @@ TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!
 TODO Fix head shaking.
 TODO debug and improve init process?
-TODO Find all classes with mixed static & non-static content
+TODO Find and reduce classes with mixed static & non-static content
 TODO create player die effect (tilt cylinder and head etc.)
 
 =====================
@@ -35,9 +35,9 @@ TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScre
 =====================
 Stage
 =====================
-TODO Add 'view blocker' (H-Block) with dynamic stage switch?
 TODO Create Event Pipeline for altering stage contents + activation triggers!
-TODO Enable dynamic stage switch with player staying on same position ??
+TODO Add 'view blocker' (H-Block) with dynamic stage switch?
+TODO Enable dynamic stage/contents switch with player staying on same position ??
 
 =====================
 Fx

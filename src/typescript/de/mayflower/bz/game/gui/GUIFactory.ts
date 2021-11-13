@@ -148,56 +148,6 @@ export abstract class GUIFactory
     }
 
     /** ****************************************************************************************************************
-    *   Creates a line for the GUI.
-    *   The line looks blurry and shabby - Consider using createRect with a height of one instead.
-    *
-    *   @param x1          Start position X.
-    *   @param y1          Start position Y.
-    *   @param x2          End position X.
-    *   @param y2          End position Y.
-    *   @param width       The line width in pixels.
-    *   @param color       The color of the line.
-    *   @param shadowColor The color of the shadow or <code>null</code> for no shadow.
-    *
-    *   @return The specified line.
-    *******************************************************************************************************************/
-    public static createLine
-    (
-        x1          :number,
-        y1          :number,
-        x2          :number,
-        y2          :number,
-        width       :number,
-        color       :string,
-        shadowColor :string
-    )
-    : BABYLON_GUI.Line
-    {
-        const line:BABYLON_GUI.Line = new BABYLON_GUI.Line
-        (
-            GUIFactory.createNextGuiId()
-        );
-
-        line.x1 = x1;
-        line.y1 = y1;
-        line.x2 = x2;
-        line.y2 = y2;
-
-        line.color     = color;
-        line.lineWidth = width;
-
-        if ( shadowColor !== null )
-        {
-            line.shadowColor   = shadowColor;
-            line.shadowBlur    = 0.0;
-            line.shadowOffsetX = 1.0;
-            line.shadowOffsetY = 1.5;
-        }
-
-        return line;
-    }
-
-    /** ****************************************************************************************************************
     *   Creates an image for the GUI.
     *
     *   @param filename    The name of the image file to display.

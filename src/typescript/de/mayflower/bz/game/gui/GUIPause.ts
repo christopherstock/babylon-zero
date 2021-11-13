@@ -96,9 +96,9 @@ export class GUIPause
     *******************************************************************************************************************/
     public setVisibility( visible:boolean ) : void
     {
-        this.menuHeadline.isVisible    = visible;
-        this.explanation.isVisible = visible;
-        this.bg.isVisible          = visible;
+        this.menuHeadline.isVisible = visible;
+        this.explanation.isVisible  = visible;
+        this.bg.isVisible           = visible;
 
         this.menu.setVisibility( visible );
     }

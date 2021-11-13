@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+// noinspection JSUnusedGlobalSymbols
 
 import * as bjs from 'babylonjs'
 
