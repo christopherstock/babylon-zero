@@ -5,6 +5,7 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO fix flickering lights on floors and ceilings?
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
 TODO Add nice textures
 TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?

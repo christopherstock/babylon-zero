@@ -48,7 +48,7 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    this.OFFSET_X + 2.5,
+                    this.OFFSET_X + 62.5,
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ),
                     this.OFFSET_Z + 2.5
                 ),
@@ -57,7 +57,7 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // add small office
+        // small office
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
@@ -65,9 +65,9 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.Texture.WALL_WOOD_HORZ, [], [],
-             null, null, null,
+             null, [], [],
             bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [ 1.0 ], [],
+            bz.Texture.WALL_WOOD_HORZ, [], [],
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
@@ -80,7 +80,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 - 2 * bz.SettingEngine.HALLWAY_WIDTH ),
             0.0,
             null, [], [],
-             null, null, null,
+            null, [], [],
             null, [], [],
             null, [ 1.0 ], [],
             bz.Texture.WALL_STONES_3,
@@ -115,7 +115,7 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CEILING
         );
 
-        // add big office
+        // 2nd office
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
@@ -123,13 +123,25 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [], [],
             bz.Texture.WALL_WOOD_HORZ, [ 1.0 ], [],
-             null, null, null,
+            bz.Texture.WALL_WOOD_HORZ, [], [],
+            null, [], [],
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
 
+        // outside point light
+        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
+        (
+            this.getScene().getNativeScene(),
+            new BABYLON.Vector3( this.OFFSET_X + 125.0, 2.5, this.OFFSET_Z + 15.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+            50.0,
+            1.0,
+            true
+        );
+        this.addLight( pointLight );
 
 
 /*
@@ -250,18 +262,6 @@ export class StageOffice extends bz.Stage
             )
         );
 */
-        // point light
-        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
-        (
-            this.getScene().getNativeScene(),
-            new BABYLON.Vector3( this.OFFSET_X + 45.0, 2.5, this.OFFSET_Z + 15.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            50.0,
-            1.0,
-            true
-        );
-        this.addLight( pointLight );
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam

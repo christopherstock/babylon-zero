@@ -44,6 +44,8 @@ export class SoundSystem
 
         if ( bz.SettingDebug.DISABLE_SOUND )
         {
+            bz.Debug.init.log( ' Sound preload skipped as sounds are disabled' );
+
             this.onLoadComplete();
             return;
         }

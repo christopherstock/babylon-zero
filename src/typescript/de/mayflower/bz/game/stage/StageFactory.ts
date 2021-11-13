@@ -14,20 +14,12 @@ export class StageFactory
         position       :BABYLON.Vector3,
         size           :BABYLON.Vector3,
         rotZ           :number,
-        textureWallA   :bz.Texture,
-        doorsWallA     :number[] = [],
-        windowsWallA   :number[] = [],
-        textureWallB   :bz.Texture,
-        doorsWallB     :number[] = [],
-        windowsWallB   :number[] = [],
-        textureWallC   :bz.Texture,
-        doorsWallC     :number[] = [],
-        windowsWallC   :number[] = [],
-        textureWallD   :bz.Texture,
-        doorsWallD     :number[] = [],
-        windowsWallD   :number[] = [],
-        textureFloor   :bz.Texture,
-        textureCeiling :bz.Texture
+        textureWallA   :bz.Texture = null, doorsWallA :number[] = [], windowsWallA :number[] = [],
+        textureWallB   :bz.Texture = null, doorsWallB :number[] = [], windowsWallB :number[] = [],
+        textureWallC   :bz.Texture = null, doorsWallC :number[] = [], windowsWallC :number[] = [],
+        textureWallD   :bz.Texture = null, doorsWallD :number[] = [], windowsWallD :number[] = [],
+        textureFloor   :bz.Texture = null,
+        textureCeiling :bz.Texture = null
     )
     : void
     {
