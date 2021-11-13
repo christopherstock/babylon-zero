@@ -5,8 +5,8 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Scale up/down all chairs and some models? - Add shelves and some more 3dsmax models?
-
+TODO Scale up/down all chairs and some models?
+TODO Add shelves and some more (better) 3dsmax models?
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
 TODO Add nice textures
 TODO Create realistic models and lights.
@@ -74,6 +74,8 @@ TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon c
 TODO Show wearpon's ammo in magazine and total.
 TODO Enable wearpon magazine and reloading!
 TODO Create 3d gun as 2nd scene in front?
+TODO Create wearpons with projectiles (exploding or non-exploding)..
+TODO Create explosive wearpons etc.
 
 =====================
 Characters
@@ -89,16 +91,14 @@ TODO Create class Bot that represents an enemy with one field for attitude.
 New features
 =====================
 TODO introduce Stage Animation system? as Animations (camera) do not stop on pausing the game.
-TODO Create wearpons with projectiles (exploding or non-exploding)..
-TODO Create explosive wearpons etc.
 TODO Try soft bodies.
 TODO Try babylon 101 scenes.
 TODO Try 'worker thread collisions'? seems obsolete.
 TODO Try reflecting mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
 TODO Try Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
-TODO Try fur.
+TODO Try fur (babylon-material extension).
+TODO Try water material/effects?
 TODO Try Impossible?: Show a video texture in the GUI.
 TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
-TODO Try water effects?
 TODO See 'gamelets' in the babylon.JS docs.
 ```
