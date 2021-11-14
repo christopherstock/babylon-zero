@@ -7,12 +7,10 @@ export abstract class ModelFile
 {
     /** The model 'office chair'. */
      public static readonly OFFICE_CHAIR_1_MULTI_MESH   :string             = 'furniture/officeChair1.babylon';
-    /** The model 'office chair 2'. */
-    // public static readonly OFFICE_CHAIR_2_ONE_MESH     :string             = 'furniture/officeChair2.babylon';
-    /** The model 'office chair 3'. */
-    // public static readonly OFFICE_CHAIR_3              :string             = 'furniture/officeChair3.babylon';
     /** The model 'office chair'. */
     public static readonly SHELVES                     :string             = 'furniture/shelves.babylon';
+    /** The model 'office desk'. */
+    public static readonly OFFICE_DESK                 :string             = 'furniture/officeDesk1.babylon';
     /** The model 'sphere 1'. */
     public static readonly SPHERE_1                    :string             = 'furniture/sphere1.babylon';
     /** The model 'double sphere 1'. */
@@ -30,9 +28,8 @@ export abstract class ModelFile
     public static readonly ALL_MESH_FILES              :string[]           =
     [
         ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-        // ModelFile.OFFICE_CHAIR_2_ONE_MESH,
-        // ModelFile.OFFICE_CHAIR_3,
         ModelFile.SHELVES,
+        ModelFile.OFFICE_DESK,
         ModelFile.SPHERE_1,
         ModelFile.DOUBLE_SPHERE_1,
         ModelFile.CRATE,

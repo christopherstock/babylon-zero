@@ -6,9 +6,9 @@ export enum ModelCompoundType
     /** No compound. */
     NONE,
 
-    /** A compound where no meshes can be shot off. */
-    COMPOUND_SHOT_OFF_DISABLED,
+    /** A default compound. No single meshes can be shot off. */
+    COMPOUND,
 
-    /** A compound where meshes can be shot off. @deprecated Useless! */
+    /** A compound where single meshes can be shot off. This mostly causes weird physical behaviour. */
     COMPOUND_SHOT_OFF_ENABLED,
 }

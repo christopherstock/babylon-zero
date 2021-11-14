@@ -716,7 +716,7 @@ export class MeshFactory
                 break;
             }
 
-            case bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED:
+            case bz.ModelCompoundType.COMPOUND:
             {
                 clonedModel.addCompoundMesh( this.scene, position, false );
                 break;
@@ -728,6 +728,9 @@ export class MeshFactory
                 break;
             }
         }
+
+        // reset stored quaternion rotation
+        clonedModel.setAbsoluteRotationXYZ( 90.0, 0.0, 0.0 );
 
         return clonedModel;
     }

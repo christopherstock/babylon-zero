@@ -398,9 +398,9 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 5.0, 2.5, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 5.0, 5.0, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
+                bz.ModelCompoundType.COMPOUND
             ),
             5.0
         );
@@ -411,7 +411,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.5, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 10.0, 5.0, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
@@ -424,7 +424,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 15.0, 2.5, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 15.0, 5.0, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
@@ -434,6 +434,22 @@ export class StageOffice extends bz.Stage
         this.addWall( this.chairCompoundDestroyable   );
         this.addWall( this.chairCompoundSingleShotOff );
         this.addWall( this.chairMultiMeshesNoCompound );
+
+        // multi mesh chair without compound .. immediately collapses!
+        const officeDesk :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.OFFICE_DESK,
+                new BABYLON.Vector3( this.OFFSET_X + 8.0, 5.0, this.OFFSET_Z + 15.0 ),
+                bz.PhysicSet.OFFICE_CHAIR,
+                bz.ModelCompoundType.COMPOUND
+            ),
+            5.0
+        );
+
+        this.addWall( officeDesk );
     }
 
     /** ****************************************************************************************************************
