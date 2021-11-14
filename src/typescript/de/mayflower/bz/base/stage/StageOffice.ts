@@ -444,7 +444,8 @@ export class StageOffice extends bz.Stage
                 bz.ModelFile.OFFICE_DESK,
                 new BABYLON.Vector3( this.OFFSET_X + 8.0, 5.0, this.OFFSET_Z + 15.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND
+                bz.ModelCompoundType.COMPOUND,
+                90.0
             ),
             5.0
         );

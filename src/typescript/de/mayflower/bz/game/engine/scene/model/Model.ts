@@ -168,6 +168,21 @@ export class Model
     }
 
     /** ****************************************************************************************************************
+    *   Rotates all meshes of this model along axis X around the given point.
+    *
+    *   @param y    Pivot point Y.
+    *   @param z    Pivot point Z.
+    *   @param rotX The rotation X in degrees to apply.
+    *******************************************************************************************************************/
+    public rotateAroundAxisX( y:number, z:number, rotX:number ) : void
+    {
+        for ( const mesh of this.meshes )
+        {
+            bz.MeshManipulation.rotateAroundAxisX( mesh, y, z,rotX );
+        }
+    }
+
+    /** ****************************************************************************************************************
     *   Rotates all meshes of this model along axis Y around the given point.
     *
     *   @param x    Pivot point X.
@@ -179,6 +194,21 @@ export class Model
         for ( const mesh of this.meshes )
         {
             bz.MeshManipulation.rotateAroundAxisY( mesh, x, z,rotY );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Rotates all meshes of this model along axis Z around the given point.
+    *
+    *   @param x    Pivot point X.
+    *   @param y    Pivot point Y.
+    *   @param rotZ The rotation Z in degrees to apply.
+    *******************************************************************************************************************/
+    public rotateAroundAxisZ( x:number, y:number, rotZ:number ) : void
+    {
+        for ( const mesh of this.meshes )
+        {
+            bz.MeshManipulation.rotateAroundAxisZ( mesh, x, y,rotZ );
         }
     }
 

@@ -678,7 +678,8 @@ export class MeshFactory
         fileName     :string,
         position     :BABYLON.Vector3,
         physic       :bz.PhysicSet,
-        compoundType :bz.ModelCompoundType
+        compoundType :bz.ModelCompoundType,
+        rotY         :number = 0.0
     )
     : bz.Model
     {
@@ -731,6 +732,9 @@ export class MeshFactory
 
         // reset stored quaternion rotation
         clonedModel.setAbsoluteRotationXYZ( 90.0, 0.0, 0.0 );
+
+        // initially rotate on axis Y (z-axis though right handed system ..) :p
+        clonedModel.rotateAroundAxisZ( 0, 0, -rotY )
 
         return clonedModel;
     }

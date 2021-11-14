@@ -24,6 +24,23 @@ export abstract class MeshManipulation
     }
 
     /** ****************************************************************************************************************
+    *   Rotates the given mesh around the specified X axis.
+    *
+    *   @param mesh The mesh to rotate around axis X.
+    *   @param y    Pivot point Y.
+    *   @param z    Pivot point Z.
+    *   @param rotX Rotation on axis X to apply, in degrees.
+    *******************************************************************************************************************/
+    public static rotateAroundAxisX( mesh:BABYLON.AbstractMesh, y:number, z:number, rotX:number ) : void
+    {
+        mesh.rotateAround(
+            new BABYLON.Vector3( 0.0, y, z ),
+            new BABYLON.Vector3( 1.0, 0.0, 0.0 ),
+            bz.MathUtil.degreesToRad( rotX )
+        );
+    }
+
+    /** ****************************************************************************************************************
     *   Rotates the given mesh around the specified Y axis.
     *
     *   @param mesh The mesh to rotate around axis Y.
@@ -38,15 +55,23 @@ export abstract class MeshManipulation
             new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
             bz.MathUtil.degreesToRad( rotY )
         );
-/*
-        mesh.rotationQuaternion = BABYLON.Quaternion.RotationYawPitchRoll
-        (
-            bz.MathUtil.degreesToRad( rotY ),
-            bz.MathUtil.degreesToRad( rotX ),
+    }
+
+    /** ****************************************************************************************************************
+    *   Rotates the given mesh around the specified Z axis.
+    *
+    *   @param mesh The mesh to rotate around axis Z.
+    *   @param x    Pivot point X.
+    *   @param y    Pivot point Y.
+    *   @param rotZ Rotation on axis Z to apply, in degrees.
+    *******************************************************************************************************************/
+    public static rotateAroundAxisZ( mesh:BABYLON.AbstractMesh, x:number, y:number, rotZ:number ) : void
+    {
+        mesh.rotateAround(
+            new BABYLON.Vector3( x, y, 0.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 1.0 ),
             bz.MathUtil.degreesToRad( rotZ )
         );
-*/
-
     }
 
     /** ****************************************************************************************************************
