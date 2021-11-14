@@ -23,6 +23,8 @@ export abstract class ModelFile
     public static readonly CRATE                        :string             = 'furniture/crate1.babylon';
     /** The model 'sofa 1'. */
     public static readonly SOFA_1                       :string             = 'furniture/sofa1.babylon';
+    /** The model 'screen 1'. */
+    public static readonly SCREEN_1                     :string             = 'furniture/screen1.babylon';
 
     /** The model 'shells'. */
     public static readonly SHELLS                       :string             = 'item/shells.babylon';
@@ -42,6 +44,7 @@ export abstract class ModelFile
         ModelFile.DOUBLE_SPHERE_1,
         ModelFile.CRATE,
         ModelFile.SOFA_1,
+        ModelFile.SCREEN_1,
 
         ModelFile.SHELLS,
 

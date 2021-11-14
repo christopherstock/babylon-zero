@@ -436,21 +436,37 @@ export class StageOffice extends bz.Stage
         this.addWall( this.chairCompoundSingleShotOff );
         this.addWall( this.chairMultiMeshesNoCompound );
 
-        // office desk
+        // office desk 1
         this.desk = new bz.Wall
         (
             this,
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK_1,
-                new BABYLON.Vector3( this.OFFSET_X + 8.0, 1.7, this.OFFSET_Z + 15.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND,
+                new BABYLON.Vector3( this.OFFSET_X + 10.0, 1.7, this.OFFSET_Z + 7.0 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE, // bz.ModelCompoundType.COMPOUND,
                 90.0
             ),
             5.0
         );
         this.addWall( this.desk );
+
+        // screen 1
+        const screen1 :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.SCREEN_1,
+                new BABYLON.Vector3( this.OFFSET_X + 12.5, 4.5, this.OFFSET_Z + 5.5 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                -90.0
+            ),
+            5.0
+        );
+        this.addWall( screen1 );
 
         // shelves
         const shelves1 :bz.Wall = new bz.Wall
@@ -507,7 +523,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.SOFA_1,
-                new BABYLON.Vector3( this.OFFSET_X + 15.5, 1.8, this.OFFSET_Z + 2.5 ),
+                new BABYLON.Vector3( this.OFFSET_X + 25.5, 1.8, this.OFFSET_Z + 2.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
