@@ -680,7 +680,6 @@ export class MeshFactory
         position     :BABYLON.Vector3,
         physic       :bz.PhysicSet,
         compoundType :bz.ModelCompoundType,
-        emissiveColor :BABYLON.Color3,
         rotY         :number = 0.0
     )
     : bz.Model
@@ -753,25 +752,18 @@ export class MeshFactory
             }
         }
 
-        // specular material?
-        if ( fileName === bz.ModelFile.SODA_MACHINE_2 )
+        // apply emissive color to all meshes
+        for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
         {
-            console.log( ">>>>> ", ( clonedModel.getMesh(0) as BABYLON.Mesh ).material );
-
-            for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
+            const material : BABYLON.StandardMaterial = (
+                clonedModel.getMesh( i ) as BABYLON.Mesh
+            ).material as BABYLON.StandardMaterial;
+            if ( material !== null )
             {
-                const mesh = ( ( clonedModel.getMesh(i) as BABYLON.Mesh ) );
-                const material = ( ( clonedModel.getMesh(i) as BABYLON.Mesh ).material as BABYLON.StandardMaterial );
-                mesh.overlayColor = bz.SettingColor.COLOR_RGB_WHITE;
-                mesh.outlineColor = bz.SettingColor.COLOR_RGB_WHITE;
-                console.log ( '>>>>>>>>>>', material );
-                console.log ( '>>>>>>>>>>', mesh );
-/*
-                material.ambientColor  = bz.SettingColor.COLOR_RGB_WHITE;
-                material.emissiveColor = emissiveColor;
-                material.diffuseColor  = bz.SettingColor.COLOR_RGB_WHITE;
-                material.specularColor = bz.SettingColor.COLOR_RGB_WHITE;
-*/
+                // material.ambientColor  = bz.SettingColor.COLOR_RGB_WHITE;
+                material.emissiveColor = this.emissiveColor;
+                // material.diffuseColor  = bz.SettingColor.COLOR_RGB_WHITE;
+                // material.specularColor = bz.SettingColor.COLOR_RGB_WHITE;
             }
         }
 
