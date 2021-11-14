@@ -82,7 +82,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
-/*
+
         // light yard
         bz.StageFactory.addRoomWalls(
             this,
@@ -140,7 +140,7 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
-
+/*
         // point light in 2nd office
         const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
         (
@@ -164,14 +164,14 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( this.OFFSET_X + 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
         );
-
+*/
         // boxes pile in 2nd office
         bz.StageFactory.addBoxesWalls(
             this,
             meshFactory,
             new BABYLON.Vector3( this.OFFSET_X + 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
         );
-*/
+
         this.addFurniture( meshFactory );
 /*
         this.addStuffWalls(  meshFactory );
