@@ -53,7 +53,7 @@ export class StageOffice extends bz.Stage
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
-                20.0,
+                70.0,
                 this.getConfig().ambientColor
             )
         );
@@ -491,10 +491,10 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK_2,
-                new BABYLON.Vector3( this.OFFSET_X + 33.5, 1.6, this.OFFSET_Z + 15.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 38.5, 1.6, this.OFFSET_Z + 16.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
-                10.0
+                85.0
             ),
             5.0
         );
