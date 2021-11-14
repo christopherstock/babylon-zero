@@ -70,9 +70,6 @@ export class ModelSystem
                     this.models[ fileName ] = new bz.Model( importedMeshes );
                     this.models[ fileName ].extractPhysicsImpostors();
 
-                    // all 3dsmax models are right handed coordinate system - convert to left handed system by rotating
-                    this.models[ fileName ].rotateAroundAxisX( 0.0, 0.0, -90.0 )
-
                     // notify load
                     this.onLoadModel();
                 },

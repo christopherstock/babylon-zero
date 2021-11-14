@@ -14,6 +14,7 @@ export class StageOffice extends bz.Stage
     private          chairCompoundSingleShotOff     :bz.Wall                = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes. */
     private          chairMultiMeshesNoCompound     :bz.Wall                = null;
+    private          desk                           :bz.Wall                = null;
 
     /** Testwise camera target toggle. */
     private          camTarget                      :boolean                = false;
@@ -52,7 +53,7 @@ export class StageOffice extends bz.Stage
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
-                0.0,
+                20.0,
                 this.getConfig().ambientColor
             )
         );
@@ -171,7 +172,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( this.OFFSET_X + 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
         );
 */
-        this.addChairsWalls( meshFactory );
+        this.addFurniture( meshFactory );
 /*
         this.addStuffWalls(  meshFactory );
 */
@@ -389,7 +390,7 @@ export class StageOffice extends bz.Stage
     *
     *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    private addChairsWalls( meshFactory:bz.MeshFactory ) : void
+    private addFurniture( meshFactory:bz.MeshFactory ) : void
     {
         // multi mesh chair with compound .. scatters after being shot multiple times!
         this.chairCompoundDestroyable = new bz.Wall
@@ -435,22 +436,21 @@ export class StageOffice extends bz.Stage
         this.addWall( this.chairCompoundSingleShotOff );
         this.addWall( this.chairMultiMeshesNoCompound );
 
-        // multi mesh chair without compound .. immediately collapses!
-        const officeDesk :bz.Wall = new bz.Wall
+        // office desk
+        this.desk = new bz.Wall
         (
             this,
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK,
-                new BABYLON.Vector3( this.OFFSET_X + 8.0, 5.0, this.OFFSET_Z + 15.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 8.0, 4.0, this.OFFSET_Z + 15.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND,
                 90.0
             ),
             5.0
         );
-
-        this.addWall( officeDesk );
+        this.addWall( this.desk );
     }
 
     /** ****************************************************************************************************************

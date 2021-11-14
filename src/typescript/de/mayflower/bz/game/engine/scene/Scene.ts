@@ -23,7 +23,7 @@ export class Scene
     /** The callback to invoke when the scene is fully loaded. */
     private onLoadingComplete       :() => void                         = null;
 
-    /** Specifies if the physics are currently running. */
+    /** Specifies if the physics engine is currently running. */
     private physicsRunning          :boolean                            = false;
 
     /** ****************************************************************************************************************

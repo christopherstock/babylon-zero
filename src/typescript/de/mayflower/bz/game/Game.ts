@@ -269,7 +269,8 @@ export class Game
         this.engine.setLoadingUiVisibility( false );
         this.engine.setRenderLoopExecution( true, () => { this.render(); } );
 
-        // start physics engine not before now in order to prevent unwanted physical startup impulses! :)
+        // render scene once NOW! - this prevents unwanted physical effects by enabling physics in the next step!
+        this.scene.render();
         this.scene.enablePhysics( true );
     }
 

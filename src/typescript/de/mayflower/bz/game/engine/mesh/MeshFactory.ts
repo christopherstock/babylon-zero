@@ -689,9 +689,6 @@ export class MeshFactory
         // translate cloned model by position
         clonedModel.translatePosition( position );
 
-        // scale cloned model
-        // clonedModel.scaleSize( new BABYLON.Vector3( 1.0, 1.0, 1.0 ) );
-
         // extract or create physics impostors and assign them to the cloned model
         let impostors :bz.PhysicImpostorParams[] = [];
         if ( physic === null )
@@ -730,11 +727,14 @@ export class MeshFactory
             }
         }
 
-        // reset stored quaternion rotation
-        clonedModel.setAbsoluteRotationXYZ( 90.0, 0.0, 0.0 );
+        // scale cloned model
+        // clonedModel.scaleSize( new BABYLON.Vector3( 1.0, 1.0, 1.0 ) );
 
-        // initially rotate on axis Y (z-axis though right handed system ..) :p
-        clonedModel.rotateAroundAxisZ( 0, 0, -rotY )
+        // reset stored quaternion rotation from 3dsmax file
+        clonedModel.setAbsoluteRotationXYZ( 0.0, 0.0, 0.0 );
+
+        // initially rotate around axis Y (convert from right handed to left handed coordinate system)
+        clonedModel.rotateAroundAxisY( 0, 0, rotY )
 
         return clonedModel;
     }
