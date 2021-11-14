@@ -52,7 +52,7 @@ export class StageOffice extends bz.Stage
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
-                85.0,
+                0.0,
                 this.getConfig().ambientColor
             )
         );
@@ -398,7 +398,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 5.0, 0.0, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 5.0, 2.5, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_DISABLED
             ),
@@ -411,7 +411,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.5, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
@@ -424,7 +424,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 15.0, 0.0, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 15.0, 2.5, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
