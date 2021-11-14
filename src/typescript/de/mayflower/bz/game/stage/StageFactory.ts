@@ -177,7 +177,8 @@ export class StageFactory
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( pos.x, pos.y, pos.z ),
                     bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
+                    bz.ModelCompoundType.NONE,
+                    stage.getConfig().ambientColor
                 )
             )
         );
@@ -190,7 +191,8 @@ export class StageFactory
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 ),
                     bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
+                    bz.ModelCompoundType.NONE,
+                    stage.getConfig().ambientColor
                 )
             )
         );
@@ -203,7 +205,8 @@ export class StageFactory
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ),
                     bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
+                    bz.ModelCompoundType.NONE,
+                    stage.getConfig().ambientColor
                 )
             )
         );
@@ -216,7 +219,8 @@ export class StageFactory
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 ),
                     bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
+                    bz.ModelCompoundType.NONE,
+                    stage.getConfig().ambientColor
                 )
             )
         );
@@ -229,7 +233,8 @@ export class StageFactory
                     bz.ModelFile.CRATE,
                     new BABYLON.Vector3( pos.x + 2.5, pos.y + 2 * 2.5, pos.z + 2.5 ),
                     bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
+                    bz.ModelCompoundType.NONE,
+                    stage.getConfig().ambientColor
                 )
             )
         );

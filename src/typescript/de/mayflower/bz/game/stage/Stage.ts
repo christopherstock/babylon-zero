@@ -319,7 +319,7 @@ export abstract class Stage
     *
     *   @return The config for this stage.
     *******************************************************************************************************************/
-    protected getConfig() : bz.StageConfig
+    public getConfig() : bz.StageConfig
     {
         return this.config;
     }

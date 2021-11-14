@@ -670,6 +670,7 @@ export class MeshFactory
     *   @param physic       Specifies the physicsl behaviour of this imported model.
     *                       <code>null</code> to use the native physical attributes from the imported model.
     *   @param compoundType Specifies the mesh compound type for this imported model.
+    *   @param rotY         Initial rotation around axis Y.
     *
     *   @return A clone of the model with the specified filename.
     *******************************************************************************************************************/
@@ -679,6 +680,7 @@ export class MeshFactory
         position     :BABYLON.Vector3,
         physic       :bz.PhysicSet,
         compoundType :bz.ModelCompoundType,
+        emissiveColor :BABYLON.Color3,
         rotY         :number = 0.0
     )
     : bz.Model
@@ -748,6 +750,28 @@ export class MeshFactory
                 // initially rotate around axis Y
                 clonedModel.rotateAroundAxisY( 0, 0, rotY )
                 break;
+            }
+        }
+
+        // specular material?
+        if ( fileName === bz.ModelFile.SODA_MACHINE_2 )
+        {
+            console.log( ">>>>> ", ( clonedModel.getMesh(0) as BABYLON.Mesh ).material );
+
+            for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
+            {
+                const mesh = ( ( clonedModel.getMesh(i) as BABYLON.Mesh ) );
+                const material = ( ( clonedModel.getMesh(i) as BABYLON.Mesh ).material as BABYLON.StandardMaterial );
+                mesh.overlayColor = bz.SettingColor.COLOR_RGB_WHITE;
+                mesh.outlineColor = bz.SettingColor.COLOR_RGB_WHITE;
+                console.log ( '>>>>>>>>>>', material );
+                console.log ( '>>>>>>>>>>', mesh );
+/*
+                material.ambientColor  = bz.SettingColor.COLOR_RGB_WHITE;
+                material.emissiveColor = emissiveColor;
+                material.diffuseColor  = bz.SettingColor.COLOR_RGB_WHITE;
+                material.specularColor = bz.SettingColor.COLOR_RGB_WHITE;
+*/
             }
         }
 

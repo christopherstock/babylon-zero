@@ -101,7 +101,8 @@ export class StageIntroLogo extends bz.Stage
                 bz.ModelFile.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                 bz.PhysicSet.NONE,
-                bz.ModelCompoundType.NONE
+                bz.ModelCompoundType.NONE,
+                this.getConfig().ambientColor
             )
         );
 
