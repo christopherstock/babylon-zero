@@ -399,7 +399,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 5.0, 5.0, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 5.0, 2.1, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND
             ),
@@ -412,7 +412,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 10.0, 5.0, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.1, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
@@ -425,7 +425,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 15.0, 5.0, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 15.0, 2.1, this.OFFSET_Z + 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
@@ -443,7 +443,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK,
-                new BABYLON.Vector3( this.OFFSET_X + 8.0, 4.0, this.OFFSET_Z + 15.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 8.0, 1.7, this.OFFSET_Z + 15.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND,
                 90.0
