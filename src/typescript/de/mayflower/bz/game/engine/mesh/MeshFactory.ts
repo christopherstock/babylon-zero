@@ -739,7 +739,7 @@ export class MeshFactory
             case bz.ModelCompoundType.NONE:
             {
                 // initially rotate around axis Y
-                clonedModel.rotateAroundAxisY( position.x, position.y, rotY )
+                clonedModel.rotateAroundAxisY( position.x, position.z, rotY )
                 break;
             }
 

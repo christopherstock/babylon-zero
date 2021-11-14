@@ -475,7 +475,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK_2,
-                new BABYLON.Vector3( this.OFFSET_X + 33.5, 3.15, this.OFFSET_Z + 15.0 ),
+                new BABYLON.Vector3( this.OFFSET_X + 33.5, 1.6, this.OFFSET_Z + 15.0 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 10.0
@@ -499,6 +499,22 @@ export class StageOffice extends bz.Stage
             5.0
         );
         this.addWall( sodaMachine2 );
+
+        // sofa 1
+        const sofa1 :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.SOFA_1,
+                new BABYLON.Vector3( this.OFFSET_X + 15.5, 1.8, this.OFFSET_Z + 2.5 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                180.0
+            ),
+            5.0
+        );
+        this.addWall( sofa1 );
     }
 
     /** ****************************************************************************************************************
