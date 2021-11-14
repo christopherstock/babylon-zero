@@ -731,10 +731,10 @@ export class MeshFactory
         // clonedModel.scaleSize( new BABYLON.Vector3( 1.0, 1.0, 1.0 ) );
 
         // reset stored quaternion rotation from 3dsmax file
-        clonedModel.setAbsoluteRotationXYZ( 0.0, 0.0, 0.0 );
+        clonedModel.setAbsoluteRotationXYZ( 0.0, rotY, 0.0 );
 
         // initially rotate around axis Y (convert from right handed to left handed coordinate system)
-        clonedModel.rotateAroundAxisY( 0, 0, rotY )
+        // clonedModel.rotateAroundAxisY( 0, 0, rotY )
 
         return clonedModel;
     }

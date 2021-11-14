@@ -47,7 +47,7 @@ export class PhysicSet
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE,
-        7.75
+        25.0
     );
 
     /** Synthetic impostor for scattered meshes. */
@@ -66,6 +66,15 @@ export class PhysicSet
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE,
         0.10
+    );
+
+    /** Props for shelves. */
+    public static readonly SHELVES              :PhysicSet      = new PhysicSet
+    (
+        bz.PhysicBehaviour.STATIC,
+        bz.PhysicFriction.HIGH,
+        bz.PhysicRestitution.NONE,
+        0.0
     );
 
     /** Props for white test sphere wood. */
