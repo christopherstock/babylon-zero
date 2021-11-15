@@ -256,7 +256,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.0, this.OFFSET_Z + 25.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 11.0, 4.0, this.OFFSET_Z + 15.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -269,7 +269,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.0, this.OFFSET_Z + 30.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 11.0, 4.0, this.OFFSET_Z + 19.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -282,7 +282,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 4.0, this.OFFSET_Z + 10.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 11.5, 4.0, this.OFFSET_Z + 11.5 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )

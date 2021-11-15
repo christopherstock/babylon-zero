@@ -5,8 +5,13 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO Enable model switch from static to compound (collapsing)?
+     or just change from mass 0.0 to mass 16.0 etc?
+TODO Simplify item collision check
+TODO Impleent trigger system for events
 TODO Add door to room.
 TODO Switch stage on door interaction!
+TODO hand over Inventory between Stages
 TODO Fix physics clash on 1st start for imported models ..
 TODO Scale up/down all chairs and some models?
 TODO Enable changeable textures for imported models
@@ -22,6 +27,7 @@ TODO Try cool physics pause (scene cam) feature.
 =====================
 Player
 =====================
+TODO Introuce Inventory System
 TODO Fix ducking? => concerning heightY and shot height ?
 TODO Fix jumping!
 TODO Create alternate lower cylinder for player that toggles on ducking?
