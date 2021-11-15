@@ -30,6 +30,8 @@ export abstract class ModelFile
     public static readonly SHELLS                       :string             = 'item/shells.babylon';
     /** The model 'car 1'. */
     public static readonly CAR_1                        :string             = 'object/car1.babylon';
+    /** The model 'bench 1'. */
+    public static readonly BENCH_1                      :string             = 'furniture/bench1.babylon';
 
     /** The model 'Mayflower Logo'. */
     public static readonly MF_LOGO                      :string             = 'presentation/mfLogo.babylon';
@@ -50,6 +52,7 @@ export abstract class ModelFile
 
         ModelFile.SHELLS,
         ModelFile.CAR_1,
+        ModelFile.BENCH_1,
 
         ModelFile.MF_LOGO,
     ];
