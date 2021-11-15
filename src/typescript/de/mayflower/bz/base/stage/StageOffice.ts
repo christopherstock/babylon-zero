@@ -282,7 +282,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 11.5, 4.0, this.OFFSET_Z + 11.5 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 11.5, 3.8, this.OFFSET_Z + 11.5 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
