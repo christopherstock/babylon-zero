@@ -5,7 +5,8 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
-TODO Prune colors from soda machine .. :p
+TODO Add door to room.
+TODO Switch stage on door interaction!
 TODO Fix physics clash on 1st start for imported models ..
 TODO Scale up/down all chairs and some models?
 TODO Enable changeable textures for imported models

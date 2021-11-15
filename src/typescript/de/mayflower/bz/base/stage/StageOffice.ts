@@ -176,7 +176,7 @@ export class StageOffice extends bz.Stage
 /*
         this.addStuffWalls(  meshFactory );
 */
-/*
+
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
         (
@@ -188,9 +188,8 @@ export class StageOffice extends bz.Stage
             bz.SpriteCollidable.NO
         );
         animatedTestSprite.animate( 0, 24, true );
-
         this.addSprite( animatedTestSprite );
-
+/*
         this.addSprite(
             new bz.Sprite
             (
@@ -247,6 +246,7 @@ export class StageOffice extends bz.Stage
             )
         );
 
+*/
         // add 3 items
 
         this.addItem(
@@ -255,8 +255,8 @@ export class StageOffice extends bz.Stage
                 this,
                 meshFactory.createImportedModel
                 (
-                    bz.ModelFile.SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 50.0 ),
+                    bz.ModelFile.ITEM_SHELLS,
+                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.0, this.OFFSET_Z + 25.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -268,8 +268,8 @@ export class StageOffice extends bz.Stage
                 this,
                 meshFactory.createImportedModel
                 (
-                    bz.ModelFile.SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 55.0 ),
+                    bz.ModelFile.ITEM_SHELLS,
+                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.0, this.OFFSET_Z + 30.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -281,14 +281,13 @@ export class StageOffice extends bz.Stage
                 this,
                 meshFactory.createImportedModel
                 (
-                    bz.ModelFile.SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 0.0, this.OFFSET_Z + 60.0 ),
+                    bz.ModelFile.ITEM_SHELLS,
+                    new BABYLON.Vector3( this.OFFSET_X + 10.0, 4.0, this.OFFSET_Z + 10.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
             )
         );
-*/
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
