@@ -354,6 +354,11 @@ export class StageFactory
                 continue;
             }
 
+            if ( sizeY < bz.SettingEngine.DOOR_HEIGHT )
+            {
+                continue;
+            }
+
             const doorFrame :bz.Wall = new bz.Wall
             (
                 stage,

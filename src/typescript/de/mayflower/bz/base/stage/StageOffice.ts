@@ -5,6 +5,7 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageOffice extends bz.Stage
 {
+    // TODO remove!
     private readonly OFFSET_X                       :number                 = 0.0;
     private readonly OFFSET_Z                       :number                 = 0.0;
 
@@ -49,7 +50,7 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    ( 120.0 + this.OFFSET_X + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                    ( this.OFFSET_X + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),

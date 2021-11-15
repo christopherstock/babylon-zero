@@ -130,6 +130,13 @@ export abstract class Stage
                         this.game.switchStage( bz.StageId.OUTSIDE );
                         break;
                     }
+
+                    case 78:
+                    {
+                        bz.Debug.stage.log( 'Launching stage switch event to stage office' );
+                        this.game.switchStage( bz.StageId.OFFICE );
+                        break;
+                    }
                 }
             }
             this.eventPipeline = [];
