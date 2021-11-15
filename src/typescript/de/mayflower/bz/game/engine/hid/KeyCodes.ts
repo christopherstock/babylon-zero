@@ -37,6 +37,8 @@ export abstract class KeyCodes
     public static readonly KEY_Y                :string = 'KeyZ';
     /** The keycode that represents the 'X' key. */
     public static readonly KEY_X                :string = 'KeyX';
+    /** The keycode that represents the 'C' key. */
+    public static readonly KEY_C                :string = 'KeyC';
 
     /** The keycode that represents the 'P' key. */
     public static readonly KEY_P                :string = 'KeyP';

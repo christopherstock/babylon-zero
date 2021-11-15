@@ -16,6 +16,8 @@ export class Player extends bz.GameObject
     private          fire               :boolean            = false;
     /** Flags if the player currently wants to duck. */
     private          duck               :boolean            = false;
+    /** Flags if the player currently wants to interact. */
+    private          interact           :boolean            = false;
 
     /** Flags if the player currently wants to zoom. */
     private          zoom               :boolean            = false;
@@ -156,6 +158,9 @@ export class Player extends bz.GameObject
 
         // check fire action
         this.checkFire();
+
+        // check stage interaction
+        this.checkInteraction();
     }
 
     /** ****************************************************************************************************************
@@ -307,12 +312,20 @@ export class Player extends bz.GameObject
         // jump
         if ( bz.SettingPlayer.JUMP_ENABLED )
         {
-            if ( keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+            if ( keySystem.isPressed( bz.KeyCodes.KEY_C ) )
             {
-                keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
+                keySystem.setNeedsRelease( bz.KeyCodes.KEY_C );
 
                 this.assignJump();
             }
+        }
+
+        // interact
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_SPACE ) )
+        {
+            keySystem.setNeedsRelease( bz.KeyCodes.KEY_SPACE );
+
+            this.interact = true;
         }
 
         // zoom
@@ -636,6 +649,26 @@ export class Player extends bz.GameObject
             // create shot and apply it onto the stage
             const shot:bz.Shot = this.createShot();
             this.stage.applyShot( shot );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Checks if the player is interacting with the scene.
+    *******************************************************************************************************************/
+    private checkInteraction() : void
+    {
+        // check if interact is requested
+        if ( this.interact )
+        {
+            // mark interact request as processed
+            this.interact = false;
+
+            bz.Debug.player.log();
+            bz.Debug.player.log( 'Player interacts with the scene' );
+
+            // apply interaction to the stage
+//            const shot:bz.Shot = this.createShot();
+//            this.stage.applyShot( shot );
         }
     }
 
