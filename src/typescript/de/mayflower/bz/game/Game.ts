@@ -85,6 +85,12 @@ export class Game
                 break;
             }
 
+            case bz.StageId.OUTSIDE:
+            {
+                this.stage = new bz.StageOutside( this );
+                break;
+            }
+
             case bz.StageId.INTRO_LOGO:
             {
                 this.stage = new bz.StageIntroLogo( this );

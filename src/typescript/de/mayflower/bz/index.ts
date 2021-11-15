@@ -96,6 +96,7 @@ export * from './base/data/TextureFile';
 export * from './base/data/Texture';
 export * from './base/stage/StageIntroLogo';
 export * from './base/stage/StageOffice';
+export * from './base/stage/StageOutside';
 
 export * from './util/DOMUtil';
 export * from './util/MathUtil';

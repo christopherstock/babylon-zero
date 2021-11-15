@@ -126,8 +126,8 @@ export abstract class Stage
                 {
                     case 77:
                     {
-                        bz.Debug.stage.log( 'Launching stage switch event!' );
-                        this.game.switchStage( bz.StageId.INTRO_LOGO );
+                        bz.Debug.stage.log( 'Launching stage switch event to stage outside' );
+                        this.game.switchStage( bz.StageId.OUTSIDE );
                         break;
                     }
                 }

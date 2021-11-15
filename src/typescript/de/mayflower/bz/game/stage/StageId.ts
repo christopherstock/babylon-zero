@@ -5,6 +5,8 @@ export enum StageId
 {
     /** The cinematic intro stage shows the rotating Mayflower logo and some lights. */
     INTRO_LOGO,
-    /** The test office stage. */
+    /** The 'office' stage. */
     OFFICE,
+    /** The 'outside' stage. */
+    OUTSIDE,
 }
