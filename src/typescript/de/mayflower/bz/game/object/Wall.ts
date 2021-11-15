@@ -5,16 +5,25 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Wall extends bz.GameObject
 {
+    public readonly interactionEvent :bz.InteractionEvent = null;
+
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
     *
-    *   @param stage  The stage this wall belongs to.
-    *   @param model  The model that represents this wall.
-    *   @param energy The initial energy of this wall.
+    *   @param stage       The stage this wall belongs to.
+    *   @param model       The model that represents this wall.
+    *   @param energy      The initial energy of this wall.
+    *   @param interactionEvent Optional - specifies possible interactions with this wall.
     *******************************************************************************************************************/
-    public constructor( stage:bz.Stage, model:bz.Model, energy:number = Wall.UNBREAKABLE )
-    {
+    public constructor(
+        stage            :bz.Stage,
+        model            :bz.Model,
+        energy           :number              = Wall.UNBREAKABLE,
+        interactionEvent :bz.InteractionEvent = null
+    ) {
         super( stage, model, energy );
+
+        this.interactionEvent = interactionEvent;
     }
 
     /** ****************************************************************************************************************

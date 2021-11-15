@@ -138,6 +138,16 @@ export class HitPoint
     }
 
     /** ****************************************************************************************************************
+    *   Returns the impacted game object of this hit point.
+    *
+    *   @return The impacted game object.
+    *******************************************************************************************************************/
+    public getGameObject() : bz.GameObject
+    {
+        return this.gameObject;
+    }
+
+    /** ****************************************************************************************************************
     *   Returns the normal of the shot that caused this hit point.
     *
     *   @return The impacted mesh.

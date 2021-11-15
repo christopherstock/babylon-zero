@@ -246,7 +246,9 @@ export class StageOffice extends bz.Stage
                             new BABYLON.Vector3( 0.0, 90.0, 0.0 )
                         ),
                     ]
-                )
+                ),
+                bz.GameObject.UNBREAKABLE,
+                new bz.InteractionEvent( 77 )
             )
         );
 /*

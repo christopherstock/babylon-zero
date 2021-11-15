@@ -232,6 +232,33 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Applies an interaction onto the stage.
+    *
+    *   @param interaction The interaction to apply onto the stage.
+    *******************************************************************************************************************/
+    public applyInteraction( interaction:bz.Interaction ) : void
+    {
+        // get all hit points for this interaction (won't hurt the game objects)
+        const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( interaction );
+        bz.Debug.player.log( ' Gathered [' + String( hitPoints.length ) + '] interaction hit points' );
+
+        // impact all hit points
+        for ( const hitPoint of hitPoints )
+        {
+            const hitGameObject = hitPoint.getGameObject();
+
+            if (
+                hitGameObject instanceof bz.Wall
+                && hitGameObject.interactionEvent !== null
+            )
+            {
+                console.log( 'Impact interaction on Game Object ' + hitGameObject.getModel().getMeshCount() );
+                console.log( '         ' + hitGameObject.interactionEvent );
+            }
+        }
+    }
+
+    /** ****************************************************************************************************************
     *   Delivers the current selected index of the pause menu.
     *
     *   @return The current active pause menu index.

@@ -667,8 +667,10 @@ export class Player extends bz.GameObject
             bz.Debug.player.log( 'Player interacts with the scene' );
 
             // apply interaction to the stage
-//            const shot:bz.Shot = this.createShot();
-//            this.stage.applyShot( shot );
+            const interaction:bz.Shot = this.createInteraction();
+            bz.Debug.player.log( 'launching interaction .. ' );
+            console.log( interaction );
+            this.stage.applyInteraction( interaction );
         }
     }
 
@@ -698,6 +700,30 @@ export class Player extends bz.GameObject
             range,
             false,
             1
+        );
+    }
+
+    /** ****************************************************************************************************************
+    *   Creates an interaction that contains all information about a player action.
+    *
+    *   @return The interaction that is currently caused by the player.
+    *******************************************************************************************************************/
+    private createInteraction() : bz.Shot
+    {
+        const source      :BABYLON.Vector3 = this.playerPhysics.head.absolutePosition;
+        const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
+        (
+            this.rotation.z,
+            this.rotation.y,
+            0.0
+        );
+        const range :number = 5.0;
+
+        return new bz.Interaction
+        (
+            source,
+            rotation,
+            range
         );
     }
 
