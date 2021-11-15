@@ -8,6 +8,7 @@ MVP 1.0.0 - Tech-Demo
 TODO Prune colors from soda machine .. :p
 TODO Fix physics clash on 1st start for imported models ..
 TODO Scale up/down all chairs and some models?
+TODO Enable changeable textures for imported models
 TODO Add shelves and some more (better) 3dsmax models?
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
 TODO Add nice textures

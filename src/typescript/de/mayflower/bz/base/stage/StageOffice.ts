@@ -531,6 +531,22 @@ export class StageOffice extends bz.Stage
             5.0
         );
         this.addWall( sofa1 );
+
+        // car 1
+        const car1 :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.CAR_1,
+                new BABYLON.Vector3( this.OFFSET_X + 100.0, 3.0, this.OFFSET_Z + 20.5 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                180.0
+            ),
+            5.0
+        );
+        this.addWall( car1 );
     }
 
     /** ****************************************************************************************************************
