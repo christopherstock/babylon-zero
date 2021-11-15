@@ -36,6 +36,8 @@ export abstract class Stage
     /** The skybox that surrounds the whole stage. */
     private          skybox             :BABYLON.Mesh               = null;
 
+    private eventPipeline :number[] = [];
+
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
     *
@@ -113,6 +115,24 @@ export abstract class Stage
         for ( const item of this.items )
         {
             item.render();
+        }
+
+        // render event pipeline
+        if ( this.eventPipeline.length > 0 )
+        {
+            for ( const event of this.eventPipeline )
+            {
+                switch ( event )
+                {
+                    case 77:
+                    {
+                        bz.Debug.stage.log( 'Launching stage switch event!' );
+                        this.game.switchStage( bz.StageId.INTRO_LOGO );
+                        break;
+                    }
+                }
+            }
+            this.eventPipeline = [];
         }
     }
 
@@ -253,7 +273,9 @@ export abstract class Stage
             )
             {
                 console.log( 'Impact interaction on Game Object ' + hitGameObject.getModel().getMeshCount() );
-                console.log( '         ' + hitGameObject.interactionEvent );
+                console.log( '         ' + hitGameObject.interactionEvent.action );
+
+                this.eventPipeline.push( hitGameObject.interactionEvent.action );
             }
         }
     }

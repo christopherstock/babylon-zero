@@ -5,6 +5,8 @@
 =====================
 MVP 1.0.0 - Tech-Demo
 =====================
+TODO Create 2nd empty stage and move things from 1st to 2nd.
+TODO Create event pipeline system etc.
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
 TODO Simplify item collision check
