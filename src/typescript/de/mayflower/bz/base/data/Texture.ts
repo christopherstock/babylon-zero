@@ -7,6 +7,8 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Texture
 {
+    // TODO remove constants and use TextureFile.ID as ID ?
+
     /** The texture 'bullet hole concreate'. */
     public static readonly BULLET_HOLE_CONCRETE         :Texture                = new Texture( bz.TextureFile.BULLET_HOLE_CONCRETE );
     /** The texture 'bullet hole wood'. */
@@ -53,6 +55,8 @@ export class Texture
     public static readonly WALL_LEATHER                 :Texture                = new Texture( bz.TextureFile.WALL_LEATHER );
     /** The texture 'wall metal'. */
     public static readonly WALL_MARBLE                  :Texture                = new Texture( bz.TextureFile.WALL_MARBLE );
+    /** The texture 'wall door 1'. */
+    public static readonly WALL_DOOR_1                  :Texture                = new Texture( bz.TextureFile.WALL_DOOR_1 );
 
     /** The video texture 'wall test'. */
     public static readonly VIDEO_TEST                   :Texture                = new Texture( bz.TextureFile.VIDEO_TEST );
@@ -84,6 +88,7 @@ export class Texture
         Texture.WALL_CONCRETE,
         Texture.WALL_LEATHER,
         Texture.WALL_MARBLE,
+        Texture.WALL_DOOR_1,
 
         Texture.VIDEO_TEST,
     ];

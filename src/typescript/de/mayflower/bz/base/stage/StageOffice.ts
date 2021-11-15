@@ -49,7 +49,7 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    ( this.OFFSET_X + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                    ( 120.0 + this.OFFSET_X + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
@@ -131,7 +131,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 80.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.Texture.WALL_WOOD_HORZ, [], [],
             bz.Texture.WALL_WOOD_HORZ, [ 10.0 ], [],
@@ -140,7 +140,7 @@ export class StageOffice extends bz.Stage
             bz.Texture.WALL_CARPET_2,
             bz.Texture.WALL_CEILING
         );
-/*
+
         // point light in 2nd office
         const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
         (
@@ -164,7 +164,7 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( this.OFFSET_X + 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
         );
-*/
+
         // boxes pile in 2nd office
         bz.StageFactory.addBoxesWalls(
             this,
@@ -215,6 +215,37 @@ export class StageOffice extends bz.Stage
                     new BABYLON.Vector3( this.OFFSET_X + 11.5, 3.8, this.OFFSET_Z + 9.5 ),
                     null,
                     bz.ModelCompoundType.NONE
+                )
+            )
+        );
+
+        // add stage switch door
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3(
+                                160.0 + ( bz.SettingEngine.WALL_DEPTH / 2 ),
+                                bz.SettingEngine.FLOOR_OFFSET_Y,
+                                10.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 )
+                            ),
+                            bz.Texture.WALL_DOOR_1,
+                            new BABYLON.Vector3(
+                                bz.SettingEngine.DOOR_WIDTH,
+                                bz.SettingEngine.DOOR_HEIGHT,
+                                bz.SettingEngine.WALL_DEPTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                        ),
+                    ]
                 )
             )
         );
