@@ -173,82 +173,12 @@ export class StageOffice extends bz.Stage
         );
 
         this.addFurniture( meshFactory );
-/*
+
         this.addStuffWalls(  meshFactory );
-*/
 
-        // create and animate a sprite
-        const animatedTestSprite:bz.Sprite = new bz.Sprite
-        (
-            this.getScene(),
-            bz.SpriteFile.FIRE,
-            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-            10.0,
-            20.0,
-            bz.SpriteCollidable.NO
-        );
-        animatedTestSprite.animate( 0, 24, true );
-        this.addSprite( animatedTestSprite );
-/*
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.PALM,
-                new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 10.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5,
-                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                bz.MathUtil.getRandomInt( -10.0, 10.0 )
-            )
-        );
+        this.addTrees(  meshFactory );
 
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.TREE,
-                new BABYLON.Vector3( this.OFFSET_X + 30.0, 0.0, this.OFFSET_Z + 20.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5
-            )
-        );
-
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.PALM,
-                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 20.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5,
-                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                bz.MathUtil.getRandomInt( -10.0, 10.0 )
-            )
-        );
-
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.TREE,
-                new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 10.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5
-            )
-        );
-
-*/
         // add 3 items
-
         this.addItem(
             new bz.Item
             (
@@ -256,7 +186,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 11.0, 4.0, this.OFFSET_Z + 15.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 38.0, 3.8, this.OFFSET_Z + 14.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -269,7 +199,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 11.0, 4.0, this.OFFSET_Z + 19.0 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 38.0, 3.8, this.OFFSET_Z + 18.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -282,7 +212,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 11.5, 3.8, this.OFFSET_Z + 11.5 ),
+                    new BABYLON.Vector3( this.OFFSET_X + 11.5, 3.8, this.OFFSET_Z + 9.5 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -571,7 +501,7 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     private addStuffWalls( meshFactory:bz.MeshFactory ) : void
     {
-        // tv
+        // tv (65 inch)
         const tv:bz.Wall = new bz.Wall
         (
             this,
@@ -580,11 +510,10 @@ export class StageOffice extends bz.Stage
                 [
                     meshFactory.createBox
                     (
-                        new BABYLON.Vector3( 3.0, 2.5, 25.0 ),
+                        new BABYLON.Vector3( 17.0, 5.0, 39.5 ),
                         bz.Texture.VIDEO_TEST,
-                        // new BABYLON.Vector3( ( 4 * 0.560 ), ( 4 * 0.320 ), 1.0 ),
-                        new BABYLON.Vector3( ( 4 * 0.640 ), ( 4 * 0.360 ), 1.0 ),
-                        bz.PhysicSet.CRATE_WOOD,
+                        new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
+                        bz.PhysicSet.SHELVES,
                         1.0,
                         bz.MeshAnchor.CENTER_XYZ,
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 )
@@ -617,24 +546,73 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
+    }
 
-        // box - amiga light frontside
-        this.addWall(
-            new bz.Wall
+    private addTrees( meshFactory ) :void
+    {
+        // create and animate a sprite
+        const animatedTestSprite:bz.Sprite = new bz.Sprite
+        (
+            this.getScene(),
+            bz.SpriteFile.FIRE,
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            10.0,
+            20.0,
+            bz.SpriteCollidable.NO
+        );
+        animatedTestSprite.animate( 0, 24, true );
+        this.addSprite( animatedTestSprite );
+
+        this.addSprite(
+            new bz.Sprite
             (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( this.OFFSET_X - 5.0, 0.0, this.OFFSET_Z + 22.5 ),
-                            bz.Texture.WALL_AMIGA,
-                            new BABYLON.Vector3( 1.0, 7.0, 7.0 ),
-                            bz.PhysicSet.STATIC
-                        ),
-                    ]
-                )
+                this.getScene(),
+                bz.SpriteFile.PALM,
+                new BABYLON.Vector3( this.OFFSET_X + 130.0, 0.0, this.OFFSET_Z + 10.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5,
+                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                bz.MathUtil.getRandomInt( -10.0, 10.0 )
+            )
+        );
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.getScene(),
+                bz.SpriteFile.TREE,
+                new BABYLON.Vector3( this.OFFSET_X + 130.0, 0.0, this.OFFSET_Z + 20.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5
+            )
+        );
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.getScene(),
+                bz.SpriteFile.PALM,
+                new BABYLON.Vector3( this.OFFSET_X + 140.0, 0.0, this.OFFSET_Z + 20.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5,
+                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                bz.MathUtil.getRandomInt( -10.0, 10.0 )
+            )
+        );
+        this.addSprite(
+            new bz.Sprite
+            (
+                this.getScene(),
+                bz.SpriteFile.TREE,
+                new BABYLON.Vector3( this.OFFSET_X + 140.0, 0.0, this.OFFSET_Z + 10.0 ),
+                10.0,
+                10.0,
+                bz.SpriteCollidable.YES,
+                0.5
             )
         );
     }
