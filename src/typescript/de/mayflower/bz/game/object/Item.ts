@@ -11,27 +11,27 @@ export class Item extends bz.GameObject
     private rotY                    :number             = 0.0;
     /** The initial and static position of this item. */
     private readonly itemPosition   :BABYLON.Vector3    = null;
-
-    private eventsOnPicked          :bz.Event[]         = [];
+    /** The events to perform when this item is picked. */
+    private readonly eventsOnPicked :bz.Event[]         = [];
 
     /** ****************************************************************************************************************
     *   Creates a new item.
     *
     *   @param stage    The stage this item belongs to.
     *   @param position Static position of this item.
-    *   @param model    The model that represents this item.
     *   @param itemType The type of item.
     *******************************************************************************************************************/
-    public constructor( stage:bz.Stage, position:BABYLON.Vector3, model:bz.Model, itemType:bz.ItemType )
+    public constructor( stage:bz.Stage, position:BABYLON.Vector3, itemType:bz.ItemType )
     {
         super(
             stage,
-            model
+            Item.createModelByItemType( stage, itemType )
         );
 
         this.itemPosition   = position;
-        this.eventsOnPicked = this.createEventyByItemType( itemType );
+        this.eventsOnPicked = Item.createEventsByItemType( itemType );
 
+        // translate model to item position
         this.model.translatePosition( position );
     }
 
@@ -96,7 +96,7 @@ export class Item extends bz.GameObject
         this.model.setVisible( false );
     }
 
-    private createEventyByItemType( itemType:bz.ItemType ) : bz.Event[]
+    private static createEventsByItemType( itemType:bz.ItemType ) : bz.Event[]
     {
         switch ( itemType )
         {
@@ -113,8 +113,41 @@ export class Item extends bz.GameObject
                     ),
                 ];
             }
+
+            case bz.ItemType.TRIGGER:
+            {
+                // events will be overridden in the constructor of bz.Trigger
+
+                return [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.HURT )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Ouch .. just hurt myself here ..' )
+                    ),
+                ];
+            }
         }
 
         return [];
+    }
+
+    private static createModelByItemType( stage:bz.Stage, itemType:bz.ItemType ) : bz.Model
+    {
+        switch ( itemType )
+        {
+            case bz.ItemType.SHOTGUN_SHELLS:
+            {
+                return new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor )
+                    .createImportedModel( bz.ModelFile.ITEM_SHELLS );
+            }
+
+            case bz.ItemType.TRIGGER:
+            {
+                return new bz.Model();
+            }
+        }
     }
 }

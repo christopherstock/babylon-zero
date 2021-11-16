@@ -23,7 +23,7 @@ export class Model
     *
     *   @param meshes All meshes that belong to this model.
     *******************************************************************************************************************/
-    public constructor( meshes:BABYLON.AbstractMesh[] )
+    public constructor( meshes:BABYLON.AbstractMesh[] = [] )
     {
         this.meshes = meshes;
     }
