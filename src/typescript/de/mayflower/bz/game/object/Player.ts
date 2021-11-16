@@ -779,4 +779,9 @@ export class Player extends bz.GameObject
         // update player limbs positions
         this.positionPlayerLimbs();
     }
+
+    public setPosition( startupPosition:BABYLON.Vector3 ) : void
+    {
+        this.playerPhysics.body.position = startupPosition;
+    }
 }

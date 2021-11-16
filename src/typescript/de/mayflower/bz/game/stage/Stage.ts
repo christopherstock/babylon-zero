@@ -68,7 +68,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
-    public init() : void
+    public init( playerStartup:BABYLON.Vector3 ) : void
     {
         // create stage config
         this.config = this.createStageConfig();
@@ -80,6 +80,12 @@ export abstract class Stage
         // create all stage contents
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
         this.createStageContents( meshFactory );
+
+        // set player to new position
+        if ( playerStartup !== null )
+        {
+            this.player.setPosition( playerStartup );
+        }
 
         // create cameras and set initial cam
         this.cameraSystem = this.createCameraSystem();
@@ -552,12 +558,12 @@ export abstract class Stage
             {
                 bz.Debug.stage.log( 'Launching stage switch event to:' );
 
-//                event.
+                const stageSwitch :bz.EventDataStageSwitch = ( event.data as bz.EventDataStageSwitch );
 
-                this.game.switchStage( ( event.data as bz.EventDataStageSwitch ).targetStage );
-
-//                this.game.switchStage( bz.StageId.OFFICE );
-
+                this.game.switchStage(
+                    stageSwitch.targetStage,
+                    stageSwitch.startupPosition
+                );
                 break;
             }
         }

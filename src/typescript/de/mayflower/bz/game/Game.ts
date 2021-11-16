@@ -50,7 +50,7 @@ export class Game
     *
     *   @param targetStage The target stage to switch to.
     *******************************************************************************************************************/
-    public switchStage( targetStage:bz.StageId ) : void
+    public switchStage( targetStage:bz.StageId, startupPosition:BABYLON.Vector3 = null ) : void
     {
         bz.Debug.stage.log( '' );
         bz.Debug.stage.log( 'Switch to target stage [' + String( targetStage ) + ']' );
@@ -104,7 +104,7 @@ export class Game
 
         // init the new stage
         bz.Debug.stage.log( ' Init target stage [' + String( targetStage ) + ']' );
-        this.stage.init();
+        this.stage.init( startupPosition );
 
         // release keys and pointer lock
         this.keySystem.releaseAllKeys();
