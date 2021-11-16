@@ -89,18 +89,20 @@ export class StageOutside extends bz.Stage
                     ]
                 ),
                 bz.GameObject.UNBREAKABLE,
-                new bz.Event(
-                    bz.EventType.SWITCH_TO_STAGE,
-                    new EventDataStageSwitch(
-                        bz.StageId.OFFICE,
-                        new BABYLON.Vector3(
-                            140.0 + ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                            ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                            ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                        ),
-                        new BABYLON.Vector3( 0.0, 270.0, 0.0 )
-                    )
-                )
+                [
+                    new bz.Event(
+                        bz.EventType.SWITCH_TO_STAGE,
+                        new EventDataStageSwitch(
+                            bz.StageId.OFFICE,
+                            new BABYLON.Vector3(
+                                140.0 + ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
+                                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                            ),
+                            new BABYLON.Vector3( 0.0, 270.0, 0.0 )
+                        )
+                    ),
+                ]
             )
         );
 

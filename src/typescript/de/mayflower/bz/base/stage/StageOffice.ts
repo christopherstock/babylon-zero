@@ -246,18 +246,20 @@ export class StageOffice extends bz.Stage
                     ]
                 ),
                 bz.GameObject.UNBREAKABLE,
-                new bz.Event(
-                    bz.EventType.SWITCH_TO_STAGE,
-                    new EventDataStageSwitch(
-                        bz.StageId.OUTSIDE,
-                        new BABYLON.Vector3(
-                            ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                            ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                            ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                        ),
-                        new BABYLON.Vector3( 0.0, 60.0, 0.0 )
-                    )
-                )
+                [
+                    new bz.Event(
+                        bz.EventType.SWITCH_TO_STAGE,
+                        new EventDataStageSwitch(
+                            bz.StageId.OUTSIDE,
+                            new BABYLON.Vector3(
+                                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
+                                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                            ),
+                            new BABYLON.Vector3( 0.0, 60.0, 0.0 )
+                        )
+                    ),
+                ]
             )
         );
 /*
@@ -376,10 +378,16 @@ export class StageOffice extends bz.Stage
                 -90.0
             ),
             5.0,
-            new bz.Event(
-                bz.EventType.SHOW_GUI_MESSAGE,
-                new bz.EventDataShowGuiMessage( 'No more work for today.' )
-            )
+            [
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_MESSAGE,
+                    new bz.EventDataShowGuiMessage( 'All cleared for today.' )
+                ),
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_MESSAGE,
+                    new bz.EventDataShowGuiMessage( 'No more work for today.' )
+                ),
+            ]
         );
         this.addWall( screen1 );
 

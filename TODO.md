@@ -10,7 +10,7 @@ TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Create Different, parallel event pipelines.
-TODO Simplify item collision check (same as move/touch trigger system for events)
+TODO Simplify item collision check (same as move/touch trigger system for events) EventTrigger extends Item
 TODO Implement move/touch trigger system for events
 TODO Add door to room.
 TODO Switch stage on door interaction!

@@ -36,8 +36,8 @@ export abstract class Stage
     /** The skybox that surrounds the whole stage. */
     private          skybox             :BABYLON.Mesh               = null;
 
-    /** Handles all occuring events controlled -- at the end of the render()-cycle.  */
-    private         eventPipeline       :bz.Event[]                 = [];
+    /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
+    private         eventPipelines      :bz.Event[][]               = [];
 
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
@@ -129,13 +129,16 @@ export abstract class Stage
         }
 
         // render event pipeline
-        if ( this.eventPipeline.length > 0 )
+        if ( this.eventPipelines.length > 0 )
         {
-            for ( const event of this.eventPipeline )
+            for ( const eventPipeline of this.eventPipelines )
             {
-                this.launchEvent( event );
+                for ( const event of eventPipeline )
+                {
+                    this.launchEvent( event );
+                }
             }
-            this.eventPipeline = [];
+            this.eventPipelines = [];
         }
     }
 
@@ -276,10 +279,10 @@ export abstract class Stage
 
             if (
                 hitGameObject instanceof bz.Wall
-                && hitGameObject.interactionEvent !== null
+                && hitGameObject.interactionEvents !== null
             )
             {
-                this.eventPipeline.push( hitGameObject.interactionEvent );
+                this.eventPipelines.push( hitGameObject.interactionEvents );
             }
         }
     }
