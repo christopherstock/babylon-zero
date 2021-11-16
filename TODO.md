@@ -5,23 +5,21 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Implement move/touch trigger system for events ( Trigger is a superclass of Item! )
-TODO Add event 'level explosion' under car.
 TODO X = Let player turn around 180°!
      C = Crouch
      Y = Aim
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
+TODO Add event 'level explosion' under car.
 TODO Create time delay feature. (EVENT delay pipeline)
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Create Different, parallel event pipelines.
-TODO Add door to room.
-TODO Create event type 'ingame message'.
+TODO Add door to room creation method.
+TODO Create event type 'ingame message' with pic and message.
 TODO Switch stage on door interaction!
 TODO hand over Inventory between Stages
 TODO Try stored 3dsmax model animations.
-TODO Fix physics clash on 1st start for imported models ..
 TODO prune all default values (= null) and add linter rule?
 TODO Scale up/down all chairs and some models?
 TODO Enable changeable textures for imported models

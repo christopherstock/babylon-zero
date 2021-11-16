@@ -24,6 +24,8 @@ export class Player extends bz.GameObject
     /** The current field of view of the player. Changes on zooming. */
     private          fieldOfView        :number             = 0.0;
 
+    private          turnAroundTicks    :number             = 0;
+
     /** Current rotation. */
     private readonly rotation           :BABYLON.Vector3    = null;
     /** Current rotation delta. */
@@ -148,6 +150,7 @@ export class Player extends bz.GameObject
         this.manipulateVelocities();
 
         // alter view
+        this.checkTurnAround();
         this.rotatePlayerXYZ();
         this.checkCenteringRotZ();
         this.checkFieldOfViewChange();
@@ -326,9 +329,9 @@ export class Player extends bz.GameObject
         }
 
         // duck
-        if ( keySystem.isPressed( bz.KeyCodes.KEY_Y ) )
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_C ) )
         {
-            keySystem.setNeedsRelease( bz.KeyCodes.KEY_Y );
+            keySystem.setNeedsRelease( bz.KeyCodes.KEY_C );
 
             this.toggleDuck();
         }
@@ -354,9 +357,16 @@ export class Player extends bz.GameObject
 
         // zoom
         this.zoom = (
-            keySystem.isPressed( bz.KeyCodes.KEY_X )
+            keySystem.isPressed( bz.KeyCodes.KEY_Y )
             || mouseSystem.isMouseButtonDown( bz.MouseCodes.MOUSE_BUTTON_RIGHT )
         );
+
+        // turn around
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_X ) )
+        {
+            keySystem.setNeedsRelease( bz.KeyCodes.KEY_X );
+            this.turnAroundTicks = bz.SettingPlayer.TICKS_TURN_AROUND;
+        }
     }
 
     /** ****************************************************************************************************************
@@ -624,6 +634,21 @@ export class Player extends bz.GameObject
                     ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
                     - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
                 )
+            );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Checks if the player's rotation on the Z axis should be centered to zero.
+    *******************************************************************************************************************/
+    private checkTurnAround() : void
+    {
+        if ( this.turnAroundTicks > 0 )
+        {
+            --this.turnAroundTicks;
+
+            this.rotationDelta.y = bz.MathUtil.normalizeAngleDegrees(
+                ( this.rotationDelta.y + ( 180.0 / bz.SettingPlayer.TICKS_TURN_AROUND ) )
             );
         }
     }
