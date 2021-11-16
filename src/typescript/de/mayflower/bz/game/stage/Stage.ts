@@ -554,8 +554,10 @@ export abstract class Stage
 
 //                event.
 
-//                this.game.switchStage( bz.StageId.OUTSIDE );
+                this.game.switchStage( ( event.data as bz.EventDataStageSwitch ).targetStage );
+
 //                this.game.switchStage( bz.StageId.OFFICE );
+
                 break;
             }
         }

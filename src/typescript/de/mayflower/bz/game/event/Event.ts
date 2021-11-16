@@ -6,9 +6,11 @@ import * as bz from '../..';
 export class Event
 {
     public type :bz.EventType = null;
+    public data :bz.EventData = null;
 
-    public constructor( type :bz.EventType )
+    public constructor( type :bz.EventType, data :bz.EventData )
     {
         this.type = type;
+        this.data = data;
     }
 }

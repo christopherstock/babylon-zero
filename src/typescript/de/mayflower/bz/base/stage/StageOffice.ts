@@ -1,4 +1,5 @@
 import * as bz from '../..';
+import { EventDataStageSwitch } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' stage.
@@ -46,7 +47,7 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    140.0 + ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                    ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
@@ -245,7 +246,17 @@ export class StageOffice extends bz.Stage
                     ]
                 ),
                 bz.GameObject.UNBREAKABLE,
-                new bz.Event( bz.EventType.SWITCH_TO_STAGE )
+                new bz.Event(
+                    bz.EventType.SWITCH_TO_STAGE,
+                    new EventDataStageSwitch(
+                        bz.StageId.OUTSIDE,
+                        new BABYLON.Vector3(
+                            ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                            ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
+                            ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                        )
+                    )
+                )
             )
         );
 /*
