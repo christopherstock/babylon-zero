@@ -25,3 +25,15 @@
     {
         return ( ( Math.pow( ( diameter / 2 ), 2 ) * Math.PI ) * height );
     }
+
+    /** ****************************************************************************************************************
+    *   Calculates the volume of a sphere.
+    *
+    *   @param diameter Diameter of the sphere.
+    *
+    *   @return The volume of the sphere.
+    *******************************************************************************************************************/
+    public static getSphereVolume( diameter:number ) : number
+    {
+        return ( ( Math.pow( ( diameter / 2 ), 3 ) * Math.PI ) * 4 / 3 );
+    }

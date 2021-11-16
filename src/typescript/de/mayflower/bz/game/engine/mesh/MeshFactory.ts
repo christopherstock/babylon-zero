@@ -677,10 +677,10 @@ export class MeshFactory
     public createImportedModel
     (
         fileName     :string,
-        position     :BABYLON.Vector3,
-        physic       :bz.PhysicSet,
-        compoundType :bz.ModelCompoundType,
-        rotY         :number = 0.0
+        position     :BABYLON.Vector3      = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        physic       :bz.PhysicSet         = null,
+        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE,
+        rotY         :number               = 0.0
     )
     : bz.Model
     {

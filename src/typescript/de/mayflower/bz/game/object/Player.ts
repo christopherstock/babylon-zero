@@ -205,6 +205,11 @@ export class Player extends bz.GameObject
         this.rotation.set( rotation.x, rotation.y, rotation.z );
     }
 
+    public getPosition() : BABYLON.Vector3
+    {
+        return this.playerPhysics.body.position;
+    }
+
     /** ****************************************************************************************************************
     *   Handles all keys for the player.
     *******************************************************************************************************************/

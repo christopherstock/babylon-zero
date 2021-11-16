@@ -37,13 +37,15 @@ export class SettingPlayer
     /** The player's height on ducking. */
     public static readonly HEIGHT_Y_DUCKING                         :number             = 2.0;
 
-    /** The player's interaction range. */
-    public static readonly RANGE_INTERACTION                        :number             = 10.0;
-
     /** The player's diameter on the XZ axis. */
     public static readonly DIAMETER_BODY                            :number             = 3.0;
     /** The player's head diameter on all axis. */
     public static readonly DIAMETER_HEAD                            :number             = 1.0;
+
+    /** The player's interaction range. */
+    public static readonly RANGE_INTERACTION                        :number             = 10.0;
+    /** The player's item auto-pickup range. */
+    public static readonly RANGE_ITEM_PICK                          :number             = 5.0;
 
     /** Enable player head shaking. */
     public static readonly HEAD_SHAKING_ENABLED                     :boolean            = false;

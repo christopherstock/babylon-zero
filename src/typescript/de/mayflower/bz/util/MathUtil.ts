@@ -88,18 +88,6 @@ export class MathUtil
     }
 
     /** ****************************************************************************************************************
-    *   Calculates the volume of a sphere.
-    *
-    *   @param diameter Diameter of the sphere.
-    *
-    *   @return The volume of the sphere.
-    *******************************************************************************************************************/
-    public static getSphereVolume( diameter:number ) : number
-    {
-        return ( ( Math.pow( ( diameter / 2 ), 3 ) * Math.PI ) * 4 / 3 );
-    }
-
-    /** ****************************************************************************************************************
     *   Gets the distant point from the given source vector, rotated by the specified rotation.
     *
     *   @param source   The source vector.

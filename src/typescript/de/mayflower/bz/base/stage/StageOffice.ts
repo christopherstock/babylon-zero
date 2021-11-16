@@ -168,44 +168,45 @@ export class StageOffice extends bz.Stage
 
         this.addTrees(  meshFactory );
 
-        // add 3 items
+        // add 5 items
         this.addItem(
             new bz.Item
             (
                 this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
-                    null,
-                    bz.ModelCompoundType.NONE
-                )
+                new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
             )
         );
         this.addItem(
             new bz.Item
             (
                 this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
-                    null,
-                    bz.ModelCompoundType.NONE
-                )
+                new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
             )
         );
         this.addItem(
             new bz.Item
             (
                 this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
-                    null,
-                    bz.ModelCompoundType.NONE
-                )
+                new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+            )
+        );
+        this.addItem(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 40.0, 1.0, 25.5 ),
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+            )
+        );
+        this.addItem(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 40.0, 1.0, 30.0 ),
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
             )
         );
 

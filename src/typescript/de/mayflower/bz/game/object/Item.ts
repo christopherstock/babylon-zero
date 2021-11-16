@@ -6,19 +6,24 @@ import * as bz from '../..';
 export class Item extends bz.GameObject
 {
     /** Flags that this item has been picked. */
-    private picked :boolean = false;
+    private picked                :boolean         = false;
     /** Current rotation Y for this item. */
-    private rotY   :number  = 0.0;
+    private rotY                  :number          = 0.0;
+    private readonly itemPosition :BABYLON.Vector3 = null;
 
     /** ****************************************************************************************************************
     *   Creates a new item.
     *
-    *   @param stage The stage this item belongs to.
-    *   @param model The model that represents this item.
+    *   @param stage    The stage this item belongs to.
+    *   @param position Static position of this item.
+    *   @param model    The model that represents this item.
     *******************************************************************************************************************/
-    public constructor( stage:bz.Stage, model:bz.Model )
+    public constructor( stage:bz.Stage, position:BABYLON.Vector3, model:bz.Model )
     {
         super( stage, model, bz.GameObject.UNBREAKABLE );
+
+        this.itemPosition = position;
+        this.model.translatePosition( position );
     }
 
     /** ****************************************************************************************************************
@@ -27,7 +32,7 @@ export class Item extends bz.GameObject
     public render() : void
     {
         // check if picked by player
-        if ( this.checkPick( this.stage.getPlayer().getModel() ) )
+        if ( this.checkPick( this.stage.getPlayer().getPosition() ) )
         {
             this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
             this.stage.getGame().getGUI().addGuiMessage( 'Picked up a clip' );
@@ -49,15 +54,17 @@ export class Item extends bz.GameObject
     /** ****************************************************************************************************************
     *   Checks if this item is picked by colliding with the specified model.
     *
-    *   @param modelToCheck The model to check for collision with this item.
+    *   @param playerPosition The currenrt player position.
     *
     *   @return <code>true</code> if this item was picked.
     *******************************************************************************************************************/
-    private checkPick( modelToCheck:bz.Model ) : boolean
+    private checkPick( playerPosition:BABYLON.Vector3 ) : boolean
     {
         if ( !this.picked )
         {
-            if ( this.model.intersectsOtherModel( modelToCheck ) )
+            // get distance between item and player
+            const distance :number = BABYLON.Vector3.Distance( this.itemPosition, playerPosition );
+            if ( distance < bz.SettingPlayer.RANGE_ITEM_PICK )
             {
                 this.pick();
 
