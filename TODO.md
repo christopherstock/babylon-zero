@@ -8,6 +8,7 @@ MVP 1.0.0 - Tech-Demo
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
+TODO Create time delay feature. (EVENT delay pipeline)
 TODO X = Let player turn around 180°!
      C = Crouch
      Y = 
@@ -16,6 +17,7 @@ TODO Create Different, parallel event pipelines.
 TODO Simplify item collision check (same as move/touch trigger system for events) EventTrigger extends Item
 TODO Implement move/touch trigger system for events
 TODO Add door to room.
+TODO Create event type 'ingame message'.
 TODO Switch stage on door interaction!
 TODO hand over Inventory between Stages
 TODO Fix physics clash on 1st start for imported models ..

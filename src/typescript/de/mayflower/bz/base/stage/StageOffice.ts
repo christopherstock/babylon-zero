@@ -20,7 +20,7 @@ export class StageOffice extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
-    protected createStageConfig() : bz.StageConfig
+    public createDefaultConfig() : bz.StageConfig
     {
         return new bz.StageConfig(
             new BABYLON.Color3( 0.1, 0.1, 0.1 ),

@@ -54,7 +54,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
-    protected abstract createStageConfig() : bz.StageConfig;
+    public abstract createDefaultConfig() : bz.StageConfig;
 
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -69,10 +69,15 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
-    public init( playerStartup:BABYLON.Vector3, startupRotation:BABYLON.Vector3 ) : void
+    public init(
+        config          :bz.StageConfig,
+        playerStartup   :BABYLON.Vector3,
+        startupRotation :BABYLON.Vector3
+    )
+    : void
     {
         // create stage config
-        this.config = this.createStageConfig();
+        this.config = config;
 
         // assign scene colors from config
         this.scene.getNativeScene().ambientColor = this.config.ambientColor;

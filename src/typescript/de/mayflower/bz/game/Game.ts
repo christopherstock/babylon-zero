@@ -49,11 +49,15 @@ export class Game
     *   Switches the current stage to the specified target stage.
     *
     *   @param targetStage The target stage to switch to.
+    *   @param startupPosition The player startup position.
+    *   @param startupRotation The player startup rotation.
     *******************************************************************************************************************/
-    public switchStage( targetStage:bz.StageId,
+    public switchStage(
+        targetStage:bz.StageId,
         startupPosition:BABYLON.Vector3 = null,
         startupRotation:BABYLON.Vector3 = null
-    ) : void
+    )
+    : void
     {
         bz.Debug.stage.log( '' );
         bz.Debug.stage.log( 'Switch to target stage [' + String( targetStage ) + ']' );
@@ -105,11 +109,12 @@ export class Game
         this.gui = new bz.GUI( this.scene.getNativeScene() );
         this.gui.init();
 
-        // TODO add player startup values to StageConfig and pass to init() !
+        // get config for new stage
+        const config :bz.StageConfig = this.stage.createDefaultConfig();
 
         // init the new stage
         bz.Debug.stage.log( ' Init target stage [' + String( targetStage ) + ']' );
-        this.stage.init( startupPosition, startupRotation );
+        this.stage.init( config, startupPosition, startupRotation );
 
         // release keys and pointer lock
         this.keySystem.releaseAllKeys();
