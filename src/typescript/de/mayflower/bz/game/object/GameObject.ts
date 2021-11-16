@@ -29,7 +29,7 @@ export abstract class GameObject
     *   @param model  The model for this game object.
     *   @param energy The initial energy of this game object.
     *******************************************************************************************************************/
-    protected constructor( stage:bz.Stage, model:bz.Model, energy:number )
+    protected constructor( stage:bz.Stage, model:bz.Model, energy:number = GameObject.UNBREAKABLE )
     {
         this.stage         = stage;
         this.model         = model;

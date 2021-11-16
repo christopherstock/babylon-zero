@@ -13,6 +13,6 @@ export class Bot extends bz.GameObject
     *******************************************************************************************************************/
     public constructor( stage:bz.Stage, model:bz.Model )
     {
-        super( stage, model, bz.GameObject.UNBREAKABLE );
+        super( stage, model );
     }
 }

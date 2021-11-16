@@ -9,6 +9,7 @@ export class Item extends bz.GameObject
     private picked                :boolean         = false;
     /** Current rotation Y for this item. */
     private rotY                  :number          = 0.0;
+    /** The initial and static position of this item. */
     private readonly itemPosition :BABYLON.Vector3 = null;
 
     /** ****************************************************************************************************************
@@ -17,10 +18,14 @@ export class Item extends bz.GameObject
     *   @param stage    The stage this item belongs to.
     *   @param position Static position of this item.
     *   @param model    The model that represents this item.
+    *   @param itemType The type of item.
     *******************************************************************************************************************/
-    public constructor( stage:bz.Stage, position:BABYLON.Vector3, model:bz.Model )
+    public constructor( stage:bz.Stage, position:BABYLON.Vector3, model:bz.Model, itemType:bz.ItemType )
     {
-        super( stage, model, bz.GameObject.UNBREAKABLE );
+        super(
+            stage,
+            model
+        );
 
         this.itemPosition = position;
         this.model.translatePosition( position );
@@ -34,11 +39,14 @@ export class Item extends bz.GameObject
         // check if picked by player
         if ( this.checkPick( this.stage.getPlayer().getPosition() ) )
         {
+            // TODO specify Item events in this class!
+
             this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
             this.stage.getGame().getGUI().addGuiMessage( 'Picked up a clip' );
+
         }
 
-        // testwise rotate this item
+        // rotate this item
         if ( !this.picked )
         {
             this.model.setAbsoluteRotationXYZ

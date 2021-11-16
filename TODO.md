@@ -5,16 +5,16 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Simplify item collision check (same as move/touch trigger system for events) EventTrigger extends Item
-TODO Implement move/touch trigger system for events
+TODO Implement move/touch trigger system for events ( Trigger is a superclass of Item )
+
+TODO X = Let player turn around 180°!
+     C = Crouch
+     Y = 
 
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
 TODO Create time delay feature. (EVENT delay pipeline)
-TODO X = Let player turn around 180°!
-     C = Crouch
-     Y = 
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Create Different, parallel event pipelines.
 TODO Add door to room.

@@ -174,7 +174,8 @@ export class StageOffice extends bz.Stage
             (
                 this,
                 new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
-                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS ),
+                bz.ItemType.SHOTGUN_SHELLS
             )
         );
         this.addItem(
@@ -182,7 +183,8 @@ export class StageOffice extends bz.Stage
             (
                 this,
                 new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
-                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS ),
+                bz.ItemType.SHOTGUN_SHELLS
             )
         );
         this.addItem(
@@ -190,7 +192,8 @@ export class StageOffice extends bz.Stage
             (
                 this,
                 new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
-                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS ),
+                bz.ItemType.SHOTGUN_SHELLS
             )
         );
         this.addItem(
@@ -198,7 +201,8 @@ export class StageOffice extends bz.Stage
             (
                 this,
                 new BABYLON.Vector3( 40.0, 1.0, 25.5 ),
-                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS ),
+                bz.ItemType.SHOTGUN_SHELLS
             )
         );
         this.addItem(
@@ -206,7 +210,8 @@ export class StageOffice extends bz.Stage
             (
                 this,
                 new BABYLON.Vector3( 40.0, 1.0, 30.0 ),
-                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS )
+                meshFactory.createImportedModel( bz.ModelFile.ITEM_SHELLS ),
+                bz.ItemType.SHOTGUN_SHELLS
             )
         );
 

@@ -113,8 +113,7 @@ export class Player extends bz.GameObject
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                     ),
                 ]
-            ),
-            bz.GameObject.UNBREAKABLE
+            )
         );
 
         // new player physics instance
