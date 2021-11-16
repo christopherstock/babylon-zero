@@ -74,7 +74,7 @@ export class BulletHole
     *******************************************************************************************************************/
     private createHoleMesh( scene:bz.Scene ) : void
     {
-        const meshTextureFile:bz.TextureFile = bz.Texture.getAccordingBulletHoleTextureForMesh( this.hitPoint.getMesh() );
+        const meshTextureFile:bz.TextureFile = bz.Texture.getBulletHoleTextureForMesh( this.hitPoint.getMesh() );
 
         this.holeMesh = new bz.MeshFactory( scene, this.emissiveColor ).createDecal
         (

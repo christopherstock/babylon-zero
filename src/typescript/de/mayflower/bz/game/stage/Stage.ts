@@ -276,7 +276,7 @@ export abstract class Stage
         // impact all hit points
         for ( const impactHitPoint of impactHitPoints )
         {
-            const hitGameObject = impactHitPoint.getGameObject();
+            const hitGameObject :bz.GameObject = impactHitPoint.getGameObject();
 
             if (
                 hitGameObject instanceof bz.Wall
@@ -568,6 +568,11 @@ export abstract class Stage
         this.bulletHoles.push( bulletHole );
     }
 
+    /** ****************************************************************************************************************
+    *   Performs the specific event inside this stage NOW.
+    *
+    *   @param event The event to perform NOW.
+    *******************************************************************************************************************/
     private launchEvent( event:bz.Event ) : void
     {
         switch ( event.type )

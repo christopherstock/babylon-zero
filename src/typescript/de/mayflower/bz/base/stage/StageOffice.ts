@@ -1,5 +1,4 @@
 import * as bz from '../..';
-import { EventDataShowGuiMessage, EventDataStageSwitch } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' stage.
@@ -242,7 +241,7 @@ export class StageOffice extends bz.Stage
                 [
                     new bz.Event(
                         bz.EventType.SWITCH_TO_STAGE,
-                        new EventDataStageSwitch(
+                        new bz.EventDataStageSwitch(
                             bz.StageId.OUTSIDE,
                             new BABYLON.Vector3(
                                 ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
@@ -548,7 +547,12 @@ export class StageOffice extends bz.Stage
         );
     }
 
-    private addTrees( meshFactory ) :void
+    /** ****************************************************************************************************************
+    *   Adds some trees to this stage.
+    *
+    *   @param meshFactory The MeshFactory instance.
+    *******************************************************************************************************************/
+    private addTrees( meshFactory :bz.MeshFactory ) :void
     {
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite

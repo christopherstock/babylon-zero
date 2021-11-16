@@ -125,7 +125,7 @@ export class Texture
     *
     *   @return The according bullet hole texture.
     *******************************************************************************************************************/
-    public static getAccordingBulletHoleTextureForMesh( mesh:BABYLON.AbstractMesh ) : bz.TextureFile
+    public static getBulletHoleTextureForMesh(mesh:BABYLON.AbstractMesh ) : bz.TextureFile
     {
         const DEFAULT_BULLET_HOLE_TEXTURE:bz.TextureFile = bz.TextureFile.BULLET_HOLE_CONCRETE;
 
@@ -141,7 +141,7 @@ export class Texture
             // pick texture filename
             const meshTextureFileName:string = mesh.material.getActiveTextures()[ 0 ].name;
 
-            const bulletHoleTexture :bz.TextureFile = Texture.getBulletHoleTextureForModelTexture( meshTextureFileName );
+            const bulletHoleTexture :bz.TextureFile = Texture.getBulletHoleTexForMeshTex( meshTextureFileName );
             if ( bulletHoleTexture !== null )
             {
                 return bulletHoleTexture;
@@ -174,7 +174,7 @@ export class Texture
     *
     *   @param meshTextureFileName The filename of the 3ds max model's used texture -- without any directory component.
     *******************************************************************************************************************/
-    private static getBulletHoleTextureForModelTexture( meshTextureFileName:string ) :bz.TextureFile
+    private static getBulletHoleTexForMeshTex( meshTextureFileName:string ) :bz.TextureFile
     {
         switch ( meshTextureFileName )
         {

@@ -1,13 +1,21 @@
 import * as bz from '../..';
 
 /** ********************************************************************************************************************
-*   Specifies all types of events that may happen in the game.
+*   Represents one game event that may happen in the game.
 ***********************************************************************************************************************/
 export class Event
 {
+    /** The type of event. */
     public type :bz.EventType = null;
+    /** The data that specifies this event. */
     public data :bz.EventData = null;
 
+    /** ****************************************************************************************************************
+    *   Creates a new game event.
+    *
+    *   @param type The type of event.
+    *   @param data The data that specifies this event.
+    *******************************************************************************************************************/
     public constructor( type :bz.EventType, data :bz.EventData )
     {
         this.type = type;

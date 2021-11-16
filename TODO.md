@@ -20,6 +20,7 @@ TODO Add door to room.
 TODO Create event type 'ingame message'.
 TODO Switch stage on door interaction!
 TODO hand over Inventory between Stages
+TODO Try stored 3dsmax model animations.
 TODO Fix physics clash on 1st start for imported models ..
 TODO prune all default values (= null) and add linter rule?
 TODO Scale up/down all chairs and some models?

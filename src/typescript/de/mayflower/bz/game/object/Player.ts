@@ -186,6 +186,26 @@ export class Player extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
+    *   Teleport the player to the target position.
+    *
+    *   @param position The position to teleport the player to.
+    *******************************************************************************************************************/
+    public setPosition( position:BABYLON.Vector3 ) : void
+    {
+        this.playerPhysics.body.position = position;
+    }
+
+    /** ****************************************************************************************************************
+    *   Set the specified rotation to the player.
+    *
+    *   @param rotation The rotation to apply to the player.
+    *******************************************************************************************************************/
+    public setRotation( rotation:BABYLON.Vector3 ) : void
+    {
+        this.rotation.set( rotation.x, rotation.y, rotation.z );
+    }
+
+    /** ****************************************************************************************************************
     *   Handles all keys for the player.
     *******************************************************************************************************************/
     private handleUserInput() : void
@@ -668,8 +688,7 @@ export class Player extends bz.GameObject
 
             // apply interaction to the stage
             const interaction:bz.Shot = this.createInteraction();
-            bz.Debug.player.log( 'launching interaction .. ' );
-            console.log( interaction );
+            bz.Debug.player.log( 'apply interaction to stage' );
             this.stage.applyInteraction( interaction );
         }
     }
@@ -778,15 +797,5 @@ export class Player extends bz.GameObject
 
         // update player limbs positions
         this.positionPlayerLimbs();
-    }
-
-    public setPosition( startupPosition:BABYLON.Vector3 ) : void
-    {
-        this.playerPhysics.body.position = startupPosition;
-    }
-
-    public setRotation( startupRotation:BABYLON.Vector3 ) : void
-    {
-        this.rotation.set( startupRotation.x, startupRotation.y, startupRotation.z );
     }
 }

@@ -17,6 +17,13 @@ export class EventDataStageSwitch extends EventData
     public startupPosition :BABYLON.Vector3;
     public startupRotation :BABYLON.Vector3;
 
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Switch Stage'.
+    *
+    *   @param targetStage
+    *   @param startupPosition
+    *   @param startupRotation
+    *******************************************************************************************************************/
     public constructor( targetStage:bz.StageId, startupPosition:BABYLON.Vector3, startupRotation:BABYLON.Vector3 )
     {
         super();
@@ -34,6 +41,11 @@ export class EventDataShowGuiMessage extends EventData
 {
     public message :string;
 
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Show GUI Message'.
+    *
+    *   @param message The message to display in the GUI.
+    *******************************************************************************************************************/
     public constructor( message:string )
     {
         super();

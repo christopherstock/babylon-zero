@@ -1,5 +1,4 @@
 import * as bz from '../..';
-import { EventDataStageSwitch } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'StageOutside' stage.
@@ -64,7 +63,7 @@ export class StageOutside extends bz.Stage
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3(
-                                0.0 + ( bz.SettingEngine.WALL_DEPTH / 2 ),
+                                ( bz.SettingEngine.WALL_DEPTH / 2 ),
                                 bz.SettingEngine.FLOOR_OFFSET_Y,
                                 5.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 )
                             ),
@@ -85,7 +84,7 @@ export class StageOutside extends bz.Stage
                 [
                     new bz.Event(
                         bz.EventType.SWITCH_TO_STAGE,
-                        new EventDataStageSwitch(
+                        new bz.EventDataStageSwitch(
                             bz.StageId.OFFICE,
                             new BABYLON.Vector3(
                                 140.0 + ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
@@ -132,6 +131,7 @@ export class StageOutside extends bz.Stage
     *******************************************************************************************************************/
     protected handleStageKeys() : void
     {
+        // no specific keys to handle in this stage
     }
 
     /** ****************************************************************************************************************

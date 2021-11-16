@@ -17,13 +17,14 @@ export class Wall extends bz.GameObject
     *   @param model             The model that represents this wall.
     *   @param energy            The initial energy of this wall.
     *   @param interactionEvents Possible interactions with this wall.
+    *   @param interactionType   Type of wall interaction.
     *******************************************************************************************************************/
     public constructor(
         stage             :bz.Stage,
         model             :bz.Model,
-        energy            :number   = Wall.UNBREAKABLE,
-        interactionEvents :bz.Event[] = null,
-        interactionType   :bz.InteractionType = bz.InteractionType.REPEATED
+        energy            :number             = bz.GameObject.UNBREAKABLE,
+        interactionEvents :bz.Event[]         = null,
+        interactionType   :bz.InteractionType = null
     ) {
         super( stage, model, energy );
 
