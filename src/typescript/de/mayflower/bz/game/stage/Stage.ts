@@ -68,7 +68,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
-    public init( playerStartup:BABYLON.Vector3 ) : void
+    public init( playerStartup:BABYLON.Vector3, startupRotation:BABYLON.Vector3 ) : void
     {
         // create stage config
         this.config = this.createStageConfig();
@@ -81,10 +81,14 @@ export abstract class Stage
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
         this.createStageContents( meshFactory );
 
-        // set player to new position
+        // set player startup position and rotation if desired
         if ( playerStartup !== null )
         {
             this.player.setPosition( playerStartup );
+        }
+        if ( startupRotation !== null )
+        {
+            this.player.setRotation( startupRotation );
         }
 
         // create cameras and set initial cam
@@ -234,7 +238,7 @@ export abstract class Stage
         const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot );
         bz.Debug.fire.log( ' Gathered [' + String( hitPoints.length ) + '] hit points' );
 
-        // determine impact hit points
+        // determine all hit points impacted by the shot
         const impactHitPoints:bz.HitPoint[] = Stage.determineImpactHitPoints( hitPoints, shot );
 
         // impact all hit points
@@ -261,10 +265,14 @@ export abstract class Stage
         const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( interaction );
         bz.Debug.player.log( ' Gathered [' + String( hitPoints.length ) + '] interaction hit points' );
 
+        // get the nearest interaction hit point
+        const impactHitPoints:bz.HitPoint[] = Stage.determineImpactHitPoints( hitPoints, interaction );
+        bz.Debug.player.log( ' Gathered [' + String( impactHitPoints.length ) + '] nearest hitpoint' );
+
         // impact all hit points
-        for ( const hitPoint of hitPoints )
+        for ( const impactHitPoint of impactHitPoints )
         {
-            const hitGameObject = hitPoint.getGameObject();
+            const hitGameObject = impactHitPoint.getGameObject();
 
             if (
                 hitGameObject instanceof bz.Wall
@@ -562,8 +570,20 @@ export abstract class Stage
 
                 this.game.switchStage(
                     stageSwitch.targetStage,
-                    stageSwitch.startupPosition
+                    stageSwitch.startupPosition,
+                    stageSwitch.startupRotation
                 );
+                break;
+            }
+
+            case bz.EventType.SHOW_GUI_MESSAGE:
+            {
+                bz.Debug.stage.log( 'Showing GUI message' );
+
+                const showGuiMessage :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
+
+                this.getGame().getGUI().addGuiMessage( showGuiMessage.message );
+
                 break;
             }
         }

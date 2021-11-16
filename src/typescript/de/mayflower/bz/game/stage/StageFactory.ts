@@ -354,7 +354,7 @@ export class StageFactory
                 continue;
             }
 
-            if ( sizeY < bz.SettingEngine.DOOR_HEIGHT )
+            if ( sizeY < bz.SettingEngine.DOOR_HEIGHT + bz.SettingEngine.DOOR_FRAME_HEIGHT )
             {
                 continue;
             }

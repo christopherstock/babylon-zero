@@ -784,4 +784,9 @@ export class Player extends bz.GameObject
     {
         this.playerPhysics.body.position = startupPosition;
     }
+
+    public setRotation( startupRotation:BABYLON.Vector3 ) : void
+    {
+        this.rotation.set( startupRotation.x, startupRotation.y, startupRotation.z );
+    }
 }

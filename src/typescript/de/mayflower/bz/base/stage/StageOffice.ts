@@ -1,5 +1,5 @@
 import * as bz from '../..';
-import { EventDataStageSwitch } from '../..';
+import { EventDataShowGuiMessage, EventDataStageSwitch } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' stage.
@@ -254,7 +254,8 @@ export class StageOffice extends bz.Stage
                             ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                             ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                             ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                        )
+                        ),
+                        new BABYLON.Vector3( 0.0, 60.0, 0.0 )
                     )
                 )
             )
@@ -279,16 +280,7 @@ export class StageOffice extends bz.Stage
         {
             keySystem.setNeedsRelease( bz.KeyCodes.KEY_ENTER );
 
-            // add GUI messages to queue and start various debug actions
-
-            // explode compound spheres
-            this.getGame().getGUI().addGuiMessage(
-                'explode compound spheres [' + bz.StringUtil.getDateTimeString() + ']'
-            );
-            // this.compoundSpheres.removeCompoundMesh( this.scene.getNativeScene() );
-
             // perform a camera animation for the stationary target camera
-            this.getGame().getGUI().addGuiMessage( 'start camera journey [' + bz.StringUtil.getDateTimeString() + ']' );
             this.getCameraSystem().animateCameraPosition
             (
                 bz.CameraType.STATIONARY,
@@ -383,7 +375,11 @@ export class StageOffice extends bz.Stage
                 bz.ModelCompoundType.NONE,
                 -90.0
             ),
-            5.0
+            5.0,
+            new bz.Event(
+                bz.EventType.SHOW_GUI_MESSAGE,
+                new bz.EventDataShowGuiMessage( 'No more work for today.' )
+            )
         );
         this.addWall( screen1 );
 

@@ -1,5 +1,4 @@
 // eslint-disable-next-line max-classes-per-file
-
 import * as bz from '../..';
 
 /** ********************************************************************************************************************
@@ -16,12 +15,29 @@ export class EventDataStageSwitch extends EventData
 {
     public targetStage     :bz.StageId;
     public startupPosition :BABYLON.Vector3;
+    public startupRotation :BABYLON.Vector3;
 
-    public constructor( targetStage:bz.StageId, startupPosition:BABYLON.Vector3 )
+    public constructor( targetStage:bz.StageId, startupPosition:BABYLON.Vector3, startupRotation:BABYLON.Vector3 )
     {
         super();
 
         this.targetStage     = targetStage;
         this.startupPosition = startupPosition;
+        this.startupRotation = startupRotation;
+    }
+}
+
+/** ********************************************************************************************************************
+*   The event data for the event type { @see EventType.SHOW_GUI_MESSAGE }.
+***********************************************************************************************************************/
+export class EventDataShowGuiMessage extends EventData
+{
+    public message :string;
+
+    public constructor( message:string )
+    {
+        super();
+
+        this.message = message;
     }
 }
