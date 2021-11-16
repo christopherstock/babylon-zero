@@ -717,14 +717,12 @@ export class Player extends bz.GameObject
             this.rotation.y,
             0.0
         );
-        // TODO to SettingPlayer const!
-        const range :number = 7.5;
 
         return new bz.Interaction
         (
             source,
             rotation,
-            range
+            bz.SettingPlayer.RANGE_INTERACTION
         );
     }
 

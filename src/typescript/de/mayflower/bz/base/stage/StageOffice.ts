@@ -46,7 +46,7 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                    140.0 + ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
                     ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
@@ -291,57 +291,6 @@ export class StageOffice extends bz.Stage
             // show hurt GUI effect
             this.getGame().getGUI().addGuiFx( bz.GUIFxType.HURT );
         }
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates the ground walls for this stage.
-    *******************************************************************************************************************/
-    private addGroundWalls( meshFactory:bz.MeshFactory ) : void
-    {
-        // hills ( heightmap ground )
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createHeightMapGround
-                        (
-                            new BABYLON.Vector3( 40.0, 0.0, 40 ),
-                            bz.MeshAnchor.CENTER_XYZ,
-                            400.0,
-                            15.0,
-                            bz.TextureFile.HEIGHTMAP_VALLEY,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
-                            bz.PhysicSet.STATIC
-                        ),
-                    ]
-                )
-            )
-        );
-
-        // ceiling
-/*
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( this.OFFSET_X, 15.5, this.OFFSET_Z  ),
-                            bz.TextureFile.WALL_TEST,
-                            new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
-                            bz.PhysicSet.STATIC
-                        ),
-                    ]
-                )
-            )
-        );
-*/
     }
 
     /** ****************************************************************************************************************
