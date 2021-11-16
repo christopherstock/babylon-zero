@@ -5,12 +5,11 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Implement move/touch trigger system for events ( Trigger is a superclass of Item )
-
+TODO Implement move/touch trigger system for events ( Trigger is a superclass of Item! )
+TODO Add event 'level explosion' under car.
 TODO X = Let player turn around 180°!
      C = Crouch
-     Y = 
-
+     Y = Aim
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
