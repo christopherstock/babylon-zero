@@ -69,12 +69,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Inits the stage.
     *******************************************************************************************************************/
-    public init(
-        config          :bz.StageConfig,
-        playerStartup   :BABYLON.Vector3,
-        startupRotation :BABYLON.Vector3
-    )
-    : void
+    public init( config:bz.StageConfig ) : void
     {
         // create stage config
         this.config = config;
@@ -88,13 +83,13 @@ export abstract class Stage
         this.createStageContents( meshFactory );
 
         // set player startup position and rotation if desired
-        if ( playerStartup !== null )
+        if ( this.config.startupPosition !== null )
         {
-            this.player.setPosition( playerStartup );
+            this.player.setPosition( this.config.startupPosition );
         }
-        if ( startupRotation !== null )
+        if ( this.config.startupRotation !== null )
         {
-            this.player.setRotation( startupRotation );
+            this.player.setRotation( this.config.startupRotation );
         }
 
         // create cameras and set initial cam

@@ -111,10 +111,18 @@ export class Game
 
         // get config for new stage
         const config :bz.StageConfig = this.stage.createDefaultConfig();
+        if ( startupPosition !== null )
+        {
+            config.startupPosition = startupPosition;
+        }
+        if ( startupRotation !== null )
+        {
+            config.startupRotation = startupRotation;
+        }
 
         // init the new stage
         bz.Debug.stage.log( ' Init target stage [' + String( targetStage ) + ']' );
-        this.stage.init( config, startupPosition, startupRotation );
+        this.stage.init( config );
 
         // release keys and pointer lock
         this.keySystem.releaseAllKeys();

@@ -14,7 +14,13 @@ export class StageOutside extends bz.Stage
         return new bz.StageConfig(
             new BABYLON.Color3( 0.1, 0.1, 0.1 ),
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
-            bz.CameraType.FIRST_PERSON
+            bz.CameraType.FIRST_PERSON,
+            new BABYLON.Vector3(
+                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
+                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+            ),
+            new BABYLON.Vector3( 0.0, 60.0, 0.0 )
         );
     }
 
