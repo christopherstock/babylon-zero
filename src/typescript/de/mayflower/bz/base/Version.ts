@@ -30,17 +30,19 @@ export class Version
     private static readonly V_0_0_11            :Version            = new Version( '0.0.11', 'PRETTIFY',                 '28.10.2021, 23:28:33 GMT+1' );
     /** The project's version v.0.1.0. */
     private static readonly V_0_1_0             :Version            = new Version( '0.1.0',  'BLOATWARE',                '29.10.2021, 08:36:12 GMT+1' );
-    /** The project's version v.0.2.0. */
+    /** The project's version v.0.1.1. */
     private static readonly V_0_1_1             :Version            = new Version( '0.1.1',  'SLIM',                     '29.10.2021, 08:52:53 GMT+1' );
-    /** The project's version v.0.3.0. */
+    /** The project's version v.0.1.2. */
     private static readonly V_0_1_2             :Version            = new Version( '0.1.2',  'NEIß',                     '09.11.2021, 11:32:21 GMT+1' );
-    /** The project's version v.0.4.0. */
+    /** The project's version v.0.1.3. */
     private static readonly V_0_1_3             :Version            = new Version( '0.1.3',  'CLEAN STAGE',              '10.11.2021, 15:57:54 GMT+1' );
-    /** The project's version v.0.4.1. */
+    /** The project's version v.0.1.4. */
     private static readonly V_0_1_4             :Version            = new Version( '0.1.4',  'ROOMS',                    '12.11.2021, 17:12:02 GMT+1' );
+    /** The project's version v.0.1.5. */
+    private static readonly V_0_1_5             :Version            = new Version( '0.1.5',  '3DSMAX',                   '16.11.2021, 10:18:42 GMT+1' );
 
     /** The project's current version. */
-    private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_4;
+    private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_5;
 
     /** This version's specifier. */
     private        readonly version             :string             = null;

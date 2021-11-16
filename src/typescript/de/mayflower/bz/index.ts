@@ -75,6 +75,7 @@ export * from './base/data/PhysicSet';
 export * from './game/engine/physic/PhysicImpostorParams';
 export * from './game/engine/physic/PhysicBody';
 
+export * from './game/event/EventType';
 export * from './game/event/Interaction';
 export * from './game/event/InteractionEvent';
 
