@@ -14,7 +14,7 @@ export abstract class Stage
     /** A collection of all walls in this stage. */
     private readonly walls              :bz.Wall[]                  = [];
     /** A collection of all items in this stage. */
-    private readonly items              :bz.Item[]                  = [];
+    private readonly items              :bz.Trigger[]               = [];
     /** A collection of all bots in this stage. */
     private readonly bots               :bz.Bot[]                   = [];
     /** A collection of all sprites that appear in this stage. */
@@ -425,7 +425,7 @@ export abstract class Stage
     *
     *   @param item The item to add to this stage.
     *******************************************************************************************************************/
-    protected addItem( item:bz.Item ) : void
+    protected addItem( item:bz.Trigger ) : void
     {
         this.items.push( item );
     }

@@ -212,11 +212,41 @@ export class StageOffice extends bz.Stage
 
         // invisible event trigger
         this.addItem(
-            new bz.Item
+            new bz.Trigger
             (
                 this,
                 new BABYLON.Vector3( 100.0, 1.0, 5.0 ),
-                bz.ItemType.TRIGGER
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.HURT )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Ouch .. just hurt myself here ..' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Damn!' )
+                    ),
+                ]
+            )
+        );
+        this.addItem(
+            new bz.Trigger
+            (
+                this,
+                new BABYLON.Vector3( 100.0, 1.0, 35.0 ),
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Yeah .. gained some energy here ..' )
+                    ),
+                ]
             )
         );
 
