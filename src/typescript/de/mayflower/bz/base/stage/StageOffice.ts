@@ -245,7 +245,7 @@ export class StageOffice extends bz.Stage
                     ]
                 ),
                 bz.GameObject.UNBREAKABLE,
-                new bz.InteractionEvent( 77 )
+                new bz.Event( bz.EventType.SWITCH_TO_STAGE )
             )
         );
 /*

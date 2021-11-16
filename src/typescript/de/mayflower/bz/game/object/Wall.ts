@@ -5,7 +5,8 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Wall extends bz.GameObject
 {
-    public readonly interactionEvent :bz.InteractionEvent = null;
+    // TODO multiple!
+    public readonly interactionEvent :bz.Event = null;
 
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
@@ -18,8 +19,8 @@ export class Wall extends bz.GameObject
     public constructor(
         stage            :bz.Stage,
         model            :bz.Model,
-        energy           :number              = Wall.UNBREAKABLE,
-        interactionEvent :bz.InteractionEvent = null
+        energy           :number   = Wall.UNBREAKABLE,
+        interactionEvent :bz.Event = null
     ) {
         super( stage, model, energy );
 

@@ -36,7 +36,8 @@ export abstract class Stage
     /** The skybox that surrounds the whole stage. */
     private          skybox             :BABYLON.Mesh               = null;
 
-    private eventPipeline :number[] = [];
+    /** Handles all occuring events controlled -- at the end of the render()-cycle.  */
+    private         eventPipeline       :bz.Event[]                 = [];
 
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
@@ -122,22 +123,7 @@ export abstract class Stage
         {
             for ( const event of this.eventPipeline )
             {
-                switch ( event )
-                {
-                    case 77:
-                    {
-                        bz.Debug.stage.log( 'Launching stage switch event to stage outside' );
-                        this.game.switchStage( bz.StageId.OUTSIDE );
-                        break;
-                    }
-
-                    case 78:
-                    {
-                        bz.Debug.stage.log( 'Launching stage switch event to stage office' );
-                        this.game.switchStage( bz.StageId.OFFICE );
-                        break;
-                    }
-                }
+                this.launchEvent( event );
             }
             this.eventPipeline = [];
         }
@@ -279,10 +265,7 @@ export abstract class Stage
                 && hitGameObject.interactionEvent !== null
             )
             {
-                console.log( 'Impact interaction on Game Object ' + hitGameObject.getModel().getMeshCount() );
-                console.log( '         ' + hitGameObject.interactionEvent.action );
-
-                this.eventPipeline.push( hitGameObject.interactionEvent.action );
+                this.eventPipeline.push( hitGameObject.interactionEvent );
             }
         }
     }
@@ -559,6 +542,23 @@ export abstract class Stage
         }
 
         this.bulletHoles.push( bulletHole );
+    }
+
+    private launchEvent( event:bz.Event ) : void
+    {
+        switch ( event.type )
+        {
+            case bz.EventType.SWITCH_TO_STAGE:
+            {
+                bz.Debug.stage.log( 'Launching stage switch event to:' );
+
+//                event.
+
+//                this.game.switchStage( bz.StageId.OUTSIDE );
+//                this.game.switchStage( bz.StageId.OFFICE );
+                break;
+            }
+        }
     }
 
     /** ****************************************************************************************************************

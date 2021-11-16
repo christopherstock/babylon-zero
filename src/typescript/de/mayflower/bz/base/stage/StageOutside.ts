@@ -88,7 +88,7 @@ export class StageOutside extends bz.Stage
                     ]
                 ),
                 bz.GameObject.UNBREAKABLE,
-                new bz.InteractionEvent( 78 )
+                new bz.Event( bz.EventType.SWITCH_TO_STAGE )
             )
         );
 
