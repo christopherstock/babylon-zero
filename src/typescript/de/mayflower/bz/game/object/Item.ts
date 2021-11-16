@@ -3,7 +3,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Represents a pickable item.
 ***********************************************************************************************************************/
-export class Item extends bz.GameObject
+export class Item extends bz.Trigger
 {
     /** Flags that this item has been picked. */
     private picked                  :boolean            = false;
