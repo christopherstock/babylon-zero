@@ -5,10 +5,6 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageOffice extends bz.Stage
 {
-    // TODO remove!
-    private readonly OFFSET_X                       :number                 = 0.0;
-    private readonly OFFSET_Z                       :number                 = 0.0;
-
     /** A testwise mesh - made from a single 3dsmax Mesh. */
     private          chairCompoundDestroyable       :bz.Wall                = null;
     /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
@@ -50,9 +46,9 @@ export class StageOffice extends bz.Stage
                 this,
                 this.getScene(),
                 new BABYLON.Vector3(
-                    ( this.OFFSET_X + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                    ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                     ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                    ( this.OFFSET_Z + bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                    ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                 ),
                 70.0,
                 this.getConfig().ambientColor
@@ -78,7 +74,7 @@ export class StageOffice extends bz.Stage
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.getScene().getNativeScene(),
-            new BABYLON.Vector3( this.OFFSET_X + 10.0, 5.0, this.OFFSET_Z + 5.0 ),
+            new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
@@ -146,7 +142,7 @@ export class StageOffice extends bz.Stage
         const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.getScene().getNativeScene(),
-            new BABYLON.Vector3( this.OFFSET_X + 115.0, 5.0, this.OFFSET_Z + 15.0 ),
+            new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
@@ -156,21 +152,21 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addBoxesWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( this.OFFSET_X + 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
+            new BABYLON.Vector3( 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in light yard
         bz.StageFactory.addBoxesWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( this.OFFSET_X + 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
+            new BABYLON.Vector3( 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in 2nd office
         bz.StageFactory.addBoxesWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( this.OFFSET_X + 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, this.OFFSET_Z + 20.0 )
+            new BABYLON.Vector3( 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
         );
 
         this.addFurniture( meshFactory );
@@ -187,7 +183,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 38.0, 3.8, this.OFFSET_Z + 14.0 ),
+                    new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -200,7 +196,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 38.0, 3.8, this.OFFSET_Z + 18.0 ),
+                    new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -213,7 +209,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.ITEM_SHELLS,
-                    new BABYLON.Vector3( this.OFFSET_X + 11.5, 3.8, this.OFFSET_Z + 9.5 ),
+                    new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
                     null,
                     bz.ModelCompoundType.NONE
                 )
@@ -312,7 +308,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createHeightMapGround
                         (
-                            new BABYLON.Vector3( this.OFFSET_X + 40.0, 0.0, this.OFFSET_Z + 40 ),
+                            new BABYLON.Vector3( 40.0, 0.0, 40 ),
                             bz.MeshAnchor.CENTER_XYZ,
                             400.0,
                             15.0,
@@ -362,7 +358,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 5.0, 2.1, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( 5.0, 2.1, 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND
             ),
@@ -375,7 +371,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 10.0, 2.1, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( 10.0, 2.1, 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
             ),
@@ -388,7 +384,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( this.OFFSET_X + 15.0, 2.1, this.OFFSET_Z + 30.0 ),
+                new BABYLON.Vector3( 15.0, 2.1, 30.0 ),
                 bz.PhysicSet.OFFICE_CHAIR,
                 bz.ModelCompoundType.NONE
             ),
@@ -406,7 +402,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK_1,
-                new BABYLON.Vector3( this.OFFSET_X + 10.0, 1.7, this.OFFSET_Z + 7.0 ),
+                new BABYLON.Vector3( 10.0, 1.7, 7.0 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE, // bz.ModelCompoundType.COMPOUND,
                 90.0
@@ -422,7 +418,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.SCREEN_1,
-                new BABYLON.Vector3( this.OFFSET_X + 12.5, 4.5, this.OFFSET_Z + 5.5 ),
+                new BABYLON.Vector3( 12.5, 4.5, 5.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 -90.0
@@ -438,7 +434,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.SHELVES_1,
-                new BABYLON.Vector3( this.OFFSET_X + 33.5, 3.15, this.OFFSET_Z + 37.0 ),
+                new BABYLON.Vector3( 33.5, 3.15, 37.0 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 10.0
@@ -454,7 +450,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.OFFICE_DESK_2,
-                new BABYLON.Vector3( this.OFFSET_X + 38.5, 1.6, this.OFFSET_Z + 16.5 ),
+                new BABYLON.Vector3( 38.5, 1.6, 16.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 85.0
@@ -470,7 +466,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.SODA_MACHINE_2,
-                new BABYLON.Vector3( this.OFFSET_X + 5.5, 3.15, this.OFFSET_Z + 37.5 ),
+                new BABYLON.Vector3( 5.5, 3.15, 37.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 0.0
@@ -486,7 +482,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.SOFA_1,
-                new BABYLON.Vector3( this.OFFSET_X + 25.5, 1.8, this.OFFSET_Z + 2.5 ),
+                new BABYLON.Vector3( 25.5, 1.8, 2.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -502,7 +498,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.CAR_1,
-                new BABYLON.Vector3( this.OFFSET_X + 100.0, 3.0, this.OFFSET_Z + 20.5 ),
+                new BABYLON.Vector3( 100.0, 3.0, 20.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -518,7 +514,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.BENCH_1,
-                new BABYLON.Vector3( this.OFFSET_X + 60.0, 1.3, this.OFFSET_Z + 6.0 ),
+                new BABYLON.Vector3( 60.0, 1.3, 6.0 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -568,7 +564,7 @@ export class StageOffice extends bz.Stage
                     [
                         meshFactory.createSphere
                         (
-                            new BABYLON.Vector3( this.OFFSET_X + 10.5, 1.5, this.OFFSET_Z + 30.0 ),
+                            new BABYLON.Vector3( 10.5, 1.5, 30.0 ),
                             bz.MeshAnchor.CENTER_XYZ,
                             3.0,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -602,7 +598,7 @@ export class StageOffice extends bz.Stage
             (
                 this.getScene(),
                 bz.SpriteFile.PALM,
-                new BABYLON.Vector3( this.OFFSET_X + 130.0, 0.0, this.OFFSET_Z + 10.0 ),
+                new BABYLON.Vector3( 130.0, 0.0, 10.0 ),
                 10.0,
                 10.0,
                 bz.SpriteCollidable.YES,
@@ -616,7 +612,7 @@ export class StageOffice extends bz.Stage
             (
                 this.getScene(),
                 bz.SpriteFile.TREE,
-                new BABYLON.Vector3( this.OFFSET_X + 130.0, 0.0, this.OFFSET_Z + 20.0 ),
+                new BABYLON.Vector3( 130.0, 0.0, 20.0 ),
                 10.0,
                 10.0,
                 bz.SpriteCollidable.YES,
@@ -628,7 +624,7 @@ export class StageOffice extends bz.Stage
             (
                 this.getScene(),
                 bz.SpriteFile.PALM,
-                new BABYLON.Vector3( this.OFFSET_X + 140.0, 0.0, this.OFFSET_Z + 20.0 ),
+                new BABYLON.Vector3( 140.0, 0.0, 20.0 ),
                 10.0,
                 10.0,
                 bz.SpriteCollidable.YES,
@@ -642,7 +638,7 @@ export class StageOffice extends bz.Stage
             (
                 this.getScene(),
                 bz.SpriteFile.TREE,
-                new BABYLON.Vector3( this.OFFSET_X + 140.0, 0.0, this.OFFSET_Z + 10.0 ),
+                new BABYLON.Vector3( 140.0, 0.0, 10.0 ),
                 10.0,
                 10.0,
                 bz.SpriteCollidable.YES,
