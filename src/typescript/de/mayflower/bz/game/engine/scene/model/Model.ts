@@ -218,8 +218,10 @@ export class Model
     *   @param otherModel The model to check intersection with.
     *
     *   @return If any mesh of this model collides with the specified model.
+    *
+    *   @deprecated Expensive as all meshes of both models are checked for intersection with all others.
     *******************************************************************************************************************/
-    public intersects( otherModel:bz.Model ) : boolean
+    public intersectsOtherModel( otherModel:bz.Model ) : boolean
     {
         for ( const otherMesh of otherModel.meshes )
         {

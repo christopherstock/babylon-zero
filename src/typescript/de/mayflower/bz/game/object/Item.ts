@@ -57,7 +57,7 @@ export class Item extends bz.GameObject
     {
         if ( !this.picked )
         {
-            if ( this.model.intersects( modelToCheck ) )
+            if ( this.model.intersectsOtherModel( modelToCheck ) )
             {
                 this.pick();
 
