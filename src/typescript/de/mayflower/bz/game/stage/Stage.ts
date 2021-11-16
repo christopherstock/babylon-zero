@@ -289,9 +289,14 @@ export abstract class Stage
             {
                 hitGameObject.alreadyInteractedwith = true;
 
-                this.eventPipelines.push( hitGameObject.interactionEvents );
+                this.addEventsToPipeline( hitGameObject.interactionEvents );
             }
         }
+    }
+
+    public addEventsToPipeline( events:bz.Event[] ) : void
+    {
+        this.eventPipelines.push( events );
     }
 
     /** ****************************************************************************************************************

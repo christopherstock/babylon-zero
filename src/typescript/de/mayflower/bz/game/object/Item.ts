@@ -6,11 +6,13 @@ import * as bz from '../..';
 export class Item extends bz.GameObject
 {
     /** Flags that this item has been picked. */
-    private picked                :boolean         = false;
+    private picked                  :boolean            = false;
     /** Current rotation Y for this item. */
-    private rotY                  :number          = 0.0;
+    private rotY                    :number             = 0.0;
     /** The initial and static position of this item. */
-    private readonly itemPosition :BABYLON.Vector3 = null;
+    private readonly itemPosition   :BABYLON.Vector3    = null;
+
+    private eventsOnPicked          :bz.Event[]         = [];
 
     /** ****************************************************************************************************************
     *   Creates a new item.
@@ -27,7 +29,9 @@ export class Item extends bz.GameObject
             model
         );
 
-        this.itemPosition = position;
+        this.itemPosition   = position;
+        this.eventsOnPicked = this.createEventyByItemType( itemType );
+
         this.model.translatePosition( position );
     }
 
@@ -39,11 +43,8 @@ export class Item extends bz.GameObject
         // check if picked by player
         if ( this.checkPick( this.stage.getPlayer().getPosition() ) )
         {
-            // TODO specify Item events in this class!
-
-            this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
-            this.stage.getGame().getGUI().addGuiMessage( 'Picked up a clip' );
-
+            // add to stage event pipeline
+            this.stage.addEventsToPipeline( this.eventsOnPicked );
         }
 
         // rotate this item
@@ -93,5 +94,28 @@ export class Item extends bz.GameObject
         this.picked = true;
 
         this.model.setVisible( false );
+    }
+
+    private createEventyByItemType( itemType:bz.ItemType ) : bz.Event[]
+    {
+
+//            this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
+//            this.stage.getGame().getGUI().addGuiMessage( 'Picked up a clip' );
+
+
+        switch ( itemType )
+        {
+            case bz.ItemType.SHOTGUN_SHELLS:
+            {
+                return [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Picked up some shotgun shells' )
+                    ),
+                ];
+            }
+        }
+
+        return [];
     }
 }
