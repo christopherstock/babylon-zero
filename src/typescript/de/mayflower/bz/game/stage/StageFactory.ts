@@ -9,24 +9,24 @@ export class StageFactory
     *   Creates one room.
     *******************************************************************************************************************/
     public static addRoomWalls(
-        stage          :bz.Stage,
-        meshFactory    :bz.MeshFactory,
-        position       :BABYLON.Vector3,
-        size           :BABYLON.Vector3,
-        rotZ           :number,
-        textureWallA   :bz.Texture = null, doorsWallA :number[] = [], windowsWallA :number[] = [],
-        textureWallB   :bz.Texture = null, doorsWallB :number[] = [], windowsWallB :number[] = [],
-        textureWallC   :bz.Texture = null, doorsWallC :number[] = [], windowsWallC :number[] = [],
-        textureWallD   :bz.Texture = null, doorsWallD :number[] = [], windowsWallD :number[] = [],
-        textureFloor   :bz.Texture = null,
-        textureCeiling :bz.Texture = null
+        stage              :bz.Stage,
+        meshFactory        :bz.MeshFactory,
+        position           :BABYLON.Vector3,
+        size               :BABYLON.Vector3,
+        rotZ               :number,
+        textureFileWallA   :bz.TextureFile = null, doorsWallA :number[] = [], windowsWallA :number[] = [],
+        textureFileWallB   :bz.TextureFile = null, doorsWallB :number[] = [], windowsWallB :number[] = [],
+        textureFileWallC   :bz.TextureFile = null, doorsWallC :number[] = [], windowsWallC :number[] = [],
+        textureFileWallD   :bz.TextureFile = null, doorsWallD :number[] = [], windowsWallD :number[] = [],
+        textureFileFloor   :bz.TextureFile = null,
+        textureFileCeiling :bz.TextureFile = null
     )
     : void
     {
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
 
-        if ( textureWallA !== null )
+        if ( textureFileWallA !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
@@ -36,12 +36,12 @@ export class StageFactory
                 size.y,
                 position.z,
                 0.0,
-                textureWallA,
-                bz.Texture.WALL_GLASS
+                textureFileWallA,
+                bz.TextureFile.WALL_GLASS
             );
         }
 
-        if ( textureWallB !== null )
+        if ( textureFileWallB !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
@@ -51,12 +51,12 @@ export class StageFactory
                 size.y,
                 position.z,
                 -90.0,
-                textureWallB,
-                bz.Texture.WALL_GLASS
+                textureFileWallB,
+                bz.TextureFile.WALL_GLASS
             );
         }
 
-        if ( textureWallC !== null )
+        if ( textureFileWallC !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
@@ -66,12 +66,12 @@ export class StageFactory
                 size.y,
                 position.z + size.z + bz.SettingEngine.WALL_DEPTH,
                 -180.0,
-                textureWallC,
-                bz.Texture.WALL_GLASS
+                textureFileWallC,
+                bz.TextureFile.WALL_GLASS
             );
         }
 
-        if ( textureWallD !== null )
+        if ( textureFileWallD !== null )
         {
             StageFactory.createWall(
                 roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
@@ -81,13 +81,13 @@ export class StageFactory
                 size.y,
                 position.z + size.z + bz.SettingEngine.WALL_DEPTH,
                 -270.0,
-                textureWallD,
-                bz.Texture.WALL_GLASS
+                textureFileWallD,
+                bz.TextureFile.WALL_GLASS
             );
         }
 
         // ceiling
-        if ( textureCeiling !== null )
+        if ( textureFileCeiling !== null )
         {
             const ceiling :bz.Wall = new bz.Wall
             (
@@ -102,7 +102,7 @@ export class StageFactory
                                 ( position.y + size.y - bz.SettingEngine.DEPTH_FLOOR_CEILING ),
                                 ( position.z + bz.SettingEngine.WALL_DEPTH / 2 )
                             ),
-                            textureCeiling,
+                            textureFileCeiling,
                             new BABYLON.Vector3(
                                 size.x,
                                 bz.SettingEngine.DEPTH_FLOOR_CEILING,
@@ -120,7 +120,7 @@ export class StageFactory
         }
 
         // floor
-        if ( textureFloor !== null )
+        if ( textureFileFloor !== null )
         {
             const floor :bz.Wall = new bz.Wall
             (
@@ -139,7 +139,7 @@ export class StageFactory
                             size.x,
                             size.z,
                             new BABYLON.Vector3( 90.0, 0.0, 0.0 ),
-                            textureFloor,
+                            textureFileFloor,
                             null,
                             bz.PhysicSet.STATIC,
                             1.0,
@@ -245,7 +245,7 @@ export class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( pos.x + 5.5, pos.y, pos.z + 10.0 ),
-                            bz.Texture.WALL_METAL,
+                            bz.TextureFile.WALL_METAL,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
                             bz.PhysicSet.CRATE_STEEL,
                             1.0,
@@ -267,7 +267,7 @@ export class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( pos.x - 2.5,  pos.y, pos.z + 3.5   ),
-                            bz.Texture.WALL_GLASS,
+                            bz.TextureFile.WALL_GLASS,
                             new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
                             bz.PhysicSet.CRATE_STEEL,
                             0.5,
@@ -340,8 +340,8 @@ export class StageFactory
         sizeY          :number,
         z              :number,
         rotY           :number,
-        textureWall    :bz.Texture,
-        textureGlass   :bz.Texture
+        textureFileWall    :bz.TextureFile,
+        textureFileGlass   :bz.TextureFile
     )
     : void
     {
@@ -368,7 +368,7 @@ export class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( x + doorPos, y + sizeY - bz.SettingEngine.DOOR_FRAME_HEIGHT, z ),
-                            textureWall,
+                            textureFileWall,
                             new BABYLON.Vector3(
                                 bz.SettingEngine.DOOR_WIDTH,
                                 bz.SettingEngine.DOOR_FRAME_HEIGHT,
@@ -406,7 +406,7 @@ export class StageFactory
                                 y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT,
                                 z
                             ),
-                            textureWall,
+                            textureFileWall,
                             new BABYLON.Vector3(
                                 bz.SettingEngine.WINDOW_WIDTH,
                                 bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT,
@@ -435,7 +435,7 @@ export class StageFactory
                                 y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT,
                                 z
                             ),
-                            textureGlass,
+                            textureFileGlass,
                             new BABYLON.Vector3(
                                 bz.SettingEngine.WINDOW_WIDTH,
                                 bz.SettingEngine.WINDOW_HEIGHT,
@@ -460,7 +460,7 @@ export class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( x + windowPos, y, z ),
-                            textureWall,
+                            textureFileWall,
                             new BABYLON.Vector3(
                                 bz.SettingEngine.WINDOW_WIDTH,
                                 bz.SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT,
@@ -489,7 +489,7 @@ export class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( freeWalls[ i ], y, z ),
-                            textureWall,
+                            textureFileWall,
                             new BABYLON.Vector3(
                                 ( freeWalls[ i + 1 ] - freeWalls[ i ] ),
                                 sizeY,

@@ -74,7 +74,7 @@ export class BulletHole
     *******************************************************************************************************************/
     private createHoleMesh( scene:bz.Scene ) : void
     {
-        const meshTexture:bz.Texture = bz.Texture.getAccordingBulletHoleTextureForMesh( this.hitPoint.getMesh() );
+        const meshTextureFile:bz.TextureFile = bz.Texture.getAccordingBulletHoleTextureForMesh( this.hitPoint.getMesh() );
 
         this.holeMesh = new bz.MeshFactory( scene, this.emissiveColor ).createDecal
         (
@@ -84,7 +84,7 @@ export class BulletHole
             new BABYLON.Vector3( 0.2, 0.2, bz.SettingEngine.BULLET_HOLE_DEPTH ),
             bz.MathUtil.getRandomInt( 0, 359 ),
             this.hitPoint.getGameObjectNextBulletHoleIndexZ(),
-            meshTexture,
+            meshTextureFile,
             null,
             1.0
         );

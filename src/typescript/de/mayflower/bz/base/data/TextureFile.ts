@@ -95,4 +95,34 @@ export class TextureFile
         this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
     }
+
+    /** ****************************************************************************************************************
+    *   Checks if this texture is a video texture.
+    *
+    *   @return <code>true</code> if this texture is a video texture.
+    *******************************************************************************************************************/
+    public getIsVideoTexture() : boolean
+    {
+        return this.textureType === bz.TextureType.VIDEO;
+    }
+
+    /** ****************************************************************************************************************
+    *   Determines if this texture uses an alpha channel.
+    *
+    *   @return <code>true</code> if this texture makes use of an alpha channel.
+    *******************************************************************************************************************/
+    public hasAlpha() : boolean
+    {
+        return ( this.textureHasAlpha === bz.TextureHasAlpha.YES );
+    }
+
+    /** ****************************************************************************************************************
+    *   Determines this texture's UV strategy.
+    *
+    *   @return The UV strategy of this texture.
+    *******************************************************************************************************************/
+    public getStrategyUV() : bz.TextureUV
+    {
+        return this.strategyUV;
+    }
 }

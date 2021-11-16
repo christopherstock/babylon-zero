@@ -62,12 +62,12 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
-            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
             null, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_CARPET_2,
-            bz.Texture.WALL_CEILING
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_CARPET_2,
+            bz.TextureFile.WALL_CEILING
         );
 
         // point light in small office
@@ -91,7 +91,7 @@ export class StageOffice extends bz.Stage
             null, [], [],
             null, [], [],
             null, [ 1.0 ], [],
-            bz.Texture.WALL_STONES_3,
+            bz.TextureFile.WALL_STONES_3,
             null
         );
 
@@ -102,12 +102,12 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
             0.0,
-            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
             null, [], [],
             null, [], [],
             null, [ 1.0 ], [],
-            bz.Texture.WALL_CARPET_2,
-            bz.Texture.WALL_CEILING
+            bz.TextureFile.WALL_CARPET_2,
+            bz.TextureFile.WALL_CEILING
         );
         bz.StageFactory.addRoomWalls(
             this,
@@ -117,10 +117,10 @@ export class StageOffice extends bz.Stage
             0.0,
             null, [], [],
             null, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
             null, [ 1.0 ], [],
-            bz.Texture.WALL_CARPET_2,
-            bz.Texture.WALL_CEILING
+            bz.TextureFile.WALL_CARPET_2,
+            bz.TextureFile.WALL_CEILING
         );
 
         // 2nd office
@@ -130,12 +130,12 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 80.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
-            bz.Texture.WALL_WOOD_HORZ, [], [],
-            bz.Texture.WALL_WOOD_HORZ, [ 10.0 ], [],
-            bz.Texture.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [ 10.0 ], [],
+            bz.TextureFile.WALL_WOOD_HORZ, [], [],
             null, [], [],
-            bz.Texture.WALL_CARPET_2,
-            bz.Texture.WALL_CEILING
+            bz.TextureFile.WALL_CARPET_2,
+            bz.TextureFile.WALL_CEILING
         );
 
         // point light in 2nd office
@@ -231,7 +231,7 @@ export class StageOffice extends bz.Stage
                                 bz.SettingEngine.FLOOR_OFFSET_Y,
                                 10.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 )
                             ),
-                            bz.Texture.WALL_DOOR_1,
+                            bz.TextureFile.WALL_DOOR_1,
                             new BABYLON.Vector3(
                                 bz.SettingEngine.DOOR_WIDTH,
                                 bz.SettingEngine.DOOR_HEIGHT,
@@ -333,7 +333,7 @@ export class StageOffice extends bz.Stage
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( this.OFFSET_X, 15.5, this.OFFSET_Z  ),
-                            bz.Texture.WALL_TEST,
+                            bz.TextureFile.WALL_TEST,
                             new BABYLON.Vector3( 50.0, 2.5, 50.0 ),
                             bz.PhysicSet.STATIC
                         ),
@@ -541,7 +541,7 @@ export class StageOffice extends bz.Stage
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3( 17.0, 5.0, 39.5 ),
-                        bz.Texture.VIDEO_TEST,
+                        bz.TextureFile.VIDEO_TEST,
                         new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
                         bz.PhysicSet.SHELVES,
                         1.0,
@@ -568,7 +568,7 @@ export class StageOffice extends bz.Stage
                             bz.MeshAnchor.CENTER_XYZ,
                             3.0,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.Texture.WALL_TEST,
+                            bz.TextureFile.WALL_TEST,
                             null,
                             bz.PhysicSet.WHITE_TEST_SPHERE
                         ),

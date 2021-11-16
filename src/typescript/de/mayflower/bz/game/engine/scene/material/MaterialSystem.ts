@@ -39,7 +39,7 @@ export class MaterialSystem
     *   Creates a material from the given texture or color.
     *
     *   @param scene              The scene where the new material to creat.
-    *   @param texture            The desired texture.
+    *   @param textureFile            The desired texture.
     *   @param ommitTextureTiling Specifies if tiling for the given texture shall be omitted.
     *   @param sizeU              The texture U size for the texture.
     *   @param sizeV              The texture V size for the texture.
@@ -50,7 +50,7 @@ export class MaterialSystem
     public createMaterial
     (
         scene              :BABYLON.Scene,
-        texture            :bz.Texture,
+        textureFile        :bz.TextureFile,
         ommitTextureTiling :boolean,
 
         sizeU              :number,
@@ -68,14 +68,14 @@ export class MaterialSystem
             scene
         );
 
-        if ( texture !== null )
+        if ( textureFile !== null )
         {
             let textureU:number = -1;
             let textureV:number = -1;
 
             if ( !ommitTextureTiling )
             {
-                switch ( texture.getStrategyUV() )
+                switch ( textureFile.getStrategyUV() )
                 {
                     case bz.TextureUV.TILED_BY_SIZE:
                     {
@@ -95,12 +95,12 @@ export class MaterialSystem
 
             material.diffuseTexture = MaterialSystem.createTexture
             (
-                texture,
+                textureFile,
                 textureU,
                 textureV
             );
 
-            material.backFaceCulling = ( texture.hasAlpha() || alpha < 1.0 );
+            material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );
         }
         else if ( color !== null )
         {
@@ -127,28 +127,28 @@ export class MaterialSystem
     /** ****************************************************************************************************************
     *   Creates a textured material.
     *
-    *   @param texture The texture to create.
+    *   @param textureFile The texture to create.
     *   @param repeatU The amount for U repeating this texture.
     *   @param repeatV The amount for V repeating this texture.
     *******************************************************************************************************************/
     private static createTexture
     (
-        texture :bz.Texture,
-        repeatU :number,
-        repeatV :number
+        textureFile :bz.TextureFile,
+        repeatU     :number,
+        repeatV     :number
     )
     : BABYLON.Texture
     {
         // do not clone native video textures! ( babylon.JS will hang otherwise! )
         const newTexture:BABYLON.Texture =
         (
-            texture.getIsVideoTexture()
-                ? texture.getNativeTexture()
+            textureFile.getIsVideoTexture()
+                ? bz.Texture.getNativeTexture( textureFile )
                 // is seems that cloning is not required and getNativeTexture is also working here
-                : texture.cloneNativeTexture()
+                : bz.Texture.cloneNativeTexture( textureFile )
         );
 
-        if ( texture.getIsVideoTexture() )
+        if ( textureFile.getIsVideoTexture() )
         {
             newTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
             newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
@@ -169,7 +169,7 @@ export class MaterialSystem
             }
         }
 
-        newTexture.hasAlpha = texture.hasAlpha();
+        newTexture.hasAlpha = textureFile.hasAlpha();
 
         return newTexture;
     }

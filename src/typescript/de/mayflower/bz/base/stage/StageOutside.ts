@@ -51,11 +51,11 @@ export class StageOutside extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             0.0,
-            bz.Texture.WALL_STONES_3, [], [],
+            bz.TextureFile.WALL_STONES_3, [], [],
             null, [], [],
-            bz.Texture.WALL_STONES_3, [], [],
-            bz.Texture.WALL_MARBLE, [ 60.0 - 5.0 - bz.SettingEngine.DOOR_WIDTH + bz.SettingEngine.WALL_DEPTH ], [],
-            bz.Texture.WALL_CONCRETE,
+            bz.TextureFile.WALL_STONES_3, [], [],
+            bz.TextureFile.WALL_MARBLE, [ 60.0 - 5.0 - bz.SettingEngine.DOOR_WIDTH + bz.SettingEngine.WALL_DEPTH ], [],
+            bz.TextureFile.WALL_CONCRETE,
             null
         );
 
@@ -74,7 +74,7 @@ export class StageOutside extends bz.Stage
                                 bz.SettingEngine.FLOOR_OFFSET_Y,
                                 5.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 )
                             ),
-                            bz.Texture.WALL_DOOR_1,
+                            bz.TextureFile.WALL_DOOR_1,
                             new BABYLON.Vector3(
                                 bz.SettingEngine.DOOR_WIDTH,
                                 bz.SettingEngine.DOOR_HEIGHT,
