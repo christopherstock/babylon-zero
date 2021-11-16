@@ -591,12 +591,12 @@ export abstract class Stage
             {
                 bz.Debug.stage.log( 'Launching stage switch event to:' );
 
-                const stageSwitch :bz.EventDataStageSwitch = ( event.data as bz.EventDataStageSwitch );
+                const data :bz.EventDataStageSwitch = ( event.data as bz.EventDataStageSwitch );
 
                 this.game.switchStage(
-                    stageSwitch.targetStage,
-                    stageSwitch.startupPosition,
-                    stageSwitch.startupRotation
+                    data.targetStage,
+                    data.startupPosition,
+                    data.startupRotation
                 );
                 break;
             }
@@ -605,9 +605,18 @@ export abstract class Stage
             {
                 bz.Debug.stage.log( 'Showing GUI message' );
 
-                const showGuiMessage :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
+                const data :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
+                this.getGame().getGUI().addGuiMessage( data.message );
+                break;
+            }
 
-                this.getGame().getGUI().addGuiMessage( showGuiMessage.message );
+            case bz.EventType.SHOW_GUI_EFFECT:
+            {
+                bz.Debug.stage.log( 'Showing GUI message' );
+
+                const data :bz.EventDataShowGuiEffect = ( event.data as bz.EventDataShowGuiEffect );
+
+                this.getGame().getGUI().addGuiEffect( data.guiEffect );
 
                 break;
             }

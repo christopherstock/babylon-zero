@@ -53,3 +53,23 @@ export class EventDataShowGuiMessage extends EventData
         this.message = message;
     }
 }
+
+/** ********************************************************************************************************************
+*   The event data for the event type { @see EventType.SHOW_GUI_EFFECT }.
+***********************************************************************************************************************/
+export class EventDataShowGuiEffect extends EventData
+{
+    public guiEffect :bz.GUIFxType;
+
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Show GUI Effect'.
+    *
+    *   @param guiEffect The GUI effect to perform.
+    *******************************************************************************************************************/
+    public constructor( guiEffect:bz.GUIFxType )
+    {
+        super();
+
+        this.guiEffect = guiEffect;
+    }
+}

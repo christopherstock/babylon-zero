@@ -162,7 +162,7 @@ export class GUI
     *
     *   @param type The type of GUI effect to add to the message queue.
     *******************************************************************************************************************/
-    public addGuiFx( type:bz.GUIFxType ) : void
+    public addGuiEffect(type:bz.GUIFxType ) : void
     {
         this.fxManager.addGuiFx( this.guiEffects, type );
     }

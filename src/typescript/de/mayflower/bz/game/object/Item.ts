@@ -98,11 +98,6 @@ export class Item extends bz.GameObject
 
     private createEventyByItemType( itemType:bz.ItemType ) : bz.Event[]
     {
-
-//            this.stage.getGame().getGUI().addGuiFx( bz.GUIFxType.GAIN_ENERGY );
-//            this.stage.getGame().getGUI().addGuiMessage( 'Picked up a clip' );
-
-
         switch ( itemType )
         {
             case bz.ItemType.SHOTGUN_SHELLS:
@@ -111,6 +106,10 @@ export class Item extends bz.GameObject
                     new bz.Event(
                         bz.EventType.SHOW_GUI_MESSAGE,
                         new bz.EventDataShowGuiMessage( 'Picked up some shotgun shells' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
                     ),
                 ];
             }
