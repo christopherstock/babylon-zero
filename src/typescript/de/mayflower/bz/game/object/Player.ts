@@ -40,16 +40,16 @@ export class Player extends bz.GameObject
     *   @param stage         The stage this player belongs to.
     *   @param scene         The scene reference.
     *   @param position      The initial position.
-    *   @param rotY          The initial rotation Y.
+    *   @param rotation      The initial rotation.
     *   @param emissiveColor The emissive color of all mesh faces.
     *******************************************************************************************************************/
     public constructor
     (
         stage         :bz.Stage,
-        scene         :bz.Scene,
-        position      :BABYLON.Vector3,
-        rotY          :number,
-        emissiveColor :BABYLON.Color3
+        scene         :bz.Scene        = stage.getScene(),
+        position      :BABYLON.Vector3 = stage.getConfig().startupPosition,
+        rotation      :BABYLON.Vector3 = stage.getConfig().startupRotation,
+        emissiveColor :BABYLON.Color3  = stage.getConfig().ambientColor
     )
     {
         super
@@ -121,7 +121,7 @@ export class Player extends bz.GameObject
         this.playerPhysics = new bz.PlayerPhysic( this.model );
 
         // assign initial rotation, rotation delta and move delta
-        this.rotation      = new BABYLON.Vector3( 0.0, rotY, 0.0 );
+        this.rotation      = rotation;
         this.rotationDelta = BABYLON.Vector3.Zero();
         this.moveDelta     = BABYLON.Vector3.Zero();
 

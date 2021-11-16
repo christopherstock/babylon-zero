@@ -372,7 +372,7 @@ export abstract class Stage
     *
     *   @return The scene this stage belongs to.
     *******************************************************************************************************************/
-    protected getScene() : bz.Scene
+    public getScene() : bz.Scene
     {
         return this.scene;
     }

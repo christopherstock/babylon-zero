@@ -36,20 +36,7 @@ export class StageOutside extends bz.Stage
         this.addGroundWalls( meshFactory );
 
         // player
-        this.setPlayer(
-            new bz.Player
-            (
-                this,
-                this.getScene(),
-                new BABYLON.Vector3(
-                    ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                    ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                    ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                ),
-                60.0,
-                this.getConfig().ambientColor
-            )
-        );
+        this.setPlayer( new bz.Player( this ) );
 
         // parking yard
         bz.StageFactory.addRoomWalls(
