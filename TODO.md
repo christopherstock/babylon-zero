@@ -8,6 +8,9 @@ MVP 1.0.0 - Tech-Demo
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
+TODO X = Let player turn around 180°!
+     C = Crouch
+     Y = 
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Create Different, parallel event pipelines.
 TODO Simplify item collision check (same as move/touch trigger system for events) EventTrigger extends Item
@@ -16,6 +19,7 @@ TODO Add door to room.
 TODO Switch stage on door interaction!
 TODO hand over Inventory between Stages
 TODO Fix physics clash on 1st start for imported models ..
+TODO prune all default values (= null) and add linter rule?
 TODO Scale up/down all chairs and some models?
 TODO Enable changeable textures for imported models
 TODO Add shelves and some more (better) 3dsmax models?

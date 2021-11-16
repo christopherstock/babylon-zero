@@ -387,7 +387,8 @@ export class StageOffice extends bz.Stage
                     bz.EventType.SHOW_GUI_MESSAGE,
                     new bz.EventDataShowGuiMessage( 'No more work for today.' )
                 ),
-            ]
+            ],
+            bz.InteractionType.ONCE
         );
         this.addWall( screen1 );
 

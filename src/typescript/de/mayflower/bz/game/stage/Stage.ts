@@ -1,4 +1,5 @@
 import * as bz from '../..';
+import { InteractionType } from '../..';
 
 /** ********************************************************************************************************************
 *   Represents a custom stage set.
@@ -280,8 +281,14 @@ export abstract class Stage
             if (
                 hitGameObject instanceof bz.Wall
                 && hitGameObject.interactionEvents !== null
+                && !(
+                    hitGameObject.interactionType === InteractionType.ONCE
+                    && hitGameObject.alreadyInteractedwith
+                )
             )
             {
+                hitGameObject.alreadyInteractedwith = true;
+
                 this.eventPipelines.push( hitGameObject.interactionEvents );
             }
         }

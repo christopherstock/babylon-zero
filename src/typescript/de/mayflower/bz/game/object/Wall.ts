@@ -5,7 +5,10 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Wall extends bz.GameObject
 {
-    public readonly interactionEvents :bz.Event[] = null;
+    public readonly interactionType   :bz.InteractionType = null;
+    public readonly interactionEvents :bz.Event[]         = null;
+
+    public alreadyInteractedwith :boolean = false;
 
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
@@ -19,11 +22,13 @@ export class Wall extends bz.GameObject
         stage             :bz.Stage,
         model             :bz.Model,
         energy            :number   = Wall.UNBREAKABLE,
-        interactionEvents :bz.Event[] = null
+        interactionEvents :bz.Event[] = null,
+        interactionType   :bz.InteractionType = bz.InteractionType.REPEATED
     ) {
         super( stage, model, energy );
 
         this.interactionEvents = interactionEvents;
+        this.interactionType   = interactionType;
     }
 
     /** ****************************************************************************************************************
