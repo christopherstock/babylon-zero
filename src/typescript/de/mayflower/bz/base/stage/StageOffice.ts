@@ -507,7 +507,19 @@ export class StageOffice extends bz.Stage
                         new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                     ),
                 ]
-            )
+            ),
+            bz.GameObject.UNBREAKABLE,
+            [
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_MESSAGE,
+                    new bz.EventDataShowGuiMessage( 'Nothing on the television today' )
+                ),
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_MESSAGE,
+                    new bz.EventDataShowGuiMessage( 'I think I should go home now.' )
+                ),
+            ],
+            bz.InteractionType.ONCE
         );
 
         this.addWall( tv );
