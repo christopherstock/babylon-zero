@@ -239,7 +239,7 @@ export abstract class Stage
         }
 
         // determine all hit points without hurting the game objects
-        const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot );
+        const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( shot, false );
         bz.Debug.fire.log( ' Gathered [' + String( hitPoints.length ) + '] hit points' );
 
         // determine all hit points impacted by the shot
@@ -266,7 +266,7 @@ export abstract class Stage
     public applyInteraction( interaction:bz.Interaction ) : void
     {
         // get all hit points for this interaction (won't hurt the game objects)
-        const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( interaction );
+        const hitPoints:bz.HitPoint[] = this.determineAllHitPoints( interaction, true );
         bz.Debug.player.log( ' Gathered [' + String( hitPoints.length ) + '] interaction hit points' );
 
         // get the nearest interaction hit point
@@ -532,11 +532,12 @@ export abstract class Stage
     *   Returns all hit points on all game objects of this stage on applying the specified shot.
     *   Game objects will not be damaged or hit by the shot!
     *
-    *   @param shot The shot to apply onto all game objects of this stage.
+    *   @param shot                 The shot to apply onto all game objects of this stage.
+    *   @param interactionWallsOnly Ignore walls that have no stored interaction events.
     *
     *   @return All hit points this shot collides to.
     *******************************************************************************************************************/
-    private determineAllHitPoints( shot:bz.Shot ) : bz.HitPoint[]
+    private determineAllHitPoints( shot:bz.Shot, interactionWallsOnly:boolean = false ) : bz.HitPoint[]
     {
         // collect all hitPoints
         let hitPoints:bz.HitPoint[] = [];
@@ -545,6 +546,10 @@ export abstract class Stage
         bz.Debug.fire.log( ' Check shot collision with [' + String( this.walls.length ) + '] walls' );
         for ( const wall of this.walls )
         {
+            if ( interactionWallsOnly && wall.interactionEvents === null )
+            {
+                continue;
+            }
             hitPoints = hitPoints.concat( wall.determineHitPoints( shot ) );
         }
 

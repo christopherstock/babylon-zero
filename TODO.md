@@ -2,9 +2,12 @@
 # TODO List
 
 ```
-=====================
-MVP 1.0.0 - Tech-Demo
-=====================
+===============
+MVP - Game Demo
+===============
+TODO Simplify item collision check (same as move/touch trigger system for events) EventTrigger extends Item
+TODO Implement move/touch trigger system for events
+
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
@@ -14,8 +17,6 @@ TODO X = Let player turn around 180°!
      Y = 
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Create Different, parallel event pipelines.
-TODO Simplify item collision check (same as move/touch trigger system for events) EventTrigger extends Item
-TODO Implement move/touch trigger system for events
 TODO Add door to room.
 TODO Create event type 'ingame message'.
 TODO Switch stage on door interaction!
@@ -34,9 +35,9 @@ TODO Reset Git Repository?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
 TODO Try cool physics pause (scene cam) feature.
 
-=====================
+======
 Player
-=====================
+======
 TODO Introuce Inventory System
 TODO Fix ducking? => concerning heightY and shot height ?
 TODO Fix jumping!
@@ -47,21 +48,21 @@ TODO debug and improve init process?
 TODO Find and reduce classes with mixed static & non-static content
 TODO create player die effect (tilt cylinder and head etc.)
 
-=====================
+==
 UX
-=====================
+==
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 
-=====================
+=====
 Stage
-=====================
+=====
 TODO Create Event Pipeline for altering stage contents + activation triggers!
 TODO Add 'view blocker' (H-Block) with dynamic stage switch?
 TODO Enable dynamic stage/contents switch with player staying on same position ??
 
-=====================
+==
 Fx
-=====================
+==
 TODO add light to physics object + shot on it physics?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO add rotating MF Logo sprite?
@@ -78,16 +79,16 @@ TODO Add muzzle flash to gun on firing.
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Solution to fix/remove screen flickering/shaking on collisions.
 
-=====================
+======
 Sounds
-=====================
+======
 TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
      https://doc.babylonjs.com/how_to/playing_sounds_and_music
 TODO Sounds for shot, bullet hit and bullet drop.
 
-=====================
+========
 Wearpons
-=====================
+========
 TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, bullet-hole-size, zoom, muzzle-flash ..
 TODO Add slower panning on aiming/zooming with wearpon.
 TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.
@@ -97,9 +98,9 @@ TODO Create 3d gun as 2nd scene in front?
 TODO Create wearpons with projectiles (exploding or non-exploding)..
 TODO Create explosive wearpons etc.
 
-=====================
+==========
 Characters
-=====================
+==========
 TODO Add bots as sprites in 1st instance
 TODO Create (different?) characters from primitives or mesh objects??
 TODO Create class Character, the abstract class of Player and Bot.
@@ -107,9 +108,9 @@ TODO Checkout babylon.JS bones and skeletons?
 TODO Check cannonJs examples ? (human.js .. bones etc.)
 TODO Create class Bot that represents an enemy with one field for attitude.
 
-=====================
+============
 New features
-=====================
+============
 TODO introduce Stage Animation system? as Animations (camera) do not stop on pausing the game.
 TODO Try soft bodies.
 TODO Try babylon 101 scenes.
