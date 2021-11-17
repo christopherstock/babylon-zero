@@ -140,10 +140,15 @@ export class Texture
         {
             // TODO Add model texture files back to TEXTURES.ALL_FILES ???
 
-            // pick texture filename TODO this is NOT the name! cast to BABYLON.Texture and use field 'url' !!
-            const meshTextureFileName:string = mesh.material.getActiveTextures()[ 0 ].name;
+            // pick texture filename from Texture field 'url'
+            let meshTextureFullFileName:string = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).url;
+            if ( meshTextureFullFileName === null )
+            {
+                // video textures have their file path in field 'name'
+                meshTextureFullFileName = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).name;
+            }
 
-            const bulletHoleTexture :bz.TextureFile = Texture.getBulletHoleTexForMeshTex( meshTextureFileName );
+            const bulletHoleTexture :bz.TextureFile = Texture.getBulletHoleTexForMeshTex( meshTextureFullFileName );
             if ( bulletHoleTexture !== null )
             {
                 return bulletHoleTexture;
@@ -152,7 +157,7 @@ export class Texture
             // compare with all existent textures
             for ( const texture of Texture.ALL_TEXTURES )
             {
-                if ( texture.file.fileName === meshTextureFileName )
+                if ( texture.file.fileName === meshTextureFullFileName )
                 {
                     if ( texture.file.bulletHoleTexture !== null )
                     {
@@ -173,14 +178,17 @@ export class Texture
 
     /** ****************************************************************************************************************
     *   Delivers the BulletHole Texture for a 3ds max model's texture file specification.
+    *   TODO could be removed by adding TextureType.MODEL again :)
     *
-    *   @param meshTextureFileName The filename of the 3ds max model's used texture -- without any directory component.
+    *
+    *   @param meshTextureFileUrl The filename of the 3ds max model's used texture -- without any directory component.
     *******************************************************************************************************************/
-    private static getBulletHoleTexForMeshTex( meshTextureFileName:string ) :bz.TextureFile
+    private static getBulletHoleTexForMeshTex( meshTextureFileUrl:string ) :bz.TextureFile
     {
-        switch ( meshTextureFileName )
+        switch ( meshTextureFileUrl )
         {
-            case 'crate1.jpg':
+            case bz.SettingResource.PATH_MODEL + 'furniture/crate1.jpg':
+            case bz.SettingResource.PATH_MODEL + 'furniture/woodLight.jpg':
             {
                 return bz.TextureFile.BULLET_HOLE_WOOD;
             }
