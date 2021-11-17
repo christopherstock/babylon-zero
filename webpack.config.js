@@ -4,7 +4,7 @@ module.exports = ( env, argv ) => {
         entry: './src/typescript/index.ts',
         output: {
             filename: 'babylon-zero-v0.0.10.js',
-            path: __dirname + '/dist/js/'
+            path: __dirname + '/dist/js/',
         },
         resolve: {
             // add '.ts' and '.tsx' as resolvable extensions.
@@ -12,8 +12,8 @@ module.exports = ( env, argv ) => {
                 '.ts',
                 '.tsx',
                 '.js',
-                '.json'
-            ]
+                '.json',
+            ],
         },
     };
 
@@ -27,14 +27,14 @@ module.exports = ( env, argv ) => {
             // all files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             {
                 test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader'
+                loader: 'awesome-typescript-loader',
             },
 
             // all output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 test: /\.js$/,
                 enforce: 'pre',
-                loader: 'source-map-loader'
+                loader: 'source-map-loader',
             },
 
             // all '.css' files will be handled by the style- and css-loader
@@ -42,12 +42,12 @@ module.exports = ( env, argv ) => {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: 'style-loader',
                     },
                     {
-                        loader: 'css-loader'
-                    }
-                ]
+                        loader: 'css-loader',
+                    },
+                ],
             },
 
             // all '.less' files will be handled by the style- and css-loader
@@ -55,38 +55,38 @@ module.exports = ( env, argv ) => {
                 test: /\.less$/,
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: 'style-loader',
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            url: false
-                        }
+                            url: false,
+                        },
                     },
                     {
                         loader: 'less-loader',
                         options: {
                             relativeUrls:      false,
                             sourceMap:         true,
-                            javascriptEnabled: true
-                        }
-                    }
-                ]
-            }
+                            javascriptEnabled: true,
+                        },
+                    },
+                ],
+            },
         ],
     };
 
     if ( argv.mode === 'production' ) {
         config.optimization = {
-            minimize: true
+            minimize: true,
         };
     }
 
     config.externals = {
-        "cannon":        "CANNON",
-        "earcut":        "earcut",
-        "babylonjs":     "BABYLON",
-        "babylonjs-gui": "BABYLON.GUI",
+        'cannon':        'CANNON',
+        'earcut':        'earcut',
+        'babylonjs':     'BABYLON',
+        'babylonjs-gui': 'BABYLON.GUI',
     };
 
     config.devServer = {
@@ -94,7 +94,7 @@ module.exports = ( env, argv ) => {
         port: 1234,
         watchContentBase: true,
         publicPath: '/js/',
-        contentBase: __dirname + '/dist/'
+        contentBase: __dirname + '/dist/',
     };
 
     return config;

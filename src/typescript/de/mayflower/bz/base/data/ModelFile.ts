@@ -26,8 +26,8 @@ export abstract class ModelFile
     /** The model 'screen 1'. */
     public static readonly SCREEN_1                     :string             = 'furniture/screen1.babylon';
 
-    /** The model 'item shells'. */
-    public static readonly ITEM_SHELLS                  :string             = 'item/shells.babylon';
+    /** The model 'item shotgun shells'. */
+    public static readonly ITEM_SHOTGUN_SHELLS          :string             = 'item/shells.babylon';
     /** The model 'car 1'. */
     public static readonly CAR_1                        :string             = 'object/car1.babylon';
     /** The model 'bench 1'. */
@@ -50,7 +50,7 @@ export abstract class ModelFile
         ModelFile.SOFA_1,
         ModelFile.SCREEN_1,
 
-        ModelFile.ITEM_SHELLS,
+        ModelFile.ITEM_SHOTGUN_SHELLS,
         ModelFile.CAR_1,
         ModelFile.BENCH_1,
 

@@ -340,6 +340,20 @@ export class Model
         }
     }
 
+    public changeTexture( from:string, to:string ) : void
+    {
+        for ( const mesh of this.meshes )
+        {
+            const material = mesh.material as BABYLON.StandardMaterial;
+
+            // console.log( '>> Material for texture change: ', material );
+
+
+
+
+        }
+    }
+
     /** ****************************************************************************************************************
     *   Extracts all impostor parameters for all meshes of this model.
     *******************************************************************************************************************/

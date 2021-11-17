@@ -73,8 +73,14 @@ export class Item extends bz.Trigger
         {
             case bz.ItemType.SHOTGUN_SHELLS:
             {
-                return new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor )
-                    .createImportedModel( bz.ModelFile.ITEM_SHELLS );
+                const shells:bz.Model = new bz.MeshFactory(
+                    stage.getScene(),
+                    stage.getConfig().ambientColor
+                ).createImportedModel( bz.ModelFile.ITEM_SHOTGUN_SHELLS );
+
+                shells.changeTexture( 'shells.jpg', '792mmBullet.jpg' );
+
+                return shells;
             }
         }
     }

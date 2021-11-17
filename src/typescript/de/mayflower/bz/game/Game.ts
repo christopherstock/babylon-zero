@@ -288,7 +288,7 @@ export class Game
     *******************************************************************************************************************/
     private initSceneCompleted() : void
     {
-        bz.Debug.init.log( 'System callback: BABYLON.Scene.executeWhenReady' );
+        bz.Debug.init.log( ' System callback: BABYLON.Scene.executeWhenReady' );
 
         this.engine.setLoadingUiVisibility( false );
         this.engine.setRenderLoopExecution( true, () => { this.render(); } );
