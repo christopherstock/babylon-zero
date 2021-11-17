@@ -42,6 +42,8 @@ export class Version
     private static readonly V_0_1_5             :Version            = new Version( '0.1.5',  '3DSMAX',                   '16.11.2021, 10:18:42 GMT+1' );
     /** The project's version v.0.1.6. */
     private static readonly V_0_1_6             :Version            = new Version( '0.1.6',  'EVENTS',                   '16.11.2021, 14:51:00 GMT+1' );
+    /** The project's version v.0.1.7. */
+    private static readonly V_0_1_7             :Version            = new Version( '0.1.7',  'IMPACT',                   '17.11.2021, 10:47:34 GMT+1' );
 
     /** The project's current version. */
     private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_6;

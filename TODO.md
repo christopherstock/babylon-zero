@@ -5,12 +5,13 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Fix weird physical behaviour (bench?)
-     or just change from mass 0.0 to mass 16.0 etc?
+TODO Create time delay feature. (EVENT delay pipeline)
+
+TODO Create 2nd empty stage and move things from 1st to 2nd.
+
 TODO Add event 'level explosion' under car.
 TODO dark bullet holes?
-TODO Create time delay feature. (EVENT delay pipeline)
-TODO Create 2nd empty stage and move things from 1st to 2nd.
+
 TODO Create Different, parallel event pipelines.
 TODO Add door to room creation method.
 TODO Create event type 'ingame message' with pic and message.
@@ -18,6 +19,7 @@ TODO Switch stage on door interaction!
 TODO hand over Inventory between Stages
 TODO Try stored 3dsmax model animations.
 TODO prune all default values (= null) and add linter rule?
+TODO Explosion effect when objects break
 TODO Scale up/down all chairs and some models?
 TODO Enable changeable textures for imported models
 TODO Add shelves and some more (better) 3dsmax models?
@@ -25,9 +27,9 @@ TODO Office with lamp than can be turned on or off. => event pipeline etc. => tr
 TODO Add nice textures
 TODO Create realistic models and lights.
 TODO Models (item shell boxes) with changine/different Textures?
-TODO Reset Git Repository?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
 TODO Try cool physics pause (scene cam) feature.
+TODO Reset Git Repository?
 
 ======
 Player
