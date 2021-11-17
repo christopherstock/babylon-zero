@@ -293,6 +293,7 @@ export abstract class Stage
             // clone the TIME_DELAY effect in order to use a discreet object with an own elapse-counter here!
             if ( event.type === bz.EventType.TIME_DELAY )
             {
+                // this object cloning might look like a technical debt
                 newEvents.push(
                     new bz.Event(
                         bz.EventType.TIME_DELAY,

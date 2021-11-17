@@ -5,18 +5,14 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Create time delay event. (EVENT delay pipeline)
+TODO Try 3D wearpon model
 
 TODO Create 2nd empty stage and move things from 1st to 2nd.
-TODO Add original weight to model that gets re-applied when object is destroyed.
-
-TODO Add event 'level explosion' under car.
-TODO dark bullet holes?
-
-TODO Create Different, parallel event pipelines.
-TODO Add door to room creation method.
+TODO Add door creation to room creation method.
 TODO Create event type 'ingame message' with pic and message.
-TODO Try 3D wearpon model
+
+TODO Add event 'level explosion' (under car).
+TODO dark bullet holes?
 TODO Switch stage on door interaction!
 TODO hand over Inventory between Stages
 TODO Try stored 3dsmax model animations.
