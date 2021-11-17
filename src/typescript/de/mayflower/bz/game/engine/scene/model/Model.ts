@@ -340,7 +340,7 @@ export class Model
         }
     }
 
-    public changeTexture( scene:bz.Scene, from:string, to:string ) : void
+    public changeTexture( scene:bz.Scene, from:string, to:string ) : bz.Model
     {
         // browse all meshes
         for ( const mesh of this.meshes )
@@ -352,13 +352,22 @@ export class Model
             // check source texture
             if ( texture.url === from )
             {
-                material.diffuseTexture = null;
-                material.diffuseTexture = new BABYLON.Texture(
+                const newMaterial :BABYLON.StandardMaterial = mesh.material.clone(
+                    'ChangedTextureMaterial' + bz.MeshFactory.createNextMeshId()
+                ) as BABYLON.StandardMaterial;
+
+                newMaterial.diffuseTexture = null;
+                newMaterial.diffuseTexture = new BABYLON.Texture(
                     to,
                     scene.getNativeScene()
                 );
+
+                mesh.material = null;
+                mesh.material = newMaterial;
             }
         }
+
+        return this;
     }
 
     /** ****************************************************************************************************************

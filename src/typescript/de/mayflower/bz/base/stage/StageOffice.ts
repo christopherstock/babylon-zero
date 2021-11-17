@@ -163,6 +163,14 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
+                new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
+                bz.ItemType.BULLETS_792MM
+            )
+        );
+        this.addItem(
+            new bz.Item
+            (
+                this,
                 new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
                 bz.ItemType.SHOTGUN_SHELLS
             )
@@ -171,16 +179,8 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
-                new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
-                bz.ItemType.SHOTGUN_SHELLS
-            )
-        );
-        this.addItem(
-            new bz.Item
-            (
-                this,
                 new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
-                bz.ItemType.SHOTGUN_SHELLS
+                bz.ItemType.BULLETS_792MM
             )
         );
         this.addItem(
@@ -196,7 +196,7 @@ export class StageOffice extends bz.Stage
             (
                 this,
                 new BABYLON.Vector3( 40.0, 1.0, 30.0 ),
-                bz.ItemType.SHOTGUN_SHELLS
+                bz.ItemType.BULLETS_792MM
             )
         );
 

@@ -62,6 +62,20 @@ export class Item extends bz.Trigger
                     ),
                 ];
             }
+
+            case bz.ItemType.BULLETS_792MM:
+            {
+                return [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Picked up some bullets 792mm' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                    ),
+                ];
+            }
         }
 
         return [];
@@ -73,18 +87,24 @@ export class Item extends bz.Trigger
         {
             case bz.ItemType.SHOTGUN_SHELLS:
             {
-                const shells:bz.Model = new bz.MeshFactory(
+                return new bz.MeshFactory(
                     stage.getScene(),
                     stage.getConfig().ambientColor
                 ).createImportedModel( bz.ModelFile.ITEM_SHOTGUN_SHELLS );
+            }
 
-                shells.changeTexture(
+            case bz.ItemType.BULLETS_792MM:
+            {
+                return new bz.MeshFactory(
                     stage.getScene(),
-                    bz.SettingResource.PATH_MODEL + 'item/shells.jpg',
-                    bz.SettingResource.PATH_MODEL + 'item/792mmBullet.jpg'
-                );
-
-                return shells;
+                    stage.getConfig().ambientColor
+                )
+                    .createImportedModel( bz.ModelFile.ITEM_SHOTGUN_SHELLS )
+                    .changeTexture(
+                        stage.getScene(),
+                        bz.SettingResource.PATH_MODEL + 'item/shells.jpg',
+                        bz.SettingResource.PATH_MODEL + 'item/bullets792mm.jpg'
+                    );
             }
         }
     }

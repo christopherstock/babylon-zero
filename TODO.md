@@ -5,7 +5,6 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Enable changeable textures for imported models (shells)
 TODO Try 3D wearpon model
 TODO Add event 'level explosion' (under car).
 TODO Explosion effect when objects break: fire sprites and global explosion?
