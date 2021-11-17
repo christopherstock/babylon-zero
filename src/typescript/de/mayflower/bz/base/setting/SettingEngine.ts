@@ -35,7 +35,7 @@ export class SettingEngine
     public static readonly CUSTOM_LOADING_SCREEN                    :boolean            = true;
 
     /** The multiplier from the hit damage to the physical impact force to apply. */
-    public static readonly DAMAGE_IMPULSE_MULTIPLIER                :number             = 10;
+    public static readonly DAMAGE_IMPULSE_MULTIPLIER                :number             = 25;
 
     /** The delay between each sprite animation frame change in ms. */
     public static readonly SPRITE_FRAME_DELAY                       :number             = 100;

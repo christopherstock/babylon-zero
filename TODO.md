@@ -5,10 +5,10 @@
 ===============
 MVP - Game Demo
 ===============
-TODO darken model textured faces on being shot! (0-100% over model texture)
-TODO Enable model switch from static to compound (collapsing)?
+TODO Fix weird physical behaviour (bench?)
      or just change from mass 0.0 to mass 16.0 etc?
 TODO Add event 'level explosion' under car.
+TODO dark bullet holes?
 TODO Create time delay feature. (EVENT delay pipeline)
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Create Different, parallel event pipelines.

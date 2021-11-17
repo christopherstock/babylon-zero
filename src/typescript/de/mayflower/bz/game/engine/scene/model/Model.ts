@@ -317,6 +317,11 @@ export class Model
             if ( mesh.physicsImpostor.mass === 0 )
             {
                 mesh.physicsImpostor.mass = 2.0;
+
+                 // mesh.physicsImpostor.forceUpdate();
+
+
+
             }
         }
     }

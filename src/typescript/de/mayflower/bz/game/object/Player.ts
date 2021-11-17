@@ -741,13 +741,15 @@ export class Player extends bz.GameObject
         );
         const range :number = 50.0;
 
+        const DAMAGE :number = 1.0;
+
         return new bz.Shot
         (
             source,
             rotation,
             range,
             false,
-            1
+            DAMAGE
         );
     }
 
