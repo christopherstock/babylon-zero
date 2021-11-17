@@ -47,14 +47,16 @@ export class GUIPause
         // explanation
         this.explanation = bz.GUIFactory.createTextBlock
         (
-            'Try to find out what is happening!\n\n'
-                + 'Interact with the environment and use the following keys:' + '\n\n'
+            'What is this all about?\n\n'
+                + 'Use the following keys to find out:' + '\n\n'
                 + 'W A S D = Walk and Strave' + '\n'
                 + 'Q E = Turn Left/Right' + '\n'
                 + 'T G = Look Up/Down' + '\n'
-                + 'X = Aim' + '\n'
-                + 'Y = Duck' + '\n'
-                + 'Ctlr/Strg = Fire' + '\n',
+                + 'Y = Aim' + '\n'
+                + 'X = Turn around' + '\n'
+                + 'C = Crouch' + '\n'
+                + 'Ctlr/Strg = Fire' + '\n'
+                + 'Space = Interact' + '\n',
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,

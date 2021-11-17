@@ -33,7 +33,7 @@ export class SettingPlayer
     public static readonly SPEED_STAND_UP                           :number             = 0.25;
 
     /** Number of ticks it takes for the player to turn around (180 degrees). */
-    public static readonly TICKS_TURN_AROUND                        :number             = 18;
+    public static readonly TICKS_TURN_AROUND                        :number             = 10;
 
     /** The player's height on the Y axis. */
     public static readonly HEIGHT_Y_STANDING                        :number             = 6.0;

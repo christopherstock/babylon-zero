@@ -5,9 +5,6 @@
 ===============
 MVP - Game Demo
 ===============
-TODO X = Let player turn around 180°!
-     C = Crouch
-     Y = Aim
 TODO darken model textured faces on being shot! (0-100% over model texture)
 TODO Enable model switch from static to compound (collapsing)?
      or just change from mass 0.0 to mass 16.0 etc?
