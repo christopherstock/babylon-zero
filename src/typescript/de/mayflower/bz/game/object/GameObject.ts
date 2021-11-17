@@ -185,8 +185,11 @@ export abstract class GameObject
             this.destroyed = true;
             bz.Debug.fire.log( 'Object is now destroyed.' );
 
-            // scatter the model
+            // remove the compound mesh if any
             this.model.removeCompoundMesh( scene );
+
+            // change static models to gravity by setting mass
+            this.model.removeStaticState();
         }
     }
 }

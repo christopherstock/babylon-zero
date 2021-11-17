@@ -305,6 +305,23 @@ export class Model
     }
 
     /** ****************************************************************************************************************
+    *   Removed the physical 'static' state of all meshes by setting a physical mass for all meshes.
+    *******************************************************************************************************************/
+    public removeStaticState() : void
+    {
+        bz.Debug.physic.log( 'Remove static state from model ' );
+
+        // remove the mass from all meshes
+        for ( const mesh of this.meshes )
+        {
+            if ( mesh.physicsImpostor.mass === 0 )
+            {
+                mesh.physicsImpostor.mass = 2.0;
+            }
+        }
+    }
+
+    /** ****************************************************************************************************************
     *   Extracts all impostor parameters for all meshes of this model.
     *******************************************************************************************************************/
     public extractPhysicsImpostors() : void

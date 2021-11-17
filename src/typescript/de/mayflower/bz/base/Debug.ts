@@ -28,7 +28,7 @@ export class Debug
     /** Debugs player fire. */
     public  static readonly fire            :Debug              = new Debug( true  );
     /** Debugs physic calculations. */
-    public  static readonly physic          :Debug              = new Debug( false );
+    public  static readonly physic          :Debug              = new Debug( true  );
     /** Debugs camera behaviours and journeys. */
     public  static readonly camera          :Debug              = new Debug( true  );
 
