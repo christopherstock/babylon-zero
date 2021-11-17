@@ -418,7 +418,7 @@ export class StageOffice extends bz.Stage
                 ),
                 new bz.Event(
                     bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( 10000 )
+                    new bz.EventDataTimeDelay( 600 )
                 ),
                 new bz.Event(
                     bz.EventType.SHOW_GUI_MESSAGE,
@@ -560,7 +560,7 @@ export class StageOffice extends bz.Stage
                 ),
                 new bz.Event(
                     bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( 10000 )
+                    new bz.EventDataTimeDelay( 600 )
                 ),
                 new bz.Event(
                     bz.EventType.SHOW_GUI_MESSAGE,

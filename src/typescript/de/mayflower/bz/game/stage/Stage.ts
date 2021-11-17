@@ -620,7 +620,9 @@ export abstract class Stage
             {
                 bz.Debug.stage.log( 'Performing a time delay ..' );
 
-                return true;
+                const data :bz.EventDataTimeDelay = ( event.data as bz.EventDataTimeDelay );
+
+                return ( ++data.elapsed >= data.delayInFrames );
             }
         }
     }
@@ -630,30 +632,32 @@ export abstract class Stage
         // check if event pipelines exist
         if ( this.eventPipelines.length > 0 )
         {
-            console.log( '>> handle event pipelines (length ' + this.eventPipelines.length + ')' );
-            console.log( this.eventPipelines );
+            bz.Debug.events.log( 'Handle ' + String( this.eventPipelines.length ) + ' event pipelines' );
 
             const newEventPipelines :bz.Event[][] = [];
 
             // browse all event pipelines
             for ( const eventPipeline of this.eventPipelines )
             {
-                console.log( '  >> handle event pipeline (length ' + eventPipeline.length + ')' );
+                bz.Debug.events.log( ' Handle ' + String( eventPipeline.length ) + ' events' );
 
                 const newEventPipeline :bz.Event[] = [];
 
-                // browse all events
-                let blocked :boolean = false;
+                let pipelineBlocked :boolean = false;
                 for ( const event of eventPipeline )
                 {
-                    const eventProcessed :boolean  = this.launchEvent( event );
-                    if ( !eventProcessed )
-                    {
-                        blocked = true;
-                    }
-                    if (blocked)
+                    if ( pipelineBlocked )
                     {
                         newEventPipeline.push( event );
+                    }
+                    else
+                    {
+                        const eventProcessed :boolean  = this.launchEvent( event );
+                        if ( !eventProcessed )
+                        {
+                            pipelineBlocked = true;
+                            newEventPipeline.push( event );
+                        }
                     }
                 }
 
@@ -661,6 +665,11 @@ export abstract class Stage
                 {
                     newEventPipelines.push( newEventPipeline );
                 }
+            }
+
+            if ( newEventPipelines.length === 0 )
+            {
+                bz.Debug.events.log( ' All events in all event pipelines have been processed!' );
             }
 
             this.eventPipelines = newEventPipelines;

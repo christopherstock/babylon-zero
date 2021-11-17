@@ -31,6 +31,8 @@ export class Debug
     public  static readonly physic          :Debug              = new Debug( false );
     /** Debugs camera behaviours and journeys. */
     public  static readonly camera          :Debug              = new Debug( false );
+    /** Debugs events pipeline. */
+    public  static readonly events          :Debug              = new Debug( true  );
 
     /** Flags if logging for this debug group is enabled. */
     private        readonly debugEnabled    :boolean            = false;
