@@ -58,21 +58,19 @@ export class HitPoint
     *******************************************************************************************************************/
     public causeImpact( scene:bz.Scene, emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
     {
-        // create a bullet hole
-        const bulletHole:bz.BulletHole = new bz.BulletHole
+        // hurt the game object
+        this.gameObject.hurt( scene.getNativeScene(), damage, this.mesh );
+
+        // apply physical impulse to mesh
+        this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
+
+        // return a bullet hole
+        return new bz.BulletHole
         (
             scene,
             this,
             emissiveColor
         );
-
-        // apply impulse
-        this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
-
-        // hurt the game object
-        this.gameObject.hurt( scene.getNativeScene(), damage, this.mesh );
-
-        return bulletHole;
     }
 
     /** ****************************************************************************************************************
