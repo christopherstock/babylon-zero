@@ -318,10 +318,10 @@ export class Model
             {
                 mesh.physicsImpostor.mass = 2.0;
 
-                 // mesh.physicsImpostor.forceUpdate();
+                mesh.setPivotPoint( new BABYLON.Vector3( 0.0, 0.0, 0.0 ) );
 
-
-
+                // no effect
+                // mesh.physicsImpostor.forceUpdate();
             }
         }
     }
