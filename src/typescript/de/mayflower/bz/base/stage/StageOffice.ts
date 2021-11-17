@@ -465,11 +465,11 @@ export class StageOffice extends bz.Stage
             (
                 bz.ModelFile.SODA_MACHINE_2,
                 new BABYLON.Vector3( 5.5, 3.15, 37.5 ),
-                bz.PhysicSet.SHELVES,
+                bz.PhysicSet.SODA_MACHINE,
                 bz.ModelCompoundType.NONE,
                 0.0
             ),
-            5.0
+            7.0
         );
         this.addWall( sodaMachine2 );
 

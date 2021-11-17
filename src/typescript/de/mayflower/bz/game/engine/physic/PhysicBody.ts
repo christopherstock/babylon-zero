@@ -13,11 +13,11 @@ export class PhysicBody
     /** ****************************************************************************************************************
     *   Creates a new physical body.
     *
-    *   @param obj The physical object behaviour of this physics body.
+    *   @param set The physical object behaviour of this physics body.
     *******************************************************************************************************************/
-    public constructor( obj:bz.PhysicSet )
+    public constructor( set:bz.PhysicSet )
     {
-        this.set = obj;
+        this.set = set;
     }
 
     /** ****************************************************************************************************************
@@ -69,7 +69,7 @@ export class PhysicBody
     *******************************************************************************************************************/
     public createPhysicImpostorBoxParams() : bz.PhysicImpostorParams
     {
-        const mass :number = this.set.weight;
+        const mass :number = this.getMass();
 
         return bz.PhysicImpostorParams.fromParams
         (
@@ -87,27 +87,7 @@ export class PhysicBody
     *******************************************************************************************************************/
     private createImpostorParams() : BABYLON.PhysicsImpostorParameters
     {
-        let mass:number = 0.0;
-
-        switch ( this.set.behaviour )
-        {
-            case bz.PhysicBehaviour.STATIC:
-            {
-                mass = 0.0;
-                break;
-            }
-
-            case bz.PhysicBehaviour.MOVABLE:
-            {
-                mass = this.set.weight;
-                break;
-            }
-
-            case bz.PhysicBehaviour.NONE:
-            {
-                break;
-            }
-        }
+        const mass:number = this.getMass();
 
         return {
             mass:        mass,
@@ -116,5 +96,27 @@ export class PhysicBody
 
             disableBidirectionalTransformation: false,
         };
+    }
+
+    private getMass() : number
+    {
+        switch ( this.set.behaviour )
+        {
+            case bz.PhysicBehaviour.STATIC:
+            {
+                return 0.0;
+            }
+
+            case bz.PhysicBehaviour.MOVABLE:
+            {
+                return this.set.weight;
+            }
+
+            case bz.PhysicBehaviour.NONE:
+            default:
+            {
+                return 0.0;
+            }
+        }
     }
 }

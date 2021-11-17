@@ -767,6 +767,9 @@ export class MeshFactory
             }
         }
 
+        // store physic set for later use
+        clonedModel.physicSet = physic;
+
         return clonedModel;
     }
 

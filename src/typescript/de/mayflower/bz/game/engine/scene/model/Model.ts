@@ -18,6 +18,8 @@ export class Model
     /** Specifies if the compound enables single meshes to be shot off. */
     private          enableSingleShotOffs   :boolean                            = false;
 
+    public           physicSet              :bz.PhysicSet                       = null;
+
     /** ****************************************************************************************************************
     *   Creates a new model consisting of the specified meshes.
     *
@@ -316,9 +318,21 @@ export class Model
         {
             if ( mesh.physicsImpostor.mass === 0 )
             {
-                mesh.physicsImpostor.mass = 2.0;
+                // set physical mass
+                let newMass :number = 0;
+                if ( this.physicSet !== null )
+                {
+                    newMass = this.physicSet.weight;
+                }
+                else
+                {
+                    newMass = 1.0;
+                }
+                bz.Debug.physic.log( ' Apply new mass to mesh [' + String( newMass ) + ']' );
+                mesh.physicsImpostor.mass = newMass;
 
-                mesh.setPivotPoint( new BABYLON.Vector3( 0.0, 0.0, 0.0 ) );
+                // reset pivot point
+                mesh.setPivotPoint( new BABYLON.Vector3( 0.0, 0.0, 0.0 ), BABYLON.Space.LOCAL );
 
                 // no effect
                 // mesh.physicsImpostor.forceUpdate();

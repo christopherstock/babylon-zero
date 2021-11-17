@@ -5,9 +5,12 @@
 ===============
 MVP - Game Demo
 ===============
+TODO Re-Enable masses after static bodies collapse
+
 TODO Create time delay feature. (EVENT delay pipeline)
 
 TODO Create 2nd empty stage and move things from 1st to 2nd.
+TODO Add original weight to model that gets re-applied when object is destroyed.
 
 TODO Add event 'level explosion' under car.
 TODO dark bullet holes?
@@ -28,6 +31,7 @@ TODO Add nice textures
 TODO Create realistic models and lights.
 TODO Models (item shell boxes) with changine/different Textures?
 TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
+TODO try class SubMeshes ?
 TODO Try cool physics pause (scene cam) feature.
 TODO Reset Git Repository?
 

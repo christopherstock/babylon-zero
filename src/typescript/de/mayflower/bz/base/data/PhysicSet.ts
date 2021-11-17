@@ -74,7 +74,16 @@ export class PhysicSet
         bz.PhysicBehaviour.STATIC,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.NONE,
-        0.0
+        25.0
+    );
+
+    /** Props for shelves. */
+    public static readonly SODA_MACHINE         :PhysicSet      = new PhysicSet
+    (
+        bz.PhysicBehaviour.STATIC,
+        bz.PhysicFriction.HIGH,
+        bz.PhysicRestitution.NONE,
+        100.0
     );
 
     /** Props for white test sphere wood. */
