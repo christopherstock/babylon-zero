@@ -313,12 +313,12 @@ export class Model
     {
         bz.Debug.physic.log( 'Remove static state from model ' );
 
-        // remove the mass from all meshes
         for ( const mesh of this.meshes )
         {
+            // only consider STATIC meshes
             if ( mesh.physicsImpostor.mass === 0 )
             {
-                // set physical mass
+                // determine and set original physical mass
                 let newMass :number = 0;
                 if ( this.physicSet !== null )
                 {

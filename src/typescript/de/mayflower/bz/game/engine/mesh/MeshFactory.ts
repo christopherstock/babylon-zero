@@ -687,6 +687,9 @@ export class MeshFactory
         const originalModel :bz.Model = this.scene.getModelSystem().getOriginalModel( fileName );
         const clonedModel   :bz.Model = originalModel.clone();
 
+        // remember original physic set for this model
+        clonedModel.physicSet = physic;
+
         // translate cloned model by position
         clonedModel.translatePosition( position );
 
@@ -766,9 +769,6 @@ export class MeshFactory
                 // material.specularColor = bz.SettingColor.COLOR_RGB_WHITE;
             }
         }
-
-        // store physic set for later use
-        clonedModel.physicSet = physic;
 
         return clonedModel;
     }
