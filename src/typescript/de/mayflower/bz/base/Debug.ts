@@ -32,7 +32,7 @@ export class Debug
     /** Debugs camera behaviours and journeys. */
     public  static readonly camera          :Debug              = new Debug( false );
     /** Debugs events pipeline. */
-    public  static readonly events          :Debug              = new Debug( true  );
+    public  static readonly events          :Debug              = new Debug( false );
 
     /** Flags if logging for this debug group is enabled. */
     private        readonly debugEnabled    :boolean            = false;

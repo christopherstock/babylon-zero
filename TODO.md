@@ -5,28 +5,20 @@
 ===============
 MVP - Game Demo
 ===============
+TODO Enable changeable textures for imported models (shells)
 TODO Try 3D wearpon model
-
+TODO Add event 'level explosion' (under car).
+TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Add door creation to room creation method.
 TODO Create event type 'ingame message' with pic and message.
-
-TODO Add event 'level explosion' (under car).
 TODO dark bullet holes?
-TODO Switch stage on door interaction!
-TODO hand over Inventory between Stages
+TODO create player inventory and let him add items and keep items between Stages
 TODO Try stored 3dsmax model animations.
-TODO prune all default values (= null) and add linter rule?
-TODO Explosion effect when objects break
-TODO Scale up/down all chairs and some models?
-TODO Enable changeable textures for imported models
-TODO Add shelves and some more (better) 3dsmax models?
+TODO Improve models (shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
-TODO Add nice textures
+TODO Add nicer textures
 TODO Create realistic models and lights.
-TODO Models (item shell boxes) with changine/different Textures?
-TODO Set emissive color for all imported models/materials explicitly? Try model in TestLevel!
-TODO try class SubMeshes ?
 TODO Try cool physics pause (scene cam) feature.
 TODO Reset Git Repository?
 
@@ -38,7 +30,6 @@ TODO Fix ducking? => concerning heightY and shot height ?
 TODO Fix jumping!
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!
-TODO Fix head shaking.
 TODO debug and improve init process?
 TODO Find and reduce classes with mixed static & non-static content
 TODO create player die effect (tilt cylinder and head etc.)
@@ -46,6 +37,7 @@ TODO create player die effect (tilt cylinder and head etc.)
 ==
 UX
 ==
+TODO Try Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 
 =====
@@ -103,6 +95,12 @@ TODO Checkout babylon.JS bones and skeletons?
 TODO Check cannonJs examples ? (human.js .. bones etc.)
 TODO Create class Bot that represents an enemy with one field for attitude.
 
+=========
+Secondary
+=========
+TODO Fix head shaking?
+TODO try class SubMeshes ?
+
 ============
 New features
 ============
@@ -111,10 +109,7 @@ TODO Try soft bodies.
 TODO Try babylon 101 scenes.
 TODO Try 'worker thread collisions'? seems obsolete.
 TODO Try reflecting mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
-TODO Try Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
 TODO Try fur (babylon-material extension).
 TODO Try water material/effects?
-TODO Try Impossible?: Show a video texture in the GUI.
-TODO Try 3D GUI again? ( requires babylon.JS 3.3 )?
 TODO See 'gamelets' in the babylon.JS docs.
 ```
