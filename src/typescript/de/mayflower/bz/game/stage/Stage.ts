@@ -286,7 +286,29 @@ export abstract class Stage
 
     public addEventsToPipeline( events:bz.Event[] ) : void
     {
-        this.eventPipelines.push( events );
+        // reset event data
+        const newEvents :bz.Event[] = [];
+        for ( const event of events )
+        {
+            // clone the TIME_DELAY effect in order to use a discreet object with an own elapse-counter here!
+            if ( event.type === bz.EventType.TIME_DELAY )
+            {
+                newEvents.push(
+                    new bz.Event(
+                        bz.EventType.TIME_DELAY,
+                        new bz.EventDataTimeDelay(
+                            ( event.data as bz.EventDataTimeDelay ).delayInFrames
+                        )
+                    )
+                );
+            }
+            else
+            {
+                newEvents.push( event );
+            }
+        }
+
+        this.eventPipelines.push( newEvents );
     }
 
     /** ****************************************************************************************************************
@@ -657,6 +679,8 @@ export abstract class Stage
                         {
                             pipelineBlocked = true;
                             newEventPipeline.push( event );
+
+                            bz.Debug.events.log( '  Event is blocking the event pipeline.' );
                         }
                     }
                 }
