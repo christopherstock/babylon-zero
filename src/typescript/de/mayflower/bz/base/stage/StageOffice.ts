@@ -417,8 +417,12 @@ export class StageOffice extends bz.Stage
                     new bz.EventDataShowGuiMessage( 'All cleared for today.' )
                 ),
                 new bz.Event(
+                    bz.EventType.TIME_DELAY,
+                    new bz.EventDataTimeDelay( 10000 )
+                ),
+                new bz.Event(
                     bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'No more work for today.' )
+                    new bz.EventDataShowGuiMessage( 'DELAYED: No more work for today.' )
                 ),
             ],
             bz.InteractionType.ONCE
@@ -555,8 +559,12 @@ export class StageOffice extends bz.Stage
                     new bz.EventDataShowGuiMessage( 'Nothing on the television today' )
                 ),
                 new bz.Event(
+                    bz.EventType.TIME_DELAY,
+                    new bz.EventDataTimeDelay( 10000 )
+                ),
+                new bz.Event(
                     bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'I think I should go home now.' )
+                    new bz.EventDataShowGuiMessage( 'DELAYED: I think I should go home now.' )
                 ),
             ],
             bz.InteractionType.ONCE

@@ -129,18 +129,8 @@ export abstract class Stage
             item.render();
         }
 
-        // render event pipeline
-        if ( this.eventPipelines.length > 0 )
-        {
-            for ( const eventPipeline of this.eventPipelines )
-            {
-                for ( const event of eventPipeline )
-                {
-                    this.launchEvent( event );
-                }
-            }
-            this.eventPipelines = [];
-        }
+        // handle events
+        this.handleEventPipeline();
     }
 
     /** ****************************************************************************************************************
@@ -582,8 +572,11 @@ export abstract class Stage
     *   Performs the specific event inside this stage NOW.
     *
     *   @param event The event to perform NOW.
+    *
+    *   @return <code>true</code> if this event has been processed.
+    *           <code>false</code> if this event has not been completed yet.
     *******************************************************************************************************************/
-    private launchEvent( event:bz.Event ) : void
+    private launchEvent( event:bz.Event ) : boolean
     {
         switch ( event.type )
         {
@@ -598,7 +591,8 @@ export abstract class Stage
                     data.startupPosition,
                     data.startupRotation
                 );
-                break;
+
+                return true;
             }
 
             case bz.EventType.SHOW_GUI_MESSAGE:
@@ -607,7 +601,8 @@ export abstract class Stage
 
                 const data :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
                 this.getGame().getGUI().addGuiMessage( data.message );
-                break;
+
+                return true;
             }
 
             case bz.EventType.SHOW_GUI_EFFECT:
@@ -618,8 +613,57 @@ export abstract class Stage
 
                 this.getGame().getGUI().addGuiEffect( data.guiEffect );
 
-                break;
+                return true;
             }
+
+            case bz.EventType.TIME_DELAY:
+            {
+                bz.Debug.stage.log( 'Performing a time delay ..' );
+
+                return true;
+            }
+        }
+    }
+
+    private handleEventPipeline() : void
+    {
+        // check if event pipelines exist
+        if ( this.eventPipelines.length > 0 )
+        {
+            console.log( '>> handle event pipelines (length ' + this.eventPipelines.length + ')' );
+            console.log( this.eventPipelines );
+
+            const newEventPipelines :bz.Event[][] = [];
+
+            // browse all event pipelines
+            for ( const eventPipeline of this.eventPipelines )
+            {
+                console.log( '  >> handle event pipeline (length ' + eventPipeline.length + ')' );
+
+                const newEventPipeline :bz.Event[] = [];
+
+                // browse all events
+                let blocked :boolean = false;
+                for ( const event of eventPipeline )
+                {
+                    const eventProcessed :boolean  = this.launchEvent( event );
+                    if ( !eventProcessed )
+                    {
+                        blocked = true;
+                    }
+                    if (blocked)
+                    {
+                        newEventPipeline.push( event );
+                    }
+                }
+
+                if ( newEventPipeline.length > 0 )
+                {
+                    newEventPipelines.push( newEventPipeline );
+                }
+            }
+
+            this.eventPipelines = newEventPipelines;
         }
     }
 

@@ -73,3 +73,23 @@ export class EventDataShowGuiEffect extends EventData
         this.guiEffect = guiEffect;
     }
 }
+
+/** ********************************************************************************************************************
+*   The event data for the event type { @link EventType.TIME_DELAY }.
+***********************************************************************************************************************/
+export class EventDataTimeDelay extends EventData
+{
+    public delayInMillis :number;
+
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Time Delay'.
+    *
+    *   @param delayInMillis The number of millis to delay.
+    *******************************************************************************************************************/
+    public constructor( delayInMillis:number )
+    {
+        super();
+
+        this.delayInMillis = delayInMillis;
+    }
+}

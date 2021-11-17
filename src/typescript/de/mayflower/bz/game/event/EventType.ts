@@ -8,4 +8,6 @@ export enum EventType
     SHOW_GUI_MESSAGE,
 
     SHOW_GUI_EFFECT,
+
+    TIME_DELAY,
 }

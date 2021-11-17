@@ -58,7 +58,7 @@ export class CanvasSystem
         this.canvas.width  = canvasWidth;
         this.canvas.height = canvasHeight;
 
-        bz.Debug.canvas.log
+        bz.Debug.engine.log
         (
             'Set canvas dimensions ['
             + String( canvasWidth ) + 'x' + String( canvasHeight ) + '] '
