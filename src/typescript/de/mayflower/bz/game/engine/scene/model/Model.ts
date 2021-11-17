@@ -389,54 +389,16 @@ export class Model
     /** ****************************************************************************************************************
     *   Darkens all meshes according to the given ratio.
     *
-    *   @param scene The babylon.JS scene to create new materials for.
-    *   @param ratio The ratio for the current mesh color to darken.
+    *   @param scene          The babylon.JS scene to create new materials for.
+    *   @param darkeningAlpha Darkening ratio to set. From 0.0 (no darkening) to 1.0 (black).
     *******************************************************************************************************************/
-    public darkenMeshes( scene:BABYLON.Scene, ratio:number ) : void
+    public setMeshDarkening( scene:BABYLON.Scene, darkeningAlpha:number ) : void
     {
-        console.log( 'Darken meshes - ratio: ' + ratio );
-
-        if ( true ) {
-            return;
-        }
-
         for ( const mesh of this.meshes )
         {
-            // handle default material
-            if ( mesh.material instanceof BABYLON.StandardMaterial )
-            {
-                const numberToSubtract    :number                   = ratio; // 0.025 * bz.MathUtil.getRandomInt();
-
-                const oldStandardMaterial :BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial );
-                const oldAmbientColor     :BABYLON.Color3           = oldStandardMaterial.ambientColor;
-                const oldR                :number                   = oldAmbientColor.r;
-                const oldG                :number                   = oldAmbientColor.g;
-                const oldB                :number                   = oldAmbientColor.b;
-
-                const newR                :number                   = oldR - numberToSubtract;
-                const newG                :number                   = oldG - numberToSubtract;
-                const newB                :number                   = oldB - numberToSubtract;
-                const newAmbientColor     :BABYLON.Color3           = new BABYLON.Color3( newR, newG, newB );
-                const newStandardMaterial :BABYLON.StandardMaterial = new BABYLON.StandardMaterial
-                (
-                    bz.MaterialSystem.createNextMaterialId(),
-                    scene
-                );
-                newStandardMaterial.ambientColor    = newAmbientColor;
-                newStandardMaterial.backFaceCulling = false;
-
-                // console.log( ' > old ambient [' + oldStandardMaterial.ambientColor  + ']' );
-                // console.log( ' > number to substract [' + numberToSubtract + ']' );
-                // console.log( ' > new ambient [' + newStandardMaterial.ambientColor  + ']' );
-
-                mesh.material = newStandardMaterial;
-            }
-/*
-            let multiMaterial:BABYLON.MultiMaterial = ( mesh.material as BABYLON.MultiMaterial );
-            var blackMaterial = new BABYLON.StandardMaterial( 'mat2', bz.Main.game.engine.scene.getScene() );
-            blackMaterial.emissiveColor = new BABYLON.Color3( 0.0, 0, 0.0 );
-            multiMaterial.subMaterials.push( blackMaterial );
-*/
+            mesh.overlayColor  = BABYLON.Color3.Black();
+            mesh.renderOverlay = true;
+            mesh.overlayAlpha  = darkeningAlpha;
         }
     }
 

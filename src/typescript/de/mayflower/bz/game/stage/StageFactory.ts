@@ -178,7 +178,8 @@ export class StageFactory
                     new BABYLON.Vector3( pos.x, pos.y, pos.z ),
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
-                )
+                ),
+                7
             )
         );
         stage.addWall(
@@ -191,7 +192,8 @@ export class StageFactory
                     new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 ),
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
-                )
+                ),
+                7
             )
         );
         stage.addWall(
@@ -204,7 +206,8 @@ export class StageFactory
                     new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ),
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
-                )
+                ),
+                7
             )
         );
         stage.addWall(
@@ -217,7 +220,8 @@ export class StageFactory
                     new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 ),
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
-                )
+                ),
+                7
             )
         );
         stage.addWall(
@@ -230,7 +234,8 @@ export class StageFactory
                     new BABYLON.Vector3( pos.x + 2.5, pos.y + 2 * 2.5, pos.z + 2.5 ),
                     bz.PhysicSet.CRATE_WOOD,
                     bz.ModelCompoundType.NONE
-                )
+                ),
+                7
             )
         );
 
@@ -253,7 +258,8 @@ export class StageFactory
                             new BABYLON.Vector3( 0.0, 45.0, 0.0 )
                         ),
                     ]
-                )
+                ),
+                12
             )
         );
         stage.addWall(
@@ -275,7 +281,8 @@ export class StageFactory
                             new BABYLON.Vector3( 0.0,  30.0, 0.0   )
                         ),
                     ]
-                )
+                ),
+                12
             )
         );
     }

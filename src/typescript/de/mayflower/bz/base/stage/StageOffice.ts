@@ -501,7 +501,7 @@ export class StageOffice extends bz.Stage
                 bz.ModelCompoundType.NONE,
                 180.0
             ),
-            5.0
+            30.0
         );
         this.addWall( car1 );
 
@@ -517,7 +517,7 @@ export class StageOffice extends bz.Stage
                 bz.ModelCompoundType.NONE,
                 180.0
             ),
-            5.0
+            20.0
         );
         this.addWall( bench1 );
     }

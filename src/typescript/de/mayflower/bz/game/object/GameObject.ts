@@ -168,8 +168,8 @@ export abstract class GameObject
             + String( this.currentEnergy ) + ']'
         );
 
-        // try mesh face darkening
-        this.model.darkenMeshes( scene, ( damage / this.initialEnergy ) );
+        // set darkening value for this mesh
+        this.model.setMeshDarkening( scene, ( 1.0 - ( this.currentEnergy / this.initialEnergy ) ) );
 
         // shot off this mesh from the compound - if enabled by the model
         this.model.shotOffCompound( scene, mesh );
