@@ -394,6 +394,12 @@ export class Model
     *******************************************************************************************************************/
     public darkenMeshes( scene:BABYLON.Scene, ratio:number ) : void
     {
+        console.log( 'Darken meshes - ratio: ' + ratio );
+
+        if ( true ) {
+            return;
+        }
+
         for ( const mesh of this.meshes )
         {
             // handle default material
@@ -401,7 +407,7 @@ export class Model
             {
                 const numberToSubtract    :number                   = ratio; // 0.025 * bz.MathUtil.getRandomInt();
 
-                const oldStandardMaterial :BABYLON.StandardMaterial = mesh.material;
+                const oldStandardMaterial :BABYLON.StandardMaterial = ( mesh.material as BABYLON.StandardMaterial );
                 const oldAmbientColor     :BABYLON.Color3           = oldStandardMaterial.ambientColor;
                 const oldR                :number                   = oldAmbientColor.r;
                 const oldG                :number                   = oldAmbientColor.g;

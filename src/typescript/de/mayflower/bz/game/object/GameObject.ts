@@ -16,7 +16,7 @@ export abstract class GameObject
     private          readonly initialEnergy        :number   = 0;
 
     /** The current energy of this wall. */
-    private                   energy               :number   = 0;
+    private                   currentEnergy        :number   = 0;
     /** Flags if this wall is broken. */
     private                   destroyed            :boolean  = false;
     /** The next z-index for the bullet hole to assign. */
@@ -34,7 +34,7 @@ export abstract class GameObject
         this.stage         = stage;
         this.model         = model;
         this.initialEnergy = energy;
-        this.energy        = energy;
+        this.currentEnergy = energy;
     }
 
     /** ****************************************************************************************************************
@@ -134,7 +134,7 @@ export abstract class GameObject
     public hurt( scene:BABYLON.Scene, damage:number, mesh:BABYLON.AbstractMesh ) : void
     {
         // exit if unbreakable
-        if ( this.energy === GameObject.UNBREAKABLE )
+        if ( this.currentEnergy === GameObject.UNBREAKABLE )
         {
             bz.Debug.fire.log( 'Object is unbreakable.' );
             return;
@@ -154,21 +154,19 @@ export abstract class GameObject
             return;
         }
 
-        // lower energy
-        this.energy -= damage;
+        // lower energy and clip to 0
+        this.currentEnergy -= damage;
+        if ( this.currentEnergy <= 0 )
+        {
+            this.currentEnergy = 0;
+        }
         bz.Debug.fire.log
         (
             'Object got hurt with ['
             + String( damage )
             + '] damage - new energy is ['
-            + String( this.energy ) + ']'
+            + String( this.currentEnergy ) + ']'
         );
-
-        // clip lowest energy value
-        if ( this.energy <= 0 )
-        {
-            this.energy = 0;
-        }
 
         // try mesh face darkening
         this.model.darkenMeshes( scene, ( damage / this.initialEnergy ) );
@@ -177,11 +175,11 @@ export abstract class GameObject
         this.model.shotOffCompound( scene, mesh );
 
         // check if the object is destoyed now
-        if ( this.energy === 0 )
+        if ( this.currentEnergy === 0 )
         {
             // flag as destroyed
             this.destroyed = true;
-            bz.Debug.fire.log( 'Object is destroyed.' );
+            bz.Debug.fire.log( 'Object is now destroyed.' );
 
             // scatter the model
             this.model.removeCompoundMesh( scene );

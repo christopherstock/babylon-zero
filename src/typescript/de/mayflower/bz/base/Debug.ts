@@ -26,7 +26,7 @@ export class Debug
     /** Debugs player move, rotate, ducking, interaction. */
     public  static readonly player          :Debug              = new Debug( true  );
     /** Debugs player fire. */
-    public  static readonly fire            :Debug              = new Debug( false );
+    public  static readonly fire            :Debug              = new Debug( true  );
     /** Debugs physic calculations. */
     public  static readonly physic          :Debug              = new Debug( false );
     /** Debugs camera behaviours and journeys. */
