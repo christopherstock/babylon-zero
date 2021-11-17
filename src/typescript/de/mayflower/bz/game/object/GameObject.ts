@@ -168,8 +168,12 @@ export abstract class GameObject
             + String( this.currentEnergy ) + ']'
         );
 
-        // set darkening value for this mesh
-        this.model.setMeshDarkening( scene, ( 1.0 - ( this.currentEnergy / this.initialEnergy ) ) );
+        // set darkening alpha value for this mesh
+        const darkenAlpha :number = (
+            bz.SettingEngine.MAX_MESH_DARKENING_RATIO
+            - ( bz.SettingEngine.MAX_MESH_DARKENING_RATIO * ( this.currentEnergy / this.initialEnergy ) )
+        );
+        this.model.setMeshDarkening( scene, darkenAlpha );
 
         // shot off this mesh from the compound - if enabled by the model
         this.model.shotOffCompound( scene, mesh );

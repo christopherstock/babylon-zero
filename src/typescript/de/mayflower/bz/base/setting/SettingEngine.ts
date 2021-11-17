@@ -102,4 +102,6 @@ export class SettingEngine
 
     /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
     public static readonly FLOOR_OFFSET_Y                           :number             = 0.001;
+
+    public static readonly MAX_MESH_DARKENING_RATIO                 :number             = 0.8;
 }
