@@ -131,7 +131,7 @@ export class MaterialSystem
     *   @param repeatU The amount for U repeating this texture.
     *   @param repeatV The amount for V repeating this texture.
     *******************************************************************************************************************/
-    private static createTexture
+    public static createTexture
     (
         textureFile :bz.TextureFile,
         repeatU     :number,

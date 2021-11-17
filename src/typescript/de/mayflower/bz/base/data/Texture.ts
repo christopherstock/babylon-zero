@@ -138,7 +138,9 @@ export class Texture
             && mesh.material.getActiveTextures().length > 0
         )
         {
-            // pick texture filename
+            // TODO Add model texture files back to TEXTURES.ALL_FILES ???
+
+            // pick texture filename TODO this is NOT the name! cast to BABYLON.Texture and use field 'url' !!
             const meshTextureFileName:string = mesh.material.getActiveTextures()[ 0 ].name;
 
             const bulletHoleTexture :bz.TextureFile = Texture.getBulletHoleTexForMeshTex( meshTextureFileName );

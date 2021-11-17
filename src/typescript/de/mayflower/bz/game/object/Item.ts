@@ -78,7 +78,11 @@ export class Item extends bz.Trigger
                     stage.getConfig().ambientColor
                 ).createImportedModel( bz.ModelFile.ITEM_SHOTGUN_SHELLS );
 
-                shells.changeTexture( 'shells.jpg', '792mmBullet.jpg' );
+                shells.changeTexture(
+                    stage.getScene(),
+                    bz.SettingResource.PATH_MODEL + 'item/shells.jpg',
+                    bz.SettingResource.PATH_MODEL + 'item/792mmBullet.jpg'
+                );
 
                 return shells;
             }
