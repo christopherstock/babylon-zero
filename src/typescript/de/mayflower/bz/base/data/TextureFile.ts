@@ -96,11 +96,11 @@ export class TextureFile
         fileName          :string,
         textureHasAlpha   :bz.TextureHasAlpha,
         strategyUV        :bz.TextureUV,
-        bulletHoleTexture :bz.TextureFile,
+        bulletHoleTexture :TextureFile,
         textureType       :bz.TextureType
     )
     {
-        this.fileName          = bz.TextureFile.getFileName( textureType, fileName );
+        this.fileName          = TextureFile.getFileName( textureType, fileName );
         this.textureHasAlpha   = textureHasAlpha;
         this.strategyUV        = strategyUV;
         this.bulletHoleTexture = bulletHoleTexture;
