@@ -24,8 +24,6 @@ export class TextureFile
     public static readonly WALL_MAYFLOWER_LOGO          :TextureFile            = new TextureFile( 'wall/mfLogo.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL );
     /** The texture file 'wall amiga'. */
     public static readonly WALL_AMIGA                   :TextureFile            = new TextureFile( 'wall/amiga.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL );
-    /** The texture file 'wall wood horizontal'. */
-    public static readonly WALL_WOOD_HORZ               :TextureFile            = new TextureFile( 'wall/woodHorz.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL );
     /** The texture file 'wall wood vertical'. */
     public static readonly WALL_WOOD_VERT               :TextureFile            = new TextureFile( 'wall/woodVert.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL );
     /** The texture file 'wall grass'. */
@@ -57,6 +55,8 @@ export class TextureFile
 
     /** The texture file 'model wood light'. */
     public static readonly MODEL_WOOD_LIGHT             :TextureFile            = new TextureFile( 'furniture/woodLight.jpg',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
+    /** The texture file 'model wood horizontal'. */
+    public static readonly MODEL_WOOD_HORZ              :TextureFile            = new TextureFile( 'furniture/woodHorz.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
 
     /** The texture file 'heightmap valley'. Just a filename storage. No own bz.Texture instance will be created from it! */
     public static readonly HEIGHTMAP_VALLEY             :TextureFile            = new TextureFile( 'heightMap/valley.png',      bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL );
@@ -99,25 +99,6 @@ export class TextureFile
         this.textureType       = textureType;
     }
 
-    private getFileName( textureType:bz.TextureType, fileName:string ) : string
-    {
-        switch ( textureType )
-        {
-            case bz.TextureType.WALL:
-            {
-                return ( bz.SettingResource.PATH_IMAGE_TEXTURE + fileName );
-            }
-            case bz.TextureType.WALL_AND_MODEL:
-            {
-                return ( bz.SettingResource.PATH_MODEL + fileName );
-            }
-            case bz.TextureType.VIDEO:
-            {
-                return ( bz.SettingResource.PATH_VIDEO + fileName );
-            }
-        }
-    }
-
     /** ****************************************************************************************************************
     *   Checks if this texture is a video texture.
     *
@@ -146,5 +127,24 @@ export class TextureFile
     public getStrategyUV() : bz.TextureUV
     {
         return this.strategyUV;
+    }
+
+    private getFileName( textureType:bz.TextureType, fileName:string ) : string
+    {
+        switch ( textureType )
+        {
+            case bz.TextureType.WALL:
+            {
+                return ( bz.SettingResource.PATH_IMAGE_TEXTURE + fileName );
+            }
+            case bz.TextureType.WALL_AND_MODEL:
+            {
+                return ( bz.SettingResource.PATH_MODEL + fileName );
+            }
+            case bz.TextureType.VIDEO:
+            {
+                return ( bz.SettingResource.PATH_VIDEO + fileName );
+            }
+        }
     }
 }

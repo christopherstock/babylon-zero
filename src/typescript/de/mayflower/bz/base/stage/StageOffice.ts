@@ -55,10 +55,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING
         );
@@ -95,7 +95,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
             0.0,
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
             null, [], [],
             null, [ 1.0 ], [],
@@ -110,7 +110,7 @@ export class StageOffice extends bz.Stage
             0.0,
             null, [], [],
             null, [], [],
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [ 1.0 ], [],
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING
@@ -123,9 +123,9 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 80.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
-            bz.TextureFile.WALL_WOOD_HORZ, [ 10.0 ], [],
-            bz.TextureFile.WALL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [ 10.0 ], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING
@@ -602,7 +602,7 @@ export class StageOffice extends bz.Stage
                             bz.MeshAnchor.CENTER_XYZ,
                             3.0,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.TextureFile.MODEL_WOOD_LIGHT,
+                            bz.TextureFile.MODEL_WOOD_HORZ,
                             null,
                             bz.PhysicSet.WHITE_TEST_SPHERE
                         ),

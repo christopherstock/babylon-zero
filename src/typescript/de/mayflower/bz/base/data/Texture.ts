@@ -17,7 +17,6 @@ export class Texture
         new Texture( bz.TextureFile.WALL_STONES_3 ),
         new Texture( bz.TextureFile.WALL_MAYFLOWER_LOGO ),
         new Texture( bz.TextureFile.WALL_AMIGA ),
-        new Texture( bz.TextureFile.WALL_WOOD_HORZ ),
         new Texture( bz.TextureFile.WALL_WOOD_VERT ),
         new Texture( bz.TextureFile.WALL_GRASS ),
         new Texture( bz.TextureFile.WALL_GLASS ),
@@ -35,6 +34,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_DOOR_1 ),
 
         new Texture( bz.TextureFile.MODEL_WOOD_LIGHT ),
+        new Texture( bz.TextureFile.MODEL_WOOD_HORZ ),
 
         new Texture( bz.TextureFile.VIDEO_TEST ),
     ];
