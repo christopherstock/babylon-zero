@@ -98,6 +98,11 @@ export class PhysicBody
         };
     }
 
+    /** ****************************************************************************************************************
+    *   Delivers the mass of this physic body, depending on its behaviour.
+    *
+    *   @return The mass of this physic body.
+    *******************************************************************************************************************/
     private getMass() : number
     {
         switch ( this.set.behaviour )

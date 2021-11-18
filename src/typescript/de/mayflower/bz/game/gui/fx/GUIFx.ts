@@ -26,7 +26,7 @@ export class GUIFx
     {
         this.lifetimeTicks = bz.SettingGUI.GUI_FX_LIFETIME;
 
-        const color:string = GUIFx.getColorFromGuiFxType( type );
+        const color:string = GUIFx.getScreenColorForGuiFxType( type );
 
         this.fxRect = bz.GUIFactory.createRectangle
         (
@@ -75,7 +75,14 @@ export class GUIFx
         this.fxRect.dispose();
     }
 
-    private static getColorFromGuiFxType( type:bz.GUIFxType ) : string
+    /** ****************************************************************************************************************
+    *   Get the screen color to apply for this GUI effect.
+    *
+    *   @param type The type of GUI Fx to get the screen color for.
+    *
+    *   @return The screen color to apply for this fx type.
+    *******************************************************************************************************************/
+    private static getScreenColorForGuiFxType( type:bz.GUIFxType ) : string
     {
         switch ( type )
         {

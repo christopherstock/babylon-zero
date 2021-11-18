@@ -685,10 +685,7 @@ export class MeshFactory
     : bz.Model
     {
         const originalModel :bz.Model = this.scene.getModelSystem().getOriginalModel( fileName );
-        const clonedModel   :bz.Model = originalModel.clone();
-
-        // remember original physic set for this model
-        clonedModel.physicSet = physic;
+        const clonedModel   :bz.Model = originalModel.clone( physic );
 
         // translate cloned model by position
         clonedModel.translatePosition( position );

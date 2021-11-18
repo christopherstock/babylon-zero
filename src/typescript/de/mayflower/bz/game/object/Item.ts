@@ -52,6 +52,13 @@ export class Item extends bz.Trigger
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Create the default events for this item type.
+    *
+    *   @param itemType Type of item to create events for.
+    *
+    *   @return Created events for the specified item type.
+    *******************************************************************************************************************/
     private static createEventsByItemType( itemType:bz.ItemType ) : bz.Event[]
     {
         switch ( itemType )
@@ -88,6 +95,14 @@ export class Item extends bz.Trigger
         return [];
     }
 
+    /** ****************************************************************************************************************
+    *   Create the representational 3d model for this item type.
+    *
+    *   @param stage    The stage to create this 3d model in.
+    *   @param itemType Type of item to create 3d model for.
+    *
+    *   @return The created 3d model for the specified item type.
+    *******************************************************************************************************************/
     private static createModelByItemType( stage:bz.Stage, itemType:bz.ItemType ) : bz.Model
     {
         switch ( itemType )

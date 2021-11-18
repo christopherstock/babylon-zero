@@ -17,8 +17,8 @@ export class Model
 
     /** Specifies if the compound enables single meshes to be shot off. */
     private          enableSingleShotOffs   :boolean                            = false;
-
-    public           physicSet              :bz.PhysicSet                       = null;
+    /** The physics set for this model if any. */
+    private          physicSet              :bz.PhysicSet                       = null;
 
     /** ****************************************************************************************************************
     *   Creates a new model consisting of the specified meshes.
@@ -340,6 +340,15 @@ export class Model
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Changes the specified texture inside this model to a different one.
+    *
+    *   @param scene Type scene reference.
+    *   @param from  Resource string of the Texture to change.
+    *   @param to    Resource string of the new Texture to apply.
+    *
+    *   @return A reference to this Model instance.
+    *******************************************************************************************************************/
     public changeTexture( scene:bz.Scene, from:string, to:string ) : bz.Model
     {
         // browse all meshes
@@ -431,7 +440,7 @@ export class Model
     *
     *   @return A cloned instance of this model.
     *******************************************************************************************************************/
-    public clone() : Model
+    public clone( physicSet:bz.PhysicSet ) : Model
     {
         const clonedMeshes:BABYLON.AbstractMesh[] = this.cloneMeshes();
 
@@ -449,7 +458,9 @@ export class Model
             clonedMesh.isPickable = true;
         }
 
-        return new bz.Model( clonedMeshes );
+        const model :bz.Model = new bz.Model( clonedMeshes );
+        model.physicSet = physicSet;
+        return model;
     }
 
     /** ****************************************************************************************************************

@@ -122,9 +122,10 @@ export class Trigger extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
-    *   Creates a debug bullet hole sphere onto this hit point.
+    *   Creates a debug bullet hole sphere at the specified position.
     *
-    *   @param scene The scene to create the bullet hole for.
+    *   @param scene    The scene to create the bullet hole for.
+    *   @param position Position for this debug sphere.
     *******************************************************************************************************************/
     private createDebugHoleSphere( scene:bz.Scene, position:BABYLON.Vector3 ) : void
     {

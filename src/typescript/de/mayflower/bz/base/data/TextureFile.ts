@@ -100,7 +100,7 @@ export class TextureFile
         textureType       :bz.TextureType
     )
     {
-        this.fileName          = this.getFileName( textureType, fileName );
+        this.fileName          = bz.TextureFile.getFileName( textureType, fileName );
         this.textureHasAlpha   = textureHasAlpha;
         this.strategyUV        = strategyUV;
         this.bulletHoleTexture = bulletHoleTexture;
@@ -137,7 +137,7 @@ export class TextureFile
         return this.strategyUV;
     }
 
-    private getFileName( textureType:bz.TextureType, fileName:string ) : string
+    private static getFileName( textureType:bz.TextureType, fileName:string ) : string
     {
         switch ( textureType )
         {
