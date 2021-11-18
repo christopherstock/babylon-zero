@@ -100,7 +100,7 @@ export class TextureFile
         textureType       :bz.TextureType
     )
     {
-        this.fileName          = TextureFile.getFileName( textureType, fileName );
+        this.fileName          = TextureFile.createFullFileName( textureType, fileName );
         this.textureHasAlpha   = textureHasAlpha;
         this.strategyUV        = strategyUV;
         this.bulletHoleTexture = bulletHoleTexture;
@@ -138,14 +138,57 @@ export class TextureFile
     }
 
     /** ****************************************************************************************************************
-    *   Determines the fileName for the specified texture type.
+    *   Creates a new Babylon.js texture from this TextureFile.
+    *
+    *   @param repeatU The amount for U repeating this texture.
+    *   @param repeatV The amount for V repeating this texture.
+    *******************************************************************************************************************/
+    public createNewTextureInstance( repeatU:number, repeatV:number ) : BABYLON.Texture
+    {
+        // do not clone native video textures! ( babylon.JS will hang otherwise! )
+        const newTexture:BABYLON.Texture =
+        (
+            this.getIsVideoTexture()
+                ? bz.Texture.getNativeTexture( this )
+                // is seems that cloning is not required and getNativeTexture is also working here
+                : bz.Texture.cloneNativeTexture( this )
+        );
+
+        if ( this.getIsVideoTexture() )
+        {
+            newTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
+            newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
+        }
+        else
+        {
+            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
+
+            // working around poor typings for scaling ..
+            if ( repeatU !== -1 )
+            {
+                ( newTexture as any ).uScale = repeatU;
+            }
+            if ( repeatV !== -1 )
+            {
+                ( newTexture as any ).vScale = repeatV;
+            }
+        }
+
+        newTexture.hasAlpha = this.hasAlpha();
+
+        return newTexture;
+    }
+
+    /** ****************************************************************************************************************
+    *   Determines the full qualified path and fileName for the specified texture type.
     *
     *   @param textureType The type of texture.
     *   @param fileName    The path to the file, without the resources root path.
     *
     *   @return The complete resources path to the texture file.
     *******************************************************************************************************************/
-    private static getFileName( textureType:bz.TextureType, fileName:string ) : string
+    private static createFullFileName( textureType:bz.TextureType, fileName:string ) : string
     {
         switch ( textureType )
         {

@@ -93,9 +93,8 @@ export class MaterialSystem
                 }
             }
 
-            material.diffuseTexture = MaterialSystem.createTexture
+            material.diffuseTexture = textureFile.createNewTextureInstance
             (
-                textureFile,
                 textureU,
                 textureV
             );
@@ -122,55 +121,5 @@ export class MaterialSystem
     public static createNextMaterialId() : string
     {
         return 'material' + String( MaterialSystem.nextMaterialId++ );
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates a textured material.
-    *
-    *   @param textureFile The texture to create.
-    *   @param repeatU The amount for U repeating this texture.
-    *   @param repeatV The amount for V repeating this texture.
-    *******************************************************************************************************************/
-    public static createTexture
-    (
-        textureFile :bz.TextureFile,
-        repeatU     :number,
-        repeatV     :number
-    )
-    : BABYLON.Texture
-    {
-        // do not clone native video textures! ( babylon.JS will hang otherwise! )
-        const newTexture:BABYLON.Texture =
-        (
-            textureFile.getIsVideoTexture()
-                ? bz.Texture.getNativeTexture( textureFile )
-                // is seems that cloning is not required and getNativeTexture is also working here
-                : bz.Texture.cloneNativeTexture( textureFile )
-        );
-
-        if ( textureFile.getIsVideoTexture() )
-        {
-            newTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
-            newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
-        }
-        else
-        {
-            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
-            newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
-
-            // working around poor typings for scaling ..
-            if ( repeatU !== -1 )
-            {
-                ( newTexture as any ).uScale = repeatU;
-            }
-            if ( repeatV !== -1 )
-            {
-                ( newTexture as any ).vScale = repeatV;
-            }
-        }
-
-        newTexture.hasAlpha = textureFile.hasAlpha();
-
-        return newTexture;
     }
 }
