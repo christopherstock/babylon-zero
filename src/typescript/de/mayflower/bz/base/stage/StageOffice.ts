@@ -239,27 +239,6 @@ export class StageOffice extends bz.Stage
                 ]
             )
         );
-        this.addItem(
-            new bz.Trigger
-            (
-                this,
-                new BABYLON.Vector3( 150.0, 1.0, 35.0 ),
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Cast testwise explosion ..' )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.HURT )
-                    ),
-                    new bz.Event(
-                        bz.EventType.CAST_EXPLOSION,
-                        new bz.EventDataCastExplosion( 100.0, 100.0 )
-                    ),
-                ]
-            )
-        );
 
         // add stage switch door
         this.addWall(
@@ -352,11 +331,16 @@ export class StageOffice extends bz.Stage
             // show hurt GUI effect
             this.getGame().getGUI().addGuiEffect( bz.GUIFxType.HURT );
 
+            // cast a testwise explosion
             this.addEventsToPipeline(
                 [
                     new bz.Event(
                         bz.EventType.CAST_EXPLOSION,
-                        new bz.EventDataCastExplosion( 100.0, 100.0 )
+                        new bz.EventDataCastExplosion(
+                            new BABYLON.Vector3( 20.5, bz.SettingEngine.FLOOR_OFFSET_Y, 20.5 ),
+                            12.5,
+                            25.0
+                        )
                     ),
                 ]
             );

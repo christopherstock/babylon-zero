@@ -657,16 +657,12 @@ export abstract class Stage
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(
                     this.game.getScene().getNativeScene()
                 );
-                const explosionCenter :BABYLON.Vector3 = new BABYLON.Vector3(
-                    20.0, 25.0, 20.0
-                );
-
                 physicsHelper.applyRadialExplosionImpulse(
-                    explosionCenter,
+                    data.center,
                     {
-                        radius: 100.0,
-                        strength: 100.0,
-                        falloff: BABYLON.PhysicsRadialImpulseFalloff.Linear,
+                        radius:   data.radius,
+                        strength: data.strength,
+                        falloff:  BABYLON.PhysicsRadialImpulseFalloff.Linear,
                         sphere: {
                             segments: 32,
                             diameter: 1,

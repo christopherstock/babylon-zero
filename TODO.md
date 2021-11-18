@@ -7,9 +7,6 @@ MVP - Game Demo
 ===============
 TODO Try 3D wearpon model
 
-TODO Add event 'level explosion' (under car).
-TODO Explosion effect when objects break: fire sprites and global explosion?
-
 TODO Debug SHOW_TRIGGER_POSITION
 TODO item => check collision with PivotPoint? => change to physical object ???
 
@@ -47,16 +44,10 @@ UX
 TODO Try Videos ("Intro Logo") with exploding(paused physics and camera movements/animations?
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 
-=====
-Stage
-=====
-TODO Create Event Pipeline for altering stage contents + activation triggers!
-TODO Add 'view blocker' (H-Block) with dynamic stage switch?
-TODO Enable dynamic stage/contents switch with player staying on same position ??
-
 ==
 Fx
 ==
+TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO add light to physics object + shot on it physics?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO add rotating MF Logo sprite?

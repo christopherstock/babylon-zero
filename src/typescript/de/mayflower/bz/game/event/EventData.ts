@@ -101,20 +101,23 @@ export class EventDataTimeDelay extends EventData
 ***********************************************************************************************************************/
 export class EventDataCastExplosion extends EventData
 {
-    public radius  :number;
+    public center   :BABYLON.Vector3;
+    public radius   :number;
     public strength :number;
 
     /** ****************************************************************************************************************
     *   Creates the data for the event 'Cast Explosion'.
     *
+    *   @param center   The center point of the explosion.
     *   @param radius   The radius of the explosion.
     *   @param strength The strength for this explosion to apply.
     *******************************************************************************************************************/
-    public constructor( radius:number, strength:number )
+    public constructor( center:BABYLON.Vector3, radius:number, strength:number )
     {
         super();
 
-        this.radius  = radius;
+        this.center   = center;
+        this.radius   = radius;
         this.strength = strength;
     }
 }
