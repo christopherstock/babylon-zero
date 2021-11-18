@@ -5,9 +5,10 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Separate classes Trigger and Item ? (new abstract superclass for both!) Collectable
-TODO Create event type 'ingame message' with pic and message.
 TODO create player inventory (painkillers :) and let him add items and keep items between Stages
+
+TODO Create event type 'ingame message' with pic and message.
+TODO Add 'isDelayed' to EventData subclasses! :)
 TODO Try ingame 3D wearpon model
 TODO Find and reduce classes with mixed static & non-static content
 TODO Create lamp switch on/off effect to EventType. ( + switch inside level )
@@ -25,10 +26,7 @@ TODO Reset Git Repository?
 ======
 Player
 ======
-TODO Introuce Inventory System
-TODO Fix ducking? => concerning heightY and shot height ?
-TODO Create alternate lower cylinder for player that toggles on ducking?
-TODO Deny jumping if player has no contact to the ground!
+TODO Add Player energy and GUI energy display
 TODO debug and improve init process?
 TODO create player die effect (tilt cylinder and head etc.)
 
@@ -93,6 +91,9 @@ TODO Fix head shaking?
 TODO Fix jumping?
 TODO try class SubMeshes?
 TODO clear error message 'the user has exited the lock before ..'?
+TODO Fix crouching/ducking? => concerning heightY and shot height ?
+TODO Create alternate lower cylinder for player that toggles on ducking?
+TODO Deny jumping if player has no contact to the ground!
 
 ============
 New features

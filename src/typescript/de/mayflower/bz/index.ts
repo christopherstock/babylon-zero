@@ -81,6 +81,8 @@ export * from './game/event/Interaction';
 export * from './game/event/InteractionType';
 export * from './game/event/Event';
 
+export * from './game/inventory/Inventory';
+
 export * from './game/object/GameObject';
 export * from './game/object/Bot';
 export * from './game/object/Collectable';

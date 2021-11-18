@@ -36,6 +36,9 @@ export class Player extends bz.GameObject
     /** All player physic settings. */
     private readonly playerPhysics      :bz.PlayerPhysic    = null;
 
+    /** The inventory this player is carrying. */
+    private readonly inventory          :bz.Inventory       = null;
+
     /** ****************************************************************************************************************
     *   Creates a new player instance.
     *
@@ -120,6 +123,9 @@ export class Player extends bz.GameObject
 
         // new player physics instance
         this.playerPhysics = new bz.PlayerPhysic( this.model );
+
+        // new player inventory
+        this.inventory = new bz.Inventory();
 
         // assign initial rotation, rotation delta and move delta
         this.rotation      = rotation;
@@ -378,18 +384,7 @@ export class Player extends bz.GameObject
         {
             keySystem.setNeedsRelease( bz.KeyCodes.KEY_BACKSPACE );
 
-            this.stage.addEventsToPipeline(
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Consumed one Painkiller' )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
-                    ),
-                ]
-            );
+            this.consumePainkiller();
         }
     }
 
@@ -852,5 +847,35 @@ export class Player extends bz.GameObject
 
         // update player limbs positions
         this.positionPlayerLimbs();
+    }
+
+    private consumePainkiller() : void
+    {
+        if ( this.inventory.numberOfPainkillers === 0 )
+        {
+            this.stage.addEventsToPipeline(
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'No pain killers available!' )
+                    ),
+                ]
+            );
+        }
+        else
+        {
+            this.stage.addEventsToPipeline(
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Consumed one Painkiller' )
+                    ),
+                ]
+            );
+        }
     }
 }

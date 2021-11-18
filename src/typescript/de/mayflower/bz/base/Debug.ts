@@ -16,7 +16,7 @@ export class Debug
     /** Debugs sound system. */
     public  static readonly sound           :Debug              = new Debug( false );
     /** Debugs stage system. */
-    public  static readonly stage           :Debug              = new Debug( true  );
+    public  static readonly stage           :Debug              = new Debug( false );
     /** Debugs key system. */
     public  static readonly key             :Debug              = new Debug( false );
     /** Debugs pointer system. */
@@ -33,6 +33,8 @@ export class Debug
     public  static readonly camera          :Debug              = new Debug( false );
     /** Debugs events pipeline. */
     public  static readonly events          :Debug              = new Debug( false );
+    /** Debugs inventory matters. */
+    public  static readonly inventory       :Debug              = new Debug( true  );
 
     /** Flags if logging for this debug group is enabled. */
     private        readonly debugEnabled    :boolean            = false;
