@@ -133,21 +133,21 @@ export class StageOffice extends bz.Stage
         );
 
         // boxes pile in small office
-        bz.StageFactory.addBoxesWalls(
+        bz.StageFactory.addCratesPile(
             this,
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in light yard
-        bz.StageFactory.addBoxesWalls(
+        bz.StageFactory.addCratesPile(
             this,
             meshFactory,
             new BABYLON.Vector3( 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in 2nd office
-        bz.StageFactory.addBoxesWalls(
+        bz.StageFactory.addCratesPile(
             this,
             meshFactory,
             new BABYLON.Vector3( 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )

@@ -109,4 +109,7 @@ export class SettingEngine
     public static readonly FLOOR_OFFSET_Y                           :number             = 0.001;
 
     public static readonly MAX_MESH_DARKENING_RATIO                 :number             = 0.8;
+
+    public static readonly CRATE_MIN_ENERGY                         :number             = 3.0;
+    public static readonly CRATE_MAX_ENERGY                         :number             = 6.0;
 }

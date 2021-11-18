@@ -165,126 +165,14 @@ export class StageFactory
     *   @param meshFactory The MeshFactory instance.
     *   @param pos         center bottom position of the boxes pile to set.
     *******************************************************************************************************************/
-    public static addBoxesWalls( stage:bz.Stage, meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
+    public static addCratesPile( stage:bz.Stage, meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
     {
-        // wooden crates
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( pos.x, pos.y, pos.z ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                ),
-                7
-            )
-        );
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                ),
-                7
-            )
-        );
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                ),
-                7
-            )
-        );
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                ),
-                7
-            )
-        );
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CRATE,
-                    new BABYLON.Vector3( pos.x + 2.5, pos.y + 2 * 2.5, pos.z + 2.5 ),
-                    bz.PhysicSet.CRATE_WOOD,
-                    bz.ModelCompoundType.NONE
-                ),
-                7
-            )
-        );
-
-        // metal boxes
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( pos.x + 5.5, pos.y, pos.z + 10.0 ),
-                            bz.TextureFile.WALL_METAL,
-                            new BABYLON.Vector3( 2.5, 2.5, 2.5 ),
-                            bz.PhysicSet.CRATE_STEEL,
-                            1.0,
-                            bz.MeshAnchor.LOWEST_XYZ,
-                            new BABYLON.Vector3( 0.0, 45.0, 0.0 )
-                        ),
-                    ]
-                ),
-                12
-            )
-        );
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                new bz.Model
-                (
-                    [
-                        // movable glass cube
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( pos.x - 2.5,  pos.y, pos.z + 3.5   ),
-                            bz.TextureFile.WALL_GLASS,
-                            new BABYLON.Vector3( 2.5, 2.5, 2.5    ),
-                            bz.PhysicSet.CRATE_STEEL,
-                            0.5,
-                            bz.MeshAnchor.LOWEST_XYZ,
-                            new BABYLON.Vector3( 0.0,  30.0, 0.0   )
-                        ),
-                    ]
-                ),
-                12
-            )
-        );
+        // add 5 wooden crates
+        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x,       pos.y,       pos.z       ) ) );
+        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y,       pos.z + 2.5 ) ) );
+        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y,       pos.z       ) ) );
+        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 ) ) );
+        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y + 5.0, pos.z + 2.5 ) ) );
     }
 
     /** ****************************************************************************************************************

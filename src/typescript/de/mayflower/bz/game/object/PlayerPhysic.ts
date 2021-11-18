@@ -6,13 +6,13 @@ import * as bz from '../..';
 export class PlayerPhysic
 {
     /** The id of the player's body mesh in the mesh array. */
-    public static readonly PLAYER_BODY_ID               :number                             = 0;
+    private static readonly PLAYER_BODY_ID               :number                             = 0;
     /** The id of the player's head mesh in the mesh array. */
-    public static readonly PLAYER_HEAD_ID               :number                             = 1;
+    private static readonly PLAYER_HEAD_ID               :number                             = 1;
     /** The id of the player's left hand mesh in the mesh array. */
-    public static readonly PLAYER_LEFT_HAND_ID          :number                             = 2;
+    private static readonly PLAYER_LEFT_HAND_ID          :number                             = 2;
     /** The id of the player's left hand mesh in the mesh array. */
-    public static readonly PLAYER_RIGHT_HAND_ID         :number                             = 3;
+    private static readonly PLAYER_RIGHT_HAND_ID         :number                             = 3;
 
     /** The referenced body mesh. */
     public        readonly body                         :BABYLON.AbstractMesh               = null;

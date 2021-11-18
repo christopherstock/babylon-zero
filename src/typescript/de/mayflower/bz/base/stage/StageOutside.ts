@@ -99,7 +99,7 @@ export class StageOutside extends bz.Stage
         );
 
         // boxes pile in small office
-        bz.StageFactory.addBoxesWalls(
+        bz.StageFactory.addCratesPile(
             this,
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )

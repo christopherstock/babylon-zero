@@ -5,14 +5,12 @@
 ===
 MVP
 ===
-TODO Add 'isDelayed' to EventData subclasses? for displaying ingame messages + performing time delays
 TODO Create event type 'ingame message' with pic and message.
+TODO add delay for displaying ingame messages + performing time delays
 TODO Try ingame 3D wearpon model
 TODO Add Player energy and GUI energy display
 TODO introduce Player painkillers counter + GUI
-TODO different bullets to inventories
-TODO different wearpons to inventories
-TODO different gadgets to inventories
+TODO different bullets, different wearpons, different gadgets to inventories
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Create lamp switch on/off effect to EventType. ( + switch inside level )
 TODO dark bullet holes?
@@ -26,6 +24,7 @@ TODO Create realistic models and lights.
 TODO Add nicer textures
 TODO Flashlite on player - depending on wearpon.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
+TODO try gold metal effect etc for IntroVideo logo
 TODO Find and reduce classes with mixed static & non-static content
 TODO debug and improve init process?
 TODO Reset Git Repository?

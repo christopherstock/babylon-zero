@@ -50,15 +50,6 @@ export class PhysicSet
         2.5
     );
 
-    /** A steel crate. */
-    public static readonly CRATE_STEEL          :PhysicSet      = new PhysicSet
-    (
-        bz.PhysicBehaviour.MOVABLE,
-        bz.PhysicFriction.HIGH,
-        bz.PhysicRestitution.NONE,
-        25.0
-    );
-
     /** Synthetic impostor for scattered meshes. */
     public static readonly SYNTHETIC_IMPOSTOR   :PhysicSet      = new PhysicSet
     (
