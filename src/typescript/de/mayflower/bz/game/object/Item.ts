@@ -32,16 +32,20 @@ export class Item extends bz.Trigger
     {
         super.render();
 
-        // rotate this item
+        // only render if not picked
         if ( !this.picked )
         {
-            this.model.setAbsoluteRotationXYZ
-            (
-                0.0,
-                this.rotY,
-                0.0
-            );
-            this.rotY += 0.5;
+            // this will prevent the items from tilting
+            if ( bz.SettingEngine.KEEP_ITEMS_UPRIGHT_AND_ROTATED )
+            {
+                this.model.setAbsoluteRotationXYZ
+                (
+                    0.0,
+                    this.rotY,
+                    0.0
+                );
+                this.rotY += 0.5;
+            }
         }
     }
 

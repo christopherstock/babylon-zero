@@ -15,6 +15,9 @@ export class SettingEngine
     /** The stage the application starts up with. */
     public static readonly STAGE_STARTUP                            :bz.StageId         = bz.StageId.OFFICE;
 
+    /** Displays items straight and rotated around axis Y. */
+    public static readonly KEEP_ITEMS_UPRIGHT_AND_ROTATED           :boolean            = false;
+
     /** Follow camera height offset. */
     public static readonly CAMERA_FOLLOW_HEIGHT_OFFSET              :number             = 0.0; // 6.0;
     /** How far from the object to follow. */
