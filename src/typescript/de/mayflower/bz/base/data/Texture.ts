@@ -138,8 +138,6 @@ export class Texture
             && mesh.material.getActiveTextures().length > 0
         )
         {
-            // TODO Add model texture files back to TEXTURES.ALL_FILES ???
-
             // pick texture filename from Texture field 'url'
             let meshTextureFullFileName:string = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).url;
             if ( meshTextureFullFileName === null )
@@ -148,7 +146,9 @@ export class Texture
                 meshTextureFullFileName = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).name;
             }
 
-            const bulletHoleTexture :bz.TextureFile = Texture.getBulletHoleTexForMeshTex( meshTextureFullFileName );
+            // TODO Add model texture files back to TEXTURES.ALL_FILES ???
+            // TODO could be replaced by removing redundant model/wall textures??
+            const bulletHoleTexture :bz.TextureFile = Texture.MAGICgetBulletHoleTexForMeshTex( meshTextureFullFileName );
             if ( bulletHoleTexture !== null )
             {
                 return bulletHoleTexture;
@@ -182,7 +182,7 @@ export class Texture
     *
     *   @param meshTextureFileUrl The filename of the 3ds max model's used texture -- without any directory component.
     *******************************************************************************************************************/
-    private static getBulletHoleTexForMeshTex( meshTextureFileUrl:string ) :bz.TextureFile
+    private static MAGICgetBulletHoleTexForMeshTex( meshTextureFileUrl:string ) :bz.TextureFile
     {
         switch ( meshTextureFileUrl )
         {
