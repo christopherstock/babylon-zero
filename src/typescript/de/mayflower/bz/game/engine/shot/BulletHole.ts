@@ -130,7 +130,7 @@ export class BulletHole
         (
             this.hitPoint.getPoint().clone(),
             this.hitPoint.getPoint().clone().add( this.hitPoint.getNormal() ),
-            bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE
+            bz.SettingColor.COLOR_RGBA_MAYFLOWER_ORANGE_OPAQUE
         );
 
         // stick to parent

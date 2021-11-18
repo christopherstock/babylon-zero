@@ -11,5 +11,5 @@ export enum EventType
 
     TIME_DELAY,
 
-    // CAST_EXPLOSION,
+    CAST_EXPLOSION,
 }

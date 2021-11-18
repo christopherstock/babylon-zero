@@ -598,6 +598,7 @@ export abstract class Stage
     *
     *   @return <code>true</code> if this event has been processed.
     *           <code>false</code> if this event has not been completed yet.
+    *           The lather only applies to the event { @see bz.EventType.TIME_DELAY }.
     *******************************************************************************************************************/
     private launchEvent( event:bz.Event ) : boolean
     {
@@ -646,6 +647,17 @@ export abstract class Stage
                 const data :bz.EventDataTimeDelay = ( event.data as bz.EventDataTimeDelay );
 
                 return ( ++data.elapsed >= data.delayInFrames );
+            }
+
+            case bz.EventType.CAST_EXPLOSION:
+            {
+                bz.Debug.stage.log( 'Cast an explosion ..' );
+
+                const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
+
+
+
+                return true;
             }
         }
     }

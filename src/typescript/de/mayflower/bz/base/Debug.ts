@@ -16,7 +16,7 @@ export class Debug
     /** Debugs sound system. */
     public  static readonly sound           :Debug              = new Debug( false );
     /** Debugs stage system. */
-    public  static readonly stage           :Debug              = new Debug( false );
+    public  static readonly stage           :Debug              = new Debug( true  );
     /** Debugs key system. */
     public  static readonly key             :Debug              = new Debug( false );
     /** Debugs pointer system. */

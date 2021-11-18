@@ -95,3 +95,26 @@ export class EventDataTimeDelay extends EventData
         this.elapsed       = 0;
     }
 }
+
+/** ********************************************************************************************************************
+*   The event data for the event type { @link EventType.CAST_EXPLOSION }.
+***********************************************************************************************************************/
+export class EventDataCastExplosion extends EventData
+{
+    public range   :number;
+    public impulse :number;
+
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Cast Explosion'.
+    *
+    *   @param range   The range of the explosion.
+    *   @param impulse The impulse for this explosion to apply.
+    *******************************************************************************************************************/
+    public constructor( range:number, impulse:number )
+    {
+        super();
+
+        this.range   = range;
+        this.impulse = impulse;
+    }
+}
