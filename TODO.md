@@ -5,9 +5,9 @@
 ===============
 MVP - Game Demo
 ===============
-TODO create player inventory (painkillers :) and let him add items and keep items between Stages
 TODO Separate classes Trigger and Item ? (new abstract superclass for both!) Collectable
 TODO Create event type 'ingame message' with pic and message.
+TODO create player inventory (painkillers :) and let him add items and keep items between Stages
 TODO Try ingame 3D wearpon model
 TODO Find and reduce classes with mixed static & non-static content
 TODO Create lamp switch on/off effect to EventType. ( + switch inside level )
