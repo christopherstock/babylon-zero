@@ -658,31 +658,29 @@ export abstract class Stage
                     this.game.getScene().getNativeScene()
                 );
                 const explosionCenter :BABYLON.Vector3 = new BABYLON.Vector3(
-                    20.0, 20.0, 20.0
+                    20.0, 25.0, 20.0
                 );
 
-                const event2 = physicsHelper.applyRadialExplosionImpulse(
+                physicsHelper.applyRadialExplosionImpulse(
                     explosionCenter,
-
                     {
-                        radius: 10.0,
-                        strength: 10.0,
-                        falloff: BABYLON.PhysicsRadialImpulseFalloff.Constant,
+                        radius: 100.0,
+                        strength: 100.0,
+                        falloff: BABYLON.PhysicsRadialImpulseFalloff.Linear,
                         sphere: {
                             segments: 32,
                             diameter: 1,
                         },
-                        affectedImpostorsCallback: ( affectedImpostorsWithData ) => {
-                            console.log( affectedImpostorsWithData );
-                            for ( const affected of affectedImpostorsWithData )
-                            {
-                                console.log( affected );
-                            }
+                        affectedImpostorsCallback: (
+                            affectedImpostorsWithData :BABYLON.PhysicsAffectedImpostorWithData[]
+                        ) => {
+                            bz.Debug.stage.log(
+                                ' [' + String( affectedImpostorsWithData.length ) + '] '
+                                + 'affected models from this explosion'
+                            );
                         },
                     }
                 );
-
-                // console.log( event2 );
 
                 return true;
             }
