@@ -720,7 +720,10 @@ export abstract class Stage
 
                 this.player.getInventory().numberOfPainkillers += data.amount;
 
-                bz.Debug.stage.log( 'Gain [' + String( data.amount ) + '] Painkiller(s) ..' );
+                bz.Debug.stage.log(
+                    'Gain ' + String( data.amount ) + ' Painkiller. '
+                    + 'Now carrying ' + String( this.player.getInventory().numberOfPainkillers ) + '.'
+                );
 
                 return true;
             }

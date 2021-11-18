@@ -881,6 +881,21 @@ export class Player extends bz.GameObject
         // lower number of painkillers
         --this.inventory.numberOfPainkillers;
 
+        let message :string = 'Consumed one Painkiller.';
+
+        if ( this.inventory.numberOfPainkillers > 1 )
+        {
+            message += ' ' + String( this.inventory.numberOfPainkillers ) + ' remaining.';
+        }
+        else if ( this.inventory.numberOfPainkillers === 1 )
+        {
+            message += ' Only one remaining.';
+        }
+        else
+        {
+            message += ' No more left.';
+        }
+
         // trigger stage events
         this.stage.addEventsToPipeline(
             [
@@ -890,7 +905,7 @@ export class Player extends bz.GameObject
                 ),
                 new bz.Event(
                     bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'Consumed one Painkiller' )
+                    new bz.EventDataShowGuiMessage( message )
                 ),
             ]
         );

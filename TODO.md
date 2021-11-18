@@ -5,10 +5,14 @@
 ===============
 MVP - Game Demo
 ===============
-TODO create player inventory (painkillers :) and let him add items and keep items between Stages
+TODO introduce Player painkillers counter + GUI
+TODO different bullets to inventories
+TODO different wearpons to inventories
+TODO different gadgets to inventories
+TODO introduce Player energy + GUI
 
 TODO Create event type 'ingame message' with pic and message.
-TODO Add 'isDelayed' to EventData subclasses! :)
+TODO Add 'isDelayed' to EventData subclasses? for displaying ingame messages :)
 TODO Try ingame 3D wearpon model
 TODO Find and reduce classes with mixed static & non-static content
 TODO Create lamp switch on/off effect to EventType. ( + switch inside level )
