@@ -861,6 +861,9 @@ export class Player extends bz.GameObject
         this.positionPlayerLimbs();
     }
 
+    /** ****************************************************************************************************************
+    *   Lets the Player consume one pain killer.
+    *******************************************************************************************************************/
     private consumePainkiller() : void
     {
         // check if painkillers are available

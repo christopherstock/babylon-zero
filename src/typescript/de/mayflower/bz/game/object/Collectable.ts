@@ -18,7 +18,7 @@ export abstract class Collectable extends bz.GameObject
     *   @param eventsOnPicked The events to execute when this trigger is picked.
     *   @param model          The graphical representation of this trigger/item.
     *******************************************************************************************************************/
-    public constructor(
+    protected constructor(
         stage          :bz.Stage,
         position       :BABYLON.Vector3,
         eventsOnPicked :bz.Event[],
@@ -36,6 +36,9 @@ export abstract class Collectable extends bz.GameObject
         this.model.translatePosition( position );
     }
 
+    /** ****************************************************************************************************************
+    *   Delivers the current position of this collectable.
+    *******************************************************************************************************************/
     protected abstract getCurrentPosition() : BABYLON.Vector3;
 
     /** ****************************************************************************************************************
@@ -52,7 +55,7 @@ export abstract class Collectable extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
-    *   Flags this item as 'picked' and makes it invisible.
+    *   Flags this item as 'picked'.
     *******************************************************************************************************************/
     protected pick() : void
     {

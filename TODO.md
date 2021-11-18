@@ -6,17 +6,14 @@
 MVP
 ===
 TODO Add 'isDelayed' to EventData subclasses? for displaying ingame messages + performing time delays
-
+TODO Create event type 'ingame message' with pic and message.
 TODO Try ingame 3D wearpon model
-TODO introduce Player energy + GUI
+TODO Add Player energy and GUI energy display
 TODO introduce Player painkillers counter + GUI
 TODO different bullets to inventories
 TODO different wearpons to inventories
 TODO different gadgets to inventories
-TODO Create event type 'ingame message' with pic and message.
-TODO Add Player energy and GUI energy display
 TODO create player die effect (tilt cylinder and head etc.)
-TODO Find and reduce classes with mixed static & non-static content
 TODO Create lamp switch on/off effect to EventType. ( + switch inside level )
 TODO dark bullet holes?
 TODO Add door creation to room creation method.
@@ -25,11 +22,11 @@ TODO Enable switchable Player carried light/lamp.
 TODO static glass windows that shatter on shot
 TODO Improve models (shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO Try cool physics pause (scene cam) feature.
-TODO Try stored 3dsmax model animations.
 TODO Create realistic models and lights.
 TODO Add nicer textures
 TODO Flashlite on player - depending on wearpon.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
+TODO Find and reduce classes with mixed static & non-static content
 TODO debug and improve init process?
 TODO Reset Git Repository?
 
@@ -49,13 +46,6 @@ TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
 TODO Add explosion effects via sprites.
 TODO Particle FX (physical) for wall rubble!
 
-======
-Sounds
-======
-TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
-     https://doc.babylonjs.com/how_to/playing_sounds_and_music
-TODO Sounds for shot, bullet hit and bullet drop.
-
 ========
 Wearpons
 ========
@@ -67,6 +57,13 @@ TODO Enable wearpon magazines and reloading!
 TODO Create 3d gun as 2nd scene in front?
 TODO Create wearpons with projectiles (exploding or non-exploding)..
 TODO Create explosive wearpons etc.
+
+======
+Sounds
+======
+TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
+     https://doc.babylonjs.com/how_to/playing_sounds_and_music
+TODO Sounds for shot, bullet hit and bullet drop.
 
 ====
 Bots
@@ -81,6 +78,7 @@ TODO Create class Bot that represents an enemy with one field for attitude.
 =========
 Secondary
 =========
+TODO Try stored 3dsmax model animations.
 TODO Fix head shaking?
 TODO Fix jumping?
 TODO try class SubMeshes?

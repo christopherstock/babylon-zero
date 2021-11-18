@@ -39,11 +39,9 @@ export class Trigger extends bz.Collectable
         }
     }
 
-    protected getCurrentPosition() : BABYLON.Vector3
-    {
-        return this.triggerPosition;
-    }
-
+    /** ****************************************************************************************************************
+    *   Flags this trigger as 'picked' and disposes the debug sphere mesh, if any.
+    *******************************************************************************************************************/
     public pick() : void
     {
         super.pick();
@@ -67,6 +65,14 @@ export class Trigger extends bz.Collectable
         {
             this.debugSphereMesh.dispose();
         }
+    }
+
+    /** ****************************************************************************************************************
+    *   Delivers the static position of this trigger.
+    *******************************************************************************************************************/
+    protected getCurrentPosition() : BABYLON.Vector3
+    {
+        return this.triggerPosition;
     }
 
     /** ****************************************************************************************************************

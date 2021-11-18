@@ -25,11 +25,6 @@ export class Item extends bz.Collectable
         );
     }
 
-    protected getCurrentPosition() : BABYLON.Vector3
-    {
-        return this.getModel().getMesh( 0 ).getAbsolutePivotPoint();
-    }
-
     /** ****************************************************************************************************************
     *   Renders all stage concernings for one tick of the game loop.
     *******************************************************************************************************************/
@@ -57,6 +52,9 @@ export class Item extends bz.Collectable
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Flags this item as 'picked' and disposes the model with all according bullet holes.
+    *******************************************************************************************************************/
     public pick() : void
     {
         super.pick();
@@ -64,6 +62,14 @@ export class Item extends bz.Collectable
         // dispose the model and dispose all bullet holes from the stage
         this.model.dispose();
         this.stage.disposeBulletHolesForGameObject( this );
+    }
+
+    /** ****************************************************************************************************************
+    *   Delivers the current position (1st mesh's pivot point) of the item's physical body.
+    *******************************************************************************************************************/
+    protected getCurrentPosition() : BABYLON.Vector3
+    {
+        return this.getModel().getMesh( 0 ).getAbsolutePivotPoint();
     }
 
     /** ****************************************************************************************************************
