@@ -104,6 +104,24 @@ export class Item extends bz.Collectable
                     ),
                 ];
             }
+
+            case bz.ItemType.PAINKILLER:
+            {
+                return [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Picked up a Painkiller' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.GAIN_PAINKILLERS,
+                        new bz.EventDataGainPainkillers( 1 )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.PICK_UP_ITEM )
+                    ),
+                ];
+            }
         }
 
         return [];
@@ -148,6 +166,24 @@ export class Item extends bz.Collectable
                         stage.getScene(),
                         bz.SettingResource.PATH_MODEL + 'item/shells.jpg',
                         bz.SettingResource.PATH_MODEL + 'item/bullets792mm.jpg'
+                    );
+            }
+
+            case bz.ItemType.PAINKILLER:
+            {
+                return new bz.MeshFactory(
+                    stage.getScene(),
+                    stage.getConfig().ambientColor
+                )
+                    .createImportedModel(
+                        bz.ModelFile.ITEM_SHOTGUN_SHELLS,
+                        BABYLON.Vector3.Zero(),
+                        bz.PhysicSet.ITEM
+                    )
+                    .changeTexture(
+                        stage.getScene(),
+                        bz.SettingResource.PATH_MODEL + 'item/shells.jpg',
+                        bz.SettingResource.PATH_MODEL + 'item/bullets44mm.jpg'
                     );
             }
         }

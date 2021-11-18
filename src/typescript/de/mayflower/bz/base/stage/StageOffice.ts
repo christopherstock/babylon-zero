@@ -187,7 +187,7 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
-                new BABYLON.Vector3( 40.0, 1.0, 25.5 ),
+                new BABYLON.Vector3( 40.0, 0.5, 25.5 ),
                 bz.ItemType.SHOTGUN_SHELLS
             )
         );
@@ -195,7 +195,7 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
-                new BABYLON.Vector3( 40.0, 1.0, 30.0 ),
+                new BABYLON.Vector3( 40.0, 0.5, 30.0 ),
                 bz.ItemType.BULLETS_792MM
             )
         );
@@ -237,6 +237,40 @@ export class StageOffice extends bz.Stage
                         new bz.EventDataShowGuiMessage( 'Yeah .. gained some energy here ..' )
                     ),
                 ]
+            )
+        );
+
+        // add painkillers
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -10.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -15.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -20.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -25.0 ),
+                bz.ItemType.PAINKILLER
             )
         );
 

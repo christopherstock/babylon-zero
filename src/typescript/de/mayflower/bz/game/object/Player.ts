@@ -224,6 +224,16 @@ export class Player extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
+    *   Delivers the current inventory of the player.
+    *
+    *   @return The player's current holded inventory.
+    *******************************************************************************************************************/
+    public getInventory() : bz.Inventory
+    {
+        return this.inventory;
+    }
+
+    /** ****************************************************************************************************************
     *   Handles all keys for the player.
     *******************************************************************************************************************/
     private handleUserInput() : void
@@ -851,7 +861,8 @@ export class Player extends bz.GameObject
 
     private consumePainkiller() : void
     {
-        if ( this.inventory.numberOfPainkillers === 0 )
+        // check if painkillers are available
+        if ( this.inventory.numberOfPainkillers <= 0 )
         {
             this.stage.addEventsToPipeline(
                 [
@@ -861,21 +872,25 @@ export class Player extends bz.GameObject
                     ),
                 ]
             );
+
+            return;
         }
-        else
-        {
-            this.stage.addEventsToPipeline(
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Consumed one Painkiller' )
-                    ),
-                ]
-            );
-        }
+
+        // lower number of painkillers
+        --this.inventory.numberOfPainkillers;
+
+        // trigger stage events
+        this.stage.addEventsToPipeline(
+            [
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_EFFECT,
+                    new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                ),
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_MESSAGE,
+                    new bz.EventDataShowGuiMessage( 'Consumed one Painkiller' )
+                ),
+            ]
+        );
     }
 }

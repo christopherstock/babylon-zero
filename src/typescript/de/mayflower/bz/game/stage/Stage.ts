@@ -712,6 +712,17 @@ export abstract class Stage
 
                 return true;
             }
+
+            case bz.EventType.GAIN_PAINKILLERS:
+            {
+                const data :bz.EventDataGainPainkillers = ( event.data as bz.EventDataGainPainkillers );
+
+                this.player.getInventory().numberOfPainkillers += data.amount;
+
+                bz.Debug.stage.log( 'Gain [' + String( data.amount ) + '] Painkiller(s) ..' );
+
+                return true;
+            }
         }
     }
 

@@ -121,3 +121,23 @@ export class EventDataCastExplosion extends EventData
         this.strength = strength;
     }
 }
+
+/** ********************************************************************************************************************
+*   The event data for the event type { @link EventType.GAIN_PAINKILLER }.
+***********************************************************************************************************************/
+export class EventDataGainPainkillers extends EventData
+{
+    public amount :number;
+
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Gain Painkillers'.
+    *
+    *   @param amount The number of painkillers to gain.
+    *******************************************************************************************************************/
+    public constructor( amount:number )
+    {
+        super();
+
+        this.amount = amount;
+    }
+}

@@ -12,4 +12,6 @@ export enum EventType
     TIME_DELAY,
 
     CAST_EXPLOSION,
+
+    GAIN_PAINKILLERS,
 }
