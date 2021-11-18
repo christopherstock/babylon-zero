@@ -28,13 +28,17 @@ export class Texture
         new Texture( bz.TextureFile.WALL_CARPET_1 ),
         new Texture( bz.TextureFile.WALL_CARPET_2 ),
         new Texture( bz.TextureFile.WALL_CEILING ),
-        new Texture( bz.TextureFile.WALL_CONCRETE ),
         new Texture( bz.TextureFile.WALL_LEATHER ),
         new Texture( bz.TextureFile.WALL_MARBLE ),
         new Texture( bz.TextureFile.WALL_DOOR_1 ),
 
         new Texture( bz.TextureFile.MODEL_WOOD_LIGHT ),
         new Texture( bz.TextureFile.MODEL_WOOD_HORZ ),
+        new Texture( bz.TextureFile.MODEL_CHROME ),
+        new Texture( bz.TextureFile.MODEL_CONCRETE ),
+        new Texture( bz.TextureFile.MODEL_CRATE_1 ),
+        new Texture( bz.TextureFile.MODEL_LEATHER_RED ),
+        new Texture( bz.TextureFile.MODEL_PLASTIC_1 ),
 
         new Texture( bz.TextureFile.VIDEO_TEST ),
     ];

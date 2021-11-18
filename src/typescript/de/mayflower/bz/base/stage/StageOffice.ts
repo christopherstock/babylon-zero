@@ -286,16 +286,16 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // 2nd point light in 2nd office - stick to chair
+        // 2nd point light in 2nd office // stick to chair
         const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.getScene().getNativeScene(),
-            // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
+            // new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
+        // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         this.addLight( pointLight2 );
 /*
         // add fog
