@@ -63,6 +63,7 @@ TODO add rotating MF Logo sprite?
 TODO Debug low performance on multiple shots?
 TODO Enable loading of only required resources for the current scene?
 TODO Flashlite on player - depending on wearpon.
+TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
 TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
 TODO static glass windows that shatter on shot
 TODO Add physically correct bullet drop (+sound) out after fire.

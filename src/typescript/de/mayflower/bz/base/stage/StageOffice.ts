@@ -351,6 +351,15 @@ export class StageOffice extends bz.Stage
 
             // show hurt GUI effect
             this.getGame().getGUI().addGuiEffect( bz.GUIFxType.HURT );
+
+            this.addEventsToPipeline(
+                [
+                    new bz.Event(
+                        bz.EventType.CAST_EXPLOSION,
+                        new bz.EventDataCastExplosion( 100.0, 100.0 )
+                    ),
+                ]
+            );
         }
     }
 
