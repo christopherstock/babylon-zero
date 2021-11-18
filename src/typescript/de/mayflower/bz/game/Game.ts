@@ -48,14 +48,16 @@ export class Game
     /** ****************************************************************************************************************
     *   Switches the current stage to the specified target stage.
     *
-    *   @param targetStage The target stage to switch to.
-    *   @param startupPosition The player startup position.
-    *   @param startupRotation The player startup rotation.
+    *   @param targetStage      The target stage to switch to.
+    *   @param startupPosition  The player startup position.
+    *   @param startupRotation  The player startup rotation.
+    *   @param startupInventory The inventory the player is starting with.
     *******************************************************************************************************************/
     public switchStage(
-        targetStage:bz.StageId,
-        startupPosition:BABYLON.Vector3 = null,
-        startupRotation:BABYLON.Vector3 = null
+        targetStage      :bz.StageId,
+        startupPosition  :BABYLON.Vector3 = null,
+        startupRotation  :BABYLON.Vector3 = null,
+        startupInventory :bz.Inventory    = null
     )
     : void
     {
@@ -118,6 +120,10 @@ export class Game
         if ( startupRotation !== null )
         {
             config.startupRotation = startupRotation;
+        }
+        if ( startupInventory !== null )
+        {
+            config.startupInventory = startupInventory;
         }
 
         // init the new stage

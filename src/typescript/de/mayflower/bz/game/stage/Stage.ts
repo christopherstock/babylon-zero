@@ -645,7 +645,8 @@ export abstract class Stage
                 this.game.switchStage(
                     data.targetStage,
                     data.startupPosition,
-                    data.startupRotation
+                    data.startupRotation,
+                    this.player.getInventory()
                 );
 
                 return true;
