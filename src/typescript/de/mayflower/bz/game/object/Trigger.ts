@@ -6,13 +6,13 @@ import * as bz from '../..';
 export class Trigger extends bz.GameObject
 {
     /** Flags that this item has been picked. */
-    protected          picked           :boolean      = false;
+    protected          picked           :boolean         = false;
     /** The debug normal line of the hit face. */
-    private             debugSphereMesh :BABYLON.Mesh = null;
+    private             debugSphereMesh :BABYLON.Mesh    = null;
     /** The initial and static position of this item. */
-    private   readonly itemPosition   :BABYLON.Vector3 = null;
+    private   readonly itemPosition     :BABYLON.Vector3 = null;
     /** The events to perform when this item is picked. */
-    private   readonly eventsOnPicked :bz.Event[]      = [];
+    private   readonly eventsOnPicked   :bz.Event[]      = [];
 
     public constructor(
         stage          :bz.Stage,
@@ -33,7 +33,7 @@ export class Trigger extends bz.GameObject
         this.model.translatePosition( position );
 
         // add debug point
-        if ( bz.SettingDebug.SHOW_TRIGGER )
+        if ( bz.SettingDebug.SHOW_TRIGGER && this.model.getMeshCount() === 0 )
         {
             this.createDebugHoleSphere( stage.getScene(), position );
         }
@@ -77,7 +77,7 @@ export class Trigger extends bz.GameObject
         // only if not picked yet
         if ( !this.picked )
         {
-            let currentItemPosition :BABYLON.Vector3 = null;
+            let currentItemPosition :BABYLON.Vector3;
 
             // pick pivot point of mesh for Items as Items can be shot to a different position
             if ( this.getModel().getMeshCount() > 0 )
@@ -95,7 +95,7 @@ export class Trigger extends bz.GameObject
             {
                 this.pick();
 
-                if ( bz.SettingDebug.SHOW_TRIGGER )
+                if ( this.debugSphereMesh !== null )
                 {
                     this.debugSphereMesh.isVisible = false;
                 }

@@ -90,7 +90,11 @@ export class Item extends bz.Trigger
                 return new bz.MeshFactory(
                     stage.getScene(),
                     stage.getConfig().ambientColor
-                ).createImportedModel( bz.ModelFile.ITEM_SHOTGUN_SHELLS );
+                ).createImportedModel(
+                    bz.ModelFile.ITEM_SHOTGUN_SHELLS,
+                    BABYLON.Vector3.Zero(),
+                    bz.PhysicSet.ITEM
+                );
             }
 
             case bz.ItemType.BULLETS_792MM:
@@ -99,7 +103,11 @@ export class Item extends bz.Trigger
                     stage.getScene(),
                     stage.getConfig().ambientColor
                 )
-                    .createImportedModel( bz.ModelFile.ITEM_SHOTGUN_SHELLS )
+                    .createImportedModel(
+                        bz.ModelFile.ITEM_SHOTGUN_SHELLS,
+                        BABYLON.Vector3.Zero(),
+                        bz.PhysicSet.ITEM
+                    )
                     .changeTexture(
                         stage.getScene(),
                         bz.SettingResource.PATH_MODEL + 'item/shells.jpg',

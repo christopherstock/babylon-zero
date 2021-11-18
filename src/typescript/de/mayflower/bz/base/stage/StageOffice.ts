@@ -163,7 +163,7 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
-                new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
+                new BABYLON.Vector3( 11.5, 2 * 3.8, 9.5 ),
                 bz.ItemType.BULLETS_792MM
             )
         );
@@ -179,7 +179,7 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
-                new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
+                new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
                 bz.ItemType.BULLETS_792MM
             )
         );

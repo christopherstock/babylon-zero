@@ -23,13 +23,22 @@ export class PhysicSet
         0
     );
 
-    /** The player has very special physical attributes with the primal goal to keep the user entertained. */
+    /** The player has very special physical attributes. */
     public static readonly PLAYER_HUMAN         :PhysicSet      = new PhysicSet
     (
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.NONE,
         bz.PhysicRestitution.NONE,
         bz.SettingPlayer.PLAYER_MASS
+    );
+
+    /** The item has special physical attributes. */
+    public static readonly ITEM                 :PhysicSet      = new PhysicSet
+    (
+        bz.PhysicBehaviour.MOVABLE,
+        bz.PhysicFriction.HIGH,
+        bz.PhysicRestitution.MEDIUM,
+        10.0
     );
 
     /** A wooden crate. */
