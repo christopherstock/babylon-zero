@@ -34,6 +34,8 @@ export class Texture
         new Texture( bz.TextureFile.WALL_MARBLE ),
         new Texture( bz.TextureFile.WALL_DOOR_1 ),
 
+        new Texture( bz.TextureFile.MODEL_WOOD_LIGHT ),
+
         new Texture( bz.TextureFile.VIDEO_TEST ),
     ];
 
@@ -62,6 +64,7 @@ export class Texture
         switch ( this.file.textureType )
         {
             case bz.TextureType.WALL:
+            case bz.TextureType.WALL_AND_MODEL:
             {
                 // create default texture
                 this.nativeTexture = new BABYLON.Texture(
@@ -146,14 +149,6 @@ export class Texture
                 meshTextureFullFileName = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).name;
             }
 
-            // TODO Add model texture files back to TEXTURES.ALL_FILES ???
-            // TODO could be replaced by removing redundant model/wall textures??
-            const bulletHoleTexture :bz.TextureFile = Texture.MAGICgetBulletHoleTexForMeshTex( meshTextureFullFileName );
-            if ( bulletHoleTexture !== null )
-            {
-                return bulletHoleTexture;
-            }
-
             // compare with all existent textures
             for ( const texture of Texture.ALL_TEXTURES )
             {
@@ -174,26 +169,6 @@ export class Texture
         }
 
         return DEFAULT_BULLET_HOLE_TEXTURE;
-    }
-
-    /** ****************************************************************************************************************
-    *   Delivers the BulletHole Texture for a 3ds max model's texture file specification.
-    *   TODO could be removed by adding TextureType.MODEL again :)
-    *
-    *   @param meshTextureFileUrl The filename of the 3ds max model's used texture -- without any directory component.
-    *******************************************************************************************************************/
-    private static MAGICgetBulletHoleTexForMeshTex( meshTextureFileUrl:string ) :bz.TextureFile
-    {
-        switch ( meshTextureFileUrl )
-        {
-            case bz.SettingResource.PATH_MODEL + 'furniture/crate1.jpg':
-            case bz.SettingResource.PATH_MODEL + 'furniture/woodLight.jpg':
-            {
-                return bz.TextureFile.BULLET_HOLE_WOOD;
-            }
-        }
-
-        return null;
     }
 
     /** ****************************************************************************************************************

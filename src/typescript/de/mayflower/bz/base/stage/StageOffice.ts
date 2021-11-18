@@ -602,7 +602,7 @@ export class StageOffice extends bz.Stage
                             bz.MeshAnchor.CENTER_XYZ,
                             3.0,
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.TextureFile.WALL_TEST,
+                            bz.TextureFile.MODEL_WOOD_LIGHT,
                             null,
                             bz.PhysicSet.WHITE_TEST_SPHERE
                         ),

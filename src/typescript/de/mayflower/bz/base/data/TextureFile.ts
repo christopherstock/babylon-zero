@@ -55,11 +55,14 @@ export class TextureFile
     /** The texture file 'door 1'. */
     public static readonly WALL_DOOR_1                  :TextureFile            = new TextureFile( 'wall/door1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
 
-    /** The texture file 'heightmap valley'. */
+    /** The texture file 'model wood light'. */
+    public static readonly MODEL_WOOD_LIGHT             :TextureFile            = new TextureFile( 'furniture/woodLight.jpg',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
+
+    /** The texture file 'heightmap valley'. Just a filename storage. No own bz.Texture instance will be created from it! */
     public static readonly HEIGHTMAP_VALLEY             :TextureFile            = new TextureFile( 'heightMap/valley.png',      bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL );
 
     /** The texture file 'test video'. */
-    public static readonly VIDEO_TEST                   :TextureFile            = new TextureFile( 'video/news.mp4',            bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.VIDEO );
+    public static readonly VIDEO_TEST                   :TextureFile            = new TextureFile( 'tv/news1.mp4',              bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.VIDEO );
 
     /** The filename of this texture's image. */
     public        readonly fileName                     :string                 = null;
@@ -89,11 +92,30 @@ export class TextureFile
         textureType       :bz.TextureType
     )
     {
-        this.fileName          = ( bz.SettingResource.PATH_IMAGE_TEXTURE + fileName );
+        this.fileName          = this.getFileName( textureType, fileName );
         this.textureHasAlpha   = textureHasAlpha;
         this.strategyUV        = strategyUV;
         this.bulletHoleTexture = bulletHoleTexture;
         this.textureType       = textureType;
+    }
+
+    private getFileName( textureType:bz.TextureType, fileName:string ) : string
+    {
+        switch ( textureType )
+        {
+            case bz.TextureType.WALL:
+            {
+                return ( bz.SettingResource.PATH_IMAGE_TEXTURE + fileName );
+            }
+            case bz.TextureType.WALL_AND_MODEL:
+            {
+                return ( bz.SettingResource.PATH_MODEL + fileName );
+            }
+            case bz.TextureType.VIDEO:
+            {
+                return ( bz.SettingResource.PATH_VIDEO + fileName );
+            }
+        }
     }
 
     /** ****************************************************************************************************************
