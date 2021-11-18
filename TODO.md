@@ -9,6 +9,7 @@ TODO Dispose bullet holes on items that have been picked!
 TODO Try items as 3D physical models that can be shot
 TODO Create event type 'ingame message' with pic and message.
 TODO Try 3D wearpon model
+TODO Separate classes Trigger and Item ?
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Add door creation to room creation method.
 TODO dark bullet holes?

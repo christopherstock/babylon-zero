@@ -62,15 +62,17 @@ export class MouseSystem
             );
         }
 
+        const nativeCanvas :HTMLCanvasElement = this.game.getEngine().getCanvasSystem().getNativeCanvas();
+
         if ( assignPointerLock )
         {
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().onclick     = ( me: MouseEvent ) :any => {
+            nativeCanvas.onclick     = ( me: MouseEvent ) :any => {
                 this.onMouseClick( me );
             };
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().onmousedown = ( me: MouseEvent ) :any => {
+            nativeCanvas.onmousedown = ( me: MouseEvent ) :any => {
                 this.onMouseDown(  me );
             };
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().onmouseup   = ( me: MouseEvent ) :any => {
+            nativeCanvas.onmouseup   = ( me: MouseEvent ) :any => {
                 this.onMouseUp(    me );
             };
         }
@@ -328,17 +330,17 @@ export class MouseSystem
             this.onMouseMove( mouseEvent ); }
         );
 
-        // TODO refactor!
+        const nativeCanvas :HTMLCanvasElement = this.game.getEngine().getCanvasSystem().getNativeCanvas();
 
         // eslint-disable-next-line @typescript-eslint/unbound-method
-        this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock =
+        nativeCanvas.requestPointerLock =
         (
-                // eslint-disable-next-line @typescript-eslint/unbound-method
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock
-                // eslint-disable-next-line @typescript-eslint/unbound-method
-            ||  this.game.getEngine().getCanvasSystem().getNativeCanvas().mozRequestPointerLock
+            // eslint-disable-next-line @typescript-eslint/unbound-method
+            nativeCanvas.requestPointerLock
+            // eslint-disable-next-line @typescript-eslint/unbound-method
+            || nativeCanvas.mozRequestPointerLock
         );
-        this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock();
+        nativeCanvas.requestPointerLock();
     }
 
     /** ****************************************************************************************************************
