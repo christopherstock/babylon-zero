@@ -137,6 +137,14 @@ export class TextureFile
         return this.strategyUV;
     }
 
+    /** ****************************************************************************************************************
+    *   Determines the fileName for the specified texture type.
+    *
+    *   @param textureType The type of texture.
+    *   @param fileName    The path to the file, without the resources root path.
+    *
+    *   @return The complete resources path to the texture file.
+    *******************************************************************************************************************/
     private static getFileName( textureType:bz.TextureType, fileName:string ) : string
     {
         switch ( textureType )

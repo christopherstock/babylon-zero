@@ -129,7 +129,7 @@ export abstract class Stage
             item.render();
         }
 
-        // handle events
+        // handle event system
         this.handleEventPipeline();
     }
 
@@ -202,6 +202,11 @@ export abstract class Stage
         this.cameraSystem.dispose();
     }
 
+    /** ****************************************************************************************************************
+    *   Removed all bullet holes that are associated to the specified game object.
+    *
+    *   @param gameObject The game object to remove all bullet holes for.
+    *******************************************************************************************************************/
     public disposeBulletHolesForGameObject( gameObject:bz.GameObject ) : void
     {
         // browse all bullet holes
@@ -296,6 +301,11 @@ export abstract class Stage
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Adds the specified events to a new event pipeline inside this stage.
+    *
+    *   @param events The events to add into a new event pipeline of this stage.
+    *******************************************************************************************************************/
     public addEventsToPipeline( events:bz.Event[] ) : void
     {
         // reset event data
@@ -305,7 +315,7 @@ export abstract class Stage
             // clone the TIME_DELAY effect in order to use a discreet object with an own elapse-counter here!
             if ( event.type === bz.EventType.TIME_DELAY )
             {
-                // this object cloning might look like a technical debt
+                // this object cloning and exceptional behaviour for TIME_DELAY looks like a technical debt
                 newEvents.push(
                     new bz.Event(
                         bz.EventType.TIME_DELAY,
@@ -705,6 +715,9 @@ export abstract class Stage
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Handles the event system by rendering all event pipelines.
+    *******************************************************************************************************************/
     private handleEventPipeline() : void
     {
         // check if event pipelines exist

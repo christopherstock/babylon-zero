@@ -1,7 +1,7 @@
 import * as bz from '../..';
 
 /** ********************************************************************************************************************
-*   Represents a pickable item.
+*   Represents an event trigger.
 ***********************************************************************************************************************/
 export class Trigger extends bz.GameObject
 {
@@ -14,6 +14,14 @@ export class Trigger extends bz.GameObject
     /** The events to perform when this item is picked. */
     private   readonly eventsOnPicked   :bz.Event[]      = [];
 
+    /** ****************************************************************************************************************
+    *   Creates a new event trigger.
+    *
+    *   @param stage    The stage where this Trigger is created.
+    *   @param position Position of the trigger.
+    *   @param eventsOnPicked The events to execute when this trigger is picked.
+    *   @param model          The graphical representation of this trigger/item.
+    *******************************************************************************************************************/
     public constructor(
         stage          :bz.Stage,
         position       :BABYLON.Vector3,
