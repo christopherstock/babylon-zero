@@ -202,6 +202,18 @@ export abstract class Stage
         this.cameraSystem.dispose();
     }
 
+    public disposeBulletHolesForGameObject( gameObject:bz.GameObject ) : void
+    {
+        // browse all bullet holes
+        for ( const bulletHole of this.bulletHoles )
+        {
+            if ( bulletHole.getGameObject() === gameObject )
+            {
+                bulletHole.dispose();
+            }
+        }
+    }
+
     /** ****************************************************************************************************************
     *   Sets the active camera for this stage.
     *******************************************************************************************************************/

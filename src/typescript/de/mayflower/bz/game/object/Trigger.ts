@@ -116,7 +116,9 @@ export class Trigger extends bz.GameObject
 
         this.picked = true;
 
-        this.model.setVisible( false );
+        // dispose the model and dispose all bullet holes from the stage
+        this.model.dispose();
+        this.stage.disposeBulletHolesForGameObject( this );
     }
 
     /** ****************************************************************************************************************

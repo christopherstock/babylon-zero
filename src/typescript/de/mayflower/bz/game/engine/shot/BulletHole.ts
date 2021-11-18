@@ -68,6 +68,16 @@ export class BulletHole
     }
 
     /** ****************************************************************************************************************
+    *   Returns the impacted game object of this bullet hole.
+    *
+    *   @return The impacted game object.
+    *******************************************************************************************************************/
+    public getGameObject() : bz.GameObject
+    {
+        return this.hitPoint.getGameObject();
+    }
+
+    /** ****************************************************************************************************************
     *   Creates a bullet hole mesh onto the hit point.
     *
     *   @param scene The scene to create the bullet hole for.
