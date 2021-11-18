@@ -5,7 +5,6 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Debug SHOW_TRIGGER_POSITION
 TODO item => check collision with PivotPoint? => change to physical object ???
 TODO Try 3D wearpon model
 

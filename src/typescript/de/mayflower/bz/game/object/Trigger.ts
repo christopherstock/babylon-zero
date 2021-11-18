@@ -6,7 +6,9 @@ import * as bz from '../..';
 export class Trigger extends bz.GameObject
 {
     /** Flags that this item has been picked. */
-    protected          picked         :boolean         = false;
+    protected          picked           :boolean      = false;
+    /** The debug normal line of the hit face. */
+    private             debugSphereMesh :BABYLON.Mesh = null;
     /** The initial and static position of this item. */
     private   readonly itemPosition   :BABYLON.Vector3 = null;
     /** The events to perform when this item is picked. */
@@ -29,6 +31,12 @@ export class Trigger extends bz.GameObject
 
         // translate model to item position
         this.model.translatePosition( position );
+
+        // add debug point
+        if ( bz.SettingDebug.SHOW_TRIGGER )
+        {
+            this.createDebugHoleSphere( stage.getScene(), position );
+        }
     }
 
     /** ****************************************************************************************************************
@@ -41,6 +49,19 @@ export class Trigger extends bz.GameObject
         {
             // add to stage event pipeline
             this.stage.addEventsToPipeline( this.eventsOnPicked );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Disposes all meshes of this bullet hole.
+    *******************************************************************************************************************/
+    public dispose() : void
+    {
+        super.dispose();
+
+        if ( this.debugSphereMesh !== null )
+        {
+            this.debugSphereMesh.dispose();
         }
     }
 
@@ -61,6 +82,11 @@ export class Trigger extends bz.GameObject
             {
                 this.pick();
 
+                if ( bz.SettingDebug.SHOW_TRIGGER )
+                {
+                    this.debugSphereMesh.isVisible = false;
+                }
+
                 return true;
             }
         }
@@ -78,5 +104,27 @@ export class Trigger extends bz.GameObject
         this.picked = true;
 
         this.model.setVisible( false );
+    }
+
+    /** ****************************************************************************************************************
+    *   Creates a debug bullet hole sphere onto this hit point.
+    *
+    *   @param scene The scene to create the bullet hole for.
+    *******************************************************************************************************************/
+    private createDebugHoleSphere( scene:bz.Scene, position:BABYLON.Vector3 ) : void
+    {
+        // create debug bullet hole
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( scene, bz.SettingColor.COLOR_RGB_GREEN );
+        this.debugSphereMesh = meshFactory.createSphere
+        (
+            position,
+            bz.MeshAnchor.CENTER_XYZ,
+            0.10,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            null,
+            bz.SettingColor.COLOR_RGB_GREEN,
+            bz.PhysicSet.NONE,
+            1.0
+        );
     }
 }

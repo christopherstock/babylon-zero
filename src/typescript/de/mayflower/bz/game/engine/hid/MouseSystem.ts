@@ -328,6 +328,8 @@ export class MouseSystem
             this.onMouseMove( mouseEvent ); }
         );
 
+        // TODO refactor!
+
         // eslint-disable-next-line @typescript-eslint/unbound-method
         this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock =
         (
