@@ -5,10 +5,9 @@
 ===============
 MVP - Game Demo
 ===============
-TODO Try 3D wearpon model
-
 TODO Debug SHOW_TRIGGER_POSITION
 TODO item => check collision with PivotPoint? => change to physical object ???
+TODO Try 3D wearpon model
 
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Add door creation to room creation method.
