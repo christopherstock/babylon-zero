@@ -3,42 +3,34 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Represents an event trigger.
 ***********************************************************************************************************************/
-export class Trigger extends bz.GameObject
+export class Trigger extends bz.Collectable
 {
-    /** Flags that this item has been picked. */
-    protected          picked           :boolean         = false;
     /** The debug normal line of the hit face. */
-    private             debugSphereMesh :BABYLON.Mesh    = null;
+    private          debugSphereMesh :BABYLON.Mesh    = null;
     /** The initial and static position of this item. */
-    private   readonly itemPosition     :BABYLON.Vector3 = null;
-    /** The events to perform when this item is picked. */
-    private   readonly eventsOnPicked   :bz.Event[]      = [];
+    private readonly triggerPosition :BABYLON.Vector3 = null;
 
     /** ****************************************************************************************************************
     *   Creates a new event trigger.
     *
-    *   @param stage    The stage where this Trigger is created.
-    *   @param position Position of the trigger.
+    *   @param stage          The stage where this Trigger is created.
+    *   @param position       Position of the trigger.
     *   @param eventsOnPicked The events to execute when this trigger is picked.
-    *   @param model          The graphical representation of this trigger/item.
     *******************************************************************************************************************/
     public constructor(
         stage          :bz.Stage,
         position       :BABYLON.Vector3,
-        eventsOnPicked :bz.Event[],
-        model          :bz.Model = new bz.Model()
+        eventsOnPicked :bz.Event[]
     )
     {
         super(
             stage,
-            model
+            position,
+            eventsOnPicked,
+            new bz.Model()
         );
 
-        this.itemPosition   = position;
-        this.eventsOnPicked = eventsOnPicked;
-
-        // translate model to item position
-        this.model.translatePosition( position );
+        this.triggerPosition = position;
 
         // add debug point
         if ( bz.SettingDebug.SHOW_TRIGGER && this.model.getMeshCount() === 0 )
@@ -47,16 +39,20 @@ export class Trigger extends bz.GameObject
         }
     }
 
-    /** ****************************************************************************************************************
-    *   Renders all stage concernings for one tick of the game loop.
-    *******************************************************************************************************************/
-    public render() : void
+    protected getCurrentPosition() : BABYLON.Vector3
     {
-        // check if picked by player
-        if ( this.checkPick( this.stage.getPlayer().getPosition() ) )
+        return this.triggerPosition;
+    }
+
+    public pick() : void
+    {
+        super.pick();
+
+        // hide debugSphereMesh
+        if ( this.debugSphereMesh !== null )
         {
-            // add to stage event pipeline
-            this.stage.addEventsToPipeline( this.eventsOnPicked );
+            this.debugSphereMesh.dispose();
+            this.debugSphereMesh = null;
         }
     }
 
@@ -71,62 +67,6 @@ export class Trigger extends bz.GameObject
         {
             this.debugSphereMesh.dispose();
         }
-    }
-
-    /** ****************************************************************************************************************
-    *   Checks if this item is picked by colliding with the specified model.
-    *
-    *   @param playerPosition The currenrt player position.
-    *
-    *   @return <code>true</code> if this item has been picked in this check.
-    *******************************************************************************************************************/
-    private checkPick( playerPosition:BABYLON.Vector3 ) : boolean
-    {
-        // only if not picked yet
-        if ( !this.picked )
-        {
-            let currentItemPosition :BABYLON.Vector3;
-
-            // pick pivot point of mesh for Items as Items can be shot to a different position
-            if ( this.getModel().getMeshCount() > 0 )
-            {
-                currentItemPosition = this.getModel().getMesh( 0 ).getAbsolutePivotPoint();
-            }
-            else
-            {
-                currentItemPosition = this.itemPosition;
-            }
-
-            // get distance between item and player
-            const distance :number = BABYLON.Vector3.Distance( currentItemPosition, playerPosition );
-            if ( distance < bz.SettingPlayer.RANGE_ITEM_PICK )
-            {
-                this.pick();
-
-                if ( this.debugSphereMesh !== null )
-                {
-                    this.debugSphereMesh.isVisible = false;
-                }
-
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /** ****************************************************************************************************************
-    *   Flags this item as 'picked' and makes it invisible.
-    *******************************************************************************************************************/
-    private pick() : void
-    {
-        bz.Debug.item.log( 'Item/Trigger picked' );
-
-        this.picked = true;
-
-        // dispose the model and dispose all bullet holes from the stage
-        this.model.dispose();
-        this.stage.disposeBulletHolesForGameObject( this );
     }
 
     /** ****************************************************************************************************************

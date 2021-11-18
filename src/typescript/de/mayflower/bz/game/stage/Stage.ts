@@ -14,7 +14,7 @@ export abstract class Stage
     /** A collection of all walls in this stage. */
     private readonly walls              :bz.Wall[]                  = [];
     /** A collection of all items in this stage. */
-    private readonly items              :bz.Trigger[]               = [];
+    private readonly collectables       :bz.Collectable[]           = [];
     /** A collection of all bots in this stage. */
     private readonly bots               :bz.Bot[]                   = [];
     /** A collection of all sprites that appear in this stage. */
@@ -124,7 +124,7 @@ export abstract class Stage
         }
 
         // render items
-        for ( const item of this.items )
+        for ( const item of this.collectables )
         {
             item.render();
         }
@@ -151,7 +151,7 @@ export abstract class Stage
         }
 
         // dispose all items
-        for ( const item of this.items )
+        for ( const item of this.collectables )
         {
             item.dispose();
         }
@@ -456,13 +456,13 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds an item to the stage.
+    *   Adds a collectable to the stage.
     *
-    *   @param item The item to add to this stage.
+    *   @param collectable The collectable to add to this stage.
     *******************************************************************************************************************/
-    protected addItem( item:bz.Trigger ) : void
+    protected addCollectable(collectable:bz.Collectable ) : void
     {
-        this.items.push( item );
+        this.collectables.push( collectable );
     }
 
     /** ****************************************************************************************************************
@@ -596,8 +596,8 @@ export abstract class Stage
         // check collision with items
         if ( bz.SettingEngine.ITEMS_CAN_BE_SHOT && !interactionWallsOnly )
         {
-            bz.Debug.fire.log( ' Check shot collision with [' + String( this.items.length ) + '] items' );
-            for ( const item of this.items )
+            bz.Debug.fire.log( ' Check shot collision with [' + String( this.collectables.length ) + '] items' );
+            for ( const item of this.collectables )
             {
                 hitPoints = hitPoints.concat( item.determineHitPoints( shot ) );
             }

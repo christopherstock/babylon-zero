@@ -3,7 +3,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Represents a pickable item.
 ***********************************************************************************************************************/
-export class Item extends bz.Trigger
+export class Item extends bz.Collectable
 {
     /** Current rotation Y for this item. */
     private rotY :number = 0.0;
@@ -23,6 +23,11 @@ export class Item extends bz.Trigger
             Item.createEventsByItemType( itemType ),
             Item.createModelByItemType( stage, itemType )
         );
+    }
+
+    protected getCurrentPosition() : BABYLON.Vector3
+    {
+        return this.getModel().getMesh( 0 ).getAbsolutePivotPoint();
     }
 
     /** ****************************************************************************************************************
@@ -50,6 +55,15 @@ export class Item extends bz.Trigger
                 this.rotY += 0.5;
             }
         }
+    }
+
+    public pick() : void
+    {
+        super.pick();
+
+        // dispose the model and dispose all bullet holes from the stage
+        this.model.dispose();
+        this.stage.disposeBulletHolesForGameObject( this );
     }
 
     /** ****************************************************************************************************************

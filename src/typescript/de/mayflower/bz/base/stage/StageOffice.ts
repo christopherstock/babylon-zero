@@ -159,7 +159,7 @@ export class StageOffice extends bz.Stage
         this.addTrees(  meshFactory );
 
         // add 5 items
-        this.addItem(
+        this.addCollectable(
             new bz.Item
             (
                 this,
@@ -167,7 +167,7 @@ export class StageOffice extends bz.Stage
                 bz.ItemType.BULLETS_792MM
             )
         );
-        this.addItem(
+        this.addCollectable(
             new bz.Item
             (
                 this,
@@ -175,7 +175,7 @@ export class StageOffice extends bz.Stage
                 bz.ItemType.SHOTGUN_SHELLS
             )
         );
-        this.addItem(
+        this.addCollectable(
             new bz.Item
             (
                 this,
@@ -183,7 +183,7 @@ export class StageOffice extends bz.Stage
                 bz.ItemType.BULLETS_792MM
             )
         );
-        this.addItem(
+        this.addCollectable(
             new bz.Item
             (
                 this,
@@ -191,7 +191,7 @@ export class StageOffice extends bz.Stage
                 bz.ItemType.SHOTGUN_SHELLS
             )
         );
-        this.addItem(
+        this.addCollectable(
             new bz.Item
             (
                 this,
@@ -200,8 +200,8 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // invisible event trigger
-        this.addItem(
+        // add invisible event trigger
+        this.addCollectable(
             new bz.Trigger
             (
                 this,
@@ -222,7 +222,7 @@ export class StageOffice extends bz.Stage
                 ]
             )
         );
-        this.addItem(
+        this.addCollectable(
             new bz.Trigger
             (
                 this,
