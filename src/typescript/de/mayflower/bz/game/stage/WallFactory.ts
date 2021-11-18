@@ -28,10 +28,9 @@ export class WallFactory
             (
                 bz.ModelFile.CRATE,
                 position,
-                bz.PhysicSet.CRATE_WOOD,
-                bz.ModelCompoundType.NONE
+                bz.PhysicSet.CRATE_WOOD
             ),
-            bz.MathUtil.getRandomInt( bz.SettingEngine.CRATE_MIN_ENERGY, bz.SettingEngine.CRATE_MAX_ENERGY )
+            bz.MathUtil.getRandomInt( bz.SettingGame.CRATE_MIN_ENERGY, bz.SettingGame.CRATE_MAX_ENERGY )
         )
     }
 }

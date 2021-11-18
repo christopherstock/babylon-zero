@@ -15,9 +15,9 @@ export class StageOutside extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 60.0, 0.0 )
         );
@@ -47,7 +47,7 @@ export class StageOutside extends bz.Stage
             bz.TextureFile.WALL_STONES_3, [], [],
             null, [], [],
             bz.TextureFile.WALL_STONES_3, [], [],
-            bz.TextureFile.WALL_MARBLE, [ 60.0 - 5.0 - bz.SettingEngine.DOOR_WIDTH + bz.SettingEngine.WALL_DEPTH ], [],
+            bz.TextureFile.WALL_MARBLE, [ 60.0 - 5.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH ], [],
             bz.TextureFile.MODEL_CONCRETE,
             null
         );
@@ -63,15 +63,15 @@ export class StageOutside extends bz.Stage
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3(
-                                ( bz.SettingEngine.WALL_DEPTH / 2 ),
-                                bz.SettingEngine.FLOOR_OFFSET_Y,
-                                5.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 )
+                                ( bz.SettingGame.WALL_DEPTH / 2 ),
+                                bz.SettingGame.FLOOR_OFFSET_Y,
+                                5.0 + ( bz.SettingGame.DOOR_WIDTH / 2 )
                             ),
                             bz.TextureFile.WALL_DOOR_1,
                             new BABYLON.Vector3(
-                                bz.SettingEngine.DOOR_WIDTH,
-                                bz.SettingEngine.DOOR_HEIGHT,
-                                bz.SettingEngine.WALL_DEPTH
+                                bz.SettingGame.DOOR_WIDTH,
+                                bz.SettingGame.DOOR_HEIGHT,
+                                bz.SettingGame.WALL_DEPTH
                             ),
                             bz.PhysicSet.STATIC,
                             1.0,
@@ -87,9 +87,9 @@ export class StageOutside extends bz.Stage
                         new bz.EventDataStageSwitch(
                             bz.StageId.OFFICE,
                             new BABYLON.Vector3(
-                                140.0 + ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                                140.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                             ),
                             new BABYLON.Vector3( 0.0, 270.0, 0.0 )
                         )
@@ -102,7 +102,7 @@ export class StageOutside extends bz.Stage
         bz.StageFactory.addCratesPile(
             this,
             meshFactory,
-            new BABYLON.Vector3( 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
+            new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // point light in small office

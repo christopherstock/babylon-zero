@@ -26,9 +26,9 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 120.0, 0.0 ),
             new bz.Inventory( 3 )
@@ -54,7 +54,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, -40.0 ),
-            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 80.0 ),
+            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 80.0 ),
             0.0,
             bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
@@ -78,8 +78,8 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 40.0, 0.0, bz.SettingEngine.HALLWAY_WIDTH ),
-            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 - 2 * bz.SettingEngine.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, 0.0, bz.SettingGame.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 40.0 - 2 * bz.SettingGame.HALLWAY_WIDTH ),
             0.0,
             null, [], [],
             null, [], [],
@@ -94,7 +94,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
             0.0,
             bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
@@ -106,8 +106,8 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 40.0, 0.0, 40.0 - bz.SettingEngine.HALLWAY_WIDTH ),
-            new BABYLON.Vector3( 40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, 0.0, 40.0 - bz.SettingGame.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
             0.0,
             null, [], [],
             null, [], [],
@@ -122,7 +122,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 80.0, bz.SettingEngine.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             bz.TextureFile.MODEL_WOOD_HORZ, [ 10.0 ], [],
@@ -136,21 +136,21 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addCratesPile(
             this,
             meshFactory,
-            new BABYLON.Vector3( 20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
+            new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in light yard
         bz.StageFactory.addCratesPile(
             this,
             meshFactory,
-            new BABYLON.Vector3( 50.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
+            new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in 2nd office
         bz.StageFactory.addCratesPile(
             this,
             meshFactory,
-            new BABYLON.Vector3( 110.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0 )
+            new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 
         this.addFurniture( meshFactory );
@@ -286,15 +286,15 @@ export class StageOffice extends bz.Stage
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3(
-                                40.0 + ( bz.SettingEngine.WALL_DEPTH / 2 ), // 160.0 +
-                                bz.SettingEngine.FLOOR_OFFSET_Y,
-                                -10.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 ) // 10.0 +
+                                40.0 + ( bz.SettingGame.WALL_DEPTH / 2 ), // 160.0 +
+                                bz.SettingGame.FLOOR_OFFSET_Y,
+                                -10.0 + ( bz.SettingGame.DOOR_WIDTH / 2 ) // 10.0 +
                             ),
                             bz.TextureFile.WALL_DOOR_1,
                             new BABYLON.Vector3(
-                                bz.SettingEngine.DOOR_WIDTH,
-                                bz.SettingEngine.DOOR_HEIGHT,
-                                bz.SettingEngine.WALL_DEPTH
+                                bz.SettingGame.DOOR_WIDTH,
+                                bz.SettingGame.DOOR_HEIGHT,
+                                bz.SettingGame.WALL_DEPTH
                             ),
                             bz.PhysicSet.STATIC,
                             1.0,
@@ -310,9 +310,9 @@ export class StageOffice extends bz.Stage
                         new bz.EventDataStageSwitch(
                             bz.StageId.OUTSIDE,
                             new BABYLON.Vector3(
-                                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingEngine.FLOOR_OFFSET_Y,
-                                ( bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                             ),
                             new BABYLON.Vector3( 0.0, 60.0, 0.0 )
                         )
@@ -372,7 +372,7 @@ export class StageOffice extends bz.Stage
                     new bz.Event(
                         bz.EventType.CAST_EXPLOSION,
                         new bz.EventDataCastExplosion(
-                            new BABYLON.Vector3( 20.5, bz.SettingEngine.FLOOR_OFFSET_Y, 20.5 ),
+                            new BABYLON.Vector3( 20.5, bz.SettingGame.FLOOR_OFFSET_Y, 20.5 ),
                             12.5,
                             25.0
                         )

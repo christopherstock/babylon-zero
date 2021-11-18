@@ -286,7 +286,7 @@ export class Game
     {
         bz.Debug.init.log( 'Init game engine complete' );
 
-        this.switchStage( bz.SettingEngine.STAGE_STARTUP );
+        this.switchStage( bz.SettingGame.STAGE_STARTUP );
     }
 
     /** ****************************************************************************************************************

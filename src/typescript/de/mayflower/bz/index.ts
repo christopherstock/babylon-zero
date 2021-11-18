@@ -13,6 +13,7 @@ export * from './game/stage/WallFactory';
 export * from './base/setting/SettingColor';
 export * from './base/setting/SettingDebug';
 export * from './base/setting/SettingEngine';
+export * from './base/setting/SettingGame';
 export * from './base/setting/SettingGUI';
 export * from './base/setting/SettingPlayer';
 export * from './base/setting/SettingResource';
