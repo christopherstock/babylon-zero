@@ -5,6 +5,7 @@
 ===============
 MVP - Game Demo
 ===============
+TODO Dispose bullet holes on items that have been picked!
 TODO Try items as 3D physical models that can be shot
 TODO Create event type 'ingame message' with pic and message.
 TODO Try 3D wearpon model

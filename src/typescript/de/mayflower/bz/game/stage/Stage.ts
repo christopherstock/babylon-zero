@@ -571,6 +571,16 @@ export abstract class Stage
             hitPoints = hitPoints.concat( wall.determineHitPoints( shot ) );
         }
 
+        // check collision with items
+        if ( bz.SettingEngine.ITEMS_CAN_BE_SHOT && !interactionWallsOnly )
+        {
+            bz.Debug.fire.log( ' Check shot collision with [' + String( this.items.length ) + '] items' );
+            for ( const item of this.items )
+            {
+                hitPoints = hitPoints.concat( item.determineHitPoints( shot ) );
+            }
+        }
+
         return hitPoints;
     }
 

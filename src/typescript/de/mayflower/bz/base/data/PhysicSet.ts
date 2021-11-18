@@ -38,7 +38,7 @@ export class PhysicSet
         bz.PhysicBehaviour.MOVABLE,
         bz.PhysicFriction.HIGH,
         bz.PhysicRestitution.MEDIUM,
-        10.0
+        1.0
     );
 
     /** A wooden crate. */

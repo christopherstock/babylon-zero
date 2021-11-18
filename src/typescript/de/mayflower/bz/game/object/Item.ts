@@ -36,7 +36,10 @@ export class Item extends bz.Trigger
         if ( !this.picked )
         {
             // this will prevent the items from tilting
-            if ( bz.SettingEngine.KEEP_ITEMS_UPRIGHT_AND_ROTATED )
+            if (
+                bz.SettingEngine.ITEMS_ALWAYS_UPRIGHT_AND_ROTATING
+                && !bz.SettingEngine.ITEMS_CAN_BE_SHOT
+            )
             {
                 this.model.setAbsoluteRotationXYZ
                 (

@@ -16,7 +16,9 @@ export class SettingEngine
     public static readonly STAGE_STARTUP                            :bz.StageId         = bz.StageId.OFFICE;
 
     /** Displays items straight and rotated around axis Y. */
-    public static readonly KEEP_ITEMS_UPRIGHT_AND_ROTATED           :boolean            = false;
+    public static readonly ITEMS_ALWAYS_UPRIGHT_AND_ROTATING        :boolean            = false;
+    /** If items can be shot by the player and get an physical impulse. */
+    public static readonly ITEMS_CAN_BE_SHOT                        :boolean            = true;
 
     /** Follow camera height offset. */
     public static readonly CAMERA_FOLLOW_HEIGHT_OFFSET              :number             = 0.0; // 6.0;
