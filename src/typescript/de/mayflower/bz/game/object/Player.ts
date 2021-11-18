@@ -367,6 +367,25 @@ export class Player extends bz.GameObject
             keySystem.setNeedsRelease( bz.KeyCodes.KEY_X );
             this.turnAroundTicks = bz.SettingPlayer.TICKS_TURN_AROUND;
         }
+
+        // consume painkiller
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_BACKSPACE ) )
+        {
+            keySystem.setNeedsRelease( bz.KeyCodes.KEY_BACKSPACE );
+
+            this.stage.addEventsToPipeline(
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Consumed one Painkiller' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                    ),
+                ]
+            );
+        }
     }
 
     /** ****************************************************************************************************************

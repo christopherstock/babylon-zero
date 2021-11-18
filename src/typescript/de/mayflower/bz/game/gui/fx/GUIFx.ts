@@ -26,21 +26,7 @@ export class GUIFx
     {
         this.lifetimeTicks = bz.SettingGUI.GUI_FX_LIFETIME;
 
-        let color:string = null;
-        switch ( type )
-        {
-            case bz.GUIFxType.HURT:
-            {
-                color = bz.SettingColor.COLOR_CSS_RED_OPAQUE;
-                break;
-            }
-
-            case bz.GUIFxType.GAIN_ENERGY:
-            {
-                color = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
-                break;
-            }
-        }
+        const color:string = GUIFx.getColorFromGuiFxType( type );
 
         this.fxRect = bz.GUIFactory.createRectangle
         (
@@ -87,5 +73,28 @@ export class GUIFx
     public dispose() : void
     {
         this.fxRect.dispose();
+    }
+
+    private static getColorFromGuiFxType( type:bz.GUIFxType ) : string
+    {
+        switch ( type )
+        {
+            case bz.GUIFxType.HURT:
+            {
+                return bz.SettingColor.COLOR_CSS_RED_OPAQUE;
+            }
+
+            case bz.GUIFxType.PICK_UP_ITEM:
+            {
+                return bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
+            }
+
+            case bz.GUIFxType.GAIN_ENERGY:
+            {
+                return bz.SettingColor.COLOR_CSS_GREEN_OPAQUE;
+            }
+        }
+
+        return null;
     }
 }

@@ -49,6 +49,8 @@ export abstract class KeyCodes
     public static readonly KEY_ESCAPE           :string = 'Escape';
     /** The keycode that represents the 'SPACE' key. */
     public static readonly KEY_SPACE            :string = 'Space';
+    /** The keycode that represents the 'BACKSPACE' key. */
+    public static readonly KEY_BACKSPACE        :string = 'Backspace';
     /** The keycode that represents the 'LEFT CONTROL' key. */
     public static readonly KEY_CTRL_LEFT        :string = 'ControlLeft';
     /** The keycode that represents the 'LEFT SHIFT' key. */

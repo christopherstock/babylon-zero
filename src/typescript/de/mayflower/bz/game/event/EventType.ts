@@ -10,4 +10,6 @@ export enum EventType
     SHOW_GUI_EFFECT,
 
     TIME_DELAY,
+
+    // CAST_EXPLOSION,
 }

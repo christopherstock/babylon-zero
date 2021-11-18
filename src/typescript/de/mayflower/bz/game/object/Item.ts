@@ -58,7 +58,7 @@ export class Item extends bz.Trigger
                     ),
                     new bz.Event(
                         bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.PICK_UP_ITEM )
                     ),
                 ];
             }
@@ -72,7 +72,7 @@ export class Item extends bz.Trigger
                     ),
                     new bz.Event(
                         bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.PICK_UP_ITEM )
                     ),
                 ];
             }

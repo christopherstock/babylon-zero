@@ -180,7 +180,6 @@ export class Texture
     *   Delivers the BulletHole Texture for a 3ds max model's texture file specification.
     *   TODO could be removed by adding TextureType.MODEL again :)
     *
-    *
     *   @param meshTextureFileUrl The filename of the 3ds max model's used texture -- without any directory component.
     *******************************************************************************************************************/
     private static getBulletHoleTexForMeshTex( meshTextureFileUrl:string ) :bz.TextureFile
