@@ -15,10 +15,10 @@ export class Trigger extends bz.GameObject
     private   readonly eventsOnPicked :bz.Event[]      = [];
 
     public constructor(
-        stage:bz.Stage,
-        position:BABYLON.Vector3,
-        eventsOnPicked:bz.Event[],
-        model:bz.Model = new bz.Model()
+        stage          :bz.Stage,
+        position       :BABYLON.Vector3,
+        eventsOnPicked :bz.Event[],
+        model          :bz.Model = new bz.Model()
     )
     {
         super(
@@ -70,14 +70,27 @@ export class Trigger extends bz.GameObject
     *
     *   @param playerPosition The currenrt player position.
     *
-    *   @return <code>true</code> if this item was picked.
+    *   @return <code>true</code> if this item has been picked in this check.
     *******************************************************************************************************************/
     private checkPick( playerPosition:BABYLON.Vector3 ) : boolean
     {
+        // only if not picked yet
         if ( !this.picked )
         {
+            let currentItemPosition :BABYLON.Vector3 = null;
+
+            // pick pivot point of mesh for Items as Items can be shot to a different position
+            if ( this.getModel().getMeshCount() > 0 )
+            {
+                currentItemPosition = this.getModel().getMesh( 0 ).getAbsolutePivotPoint();
+            }
+            else
+            {
+                currentItemPosition = this.itemPosition;
+            }
+
             // get distance between item and player
-            const distance :number = BABYLON.Vector3.Distance( this.itemPosition, playerPosition );
+            const distance :number = BABYLON.Vector3.Distance( currentItemPosition, playerPosition );
             if ( distance < bz.SettingPlayer.RANGE_ITEM_PICK )
             {
                 this.pick();

@@ -5,17 +5,16 @@
 ===============
 MVP - Game Demo
 ===============
-TODO item => check collision with PivotPoint? => change to physical object ???
+TODO Try items as 3D physical models that can be shot
+TODO Create event type 'ingame message' with pic and message.
 TODO Try 3D wearpon model
-
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Add door creation to room creation method.
-TODO Create event type 'ingame message' with pic and message.
 TODO dark bullet holes?
+TODO create player inventory (painkillers :) and let him add items and keep items between Stages
 
 TODO clear error message 'the user has exited the lock before ..'
 TODO Enable Player lamp (switchable).
-TODO create player inventory and let him add items and keep items between Stages
 TODO Try stored 3dsmax model animations.
 TODO Improve models (shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO Office with lamp than can be turned on or off. => event pipeline etc. => trigger fields / walls?
