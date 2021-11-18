@@ -39,7 +39,7 @@ export class StageIntroLogo extends bz.Stage
         // alter the light intensity
         ++this.currentTick;
 /*
-        // DEBUG bling bling ..
+        // full lighted logo .. (TODO try gold metal effect etc?)
         if ( true )
         {
             this.pointLight.range = 100.0;

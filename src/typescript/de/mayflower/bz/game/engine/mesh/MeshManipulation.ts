@@ -162,6 +162,8 @@ export abstract class MeshManipulation
         }
     }
 
+    // noinspection JSUnusedGlobalSymbols
+
     /** ****************************************************************************************************************
     *   Starts a stored animation for the given mesh in the specified frame range.
     *

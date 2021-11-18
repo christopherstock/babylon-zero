@@ -53,7 +53,7 @@ export class Texture
     *
     *   @param file The texture file to create this Texture from.
     *******************************************************************************************************************/
-    public constructor( file :bz.TextureFile )
+    private constructor( file :bz.TextureFile )
     {
         this.file = file;
     }

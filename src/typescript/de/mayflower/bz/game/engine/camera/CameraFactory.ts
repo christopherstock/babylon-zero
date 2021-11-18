@@ -3,7 +3,7 @@ import * as bz  from '../../..';
 /** ********************************************************************************************************************
 *   Creates instances for all scene cameras.
 ***********************************************************************************************************************/
-export abstract class CameraFactory
+export class CameraFactory
 {
     /** The ID for the next created camera to assign. */
     private static nextCameraId :number = 0;
@@ -15,7 +15,7 @@ export abstract class CameraFactory
     *   @param startupPosition The camera startup position.
     *   @param startupTarget   The camera startup target.
     *******************************************************************************************************************/
-    public static createFreeCamera
+    public createFreeCamera
     (
         scene           :BABYLON.Scene,
         startupPosition :BABYLON.Vector3,
@@ -55,7 +55,7 @@ export abstract class CameraFactory
     *   @param scene           The babylon.JS scene.
     *   @param startupPosition The camera startup position.
     *******************************************************************************************************************/
-    public static createStationaryTargetCamera
+    public createStationaryTargetCamera
     (
         scene           :BABYLON.Scene,
         startupPosition :BABYLON.Vector3
@@ -78,7 +78,7 @@ export abstract class CameraFactory
     *
     *   @return The follow camera.
     *******************************************************************************************************************/
-    public static createFollowCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : BABYLON.FollowCamera
+    public createFollowCamera( scene:BABYLON.Scene, startupPosition:BABYLON.Vector3 ) : BABYLON.FollowCamera
     {
         const followCamera:BABYLON.FollowCamera = new BABYLON.FollowCamera
         (
@@ -104,7 +104,7 @@ export abstract class CameraFactory
     *
     *   @return A free camera.
     *******************************************************************************************************************/
-    public static createFirstPersonCamera( scene:BABYLON.Scene, fieldOfView:number ) : BABYLON.FreeCamera
+    public createFirstPersonCamera( scene:BABYLON.Scene, fieldOfView:number ) : BABYLON.FreeCamera
     {
         const freeCamera:BABYLON.FreeCamera = new BABYLON.FreeCamera
         (
@@ -130,7 +130,7 @@ export abstract class CameraFactory
     *
     *   @return An arc rotation camera.
     *******************************************************************************************************************/
-    public static createArcRotateCamera
+    public createArcRotateCamera
     (
         scene            :BABYLON.Scene,
         rotX             :number,

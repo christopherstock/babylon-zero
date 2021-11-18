@@ -286,9 +286,9 @@ export class StageOffice extends bz.Stage
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3(
-                                40.0 + (0*160.0) + ( bz.SettingEngine.WALL_DEPTH / 2 ),
+                                40.0 + ( bz.SettingEngine.WALL_DEPTH / 2 ), // 160.0 +
                                 bz.SettingEngine.FLOOR_OFFSET_Y,
-                                -10.0 + (0*10.0) + ( bz.SettingEngine.DOOR_WIDTH / 2 )
+                                -10.0 + ( bz.SettingEngine.DOOR_WIDTH / 2 ) // 10.0 +
                             ),
                             bz.TextureFile.WALL_DOOR_1,
                             new BABYLON.Vector3(

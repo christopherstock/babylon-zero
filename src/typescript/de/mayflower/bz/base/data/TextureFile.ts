@@ -114,7 +114,7 @@ export class TextureFile
     *******************************************************************************************************************/
     public getIsVideoTexture() : boolean
     {
-        return this.textureType === bz.TextureType.VIDEO;
+        return ( this.textureType === bz.TextureType.VIDEO );
     }
 
     /** ****************************************************************************************************************

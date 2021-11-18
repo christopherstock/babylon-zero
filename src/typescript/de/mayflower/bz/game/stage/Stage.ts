@@ -82,7 +82,8 @@ export abstract class Stage
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
         this.createStageContents( meshFactory );
 
-        // set player startup position and rotation if desired
+        // player startup position and rotation must be set via config object!
+/*
         if ( this.config.startupPosition !== null )
         {
             this.player.setPosition( this.config.startupPosition );
@@ -91,7 +92,7 @@ export abstract class Stage
         {
             this.player.setRotation( this.config.startupRotation );
         }
-
+*/
         // create cameras and set initial cam
         this.cameraSystem = this.createCameraSystem();
         this.setActiveCamera( this.config.initialCamera );
@@ -475,6 +476,8 @@ export abstract class Stage
         this.lights.push( light );
     }
 
+    // noinspection JSUnusedGlobalSymbols
+
     /** ****************************************************************************************************************
     *   Adds a bot to the stage.
     *
@@ -484,6 +487,8 @@ export abstract class Stage
     {
         this.bots.push( bot );
     }
+
+    // noinspection JSUnusedGlobalSymbols
 
     /** ****************************************************************************************************************
     *   Adds a shadow generator for the specified shadow light.

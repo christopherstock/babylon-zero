@@ -6,18 +6,18 @@
 export class SpriteFile
 {
     /** The sprite 'tree'. */
-    public static readonly TREE                    :SpriteFile             = new SpriteFile( 'tree.png',       357 );
+    public static readonly TREE             :SpriteFile   = new SpriteFile( 'tree.png', 357 );
     /** The sprite 'tree white'. */
-    public static readonly TREE_WHITE              :SpriteFile             = new SpriteFile( 'palm.png',       357 );
+    public static readonly TREE_WHITE       :SpriteFile   = new SpriteFile( 'palm.png', 357 );
     /** The sprite 'palm'. */
-    public static readonly PALM                    :SpriteFile             = new SpriteFile( 'palm.png',       1024 );
+    public static readonly PALM             :SpriteFile   = new SpriteFile( 'palm.png', 1024 );
     /** The sprite 'test'. */
-    public static readonly TEST                    :SpriteFile             = new SpriteFile( 'test.png',       64  );
+    public static readonly TEST             :SpriteFile   = new SpriteFile( 'test.png', 64 );
     /** The sprite 'fire'. */
-    public static readonly FIRE                    :SpriteFile             = new SpriteFile( 'fire.png',       128 );
+    public static readonly FIRE             :SpriteFile   = new SpriteFile( 'fire.png', 128 );
 
     /** Lists all sprite files in an array. */
-    public static readonly ALL_SPRITE_FILES        :SpriteFile[]           =
+    public static readonly ALL_SPRITE_FILES :SpriteFile[] =
     [
         SpriteFile.TREE,
         SpriteFile.TREE_WHITE,
@@ -27,9 +27,9 @@ export class SpriteFile
     ];
 
     /** The filename of this texture's image. */
-    public              readonly    fileName                :string             = null;
+    public readonly fileName  :string = null;
     /** Specifies the width and height of one square frame inside this sprite. */
-    public              readonly    frameSize               :number             = 0;
+    public readonly frameSize :number = 0;
 
     /** ****************************************************************************************************************
     *   Creates a sprite configuration.
@@ -37,7 +37,7 @@ export class SpriteFile
     *   @param fileName  The filename of the image to load for this material.
     *   @param frameSize The size of a square frame in pixels.
     *******************************************************************************************************************/
-    public constructor( fileName:string, frameSize:number )
+    private constructor( fileName:string, frameSize:number )
     {
         this.fileName  = fileName;
         this.frameSize = frameSize;

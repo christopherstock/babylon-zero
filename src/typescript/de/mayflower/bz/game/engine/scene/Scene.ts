@@ -121,6 +121,8 @@ export class Scene
         return this.modelSystem;
     }
 
+    // noinspection JSUnusedGlobalSymbols
+
     /** ****************************************************************************************************************
     *   Delivers the sound system.
     *

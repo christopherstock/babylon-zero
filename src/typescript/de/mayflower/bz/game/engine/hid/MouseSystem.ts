@@ -177,10 +177,14 @@ export class MouseSystem
         return false;
     }
 
+    // noinspection JSUnusedGlobalSymbols
+
     /** ****************************************************************************************************************
     *   Flags the specified mouse button so it requires a release event before being able to be pressed again.
     *
     *   @param buttonId The button ID to flag as 'requires a release'.
+    *
+    *   @deprecated Seems useless since the 'Pointer Lock API' is used.
     *******************************************************************************************************************/
     public setButtonNeedsRelease( buttonId:number ) : void
     {

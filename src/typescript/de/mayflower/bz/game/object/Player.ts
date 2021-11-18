@@ -196,26 +196,6 @@ export class Player extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
-    *   Teleport the player to the target position.
-    *
-    *   @param position The position to teleport the player to.
-    *******************************************************************************************************************/
-    public setPosition( position:BABYLON.Vector3 ) : void
-    {
-        this.playerPhysics.body.position = position;
-    }
-
-    /** ****************************************************************************************************************
-    *   Set the specified rotation to the player.
-    *
-    *   @param rotation The rotation to apply to the player.
-    *******************************************************************************************************************/
-    public setRotation( rotation:BABYLON.Vector3 ) : void
-    {
-        this.rotation.set( rotation.x, rotation.y, rotation.z );
-    }
-
-    /** ****************************************************************************************************************
     *   Delivers the current position of the player body.
     *
     *   @return Current player body position.
