@@ -8,7 +8,7 @@
 export class SettingGUI
 {
     /** The number of ticks for a GUI message to be displayed. */
-    public static readonly GUI_TEXT_MESSAGE_LIFETIME                :number         = 300;
+    public static readonly GUI_TEXT_MESSAGE_LIFETIME                :number         = 325;
     /** The number of ticks of a GUI message's lifetime to fade out. */
     public static readonly GUI_TEXT_MESSAGE_FADE_OUT_TICKS          :number         = 25;
     /** The offset Y between message lines. */

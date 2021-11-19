@@ -392,6 +392,14 @@ export class StageOffice extends bz.Stage
                         )
                     ),
                     new bz.Event(
+                        bz.EventType.GAIN_PAINKILLERS,
+                        new bz.EventDataGainPainkillers( 2 )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_MESSAGE,
+                        new bz.EventDataShowGuiMessage( 'Gained two Painkillers' )
+                    ),
+                    new bz.Event(
                         bz.EventType.SHOW_GUI_GAME_MESSAGE,
                         new bz.EventDataShowGuiGameMessage(
                             bz.GUIGameMessagePic.OFFICE_LADY,

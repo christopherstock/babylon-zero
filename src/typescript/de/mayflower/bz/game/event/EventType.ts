@@ -11,6 +11,7 @@ export enum EventType
 
     SHOW_GUI_EFFECT,
 
+    // TODO move to index 0
     TIME_DELAY,
 
     CAST_EXPLOSION,

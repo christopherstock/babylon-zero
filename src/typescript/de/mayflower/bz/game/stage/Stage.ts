@@ -326,6 +326,21 @@ export abstract class Stage
                     )
                 );
             }
+            // TODO refactor duplicate push( event )
+
+            // postpone time delay for gui messages
+            else if ( event.type === bz.EventType.SHOW_GUI_GAME_MESSAGE )
+            {
+                newEvents.push( event );
+                newEvents.push(
+                    new bz.Event(
+                        bz.EventType.TIME_DELAY,
+                        new bz.EventDataTimeDelay(
+                            ( bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME + bz.SettingGUI.GUI_GAME_MESSAGE_DELAY_BETWEEN_MESSAGES )
+                        )
+                    )
+                );
+            }
             else
             {
                 newEvents.push( event );
