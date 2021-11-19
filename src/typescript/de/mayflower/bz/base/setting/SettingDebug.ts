@@ -5,7 +5,7 @@
 /** ********************************************************************************************************************
 *   Specifies all debug adjustments for the application.
 ***********************************************************************************************************************/
-export class SettingDebug
+export abstract class SettingDebug
 {
     /** The global switch for the debug mode. */
     public static readonly DEBUG_MODE                              :boolean            = true;

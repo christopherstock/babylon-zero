@@ -3,7 +3,7 @@
 /** ********************************************************************************************************************
 *   Specifies all settings for the engine.
 ***********************************************************************************************************************/
-export class SettingEngine
+export abstract class SettingEngine
 {
     /** The minimum canvas width. */
     public static readonly CANVAS_MIN_WIDTH                         :number             = 800;

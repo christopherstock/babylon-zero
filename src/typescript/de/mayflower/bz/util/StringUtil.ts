@@ -4,7 +4,7 @@ const moment:any = require( 'moment' );
 /** ********************************************************************************************************************
 *   Offers extended string functionality.
 ***********************************************************************************************************************/
-export class StringUtil
+export abstract class StringUtil
 {
     /** ****************************************************************************************************************
     *   Returns a formatted timestamp of the current system date and time.

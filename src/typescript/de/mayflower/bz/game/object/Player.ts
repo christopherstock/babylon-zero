@@ -872,7 +872,7 @@ export class Player extends bz.GameObject
         }
         else if ( this.inventory.numberOfPainkillers === 1 )
         {
-            message += ' Only one remaining.';
+            message += ' One remaining.';
         }
         else
         {

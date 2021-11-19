@@ -6,7 +6,7 @@ import * as bjs from 'babylonjs'
 /** ********************************************************************************************************************
 *   Specifies all colors the application makes use of.
 ***********************************************************************************************************************/
-export class SettingColor
+export abstract class SettingColor
 {
     /** The CSS color 'transparent'. */
     public static readonly COLOR_CSS_TRANSPARENT                        :string             = 'rgba( 0,   0,   0,   0.0 )';

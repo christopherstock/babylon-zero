@@ -1,7 +1,7 @@
 /** ********************************************************************************************************************
 *   Specifies all settings for any file and memory resources the application imports.
 ***********************************************************************************************************************/
-export class SettingResource
+export abstract class SettingResource
 {
     /** Relative path from index.html where all loading images reside. */
     public static readonly PATH_IMAGE_LOADING   :string = 'res/image/loading/';

@@ -1,7 +1,7 @@
 /** ********************************************************************************************************************
 *   Specifies all adjustments and balancings for the human player.
 ***********************************************************************************************************************/
-export class SettingPlayer
+export abstract class SettingPlayer
 {
     /** The player's weight in kg. */
     public static readonly PLAYER_MASS                              :number             = 1414.0;

@@ -3,7 +3,7 @@
 /** ********************************************************************************************************************
 *   Specifies all adjustments and balancings for the Graohical User Interface.
 ***********************************************************************************************************************/
-export class SettingGUI
+export abstract class SettingGUI
 {
     /** The number of ticks for a GUI message to be displayed. */
     public static readonly TEXT_MESSAGE_LIFETIME                :number         = 325;

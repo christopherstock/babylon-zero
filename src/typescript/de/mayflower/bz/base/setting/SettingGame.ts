@@ -5,7 +5,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Specifies all settings for the game.
 ***********************************************************************************************************************/
-export class SettingGame
+export abstract class SettingGame
 {
     /** The stage the application starts up with. */
     public static readonly STAGE_STARTUP                            :bz.StageId         = bz.StageId.OFFICE;
