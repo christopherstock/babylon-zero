@@ -121,6 +121,9 @@ export abstract class GUIFactory
         textBlock.fontSize = String( fontSize ) + 'px';
         textBlock.color    = color;
 
+        textBlock.fontFamily = bz.SettingGUI.FONT_FAMILY;
+        textBlock.fontWeight = bz.SettingGUI.FONT_WEIGHT;
+
         textBlock.lineSpacing = String( bz.SettingGUI.FONT_LINESPACING ) + 'px';
 
         if ( shadowColor !== null )

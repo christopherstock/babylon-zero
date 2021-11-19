@@ -5,6 +5,13 @@
 ***********************************************************************************************************************/
 export abstract class SettingGUI
 {
+    public static readonly FONT_FAMILY                          :string         = '\'Open Sans\', Helvetica, Arial, sans-serif';
+    public static readonly FONT_WEIGHT                          :string         = '400';
+     /** The default font size for GUI texts. */
+    public static readonly FONT_SIZE_DEFAULT                    :number         = 24.0;
+    /** The default font line spacing for GUI texts. */
+    public static readonly FONT_LINESPACING                     :number         = 10.0;
+
     /** The number of ticks for a GUI message to be displayed. */
     public static readonly TEXT_MESSAGE_LIFETIME                :number         = 325;
     /** The number of ticks of a GUI message's lifetime to fade out. */
@@ -30,11 +37,6 @@ export abstract class SettingGUI
     public static readonly BORDER_X                             :number         = 50.0;
     /** The height of the horizontal border for all GUI elements. */
     public static readonly BORDER_Y                             :number         = 50.0;
-
-    /** The default font size for GUI texts. */
-    public static readonly FONT_SIZE_DEFAULT                    :number         = 24.0;
-    /** The default font line spacing for GUI texts. */
-    public static readonly FONT_LINESPACING                     :number         = 4.0;
 
     /** The height of the game message bg. Specified in number of lines - 1st and last lines remain free. */
     public static readonly GAME_MESSAGE_BG_HEIGHT               :number         = 200;
