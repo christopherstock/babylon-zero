@@ -32,6 +32,10 @@ export * from './game/gui/menu/GUIMenuItem';
 export * from './game/gui/message/GUIMessage';
 export * from './game/gui/message/GUIMessageManager';
 
+export * from './game/gui/gameMessage/GUIGameMessage';
+export * from './game/gui/gameMessage/GUIGameMessageManager';
+export * from './game/gui/gameMessage/GUIGameMessagePic';
+
 export * from './game/gui/GUI';
 export * from './game/gui/GUIFactory';
 export * from './game/gui/GUIPause';

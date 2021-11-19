@@ -379,6 +379,12 @@ export class StageOffice extends bz.Stage
                     ),
                 ]
             );
+
+            // show a GUI game message
+            this.getGame().getGUI().addGuiGameMessage(
+                bz.GUIGameMessagePic.OFFICE_LADY,
+                'This is just a test GUI game message.'
+            );
         }
     }
 
