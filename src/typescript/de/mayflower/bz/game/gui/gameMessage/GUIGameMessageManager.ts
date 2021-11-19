@@ -39,25 +39,25 @@ export class GUIGameMessageManager
         if ( this.delayTicksBeforeNextMessage > 0 )
         {
             --this.delayTicksBeforeNextMessage;
+
+            return;
         }
-        else
+
+        // render the 1st GUI message
+        if ( this.messageQueue.length > 0 )
         {
-            // render the 1st GUI message
-            if ( this.messageQueue.length > 0 )
+            const firstMessage :bz.GUIGameMessage = this.messageQueue[ 0 ];
+
+            // render message and check if still alive
+            firstMessage.render();
+            if ( firstMessage.isLifetimeOver() )
             {
-                const firstMessage :bz.GUIGameMessage = this.messageQueue[ 0 ];
+                // dispose and prune message form queue
+                firstMessage.dispose();
+                this.messageQueue.shift();
 
-                // render message and check if still alive
-                firstMessage.render();
-                if ( firstMessage.isLifetimeOver() )
-                {
-                    // dispose and prune message form queue
-                    firstMessage.dispose();
-                    this.messageQueue.shift();
-
-                    // delay before handling next message
-                    this.delayTicksBeforeNextMessage = bz.SettingGUI.GUI_GAME_MESSAGE_DELAY_BETWEEN_MESSAGES;
-                }
+                // delay before handling next message
+                this.delayTicksBeforeNextMessage = bz.SettingGUI.GUI_GAME_MESSAGE_DELAY_BETWEEN_MESSAGES;
             }
         }
     }

@@ -25,6 +25,7 @@ TODO Add nicer textures
 TODO Flashlite on player - depending on wearpon.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
+TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
 TODO Find and reduce classes with mixed static & non-static content
 TODO debug and improve init process?
 TODO Reset Git Repository?

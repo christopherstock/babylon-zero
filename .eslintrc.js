@@ -158,6 +158,7 @@ module.exports = {
         '@typescript-eslint/no-unsafe-argument': 'off',
         'no-unused-expressions': 'warn',
         'no-unused-labels': 'warn',
+        'no-else-return': 'warn',
         'object-shorthand': 'off',
         'one-var': ['warn', 'never'],
         'quote-props': 'off',
