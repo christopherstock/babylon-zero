@@ -112,7 +112,10 @@ export class GUIGameMessage
         }
         else if ( this.lifetimeTicks > bz.SettingGUI.GAME_MESSAGE_LIFETIME - bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS )
         {
-            const alpha :number = ( ( bz.SettingGUI.GAME_MESSAGE_LIFETIME - this.lifetimeTicks ) / bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS );
+            const alpha :number = (
+                ( bz.SettingGUI.GAME_MESSAGE_LIFETIME - this.lifetimeTicks )
+                / bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS
+            );
 
             this.bg.alpha    = alpha;
             this.text.alpha  = alpha;
@@ -140,6 +143,13 @@ export class GUIGameMessage
         this.text.dispose();
     }
 
+    /** ****************************************************************************************************************
+    *   Deliver the image resource for the specified image type.
+    *
+    *   @param pic The pic to get the filename for.
+    *
+    *   @return The image file name resource.
+    *******************************************************************************************************************/
     private static getImageFromImageType( pic:bz.GUIGameMessagePic ) : string
     {
         switch ( pic )

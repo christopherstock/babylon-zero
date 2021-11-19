@@ -168,11 +168,40 @@ export abstract class StageFactory
     public static addCratesPile( stage:bz.Stage, meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
     {
         // add 5 wooden crates
-        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x,       pos.y,       pos.z       ) ) );
-        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y,       pos.z + 2.5 ) ) );
-        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y,       pos.z       ) ) );
-        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 ) ) );
-        stage.addWall( bz.WallFactory.createWoodenCrate( stage, meshFactory, new BABYLON.Vector3( pos.x + 2.5, pos.y + 5.0, pos.z + 2.5 ) ) );
+        stage.addWall(
+            bz.WallFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x, pos.y, pos.z )
+            )
+        );
+        stage.addWall(
+            bz.WallFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 )
+            )
+        );
+        stage.addWall(
+            bz.WallFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ) )
+        );
+        stage.addWall(
+            bz.WallFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 )
+            )
+        );
+        stage.addWall(
+            bz.WallFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y + 5.0, pos.z + 2.5 )
+            )
+        );
     }
 
     /** ****************************************************************************************************************

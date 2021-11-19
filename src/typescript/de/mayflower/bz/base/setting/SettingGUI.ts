@@ -39,6 +39,9 @@ export abstract class SettingGUI
     /** The height of the game message bg. Specified in number of lines - 1st and last lines remain free. */
     public static readonly GAME_MESSAGE_BG_HEIGHT               :number         = 200;
 
+    // noinspection JSSuspiciousNameCombination
+
+    /** The width of the GUI Game Message pic. */
     public static readonly GAME_MESSAGE_IMAGE_WIDTH             :number         = SettingGUI.GAME_MESSAGE_BG_HEIGHT;
 
     /** If navigation through pause menu items is wrapped before first and after last item. */

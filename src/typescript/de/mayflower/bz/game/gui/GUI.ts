@@ -158,7 +158,8 @@ export class GUI
     /** ****************************************************************************************************************
     *   Adds a message to the message queue.
     *
-    *   @param msg The message to add to the message queue.
+    *   @param msg        The message to add to the message queue.
+    *   @param noFlooding If enabled, the message is ignored if the previously added text message has the same body.
     *******************************************************************************************************************/
     public addGuiTextMessage( msg:string, noFlooding:boolean ) : void
     {

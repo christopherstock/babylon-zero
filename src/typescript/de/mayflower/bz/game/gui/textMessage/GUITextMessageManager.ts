@@ -20,8 +20,9 @@ export class GUITextMessageManager
     /** ****************************************************************************************************************
     *   Adds a message to the message queue.
     *
-    *   @param gui The gui to add the text message to.
-    *   @param msg The message to add to the message queue.
+    *   @param gui        The gui to add the text message to.
+    *   @param msg        The message to add to the message queue.
+    *   @param noFlooding If enabled, the message is ignored if the previously added text message has the same body.
     *******************************************************************************************************************/
     public addGuiTextMessage(gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string, noFlooding:boolean ) : void
     {
@@ -33,6 +34,7 @@ export class GUITextMessageManager
             return;
         }
 
+        // creating the GUITextMessage will show the element on the screen
         this.messageQueue.push
         (
             new bz.GUITextMessage

@@ -17,8 +17,6 @@ export class GUIGameMessageManager
     *   @param gui The gui to add the text message to.
     *   @param img The image to display for this game message.
     *   @param msg The message to add to the message queue.
-    *
-    *   TODO replace with object as param
     *******************************************************************************************************************/
     public addGuiGameMessage( gui:BABYLON_GUI.AdvancedDynamicTexture, img:bz.GUIGameMessagePic, msg:string ) : void
     {

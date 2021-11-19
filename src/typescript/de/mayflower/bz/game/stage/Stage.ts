@@ -1,5 +1,4 @@
 import * as bz from '../..';
-import { InteractionType } from '../..';
 
 /** ********************************************************************************************************************
 *   Represents a custom stage set.
@@ -292,7 +291,7 @@ export abstract class Stage
                 hitGameObject instanceof bz.Wall
                 && hitGameObject.interactionEvents !== null
                 && !(
-                    hitGameObject.interactionType === InteractionType.ONCE
+                    hitGameObject.interactionType === bz.InteractionType.ONCE
                     && hitGameObject.alreadyInteractedwith
                 )
             )
@@ -341,7 +340,10 @@ export abstract class Stage
                         new bz.Event(
                             bz.EventType.TIME_DELAY,
                             new bz.EventDataTimeDelay(
-                                ( bz.SettingGUI.GAME_MESSAGE_LIFETIME + bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES )
+                                (
+                                    bz.SettingGUI.GAME_MESSAGE_LIFETIME
+                                    + bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES
+                                )
                             )
                         )
                     );

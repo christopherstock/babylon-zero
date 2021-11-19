@@ -90,6 +90,7 @@ export abstract class GUIFactory
     *   @param alignmentHorz The horizontal alignment.
     *   @param alignmentVert The vertical   alignment.
     *   @param onPointerDown A callback to invoke when the pointer is down.
+    *   @param textWrapping  If the text should be wrapped according to the width of this text block.
     *
     *   @return The specified text block.
     *******************************************************************************************************************/
