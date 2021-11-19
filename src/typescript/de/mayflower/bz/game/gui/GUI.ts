@@ -160,9 +160,9 @@ export class GUI
     *
     *   @param msg The message to add to the message queue.
     *******************************************************************************************************************/
-    public addGuiTextMessage( msg:string ) : void
+    public addGuiTextMessage( msg:string, noFlooding:boolean ) : void
     {
-        this.textMessageManager.addGuiTextMessage( this.guiTextMessages, msg );
+        this.textMessageManager.addGuiTextMessage( this.guiTextMessages, msg, noFlooding );
     }
 
     /** ****************************************************************************************************************

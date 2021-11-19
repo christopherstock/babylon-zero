@@ -39,18 +39,21 @@ export class EventDataStageSwitch extends EventData
 ***********************************************************************************************************************/
 export class EventDataShowGuiTextMessage extends EventData
 {
-    public message :string;
+    public message    :string;
+    public noFlooding :boolean;
 
     /** ****************************************************************************************************************
     *   Creates the data for the event 'Show GUI Message'.
     *
-    *   @param message The message to display in the GUI.
+    *   @param message    The message to display in the GUI.
+    *   @param noFlooding Will not display this message if the last GUI message had the same content!
     *******************************************************************************************************************/
-    public constructor( message:string )
+    public constructor( message:string, noFlooding:boolean = false )
     {
         super();
 
-        this.message = message;
+        this.message    = message;
+        this.noFlooding = noFlooding;
     }
 }
 

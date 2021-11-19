@@ -37,6 +37,8 @@ export abstract class Stage
     /** The skybox that surrounds the whole stage. */
     private          skybox             :BABYLON.Mesh               = null;
 
+    /** Handles one single blocking UI pipeline (for event blocking UI messages). */
+    private         uiThreadPipeline    :bz.Event[]                 = [];
     /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
     private         eventPipelines      :bz.Event[][]               = [];
 
@@ -310,7 +312,8 @@ export abstract class Stage
     public addEventsToPipeline( events:bz.Event[] ) : void
     {
         // reset event data
-        const newEvents :bz.Event[] = [];
+        const newEvents     :bz.Event[] = [];
+        let addToUiPipeline :boolean    = false;
         for ( const event of events )
         {
             // special handling for TIME_DELAY events
@@ -342,11 +345,20 @@ export abstract class Stage
                             )
                         )
                     );
+
+                    addToUiPipeline = true;
                 }
             }
         }
 
-        this.eventPipelines.push( newEvents );
+        if ( addToUiPipeline )
+        {
+            this.uiThreadPipeline = this.uiThreadPipeline.concat( newEvents );
+        }
+        else
+        {
+            this.eventPipelines.push( newEvents );
+        }
     }
 
     /** ****************************************************************************************************************
@@ -685,7 +697,7 @@ export abstract class Stage
                 bz.Debug.stage.log( 'Showing GUI text message' );
 
                 const data :bz.EventDataShowGuiTextMessage = ( event.data as bz.EventDataShowGuiTextMessage );
-                this.getGame().getGUI().addGuiTextMessage( data.message );
+                this.getGame().getGUI().addGuiTextMessage( data.message, data.noFlooding );
 
                 return true;
             }
@@ -810,6 +822,34 @@ export abstract class Stage
             }
 
             this.eventPipelines = newEventPipelines;
+        }
+
+        // handle the UI thread event pipeline separately
+        if ( this.uiThreadPipeline.length > 0 )
+        {
+            const newEventPipeline :bz.Event[] = [];
+
+            let pipelineBlocked :boolean = false;
+            for ( const event of this.uiThreadPipeline )
+            {
+                if ( pipelineBlocked )
+                {
+                    newEventPipeline.push( event );
+                }
+                else
+                {
+                    const eventProcessed :boolean  = this.launchEvent( event );
+                    if ( !eventProcessed )
+                    {
+                        pipelineBlocked = true;
+                        newEventPipeline.push( event );
+
+                        bz.Debug.events.log( '  Event is blocking the UI-event pipeline.' );
+                    }
+                }
+            }
+
+            this.uiThreadPipeline = newEventPipeline;
         }
     }
 

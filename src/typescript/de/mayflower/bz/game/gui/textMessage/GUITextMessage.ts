@@ -6,6 +6,8 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 ***********************************************************************************************************************/
 export class GUITextMessage
 {
+    public          msg           :string                  = null;
+
     /** The number of ticks this message is still visible. */
     private          lifetimeTicks :number                  = 0;
 
@@ -25,6 +27,7 @@ export class GUITextMessage
     )
     {
         this.lifetimeTicks = bz.SettingGUI.TEXT_MESSAGE_LIFETIME;
+        this.msg           = msg;
 
         this.text = bz.GUIFactory.createTextBlock
         (

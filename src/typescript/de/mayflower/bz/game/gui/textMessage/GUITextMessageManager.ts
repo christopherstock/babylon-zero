@@ -23,8 +23,16 @@ export class GUITextMessageManager
     *   @param gui The gui to add the text message to.
     *   @param msg The message to add to the message queue.
     *******************************************************************************************************************/
-    public addGuiTextMessage(gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string ) : void
+    public addGuiTextMessage(gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string, noFlooding:boolean ) : void
     {
+        if (
+            noFlooding
+            && this.messageQueue.length > 0
+            && this.messageQueue[ this.messageQueue.length - 1 ].msg === msg
+        ) {
+            return;
+        }
+
         this.messageQueue.push
         (
             new bz.GUITextMessage

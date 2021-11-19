@@ -853,7 +853,7 @@ export class Player extends bz.GameObject
                 [
                     new bz.Event(
                         bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'No pain killers available!' )
+                        new bz.EventDataShowGuiTextMessage( 'No painkillers available!', true )
                     ),
                 ]
             );
