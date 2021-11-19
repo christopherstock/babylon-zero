@@ -62,16 +62,20 @@ export class GUIGameMessage
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-            0, // bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH + bz.SettingGUI.GUI_BORDER_X,
+            0,
             bz.SettingGUI.GUI_BORDER_Y + bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_FONT_LINESPACING,
-            (
-                window.innerWidth - 3 * bz.SettingGUI.GUI_BORDER_X - bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH
-            ),
-            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
-            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+            ( window.innerWidth - 3 * bz.SettingGUI.GUI_BORDER_X - bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH ),
+            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT - ( bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_FONT_LINESPACING ),
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
-            null
+            null,
+            true
         );
+        this.messageText.width = '100%';
+        this.messageText.paddingLeft = (
+            String( 2 * bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH )
+        ) + 'px';
+        this.messageText.paddingRight = bz.SettingGUI.GUI_BORDER_X + 'px';
 
         this.messageBg.isVisible = false;
         this.messageImage.isVisible = false;

@@ -103,9 +103,10 @@ export abstract class GUIFactory
         y             :number,
         width         :number,
         height        :number,
-        alignmentHorz :number = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
-        alignmentVert :number = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
-        onPointerDown :() => void = ():void => { /* empty */ }
+        alignmentHorz :number     = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+        alignmentVert :number     = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+        onPointerDown :() => void = ():void => { /* empty */ },
+        textWrapping  :boolean    = false
     )
     : BABYLON_GUI.TextBlock
     {
@@ -133,6 +134,8 @@ export abstract class GUIFactory
         textBlock.verticalAlignment       = alignmentVert;
         textBlock.textHorizontalAlignment = alignmentHorz;
         textBlock.textVerticalAlignment   = alignmentVert;
+
+        textBlock.textWrapping            = textWrapping;
 
         if ( onPointerDown )
         {
