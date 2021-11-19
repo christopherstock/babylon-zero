@@ -1,5 +1,9 @@
+/* eslint-disable max-len */
+
 /** ********************************************************************************************************************
 *   Specifies all adjustments and balancings for the Graohical User Interface.
+*
+*   TODO remove 'GUI' in constant namings
 ***********************************************************************************************************************/
 export class SettingGUI
 {
@@ -31,7 +35,13 @@ export class SettingGUI
 
     /** The default font size for GUI texts. */
     public static readonly GUI_FONT_SIZE_DEFAULT                :number         = 20.0;
+    /** The default font line spacing for GUI texts. */
+    public static readonly GUI_FONT_LINESPACING                 :number         = 2.0;
+
+    /** The height of the game message bg. Specified in number of lines - 1st and last lines remain free. */
+    public static readonly GUI_GAME_MESSAGE_BG_HEIGHT           :number         = 200;
 
     /** If navigation through pause menu items is wrapped before first and after last item. */
     public static readonly GUI_WRAP_PAUSE_MENU_ITEMS            :boolean        = true;
+
 }

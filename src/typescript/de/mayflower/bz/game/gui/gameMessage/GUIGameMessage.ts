@@ -9,6 +9,10 @@ export class GUIGameMessage
     /** The number of ticks this message is still visible. */
     private          lifetimeTicks :number                  = 0;
 
+    // TODO rename redundandy - also in  bz.GUIMessage
+
+    /** The image that displays the initiator of this message. */
+    private readonly messageBg      :BABYLON_GUI.Rectangle  = null;
     /** The image that displays the initiator of this message. */
     private readonly messageImage  :BABYLON_GUI.Image       = null;
     /** The text block that contains this single message. */
@@ -30,6 +34,18 @@ export class GUIGameMessage
     {
         this.lifetimeTicks = bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME;
 
+        this.messageBg = bz.GUIFactory.createRectangle
+        (
+            0,
+            bz.SettingGUI.GUI_BORDER_Y,
+            0,
+            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
+            bz.SettingColor.COLOR_CSS_TRANSPARENT,
+            bz.SettingColor.COLOR_CSS_GRAY_HALF_ALPHA
+        );
+        this.messageBg.width  = '100%';
+        // this.messageBg.height = '100%';
+
         this.messageImage = bz.GUIFactory.createImage
         (
             'wearpon/autoShotgun.png',
@@ -47,17 +63,19 @@ export class GUIGameMessage
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             bz.SettingGUI.GUI_BORDER_X,
-            bz.SettingGUI.GUI_BORDER_Y,
-            500,
-            100,
+            bz.SettingGUI.GUI_BORDER_Y + bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_FONT_LINESPACING,
+            bz.SettingEngine.CANVAS_MIN_WIDTH,
+            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
         );
 
+        this.messageBg.isVisible = false;
         this.messageImage.isVisible = false;
         this.messageText.isVisible  = false;
 
+        gui.addControl( this.messageBg    );
         gui.addControl( this.messageImage );
         gui.addControl( this.messageText  );
     }
@@ -67,25 +85,31 @@ export class GUIGameMessage
     *******************************************************************************************************************/
     public render() : void
     {
+        // show on first render
+        if ( this.lifetimeTicks === bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME )
+        {
+            this.messageBg.isVisible    = true;
+            this.messageImage.isVisible = true;
+            this.messageText.isVisible  = true;
+        }
+
         // decrease number of lifetime ticks
         --this.lifetimeTicks;
-
-        // show former hidden game message's GUI elements
-        this.messageImage.isVisible = true;
-        this.messageText.isVisible  = true;
 
         // assign opacity according to lifetime ticks
         if ( this.lifetimeTicks < bz.SettingGUI.GUI_GAME_MESSAGE_FADE_OUT_TICKS )
         {
             const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS );
 
-            this.messageText.alpha  = alpha;
+            this.messageBg.alpha    = alpha;
             this.messageImage.alpha = alpha;
+            this.messageText.alpha  = alpha;
         }
         else if ( this.lifetimeTicks > bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME - bz.SettingGUI.GUI_GAME_MESSAGE_FADE_IN_TICKS )
         {
             const alpha :number = ( ( bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME - this.lifetimeTicks ) / bz.SettingGUI.GUI_GAME_MESSAGE_FADE_IN_TICKS );
 
+            this.messageBg.alpha    = alpha;
             this.messageText.alpha  = alpha;
             this.messageImage.alpha = alpha;
         }
@@ -106,6 +130,7 @@ export class GUIGameMessage
     *******************************************************************************************************************/
     public dispose() : void
     {
+        this.messageBg.dispose();
         this.messageImage.dispose();
         this.messageText.dispose();
     }
