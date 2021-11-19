@@ -34,9 +34,9 @@ export class SettingGUI
     public static readonly GUI_BORDER_Y                             :number         = 50.0;
 
     /** The default font size for GUI texts. */
-    public static readonly GUI_FONT_SIZE_DEFAULT                    :number         = 20.0;
+    public static readonly GUI_FONT_SIZE_DEFAULT                    :number         = 24.0;
     /** The default font line spacing for GUI texts. */
-    public static readonly GUI_FONT_LINESPACING                     :number         = 2.0;
+    public static readonly GUI_FONT_LINESPACING                     :number         = 4.0;
 
     /** The height of the game message bg. Specified in number of lines - 1st and last lines remain free. */
     public static readonly GUI_GAME_MESSAGE_BG_HEIGHT               :number         = 200;

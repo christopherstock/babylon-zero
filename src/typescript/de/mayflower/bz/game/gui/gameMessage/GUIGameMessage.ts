@@ -63,19 +63,19 @@ export class GUIGameMessage
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,
-            bz.SettingGUI.GUI_BORDER_Y + bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_FONT_LINESPACING,
+            bz.SettingGUI.GUI_BORDER_Y,
             ( window.innerWidth - 3 * bz.SettingGUI.GUI_BORDER_X - bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH ),
-            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT - ( bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_FONT_LINESPACING ),
+            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null,
             true
         );
+        // TODO move to method? (create MultiLineTextBlock)
         this.messageText.width = '100%';
-        this.messageText.paddingLeft = (
-            String( 2 * bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH )
-        ) + 'px';
-        this.messageText.paddingRight = bz.SettingGUI.GUI_BORDER_X + 'px';
+        this.messageText.paddingLeftInPixels = ( 2 * bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH );
+        this.messageText.paddingRightInPixels = bz.SettingGUI.GUI_BORDER_X;
+        this.messageText.textVerticalAlignment = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
 
         this.messageBg.isVisible = false;
         this.messageImage.isVisible = false;
