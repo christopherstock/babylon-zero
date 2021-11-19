@@ -39,7 +39,7 @@ export class GUIGameMessage
             0,
             bz.SettingGUI.GAME_MESSAGE_BG_HEIGHT,
             bz.SettingColor.COLOR_CSS_TRANSPARENT,
-            bz.SettingColor.COLOR_CSS_GRAY_HALF_ALPHA
+            bz.SettingColor.COLOR_CSS_GUI_MSG_GRAY_HALF_ALPHA
         );
         this.bg.width  = '100%';
         // this.messageBg.height = '100%';

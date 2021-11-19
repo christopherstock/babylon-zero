@@ -25,7 +25,7 @@ export abstract class SettingColor
     /** The CSS color 'black' with full opacity. */
     public static readonly COLOR_CSS_BLACK_OPAQUE                       :string             = 'rgba( 0,   0,   0,   1.0 )';
     /** The CSS color 'gray' with full opacity. */
-    public static readonly COLOR_CSS_GRAY_HALF_ALPHA                    :string             = 'rgba( 50, 50, 50, 0.5 )';
+    public static readonly COLOR_CSS_GUI_MSG_GRAY_HALF_ALPHA            :string             = 'rgba( 25, 25, 25, 0.7 )';
 
     /** The RGB color 'white' without alpha information. */
     public static readonly COLOR_RGB_WHITE                              :BABYLON.Color3     = new bjs.Color3( 1.0, 1.0, 1.0 );
