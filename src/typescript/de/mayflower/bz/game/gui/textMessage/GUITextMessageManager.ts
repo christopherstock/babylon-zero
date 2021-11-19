@@ -4,10 +4,10 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 /** ********************************************************************************************************************
 *   Manages all GUI messages shown in the GUI.
 ***********************************************************************************************************************/
-export class GUIMessageManager
+export class GUITextMessageManager
 {
     /** All GUI messages currently displayed. */
-    private readonly messageQueue :bz.GUIMessage[] = [];
+    private readonly messageQueue :bz.GUITextMessage[] = [];
 
     /** ****************************************************************************************************************
     *   Renders the GUI message manager for one game tick.
@@ -23,11 +23,11 @@ export class GUIMessageManager
     *   @param gui The gui to add the text message to.
     *   @param msg The message to add to the message queue.
     *******************************************************************************************************************/
-    public addGuiMessage(gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string ) : void
+    public addGuiMessage( gui:BABYLON_GUI.AdvancedDynamicTexture, msg:string ) : void
     {
         this.messageQueue.push
         (
-            new bz.GUIMessage
+            new bz.GUITextMessage
             (
                 gui,
                 msg

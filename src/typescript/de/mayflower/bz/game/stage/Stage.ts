@@ -662,7 +662,7 @@ export abstract class Stage
                 bz.Debug.stage.log( 'Showing GUI message' );
 
                 const data :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
-                this.getGame().getGUI().addGuiMessage( data.message );
+                this.getGame().getGUI().addGuiTextMessage( data.message );
 
                 return true;
             }

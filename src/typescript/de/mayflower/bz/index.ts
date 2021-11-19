@@ -29,8 +29,8 @@ export * from './game/gui/menu/GUIAction';
 export * from './game/gui/menu/GUIMenu';
 export * from './game/gui/menu/GUIMenuItem';
 
-export * from './game/gui/message/GUIMessage';
-export * from './game/gui/message/GUIMessageManager';
+export * from './game/gui/textMessage/GUITextMessage';
+export * from './game/gui/textMessage/GUITextMessageManager';
 
 export * from './game/gui/gameMessage/GUIGameMessage';
 export * from './game/gui/gameMessage/GUIGameMessageManager';

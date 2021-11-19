@@ -50,7 +50,7 @@ export class GUIGameMessage
         (
             'wearpon/autoShotgun.png',
             bz.SettingGUI.GUI_BORDER_X,
-            0,
+            bz.SettingGUI.GUI_BORDER_Y,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
@@ -99,7 +99,7 @@ export class GUIGameMessage
         // assign opacity according to lifetime ticks
         if ( this.lifetimeTicks < bz.SettingGUI.GUI_GAME_MESSAGE_FADE_OUT_TICKS )
         {
-            const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS );
+            const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.GUI_TEXT_MESSAGE_FADE_OUT_TICKS );
 
             this.messageBg.alpha    = alpha;
             this.messageImage.alpha = alpha;

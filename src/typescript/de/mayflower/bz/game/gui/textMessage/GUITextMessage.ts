@@ -4,7 +4,7 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 /** ********************************************************************************************************************
 *   Represents one GUI message that's displayed in the GUI message queue and disappearing after some time.
 ***********************************************************************************************************************/
-export class GUIMessage
+export class GUITextMessage
 {
     /** The number of ticks this message is still visible. */
     private          lifetimeTicks :number                  = 0;
@@ -24,7 +24,7 @@ export class GUIMessage
         msg :string
     )
     {
-        this.lifetimeTicks = bz.SettingGUI.GUI_MESSAGE_LIFETIME;
+        this.lifetimeTicks = bz.SettingGUI.GUI_TEXT_MESSAGE_LIFETIME;
 
         this.messageText = bz.GUIFactory.createTextBlock
         (
@@ -53,9 +53,9 @@ export class GUIMessage
         --this.lifetimeTicks;
 
         // assign opacity according to lifetime ticks
-        if ( this.lifetimeTicks < bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS )
+        if ( this.lifetimeTicks < bz.SettingGUI.GUI_TEXT_MESSAGE_FADE_OUT_TICKS )
         {
-            this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS );
+            this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.GUI_TEXT_MESSAGE_FADE_OUT_TICKS );
         }
     }
 
@@ -87,7 +87,7 @@ export class GUIMessage
     {
         const MESSAGE_LINE_HEIGHT:number =
         (
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_MESSAGE_LINES_DISTANCE_Y
+            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_TEXT_MESSAGE_LINES_DISTANCE_Y
         );
 
         this.messageText.top =

@@ -11,7 +11,7 @@ export class GUI
     /** The 'effects' fullscreen gui lies over the player GUI. */
     private readonly guiEffects         :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'messages' fullscreen gui lies over the effects GUI. */
-    private readonly guiMessages        :BABYLON_GUI.AdvancedDynamicTexture     = null;
+    private readonly guiTextMessages    :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'game messages' fullscreen gui lies over the messages GUI. */
     private readonly guiGameMessages    :BABYLON_GUI.AdvancedDynamicTexture     = null;
     /** The 'pause' fullscreen gui lies over the messages GUI. */
@@ -19,8 +19,8 @@ export class GUI
 
     /** The FPS text block. */
     private readonly fpsText            :BABYLON_GUI.TextBlock                  = null;
-    /** The manager for GUI messages. */
-    private readonly messageManager     :bz.GUIMessageManager                   = null;
+    /** The manager for GUI text messages. */
+    private readonly textMessageManager :bz.GUITextMessageManager               = null;
     /** The manager for GUI game messages. */
     private readonly gameMessageManager :bz.GUIGameMessageManager               = null;
     /** The manager for GUI effects. */
@@ -44,7 +44,7 @@ export class GUI
         // create all native foreground GUI
         this.guiPlayer       = bz.GUIFactory.createGUI( scene, true );
         this.guiEffects      = bz.GUIFactory.createGUI( scene, true );
-        this.guiMessages     = bz.GUIFactory.createGUI( scene, true );
+        this.guiTextMessages     = bz.GUIFactory.createGUI( scene, true );
         this.guiGameMessages = bz.GUIFactory.createGUI( scene, true );
         this.guiPause        = bz.GUIFactory.createGUI( scene, true );
 
@@ -67,14 +67,14 @@ export class GUI
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
         );
-        this.guiMessages.addControl( this.fpsText );
+        this.guiTextMessages.addControl( this.fpsText );
         if ( !bz.SettingDebug.SHOW_FPS )
         {
             this.fpsText.isVisible = false;
         }
 
         // create the message and fx managers
-        this.messageManager     = new bz.GUIMessageManager();
+        this.textMessageManager = new bz.GUITextMessageManager();
         this.gameMessageManager = new bz.GUIGameMessageManager();
         this.fxManager          = new bz.GUIFxManager();
     }
@@ -126,7 +126,7 @@ export class GUI
     {
         this.guiPlayer.dispose();
         this.guiEffects.dispose();
-        this.guiMessages.dispose();
+        this.guiTextMessages.dispose();
         this.guiGameMessages.dispose();
         this.guiPause.dispose();
     }
@@ -144,7 +144,7 @@ export class GUI
 
         if ( !pause )
         {
-            this.messageManager.render();
+            this.textMessageManager.render();
             this.gameMessageManager.render();
             this.fxManager.render();
         }
@@ -159,16 +159,20 @@ export class GUI
     *   Adds a message to the message queue.
     *
     *   @param msg The message to add to the message queue.
+    *
+    *   TODO enable message object as param!
     *******************************************************************************************************************/
-    public addGuiMessage( msg:string ) : void
+    public addGuiTextMessage( msg:string ) : void
     {
-        this.messageManager.addGuiMessage( this.guiMessages, msg );
+        this.textMessageManager.addGuiMessage( this.guiTextMessages, msg );
     }
     /** ****************************************************************************************************************
     *   Adds a game message to the game message queue.
     *
     *   @param img The image to display in this game message.
     *   @param msg The text message to display in this game message.
+    *
+    *   TODO enable message object as param!
     *******************************************************************************************************************/
     public addGuiGameMessage( img:bz.GUIGameMessagePic, msg:string ) : void
     {
