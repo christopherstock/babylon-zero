@@ -87,8 +87,8 @@ export class Item extends bz.Collectable
             {
                 return [
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Picked up some shotgun shells' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Picked up some shotgun shells' )
                     ),
                     new bz.Event(
                         bz.EventType.SHOW_GUI_EFFECT,
@@ -101,8 +101,8 @@ export class Item extends bz.Collectable
             {
                 return [
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Picked up some bullets 792mm' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Picked up some bullets 792mm' )
                     ),
                     new bz.Event(
                         bz.EventType.SHOW_GUI_EFFECT,
@@ -115,8 +115,8 @@ export class Item extends bz.Collectable
             {
                 return [
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Picked up a Painkiller' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Picked up a Painkiller' )
                     ),
                     new bz.Event(
                         bz.EventType.GAIN_PAINKILLERS,

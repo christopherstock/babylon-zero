@@ -37,7 +37,7 @@ export class EventDataStageSwitch extends EventData
 /** ********************************************************************************************************************
 *   The event data for the event type { @see EventType.SHOW_GUI_MESSAGE }.
 ***********************************************************************************************************************/
-export class EventDataShowGuiMessage extends EventData
+export class EventDataShowGuiTextMessage extends EventData
 {
     public message :string;
 

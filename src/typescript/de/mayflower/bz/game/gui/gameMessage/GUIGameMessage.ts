@@ -62,14 +62,13 @@ export class GUIGameMessage
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,
             bz.SettingGUI.BORDER_Y,
-            ( window.innerWidth - 3 * bz.SettingGUI.BORDER_X - bz.SettingGUI.GAME_MESSAGE_IMAGE_WIDTH ),
+            0,
             bz.SettingGUI.GAME_MESSAGE_BG_HEIGHT,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null,
             true
         );
-        // TODO move to method? (create MultiLineTextBlock)
         this.text.width = '100%';
         this.text.paddingLeftInPixels = (
             2 * bz.SettingGUI.BORDER_X + bz.SettingGUI.GAME_MESSAGE_IMAGE_WIDTH

@@ -213,12 +213,12 @@ export class StageOffice extends bz.Stage
                         new bz.EventDataShowGuiEffect( bz.GUIFxType.HURT )
                     ),
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Ouch .. just hurt myself here ..' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Ouch .. just hurt myself here ..' )
                     ),
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Damn!' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Damn!' )
                     ),
                 ]
             )
@@ -234,8 +234,8 @@ export class StageOffice extends bz.Stage
                         new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
                     ),
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Yeah .. gained some energy here ..' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Yeah .. gained some energy here ..' )
                     ),
                 ]
             )
@@ -396,8 +396,8 @@ export class StageOffice extends bz.Stage
                         new bz.EventDataGainPainkillers( 2 )
                     ),
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'Gained two Painkillers' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Gained two Painkillers' )
                     ),
                     new bz.Event(
                         bz.EventType.SHOW_GUI_GAME_MESSAGE,
@@ -494,16 +494,16 @@ export class StageOffice extends bz.Stage
             5.0,
             [
                 new bz.Event(
-                    bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'All cleared for today.' )
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
                 ),
                 new bz.Event(
                     bz.EventType.TIME_DELAY,
                     new bz.EventDataTimeDelay( 600 )
                 ),
                 new bz.Event(
-                    bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'DELAYED: No more work for today.' )
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
                 ),
             ],
             bz.InteractionType.ONCE
@@ -636,16 +636,16 @@ export class StageOffice extends bz.Stage
             bz.GameObject.UNBREAKABLE,
             [
                 new bz.Event(
-                    bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'Nothing on the television today' )
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'Nothing on the television today' )
                 ),
                 new bz.Event(
                     bz.EventType.TIME_DELAY,
                     new bz.EventDataTimeDelay( 600 )
                 ),
                 new bz.Event(
-                    bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( 'DELAYED: I think I should go home now.' )
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'DELAYED: I think I should go home now.' )
                 ),
             ],
             bz.InteractionType.ONCE

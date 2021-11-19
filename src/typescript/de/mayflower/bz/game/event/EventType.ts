@@ -7,7 +7,7 @@ export enum EventType
 
     SWITCH_TO_STAGE,
 
-    SHOW_GUI_MESSAGE,
+    SHOW_GUI_TEXT_MESSAGE,
 
     SHOW_GUI_GAME_MESSAGE,
 

@@ -313,10 +313,10 @@ export abstract class Stage
         const newEvents :bz.Event[] = [];
         for ( const event of events )
         {
-            // clone the TIME_DELAY effect in order to use a discreet object with an own elapse-counter here!
+            // special handling for TIME_DELAY events
             if ( event.type === bz.EventType.TIME_DELAY )
             {
-                // this object cloning and exceptional behaviour for TIME_DELAY looks like a technical debt
+                // a clone of the TIME_DELAY event is created and added so it has an own elapse-counter
                 newEvents.push(
                     new bz.Event(
                         bz.EventType.TIME_DELAY,
@@ -326,24 +326,23 @@ export abstract class Stage
                     )
                 );
             }
-            // TODO refactor duplicate push( event )
-
-            // postpone time delay for gui messages
-            else if ( event.type === bz.EventType.SHOW_GUI_GAME_MESSAGE )
-            {
-                newEvents.push( event );
-                newEvents.push(
-                    new bz.Event(
-                        bz.EventType.TIME_DELAY,
-                        new bz.EventDataTimeDelay(
-                            ( bz.SettingGUI.GAME_MESSAGE_LIFETIME + bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES )
-                        )
-                    )
-                );
-            }
             else
             {
+                // add the event
                 newEvents.push( event );
+
+                // postpone a TIME_DELAY event for shown GUI game messages
+                if ( event.type === bz.EventType.SHOW_GUI_GAME_MESSAGE )
+                {
+                    newEvents.push(
+                        new bz.Event(
+                            bz.EventType.TIME_DELAY,
+                            new bz.EventDataTimeDelay(
+                                ( bz.SettingGUI.GAME_MESSAGE_LIFETIME + bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES )
+                            )
+                        )
+                    );
+                }
             }
         }
 
@@ -681,13 +680,11 @@ export abstract class Stage
                 return true;
             }
 
-            // TODO rename!
-
-            case bz.EventType.SHOW_GUI_MESSAGE:
+            case bz.EventType.SHOW_GUI_TEXT_MESSAGE:
             {
                 bz.Debug.stage.log( 'Showing GUI text message' );
 
-                const data :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
+                const data :bz.EventDataShowGuiTextMessage = ( event.data as bz.EventDataShowGuiTextMessage );
                 this.getGame().getGUI().addGuiTextMessage( data.message );
 
                 return true;

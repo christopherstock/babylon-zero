@@ -852,8 +852,8 @@ export class Player extends bz.GameObject
             this.stage.addEventsToPipeline(
                 [
                     new bz.Event(
-                        bz.EventType.SHOW_GUI_MESSAGE,
-                        new bz.EventDataShowGuiMessage( 'No pain killers available!' )
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'No pain killers available!' )
                     ),
                 ]
             );
@@ -887,8 +887,8 @@ export class Player extends bz.GameObject
                     new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
                 ),
                 new bz.Event(
-                    bz.EventType.SHOW_GUI_MESSAGE,
-                    new bz.EventDataShowGuiMessage( message )
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( message )
                 ),
             ]
         );

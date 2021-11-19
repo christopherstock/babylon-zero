@@ -159,20 +159,17 @@ export class GUI
     *   Adds a message to the message queue.
     *
     *   @param msg The message to add to the message queue.
-    *
-    *   TODO enable message object as param!
     *******************************************************************************************************************/
     public addGuiTextMessage( msg:string ) : void
     {
-        this.textMessageManager.addGuiMessage( this.guiTextMessages, msg );
+        this.textMessageManager.addGuiTextMessage( this.guiTextMessages, msg );
     }
+
     /** ****************************************************************************************************************
     *   Adds a game message to the game message queue.
     *
     *   @param img The image to display in this game message.
     *   @param msg The text message to display in this game message.
-    *
-    *   TODO enable message object as param!
     *******************************************************************************************************************/
     public addGuiGameMessage( img:bz.GUIGameMessagePic, msg:string ) : void
     {
