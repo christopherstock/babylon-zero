@@ -10,7 +10,7 @@ export class GUITextMessage
     private          lifetimeTicks :number                  = 0;
 
     /** The text block that contains this single message. */
-    private readonly messageText   :BABYLON_GUI.TextBlock   = null;
+    private readonly text          :BABYLON_GUI.TextBlock   = null;
 
     /** ****************************************************************************************************************
     *   Creates a new message text.
@@ -26,7 +26,7 @@ export class GUITextMessage
     {
         this.lifetimeTicks = bz.SettingGUI.TEXT_MESSAGE_LIFETIME;
 
-        this.messageText = bz.GUIFactory.createTextBlock
+        this.text = bz.GUIFactory.createTextBlock
         (
             msg,
             bz.SettingGUI.FONT_SIZE_DEFAULT,
@@ -41,7 +41,7 @@ export class GUITextMessage
             null
         );
 
-        gui.addControl( this.messageText );
+        gui.addControl( this.text );
     }
 
     /** ****************************************************************************************************************
@@ -55,7 +55,7 @@ export class GUITextMessage
         // assign opacity according to lifetime ticks
         if ( this.lifetimeTicks < bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS )
         {
-            this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS );
+            this.text.alpha = ( this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS );
         }
     }
 
@@ -74,7 +74,7 @@ export class GUITextMessage
     *******************************************************************************************************************/
     public dispose() : void
     {
-        this.messageText.dispose();
+        this.text.dispose();
     }
 
     /** ****************************************************************************************************************
@@ -90,7 +90,7 @@ export class GUITextMessage
             bz.SettingGUI.FONT_SIZE_DEFAULT + bz.SettingGUI.TEXT_MESSAGE_LINES_DISTANCE_Y
         );
 
-        this.messageText.top =
+        this.text.top =
         (
             -bz.SettingGUI.BORDER_Y
             - ( ( total - 1 ) * MESSAGE_LINE_HEIGHT )

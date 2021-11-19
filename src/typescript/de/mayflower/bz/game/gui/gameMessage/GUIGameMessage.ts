@@ -7,16 +7,14 @@ import * as BABYLON_GUI from 'babylonjs-gui';
 export class GUIGameMessage
 {
     /** The number of ticks this message is still visible. */
-    private          lifetimeTicks :number                  = 0;
-
-    // TODO rename redundandy - also in  bz.GUIMessage
+    private          lifetimeTicks  :number                 = 0;
 
     /** The image that displays the initiator of this message. */
-    private readonly messageBg      :BABYLON_GUI.Rectangle  = null;
+    private readonly bg             :BABYLON_GUI.Rectangle  = null;
     /** The image that displays the initiator of this message. */
-    private readonly messageImage  :BABYLON_GUI.Image       = null;
+    private readonly img            :BABYLON_GUI.Image      = null;
     /** The text block that contains this single message. */
-    private readonly messageText   :BABYLON_GUI.TextBlock   = null;
+    private readonly text           :BABYLON_GUI.TextBlock  = null;
 
     /** ****************************************************************************************************************
     *   Creates a new game message.
@@ -34,7 +32,7 @@ export class GUIGameMessage
     {
         this.lifetimeTicks = bz.SettingGUI.GAME_MESSAGE_LIFETIME;
 
-        this.messageBg = bz.GUIFactory.createRectangle
+        this.bg = bz.GUIFactory.createRectangle
         (
             0,
             bz.SettingGUI.BORDER_Y,
@@ -43,12 +41,12 @@ export class GUIGameMessage
             bz.SettingColor.COLOR_CSS_TRANSPARENT,
             bz.SettingColor.COLOR_CSS_GRAY_HALF_ALPHA
         );
-        this.messageBg.width  = '100%';
+        this.bg.width  = '100%';
         // this.messageBg.height = '100%';
 
-        this.messageImage = bz.GUIFactory.createImage
+        this.img = bz.GUIFactory.createImage
         (
-            'gameMessage/woman1.jpg',
+            GUIGameMessage.getImageFromImageType( img ),
             bz.SettingGUI.BORDER_X,
             bz.SettingGUI.BORDER_Y,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
@@ -56,7 +54,7 @@ export class GUIGameMessage
             null
         );
 
-        this.messageText = bz.GUIFactory.createTextBlock
+        this.text = bz.GUIFactory.createTextBlock
         (
             msg,
             bz.SettingGUI.FONT_SIZE_DEFAULT,
@@ -72,20 +70,20 @@ export class GUIGameMessage
             true
         );
         // TODO move to method? (create MultiLineTextBlock)
-        this.messageText.width = '100%';
-        this.messageText.paddingLeftInPixels = (
+        this.text.width = '100%';
+        this.text.paddingLeftInPixels = (
             2 * bz.SettingGUI.BORDER_X + bz.SettingGUI.GAME_MESSAGE_IMAGE_WIDTH
         );
-        this.messageText.paddingRightInPixels = bz.SettingGUI.BORDER_X;
-        this.messageText.textVerticalAlignment = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        this.text.paddingRightInPixels = bz.SettingGUI.BORDER_X;
+        this.text.textVerticalAlignment = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
 
-        this.messageBg.isVisible = false;
-        this.messageImage.isVisible = false;
-        this.messageText.isVisible  = false;
+        this.bg.isVisible = false;
+        this.img.isVisible = false;
+        this.text.isVisible  = false;
 
-        gui.addControl( this.messageBg    );
-        gui.addControl( this.messageImage );
-        gui.addControl( this.messageText  );
+        gui.addControl( this.bg    );
+        gui.addControl( this.img );
+        gui.addControl( this.text  );
     }
 
     /** ****************************************************************************************************************
@@ -96,9 +94,9 @@ export class GUIGameMessage
         // show on first render
         if ( this.lifetimeTicks === bz.SettingGUI.GAME_MESSAGE_LIFETIME )
         {
-            this.messageBg.isVisible    = true;
-            this.messageImage.isVisible = true;
-            this.messageText.isVisible  = true;
+            this.bg.isVisible    = true;
+            this.img.isVisible = true;
+            this.text.isVisible  = true;
         }
 
         // decrease number of lifetime ticks
@@ -109,17 +107,17 @@ export class GUIGameMessage
         {
             const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS );
 
-            this.messageBg.alpha    = alpha;
-            this.messageImage.alpha = alpha;
-            this.messageText.alpha  = alpha;
+            this.bg.alpha    = alpha;
+            this.img.alpha = alpha;
+            this.text.alpha  = alpha;
         }
         else if ( this.lifetimeTicks > bz.SettingGUI.GAME_MESSAGE_LIFETIME - bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS )
         {
             const alpha :number = ( ( bz.SettingGUI.GAME_MESSAGE_LIFETIME - this.lifetimeTicks ) / bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS );
 
-            this.messageBg.alpha    = alpha;
-            this.messageText.alpha  = alpha;
-            this.messageImage.alpha = alpha;
+            this.bg.alpha    = alpha;
+            this.text.alpha  = alpha;
+            this.img.alpha = alpha;
         }
     }
 
@@ -138,8 +136,21 @@ export class GUIGameMessage
     *******************************************************************************************************************/
     public dispose() : void
     {
-        this.messageBg.dispose();
-        this.messageImage.dispose();
-        this.messageText.dispose();
+        this.bg.dispose();
+        this.img.dispose();
+        this.text.dispose();
+    }
+
+    private static getImageFromImageType( pic:bz.GUIGameMessagePic ) : string
+    {
+        switch ( pic )
+        {
+            case bz.GUIGameMessagePic.OFFICE_WOMAN_1:
+            {
+                return 'gameMessage/woman1.jpg';
+            }
+        }
+
+        return null;
     }
 }

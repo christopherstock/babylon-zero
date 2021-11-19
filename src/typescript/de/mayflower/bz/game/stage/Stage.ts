@@ -656,6 +656,15 @@ export abstract class Stage
     {
         switch ( event.type )
         {
+            case bz.EventType.TIME_DELAY:
+            {
+                bz.Debug.stage.log( 'Performing a time delay ..' );
+
+                const data :bz.EventDataTimeDelay = ( event.data as bz.EventDataTimeDelay );
+
+                return ( ++data.elapsed >= data.delayInFrames );
+            }
+
             case bz.EventType.SWITCH_TO_STAGE:
             {
                 bz.Debug.stage.log( 'Launching stage switch event to:' );
@@ -703,15 +712,6 @@ export abstract class Stage
                 this.getGame().getGUI().addGuiEffect( data.guiEffect );
 
                 return true;
-            }
-
-            case bz.EventType.TIME_DELAY:
-            {
-                bz.Debug.stage.log( 'Performing a time delay ..' );
-
-                const data :bz.EventDataTimeDelay = ( event.data as bz.EventDataTimeDelay );
-
-                return ( ++data.elapsed >= data.delayInFrames );
             }
 
             case bz.EventType.CAST_EXPLOSION:

@@ -386,7 +386,7 @@ export class StageOffice extends bz.Stage
                     new bz.Event(
                         bz.EventType.SHOW_GUI_GAME_MESSAGE,
                         new bz.EventDataShowGuiGameMessage(
-                            bz.GUIGameMessagePic.OFFICE_LADY,
+                            bz.GUIGameMessagePic.OFFICE_WOMAN_1,
                             'Hey Joe! '
                             + 'Be sure to collect everything valuable and leave the office afterwards! '
                         )
@@ -402,7 +402,7 @@ export class StageOffice extends bz.Stage
                     new bz.Event(
                         bz.EventType.SHOW_GUI_GAME_MESSAGE,
                         new bz.EventDataShowGuiGameMessage(
-                            bz.GUIGameMessagePic.OFFICE_LADY,
+                            bz.GUIGameMessagePic.OFFICE_WOMAN_1,
                             'Be safe outside - it\'s a jungle out there.\n'
                             + 'Take these two Painkillers with you!\nI\'m glad to help you.'
                         )
