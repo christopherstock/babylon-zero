@@ -48,7 +48,7 @@ export class GUIGameMessage
 
         this.messageImage = bz.GUIFactory.createImage
         (
-            'wearpon/autoShotgun.png',
+            'gameMessage/woman1.jpg',
             bz.SettingGUI.GUI_BORDER_X,
             bz.SettingGUI.GUI_BORDER_Y,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
@@ -62,11 +62,13 @@ export class GUIGameMessage
             bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-            bz.SettingGUI.GUI_BORDER_X,
+            0, // bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH + bz.SettingGUI.GUI_BORDER_X,
             bz.SettingGUI.GUI_BORDER_Y + bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_FONT_LINESPACING,
-            bz.SettingEngine.CANVAS_MIN_WIDTH,
+            (
+                window.innerWidth - 3 * bz.SettingGUI.GUI_BORDER_X - bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH
+            ),
             bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
-            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
         );
