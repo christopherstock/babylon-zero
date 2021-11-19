@@ -31,5 +31,21 @@ export class GUIGameMessageManager
 
     public render() : void
     {
+        console.log( 'game msg pipeline size: ' + this.messageQueue.length );
+
+        // render the 1st GUI message
+        if ( this.messageQueue.length > 0 )
+        {
+            const firstMessage :bz.GUIGameMessage = this.messageQueue[ 0 ];
+
+            firstMessage.render();
+            if ( firstMessage.isLifetimeOver() )
+            {
+                firstMessage.dispose();
+                this.messageQueue.shift();
+
+                console.log( '  game message disposed. new size: ' + this.messageQueue.length );
+            }
+        }
     }
 }

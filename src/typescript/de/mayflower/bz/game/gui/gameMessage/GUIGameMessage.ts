@@ -10,8 +10,7 @@ export class GUIGameMessage
     private          lifetimeTicks :number                  = 0;
 
     /** The image that displays the initiator of this message. */
-    private readonly messageImage  :BABYLON_GUI.Image      = null;
-
+    private readonly messageImage  :BABYLON_GUI.Image       = null;
     /** The text block that contains this single message. */
     private readonly messageText   :BABYLON_GUI.TextBlock   = null;
 
@@ -31,9 +30,15 @@ export class GUIGameMessage
     {
         this.lifetimeTicks = bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME;
 
-
-        this.messageImage = null; // z.GUIFactory.createTextBlock
-
+        this.messageImage = bz.GUIFactory.createImage
+        (
+            'wearpon/autoShotgun.png',
+            bz.SettingGUI.GUI_BORDER_X,
+            0,
+            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
+            BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
+            null
+        );
 
         this.messageText = bz.GUIFactory.createTextBlock
         (
@@ -50,7 +55,11 @@ export class GUIGameMessage
             null
         );
 
-        gui.addControl( this.messageText );
+        this.messageImage.isVisible = false;
+        this.messageText.isVisible  = false;
+
+        gui.addControl( this.messageImage );
+        gui.addControl( this.messageText  );
     }
 
     /** ****************************************************************************************************************
@@ -60,13 +69,19 @@ export class GUIGameMessage
     {
         // decrease number of lifetime ticks
         --this.lifetimeTicks;
-/*
+
+        // show former hidden game message's GUI elements
+        this.messageImage.isVisible = true;
+        this.messageText.isVisible  = true;
+
         // assign opacity according to lifetime ticks
-        if ( this.lifetimeTicks < bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS )
+        if ( this.lifetimeTicks < bz.SettingGUI.GUI_GAME_MESSAGE_FADE_OUT_TICKS )
         {
-            this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS );
+            const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS );
+
+            this.messageText.alpha  = alpha;
+            this.messageImage.alpha = alpha;
         }
-*/
     }
 
     /** ****************************************************************************************************************
