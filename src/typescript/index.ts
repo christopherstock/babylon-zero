@@ -1,3 +1,5 @@
+// TODO prune de/mayflower/bz !!
+
 import { WebApp } from './de/mayflower/bz/base/WebApp';
 /*
 ( global as any ).BABYLON = require( 'babylonjs' );

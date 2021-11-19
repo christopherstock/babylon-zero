@@ -770,6 +770,19 @@ export abstract class Stage
 
                 return true;
             }
+
+            case bz.EventType.TOGGLE_LIGHT:
+            {
+                const data :bz.EventDataToggleLight = ( event.data as bz.EventDataToggleLight );
+
+                // toggle native enabled state
+                const newState :boolean = ( !data.light.isEnabled() );
+                data.light.setEnabled( newState );
+
+                bz.Debug.stage.log( 'Toggle light to enabled: ' + String( newState ) + '.' );
+
+                return true;
+            }
         }
     }
 

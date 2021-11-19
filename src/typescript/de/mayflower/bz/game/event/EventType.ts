@@ -16,4 +16,6 @@ export enum EventType
     CAST_EXPLOSION,
 
     GAIN_PAINKILLERS,
+
+    TOGGLE_LIGHT,
 }

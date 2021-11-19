@@ -9,7 +9,7 @@ export abstract class SettingGUI
      /** The weight of the Open Sans font. 300 = light, 400 = regular. */
     public static readonly FONT_WEIGHT                          :string         = '300';
      /** The default font size for GUI texts. */
-    public static readonly FONT_SIZE_DEFAULT                    :number         = 24.0;
+    public static readonly FONT_SIZE_DEFAULT                    :number         = 20.0;
     /** The default font line spacing for GUI texts. */
     public static readonly FONT_LINESPACING                     :number         = 10.0;
 

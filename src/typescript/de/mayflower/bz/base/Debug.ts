@@ -10,13 +10,18 @@ export class Debug
     /** Debugs initialization process. */
     public  static readonly init            :Debug              = new Debug( true  );
     /** Debugs game states. */
-    public  static readonly game            :Debug              = new Debug( false );
+    public  static readonly game            :Debug              = new Debug( true  );
     /** Debugs engine handling and events. */
-    public  static readonly engine          :Debug              = new Debug( false );
+    public  static readonly engine          :Debug              = new Debug( true  );
+    /** Debugs stage system. */
+    public  static readonly stage           :Debug              = new Debug( true  );
+
+    /** Debugs inventory matters. */
+    public  static readonly inventory       :Debug              = new Debug( false );
+    /** Debugs events pipeline. */
+    public  static readonly events          :Debug              = new Debug( false );
     /** Debugs sound system. */
     public  static readonly sound           :Debug              = new Debug( false );
-    /** Debugs stage system. */
-    public  static readonly stage           :Debug              = new Debug( false );
     /** Debugs key system. */
     public  static readonly key             :Debug              = new Debug( false );
     /** Debugs pointer system. */
@@ -31,10 +36,6 @@ export class Debug
     public  static readonly physic          :Debug              = new Debug( false );
     /** Debugs camera behaviours and journeys. */
     public  static readonly camera          :Debug              = new Debug( false );
-    /** Debugs events pipeline. */
-    public  static readonly events          :Debug              = new Debug( false );
-    /** Debugs inventory matters. */
-    public  static readonly inventory       :Debug              = new Debug( true  );
 
     /** Flags if logging for this debug group is enabled. */
     private        readonly debugEnabled    :boolean            = false;

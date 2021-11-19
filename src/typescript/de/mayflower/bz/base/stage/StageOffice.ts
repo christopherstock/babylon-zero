@@ -153,9 +153,12 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 
+
+
+
         this.addFurniture( meshFactory );
 
-        this.addStuffWalls(  meshFactory );
+        this.addStuffWalls(  meshFactory, pointLight );
 
         this.addTrees(  meshFactory );
 
@@ -565,7 +568,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.SOFA_1,
-                new BABYLON.Vector3( 25.5, 1.8, 2.5 ),
+                new BABYLON.Vector3( 25.5, 1.5, 2.5 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -612,7 +615,7 @@ export class StageOffice extends bz.Stage
     *
     *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    private addStuffWalls( meshFactory:bz.MeshFactory ) : void
+    private addStuffWalls( meshFactory:bz.MeshFactory, pointLight:BABYLON.Light ) : void
     {
         // tv (65 inch)
         const tv:bz.Wall = new bz.Wall
@@ -641,14 +644,18 @@ export class StageOffice extends bz.Stage
                 ),
                 new bz.Event(
                     bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( 600 )
+                    new bz.EventDataTimeDelay( ( 2 * 60 ) )
                 ),
                 new bz.Event(
                     bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'DELAYED: I think I should go home now.' )
+                    new bz.EventDataShowGuiTextMessage( 'DELAYED: I will turn the lights off :)' )
+                ),
+                new bz.Event(
+                    bz.EventType.TOGGLE_LIGHT,
+                    new bz.EventDataToggleLight( pointLight )
                 ),
             ],
-            bz.InteractionType.ONCE
+            bz.InteractionType.REPEATED
         );
 
         this.addWall( tv );
