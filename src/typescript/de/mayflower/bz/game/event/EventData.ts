@@ -55,6 +55,29 @@ export class EventDataShowGuiMessage extends EventData
 }
 
 /** ********************************************************************************************************************
+*   The event data for the event type { @see EventType.SHOW_GUI_GAME_MESSAGE }.
+***********************************************************************************************************************/
+export class EventDataShowGuiGameMessage extends EventData
+{
+    public image   :bz.GUIGameMessagePic;
+    public message :string;
+
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Show GUI Game Message'.
+    *
+    *   @param image   The message to display in the GUI.
+    *   @param message The message to display in the GUI.
+    *******************************************************************************************************************/
+    public constructor( image:bz.GUIGameMessagePic, message:string )
+    {
+        super();
+
+        this.image   = image;
+        this.message = message;
+    }
+}
+
+/** ********************************************************************************************************************
 *   The event data for the event type { @see EventType.SHOW_GUI_EFFECT }.
 ***********************************************************************************************************************/
 export class EventDataShowGuiEffect extends EventData

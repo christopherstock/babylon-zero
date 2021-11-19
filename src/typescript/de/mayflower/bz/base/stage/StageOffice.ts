@@ -380,20 +380,27 @@ export class StageOffice extends bz.Stage
                 ]
             );
 
-            // show a GUI game message, delay and gain painkillers
-
-            // show a GUI game message
-            this.getGame().getGUI().addGuiGameMessage(
-                bz.GUIGameMessagePic.OFFICE_LADY,
-                'Hey Joe! '
-                + 'Be sure to collect everything valuable and leave the office afterwards! '
+            // show GUI game messages and gain painkillers when the 2nd game message is shown
+            this.addEventsToPipeline(
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_GAME_MESSAGE,
+                        new bz.EventDataShowGuiGameMessage(
+                            bz.GUIGameMessagePic.OFFICE_LADY,
+                            'Hey Joe! '
+                            + 'Be sure to collect everything valuable and leave the office afterwards! '
+                        )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_GAME_MESSAGE,
+                        new bz.EventDataShowGuiGameMessage(
+                            bz.GUIGameMessagePic.OFFICE_LADY,
+                            'Be safe outside - it\'s a jungle out there.\n'
+                            + 'Take these two Painkillers with you!\nI\'m glad to help you.'
+                        )
+                    ),
+                ]
             );
-            this.getGame().getGUI().addGuiGameMessage(
-                bz.GUIGameMessagePic.OFFICE_LADY,
-                'Be safe outside - it\'s a jungle out there.\n'
-                + 'Take these two Painkillers with you!\nI\'m glad to help you.'
-            );
-
         }
     }
 

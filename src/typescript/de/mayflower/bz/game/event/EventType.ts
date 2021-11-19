@@ -7,6 +7,8 @@ export enum EventType
 
     SHOW_GUI_MESSAGE,
 
+    SHOW_GUI_GAME_MESSAGE,
+
     SHOW_GUI_EFFECT,
 
     TIME_DELAY,

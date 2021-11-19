@@ -657,12 +657,24 @@ export abstract class Stage
                 return true;
             }
 
+            // TODO rename!
+
             case bz.EventType.SHOW_GUI_MESSAGE:
             {
-                bz.Debug.stage.log( 'Showing GUI message' );
+                bz.Debug.stage.log( 'Showing GUI text message' );
 
                 const data :bz.EventDataShowGuiMessage = ( event.data as bz.EventDataShowGuiMessage );
                 this.getGame().getGUI().addGuiTextMessage( data.message );
+
+                return true;
+            }
+
+            case bz.EventType.SHOW_GUI_GAME_MESSAGE:
+            {
+                bz.Debug.stage.log( 'Showing GUI game message' );
+
+                const data :bz.EventDataShowGuiGameMessage = ( event.data as bz.EventDataShowGuiGameMessage );
+                this.getGame().getGUI().addGuiGameMessage( data.image, data.message );
 
                 return true;
             }

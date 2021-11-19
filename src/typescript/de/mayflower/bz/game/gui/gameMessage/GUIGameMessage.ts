@@ -73,7 +73,9 @@ export class GUIGameMessage
         );
         // TODO move to method? (create MultiLineTextBlock)
         this.messageText.width = '100%';
-        this.messageText.paddingLeftInPixels = ( 2 * bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH );
+        this.messageText.paddingLeftInPixels = (
+            2 * bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH
+        );
         this.messageText.paddingRightInPixels = bz.SettingGUI.GUI_BORDER_X;
         this.messageText.textVerticalAlignment = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
 
