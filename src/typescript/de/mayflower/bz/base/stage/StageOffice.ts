@@ -364,7 +364,7 @@ export class StageOffice extends bz.Stage
             this.camTarget = !this.camTarget;
 
             // show hurt GUI effect
-            this.getGame().getGUI().addGuiEffect( bz.GUIFxType.HURT );
+            // this.getGame().getGUI().addGuiEffect( bz.GUIFxType.HURT );
 
             // cast a testwise explosion
             this.addEventsToPipeline(

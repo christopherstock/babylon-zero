@@ -82,6 +82,13 @@ export class GUIGameMessage
             this.messageText.alpha  = alpha;
             this.messageImage.alpha = alpha;
         }
+        else if ( this.lifetimeTicks > bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME - bz.SettingGUI.GUI_GAME_MESSAGE_FADE_IN_TICKS )
+        {
+            const alpha :number = ( ( bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME - this.lifetimeTicks ) / bz.SettingGUI.GUI_GAME_MESSAGE_FADE_IN_TICKS );
+
+            this.messageText.alpha  = alpha;
+            this.messageImage.alpha = alpha;
+        }
     }
 
     /** ****************************************************************************************************************

@@ -12,8 +12,12 @@ export class SettingGUI
 
     /** The number of ticks for a GUI game message to be displayed. */
     public static readonly GUI_GAME_MESSAGE_LIFETIME            :number         = 325
+    /** The number of ticks of a GUI game message's lifetime to fade in. */
+    public static readonly GUI_GAME_MESSAGE_FADE_IN_TICKS       :number         = 25;
     /** The number of ticks of a GUI game message's lifetime to fade out. */
     public static readonly GUI_GAME_MESSAGE_FADE_OUT_TICKS      :number         = 25;
+    /** The number of ticks between two GUI game messages are displayed. */
+    public static readonly GUI_GAME_MESSAGE_DELAY_BETWEEN_MESSAGES  :number     = 25;
 
     /** The number of ticks for a GUI effect to be displayed. */
     public static readonly GUI_FX_LIFETIME                      :number         = 30;

@@ -9,6 +9,8 @@ export class GUIGameMessageManager
     /** All GUI game messages currently displayed. */
     private readonly messageQueue :bz.GUIGameMessage[] = [];
 
+    private delayTicksBeforeNextMessage :number = 0;
+
     /** ****************************************************************************************************************
     *   Adds a message to the message queue.
     *
@@ -29,22 +31,33 @@ export class GUIGameMessageManager
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Renders the GUI game message manager for one game tick.
+    *******************************************************************************************************************/
     public render() : void
     {
-        console.log( 'game msg pipeline size: ' + this.messageQueue.length );
-
-        // render the 1st GUI message
-        if ( this.messageQueue.length > 0 )
+        if ( this.delayTicksBeforeNextMessage > 0 )
         {
-            const firstMessage :bz.GUIGameMessage = this.messageQueue[ 0 ];
-
-            firstMessage.render();
-            if ( firstMessage.isLifetimeOver() )
+            --this.delayTicksBeforeNextMessage;
+        }
+        else
+        {
+            // render the 1st GUI message
+            if ( this.messageQueue.length > 0 )
             {
-                firstMessage.dispose();
-                this.messageQueue.shift();
+                const firstMessage :bz.GUIGameMessage = this.messageQueue[ 0 ];
 
-                console.log( '  game message disposed. new size: ' + this.messageQueue.length );
+                // render message and check if still alive
+                firstMessage.render();
+                if ( firstMessage.isLifetimeOver() )
+                {
+                    // dispose and prune message form queue
+                    firstMessage.dispose();
+                    this.messageQueue.shift();
+
+                    // delay before handling next message
+                    this.delayTicksBeforeNextMessage = bz.SettingGUI.GUI_GAME_MESSAGE_DELAY_BETWEEN_MESSAGES;
+                }
             }
         }
     }

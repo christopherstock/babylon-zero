@@ -10,7 +10,7 @@ export class GUIMessageManager
     private readonly messageQueue :bz.GUIMessage[] = [];
 
     /** ****************************************************************************************************************
-    *   Renders this GUI message manager for one game tick.
+    *   Renders the GUI message manager for one game tick.
     *******************************************************************************************************************/
     public render() : void
     {
