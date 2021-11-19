@@ -383,12 +383,7 @@ export class StageOffice extends bz.Stage
             // show a GUI game message
             this.getGame().getGUI().addGuiGameMessage(
                 bz.GUIGameMessagePic.OFFICE_LADY,
-                '» Ein Jammer, dass die Liebe nicht so einfach ist, '
-                + 'wie wir uns das manchmal wünschen. Das Herz ist ein geheimnisvolles Ding, '
-                + 'nicht wahr? Mag es auch noch so erfüllt sein von der Liebe zu '
-                + 'einem Menschen, findet sich darin doch immer noch '
-                + 'ein Platz für einen anderen.«\n'
-                + '   –– von Erin Lindsey aus Die Garde des Königs'
+                'Collect everything valuable and leave the office afterwards!'
             );
         }
     }
