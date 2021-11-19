@@ -5,24 +5,17 @@
 ===
 MVP
 ===
-TODO Find and reduce classes with mixed static & non-static content
-
 TODO Implement Mayflower font and increase font sizes?
-TODO Add Player energy and GUI energy and GUI painkillers display (variable display with queue top left)
-
-TODO introduce Player painkillers counter + GUI
+TODO Add nicer textures
+TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO static glass windows that shatter on shot
+TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO create player die effect (tilt cylinder and head etc.)
-TODO Create lamp switch on/off effect to EventType. ( + switch inside level )
+TODO Create lamp switch on/off effect inside level - EventType.TOGGLE_LIGHT
 TODO Add door creation to room creation method.
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Add heightmap blue landscape 'dam'?
-TODO Enable switchable Player carried light/lamp.
-TODO Try cool physics pause (scene cam) feature.
-TODO Create realistic models and lights.
-TODO Add nicer textures
-TODO Flashlite on player - depending on wearpon.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
 TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
@@ -31,10 +24,9 @@ TODO Reset Git Repository?
 ======
 3dsmax
 ======
+TODO Create realistic models and lights.
 TODO Try ingame 3D wearpon model
 TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
-
-
 
 ==
 Fx
@@ -63,6 +55,7 @@ TODO Enable wearpon magazines and reloading!
 TODO Create 3d gun as 2nd scene in front?
 TODO Create wearpons with projectiles (exploding or non-exploding)..
 TODO Create explosive wearpons etc.
+TODO Flashlite on player - depending on wearpon.
 
 ======
 Sounds
@@ -94,6 +87,7 @@ TODO clear error message 'the user has exited the lock before ..'?
 TODO Fix crouching/ducking? => concerning heightY and shot height ?
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!
+TODO Implement cool physics pause (scene cam / adrenaline?) feature.
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO debug and improve init process?
 
