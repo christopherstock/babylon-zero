@@ -57,11 +57,11 @@ export class GUIPause
                 + 'C = Crouch' + '\n'
                 + 'Ctlr/Strg = Fire' + '\n'
                 + 'Space = Interact' + '\n',
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingGUI.FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,
-            bz.SettingGUI.GUI_BORDER_Y,
+            bz.SettingGUI.BORDER_Y,
             500,
             500
         );
@@ -71,11 +71,11 @@ export class GUIPause
         this.menuHeadline = bz.GUIFactory.createTextBlock
         (
             'Paws Menu',
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingGUI.FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,
-            ( bz.SettingGUI.GUI_BORDER_Y + 350.0 ),
+            ( bz.SettingGUI.BORDER_Y + 350.0 ),
             250,
             50
         );
@@ -86,8 +86,8 @@ export class GUIPause
         (
             guiFg,
             GUIPause.GUI_MENU_ITEMS,
-            ( bz.SettingGUI.GUI_BORDER_Y + 350 + 50 ),
-            bz.SettingGUI.GUI_WRAP_PAUSE_MENU_ITEMS
+            ( bz.SettingGUI.BORDER_Y + 350 + 50 ),
+            bz.SettingGUI.WRAP_PAUSE_MENU_ITEMS
         );
     }
 

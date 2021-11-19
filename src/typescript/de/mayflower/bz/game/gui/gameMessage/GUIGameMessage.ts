@@ -32,14 +32,14 @@ export class GUIGameMessage
         msg :string
     )
     {
-        this.lifetimeTicks = bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME;
+        this.lifetimeTicks = bz.SettingGUI.GAME_MESSAGE_LIFETIME;
 
         this.messageBg = bz.GUIFactory.createRectangle
         (
             0,
-            bz.SettingGUI.GUI_BORDER_Y,
+            bz.SettingGUI.BORDER_Y,
             0,
-            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
+            bz.SettingGUI.GAME_MESSAGE_BG_HEIGHT,
             bz.SettingColor.COLOR_CSS_TRANSPARENT,
             bz.SettingColor.COLOR_CSS_GRAY_HALF_ALPHA
         );
@@ -49,8 +49,8 @@ export class GUIGameMessage
         this.messageImage = bz.GUIFactory.createImage
         (
             'gameMessage/woman1.jpg',
-            bz.SettingGUI.GUI_BORDER_X,
-            bz.SettingGUI.GUI_BORDER_Y,
+            bz.SettingGUI.BORDER_X,
+            bz.SettingGUI.BORDER_Y,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null
@@ -59,13 +59,13 @@ export class GUIGameMessage
         this.messageText = bz.GUIFactory.createTextBlock
         (
             msg,
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingGUI.FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,
-            bz.SettingGUI.GUI_BORDER_Y,
-            ( window.innerWidth - 3 * bz.SettingGUI.GUI_BORDER_X - bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH ),
-            bz.SettingGUI.GUI_GAME_MESSAGE_BG_HEIGHT,
+            bz.SettingGUI.BORDER_Y,
+            ( window.innerWidth - 3 * bz.SettingGUI.BORDER_X - bz.SettingGUI.GAME_MESSAGE_IMAGE_WIDTH ),
+            bz.SettingGUI.GAME_MESSAGE_BG_HEIGHT,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP,
             null,
@@ -74,9 +74,9 @@ export class GUIGameMessage
         // TODO move to method? (create MultiLineTextBlock)
         this.messageText.width = '100%';
         this.messageText.paddingLeftInPixels = (
-            2 * bz.SettingGUI.GUI_BORDER_X + bz.SettingGUI.GUI_GAME_MESSAGE_IMAGE_WIDTH
+            2 * bz.SettingGUI.BORDER_X + bz.SettingGUI.GAME_MESSAGE_IMAGE_WIDTH
         );
-        this.messageText.paddingRightInPixels = bz.SettingGUI.GUI_BORDER_X;
+        this.messageText.paddingRightInPixels = bz.SettingGUI.BORDER_X;
         this.messageText.textVerticalAlignment = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
 
         this.messageBg.isVisible = false;
@@ -94,7 +94,7 @@ export class GUIGameMessage
     public render() : void
     {
         // show on first render
-        if ( this.lifetimeTicks === bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME )
+        if ( this.lifetimeTicks === bz.SettingGUI.GAME_MESSAGE_LIFETIME )
         {
             this.messageBg.isVisible    = true;
             this.messageImage.isVisible = true;
@@ -105,17 +105,17 @@ export class GUIGameMessage
         --this.lifetimeTicks;
 
         // assign opacity according to lifetime ticks
-        if ( this.lifetimeTicks < bz.SettingGUI.GUI_GAME_MESSAGE_FADE_OUT_TICKS )
+        if ( this.lifetimeTicks < bz.SettingGUI.GAME_MESSAGE_FADE_OUT_TICKS )
         {
-            const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.GUI_TEXT_MESSAGE_FADE_OUT_TICKS );
+            const alpha :number = ( this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS );
 
             this.messageBg.alpha    = alpha;
             this.messageImage.alpha = alpha;
             this.messageText.alpha  = alpha;
         }
-        else if ( this.lifetimeTicks > bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME - bz.SettingGUI.GUI_GAME_MESSAGE_FADE_IN_TICKS )
+        else if ( this.lifetimeTicks > bz.SettingGUI.GAME_MESSAGE_LIFETIME - bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS )
         {
-            const alpha :number = ( ( bz.SettingGUI.GUI_GAME_MESSAGE_LIFETIME - this.lifetimeTicks ) / bz.SettingGUI.GUI_GAME_MESSAGE_FADE_IN_TICKS );
+            const alpha :number = ( ( bz.SettingGUI.GAME_MESSAGE_LIFETIME - this.lifetimeTicks ) / bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS );
 
             this.messageBg.alpha    = alpha;
             this.messageText.alpha  = alpha;

@@ -24,7 +24,7 @@ export class GUIFx
         type :bz.GUIFxType
     )
     {
-        this.lifetimeTicks = bz.SettingGUI.GUI_FX_LIFETIME;
+        this.lifetimeTicks = bz.SettingGUI.FX_LIFETIME;
 
         const color:string = GUIFx.getScreenColorForGuiFxType( type );
 
@@ -53,7 +53,7 @@ export class GUIFx
 
         // assign opacity according to lifetime ticks
         this.fxRect.alpha = (
-            bz.SettingGUI.GUI_FX_INITIAL_ALPHA * this.lifetimeTicks / bz.SettingGUI.GUI_FX_LIFETIME
+            bz.SettingGUI.FX_INITIAL_ALPHA * this.lifetimeTicks / bz.SettingGUI.FX_LIFETIME
         );
     }
 

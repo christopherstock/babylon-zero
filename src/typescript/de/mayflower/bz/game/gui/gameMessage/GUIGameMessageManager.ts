@@ -59,7 +59,7 @@ export class GUIGameMessageManager
                 this.messageQueue.shift();
 
                 // delay before handling next message
-                this.delayTicksBeforeNextMessage = bz.SettingGUI.GUI_GAME_MESSAGE_DELAY_BETWEEN_MESSAGES;
+                this.delayTicksBeforeNextMessage = bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES;
             }
         }
     }

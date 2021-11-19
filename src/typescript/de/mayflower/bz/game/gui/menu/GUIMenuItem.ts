@@ -37,7 +37,7 @@ export class GUIMenuItem
         this.textBlock = bz.GUIFactory.createTextBlock
         (
             this.label,
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingGUI.FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
             0,

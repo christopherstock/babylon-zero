@@ -56,11 +56,11 @@ export class GUI
         this.fpsText = bz.GUIFactory.createTextBlock
         (
             '',
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingGUI.FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-            -bz.SettingGUI.GUI_BORDER_X,
-            bz.SettingGUI.GUI_BORDER_Y,
+            -bz.SettingGUI.BORDER_X,
+            bz.SettingGUI.BORDER_Y,
             250,
             25,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
@@ -87,7 +87,7 @@ export class GUI
         this.wearponImage = bz.GUIFactory.createImage
         (
             'wearpon/autoShotgun.png',
-            -bz.SettingGUI.GUI_BORDER_X,
+            -bz.SettingGUI.BORDER_X,
             0,
             BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
             BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
@@ -229,7 +229,7 @@ export class GUI
         this.wearponImage.scaleX = ( 1.0 + zoomRatio );
         this.wearponImage.scaleY = ( 1.0 + zoomRatio );
         this.wearponImage.left   = (
-            -bz.SettingGUI.GUI_BORDER_X + ( zoomRatio * ( this.wearponImage.widthInPixels  / 2 ) )
+            -bz.SettingGUI.BORDER_X + ( zoomRatio * ( this.wearponImage.widthInPixels  / 2 ) )
         );
         this.wearponImage.top    = (
             -0.0                        + ( zoomRatio * ( this.wearponImage.heightInPixels / 2 ) )

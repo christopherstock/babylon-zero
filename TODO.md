@@ -5,8 +5,6 @@
 ===
 MVP
 ===
-TODO Create event type 'ingame message' with pic and message.
-TODO add delay for displaying ingame messages + performing time delays
 TODO Try ingame 3D wearpon model
 TODO Implement Mayflower font and increase font sizes?
 TODO Add Player energy and GUI energy display

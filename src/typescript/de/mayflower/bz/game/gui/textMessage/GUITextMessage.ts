@@ -24,15 +24,15 @@ export class GUITextMessage
         msg :string
     )
     {
-        this.lifetimeTicks = bz.SettingGUI.GUI_TEXT_MESSAGE_LIFETIME;
+        this.lifetimeTicks = bz.SettingGUI.TEXT_MESSAGE_LIFETIME;
 
         this.messageText = bz.GUIFactory.createTextBlock
         (
             msg,
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT,
+            bz.SettingGUI.FONT_SIZE_DEFAULT,
             bz.SettingColor.COLOR_CSS_WHITE_OPAQUE,
             bz.SettingColor.COLOR_CSS_BLACK_OPAQUE,
-            bz.SettingGUI.GUI_BORDER_X,
+            bz.SettingGUI.BORDER_X,
             0,
             500,
             25,
@@ -53,9 +53,9 @@ export class GUITextMessage
         --this.lifetimeTicks;
 
         // assign opacity according to lifetime ticks
-        if ( this.lifetimeTicks < bz.SettingGUI.GUI_TEXT_MESSAGE_FADE_OUT_TICKS )
+        if ( this.lifetimeTicks < bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS )
         {
-            this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.GUI_TEXT_MESSAGE_FADE_OUT_TICKS );
+            this.messageText.alpha = ( this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS );
         }
     }
 
@@ -87,12 +87,12 @@ export class GUITextMessage
     {
         const MESSAGE_LINE_HEIGHT:number =
         (
-            bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_TEXT_MESSAGE_LINES_DISTANCE_Y
+            bz.SettingGUI.FONT_SIZE_DEFAULT + bz.SettingGUI.TEXT_MESSAGE_LINES_DISTANCE_Y
         );
 
         this.messageText.top =
         (
-            -bz.SettingGUI.GUI_BORDER_Y
+            -bz.SettingGUI.BORDER_Y
             - ( ( total - 1 ) * MESSAGE_LINE_HEIGHT )
             + ( index         * MESSAGE_LINE_HEIGHT )
         );
