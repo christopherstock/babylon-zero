@@ -78,7 +78,7 @@ export class Sprite
                 bz.TextureFile.WALL_GLASS,
                 null,
                 bz.PhysicSet.STATIC,
-                ( !bz.SettingDebug.SHOW_DEBUG_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25 )
+                ( !bz.SettingDebug.SHOW_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25 )
             );
         }
 

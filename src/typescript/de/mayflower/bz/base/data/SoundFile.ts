@@ -11,7 +11,7 @@ export abstract class SoundFile
     public static readonly TEST_FX_1                               :string     = bz.SettingResource.PATH_SOUND_FX + 'test1.mp3';
     /** The bg sound 'test 1'. */
     public static readonly TEST_BG_1                               :string     = bz.SettingResource.PATH_SOUND_BG + 'test1.mp3';
-    /** The bg sound 'Stone Age - The golden valley'. */
+    /** The bg sound 'Stone Age - The golden valley'. TODO prune! */
     public static readonly TEST_BG_STONE_AGE_THE_GOLDEN_VALLEY     :string     = bz.SettingResource.PATH_SOUND_BG + 'stoneAgeTheGoldenValley.mp3';
 
     /** All filenames of all sounds to load. */

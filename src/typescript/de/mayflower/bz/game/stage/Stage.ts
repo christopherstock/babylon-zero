@@ -99,7 +99,7 @@ export abstract class Stage
         this.setActiveCamera( this.config.initialCamera );
 
         // add debug axis
-        if ( bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED )
+        if ( bz.SettingDebug.ENABLE_COORDINATE_AXIS )
         {
             this.addCoordinalAxis();
         }
@@ -579,7 +579,7 @@ export abstract class Stage
             meshFactory.createLine
             (
                 new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
-                new BABYLON.Vector3( bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0, 0.0 ),
+                new BABYLON.Vector3( bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0, 0.0 ),
                 bz.SettingColor.COLOR_RGBA_RED_OPAQUE
             ),
 
@@ -587,7 +587,7 @@ export abstract class Stage
             meshFactory.createLine
             (
                 new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
-                new BABYLON.Vector3( 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0 ),
+                new BABYLON.Vector3( 0.0, bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0 ),
                 bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE
             ),
 
@@ -595,7 +595,7 @@ export abstract class Stage
             meshFactory.createLine
             (
                 new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
-                new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH ),
+                new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.COORDINATE_AXIS_LENGTH ),
                 bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE
             )
         );

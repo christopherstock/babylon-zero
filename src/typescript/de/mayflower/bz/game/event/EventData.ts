@@ -1,4 +1,5 @@
-// eslint-disable-next-line max-classes-per-file
+/* eslint-disable max-classes-per-file */
+
 import * as bz from '../..';
 
 /** ********************************************************************************************************************

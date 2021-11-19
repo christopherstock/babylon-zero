@@ -35,8 +35,8 @@ export class Game
         this.keySystem   = new bz.KeySystem();
         this.mouseSystem = new bz.MouseSystem(
             this,
-            bz.SettingDebug.DEBUG_ENABLE_POINTER_DOWN_IMPULSE,
-            !bz.SettingDebug.DEBUG_DISABLE_POINTER_LOCK
+            bz.SettingDebug.ENABLE_POINTER_DOWN_IMPULSE,
+            !bz.SettingDebug.DISABLE_POINTER_LOCK
         )
 
         // init the scene
