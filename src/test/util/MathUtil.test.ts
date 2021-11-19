@@ -1,4 +1,4 @@
-import * as bz from '../../../../../typescript/de/mayflower/bz';
+import * as bz from '../../typescript/de/mayflower/bz';
 
 describe( 'MathUtil', () =>
 {

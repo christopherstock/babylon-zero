@@ -1,7 +1,7 @@
 module.exports = {
-    "verbose": true,
-    "transform": {
-        ".(ts|tsx)": "ts-jest"
+    'verbose': true,
+    'transform': {
+        '.(ts|tsx)': 'ts-jest',
     },
     'testMatch': [
         '**/*.(test|spec).(ts|tsx)',
@@ -13,8 +13,8 @@ module.exports = {
             'branches':   0, // 80,
             'functions':  0, // 80,
             'lines':      0, // 80
-            'statements': 0  // -10
-        }
+            'statements': 0, // -10
+        },
     },
     'reporters': [
         'default',
@@ -23,7 +23,7 @@ module.exports = {
             {
                 outputDirectory: 'public',
                 outputName: 'test-results.xml',
-            }
-        ]
-    ]
+            },
+        ],
+    ],
 };
