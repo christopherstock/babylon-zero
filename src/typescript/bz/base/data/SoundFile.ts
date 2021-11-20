@@ -5,9 +5,7 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export abstract class SoundFile
 {
-    /** The fx sound 'test 1'. */
     public static readonly TEST_FX_1        :string     = bz.SettingResource.PATH_SOUND_FX + 'test1.mp3';
-    /** The bg sound 'test 1'. */
     public static readonly TEST_BG_1        :string     = bz.SettingResource.PATH_SOUND_BG + 'test1.mp3';
 
     /** All filenames of all sounds to load. */

@@ -5,13 +5,13 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class PlayerPhysic
 {
-    /** The id of the player's body mesh in the mesh array. */
+    /** The id of the player's body mesh inside the mesh array. */
     private static readonly PLAYER_BODY_ID               :number                             = 0;
-    /** The id of the player's head mesh in the mesh array. */
+    /** The id of the player's head mesh inside the mesh array. */
     private static readonly PLAYER_HEAD_ID               :number                             = 1;
-    /** The id of the player's left hand mesh in the mesh array. */
+    /** The id of the player's left hand mesh inside the mesh array. */
     private static readonly PLAYER_LEFT_HAND_ID          :number                             = 2;
-    /** The id of the player's left hand mesh in the mesh array. */
+    /** The id of the player's left hand mesh inside the mesh array. */
     private static readonly PLAYER_RIGHT_HAND_ID         :number                             = 3;
 
     /** The referenced body mesh. */
