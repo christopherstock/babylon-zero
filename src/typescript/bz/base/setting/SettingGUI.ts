@@ -11,7 +11,7 @@ export abstract class SettingGUI
      /** The default font size for GUI texts. */
     public static readonly FONT_SIZE_DEFAULT                    :number         = 22.0;
     /** The default font line spacing for GUI texts. */
-    public static readonly FONT_LINESPACING                     :number         = 7.33;
+    public static readonly FONT_LINESPACING                     :number         = 2.5;
 
     /** The number of ticks for a GUI message to be displayed. */
     public static readonly TEXT_MESSAGE_LIFETIME                :number         = 325;

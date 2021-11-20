@@ -30,8 +30,8 @@ export class StageOffice extends bz.Stage
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
                 ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
-            new BABYLON.Vector3( 0.0, 120.0, 0.0 ),
-            new bz.Inventory( 3 )
+            new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
+            new bz.Inventory( 0 )
         );
     }
 
@@ -54,14 +54,14 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, -40.0 ),
-            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 80.0 ),
+            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 160.0 ),
             0.0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
-            bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING
+            bz.TextureFile.WALL_BRICKS_3, [], [],
+            null, [], [],
+            null, [], [],
+            bz.TextureFile.MODEL_CONCRETE,
+            null
         );
 
         // point light in small office
@@ -73,6 +73,24 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
+
+        // waste ground
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
+            0.0,
+            bz.TextureFile.WALL_WOOD_PANELS, [ 2.5 ], [],
+            bz.TextureFile.WALL_WOOD_PANELS, [], [],
+            bz.TextureFile.WALL_WOOD_PANELS, [], [],
+            bz.TextureFile.WALL_WOOD_PANELS, [], [],
+            null,
+            null
+        );
+
+
+if ( true ) return;
 
         // light yard
         bz.StageFactory.addRoomWalls(

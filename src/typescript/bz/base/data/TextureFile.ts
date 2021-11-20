@@ -38,6 +38,8 @@ export class TextureFile
     public static readonly WALL_BRICKS_1                :TextureFile            = new TextureFile( 'wall/bricks1.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     /** The texture file 'bricks 2'. */
     public static readonly WALL_BRICKS_2                :TextureFile            = new TextureFile( 'wall/bricks2.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
+    /** The texture file 'bricks 3'. */
+    public static readonly WALL_BRICKS_3                :TextureFile            = new TextureFile( 'wall/bricks3.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     /** The texture file 'carpet 1'. */
     public static readonly WALL_CARPET_1                :TextureFile            = new TextureFile( 'wall/carpet1.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'carpet 2'. */
@@ -49,7 +51,9 @@ export class TextureFile
     /** The texture file 'marble'. */
     public static readonly WALL_MARBLE                  :TextureFile            = new TextureFile( 'wall/marble.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'door 1'. */
-    public static readonly WALL_DOOR_1                  :TextureFile            = new TextureFile( 'wall/door1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
+    public static readonly WALL_DOOR_1                  :TextureFile            = new TextureFile( 'wall/door1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_METAL,     bz.TextureType.WALL );
+    /** The texture file 'wood panels'. */
+    public static readonly WALL_WOOD_PANELS             :TextureFile            = new TextureFile( 'wall/woodPanels.jpg',       bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD,   bz.TextureType.WALL );
 
     /** The texture file 'model wood light'. */
     public static readonly MODEL_WOOD_LIGHT             :TextureFile            = new TextureFile( 'furniture/woodLight.jpg',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
@@ -58,7 +62,7 @@ export class TextureFile
     /** The texture file 'model chrome'. */
     public static readonly MODEL_CHROME                 :TextureFile            = new TextureFile( 'furniture/chrome.jpg',      bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
     /** The texture file 'model concrete'. */
-    public static readonly MODEL_CONCRETE               :TextureFile            = new TextureFile( 'furniture/concrete.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
+    public static readonly MODEL_CONCRETE               :TextureFile            = new TextureFile( 'furniture/concrete.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL_AND_MODEL );
     /** The texture file 'model crate 1'. */
     public static readonly MODEL_CRATE_1                :TextureFile            = new TextureFile( 'furniture/crate1.jpg',       bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL );
     /** The texture file 'model leather red'. */

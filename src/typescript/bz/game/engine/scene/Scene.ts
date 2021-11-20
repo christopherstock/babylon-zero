@@ -50,11 +50,11 @@ export class Scene
         {
             this.babylonScene.debugLayer.show().then(
                 () :void => {
-                    // no need to handle this promise fullfillment
+                    // handle promise fulfillment
                 }
             ).catch(
                 () :void => {
-                    // no need to catch this promise error
+                    // handle promise error
                 }
             );
         }

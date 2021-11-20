@@ -25,12 +25,14 @@ export class Texture
 
         new Texture( bz.TextureFile.WALL_BRICKS_1 ),
         new Texture( bz.TextureFile.WALL_BRICKS_2 ),
+        new Texture( bz.TextureFile.WALL_BRICKS_3 ),
         new Texture( bz.TextureFile.WALL_CARPET_1 ),
         new Texture( bz.TextureFile.WALL_CARPET_2 ),
         new Texture( bz.TextureFile.WALL_CEILING ),
         new Texture( bz.TextureFile.WALL_LEATHER ),
         new Texture( bz.TextureFile.WALL_MARBLE ),
         new Texture( bz.TextureFile.WALL_DOOR_1 ),
+        new Texture( bz.TextureFile.WALL_WOOD_PANELS ),
 
         new Texture( bz.TextureFile.MODEL_WOOD_LIGHT ),
         new Texture( bz.TextureFile.MODEL_WOOD_HORZ ),
@@ -91,7 +93,7 @@ export class Texture
                 videoTexture.video.autoplay = true;
                 videoTexture.video.play().then(
                     () :void => {
-                        // handle promise fullfillment
+                        // handle promise fulfillment
                     }
                 ).catch(
                     () :void => {

@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Create lamp switch on/off effect inside level - EventType.TOGGLE_LIGHT
 TODO Add nicer textures
 TODO Constraint system for events!?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
