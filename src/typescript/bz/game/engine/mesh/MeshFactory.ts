@@ -524,7 +524,8 @@ export class MeshFactory
         color           :BABYLON.Color3,
         physic          :bz.PhysicSet,
         materialAlpha   :number,
-        sideOrientation :number
+        sideOrientation :number,
+        diamondCornerA  :number
     )
     : BABYLON.Mesh
     {
@@ -543,7 +544,16 @@ export class MeshFactory
         // y axis is ignored here
         const points :BABYLON.Vector3[] = [];
 
-        points.push( new BABYLON.Vector3( position.x,         0.0, position.z          ) );
+        if ( diamondCornerA > 0 )
+        {
+            points.push( new BABYLON.Vector3( position.x + diamondCornerA,         0.0, position.z          ) );
+            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + diamondCornerA          ) );
+        }
+        else
+        {
+            points.push( new BABYLON.Vector3( position.x,         0.0, position.z          ) );
+        }
+
         points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
         points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z + height ) );
         points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z          ) );

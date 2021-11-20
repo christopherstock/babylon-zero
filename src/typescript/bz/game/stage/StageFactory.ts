@@ -156,7 +156,8 @@ export abstract class StageFactory
                             null,
                             bz.PhysicSet.STATIC,
                             1.0,
-                            0
+                            0,
+                            diamondCornerA
                         ),
                     ]
                 )
