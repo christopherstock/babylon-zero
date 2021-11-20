@@ -24,6 +24,8 @@ export abstract class SettingGame
     public static readonly HALLWAY_WIDTH                            :number             = 10.0;
     /** Unified floor and ceiling depth for building constructions. */
     public static readonly DEPTH_FLOOR_CEILING                      :number             = 0.1;
+    /** Unified pillar width for building constructions. */
+    public static readonly PILLAR_WIDTH                             :number             = 2.0;
 
     /** Unified window width for building constructions. */
     public static readonly WINDOW_WIDTH                             :number             = 4.5;

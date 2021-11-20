@@ -5,10 +5,7 @@
 ***********************************************************************************************************************/
 export enum SkyBoxFile
 {
-    /** The skybox 'blue sky'. */
-    BLUE_SKY        = 'blueSky',
-    /** The skybox 'dark sky'. */
-    DARK_SKY        = 'darkSky',
-    /** The skybox 'storm'. */
-    STORM           = 'storm',
+    BLUE_SKY = 'blueSky',
+    DARK_SKY = 'darkSky',
+    STORM    = 'storm',
 }

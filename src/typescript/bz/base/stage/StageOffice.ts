@@ -89,10 +89,46 @@ export class StageOffice extends bz.Stage
             null
         );
 
-        // pillar with new concrete
+        // parking space
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( -40.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            0.0,
+            null, [], [],
+            null, [], [],
+            null, [], [],
+            null, [], [],
+            bz.TextureFile.WALL_STONES_4,
+            bz.TextureFile.WALL_CEILING_1
+        );
 
-
-
+        // pillar from new concrete
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( -30, 0, 10.0 ),
+                            bz.TextureFile.WALL_CONCRETE_3,
+                            new BABYLON.Vector3(
+                                bz.SettingGame.PILLAR_WIDTH,
+                                bz.SettingGame.WALL_HEIGHT,
+                                bz.SettingGame.PILLAR_WIDTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            )
+        );
 
 if ( true ) return;
 
