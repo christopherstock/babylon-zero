@@ -7,21 +7,21 @@ MVP
 ===
 TODO Add gothic church and outside parking space / scene?
 TODO Add door action / open slide etc.?
-
-TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-TODO Add heightmap blue landscape 'dam'?
 TODO Add door creation to room creation method.
-TODO static glass windows that shatter on shot
-TODO prune all obsolete jDocs for static enums constants!
-TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO different bullets, different wearpons, different gadgets to inventories
-TODO create player die effect (tilt cylinder and head etc.)
+
 TODO Create 2nd empty stage and move things from 1st to 2nd.
+TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
+TODO create player die effect (tilt cylinder and head etc.)
+TODO Add heightmap blue landscape 'dam'?
+TODO static glass windows that shatter on shot
+TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO Enable diamond corners for room creation method.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
 TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
 TODO Reset Git Repository?
+TODO Try rain effect.
 
 ======
 3dsmax
@@ -35,9 +35,9 @@ Fx
 ==
 TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO add rotating MF Logo sprite?
-TODO Add glossyness to floors (marbel in light etc)
+TODO Add glossiness to floors (marbel in light etc)
 TODO Add muzzle flash to gun on firing. (via sprite!)
-TODO Debug low performance on multiple shots?
+
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Enable loading of only required resources for the current scene?
 TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
@@ -94,6 +94,7 @@ TODO Deny jumping if player has no contact to the ground!
 TODO Implement cool physics pause (scene cam / adrenaline?) feature.
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO debug and improve init process?
+TODO Debug low performance on multiple shots?
 
 ============
 New features

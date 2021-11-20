@@ -129,6 +129,14 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
+/*
+        // add rain effect
+        this.setRainEffect(
+            5.0,
+            1000,
+            new BABYLON.Vector3( 1.5, -2.5, 1.5 )
+        );
+*/
 
 if ( true ) return;
 

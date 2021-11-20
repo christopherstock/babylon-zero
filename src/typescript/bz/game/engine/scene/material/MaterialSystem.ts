@@ -129,4 +129,6 @@ export class MaterialSystem
     {
         return 'material' + String( MaterialSystem.nextMaterialId++ );
     }
+
+    // TODO create static method getTexureUVBaseCoordinates ( -0.x* .. )
 }

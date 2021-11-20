@@ -41,6 +41,9 @@ export abstract class Stage
     /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
     private         eventPipelines      :bz.Event[][]               = [];
 
+    /** The particle helper fx 'rain' for this stage. */
+    private         rainEffect          :BABYLON.ParticleSystemSet  = null;
+
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
     *
@@ -202,6 +205,12 @@ export abstract class Stage
 
         // dispose camera system
         this.cameraSystem.dispose();
+
+        // dispose rain effect
+        if ( this.rainEffect !== null )
+        {
+            this.rainEffect.dispose();
+        }
     }
 
     /** ****************************************************************************************************************
@@ -472,6 +481,42 @@ export abstract class Stage
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
         this.skybox = new bz.MeshFactory( this.scene, this.config.ambientColor ).createSkyBoxCube( file, alpha );
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a rain effect to the stage.
+    *******************************************************************************************************************/
+    protected setRainEffect(
+        size     :number = 0.3,
+        quantity :number = 600,
+        gravity  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+    )
+    : void
+    {
+        BABYLON.ParticleHelper.CreateAsync(
+            'rain',
+            this.scene.getNativeScene(),
+            false
+        ).then(
+            ( set:BABYLON.ParticleSystemSet ) => {
+
+                this.rainEffect = set;
+
+                for ( const system of this.rainEffect.systems )
+                {
+                    system.maxScaleX = size;
+                    system.maxScaleY = size;
+                    system.emitRate  = quantity;
+                    system.gravity   = gravity;
+                }
+
+                this.rainEffect.start();
+            }
+        ).catch(
+            () => {
+                // no need to handle this error
+            }
+        )
     }
 
     /** ****************************************************************************************************************
