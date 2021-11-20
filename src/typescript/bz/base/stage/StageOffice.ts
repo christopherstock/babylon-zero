@@ -44,7 +44,7 @@ export class StageOffice extends bz.Stage
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
         // ground walls
-        this.addGroundWalls( meshFactory );
+        // this.addGroundWalls( meshFactory );
 
         // player
         this.setPlayer( new bz.Player( this ) );
@@ -92,14 +92,14 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_2, [ 2.5 ], [], 0,
-            bz.TextureFile.WALL_WOOD_2, [], [], 0,
-            bz.TextureFile.WALL_WOOD_2, [], [], 0,
-            bz.TextureFile.WALL_WOOD_2, [], [], 0,
+            bz.TextureFile.WALL_WOOD_1, [ 2.5 ], [], 1.5,
+            bz.TextureFile.WALL_WOOD_2, [],      [], 0,
+            bz.TextureFile.WALL_WOOD_3, [],      [], 0,
+            bz.TextureFile.WALL_WOOD_4, [],      [], 0,
             bz.TextureFile.WALL_COBBLES_6,
             null
         );
-
+/*
         // parking space
         bz.StageFactory.addRoomWalls(
             this,
@@ -140,6 +140,7 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
+*/
 /*
         // add rain effect
         this.setRainEffect(
