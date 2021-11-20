@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Add nicer textures
 TODO Add pillars with new concrete!
 TODO Constraint system for events!?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)

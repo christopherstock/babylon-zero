@@ -85,7 +85,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_WOOD_2, [], [],
             bz.TextureFile.WALL_WOOD_2, [], [],
             bz.TextureFile.WALL_WOOD_2, [], [],
-            bz.TextureFile.WALL_CARPET_3,
+            bz.TextureFile.WALL_COBBLES_6,
             null
         );
 
