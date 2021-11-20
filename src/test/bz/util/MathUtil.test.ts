@@ -1,4 +1,4 @@
-import * as bz from '../../typescript/bz';
+import * as bz from '../../../typescript/bz';
 
 describe( 'MathUtil', () =>
 {

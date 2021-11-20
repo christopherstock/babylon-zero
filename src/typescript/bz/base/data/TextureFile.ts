@@ -69,8 +69,11 @@ export class TextureFile
 
     public static readonly VIDEO_TEST                   :TextureFile            = new TextureFile( 'tv/news1.mp4',              bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,         TextureFile.BULLET_HOLE_GLASS,    bz.TextureType.VIDEO );
 
-    /** The texture file 'heightmap valley'. This is just a filename - The texture will not be reloaded. No own bz.Texture instance will be created from it! */
+    // The heightmap texture files are just filenames - The textures will not be preloaded!
+
     public static readonly HEIGHTMAP_VALLEY             :TextureFile            = new TextureFile( 'heightMap/valley.png',      bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,         null,                             bz.TextureType.WALL );
+    public static readonly HEIGHTMAP_DAM                :TextureFile            = new TextureFile( 'heightMap/dam.png',         bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,         null,                             bz.TextureType.WALL );
+    public static readonly HEIGHTMAP_HILLS              :TextureFile            = new TextureFile( 'heightMap/hills.png',       bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_TO_ONE,         null,                             bz.TextureType.WALL );
 
     /** The filename of this texture's image. */
     public        readonly fileName                     :string                 = null;

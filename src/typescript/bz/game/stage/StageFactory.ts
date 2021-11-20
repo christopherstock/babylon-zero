@@ -14,10 +14,10 @@ export abstract class StageFactory
         position           :BABYLON.Vector3,
         size               :BABYLON.Vector3,
         rotZ               :number,
-        textureFileWallA   :bz.TextureFile = null, doorsWallA :number[] = [], windowsWallA :number[] = [],
-        textureFileWallB   :bz.TextureFile = null, doorsWallB :number[] = [], windowsWallB :number[] = [],
-        textureFileWallC   :bz.TextureFile = null, doorsWallC :number[] = [], windowsWallC :number[] = [],
-        textureFileWallD   :bz.TextureFile = null, doorsWallD :number[] = [], windowsWallD :number[] = [],
+        textureFileWallA   :bz.TextureFile = null, doorsWallA :number[] = [], windowsWallA :number[] = [], diamondCornerA :number = 0,
+        textureFileWallB   :bz.TextureFile = null, doorsWallB :number[] = [], windowsWallB :number[] = [], diamondCornerB :number = 0,
+        textureFileWallC   :bz.TextureFile = null, doorsWallC :number[] = [], windowsWallC :number[] = [], diamondCornerC :number = 0,
+        textureFileWallD   :bz.TextureFile = null, doorsWallD :number[] = [], windowsWallD :number[] = [], diamondCornerD :number = 0,
         textureFileFloor   :bz.TextureFile = null,
         textureFileCeiling :bz.TextureFile = null
     )

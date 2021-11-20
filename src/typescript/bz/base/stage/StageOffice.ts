@@ -44,7 +44,7 @@ export class StageOffice extends bz.Stage
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
         // ground walls
-        // this.addGroundWalls( meshFactory );
+        this.addGroundWalls( meshFactory );
 
         // player
         this.setPlayer( new bz.Player( this ) );
@@ -56,10 +56,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, -40.0 ),
             new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 160.0 ),
             0.0,
-            null, [], [],
-            bz.TextureFile.WALL_BRICKS_3, [], [],
-            null, [], [],
-            null, [], [],
+            null,                         [], [], 0,
+            bz.TextureFile.WALL_BRICKS_3, [], [], 0,
+            null,                         [], [], 0,
+            null,                         [], [], 0,
             bz.TextureFile.MODEL_CONCRETE,
             null
         );
@@ -74,6 +74,17 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
+        const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
+        (
+            this.getScene().getNativeScene(),
+            new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+            0.5
+        );
+        this.addLight( hemisphericLight );
+
         // waste ground
         bz.StageFactory.addRoomWalls(
             this,
@@ -81,10 +92,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_2, [ 2.5 ], [],
-            bz.TextureFile.WALL_WOOD_2, [], [],
-            bz.TextureFile.WALL_WOOD_2, [], [],
-            bz.TextureFile.WALL_WOOD_2, [], [],
+            bz.TextureFile.WALL_WOOD_2, [ 2.5 ], [], 0,
+            bz.TextureFile.WALL_WOOD_2, [], [], 0,
+            bz.TextureFile.WALL_WOOD_2, [], [], 0,
+            bz.TextureFile.WALL_WOOD_2, [], [], 0,
             bz.TextureFile.WALL_COBBLES_6,
             null
         );
@@ -96,10 +107,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( -40.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
             0.0,
-            null, [], [],
-            null, [], [],
-            null, [], [],
-            null, [], [],
+            null, [], [], 0,
+            null, [], [], 0,
+            null, [], [], 0,
+            null, [], [], 0,
             bz.TextureFile.WALL_STONES_4,
             bz.TextureFile.WALL_CEILING_1
         );
@@ -147,10 +158,10 @@ if ( true ) return;
             new BABYLON.Vector3( 40.0, 0.0, bz.SettingGame.HALLWAY_WIDTH ),
             new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 40.0 - 2 * bz.SettingGame.HALLWAY_WIDTH ),
             0.0,
-            null, [], [],
-            null, [], [],
-            null, [], [],
-            null, [ 1.0 ], [],
+            null, [],      [], 0,
+            null, [],      [], 0,
+            null, [],      [], 0,
+            null, [ 1.0 ], [], 0,
             bz.TextureFile.WALL_STONES_3,
             null
         );
@@ -162,10 +173,10 @@ if ( true ) return;
             new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
             0.0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
-            null, [], [],
-            null, [], [],
-            null, [ 1.0 ], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [], [], 0,
+            null, [],      [], 0,
+            null, [],      [], 0,
+            null, [ 1.0 ], [], 0,
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
         );
@@ -175,10 +186,10 @@ if ( true ) return;
             new BABYLON.Vector3( 40.0, 0.0, 40.0 - bz.SettingGame.HALLWAY_WIDTH ),
             new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
             0.0,
-            null, [], [],
-            null, [], [],
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
-            null, [ 1.0 ], [],
+            null,                           [],      [], 0,
+            null,                           [],      [], 0,
+            bz.TextureFile.MODEL_WOOD_HORZ, [],      [], 0,
+            null,                           [ 1.0 ], [], 0,
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
         );
@@ -190,10 +201,10 @@ if ( true ) return;
             new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
             0.0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
-            bz.TextureFile.MODEL_WOOD_HORZ, [ 10.0 ], [],
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [],
-            null, [], [],
+            bz.TextureFile.MODEL_WOOD_HORZ, [],       [], 0,
+            bz.TextureFile.MODEL_WOOD_HORZ, [ 10.0 ], [], 0,
+            bz.TextureFile.MODEL_WOOD_HORZ, [],       [], 0,
+            null,                           [],       [], 0,
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
         );
@@ -820,6 +831,35 @@ if ( true ) return;
                 10.0,
                 bz.SpriteCollidable.YES,
                 0.5
+            )
+        );
+    }
+
+    /** ****************************************************************************************************************
+    *   Creates the ground walls for this stage.
+    *******************************************************************************************************************/
+    private addGroundWalls( meshFactory:bz.MeshFactory ) : void
+    {
+        // dam ( heightmap ground )
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createHeightMapGround
+                        (
+                            new BABYLON.Vector3( -50.0, 0.0, 0.0 ),
+                            bz.MeshAnchor.CENTER_XYZ,
+                            1000.0,
+                            50.0,
+                            bz.TextureFile.HEIGHTMAP_HILLS,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                            bz.PhysicSet.NONE
+                        ),
+                    ]
+                )
             )
         );
     }

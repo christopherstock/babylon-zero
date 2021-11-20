@@ -44,10 +44,10 @@ export class StageOutside extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             0.0,
-            bz.TextureFile.WALL_STONES_3, [], [],
-            null, [], [],
-            bz.TextureFile.WALL_STONES_3, [], [],
-            bz.TextureFile.WALL_MARBLE_1, [ 60.0 - 5.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH ], [],
+            bz.TextureFile.WALL_STONES_3, [], [], 0,
+            null,                         [], [], 0,
+            bz.TextureFile.WALL_STONES_3, [], [], 0,
+            bz.TextureFile.WALL_MARBLE_1, [ 60.0 - 5.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH ], [], 0,
             bz.TextureFile.MODEL_CONCRETE,
             null
         );
@@ -139,7 +139,7 @@ export class StageOutside extends bz.Stage
     *******************************************************************************************************************/
     private addGroundWalls( meshFactory:bz.MeshFactory ) : void
     {
-        // hills ( heightmap ground )
+        // valley ( heightmap ground )
         this.addWall(
             new bz.Wall
             (

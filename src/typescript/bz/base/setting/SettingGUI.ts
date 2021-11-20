@@ -49,4 +49,7 @@ export abstract class SettingGUI
 
     /** If navigation through pause menu items is wrapped before first and after last item. */
     public static readonly WRAP_PAUSE_MENU_ITEMS                :boolean        = true;
+
+    /** The bg color for the GUI. */
+    public static readonly PAUSE_GUI_BG_COLOR                   :string         = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
 }

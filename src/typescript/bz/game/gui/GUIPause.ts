@@ -38,7 +38,7 @@ export class GUIPause
             0,
             0,
             bz.SettingColor.COLOR_CSS_TRANSPARENT,
-            bz.SettingEngine.PAUSE_GUI_BG_COLOR
+            bz.SettingGUI.PAUSE_GUI_BG_COLOR
         );
         this.bg.width  = '100%';
         this.bg.height = '100%';

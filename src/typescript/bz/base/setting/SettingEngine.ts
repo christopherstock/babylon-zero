@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+import * as bz  from '../..';
+
 /** ********************************************************************************************************************
 *   Specifies all settings for the engine.
 ***********************************************************************************************************************/
@@ -69,12 +71,9 @@ export abstract class SettingEngine
     public static readonly CURRENT_WEARPON_ZOOM_SPEED               :number             = 0.05;
 
     /** The HTML page title. */
-    public static readonly BRANDING_TITLE                           :string             = 'babylon-zero, (c) 2021 Mayflower GmbH';
+    public static readonly BRANDING_TITLE                           :string             = ( 'babylon-zero, (c) 2021 Mayflower GmbH, v.' + bz.Version.getCurrent() );
     /** The HTML page favicon. */
     public static readonly BRANDING_FAVICON                         :string             = 'mayflower.ico';
     /** The loading screen logo. */
     public static readonly BRANDING_LOADING_LOGO                    :string             = 'loadingMf.png';
-
-    /** The bg color for the GUI. */
-    public static readonly PAUSE_GUI_BG_COLOR                       :string             = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
 }
