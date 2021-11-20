@@ -9,7 +9,6 @@ TODO Add gothic church and outside parking space / scene?
 TODO Add door action / open slide etc.?
 TODO Add door creation to room creation method.
 TODO different bullets, different wearpons, different gadgets to inventories
-
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
@@ -21,7 +20,6 @@ TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & 
 TODO try gold metal effect etc for IntroVideo logo
 TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
 TODO Reset Git Repository?
-TODO Try rain effect.
 
 ======
 3dsmax
@@ -33,20 +31,20 @@ TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3
 ==
 Fx
 ==
+TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
+TODO Add explosion effects via sprites.
+TODO Particle FX (physical) for wall rubble!
 TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO add rotating MF Logo sprite?
 TODO Add glossiness to floors (marbel in light etc)
 TODO Add muzzle flash to gun on firing. (via sprite!)
-
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Enable loading of only required resources for the current scene?
 TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
-TODO Try to keep ORIGINAL physic imposter parameters AFTER the compound has been set?!
 TODO Add physically correct bullet drop (+sound) out after fire.
-TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
-TODO Add explosion effects via sprites.
-TODO Particle FX (physical) for wall rubble!
 TODO Constraint system for events!?
+TODO Create staircase.
+TODO Try hi-res textures?
 
 ========
 Wearpons
@@ -95,6 +93,7 @@ TODO Implement cool physics pause (scene cam / adrenaline?) feature.
 TODO Enable fullscreen toggle on pointerlock gain? or via main menu ..? FullScreenChangeListener and ESC reassignment ..
 TODO debug and improve init process?
 TODO Debug low performance on multiple shots?
+TODO Try to keep ORIGINAL physic imposter parameters (from 3dsmax?) AFTER the compound has been set?!
 
 ============
 New features
