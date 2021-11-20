@@ -28,9 +28,6 @@ export abstract class StageFactory
 
         if ( textureFileWallA !== null )
         {
-            if ( diamondCornerA > size.x ) {
-                diamondCornerA = size.x;
-            }
             StageFactory.createWall(
                 roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
                 position.x + diamondCornerA + ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 ),
@@ -44,7 +41,7 @@ export abstract class StageFactory
             );
 
             if ( diamondCornerA > 0 ) {
-                const sizeCornerA :number = Math.sqrt( 2 * ( diamondCornerA + bz.SettingGame.WALL_DEPTH ) * ( diamondCornerA + bz.SettingGame.WALL_DEPTH ) );
+                const sizeCornerA :number = Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingGame.WALL_DEPTH, 2 ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x,
