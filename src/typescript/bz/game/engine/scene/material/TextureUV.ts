@@ -9,5 +9,9 @@ export enum TextureUV
     /** One texture dimension per 1.0 world unit. */
     TILED_BY_SIZE,
 
-    // TODO try to add half! quarter etc.
+    /** Two texture dimensions per 1.0 world unit. */
+    TILED_BY_SIZE_HALF,
+
+    /** One for Y axis and tiled for axis X Z. */
+    Y_ONE_XZ_TILED,
 }

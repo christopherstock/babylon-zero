@@ -84,6 +84,13 @@ export class MaterialSystem
                         break;
                     }
 
+                    case bz.TextureUV.TILED_BY_SIZE_HALF:
+                    {
+                        textureU = ( sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureV = ( sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        break;
+                    }
+
                     case bz.TextureUV.ALL_TO_ONE:
                     {
                         textureU = 1.0;

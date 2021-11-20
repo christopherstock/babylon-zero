@@ -1,13 +1,11 @@
-// TODO prune de/mayflower/bz !!
-
 import { WebApp } from './bz/base/WebApp';
-/*
-( global as any ).BABYLON = require( 'babylonjs' );
-( global as any ).CANNON  = require( 'cannon' );
-( global as any ).earcut  = require( 'earcut' );
-*/
+
+// ( global as any ).BABYLON = require( 'babylonjs' );
+// ( global as any ).CANNON  = require( 'cannon' );
+// ( global as any ).earcut  = require( 'earcut' );
+
 /** ********************************************************************************************************************
-*   Being invoked when the page is loaded completely.
+*   Being invoked when the website is loaded completely.
 ***********************************************************************************************************************/
 window.onload = () : void  =>
 {
@@ -16,9 +14,9 @@ window.onload = () : void  =>
 };
 
 /** ********************************************************************************************************************
-*   Being invoked when the page is left.
+*   Being invoked when the website is left.
 ***********************************************************************************************************************/
 window.onunload = () : void  =>
 {
-    // no tear down required
+    // no actions required
 };

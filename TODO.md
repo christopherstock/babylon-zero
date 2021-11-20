@@ -5,16 +5,17 @@
 ===
 MVP
 ===
+TODO Add gothic church and outside parking space / scene?
+TODO Add door action / open slide etc.?
+
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Add heightmap blue landscape 'dam'?
 TODO Add door creation to room creation method.
-
 TODO static glass windows that shatter on shot
 TODO prune all obsolete jDocs for static enums constants!
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO create player die effect (tilt cylinder and head etc.)
-
 TODO Create 2nd empty stage and move things from 1st to 2nd.
 TODO Enable diamond corners for room creation method.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
