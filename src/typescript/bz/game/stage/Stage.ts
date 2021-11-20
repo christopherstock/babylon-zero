@@ -671,7 +671,7 @@ export abstract class Stage
         {
             case bz.EventType.TIME_DELAY:
             {
-                bz.Debug.stage.log( 'Performing a time delay ..' );
+                bz.Debug.event.log( 'Perform a time delay ..' );
 
                 const data :bz.EventDataTimeDelay = ( event.data as bz.EventDataTimeDelay );
 
@@ -680,7 +680,7 @@ export abstract class Stage
 
             case bz.EventType.SWITCH_TO_STAGE:
             {
-                bz.Debug.stage.log( 'Launching stage switch event to:' );
+                bz.Debug.event.log( 'Launch stage switch event to:' );
 
                 const data :bz.EventDataStageSwitch = ( event.data as bz.EventDataStageSwitch );
 
@@ -696,7 +696,7 @@ export abstract class Stage
 
             case bz.EventType.SHOW_GUI_TEXT_MESSAGE:
             {
-                bz.Debug.stage.log( 'Showing GUI text message' );
+                bz.Debug.event.log( 'Show GUI text message' );
 
                 const data :bz.EventDataShowGuiTextMessage = ( event.data as bz.EventDataShowGuiTextMessage );
                 this.getGame().getGUI().addGuiTextMessage( data.message, data.noFlooding );
@@ -706,7 +706,7 @@ export abstract class Stage
 
             case bz.EventType.SHOW_GUI_GAME_MESSAGE:
             {
-                bz.Debug.stage.log( 'Showing GUI game message' );
+                bz.Debug.event.log( 'Show GUI game message' );
 
                 const data :bz.EventDataShowGuiGameMessage = ( event.data as bz.EventDataShowGuiGameMessage );
                 this.getGame().getGUI().addGuiGameMessage( data.image, data.message );
@@ -716,7 +716,7 @@ export abstract class Stage
 
             case bz.EventType.SHOW_GUI_EFFECT:
             {
-                bz.Debug.stage.log( 'Showing GUI message' );
+                bz.Debug.event.log( 'Show GUI message' );
 
                 const data :bz.EventDataShowGuiEffect = ( event.data as bz.EventDataShowGuiEffect );
 
@@ -727,7 +727,7 @@ export abstract class Stage
 
             case bz.EventType.CAST_EXPLOSION:
             {
-                bz.Debug.stage.log( 'Cast an explosion ..' );
+                bz.Debug.event.log( 'Cast an explosion ..' );
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(
@@ -746,7 +746,7 @@ export abstract class Stage
                         affectedImpostorsCallback: (
                             affectedImpostorsWithData :BABYLON.PhysicsAffectedImpostorWithData[]
                         ) => {
-                            bz.Debug.stage.log(
+                            bz.Debug.event.log(
                                 ' [' + String( affectedImpostorsWithData.length ) + '] '
                                 + 'affected models from this explosion'
                             );
@@ -763,7 +763,7 @@ export abstract class Stage
 
                 this.player.getInventory().numberOfPainkillers += data.amount;
 
-                bz.Debug.stage.log(
+                bz.Debug.event.log(
                     'Gain ' + String( data.amount ) + ' Painkiller. '
                     + 'Now carrying ' + String( this.player.getInventory().numberOfPainkillers ) + '.'
                 );
@@ -779,7 +779,7 @@ export abstract class Stage
                 const newState :boolean = ( !data.light.isEnabled() );
                 data.light.setEnabled( newState );
 
-                bz.Debug.stage.log( 'Toggle light to enabled: ' + String( newState ) + '.' );
+                bz.Debug.event.log( 'Toggle light to enabled: ' + String( newState ) + '.' );
 
                 return true;
             }
@@ -794,14 +794,14 @@ export abstract class Stage
         // check if event pipelines exist
         if ( this.eventPipelines.length > 0 )
         {
-            bz.Debug.events.log( 'Handle ' + String( this.eventPipelines.length ) + ' event pipelines' );
+            bz.Debug.event.log( 'Handle ' + String( this.eventPipelines.length ) + ' event pipelines' );
 
             const newEventPipelines :bz.Event[][] = [];
 
             // browse all event pipelines
             for ( const eventPipeline of this.eventPipelines )
             {
-                bz.Debug.events.log( ' Handle ' + String( eventPipeline.length ) + ' events' );
+                bz.Debug.event.log( ' Handle ' + String( eventPipeline.length ) + ' events' );
 
                 const newEventPipeline :bz.Event[] = [];
 
@@ -820,7 +820,7 @@ export abstract class Stage
                             pipelineBlocked = true;
                             newEventPipeline.push( event );
 
-                            bz.Debug.events.log( '  Event is blocking the event pipeline.' );
+                            bz.Debug.event.log( '  Event is blocking the event pipeline.' );
                         }
                     }
                 }
@@ -833,7 +833,7 @@ export abstract class Stage
 
             if ( newEventPipelines.length === 0 )
             {
-                bz.Debug.events.log( ' All events in all event pipelines have been processed!' );
+                bz.Debug.event.log( ' All events in all event pipelines have been processed!' );
             }
 
             this.eventPipelines = newEventPipelines;
@@ -859,7 +859,7 @@ export abstract class Stage
                         pipelineBlocked = true;
                         newEventPipeline.push( event );
 
-                        bz.Debug.events.log( '  Event is blocking the UI-event pipeline.' );
+                        bz.Debug.event.log( '  Event is blocking the UI-event pipeline.' );
                     }
                 }
             }

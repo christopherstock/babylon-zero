@@ -77,7 +77,7 @@ export class Player extends bz.GameObject
                         bz.SettingPlayer.DIAMETER_BODY,
                         bz.SettingPlayer.HEIGHT_Y_STANDING,
                         BABYLON.Vector3.Zero(),
-                        bz.TextureFile.WALL_GLASS,
+                        bz.TextureFile.WALL_GLASS_1,
                         null,
                         bz.PhysicSet.PLAYER_HUMAN,
                         0.5
@@ -99,7 +99,7 @@ export class Player extends bz.GameObject
                         bz.MeshAnchor.CENTER_XYZ,
                         bz.SettingPlayer.DIAMETER_HEAD,
                         BABYLON.Vector3.Zero(),
-                        bz.TextureFile.WALL_SKIN_ROSE,
+                        bz.TextureFile.WALL_SKIN_1,
                         null,
                         bz.PhysicSet.NONE
                     ),
@@ -108,7 +108,7 @@ export class Player extends bz.GameObject
                     new bz.MeshFactory( scene, emissiveColor ).createBox
                     (
                         position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
-                        bz.TextureFile.WALL_SKIN_ROSE,
+                        bz.TextureFile.WALL_SKIN_1,
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                     ),
 
@@ -116,7 +116,7 @@ export class Player extends bz.GameObject
                     new bz.MeshFactory( scene, emissiveColor ).createBox
                     (
                         position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
-                        bz.TextureFile.WALL_SKIN_ROSE,
+                        bz.TextureFile.WALL_SKIN_1,
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                     ),
                 ]

@@ -256,7 +256,7 @@ export class Model
         this.compoundMesh = new bz.MeshFactory( scene, BABYLON.Color3.Red() ).createBox
         (
             position,
-            bz.TextureFile.WALL_GRASS,
+            bz.TextureFile.WALL_GRASS_1,
             new BABYLON.Vector3(
                 COMPOUND_MESH_SIZE,
                 COMPOUND_MESH_SIZE,

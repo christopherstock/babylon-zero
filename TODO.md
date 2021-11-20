@@ -11,6 +11,7 @@ TODO Constraint system for events!?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Add heightmap blue landscape 'dam'?
 TODO static glass windows that shatter on shot
+TODO prune all obsolete jDocs for static enums constants!
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO create player die effect (tilt cylinder and head etc.)

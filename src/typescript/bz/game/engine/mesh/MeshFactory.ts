@@ -200,7 +200,7 @@ export class MeshFactory
                 const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
                 (
                     this.scene.getNativeScene(),
-                    bz.TextureFile.WALL_GRASS,
+                    bz.TextureFile.WALL_GRASS_1,
                     false,
                     sideSize,
                     sideSize,

@@ -37,7 +37,7 @@ export abstract class StageFactory
                 position.z,
                 0.0,
                 textureFileWallA,
-                bz.TextureFile.WALL_GLASS
+                bz.TextureFile.WALL_GLASS_1
             );
         }
 
@@ -52,7 +52,7 @@ export abstract class StageFactory
                 position.z,
                 -90.0,
                 textureFileWallB,
-                bz.TextureFile.WALL_GLASS
+                bz.TextureFile.WALL_GLASS_1
             );
         }
 
@@ -67,7 +67,7 @@ export abstract class StageFactory
                 position.z + size.z + bz.SettingGame.WALL_DEPTH,
                 -180.0,
                 textureFileWallC,
-                bz.TextureFile.WALL_GLASS
+                bz.TextureFile.WALL_GLASS_1
             );
         }
 
@@ -82,7 +82,7 @@ export abstract class StageFactory
                 position.z + size.z + bz.SettingGame.WALL_DEPTH,
                 -270.0,
                 textureFileWallD,
-                bz.TextureFile.WALL_GLASS
+                bz.TextureFile.WALL_GLASS_1
             );
         }
 

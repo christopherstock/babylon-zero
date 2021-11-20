@@ -75,7 +75,7 @@ export class Sprite
                 collisionWidth,
                 height,
                 BABYLON.Vector3.Zero(),
-                bz.TextureFile.WALL_GLASS,
+                bz.TextureFile.WALL_GLASS_1,
                 null,
                 bz.PhysicSet.STATIC,
                 ( !bz.SettingDebug.SHOW_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25 )

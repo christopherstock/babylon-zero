@@ -81,10 +81,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_PANELS, [ 2.5 ], [],
-            bz.TextureFile.WALL_WOOD_PANELS, [], [],
-            bz.TextureFile.WALL_WOOD_PANELS, [], [],
-            bz.TextureFile.WALL_WOOD_PANELS, [], [],
+            bz.TextureFile.WALL_WOOD_2, [ 2.5 ], [],
+            bz.TextureFile.WALL_WOOD_2, [], [],
+            bz.TextureFile.WALL_WOOD_2, [], [],
+            bz.TextureFile.WALL_WOOD_2, [], [],
             bz.TextureFile.WALL_CARPET_3,
             null
         );
@@ -123,7 +123,7 @@ if ( true ) return;
             null, [], [],
             null, [ 1.0 ], [],
             bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING
+            bz.TextureFile.WALL_CEILING_1
         );
         bz.StageFactory.addRoomWalls(
             this,
@@ -136,7 +136,7 @@ if ( true ) return;
             bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [ 1.0 ], [],
             bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING
+            bz.TextureFile.WALL_CEILING_1
         );
 
         // 2nd office
@@ -151,7 +151,7 @@ if ( true ) return;
             bz.TextureFile.MODEL_WOOD_HORZ, [], [],
             null, [], [],
             bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING
+            bz.TextureFile.WALL_CEILING_1
         );
 
         // boxes pile in small office

@@ -19,7 +19,7 @@ export class Debug
     /** Debugs inventory matters. */
     public  static readonly inventory       :Debug              = new Debug( false );
     /** Debugs events pipeline. */
-    public  static readonly events          :Debug              = new Debug( false );
+    public  static readonly event           :Debug              = new Debug( false );
     /** Debugs sound system. */
     public  static readonly sound           :Debug              = new Debug( false );
     /** Debugs key system. */
