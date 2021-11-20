@@ -146,14 +146,12 @@ export abstract class StageFactory
                         meshFactory.createPlane
                         (
                             new BABYLON.Vector3(
-                                ( position.x + ( size.x + bz.SettingGame.WALL_DEPTH ) / 2 ),
-                                ( position.y + bz.SettingGame.FLOOR_OFFSET_Y ),
-                                ( position.z + ( size.z + bz.SettingGame.WALL_DEPTH ) / 2 )
+                                ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                                ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ),
+                                ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                             ),
-                            bz.MeshAnchor.CENTER_XYZ,
                             size.x,
                             size.z,
-                            new BABYLON.Vector3( 90.0, 0.0, 0.0 ),
                             textureFileFloor,
                             null,
                             bz.PhysicSet.STATIC,

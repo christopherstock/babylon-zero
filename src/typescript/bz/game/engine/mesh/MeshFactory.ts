@@ -518,21 +518,17 @@ export class MeshFactory
     public createPlane
     (
         position        :BABYLON.Vector3,
-        anchor          :bz.MeshAnchor,
         width           :number,
         height          :number,
-        rotation        :BABYLON.Vector3,
-
         textureFile     :bz.TextureFile,
-
         color           :BABYLON.Color3,
-
         physic          :bz.PhysicSet,
         materialAlpha   :number,
         sideOrientation :number
     )
     : BABYLON.Mesh
     {
+/*
         const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
         (
             MeshFactory.createNextMeshId(),
@@ -543,7 +539,25 @@ export class MeshFactory
             },
             this.scene.getNativeScene()
         );
+*/
+        // y axis is ignored here
+        const points :BABYLON.Vector3[] = [];
 
+        points.push( new BABYLON.Vector3( position.x,         0.0, position.z          ) );
+        points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
+        points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z + height ) );
+        points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z          ) );
+
+        const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
+        (
+            MeshFactory.createNextMeshId(),
+            {
+                shape: points,
+                sideOrientation: sideOrientation,
+            },
+            this.scene.getNativeScene()
+        );
+/*
         bz.MeshManipulation.setPositionByAnchor
         (
             plane,
@@ -553,6 +567,9 @@ export class MeshFactory
             height,
             0.0
         );
+*/
+        // translate y axis
+        bz.MeshManipulation.translatePosition( plane, new BABYLON.Vector3( 0.0, position.y, 0.0 ) );
 
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
@@ -569,7 +586,7 @@ export class MeshFactory
         return this.decorateMesh
         (
             plane,
-            rotation,
+            BABYLON.Vector3.Zero(),
             material,
             physic,
             BABYLON.PhysicsImpostor.BoxImpostor

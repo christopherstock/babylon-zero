@@ -250,7 +250,7 @@ export class Model
     {
         this.enableSingleShotOffs = enableSingleShotOffs;
 
-        /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
+        /** Implicit depth for 2D faces */
         const COMPOUND_MESH_SIZE :number = 0.001;
 
         this.compoundMesh = new bz.MeshFactory( scene, BABYLON.Color3.Red() ).createBox
