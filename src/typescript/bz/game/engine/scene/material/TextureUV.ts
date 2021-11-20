@@ -8,4 +8,6 @@ export enum TextureUV
 
     /** One texture dimension per 1.0 world unit. */
     TILED_BY_SIZE,
+
+    // TODO try to add half! quarter etc.
 }

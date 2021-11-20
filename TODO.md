@@ -6,15 +6,17 @@
 MVP
 ===
 TODO Add nicer textures
+TODO Add pillars with new concrete!
 TODO Constraint system for events!?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
+TODO Add heightmap blue landscape 'dam'?
 TODO static glass windows that shatter on shot
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Add door creation to room creation method.
 TODO Create 2nd empty stage and move things from 1st to 2nd.
-TODO Add heightmap blue landscape 'dam'?
+TODO Enable diamond corners for room creation method.
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
 TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
@@ -23,8 +25,8 @@ TODO Reset Git Repository?
 ======
 3dsmax
 ======
-TODO Create realistic models and lights.
 TODO Try ingame 3D wearpon model
+TODO Create realistic models and lights.
 TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 
 ==
@@ -32,6 +34,7 @@ Fx
 ==
 TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO add rotating MF Logo sprite?
+TODO Add glossyness to floors (marbel in light etc)
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Debug low performance on multiple shots?
 TODO Quick fire animation in bullet hole (for certain materials..)?

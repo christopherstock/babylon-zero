@@ -28,6 +28,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_BRICKS_3 ),
         new Texture( bz.TextureFile.WALL_CARPET_1 ),
         new Texture( bz.TextureFile.WALL_CARPET_2 ),
+        new Texture( bz.TextureFile.WALL_CARPET_3 ),
         new Texture( bz.TextureFile.WALL_CEILING ),
         new Texture( bz.TextureFile.WALL_LEATHER ),
         new Texture( bz.TextureFile.WALL_MARBLE ),

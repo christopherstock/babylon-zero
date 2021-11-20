@@ -44,6 +44,8 @@ export class TextureFile
     public static readonly WALL_CARPET_1                :TextureFile            = new TextureFile( 'wall/carpet1.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'carpet 2'. */
     public static readonly WALL_CARPET_2                :TextureFile            = new TextureFile( 'wall/carpet2.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
+    /** The texture file 'carpet 3'. */
+    public static readonly WALL_CARPET_3                :TextureFile            = new TextureFile( 'wall/carpet3.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'ceiling'. */
     public static readonly WALL_CEILING                 :TextureFile            = new TextureFile( 'wall/ceiling.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL,  bz.TextureType.WALL );
     /** The texture file 'leather'. */

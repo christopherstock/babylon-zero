@@ -78,16 +78,20 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
             0.0,
             bz.TextureFile.WALL_WOOD_PANELS, [ 2.5 ], [],
             bz.TextureFile.WALL_WOOD_PANELS, [], [],
             bz.TextureFile.WALL_WOOD_PANELS, [], [],
             bz.TextureFile.WALL_WOOD_PANELS, [], [],
-            null,
+            bz.TextureFile.WALL_CARPET_3,
             null
         );
+
+        // pillar with new concrete
+
+
 
 
 if ( true ) return;

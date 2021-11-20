@@ -118,13 +118,13 @@ export abstract class GUIFactory
         textBlock.top      = y;
         textBlock.width    = String( width    ) + 'px';
         textBlock.height   = String( height   ) + 'px';
-        textBlock.fontSize = String( fontSize ) + 'px';
         textBlock.color    = color;
 
-        textBlock.fontFamily = bz.SettingGUI.FONT_FAMILY;
-        textBlock.fontWeight = bz.SettingGUI.FONT_WEIGHT;
-
+        textBlock.fontSize    = String( fontSize ) + 'px';
+        textBlock.fontWeight  = bz.SettingGUI.FONT_WEIGHT;
+        textBlock.fontFamily  = bz.SettingGUI.FONT_FAMILY;
         textBlock.lineSpacing = String( bz.SettingGUI.FONT_LINESPACING ) + 'px';
+        // textBlock.fontOffset = { ascent: 0, height: 0, descent: 0 }; // no effect
 
         if ( shadowColor !== null )
         {
