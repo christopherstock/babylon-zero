@@ -27,9 +27,10 @@ export class Version
     private static readonly V_0_1_7             :Version            = new Version( '0.1.7',  'IMPACT',                   '17.11.2021, 10:47:34 GMT+1' );
     private static readonly V_0_1_8             :Version            = new Version( '0.1.8',  'ITEMS & TEXTURES',         '18.11.2021, 13:36:21 GMT+1' );
     private static readonly V_0_1_9             :Version            = new Version( '0.1.9',  'GUI MESSAGES & UI-EVENTS', '19.11.2021, 15:40:01 GMT+1' );
+    private static readonly V_0_1_10            :Version            = new Version( '0.1.10', 'NEW TEXTURES',             '20.11.2021, 15:05:43 GMT+1' );
 
     /** The project's current version. */
-    private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_9;
+    private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_10;
 
     /** This version's specifier. */
     private        readonly version             :string             = null;

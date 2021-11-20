@@ -86,19 +86,19 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/less-loader/dist/cjs.js?!./src/typescript/de/mayflower/bz/css/global.less":
-/*!*********************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/less-loader/dist/cjs.js??ref--7-2!./src/typescript/de/mayflower/bz/css/global.less ***!
-  \*********************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/less-loader/dist/cjs.js?!./src/typescript/bz/css/global.less":
+/*!********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/less-loader/dist/cjs.js??ref--7-2!./src/typescript/bz/css/global.less ***!
+  \********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "body {\n  background: #000000;\n  margin: 0;\n  padding: 0;\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n*:focus {\n  outline: none;\n}\ndiv#loading {\n  width: 100%;\n  height: 100%;\n  background: #000000 no-repeat center center;\n  position: absolute;\n  -webkit-animation: flip-3d 2.5s ease-in-out infinite;\n  -moz-animation: flip-3d 2.5s ease-in-out infinite;\n  animation: flip-3d 2.5s ease-in-out infinite;\n  transform-style: preserve-3d;\n}\n@keyframes flip-3d {\n  0% {\n    transform: rotateY(180deg);\n    -webkit-transform: rotateY(180deg);\n  }\n  50% {\n    transform: rotateY(0deg);\n    -webkit-transform: rotateY(0deg);\n  }\n  100% {\n    transform: rotateY(-180deg);\n    -webkit-transform: rotateY(-180deg);\n  }\n}\n", ""]);
+exports.push([module.i, "/* cyrillic-ext */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* hebrew */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* hebrew */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Open Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\nbody {\n  background: #000000;\n  margin: 0;\n  padding: 0;\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n*:focus {\n  outline: none;\n}\ndiv#loading {\n  width: 100%;\n  height: 100%;\n  background: #000000 no-repeat center center;\n  position: absolute;\n  -webkit-animation: flip-3d 2.5s ease-in-out infinite;\n  -moz-animation: flip-3d 2.5s ease-in-out infinite;\n  animation: flip-3d 2.5s ease-in-out infinite;\n  transform-style: preserve-3d;\n}\n@keyframes flip-3d {\n  0% {\n    transform: rotateY(180deg);\n    -webkit-transform: rotateY(180deg);\n  }\n  50% {\n    transform: rotateY(0deg);\n    -webkit-transform: rotateY(0deg);\n  }\n  100% {\n    transform: rotateY(-180deg);\n    -webkit-transform: rotateY(-180deg);\n  }\n}\n", ""]);
 
 // exports
 
@@ -18317,10 +18317,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/Debug.ts":
-/*!******************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/Debug.ts ***!
-  \******************************************************/
+/***/ "./src/typescript/bz/base/Debug.ts":
+/*!*****************************************!*\
+  !*** ./src/typescript/bz/base/Debug.ts ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18328,7 +18328,7 @@ module.exports = function(module) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Debug = void 0;
-var bz = __webpack_require__(/*! .. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! .. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a debug group whose logging can be enabled or disabled.
 ***********************************************************************************************************************/
@@ -18369,34 +18369,21 @@ var Debug = /** @class */ (function () {
             console.error('[' + bz.StringUtil.getDateTimeString() + '] ' + msg);
         }
     };
-    /** Debugs startup process. */
     Debug.acclaim = new Debug(true);
-    /** Debugs initialization process. */
     Debug.init = new Debug(true);
-    /** Debugs game states. */
-    Debug.game = new Debug(false);
-    /** Debugs engine handling and events. */
-    Debug.engine = new Debug(false);
-    /** Debugs sound system. */
+    Debug.game = new Debug(true);
+    Debug.engine = new Debug(true);
+    Debug.stage = new Debug(true);
+    Debug.inventory = new Debug(false);
+    Debug.event = new Debug(false);
     Debug.sound = new Debug(false);
-    /** Debugs stage system. */
-    Debug.stage = new Debug(false);
-    /** Debugs key system. */
     Debug.key = new Debug(false);
-    /** Debugs pointer system. */
     Debug.pointer = new Debug(false);
-    /** Debugs the game items. */
     Debug.item = new Debug(false);
-    /** Debugs player move, rotate, ducking, interaction. */
     Debug.player = new Debug(false);
-    /** Debugs player fire. */
     Debug.fire = new Debug(false);
-    /** Debugs physic calculations. */
     Debug.physic = new Debug(false);
-    /** Debugs camera behaviours and journeys. */
     Debug.camera = new Debug(false);
-    /** Debugs events pipeline. */
-    Debug.events = new Debug(false);
     return Debug;
 }());
 exports.Debug = Debug;
@@ -18404,10 +18391,10 @@ exports.Debug = Debug;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/Version.ts":
-/*!********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/Version.ts ***!
-  \********************************************************/
+/***/ "./src/typescript/bz/base/Version.ts":
+/*!*******************************************!*\
+  !*** ./src/typescript/bz/base/Version.ts ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18447,46 +18434,30 @@ var Version = /** @class */ (function () {
     Version.getCurrent = function () {
         return ('v. ' + Version.CURRENT_VERSION.version + ' ' + Version.CURRENT_VERSION.codename);
     };
-    /** The project's version v.0.0.1. */
     Version.V_0_0_1 = new Version('0.0.1', 'BABYLON ZERO', '17.04.2018, 09:42:16 GMT+1');
-    /** The project's version v.0.0.2. */
     Version.V_0_0_2 = new Version('0.0.2', 'BABYLON.JS TAKE OFF', '18.05.2018, 07:10:41 GMT+1');
-    /** The project's version v.0.0.3. */
     Version.V_0_0_3 = new Version('0.0.3', 'BABYLON.JS DEEP DIVE', '10.06.2018, 00:42:10 GMT+1');
-    /** The project's version v.0.0.4. */
     Version.V_0_0_4 = new Version('0.0.4', '3D PRODUCT CONFIGURATOR', '15.06.2018, 10:55:12 GMT+1');
-    /** The project's version v.0.0.5. */
     Version.V_0_0_5 = new Version('0.0.5', 'CREATIVITY UNLEASHED', '29.06.2018, 09:37:52 GMT+1');
-    /** The project's version v.0.0.6. */
     Version.V_0_0_6 = new Version('0.0.6', 'TWISTED DREAMS', '04.07.2018, 07:10:11 GMT+1');
-    /** The project's version v.0.0.7. */
     Version.V_0_0_7 = new Version('0.0.7', 'ROCK AND ROLL', '25.07.2018, 06:39:41 GMT+1');
-    /** The project's version v.0.0.8. */
     Version.V_0_0_8 = new Version('0.0.8', 'HUMAN BODY PARTITIONS', '24.11.2018, 14:15:12 GMT+1');
-    /** The project's version v.0.0.9. */
     Version.V_0_0_9 = new Version('0.0.9', 'BABYLON.JS 4.0', '25.05.2019, 18:22:41 GMT+1');
-    /** The project's version v.0.0.10. */
     Version.V_0_0_10 = new Version('0.0.10', 'NEXT STAGE', '17.05.2020, 12:05:12 GMT+1');
-    /** The project's version v.0.0.11. */
     Version.V_0_0_11 = new Version('0.0.11', 'PRETTIFY', '28.10.2021, 23:28:33 GMT+1');
-    /** The project's version v.0.1.0. */
     Version.V_0_1_0 = new Version('0.1.0', 'BLOATWARE', '29.10.2021, 08:36:12 GMT+1');
-    /** The project's version v.0.1.1. */
     Version.V_0_1_1 = new Version('0.1.1', 'SLIM', '29.10.2021, 08:52:53 GMT+1');
-    /** The project's version v.0.1.2. */
     Version.V_0_1_2 = new Version('0.1.2', 'NEIß', '09.11.2021, 11:32:21 GMT+1');
-    /** The project's version v.0.1.3. */
     Version.V_0_1_3 = new Version('0.1.3', 'CLEAN STAGE', '10.11.2021, 15:57:54 GMT+1');
-    /** The project's version v.0.1.4. */
     Version.V_0_1_4 = new Version('0.1.4', 'ROOMS', '12.11.2021, 17:12:02 GMT+1');
-    /** The project's version v.0.1.5. */
     Version.V_0_1_5 = new Version('0.1.5', '3DSMAX', '16.11.2021, 10:18:42 GMT+1');
-    /** The project's version v.0.1.6. */
     Version.V_0_1_6 = new Version('0.1.6', 'EVENTS', '16.11.2021, 14:51:00 GMT+1');
-    /** The project's version v.0.1.7. */
     Version.V_0_1_7 = new Version('0.1.7', 'IMPACT', '17.11.2021, 10:47:34 GMT+1');
+    Version.V_0_1_8 = new Version('0.1.8', 'ITEMS & TEXTURES', '18.11.2021, 13:36:21 GMT+1');
+    Version.V_0_1_9 = new Version('0.1.9', 'GUI MESSAGES & UI-EVENTS', '19.11.2021, 15:40:01 GMT+1');
+    Version.V_0_1_10 = new Version('0.1.10', 'NEW TEXTURES', '20.11.2021, 15:05:43 GMT+1');
     /** The project's current version. */
-    Version.CURRENT_VERSION = Version.V_0_1_6;
+    Version.CURRENT_VERSION = Version.V_0_1_10;
     return Version;
 }());
 exports.Version = Version;
@@ -18494,10 +18465,10 @@ exports.Version = Version;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/WebApp.ts":
-/*!*******************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/WebApp.ts ***!
-  \*******************************************************/
+/***/ "./src/typescript/bz/base/WebApp.ts":
+/*!******************************************!*\
+  !*** ./src/typescript/bz/base/WebApp.ts ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18505,8 +18476,8 @@ exports.Version = Version;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebApp = void 0;
-__webpack_require__(/*! ../css/global.less */ "./src/typescript/de/mayflower/bz/css/global.less");
-var bz = __webpack_require__(/*! .. */ "./src/typescript/de/mayflower/bz/index.ts");
+__webpack_require__(/*! ../css/global.less */ "./src/typescript/bz/css/global.less");
+var bz = __webpack_require__(/*! .. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   The main class containins the point of entry.
 ***********************************************************************************************************************/
@@ -18535,16 +18506,15 @@ exports.WebApp = WebApp;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/ModelFile.ts":
-/*!***************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/ModelFile.ts ***!
-  \***************************************************************/
+/***/ "./src/typescript/bz/base/data/ModelFile.ts":
+/*!**************************************************!*\
+  !*** ./src/typescript/bz/base/data/ModelFile.ts ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModelFile = void 0;
 /** ********************************************************************************************************************
@@ -18553,50 +18523,36 @@ exports.ModelFile = void 0;
 var ModelFile = /** @class */ (function () {
     function ModelFile() {
     }
-    /** The model 'office chair'. */
-    ModelFile.OFFICE_CHAIR_1_MULTI_MESH = 'furniture/officeChair1.babylon';
-    /** The model 'office chair'. */
-    ModelFile.SHELVES_1 = 'furniture/shelves1.babylon';
-    /** The model 'office desk 1'. */
-    ModelFile.OFFICE_DESK_1 = 'furniture/officeDesk1.babylon';
-    /** The model 'office desk 2'. */
-    ModelFile.OFFICE_DESK_2 = 'furniture/officeDesk2.babylon';
-    /** The model 'soda machine 2'. */
-    ModelFile.SODA_MACHINE_2 = 'furniture/sodaMachine2.babylon';
-    /** The model 'sphere 1'. */
-    ModelFile.SPHERE_1 = 'furniture/sphere1.babylon';
-    /** The model 'double sphere 1'. */
-    ModelFile.DOUBLE_SPHERE_1 = 'furniture/doubleSphere1.babylon';
-    /** The model 'crate'. */
-    ModelFile.CRATE = 'furniture/crate1.babylon';
-    /** The model 'sofa 1'. */
-    ModelFile.SOFA_1 = 'furniture/sofa1.babylon';
-    /** The model 'screen 1'. */
-    ModelFile.SCREEN_1 = 'furniture/screen1.babylon';
-    /** The model 'item shotgun shells'. */
-    ModelFile.ITEM_SHOTGUN_SHELLS = 'item/shells.babylon';
-    /** The model 'car 1'. */
-    ModelFile.CAR_1 = 'object/car1.babylon';
-    /** The model 'bench 1'. */
     ModelFile.BENCH_1 = 'furniture/bench1.babylon';
-    /** The model 'Mayflower Logo'. */
+    ModelFile.CAR_1 = 'object/car1.babylon';
+    ModelFile.CRATE = 'furniture/crate1.babylon';
+    ModelFile.DOUBLE_SPHERE_1 = 'furniture/doubleSphere1.babylon';
+    ModelFile.ITEM_SHOTGUN_SHELLS = 'item/shells.babylon';
     ModelFile.MF_LOGO = 'presentation/mfLogo.babylon';
+    ModelFile.OFFICE_CHAIR_1_MULTI_MESH = 'furniture/officeChair1.babylon';
+    ModelFile.OFFICE_DESK_1 = 'furniture/officeDesk1.babylon';
+    ModelFile.OFFICE_DESK_2 = 'furniture/officeDesk2.babylon';
+    ModelFile.SODA_MACHINE_2 = 'furniture/sodaMachine2.babylon';
+    ModelFile.SCREEN_1 = 'furniture/screen1.babylon';
+    ModelFile.SHELVES_1 = 'furniture/shelves1.babylon';
+    ModelFile.SOFA_1 = 'furniture/sofa1.babylon';
+    ModelFile.SPHERE_1 = 'furniture/sphere1.babylon';
     /** All filenames for all meshes. */
     ModelFile.ALL_MESH_FILES = [
+        ModelFile.BENCH_1,
+        ModelFile.CAR_1,
+        ModelFile.CRATE,
+        ModelFile.DOUBLE_SPHERE_1,
+        ModelFile.ITEM_SHOTGUN_SHELLS,
+        ModelFile.MF_LOGO,
         ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-        ModelFile.SHELVES_1,
         ModelFile.OFFICE_DESK_1,
         ModelFile.OFFICE_DESK_2,
         ModelFile.SODA_MACHINE_2,
-        ModelFile.SPHERE_1,
-        ModelFile.DOUBLE_SPHERE_1,
-        ModelFile.CRATE,
-        ModelFile.SOFA_1,
         ModelFile.SCREEN_1,
-        ModelFile.ITEM_SHOTGUN_SHELLS,
-        ModelFile.CAR_1,
-        ModelFile.BENCH_1,
-        ModelFile.MF_LOGO,
+        ModelFile.SHELVES_1,
+        ModelFile.SOFA_1,
+        ModelFile.SPHERE_1,
     ];
     return ModelFile;
 }());
@@ -18605,10 +18561,10 @@ exports.ModelFile = ModelFile;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/PhysicSet.ts":
-/*!***************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/PhysicSet.ts ***!
-  \***************************************************************/
+/***/ "./src/typescript/bz/base/data/PhysicSet.ts":
+/*!**************************************************!*\
+  !*** ./src/typescript/bz/base/data/PhysicSet.ts ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18616,7 +18572,7 @@ exports.ModelFile = ModelFile;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhysicSet = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies different physical objects
 ***********************************************************************************************************************/
@@ -18647,12 +18603,12 @@ var PhysicSet = /** @class */ (function () {
     PhysicSet.NONE = new PhysicSet(bz.PhysicBehaviour.NONE, bz.PhysicFriction.NONE, bz.PhysicRestitution.NONE, 0);
     /** Physical properties for a non-moving and collidable body. */
     PhysicSet.STATIC = new PhysicSet(bz.PhysicBehaviour.STATIC, bz.PhysicFriction.MEDIUM, bz.PhysicRestitution.NONE, 0);
-    /** The player has very special physical attributes with the primal goal to keep the user entertained. */
+    /** The player has very special physical attributes. */
     PhysicSet.PLAYER_HUMAN = new PhysicSet(bz.PhysicBehaviour.MOVABLE, bz.PhysicFriction.NONE, bz.PhysicRestitution.NONE, bz.SettingPlayer.PLAYER_MASS);
+    /** The item has special physical attributes. */
+    PhysicSet.ITEM = new PhysicSet(bz.PhysicBehaviour.MOVABLE, bz.PhysicFriction.HIGH, bz.PhysicRestitution.MEDIUM, 1.0);
     /** A wooden crate. */
     PhysicSet.CRATE_WOOD = new PhysicSet(bz.PhysicBehaviour.MOVABLE, bz.PhysicFriction.HIGH, bz.PhysicRestitution.NONE, 2.5);
-    /** A steel crate. */
-    PhysicSet.CRATE_STEEL = new PhysicSet(bz.PhysicBehaviour.MOVABLE, bz.PhysicFriction.HIGH, bz.PhysicRestitution.NONE, 25.0);
     /** Synthetic impostor for scattered meshes. */
     PhysicSet.SYNTHETIC_IMPOSTOR = new PhysicSet(bz.PhysicBehaviour.MOVABLE, bz.PhysicFriction.MEDIUM, bz.PhysicRestitution.MEDIUM, 1.0);
     /** Props for solid concrete. */
@@ -18670,10 +18626,10 @@ exports.PhysicSet = PhysicSet;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/SkyBoxFile.ts":
-/*!****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/SkyBoxFile.ts ***!
-  \****************************************************************/
+/***/ "./src/typescript/bz/base/data/SkyBoxFile.ts":
+/*!***************************************************!*\
+  !*** ./src/typescript/bz/base/data/SkyBoxFile.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18687,47 +18643,38 @@ exports.SkyBoxFile = void 0;
 ***********************************************************************************************************************/
 var SkyBoxFile;
 (function (SkyBoxFile) {
-    /** The skybox 'blue sky'. */
     SkyBoxFile["BLUE_SKY"] = "blueSky";
-    /** The skybox 'dark sky'. */
     SkyBoxFile["DARK_SKY"] = "darkSky";
-    /** The skybox 'storm'. */
     SkyBoxFile["STORM"] = "storm";
 })(SkyBoxFile = exports.SkyBoxFile || (exports.SkyBoxFile = {}));
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/SoundFile.ts":
-/*!***************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/SoundFile.ts ***!
-  \***************************************************************/
+/***/ "./src/typescript/bz/base/data/SoundFile.ts":
+/*!**************************************************!*\
+  !*** ./src/typescript/bz/base/data/SoundFile.ts ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SoundFile = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies the filenames of all sounds to load.
 ***********************************************************************************************************************/
 var SoundFile = /** @class */ (function () {
     function SoundFile() {
     }
-    /** The fx sound 'test 1'. */
     SoundFile.TEST_FX_1 = bz.SettingResource.PATH_SOUND_FX + 'test1.mp3';
-    /** The bg sound 'test 1'. */
     SoundFile.TEST_BG_1 = bz.SettingResource.PATH_SOUND_BG + 'test1.mp3';
-    /** The bg sound 'Stone Age - The golden valley'. */
-    SoundFile.TEST_BG_STONE_AGE_THE_GOLDEN_VALLEY = bz.SettingResource.PATH_SOUND_BG + 'stoneAgeTheGoldenValley.mp3';
     /** All filenames of all sounds to load. */
     SoundFile.ALL_SOUND_FILES = [
         SoundFile.TEST_FX_1,
         SoundFile.TEST_BG_1,
-        SoundFile.TEST_BG_STONE_AGE_THE_GOLDEN_VALLEY,
     ];
     return SoundFile;
 }());
@@ -18736,16 +18683,15 @@ exports.SoundFile = SoundFile;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/SpriteFile.ts":
-/*!****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/SpriteFile.ts ***!
-  \****************************************************************/
+/***/ "./src/typescript/bz/base/data/SpriteFile.ts":
+/*!***************************************************!*\
+  !*** ./src/typescript/bz/base/data/SpriteFile.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SpriteFile = void 0;
 /** ********************************************************************************************************************
@@ -18766,15 +18712,10 @@ var SpriteFile = /** @class */ (function () {
         this.fileName = fileName;
         this.frameSize = frameSize;
     }
-    /** The sprite 'tree'. */
     SpriteFile.TREE = new SpriteFile('tree.png', 357);
-    /** The sprite 'tree white'. */
     SpriteFile.TREE_WHITE = new SpriteFile('palm.png', 357);
-    /** The sprite 'palm'. */
     SpriteFile.PALM = new SpriteFile('palm.png', 1024);
-    /** The sprite 'test'. */
     SpriteFile.TEST = new SpriteFile('test.png', 64);
-    /** The sprite 'fire'. */
     SpriteFile.FIRE = new SpriteFile('fire.png', 128);
     /** Lists all sprite files in an array. */
     SpriteFile.ALL_SPRITE_FILES = [
@@ -18791,10 +18732,10 @@ exports.SpriteFile = SpriteFile;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/Texture.ts":
-/*!*************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/Texture.ts ***!
-  \*************************************************************/
+/***/ "./src/typescript/bz/base/data/Texture.ts":
+/*!************************************************!*\
+  !*** ./src/typescript/bz/base/data/Texture.ts ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18813,7 +18754,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Texture = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies all textures to load.
 ***********************************************************************************************************************/
@@ -18838,6 +18779,7 @@ var Texture = /** @class */ (function () {
     Texture.prototype.loadTexture = function (scene) {
         switch (this.file.textureType) {
             case bz.TextureType.WALL:
+            case bz.TextureType.WALL_AND_MODEL:
                 {
                     // create default texture
                     this.nativeTexture = new BABYLON.Texture(this.file.fileName, scene);
@@ -18850,7 +18792,7 @@ var Texture = /** @class */ (function () {
                     videoTexture.video.muted = true;
                     videoTexture.video.autoplay = true;
                     videoTexture.video.play().then(function () {
-                        // handle promise fullfillment
+                        // handle promise fulfillment
                     }).catch(function () {
                         // catch promise error
                     });
@@ -18890,17 +18832,17 @@ var Texture = /** @class */ (function () {
             && mesh.material !== null
             && mesh.material.getActiveTextures() !== null
             && mesh.material.getActiveTextures().length > 0) {
-            // pick texture filename
-            var meshTextureFileName = mesh.material.getActiveTextures()[0].name;
-            var bulletHoleTexture = Texture.getBulletHoleTexForMeshTex(meshTextureFileName);
-            if (bulletHoleTexture !== null) {
-                return bulletHoleTexture;
+            // pick texture filename from Texture field 'url'
+            var meshTextureFullFileName = mesh.material.getActiveTextures()[0].url;
+            if (meshTextureFullFileName === null) {
+                // video textures have their file path in field 'name'
+                meshTextureFullFileName = mesh.material.getActiveTextures()[0].name;
             }
             try {
                 // compare with all existent textures
                 for (var _c = __values(Texture.ALL_TEXTURES), _d = _c.next(); !_d.done; _d = _c.next()) {
                     var texture = _d.value;
-                    if (texture.file.fileName === meshTextureFileName) {
+                    if (texture.file.fileName === meshTextureFullFileName) {
                         if (texture.file.bulletHoleTexture !== null) {
                             try {
                                 for (var _e = (e_2 = void 0, __values(Texture.ALL_TEXTURES)), _f = _e.next(); !_f.done; _f = _e.next()) {
@@ -18932,20 +18874,6 @@ var Texture = /** @class */ (function () {
         return DEFAULT_BULLET_HOLE_TEXTURE;
     };
     /** ****************************************************************************************************************
-    *   Delivers the BulletHole Texture for a 3ds max model's texture file specification.
-    *
-    *   @param meshTextureFileName The filename of the 3ds max model's used texture -- without any directory component.
-    *******************************************************************************************************************/
-    Texture.getBulletHoleTexForMeshTex = function (meshTextureFileName) {
-        switch (meshTextureFileName) {
-            case 'crate1.jpg':
-                {
-                    return bz.TextureFile.BULLET_HOLE_WOOD;
-                }
-        }
-        return null;
-    };
-    /** ****************************************************************************************************************
     *   Returns the Texture from the specified TextureFile.
     *
     *   @return The texture data from the specified file name.
@@ -18973,28 +18901,62 @@ var Texture = /** @class */ (function () {
     /** Contains all textures that contain the preloaded texture data. */
     Texture.ALL_TEXTURES = [
         new Texture(bz.TextureFile.BULLET_HOLE_CONCRETE),
-        new Texture(bz.TextureFile.BULLET_HOLE_WOOD),
         new Texture(bz.TextureFile.BULLET_HOLE_GLASS),
+        new Texture(bz.TextureFile.BULLET_HOLE_IRON),
         new Texture(bz.TextureFile.BULLET_HOLE_METAL),
-        new Texture(bz.TextureFile.WALL_TEST),
-        new Texture(bz.TextureFile.WALL_STONES_3),
-        new Texture(bz.TextureFile.WALL_MAYFLOWER_LOGO),
-        new Texture(bz.TextureFile.WALL_AMIGA),
-        new Texture(bz.TextureFile.WALL_WOOD_HORZ),
-        new Texture(bz.TextureFile.WALL_WOOD_VERT),
-        new Texture(bz.TextureFile.WALL_GRASS),
-        new Texture(bz.TextureFile.WALL_GLASS),
-        new Texture(bz.TextureFile.WALL_SKIN_ROSE),
-        new Texture(bz.TextureFile.WALL_METAL),
+        new Texture(bz.TextureFile.BULLET_HOLE_PLASTIC),
+        new Texture(bz.TextureFile.BULLET_HOLE_WOOD),
+        new Texture(bz.TextureFile.WALL_ASPHALT_1),
         new Texture(bz.TextureFile.WALL_BRICKS_1),
         new Texture(bz.TextureFile.WALL_BRICKS_2),
+        new Texture(bz.TextureFile.WALL_BRICKS_3),
         new Texture(bz.TextureFile.WALL_CARPET_1),
         new Texture(bz.TextureFile.WALL_CARPET_2),
-        new Texture(bz.TextureFile.WALL_CEILING),
-        new Texture(bz.TextureFile.WALL_CONCRETE),
-        new Texture(bz.TextureFile.WALL_LEATHER),
-        new Texture(bz.TextureFile.WALL_MARBLE),
+        new Texture(bz.TextureFile.WALL_CARPET_3),
+        new Texture(bz.TextureFile.WALL_CEILING_1),
+        new Texture(bz.TextureFile.WALL_CHECKERS_1),
+        new Texture(bz.TextureFile.WALL_CHECKERS_2),
+        new Texture(bz.TextureFile.WALL_COBBLES_1),
+        new Texture(bz.TextureFile.WALL_COBBLES_2),
+        new Texture(bz.TextureFile.WALL_COBBLES_3),
+        new Texture(bz.TextureFile.WALL_COBBLES_4),
+        new Texture(bz.TextureFile.WALL_COBBLES_5),
+        new Texture(bz.TextureFile.WALL_COBBLES_6),
+        new Texture(bz.TextureFile.WALL_CONCRETE_2),
+        new Texture(bz.TextureFile.WALL_CONCRETE_3),
+        new Texture(bz.TextureFile.WALL_DIAMOND_PLATE_1),
+        new Texture(bz.TextureFile.WALL_DIAMOND_PLATE_2),
         new Texture(bz.TextureFile.WALL_DOOR_1),
+        new Texture(bz.TextureFile.WALL_GLASS_1),
+        new Texture(bz.TextureFile.WALL_GRASS_1),
+        new Texture(bz.TextureFile.WALL_GRASS_2),
+        new Texture(bz.TextureFile.WALL_GRASS_3),
+        new Texture(bz.TextureFile.WALL_LEATHER_1),
+        new Texture(bz.TextureFile.WALL_LEATHER_2),
+        new Texture(bz.TextureFile.WALL_MARBLE_1),
+        new Texture(bz.TextureFile.WALL_MARBLE_2),
+        new Texture(bz.TextureFile.WALL_MAYFLOWER_CALENDAR),
+        new Texture(bz.TextureFile.WALL_MAYFLOWER_LOGO),
+        new Texture(bz.TextureFile.WALL_SHINGLES_1),
+        new Texture(bz.TextureFile.WALL_SKIN_1),
+        new Texture(bz.TextureFile.WALL_STONES_1),
+        new Texture(bz.TextureFile.WALL_STONES_2),
+        new Texture(bz.TextureFile.WALL_STONES_3),
+        new Texture(bz.TextureFile.WALL_STONES_4),
+        new Texture(bz.TextureFile.WALL_TEST),
+        new Texture(bz.TextureFile.WALL_TILES_1),
+        new Texture(bz.TextureFile.WALL_WOOD_1),
+        new Texture(bz.TextureFile.WALL_WOOD_2),
+        new Texture(bz.TextureFile.WALL_WOOD_3),
+        new Texture(bz.TextureFile.WALL_WOOD_4),
+        new Texture(bz.TextureFile.WALL_WOOD_5),
+        new Texture(bz.TextureFile.MODEL_WOOD_HORZ),
+        new Texture(bz.TextureFile.MODEL_WOOD_LIGHT),
+        new Texture(bz.TextureFile.MODEL_CHROME),
+        new Texture(bz.TextureFile.MODEL_CONCRETE),
+        new Texture(bz.TextureFile.MODEL_CRATE_1),
+        new Texture(bz.TextureFile.MODEL_LEATHER_RED),
+        new Texture(bz.TextureFile.MODEL_PLASTIC_1),
         new Texture(bz.TextureFile.VIDEO_TEST),
     ];
     return Texture;
@@ -19004,10 +18966,10 @@ exports.Texture = Texture;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/data/TextureFile.ts":
-/*!*****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/data/TextureFile.ts ***!
-  \*****************************************************************/
+/***/ "./src/typescript/bz/base/data/TextureFile.ts":
+/*!****************************************************!*\
+  !*** ./src/typescript/bz/base/data/TextureFile.ts ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19016,7 +18978,7 @@ exports.Texture = Texture;
 /* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextureFile = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies all texture files to load with their according texture information.
 ***********************************************************************************************************************/
@@ -19041,7 +19003,7 @@ var TextureFile = /** @class */ (function () {
         this.bulletHoleTexture = null;
         /** Specifies the type of texture. */
         this.textureType = null;
-        this.fileName = (bz.SettingResource.PATH_IMAGE_TEXTURE + fileName);
+        this.fileName = TextureFile.createFullFileName(textureType, fileName);
         this.textureHasAlpha = textureHasAlpha;
         this.strategyUV = strategyUV;
         this.bulletHoleTexture = bulletHoleTexture;
@@ -19053,7 +19015,7 @@ var TextureFile = /** @class */ (function () {
     *   @return <code>true</code> if this texture is a video texture.
     *******************************************************************************************************************/
     TextureFile.prototype.getIsVideoTexture = function () {
-        return this.textureType === bz.TextureType.VIDEO;
+        return (this.textureType === bz.TextureType.VIDEO);
     };
     /** ****************************************************************************************************************
     *   Determines if this texture uses an alpha channel.
@@ -19071,56 +19033,120 @@ var TextureFile = /** @class */ (function () {
     TextureFile.prototype.getStrategyUV = function () {
         return this.strategyUV;
     };
-    /** The texture file 'bullet hole concrete'. */
+    /** ****************************************************************************************************************
+    *   Creates a new Babylon.js texture from this TextureFile.
+    *
+    *   @param repeatU The amount for U repeating this texture.
+    *   @param repeatV The amount for V repeating this texture.
+    *******************************************************************************************************************/
+    TextureFile.prototype.createNewTextureInstance = function (repeatU, repeatV) {
+        // do not clone native video textures! ( babylon.JS will hang otherwise! )
+        var newTexture = (this.getIsVideoTexture()
+            ? bz.Texture.getNativeTexture(this)
+            // is seems that cloning is not required and getNativeTexture is also working here
+            : bz.Texture.cloneNativeTexture(this));
+        if (this.getIsVideoTexture()) {
+            newTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
+            newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
+        }
+        else {
+            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
+            // working around poor typings for scaling ..
+            if (repeatU !== -1) {
+                newTexture.uScale = repeatU;
+            }
+            if (repeatV !== -1) {
+                newTexture.vScale = repeatV;
+            }
+        }
+        newTexture.hasAlpha = this.hasAlpha();
+        return newTexture;
+    };
+    /** ****************************************************************************************************************
+    *   Determines the full qualified path and fileName for the specified texture type.
+    *
+    *   @param textureType The type of texture.
+    *   @param fileName    The path to the file, without the resources root path.
+    *
+    *   @return The complete resources path to the texture file.
+    *******************************************************************************************************************/
+    TextureFile.createFullFileName = function (textureType, fileName) {
+        switch (textureType) {
+            case bz.TextureType.WALL:
+                {
+                    return (bz.SettingResource.PATH_IMAGE_TEXTURE + fileName);
+                }
+            case bz.TextureType.WALL_AND_MODEL:
+                {
+                    return (bz.SettingResource.PATH_MODEL + fileName);
+                }
+            case bz.TextureType.VIDEO:
+                {
+                    return (bz.SettingResource.PATH_VIDEO + fileName);
+                }
+        }
+    };
     TextureFile.BULLET_HOLE_CONCRETE = new TextureFile('bulletHole/concrete.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    /** The texture file 'bullet hole wood'. */
-    TextureFile.BULLET_HOLE_WOOD = new TextureFile('bulletHole/wood.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    /** The texture file 'bullet hole glass'. */
     TextureFile.BULLET_HOLE_GLASS = new TextureFile('bulletHole/glass.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    /** The texture file 'bullet hole glass'. */
+    TextureFile.BULLET_HOLE_IRON = new TextureFile('bulletHole/iron.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
     TextureFile.BULLET_HOLE_METAL = new TextureFile('bulletHole/metal.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    /** The texture file 'wall test'. */
-    TextureFile.WALL_TEST = new TextureFile('wall/test.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    /** The texture file 'wall stones 3'. */
-    TextureFile.WALL_STONES_3 = new TextureFile('wall/stones3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'wall mayflower logo'. */
-    TextureFile.WALL_MAYFLOWER_LOGO = new TextureFile('wall/mfLogo.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    /** The texture file 'wall amiga'. */
-    TextureFile.WALL_AMIGA = new TextureFile('wall/amiga.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    /** The texture file 'wall wood horizontal'. */
-    TextureFile.WALL_WOOD_HORZ = new TextureFile('wall/woodHorz.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    /** The texture file 'wall wood vertical'. */
-    TextureFile.WALL_WOOD_VERT = new TextureFile('wall/woodVert.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    /** The texture file 'wall grass'. */
-    TextureFile.WALL_GRASS = new TextureFile('wall/grass.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    /** The texture file 'wall glass'. */
-    TextureFile.WALL_GLASS = new TextureFile('wall/glass.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
-    /** The texture file 'wall skin rose'. */
-    TextureFile.WALL_SKIN_ROSE = new TextureFile('wall/skinRose.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    /** The texture file 'wall metal'. */
-    TextureFile.WALL_METAL = new TextureFile('wall/metal.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'bricks 1'. */
+    TextureFile.BULLET_HOLE_PLASTIC = new TextureFile('bulletHole/plastic.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_WOOD = new TextureFile('bulletHole/wood.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
+    TextureFile.WALL_ASPHALT_1 = new TextureFile('wall/asphalt1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
     TextureFile.WALL_BRICKS_1 = new TextureFile('wall/bricks1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    /** The texture file 'bricks 2'. */
     TextureFile.WALL_BRICKS_2 = new TextureFile('wall/bricks2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    /** The texture file 'carpet 1'. */
+    TextureFile.WALL_BRICKS_3 = new TextureFile('wall/bricks3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.Y_ONE_XZ_TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
     TextureFile.WALL_CARPET_1 = new TextureFile('wall/carpet1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'carpet 2'. */
     TextureFile.WALL_CARPET_2 = new TextureFile('wall/carpet2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'ceiling'. */
-    TextureFile.WALL_CEILING = new TextureFile('wall/ceiling.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'concrete'. */
-    TextureFile.WALL_CONCRETE = new TextureFile('wall/concrete.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'leather'. */
-    TextureFile.WALL_LEATHER = new TextureFile('wall/leather.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'marble'. */
-    TextureFile.WALL_MARBLE = new TextureFile('wall/marble.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'door 1'. */
+    TextureFile.WALL_CARPET_3 = new TextureFile('wall/carpet3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CEILING_1 = new TextureFile('wall/ceiling1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CHECKERS_1 = new TextureFile('wall/checkers1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CHECKERS_2 = new TextureFile('wall/checkers2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_1 = new TextureFile('wall/cobbles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_2 = new TextureFile('wall/cobbles2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_3 = new TextureFile('wall/cobbles3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_4 = new TextureFile('wall/cobbles4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_5 = new TextureFile('wall/cobbles5.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_6 = new TextureFile('wall/cobbles6.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CONCRETE_2 = new TextureFile('wall/concrete2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CONCRETE_3 = new TextureFile('wall/concrete3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_DIAMOND_PLATE_1 = new TextureFile('wall/diamondPlate1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_DIAMOND_PLATE_2 = new TextureFile('wall/diamondPlate2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
     TextureFile.WALL_DOOR_1 = new TextureFile('wall/door1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    /** The texture file 'heightmap valley'. */
+    TextureFile.WALL_GLASS_1 = new TextureFile('wall/glass1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
+    TextureFile.WALL_GRASS_1 = new TextureFile('wall/grass1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_GRASS_2 = new TextureFile('wall/grass2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_GRASS_3 = new TextureFile('wall/grass3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_LEATHER_1 = new TextureFile('wall/leather1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_LEATHER_2 = new TextureFile('wall/leather2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_MARBLE_1 = new TextureFile('wall/marble1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_MARBLE_2 = new TextureFile('wall/marble2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_MAYFLOWER_CALENDAR = new TextureFile('wall/mfCalendar.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_MAYFLOWER_LOGO = new TextureFile('wall/mfLogo.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_SHINGLES_1 = new TextureFile('wall/shingles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_SKIN_1 = new TextureFile('wall/skin1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_1 = new TextureFile('wall/stones1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_2 = new TextureFile('wall/stones2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_3 = new TextureFile('wall/stones3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_4 = new TextureFile('wall/stones4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE_HALF, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_TEST = new TextureFile('wall/test.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_TILES_1 = new TextureFile('wall/tiles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_1 = new TextureFile('wall/wood1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_2 = new TextureFile('wall/wood2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_3 = new TextureFile('wall/wood3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_4 = new TextureFile('wall/wood4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_5 = new TextureFile('wall/wood5.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.MODEL_WOOD_HORZ = new TextureFile('furniture/woodHorz.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_WOOD_LIGHT = new TextureFile('furniture/woodLight.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_CHROME = new TextureFile('furniture/chrome.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_CONCRETE = new TextureFile('furniture/concrete.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_CRATE_1 = new TextureFile('furniture/crate1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_LEATHER_RED = new TextureFile('furniture/leatherRed.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_PLASTIC_1 = new TextureFile('furniture/plastic1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.VIDEO_TEST = new TextureFile('tv/news1.mp4', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.VIDEO);
+    /** The texture file 'heightmap valley'. This is just a filename - The texture will not be reloaded. No own bz.Texture instance will be created from it! */
     TextureFile.HEIGHTMAP_VALLEY = new TextureFile('heightMap/valley.png', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    /** The texture file 'test video'. */
-    TextureFile.VIDEO_TEST = new TextureFile('video/news.mp4', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.VIDEO);
     return TextureFile;
 }());
 exports.TextureFile = TextureFile;
@@ -19128,10 +19154,10 @@ exports.TextureFile = TextureFile;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/setting/SettingColor.ts":
-/*!*********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/setting/SettingColor.ts ***!
-  \*********************************************************************/
+/***/ "./src/typescript/bz/base/setting/SettingColor.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingColor.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19141,64 +19167,41 @@ exports.TextureFile = TextureFile;
 // noinspection JSUnusedGlobalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingColor = void 0;
-var bjs = __webpack_require__(/*! babylonjs */ "babylonjs");
+var BABYLON = __webpack_require__(/*! babylonjs */ "babylonjs");
 /** ********************************************************************************************************************
 *   Specifies all colors the application makes use of.
 ***********************************************************************************************************************/
 var SettingColor = /** @class */ (function () {
     function SettingColor() {
     }
-    /** The CSS color 'transparent'. */
     SettingColor.COLOR_CSS_TRANSPARENT = 'rgba( 0,   0,   0,   0.0 )';
-    /** The CSS color 'white' with full opacity. */
     SettingColor.COLOR_CSS_WHITE_OPAQUE = 'rgba( 255, 255, 255, 1.0 )';
-    /** The CSS color 'gray' with full opacity. */
     SettingColor.COLOR_CSS_GRAY_OPAQUE = 'rgba( 121, 121, 121, 1.0 )';
-    /** The CSS color 'red' with full opacity. */
     SettingColor.COLOR_CSS_RED_OPAQUE = 'rgba( 255, 0,   0,   1.0 )';
-    /** The CSS color 'black' with full opacity. */
-    SettingColor.COLOR_CSS_BLACK_OPAQUE = 'rgba( 0,   0,   0,   1.0 )';
-    /** The CSS color 'mayflower orange' with full opacity. */
     SettingColor.COLOR_CSS_MAYFLOWER_ORANGE_OPAQUE = 'rgba( 237, 115, 4,   1.0 )';
-    /** The RGB color 'white' without alpha information. */
-    SettingColor.COLOR_RGB_WHITE = new bjs.Color3(1.0, 1.0, 1.0);
-    /** The RGB color 'grey 0.75' without alpha information. */
+    SettingColor.COLOR_CSS_GREEN_OPAQUE = 'rgba( 0,   255, 0,   1.0 )';
+    SettingColor.COLOR_CSS_BLUE_OPAQUE = 'rgba( 0,   0,   255, 1.0 )';
+    SettingColor.COLOR_CSS_BLACK_OPAQUE = 'rgba( 0,   0,   0,   1.0 )';
+    SettingColor.COLOR_CSS_GUI_MSG_GRAY_HALF_ALPHA = 'rgba( 25,  25,  25,  0.7 )';
+    SettingColor.COLOR_RGB_WHITE = new BABYLON.Color3(1.0, 1.0, 1.0);
     SettingColor.COLOR_RGB_GREY_THREE_QUARTERS = new BABYLON.Color3(0.75, 0.75, 0.75);
-    /** The RGB color 'grey 0.5' without alpha information. */
     SettingColor.COLOR_RGB_GREY_HALF = new BABYLON.Color3(0.5, 0.5, 0.5);
-    /** The RGB color 'grey 0.25' without alpha information. */
     SettingColor.COLOR_RGB_GREY_QUARTER = new BABYLON.Color3(0.25, 0.25, 0.25);
-    /** The RGB color 'red' without alpha information. */
     SettingColor.COLOR_RGB_RED = new BABYLON.Color3(1.0, 0.0, 0.0);
-    /** The RGB color 'green' without alpha information. */
     SettingColor.COLOR_RGB_GREEN = new BABYLON.Color3(0.0, 1.0, 0.0);
-    /** The RGB color 'blue' without alpha information. */
     SettingColor.COLOR_RGB_BLUE = new BABYLON.Color3(0.0, 0.0, 1.0);
-    /** The RGB color 'yellow' without alpha information. */
     SettingColor.COLOR_RGB_YELLOW = new BABYLON.Color3(1.0, 1.0, 0.0);
-    /** The RGB color 'orange' without alpha information. */
     SettingColor.COLOR_RGB_ORANGE = new BABYLON.Color3(1.0, 0.5, 0.0);
-    /** The RGB color 'black' without alpha information. */
     SettingColor.COLOR_RGB_BLACK = new BABYLON.Color3(0.0, 0.0, 0.0);
-    /** The RGB color 'mayflower orange' without alpha information. */
     SettingColor.COLOR_RGB_MAYFLOWER_ORANGE = new BABYLON.Color3(0.92, 0.45, 0.01);
-    /** The RGBA color 'transparent'. */
     SettingColor.COLOR_RGBA_TRANSPARENT = new BABYLON.Color4(0.0, 0.0, 0.0, 0.0);
-    /** The RGBA color 'dark grey' with full opacity. */
     SettingColor.COLOR_RGBA_DARK_GREY_OPAQUE = new BABYLON.Color4(0.33, 0.33, 0.33, 1.0);
-    /** The RGBA color 'mayflower orange' with full opacity. */
-    SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE = new BABYLON.Color4(0.92, 0.45, 0.01, 1.0);
-    /** The RGBA color 'black' with full opacity. */
+    SettingColor.COLOR_RGBA_MAYFLOWER_ORANGE_OPAQUE = new BABYLON.Color4(0.92, 0.45, 0.01, 1.0);
     SettingColor.COLOR_RGBA_BLACK_OPAQUE = new BABYLON.Color4(0.0, 0.0, 0.0, 1.0);
-    /** The RGBA color 'red' with full opacity. */
     SettingColor.COLOR_RGBA_RED_OPAQUE = new BABYLON.Color4(1.0, 0.0, 0.0, 1.0);
-    /** The RGBA color 'green' with full opacity. */
     SettingColor.COLOR_RGBA_GREEN_OPAQUE = new BABYLON.Color4(0.0, 1.0, 0.0, 1.0);
-    /** The RGBA color 'blue' with full opacity. */
     SettingColor.COLOR_RGBA_BLUE_OPAQUE = new BABYLON.Color4(0.0, 0.0, 1.0, 1.0);
-    /** The RGBA color 'yellow' with full opacity. */
     SettingColor.COLOR_RGBA_YELLOW_OPAQUE = new BABYLON.Color4(1.0, 1.0, 0.0, 1.0);
-    /** The RGBA color 'white' with full opacity. */
     SettingColor.COLOR_RGBA_WHITE_OPAQUE = new BABYLON.Color4(1.0, 1.0, 1.0, 1.0);
     return SettingColor;
 }());
@@ -19207,10 +19210,10 @@ exports.SettingColor = SettingColor;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/setting/SettingDebug.ts":
-/*!*********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/setting/SettingDebug.ts ***!
-  \*********************************************************************/
+/***/ "./src/typescript/bz/base/setting/SettingDebug.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingDebug.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19230,6 +19233,8 @@ var SettingDebug = /** @class */ (function () {
     SettingDebug.DEBUG_MODE = true;
     /** Show FPS counter. */
     SettingDebug.SHOW_FPS = ( true && SettingDebug.DEBUG_MODE);
+    /** Show trigger. */
+    SettingDebug.SHOW_TRIGGER = ( true && SettingDebug.DEBUG_MODE);
     /** Disables all sounds. */
     SettingDebug.DISABLE_SOUND = true;
     /** Enabled menu debug keys for camera and stage switch. */
@@ -19249,12 +19254,12 @@ var SettingDebug = /** @class */ (function () {
     /** Show the shot debug bullet hole normal line. */
     SettingDebug.SHOW_DEBUG_BULLET_HOLE_NORMAL = ( true && SettingDebug.DEBUG_MODE);
     /** Show the world coordinate axis. */
-    SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED = ( true && SettingDebug.DEBUG_MODE);
+    SettingDebug.ENABLE_COORDINATE_AXIS = ( true && SettingDebug.DEBUG_MODE);
     /** The length of the world coordinate axis. */
-    SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH = 25.0;
-    SettingDebug.SHOW_DEBUG_SPRITE_COLLISION_CYLINDER = ( false && false);
-    SettingDebug.DEBUG_ENABLE_POINTER_DOWN_IMPULSE = ( false && false);
-    SettingDebug.DEBUG_DISABLE_POINTER_LOCK = ( false && false);
+    SettingDebug.COORDINATE_AXIS_LENGTH = 25.0;
+    SettingDebug.SHOW_SPRITE_COLLISION_CYLINDER = ( false && false);
+    SettingDebug.ENABLE_POINTER_DOWN_IMPULSE = ( false && false);
+    SettingDebug.DISABLE_POINTER_LOCK = ( false && false);
     return SettingDebug;
 }());
 exports.SettingDebug = SettingDebug;
@@ -19262,10 +19267,10 @@ exports.SettingDebug = SettingDebug;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/setting/SettingEngine.ts":
-/*!**********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/setting/SettingEngine.ts ***!
-  \**********************************************************************/
+/***/ "./src/typescript/bz/base/setting/SettingEngine.ts":
+/*!*********************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingEngine.ts ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19274,7 +19279,6 @@ exports.SettingDebug = SettingDebug;
 /* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingEngine = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies all settings for the engine.
 ***********************************************************************************************************************/
@@ -19285,8 +19289,10 @@ var SettingEngine = /** @class */ (function () {
     SettingEngine.CANVAS_MIN_WIDTH = 800;
     /** The minimum canvas height. */
     SettingEngine.CANVAS_MIN_HEIGHT = 600;
-    /** The stage the application starts up with. */
-    SettingEngine.STAGE_STARTUP = bz.StageId.OFFICE;
+    /** Displays items straight and rotated around axis Y. */
+    SettingEngine.ITEMS_ALWAYS_UPRIGHT_AND_ROTATING = false;
+    /** If items can be shot by the player and get an physical impulse. */
+    SettingEngine.ITEMS_CAN_BE_SHOT = true;
     /** Follow camera height offset. */
     SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET = 0.0; // 6.0;
     /** How far from the object to follow. */
@@ -19309,6 +19315,7 @@ var SettingEngine = /** @class */ (function () {
     SettingEngine.SPRITE_FRAME_DELAY = 100;
     /** Default ratio from texture mapping to face size. */
     SettingEngine.TEXTURE_DEFAULT_MAPPING_UV = 0.5;
+    SettingEngine.MAX_MESH_DARKENING_RATIO = 0.8;
     /** The physics engine iteration count per render cycle. */
     SettingEngine.PHYSIC_ENGINE_ITERATIONS = 5; // 5000 = no shaking but horribly slow!
     /** The diameter of the collison epsilon used for all collision detections. */
@@ -19337,31 +19344,6 @@ var SettingEngine = /** @class */ (function () {
     SettingEngine.BRANDING_LOADING_LOGO = 'loadingMf.png';
     /** The bg color for the GUI. */
     SettingEngine.PAUSE_GUI_BG_COLOR = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
-    /** Unified wall depth for building constructions. */
-    SettingEngine.WALL_DEPTH = 0.2;
-    /** Unified wall height (y) for building constructions. */
-    SettingEngine.WALL_HEIGHT = 10.0;
-    /** Unified door width for building constructions. */
-    SettingEngine.DOOR_WIDTH = 5.0;
-    /** Unified door height for building constructions. */
-    SettingEngine.DOOR_HEIGHT = 8.5;
-    /** Unified door frame height for building constructions. */
-    SettingEngine.DOOR_FRAME_HEIGHT = (SettingEngine.WALL_HEIGHT - SettingEngine.DOOR_HEIGHT);
-    /** Unified width for a hallway in building constructions. */
-    SettingEngine.HALLWAY_WIDTH = 10.0;
-    /** Unified floor and ceiling depth for building constructions. */
-    SettingEngine.DEPTH_FLOOR_CEILING = 0.1;
-    /** Unified window width for building constructions. */
-    SettingEngine.WINDOW_WIDTH = 4.5;
-    /** Unified window height for building constructions. */
-    SettingEngine.WINDOW_HEIGHT = 4.5;
-    /** Unified door frame height for building constructions. */
-    SettingEngine.WINDOW_TOP_FRAME_HEIGHT = 1.5;
-    /** Unified window bottom frame height for building constructions. */
-    SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT = (SettingEngine.WALL_HEIGHT - SettingEngine.WINDOW_HEIGHT - SettingEngine.WINDOW_TOP_FRAME_HEIGHT);
-    /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
-    SettingEngine.FLOOR_OFFSET_Y = 0.001;
-    SettingEngine.MAX_MESH_DARKENING_RATIO = 0.8;
     return SettingEngine;
 }());
 exports.SettingEngine = SettingEngine;
@@ -19369,15 +19351,16 @@ exports.SettingEngine = SettingEngine;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/setting/SettingGUI.ts":
-/*!*******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/setting/SettingGUI.ts ***!
-  \*******************************************************************/
+/***/ "./src/typescript/bz/base/setting/SettingGUI.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingGUI.ts ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingGUI = void 0;
 /** ********************************************************************************************************************
@@ -19386,24 +19369,42 @@ exports.SettingGUI = void 0;
 var SettingGUI = /** @class */ (function () {
     function SettingGUI() {
     }
-    /** The number of ticks for a GUI message to be displayed. */
-    SettingGUI.GUI_MESSAGE_LIFETIME = 300;
-    /** The number of ticks of a GUI message's lifetime to fade out. */
-    SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS = 25;
-    /** The offset Y between message lines. */
-    SettingGUI.GUI_MESSAGE_LINES_DISTANCE_Y = 7;
-    /** The number of ticks for a GUI effect to be displayed. */
-    SettingGUI.GUI_FX_LIFETIME = 30;
-    /** The initial alpha value for GUI effects. */
-    SettingGUI.GUI_FX_INITIAL_ALPHA = 0.8;
-    /** The width of the horizontal border for all GUI elements. */
-    SettingGUI.GUI_BORDER_X = 50.0;
-    /** The height of the horizontal border for all GUI elements. */
-    SettingGUI.GUI_BORDER_Y = 50.0;
+    SettingGUI.FONT_FAMILY = '\'Open Sans\', Helvetica, Arial, sans-serif';
+    /** The weight of the Open Sans font. 300 = light, 400 = regular. */
+    SettingGUI.FONT_WEIGHT = '300';
     /** The default font size for GUI texts. */
-    SettingGUI.GUI_FONT_SIZE_DEFAULT = 20.0;
+    SettingGUI.FONT_SIZE_DEFAULT = 22.0;
+    /** The default font line spacing for GUI texts. */
+    SettingGUI.FONT_LINESPACING = 2.5;
+    /** The number of ticks for a GUI message to be displayed. */
+    SettingGUI.TEXT_MESSAGE_LIFETIME = 325;
+    /** The number of ticks of a GUI message's lifetime to fade out. */
+    SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS = 25;
+    /** The offset Y between message lines. */
+    SettingGUI.TEXT_MESSAGE_LINES_DISTANCE_Y = 7;
+    /** The number of ticks for a GUI game message to be displayed. */
+    SettingGUI.GAME_MESSAGE_LIFETIME = 325;
+    /** The number of ticks of a GUI game message's lifetime to fade in. */
+    SettingGUI.GAME_MESSAGE_FADE_IN_TICKS = 25;
+    /** The number of ticks of a GUI game message's lifetime to fade out. */
+    SettingGUI.GAME_MESSAGE_FADE_OUT_TICKS = 25;
+    /** The number of ticks between two GUI game messages are displayed. */
+    SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES = 25;
+    /** The number of ticks for a GUI effect to be displayed. */
+    SettingGUI.FX_LIFETIME = 30;
+    /** The initial alpha value for GUI effects. */
+    SettingGUI.FX_INITIAL_ALPHA = 0.8;
+    /** The width of the horizontal border for all GUI elements. */
+    SettingGUI.BORDER_X = 50.0;
+    /** The height of the horizontal border for all GUI elements. */
+    SettingGUI.BORDER_Y = 50.0;
+    /** The height of the game message bg. Specified in number of lines - 1st and last lines remain free. */
+    SettingGUI.GAME_MESSAGE_BG_HEIGHT = 200;
+    // noinspection JSSuspiciousNameCombination
+    /** The width of the GUI Game Message pic. */
+    SettingGUI.GAME_MESSAGE_IMAGE_WIDTH = SettingGUI.GAME_MESSAGE_BG_HEIGHT;
     /** If navigation through pause menu items is wrapped before first and after last item. */
-    SettingGUI.GUI_WRAP_PAUSE_MENU_ITEMS = true;
+    SettingGUI.WRAP_PAUSE_MENU_ITEMS = true;
     return SettingGUI;
 }());
 exports.SettingGUI = SettingGUI;
@@ -19411,10 +19412,66 @@ exports.SettingGUI = SettingGUI;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/setting/SettingPlayer.ts":
-/*!**********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/setting/SettingPlayer.ts ***!
-  \**********************************************************************/
+/***/ "./src/typescript/bz/base/setting/SettingGame.ts":
+/*!*******************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingGame.ts ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/* eslint-disable max-len */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SettingGame = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Specifies all settings for the game.
+***********************************************************************************************************************/
+var SettingGame = /** @class */ (function () {
+    function SettingGame() {
+    }
+    /** The stage the application starts up with. */
+    SettingGame.STAGE_STARTUP = bz.StageId.OFFICE;
+    /** Unified wall depth for building constructions. */
+    SettingGame.WALL_DEPTH = 0.2;
+    /** Unified wall height (y) for building constructions. */
+    SettingGame.WALL_HEIGHT = 10.0;
+    /** Unified door width for building constructions. */
+    SettingGame.DOOR_WIDTH = 5.0;
+    /** Unified door height for building constructions. */
+    SettingGame.DOOR_HEIGHT = 8.5;
+    /** Unified door frame height for building constructions. */
+    SettingGame.DOOR_FRAME_HEIGHT = (SettingGame.WALL_HEIGHT - SettingGame.DOOR_HEIGHT);
+    /** Unified width for a hallway in building constructions. */
+    SettingGame.HALLWAY_WIDTH = 10.0;
+    /** Unified floor and ceiling depth for building constructions. */
+    SettingGame.DEPTH_FLOOR_CEILING = 0.1;
+    /** Unified pillar width for building constructions. */
+    SettingGame.PILLAR_WIDTH = 2.0;
+    /** Unified window width for building constructions. */
+    SettingGame.WINDOW_WIDTH = 4.5;
+    /** Unified window height for building constructions. */
+    SettingGame.WINDOW_HEIGHT = 4.5;
+    /** Unified door frame height for building constructions. */
+    SettingGame.WINDOW_TOP_FRAME_HEIGHT = 1.5;
+    /** Unified window bottom frame height for building constructions. */
+    SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT = (SettingGame.WALL_HEIGHT - SettingGame.WINDOW_HEIGHT - SettingGame.WINDOW_TOP_FRAME_HEIGHT);
+    /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
+    SettingGame.FLOOR_OFFSET_Y = 0.001;
+    SettingGame.CRATE_MIN_ENERGY = 3.0;
+    SettingGame.CRATE_MAX_ENERGY = 6.0;
+    return SettingGame;
+}());
+exports.SettingGame = SettingGame;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/base/setting/SettingPlayer.ts":
+/*!*********************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingPlayer.ts ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19489,10 +19546,10 @@ exports.SettingPlayer = SettingPlayer;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/setting/SettingResource.ts":
-/*!************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/setting/SettingResource.ts ***!
-  \************************************************************************/
+/***/ "./src/typescript/bz/base/setting/SettingResource.ts":
+/*!***********************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingResource.ts ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19506,24 +19563,16 @@ exports.SettingResource = void 0;
 var SettingResource = /** @class */ (function () {
     function SettingResource() {
     }
-    /** Relative path from index.html where all loading images reside. */
     SettingResource.PATH_IMAGE_LOADING = 'res/image/loading/';
-    /** Relative path from index.html where all sprite images reside. */
     SettingResource.PATH_IMAGE_SPRITE = 'res/image/sprite/';
-    /** Relative path from index.html where all skybox images reside. */
     SettingResource.PATH_IMAGE_SKYBOX = 'res/image/skybox/';
-    /** Relative path from index.html where all GUI images reside. */
     SettingResource.PATH_IMAGE_GUI = 'res/image/gui/';
-    /** Relative path from index.html where all favicons reside. */
     SettingResource.PATH_IMAGE_FAVICON = 'res/image/favicon/';
-    /** Relative path from index.html where all effect sounds reside. */
-    SettingResource.PATH_SOUND_FX = 'res/sound/fx/';
-    /** Relative path from index.html where all background sounds reside. */
-    SettingResource.PATH_SOUND_BG = 'res/sound/bg/';
-    /** Relative path from index.html where all 3d models reside. */
-    SettingResource.PATH_MODEL = 'res/model/';
-    /** Relative path from index.html where all texture images reside. */
     SettingResource.PATH_IMAGE_TEXTURE = 'res/image/texture/';
+    SettingResource.PATH_MODEL = 'res/model/';
+    SettingResource.PATH_VIDEO = 'res/video/';
+    SettingResource.PATH_SOUND_FX = 'res/sound/fx/';
+    SettingResource.PATH_SOUND_BG = 'res/sound/bg/';
     return SettingResource;
 }());
 exports.SettingResource = SettingResource;
@@ -19531,10 +19580,10 @@ exports.SettingResource = SettingResource;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/stage/StageIntroLogo.ts":
-/*!*********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/stage/StageIntroLogo.ts ***!
-  \*********************************************************************/
+/***/ "./src/typescript/bz/base/stage/StageIntroLogo.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/base/stage/StageIntroLogo.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19555,7 +19604,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageIntroLogo = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   The 'intro logo' stage offers an exploration of a 3D model that can be viewed from all angles.
 ***********************************************************************************************************************/
@@ -19586,7 +19635,7 @@ var StageIntroLogo = /** @class */ (function (_super) {
         // alter the light intensity
         ++this.currentTick;
         /*
-                // DEBUG bling bling ..
+                // full lighted logo ..
                 if ( true )
                 {
                     this.pointLight.range = 100.0;
@@ -19652,10 +19701,10 @@ exports.StageIntroLogo = StageIntroLogo;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/stage/StageOffice.ts":
-/*!******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/stage/StageOffice.ts ***!
-  \******************************************************************/
+/***/ "./src/typescript/bz/base/stage/StageOffice.ts":
+/*!*****************************************************!*\
+  !*** ./src/typescript/bz/base/stage/StageOffice.ts ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19676,7 +19725,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageOffice = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies the 'office' stage.
 ***********************************************************************************************************************/
@@ -19699,7 +19748,7 @@ var StageOffice = /** @class */ (function (_super) {
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
     StageOffice.prototype.createDefaultConfig = function () {
-        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingEngine.FLOOR_OFFSET_Y, (bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 70.0, 0.0));
+        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 45.0, 0.0), new bz.Inventory(0));
     };
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -19712,53 +19761,78 @@ var StageOffice = /** @class */ (function (_super) {
         // player
         this.setPlayer(new bz.Player(this));
         // small office
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(40.0, bz.SettingEngine.WALL_HEIGHT, 40.0), 0.0, bz.TextureFile.WALL_WOOD_HORZ, [], [], null, [], [], bz.TextureFile.WALL_WOOD_HORZ, [], [], bz.TextureFile.WALL_WOOD_HORZ, [], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING);
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, -40.0), new BABYLON.Vector3(80.0, bz.SettingGame.WALL_HEIGHT, 160.0), 0.0, null, [], [], bz.TextureFile.WALL_BRICKS_3, [], [], null, [], [], null, [], [], bz.TextureFile.MODEL_CONCRETE, null);
         // point light in small office
         var pointLight = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(10.0, 5.0, 5.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
         this.addLight(pointLight);
+        // waste ground
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0), new BABYLON.Vector3(15.0, 6.0, 15.0), 0.0, bz.TextureFile.WALL_WOOD_2, [2.5], [], bz.TextureFile.WALL_WOOD_2, [], [], bz.TextureFile.WALL_WOOD_2, [], [], bz.TextureFile.WALL_WOOD_2, [], [], bz.TextureFile.WALL_COBBLES_6, null);
+        // parking space
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(-40.0, 0.0, 0.0), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, 40.0), 0.0, null, [], [], null, [], [], null, [], [], null, [], [], bz.TextureFile.WALL_STONES_4, bz.TextureFile.WALL_CEILING_1);
+        // pillar from new concrete
+        this.addWall(new bz.Wall(this, new bz.Model([
+            meshFactory.createBox(new BABYLON.Vector3(-30, 0, 10.0), bz.TextureFile.WALL_CONCRETE_3, new BABYLON.Vector3(bz.SettingGame.PILLAR_WIDTH, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.PILLAR_WIDTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
+        ])));
+        /*
+                // add rain effect
+                this.setRainEffect(
+                    5.0,
+                    1000,
+                    new BABYLON.Vector3( 1.5, -2.5, 1.5 )
+                );
+        */
+        if (true)
+            return;
         // light yard
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, bz.SettingEngine.HALLWAY_WIDTH), new BABYLON.Vector3(40.0, bz.SettingEngine.WALL_HEIGHT, 40.0 - 2 * bz.SettingEngine.HALLWAY_WIDTH), 0.0, null, [], [], null, [], [], null, [], [], null, [1.0], [], bz.TextureFile.WALL_STONES_3, null);
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, bz.SettingGame.HALLWAY_WIDTH), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, 40.0 - 2 * bz.SettingGame.HALLWAY_WIDTH), 0.0, null, [], [], null, [], [], null, [], [], null, [1.0], [], bz.TextureFile.WALL_STONES_3, null);
         // passways around light square
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, 0.0), new BABYLON.Vector3(40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH), 0.0, bz.TextureFile.WALL_WOOD_HORZ, [], [], null, [], [], null, [], [], null, [1.0], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING);
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, 40.0 - bz.SettingEngine.HALLWAY_WIDTH), new BABYLON.Vector3(40.0, bz.SettingEngine.WALL_HEIGHT, bz.SettingEngine.HALLWAY_WIDTH), 0.0, null, [], [], null, [], [], bz.TextureFile.WALL_WOOD_HORZ, [], [], null, [1.0], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING);
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, 0.0), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH), 0.0, bz.TextureFile.MODEL_WOOD_HORZ, [], [], null, [], [], null, [], [], null, [1.0], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING_1);
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, 40.0 - bz.SettingGame.HALLWAY_WIDTH), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH), 0.0, null, [], [], null, [], [], bz.TextureFile.MODEL_WOOD_HORZ, [], [], null, [1.0], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING_1);
         // 2nd office
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(80.0, 0.0, 0.0), new BABYLON.Vector3(80.0, bz.SettingEngine.WALL_HEIGHT, 40.0), 0.0, bz.TextureFile.WALL_WOOD_HORZ, [], [], bz.TextureFile.WALL_WOOD_HORZ, [10.0], [], bz.TextureFile.WALL_WOOD_HORZ, [], [], null, [], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING);
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(80.0, 0.0, 0.0), new BABYLON.Vector3(80.0, bz.SettingGame.WALL_HEIGHT, 40.0), 0.0, bz.TextureFile.MODEL_WOOD_HORZ, [], [], bz.TextureFile.MODEL_WOOD_HORZ, [10.0], [], bz.TextureFile.MODEL_WOOD_HORZ, [], [], null, [], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING_1);
         // boxes pile in small office
-        bz.StageFactory.addBoxesWalls(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0));
+        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
         // boxes pile in light yard
-        bz.StageFactory.addBoxesWalls(this, meshFactory, new BABYLON.Vector3(50.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0));
+        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(50.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
         // boxes pile in 2nd office
-        bz.StageFactory.addBoxesWalls(this, meshFactory, new BABYLON.Vector3(110.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0));
+        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
         this.addFurniture(meshFactory);
-        this.addStuffWalls(meshFactory);
+        this.addStuffWalls(meshFactory, pointLight);
         this.addTrees(meshFactory);
         // add 5 items
-        this.addItem(new bz.Item(this, new BABYLON.Vector3(38.0, 3.8, 14.0), bz.ItemType.SHOTGUN_SHELLS));
-        this.addItem(new bz.Item(this, new BABYLON.Vector3(38.0, 3.8, 18.0), bz.ItemType.SHOTGUN_SHELLS));
-        this.addItem(new bz.Item(this, new BABYLON.Vector3(11.5, 3.8, 9.5), bz.ItemType.SHOTGUN_SHELLS));
-        this.addItem(new bz.Item(this, new BABYLON.Vector3(40.0, 1.0, 25.5), bz.ItemType.SHOTGUN_SHELLS));
-        this.addItem(new bz.Item(this, new BABYLON.Vector3(40.0, 1.0, 30.0), bz.ItemType.SHOTGUN_SHELLS));
-        // invisible event trigger
-        this.addItem(new bz.Trigger(this, new BABYLON.Vector3(100.0, 1.0, 5.0), [
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(11.5, 3.8, 9.5), bz.ItemType.BULLETS_792MM));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(38.0, 3.8, 14.0), bz.ItemType.SHOTGUN_SHELLS));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(38.0, 3.8, 18.0), bz.ItemType.BULLETS_792MM));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(40.0, 0.5, 25.5), bz.ItemType.SHOTGUN_SHELLS));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(40.0, 0.5, 30.0), bz.ItemType.BULLETS_792MM));
+        // add invisible event trigger
+        this.addCollectable(new bz.Trigger(this, new BABYLON.Vector3(100.0, 1.0, 5.0), [
             new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.HURT)),
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('Ouch .. just hurt myself here ..')),
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('Damn!')),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Ouch .. just hurt myself here ..')),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Damn!')),
         ]));
-        this.addItem(new bz.Trigger(this, new BABYLON.Vector3(100.0, 1.0, 35.0), [
+        this.addCollectable(new bz.Trigger(this, new BABYLON.Vector3(100.0, 1.0, 35.0), [
             new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.GAIN_ENERGY)),
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('Yeah .. gained some energy here ..')),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Yeah .. gained some energy here ..')),
         ]));
+        // add painkillers
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -10.0), bz.ItemType.PAINKILLER));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -15.0), bz.ItemType.PAINKILLER));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -20.0), bz.ItemType.PAINKILLER));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -25.0), bz.ItemType.PAINKILLER));
         // add stage switch door
         this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3(160.0 + (bz.SettingEngine.WALL_DEPTH / 2), bz.SettingEngine.FLOOR_OFFSET_Y, 10.0 + (bz.SettingEngine.DOOR_WIDTH / 2)), bz.TextureFile.WALL_DOOR_1, new BABYLON.Vector3(bz.SettingEngine.DOOR_WIDTH, bz.SettingEngine.DOOR_HEIGHT, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 90.0, 0.0)),
+            meshFactory.createBox(new BABYLON.Vector3(40.0 + (bz.SettingGame.WALL_DEPTH / 2), // 160.0 +
+            bz.SettingGame.FLOOR_OFFSET_Y, -10.0 + (bz.SettingGame.DOOR_WIDTH / 2) // 10.0 +
+            ), bz.TextureFile.WALL_DOOR_1, new BABYLON.Vector3(bz.SettingGame.DOOR_WIDTH, bz.SettingGame.DOOR_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 90.0, 0.0)),
         ]), bz.GameObject.UNBREAKABLE, [
-            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OUTSIDE, new BABYLON.Vector3((bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingEngine.FLOOR_OFFSET_Y, (bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0))),
+            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OUTSIDE, new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0))),
         ]));
-        // 2nd point light in 2nd office - stick to chair
-        var pointLight2 = bz.LightFactory.createPoint(this.getScene().getNativeScene(), 
-        // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
-        new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
-        pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh(0);
+        // 2nd point light in 2nd office // stick to chair
+        var pointLight2 = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(115.0, 5.0, 15.0), 
+        // new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
+        // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         this.addLight(pointLight2);
         /*
                 // add fog
@@ -19779,7 +19853,20 @@ var StageOffice = /** @class */ (function (_super) {
             this.getCameraSystem().animateCameraPosition(bz.CameraType.STATIONARY, (this.camTarget ? BABYLON.Vector3.Zero() : new BABYLON.Vector3(40.0, 10.0, 40.0)), 2.5, new BABYLON.PowerEase(), function () { bz.Debug.camera.log('Cam reached target'); });
             this.camTarget = !this.camTarget;
             // show hurt GUI effect
-            this.getGame().getGUI().addGuiEffect(bz.GUIFxType.HURT);
+            // this.getGame().getGUI().addGuiEffect( bz.GUIFxType.HURT );
+            // cast a testwise explosion
+            this.addEventsToPipeline([
+                new bz.Event(bz.EventType.CAST_EXPLOSION, new bz.EventDataCastExplosion(new BABYLON.Vector3(20.5, bz.SettingGame.FLOOR_OFFSET_Y, 20.5), 12.5, 25.0)),
+            ]);
+            // show GUI game messages and gain painkillers when the 2nd game message is shown
+            this.addEventsToPipeline([
+                new bz.Event(bz.EventType.SHOW_GUI_GAME_MESSAGE, new bz.EventDataShowGuiGameMessage(bz.GUIGameMessagePic.OFFICE_WOMAN_1, 'Hey Joe! '
+                    + 'Be sure to collect everything valuable and leave the office afterwards! ')),
+                new bz.Event(bz.EventType.GAIN_PAINKILLERS, new bz.EventDataGainPainkillers(2)),
+                new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Gained two Painkillers')),
+                new bz.Event(bz.EventType.SHOW_GUI_GAME_MESSAGE, new bz.EventDataShowGuiGameMessage(bz.GUIGameMessagePic.OFFICE_WOMAN_1, 'Be safe outside - it\'s a jungle out there.\n'
+                    + 'Take these two Painkillers with you!\nI\'m glad to help you.')),
+            ]);
         }
     };
     /** ****************************************************************************************************************
@@ -19803,9 +19890,9 @@ var StageOffice = /** @class */ (function (_super) {
         this.addWall(this.desk);
         // screen 1
         var screen1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SCREEN_1, new BABYLON.Vector3(12.5, 4.5, 5.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, -90.0), 5.0, [
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('All cleared for today.')),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('All cleared for today.')),
             new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay(600)),
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('DELAYED: No more work for today.')),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('DELAYED: No more work for today.')),
         ], bz.InteractionType.ONCE);
         this.addWall(screen1);
         // shelves
@@ -19818,7 +19905,7 @@ var StageOffice = /** @class */ (function (_super) {
         var sodaMachine2 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SODA_MACHINE_2, new BABYLON.Vector3(5.5, 3.15, 37.5), bz.PhysicSet.SODA_MACHINE, bz.ModelCompoundType.NONE, 0.0), 7.0);
         this.addWall(sodaMachine2);
         // sofa 1
-        var sofa1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SOFA_1, new BABYLON.Vector3(25.5, 1.8, 2.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 5.0);
+        var sofa1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SOFA_1, new BABYLON.Vector3(25.5, 1.5, 2.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 5.0);
         this.addWall(sofa1);
         // car 1
         var car1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.CAR_1, new BABYLON.Vector3(100.0, 3.0, 20.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 12.0);
@@ -19832,19 +19919,20 @@ var StageOffice = /** @class */ (function (_super) {
     *
     *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    StageOffice.prototype.addStuffWalls = function (meshFactory) {
+    StageOffice.prototype.addStuffWalls = function (meshFactory, pointLight) {
         // tv (65 inch)
         var tv = new bz.Wall(this, new bz.Model([
             meshFactory.createBox(new BABYLON.Vector3(17.0, 5.0, 39.5), bz.TextureFile.VIDEO_TEST, new BABYLON.Vector3((15.0 * 0.640), (15.0 * 0.360), 0.25), bz.PhysicSet.SHELVES, 1.0, bz.MeshAnchor.CENTER_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0)),
         ]), bz.GameObject.UNBREAKABLE, [
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('Nothing on the television today')),
-            new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay(600)),
-            new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('DELAYED: I think I should go home now.')),
-        ], bz.InteractionType.ONCE);
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Nothing on the television today')),
+            new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay((2 * 60))),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('DELAYED: I will turn the lights off :)')),
+            new bz.Event(bz.EventType.TOGGLE_LIGHT, new bz.EventDataToggleLight(pointLight)),
+        ], bz.InteractionType.REPEATED);
         this.addWall(tv);
         // solid white sphere
         this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createSphere(new BABYLON.Vector3(10.5, 1.5, 30.0), bz.MeshAnchor.CENTER_XYZ, 3.0, new BABYLON.Vector3(0.0, 0.0, 0.0), bz.TextureFile.WALL_TEST, null, bz.PhysicSet.WHITE_TEST_SPHERE),
+            meshFactory.createSphere(new BABYLON.Vector3(10.5, 1.5, 30.0), bz.MeshAnchor.CENTER_XYZ, 3.0, new BABYLON.Vector3(0.0, 0.0, 0.0), bz.TextureFile.MODEL_WOOD_HORZ, null, bz.PhysicSet.WHITE_TEST_SPHERE),
         ])));
     };
     /** ****************************************************************************************************************
@@ -19869,10 +19957,10 @@ exports.StageOffice = StageOffice;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/base/stage/StageOutside.ts":
-/*!*******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/base/stage/StageOutside.ts ***!
-  \*******************************************************************/
+/***/ "./src/typescript/bz/base/stage/StageOutside.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/base/stage/StageOutside.ts ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19893,7 +19981,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageOutside = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies the 'StageOutside' stage.
 ***********************************************************************************************************************/
@@ -19906,7 +19994,7 @@ var StageOutside = /** @class */ (function (_super) {
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
     StageOutside.prototype.createDefaultConfig = function () {
-        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingEngine.FLOOR_OFFSET_Y, (bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0));
+        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0));
     };
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -19919,15 +20007,15 @@ var StageOutside = /** @class */ (function (_super) {
         // player
         this.setPlayer(new bz.Player(this));
         // parking yard
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(40.0, 3.0, 60.0), 0.0, bz.TextureFile.WALL_STONES_3, [], [], null, [], [], bz.TextureFile.WALL_STONES_3, [], [], bz.TextureFile.WALL_MARBLE, [60.0 - 5.0 - bz.SettingEngine.DOOR_WIDTH + bz.SettingEngine.WALL_DEPTH], [], bz.TextureFile.WALL_CONCRETE, null);
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(40.0, 3.0, 60.0), 0.0, bz.TextureFile.WALL_STONES_3, [], [], null, [], [], bz.TextureFile.WALL_STONES_3, [], [], bz.TextureFile.WALL_MARBLE_1, [60.0 - 5.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH], [], bz.TextureFile.MODEL_CONCRETE, null);
         // add stage switch door
         this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3((bz.SettingEngine.WALL_DEPTH / 2), bz.SettingEngine.FLOOR_OFFSET_Y, 5.0 + (bz.SettingEngine.DOOR_WIDTH / 2)), bz.TextureFile.WALL_DOOR_1, new BABYLON.Vector3(bz.SettingEngine.DOOR_WIDTH, bz.SettingEngine.DOOR_HEIGHT, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 90.0, 0.0)),
+            meshFactory.createBox(new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH / 2), bz.SettingGame.FLOOR_OFFSET_Y, 5.0 + (bz.SettingGame.DOOR_WIDTH / 2)), bz.TextureFile.WALL_DOOR_1, new BABYLON.Vector3(bz.SettingGame.DOOR_WIDTH, bz.SettingGame.DOOR_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 90.0, 0.0)),
         ]), bz.GameObject.UNBREAKABLE, [
-            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OFFICE, new BABYLON.Vector3(140.0 + (bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingEngine.FLOOR_OFFSET_Y, (bz.SettingEngine.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 270.0, 0.0))),
+            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OFFICE, new BABYLON.Vector3(140.0 + (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 270.0, 0.0))),
         ]));
         // boxes pile in small office
-        bz.StageFactory.addBoxesWalls(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingEngine.FLOOR_OFFSET_Y, 20.0));
+        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
         // point light in small office
         var pointLight = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(10.0, 5.0, 5.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
         this.addLight(pointLight);
@@ -19957,15 +20045,15 @@ exports.StageOutside = StageOutside;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/css/global.less":
-/*!********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/css/global.less ***!
-  \********************************************************/
+/***/ "./src/typescript/bz/css/global.less":
+/*!*******************************************!*\
+  !*** ./src/typescript/bz/css/global.less ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--7-1!../../../../../../node_modules/less-loader/dist/cjs.js??ref--7-2!./global.less */ "./node_modules/css-loader/index.js?!./node_modules/less-loader/dist/cjs.js?!./src/typescript/de/mayflower/bz/css/global.less");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/less-loader/dist/cjs.js??ref--7-2!./global.less */ "./node_modules/css-loader/index.js?!./node_modules/less-loader/dist/cjs.js?!./src/typescript/bz/css/global.less");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -19979,7 +20067,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -19987,10 +20075,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/Game.ts":
-/*!*****************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/Game.ts ***!
-  \*****************************************************/
+/***/ "./src/typescript/bz/game/Game.ts":
+/*!****************************************!*\
+  !*** ./src/typescript/bz/game/Game.ts ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19998,7 +20086,7 @@ if(false) {}
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Game = void 0;
-var bz = __webpack_require__(/*! .. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! .. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Manages the game logic.
 ***********************************************************************************************************************/
@@ -20030,7 +20118,7 @@ var Game = /** @class */ (function () {
         this.engine.init(this);
         // init the key and mouse system
         this.keySystem = new bz.KeySystem();
-        this.mouseSystem = new bz.MouseSystem(this, bz.SettingDebug.DEBUG_ENABLE_POINTER_DOWN_IMPULSE, !bz.SettingDebug.DEBUG_DISABLE_POINTER_LOCK);
+        this.mouseSystem = new bz.MouseSystem(this, bz.SettingDebug.ENABLE_POINTER_DOWN_IMPULSE, !bz.SettingDebug.DISABLE_POINTER_LOCK);
         // init the scene
         bz.Debug.init.log('Init scene');
         this.scene = new bz.Scene();
@@ -20039,14 +20127,16 @@ var Game = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Switches the current stage to the specified target stage.
     *
-    *   @param targetStage The target stage to switch to.
-    *   @param startupPosition The player startup position.
-    *   @param startupRotation The player startup rotation.
+    *   @param targetStage      The target stage to switch to.
+    *   @param startupPosition  The player startup position.
+    *   @param startupRotation  The player startup rotation.
+    *   @param startupInventory The inventory the player is starting with.
     *******************************************************************************************************************/
-    Game.prototype.switchStage = function (targetStage, startupPosition, startupRotation) {
+    Game.prototype.switchStage = function (targetStage, startupPosition, startupRotation, startupInventory) {
         var _this = this;
         if (startupPosition === void 0) { startupPosition = null; }
         if (startupRotation === void 0) { startupRotation = null; }
+        if (startupInventory === void 0) { startupInventory = null; }
         bz.Debug.stage.log('');
         bz.Debug.stage.log('Switch to target stage [' + String(targetStage) + ']');
         // stop physics engine immediately
@@ -20092,6 +20182,9 @@ var Game = /** @class */ (function () {
         }
         if (startupRotation !== null) {
             config.startupRotation = startupRotation;
+        }
+        if (startupInventory !== null) {
+            config.startupInventory = startupInventory;
         }
         // init the new stage
         bz.Debug.stage.log(' Init target stage [' + String(targetStage) + ']');
@@ -20210,7 +20303,7 @@ var Game = /** @class */ (function () {
     *******************************************************************************************************************/
     Game.prototype.onInitGameEngineCompleted = function () {
         bz.Debug.init.log('Init game engine complete');
-        this.switchStage(bz.SettingEngine.STAGE_STARTUP);
+        this.switchStage(bz.SettingGame.STAGE_STARTUP);
     };
     /** ****************************************************************************************************************
     *   Being invoked when the scene is set up.
@@ -20291,10 +20384,10 @@ exports.Game = Game;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/Engine.ts":
-/*!**************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/Engine.ts ***!
-  \**************************************************************/
+/***/ "./src/typescript/bz/game/engine/Engine.ts":
+/*!*************************************************!*\
+  !*** ./src/typescript/bz/game/engine/Engine.ts ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20302,7 +20395,7 @@ exports.Game = Game;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Engine = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Manages the native Babylon.js engine.
 ***********************************************************************************************************************/
@@ -20429,10 +20522,10 @@ exports.Engine = Engine;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/camera/CameraFactory.ts":
-/*!****************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/camera/CameraFactory.ts ***!
-  \****************************************************************************/
+/***/ "./src/typescript/bz/game/engine/camera/CameraFactory.ts":
+/*!***************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/camera/CameraFactory.ts ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20440,7 +20533,7 @@ exports.Engine = Engine;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CameraFactory = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Creates instances for all scene cameras.
 ***********************************************************************************************************************/
@@ -20454,7 +20547,7 @@ var CameraFactory = /** @class */ (function () {
     *   @param startupPosition The camera startup position.
     *   @param startupTarget   The camera startup target.
     *******************************************************************************************************************/
-    CameraFactory.createFreeCamera = function (scene, startupPosition, startupTarget) {
+    CameraFactory.prototype.createFreeCamera = function (scene, startupPosition, startupTarget) {
         var freeCamera = new BABYLON.FreeCamera(bz.CameraFactory.getNextCameraId(), startupPosition, scene);
         // set startup direction
         freeCamera.setTarget(startupTarget);
@@ -20476,7 +20569,7 @@ var CameraFactory = /** @class */ (function () {
     *   @param scene           The babylon.JS scene.
     *   @param startupPosition The camera startup position.
     *******************************************************************************************************************/
-    CameraFactory.createStationaryTargetCamera = function (scene, startupPosition) {
+    CameraFactory.prototype.createStationaryTargetCamera = function (scene, startupPosition) {
         return new BABYLON.TargetCamera(bz.CameraFactory.getNextCameraId(), startupPosition, scene);
     };
     /** ****************************************************************************************************************
@@ -20487,7 +20580,7 @@ var CameraFactory = /** @class */ (function () {
     *
     *   @return The follow camera.
     *******************************************************************************************************************/
-    CameraFactory.createFollowCamera = function (scene, startupPosition) {
+    CameraFactory.prototype.createFollowCamera = function (scene, startupPosition) {
         var followCamera = new BABYLON.FollowCamera(bz.CameraFactory.getNextCameraId(), startupPosition, scene);
         followCamera.heightOffset = bz.SettingEngine.CAMERA_FOLLOW_HEIGHT_OFFSET;
         followCamera.radius = bz.SettingEngine.CAMERA_FOLLOW_RADIUS;
@@ -20504,7 +20597,7 @@ var CameraFactory = /** @class */ (function () {
     *
     *   @return A free camera.
     *******************************************************************************************************************/
-    CameraFactory.createFirstPersonCamera = function (scene, fieldOfView) {
+    CameraFactory.prototype.createFirstPersonCamera = function (scene, fieldOfView) {
         var freeCamera = new BABYLON.FreeCamera(bz.CameraFactory.getNextCameraId(), new BABYLON.Vector3(0.0, 0.0, 0.0), scene);
         freeCamera.fov = fieldOfView;
         return freeCamera;
@@ -20522,7 +20615,7 @@ var CameraFactory = /** @class */ (function () {
     *
     *   @return An arc rotation camera.
     *******************************************************************************************************************/
-    CameraFactory.createArcRotateCamera = function (scene, rotX, rotY, distance, center, lowerRadiusLimit, upperRadiusLimit) {
+    CameraFactory.prototype.createArcRotateCamera = function (scene, rotX, rotY, distance, center, lowerRadiusLimit, upperRadiusLimit) {
         var arcRotateCamera = new BABYLON.ArcRotateCamera(bz.CameraFactory.getNextCameraId(), bz.MathUtil.degreesToRad(rotY), bz.MathUtil.degreesToRad(rotX), distance, center, scene);
         arcRotateCamera.lowerRadiusLimit = lowerRadiusLimit;
         arcRotateCamera.upperRadiusLimit = upperRadiusLimit;
@@ -20555,10 +20648,10 @@ exports.CameraFactory = CameraFactory;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/camera/CameraSystem.ts":
-/*!***************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/camera/CameraSystem.ts ***!
-  \***************************************************************************/
+/***/ "./src/typescript/bz/game/engine/camera/CameraSystem.ts":
+/*!**************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/camera/CameraSystem.ts ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20567,7 +20660,7 @@ exports.CameraFactory = CameraFactory;
 // noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CameraSystem = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Offers different scene cameras.
 ***********************************************************************************************************************/
@@ -20605,11 +20698,12 @@ var CameraSystem = /** @class */ (function () {
         this.arcRotateCamera = null;
         this.scene = game.getScene().getNativeScene();
         this.canvas = game.getEngine().getCanvasSystem().getNativeCanvas();
-        this.freeCamera = bz.CameraFactory.createFreeCamera(this.scene, positionFreeCamera, targetFreeCamera);
-        this.stationaryCamera = bz.CameraFactory.createStationaryTargetCamera(this.scene, positionStationaryCamera);
-        this.followCamera = bz.CameraFactory.createFollowCamera(this.scene, positionFollowCamera);
-        this.firstPersonCamera = bz.CameraFactory.createFirstPersonCamera(this.scene, bz.SettingEngine.DEFAULT_FIELD_OF_VIEW);
-        this.arcRotateCamera = bz.CameraFactory.createArcRotateCamera(this.scene, 0.0, 0.0, 200, new BABYLON.Vector3(0.0, 0.0, 0.0), 100.0, 400.0);
+        var cameraFactory = new bz.CameraFactory();
+        this.freeCamera = cameraFactory.createFreeCamera(this.scene, positionFreeCamera, targetFreeCamera);
+        this.stationaryCamera = cameraFactory.createStationaryTargetCamera(this.scene, positionStationaryCamera);
+        this.followCamera = cameraFactory.createFollowCamera(this.scene, positionFollowCamera);
+        this.firstPersonCamera = cameraFactory.createFirstPersonCamera(this.scene, bz.SettingEngine.DEFAULT_FIELD_OF_VIEW);
+        this.arcRotateCamera = cameraFactory.createArcRotateCamera(this.scene, 0.0, 0.0, 200, new BABYLON.Vector3(0.0, 0.0, 0.0), 100.0, 400.0);
         // assign camera targets
         if (targetStationaryCamera !== null) {
             this.lockStationaryTargetCameraTo(targetStationaryCamera);
@@ -20890,10 +20984,10 @@ exports.CameraSystem = CameraSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/camera/CameraType.ts":
-/*!*************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/camera/CameraType.ts ***!
-  \*************************************************************************/
+/***/ "./src/typescript/bz/game/engine/camera/CameraType.ts":
+/*!************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/camera/CameraType.ts ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20921,10 +21015,10 @@ var CameraType;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/hid/KeyCodes.ts":
-/*!********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/hid/KeyCodes.ts ***!
-  \********************************************************************/
+/***/ "./src/typescript/bz/game/engine/hid/KeyCodes.ts":
+/*!*******************************************************!*\
+  !*** ./src/typescript/bz/game/engine/hid/KeyCodes.ts ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20939,57 +21033,32 @@ exports.KeyCodes = void 0;
 var KeyCodes = /** @class */ (function () {
     function KeyCodes() {
     }
-    /** The keycode that represents the 'ARROW LEFT' key. */
     KeyCodes.KEY_LEFT = 'ArrowLeft';
-    /** The keycode that represents the 'ARROW UP' key. */
     KeyCodes.KEY_UP = 'ArrowUp';
-    /** The keycode that represents the 'ARROW RIGHT' key. */
     KeyCodes.KEY_RIGHT = 'ArrowRight';
-    /** The keycode that represents the 'ARROW DOWN' key. */
     KeyCodes.KEY_DOWN = 'ArrowDown';
-    /** The keycode that represents the 'W' key. */
     KeyCodes.KEY_W = 'KeyW';
-    /** The keycode that represents the 'A' key. */
     KeyCodes.KEY_A = 'KeyA';
-    /** The keycode that represents the 'S' key. */
     KeyCodes.KEY_S = 'KeyS';
-    /** The keycode that represents the 'D' key. */
     KeyCodes.KEY_D = 'KeyD';
-    /** The keycode that represents the 'Q' key. */
     KeyCodes.KEY_Q = 'KeyQ';
-    /** The keycode that represents the 'E' key. */
     KeyCodes.KEY_E = 'KeyE';
-    /** The keycode that represents the 'G' key. */
     KeyCodes.KEY_G = 'KeyG';
-    /** The keycode that represents the 'T' key. */
     KeyCodes.KEY_T = 'KeyT';
-    /** The keycode that represents the 'Y' key. This is affected by the EN keyboard scheme. */
     KeyCodes.KEY_Y = 'KeyZ';
-    /** The keycode that represents the 'X' key. */
     KeyCodes.KEY_X = 'KeyX';
-    /** The keycode that represents the 'C' key. */
     KeyCodes.KEY_C = 'KeyC';
-    /** The keycode that represents the 'P' key. */
     KeyCodes.KEY_P = 'KeyP';
-    /** The keycode that represents the 'ENTER' key. */
     KeyCodes.KEY_ENTER = 'Enter';
-    /** The keycode that represents the 'ESCAPE' key. */
     KeyCodes.KEY_ESCAPE = 'Escape';
-    /** The keycode that represents the 'SPACE' key. */
     KeyCodes.KEY_SPACE = 'Space';
-    /** The keycode that represents the 'LEFT CONTROL' key. */
+    KeyCodes.KEY_BACKSPACE = 'Backspace';
     KeyCodes.KEY_CTRL_LEFT = 'ControlLeft';
-    /** The keycode that represents the 'LEFT SHIFT' key. */
     KeyCodes.KEY_SHIFT_LEFT = 'ShiftLeft';
-    /** The keycode that represents the '1' key. */
     KeyCodes.KEY_1 = 'Digit1';
-    /** The keycode that represents the '2' key. */
     KeyCodes.KEY_2 = 'Digit2';
-    /** The keycode that represents the '3' key. */
     KeyCodes.KEY_3 = 'Digit3';
-    /** The keycode that represents the '4' key. */
     KeyCodes.KEY_4 = 'Digit4';
-    /** The keycode that represents the '5' key. */
     KeyCodes.KEY_5 = 'Digit5';
     return KeyCodes;
 }());
@@ -20998,10 +21067,10 @@ exports.KeyCodes = KeyCodes;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/hid/KeySystem.ts":
-/*!*********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/hid/KeySystem.ts ***!
-  \*********************************************************************/
+/***/ "./src/typescript/bz/game/engine/hid/KeySystem.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/hid/KeySystem.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21009,7 +21078,7 @@ exports.KeyCodes = KeyCodes;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KeySystem = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   The key system that manages all pressed keys.
 ***********************************************************************************************************************/
@@ -21093,10 +21162,10 @@ exports.KeySystem = KeySystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/hid/MouseCodes.ts":
-/*!**********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/hid/MouseCodes.ts ***!
-  \**********************************************************************/
+/***/ "./src/typescript/bz/game/engine/hid/MouseCodes.ts":
+/*!*********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/hid/MouseCodes.ts ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21123,10 +21192,10 @@ exports.MouseCodes = MouseCodes;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/hid/MouseSystem.ts":
-/*!***********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/hid/MouseSystem.ts ***!
-  \***********************************************************************/
+/***/ "./src/typescript/bz/game/engine/hid/MouseSystem.ts":
+/*!**********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/hid/MouseSystem.ts ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21134,7 +21203,7 @@ exports.MouseCodes = MouseCodes;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MouseSystem = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Offers mouse and pointer handling.
 ***********************************************************************************************************************/
@@ -21181,14 +21250,15 @@ var MouseSystem = /** @class */ (function () {
                     _this.game.onDebugPointerDown(evt, pickResult);
                 });
         }
+        var nativeCanvas = this.game.getEngine().getCanvasSystem().getNativeCanvas();
         if (assignPointerLock) {
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().onclick = function (me) {
+            nativeCanvas.onclick = function (me) {
                 _this.onMouseClick(me);
             };
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().onmousedown = function (me) {
+            nativeCanvas.onmousedown = function (me) {
                 _this.onMouseDown(me);
             };
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().onmouseup = function (me) {
+            nativeCanvas.onmouseup = function (me) {
                 _this.onMouseUp(me);
             };
         }
@@ -21273,10 +21343,13 @@ var MouseSystem = /** @class */ (function () {
         }
         return false;
     };
+    // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Flags the specified mouse button so it requires a release event before being able to be pressed again.
     *
     *   @param buttonId The button ID to flag as 'requires a release'.
+    *
+    *   @deprecated Seems useless since the 'Pointer Lock API' is used.
     *******************************************************************************************************************/
     MouseSystem.prototype.setButtonNeedsRelease = function (buttonId) {
         switch (buttonId) {
@@ -21400,14 +21473,15 @@ var MouseSystem = /** @class */ (function () {
         document.addEventListener('mousemove', function (mouseEvent) {
             _this.onMouseMove(mouseEvent);
         });
+        var nativeCanvas = this.game.getEngine().getCanvasSystem().getNativeCanvas();
         // eslint-disable-next-line @typescript-eslint/unbound-method
-        this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock =
+        nativeCanvas.requestPointerLock =
             (
             // eslint-disable-next-line @typescript-eslint/unbound-method
-            this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock
+            nativeCanvas.requestPointerLock
                 // eslint-disable-next-line @typescript-eslint/unbound-method
-                || this.game.getEngine().getCanvasSystem().getNativeCanvas().mozRequestPointerLock);
-        this.game.getEngine().getCanvasSystem().getNativeCanvas().requestPointerLock();
+                || nativeCanvas.mozRequestPointerLock);
+        nativeCanvas.requestPointerLock();
     };
     /** ****************************************************************************************************************
     *   Being invoked when the pointer lock changes.
@@ -21449,10 +21523,10 @@ exports.MouseSystem = MouseSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/mesh/MeshAnchor.ts":
-/*!***********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/mesh/MeshAnchor.ts ***!
-  \***********************************************************************/
+/***/ "./src/typescript/bz/game/engine/mesh/MeshAnchor.ts":
+/*!**********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/mesh/MeshAnchor.ts ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21476,10 +21550,10 @@ var MeshAnchor;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/mesh/MeshFactory.ts":
-/*!************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/mesh/MeshFactory.ts ***!
-  \************************************************************************/
+/***/ "./src/typescript/bz/game/engine/mesh/MeshFactory.ts":
+/*!***********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/mesh/MeshFactory.ts ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21487,7 +21561,7 @@ var MeshAnchor;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MeshFactory = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Constructs meshes.
 ***********************************************************************************************************************/
@@ -21555,6 +21629,32 @@ var MeshFactory = /** @class */ (function () {
                             ];
                         break;
                     }
+                case bz.TextureUV.TILED_BY_SIZE_HALF:
+                    {
+                        faceUV =
+                            [
+                                new BABYLON.Vector4(0.0, 0.0, -size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, -size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, -size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                            ];
+                        break;
+                    }
+                case bz.TextureUV.Y_ONE_XZ_TILED:
+                    {
+                        faceUV =
+                            [
+                                new BABYLON.Vector4(0.0, 0.0, -size.x * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -1.0),
+                                new BABYLON.Vector4(0.0, 0.0, size.x * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, 1.0),
+                                new BABYLON.Vector4(0.0, 0.0, -1.0, -size.z * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, 1.0, size.z * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, -size.z * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, -size.x * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                                new BABYLON.Vector4(0.0, 0.0, size.z * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV, size.x * 0.25 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV),
+                            ];
+                        break;
+                    }
             }
         }
         var box = BABYLON.MeshBuilder.CreateBox(MeshFactory.createNextMeshId(), {
@@ -21590,7 +21690,7 @@ var MeshFactory = /** @class */ (function () {
             minHeight: 0.0,
             maxHeight: height,
             onReady: function () {
-                var material = _this.scene.getMaterialSystem().createMaterial(_this.scene.getNativeScene(), bz.TextureFile.WALL_GRASS, false, sideSize, sideSize, null, 1.0, _this.emissiveColor);
+                var material = _this.scene.getMaterialSystem().createMaterial(_this.scene.getNativeScene(), bz.TextureFile.WALL_GRASS_1, false, sideSize, sideSize, null, 1.0, _this.emissiveColor);
                 ground = _this.decorateMesh(ground, rotation, material, physic, BABYLON.PhysicsImpostor.HeightmapImpostor);
                 // set position after applying physics in order to prevent startup dodges etc.
                 bz.MeshManipulation.setPositionByAnchor(ground, position, anchor, sideSize, height, sideSize);
@@ -21629,6 +21729,7 @@ var MeshFactory = /** @class */ (function () {
                         break;
                     }
                 case bz.TextureUV.TILED_BY_SIZE:
+                case bz.TextureUV.TILED_BY_SIZE_HALF:
                     {
                         faceUV =
                             [
@@ -21801,9 +21902,7 @@ var MeshFactory = /** @class */ (function () {
         if (compoundType === void 0) { compoundType = bz.ModelCompoundType.NONE; }
         if (rotY === void 0) { rotY = 0.0; }
         var originalModel = this.scene.getModelSystem().getOriginalModel(fileName);
-        var clonedModel = originalModel.clone();
-        // remember original physic set for this model
-        clonedModel.physicSet = physic;
+        var clonedModel = originalModel.clone(physic);
         // translate cloned model by position
         clonedModel.translatePosition(position);
         // extract or create physics impostors and assign them to the cloned model
@@ -21902,10 +22001,10 @@ exports.MeshFactory = MeshFactory;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/mesh/MeshManipulation.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/mesh/MeshManipulation.ts ***!
-  \*****************************************************************************/
+/***/ "./src/typescript/bz/game/engine/mesh/MeshManipulation.ts":
+/*!****************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/mesh/MeshManipulation.ts ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21913,7 +22012,7 @@ exports.MeshFactory = MeshFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MeshManipulation = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Offers static functionality for manipulating meshes.
 ***********************************************************************************************************************/
@@ -22015,6 +22114,7 @@ var MeshManipulation = /** @class */ (function () {
                 }
         }
     };
+    // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Starts a stored animation for the given mesh in the specified frame range.
     *
@@ -22037,10 +22137,10 @@ exports.MeshManipulation = MeshManipulation;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicBehaviour.ts":
-/*!******************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/physic/PhysicBehaviour.ts ***!
-  \******************************************************************************/
+/***/ "./src/typescript/bz/game/engine/physic/PhysicBehaviour.ts":
+/*!*****************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/physic/PhysicBehaviour.ts ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22064,19 +22164,18 @@ var PhysicBehaviour;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicBody.ts":
-/*!*************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/physic/PhysicBody.ts ***!
-  \*************************************************************************/
+/***/ "./src/typescript/bz/game/engine/physic/PhysicBody.ts":
+/*!************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/physic/PhysicBody.ts ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhysicBody = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies the physical behaviour of a body.
 ***********************************************************************************************************************/
@@ -22139,6 +22238,11 @@ var PhysicBody = /** @class */ (function () {
             disableBidirectionalTransformation: false,
         };
     };
+    /** ****************************************************************************************************************
+    *   Delivers the mass of this physic body, depending on its behaviour.
+    *
+    *   @return The mass of this physic body.
+    *******************************************************************************************************************/
     PhysicBody.prototype.getMass = function () {
         switch (this.set.behaviour) {
             case bz.PhysicBehaviour.STATIC:
@@ -22163,10 +22267,10 @@ exports.PhysicBody = PhysicBody;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicFriction.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/physic/PhysicFriction.ts ***!
-  \*****************************************************************************/
+/***/ "./src/typescript/bz/game/engine/physic/PhysicFriction.ts":
+/*!****************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/physic/PhysicFriction.ts ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22190,10 +22294,10 @@ var PhysicFriction;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicImpostorParams.ts":
-/*!***********************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/physic/PhysicImpostorParams.ts ***!
-  \***********************************************************************************/
+/***/ "./src/typescript/bz/game/engine/physic/PhysicImpostorParams.ts":
+/*!**********************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/physic/PhysicImpostorParams.ts ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22271,10 +22375,10 @@ exports.PhysicImpostorParams = PhysicImpostorParams;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicRestitution.ts":
-/*!********************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/physic/PhysicRestitution.ts ***!
-  \********************************************************************************/
+/***/ "./src/typescript/bz/game/engine/physic/PhysicRestitution.ts":
+/*!*******************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/physic/PhysicRestitution.ts ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22298,10 +22402,10 @@ var PhysicRestitution;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/Scene.ts":
-/*!*******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/Scene.ts ***!
-  \*******************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/Scene.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/Scene.ts ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22309,7 +22413,7 @@ var PhysicRestitution;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Scene = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents the game scene. It wraps the native babylon.JS scene and physics engine
 *   and contains loaders for all resource systems ( materials/textures, sprites, sounds, models ).
@@ -22351,9 +22455,9 @@ var Scene = /** @class */ (function () {
         // show the babylon.JS debug layer
         if (bz.SettingDebug.SHOW_SCENE_DEBUG_PANEL) {
             this.babylonScene.debugLayer.show().then(function () {
-                // no need to handle this promise fullfillment
+                // handle promise fulfillment
             }).catch(function () {
-                // no need to catch this promise error
+                // handle promise error
             });
         }
         // create physics engine
@@ -22403,6 +22507,7 @@ var Scene = /** @class */ (function () {
     Scene.prototype.getModelSystem = function () {
         return this.modelSystem;
     };
+    // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Delivers the sound system.
     *
@@ -22491,10 +22596,10 @@ exports.Scene = Scene;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/material/MaterialSystem.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/material/MaterialSystem.ts ***!
-  \*************************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/material/MaterialSystem.ts":
+/*!************************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/material/MaterialSystem.ts ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22513,7 +22618,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MaterialSystem = void 0;
-var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies all textures and materials.
 ***********************************************************************************************************************/
@@ -22575,6 +22680,12 @@ var MaterialSystem = /** @class */ (function () {
                             textureV = (sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
                             break;
                         }
+                    case bz.TextureUV.TILED_BY_SIZE_HALF:
+                        {
+                            textureU = (sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
+                            textureV = (sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
+                            break;
+                        }
                     case bz.TextureUV.ALL_TO_ONE:
                         {
                             textureU = 1.0;
@@ -22583,7 +22694,7 @@ var MaterialSystem = /** @class */ (function () {
                         }
                 }
             }
-            material.diffuseTexture = MaterialSystem.createTexture(textureFile, textureU, textureV);
+            material.diffuseTexture = textureFile.createNewTextureInstance(textureU, textureV);
             material.backFaceCulling = (textureFile.hasAlpha() || alpha < 1.0);
         }
         else if (color !== null) {
@@ -22602,37 +22713,6 @@ var MaterialSystem = /** @class */ (function () {
     MaterialSystem.createNextMaterialId = function () {
         return 'material' + String(MaterialSystem.nextMaterialId++);
     };
-    /** ****************************************************************************************************************
-    *   Creates a textured material.
-    *
-    *   @param textureFile The texture to create.
-    *   @param repeatU The amount for U repeating this texture.
-    *   @param repeatV The amount for V repeating this texture.
-    *******************************************************************************************************************/
-    MaterialSystem.createTexture = function (textureFile, repeatU, repeatV) {
-        // do not clone native video textures! ( babylon.JS will hang otherwise! )
-        var newTexture = (textureFile.getIsVideoTexture()
-            ? bz.Texture.getNativeTexture(textureFile)
-            // is seems that cloning is not required and getNativeTexture is also working here
-            : bz.Texture.cloneNativeTexture(textureFile));
-        if (textureFile.getIsVideoTexture()) {
-            newTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
-            newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
-        }
-        else {
-            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
-            newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
-            // working around poor typings for scaling ..
-            if (repeatU !== -1) {
-                newTexture.uScale = repeatU;
-            }
-            if (repeatV !== -1) {
-                newTexture.vScale = repeatV;
-            }
-        }
-        newTexture.hasAlpha = textureFile.hasAlpha();
-        return newTexture;
-    };
     /** Next ID to assign for material creation. */
     MaterialSystem.nextMaterialId = 0;
     return MaterialSystem;
@@ -22642,10 +22722,10 @@ exports.MaterialSystem = MaterialSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureHasAlpha.ts":
-/*!**************************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureHasAlpha.ts ***!
-  \**************************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/material/TextureHasAlpha.ts":
+/*!*************************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/material/TextureHasAlpha.ts ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22667,10 +22747,10 @@ var TextureHasAlpha;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureType.ts":
-/*!**********************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureType.ts ***!
-  \**********************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/material/TextureType.ts":
+/*!*********************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/material/TextureType.ts ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22685,17 +22765,19 @@ var TextureType;
 (function (TextureType) {
     /** A texture for a wall. */
     TextureType[TextureType["WALL"] = 0] = "WALL";
+    /** A texture used by both - walls and models - reside in the model resources. */
+    TextureType[TextureType["WALL_AND_MODEL"] = 1] = "WALL_AND_MODEL";
     /** An animated video texture. */
-    TextureType[TextureType["VIDEO"] = 1] = "VIDEO";
+    TextureType[TextureType["VIDEO"] = 2] = "VIDEO";
 })(TextureType = exports.TextureType || (exports.TextureType = {}));
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureUV.ts":
-/*!********************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureUV.ts ***!
-  \********************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/material/TextureUV.ts":
+/*!*******************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/material/TextureUV.ts ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22712,15 +22794,19 @@ var TextureUV;
     TextureUV[TextureUV["ALL_TO_ONE"] = 0] = "ALL_TO_ONE";
     /** One texture dimension per 1.0 world unit. */
     TextureUV[TextureUV["TILED_BY_SIZE"] = 1] = "TILED_BY_SIZE";
+    /** Two texture dimensions per 1.0 world unit. */
+    TextureUV[TextureUV["TILED_BY_SIZE_HALF"] = 2] = "TILED_BY_SIZE_HALF";
+    /** One for Y axis and tiled for axis X Z. */
+    TextureUV[TextureUV["Y_ONE_XZ_TILED"] = 3] = "Y_ONE_XZ_TILED";
 })(TextureUV = exports.TextureUV || (exports.TextureUV = {}));
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/model/Model.ts":
-/*!*************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/model/Model.ts ***!
-  \*************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/model/Model.ts":
+/*!************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/model/Model.ts ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22740,7 +22826,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Model = void 0;
-var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a collection of meshes that may be compound.
 ***********************************************************************************************************************/
@@ -22760,6 +22846,7 @@ var Model = /** @class */ (function () {
         this.impostors = null;
         /** Specifies if the compound enables single meshes to be shot off. */
         this.enableSingleShotOffs = false;
+        /** The physics set for this model if any. */
         this.physicSet = null;
         this.meshes = meshes;
     }
@@ -23057,7 +23144,7 @@ var Model = /** @class */ (function () {
         this.enableSingleShotOffs = enableSingleShotOffs;
         /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
         var COMPOUND_MESH_SIZE = 0.001;
-        this.compoundMesh = new bz.MeshFactory(scene, BABYLON.Color3.Red()).createBox(position, bz.TextureFile.WALL_GRASS, new BABYLON.Vector3(COMPOUND_MESH_SIZE, COMPOUND_MESH_SIZE, COMPOUND_MESH_SIZE));
+        this.compoundMesh = new bz.MeshFactory(scene, BABYLON.Color3.Red()).createBox(position, bz.TextureFile.WALL_GRASS_1, new BABYLON.Vector3(COMPOUND_MESH_SIZE, COMPOUND_MESH_SIZE, COMPOUND_MESH_SIZE));
         try {
             // set the compound mesh as parent for all meshes
             for (var _b = __values(this.meshes), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -23131,13 +23218,32 @@ var Model = /** @class */ (function () {
             finally { if (e_13) throw e_13.error; }
         }
     };
-    Model.prototype.changeTexture = function (from, to) {
+    /** ****************************************************************************************************************
+    *   Changes the specified texture inside this model to a different one.
+    *
+    *   @param scene Type scene reference.
+    *   @param from  Resource string of the Texture to change.
+    *   @param to    Resource string of the new Texture to apply.
+    *
+    *   @return A reference to this Model instance.
+    *******************************************************************************************************************/
+    Model.prototype.changeTexture = function (scene, from, to) {
         var e_14, _a;
         try {
+            // browse all meshes
             for (var _b = __values(this.meshes), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var mesh = _c.value;
+                // get existing material
                 var material = mesh.material;
-                // console.log( '>> Material for texture change: ', material );
+                var texture = material.diffuseTexture;
+                // check source texture
+                if (texture.url === from) {
+                    var newMaterial = mesh.material.clone('ChangedTextureMaterial' + bz.MeshFactory.createNextMeshId());
+                    newMaterial.diffuseTexture = null;
+                    newMaterial.diffuseTexture = new BABYLON.Texture(to, scene.getNativeScene());
+                    mesh.material = null;
+                    mesh.material = newMaterial;
+                }
             }
         }
         catch (e_14_1) { e_14 = { error: e_14_1 }; }
@@ -23147,6 +23253,7 @@ var Model = /** @class */ (function () {
             }
             finally { if (e_14) throw e_14.error; }
         }
+        return this;
     };
     /** ****************************************************************************************************************
     *   Extracts all impostor parameters for all meshes of this model.
@@ -23203,7 +23310,7 @@ var Model = /** @class */ (function () {
     *
     *   @return A cloned instance of this model.
     *******************************************************************************************************************/
-    Model.prototype.clone = function () {
+    Model.prototype.clone = function (physicSet) {
         var e_16, _a;
         var clonedMeshes = this.cloneMeshes();
         try {
@@ -23226,7 +23333,9 @@ var Model = /** @class */ (function () {
             }
             finally { if (e_16) throw e_16.error; }
         }
-        return new bz.Model(clonedMeshes);
+        var model = new bz.Model(clonedMeshes);
+        model.physicSet = physicSet;
+        return model;
     };
     /** ****************************************************************************************************************
     *   Darkens all meshes according to the given ratio.
@@ -23410,10 +23519,10 @@ exports.Model = Model;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/model/ModelCompoundType.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/model/ModelCompoundType.ts ***!
-  \*************************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/model/ModelCompoundType.ts":
+/*!************************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/model/ModelCompoundType.ts ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23437,10 +23546,10 @@ var ModelCompoundType;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/model/ModelSystem.ts":
-/*!*******************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/model/ModelSystem.ts ***!
-  \*******************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/model/ModelSystem.ts":
+/*!******************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/model/ModelSystem.ts ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23460,7 +23569,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModelSystem = void 0;
-var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Imports all .babylon model files from 3ds max.
 ***********************************************************************************************************************/
@@ -23567,10 +23676,10 @@ exports.ModelSystem = ModelSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/sound/SoundSystem.ts":
-/*!*******************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/sound/SoundSystem.ts ***!
-  \*******************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/sound/SoundSystem.ts":
+/*!******************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/sound/SoundSystem.ts ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23590,7 +23699,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SoundSystem = void 0;
-var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Loads and manages all desired sounds.
 ***********************************************************************************************************************/
@@ -23686,10 +23795,10 @@ exports.SoundSystem = SoundSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/sprite/Sprite.ts":
-/*!***************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/sprite/Sprite.ts ***!
-  \***************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/sprite/Sprite.ts":
+/*!**************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/sprite/Sprite.ts ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23697,7 +23806,7 @@ exports.SoundSystem = SoundSystem;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sprite = void 0;
-var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   A wrapper class for babylon.JSs Sprite that offers additional functionality.
 ***********************************************************************************************************************/
@@ -23747,7 +23856,7 @@ var Sprite = /** @class */ (function () {
             var collisionWidth = (width * collisionWidthRatio);
             // const colliderPos :BABYLON.Vector3 = position.clone();
             // colliderPos.y += ( height / 2 )
-            this.collider = new bz.MeshFactory(scene, bz.SettingColor.COLOR_RGB_WHITE).createCylinder(position, anchor, collisionWidth, height, BABYLON.Vector3.Zero(), bz.TextureFile.WALL_GLASS, null, bz.PhysicSet.STATIC, (!bz.SettingDebug.SHOW_DEBUG_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25));
+            this.collider = new bz.MeshFactory(scene, bz.SettingColor.COLOR_RGB_WHITE).createCylinder(position, anchor, collisionWidth, height, BABYLON.Vector3.Zero(), bz.TextureFile.WALL_GLASS_1, null, bz.PhysicSet.STATIC, (!bz.SettingDebug.SHOW_SPRITE_COLLISION_CYLINDER ? 0.0 : 0.25));
         }
         this.translateByAnchor(anchor);
     }
@@ -23832,10 +23941,10 @@ exports.Sprite = Sprite;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/sprite/SpriteCollidable.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/sprite/SpriteCollidable.ts ***!
-  \*************************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/sprite/SpriteCollidable.ts":
+/*!************************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/sprite/SpriteCollidable.ts ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23857,10 +23966,10 @@ var SpriteCollidable;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/scene/sprite/SpriteSystem.ts":
-/*!*********************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/scene/sprite/SpriteSystem.ts ***!
-  \*********************************************************************************/
+/***/ "./src/typescript/bz/game/engine/scene/sprite/SpriteSystem.ts":
+/*!********************************************************************!*\
+  !*** ./src/typescript/bz/game/engine/scene/sprite/SpriteSystem.ts ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23868,7 +23977,7 @@ var SpriteCollidable;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SpriteSystem = void 0;
-var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies the sprite system.
 ***********************************************************************************************************************/
@@ -23923,10 +24032,10 @@ exports.SpriteSystem = SpriteSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/shot/BulletHole.ts":
-/*!***********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/shot/BulletHole.ts ***!
-  \***********************************************************************/
+/***/ "./src/typescript/bz/game/engine/shot/BulletHole.ts":
+/*!**********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/shot/BulletHole.ts ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23934,7 +24043,7 @@ exports.SpriteSystem = SpriteSystem;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BulletHole = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a bullet hole on a hit point.
 ***********************************************************************************************************************/
@@ -23983,6 +24092,14 @@ var BulletHole = /** @class */ (function () {
         }
     };
     /** ****************************************************************************************************************
+    *   Returns the impacted game object of this bullet hole.
+    *
+    *   @return The impacted game object.
+    *******************************************************************************************************************/
+    BulletHole.prototype.getGameObject = function () {
+        return this.hitPoint.getGameObject();
+    };
+    /** ****************************************************************************************************************
     *   Creates a bullet hole mesh onto the hit point.
     *
     *   @param scene The scene to create the bullet hole for.
@@ -24012,7 +24129,7 @@ var BulletHole = /** @class */ (function () {
     *******************************************************************************************************************/
     BulletHole.prototype.createDebugHoleNormalLine = function (scene) {
         // create debug bullet hole
-        this.debugNormalLine = new bz.MeshFactory(scene, bz.SettingColor.COLOR_RGB_ORANGE).createLine(this.hitPoint.getPoint().clone(), this.hitPoint.getPoint().clone().add(this.hitPoint.getNormal()), bz.SettingColor.COLOR_RGBA_ORANGE_MAYFLOWER_OPAQUE);
+        this.debugNormalLine = new bz.MeshFactory(scene, bz.SettingColor.COLOR_RGB_ORANGE).createLine(this.hitPoint.getPoint().clone(), this.hitPoint.getPoint().clone().add(this.hitPoint.getNormal()), bz.SettingColor.COLOR_RGBA_MAYFLOWER_ORANGE_OPAQUE);
         // stick to parent
         this.debugNormalLine.setParent(this.hitPoint.getMesh());
     };
@@ -24023,10 +24140,10 @@ exports.BulletHole = BulletHole;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/shot/HitPoint.ts":
-/*!*********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/shot/HitPoint.ts ***!
-  \*********************************************************************/
+/***/ "./src/typescript/bz/game/engine/shot/HitPoint.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/shot/HitPoint.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24045,7 +24162,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HitPoint = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   A hit point is a potential shot collision on a specific game object.
 ***********************************************************************************************************************/
@@ -24194,10 +24311,10 @@ exports.HitPoint = HitPoint;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/shot/Shot.ts":
-/*!*****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/shot/Shot.ts ***!
-  \*****************************************************************/
+/***/ "./src/typescript/bz/game/engine/shot/Shot.ts":
+/*!****************************************************!*\
+  !*** ./src/typescript/bz/game/engine/shot/Shot.ts ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24205,7 +24322,7 @@ exports.HitPoint = HitPoint;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Shot = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a shot into the stage.
 ***********************************************************************************************************************/
@@ -24287,10 +24404,10 @@ exports.Shot = Shot;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/ui/CanvasSystem.ts":
-/*!***********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/ui/CanvasSystem.ts ***!
-  \***********************************************************************/
+/***/ "./src/typescript/bz/game/engine/ui/CanvasSystem.ts":
+/*!**********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/ui/CanvasSystem.ts ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24299,7 +24416,7 @@ exports.Shot = Shot;
 // noinspection JSUnusedGlobalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CanvasSystem = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Manages the canvas.
 ***********************************************************************************************************************/
@@ -24384,10 +24501,10 @@ exports.CanvasSystem = CanvasSystem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/ui/LightFactory.ts":
-/*!***********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/ui/LightFactory.ts ***!
-  \***********************************************************************/
+/***/ "./src/typescript/bz/game/engine/ui/LightFactory.ts":
+/*!**********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/ui/LightFactory.ts ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24396,7 +24513,7 @@ exports.CanvasSystem = CanvasSystem;
 // noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LightFactory = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Creates all types of lights.
 ***********************************************************************************************************************/
@@ -24514,10 +24631,10 @@ exports.LightFactory = LightFactory;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/engine/ui/LoadingScreen.ts":
-/*!************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/engine/ui/LoadingScreen.ts ***!
-  \************************************************************************/
+/***/ "./src/typescript/bz/game/engine/ui/LoadingScreen.ts":
+/*!***********************************************************!*\
+  !*** ./src/typescript/bz/game/engine/ui/LoadingScreen.ts ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24525,7 +24642,7 @@ exports.LightFactory = LightFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoadingScreen = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies the custom loading screen.
 ***********************************************************************************************************************/
@@ -24585,10 +24702,10 @@ exports.LoadingScreen = LoadingScreen;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/event/Event.ts":
-/*!************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/event/Event.ts ***!
-  \************************************************************/
+/***/ "./src/typescript/bz/game/event/Event.ts":
+/*!***********************************************!*\
+  !*** ./src/typescript/bz/game/event/Event.ts ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24621,15 +24738,16 @@ exports.Event = Event;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/event/EventData.ts":
-/*!****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/event/EventData.ts ***!
-  \****************************************************************/
+/***/ "./src/typescript/bz/game/event/EventData.ts":
+/*!***************************************************!*\
+  !*** ./src/typescript/bz/game/event/EventData.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+/* eslint-disable max-classes-per-file */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -24644,7 +24762,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventDataTimeDelay = exports.EventDataShowGuiEffect = exports.EventDataShowGuiMessage = exports.EventDataStageSwitch = exports.EventData = void 0;
+exports.EventDataToggleLight = exports.EventDataGainPainkillers = exports.EventDataCastExplosion = exports.EventDataTimeDelay = exports.EventDataShowGuiEffect = exports.EventDataShowGuiGameMessage = exports.EventDataShowGuiTextMessage = exports.EventDataStageSwitch = exports.EventData = void 0;
 /** ********************************************************************************************************************
 *   A bundle of data that is associated to an event. Type of event data varies by the according EventType.
 ***********************************************************************************************************************/
@@ -24679,21 +24797,44 @@ exports.EventDataStageSwitch = EventDataStageSwitch;
 /** ********************************************************************************************************************
 *   The event data for the event type { @see EventType.SHOW_GUI_MESSAGE }.
 ***********************************************************************************************************************/
-var EventDataShowGuiMessage = /** @class */ (function (_super) {
-    __extends(EventDataShowGuiMessage, _super);
+var EventDataShowGuiTextMessage = /** @class */ (function (_super) {
+    __extends(EventDataShowGuiTextMessage, _super);
     /** ****************************************************************************************************************
     *   Creates the data for the event 'Show GUI Message'.
     *
+    *   @param message    The message to display in the GUI.
+    *   @param noFlooding Will not display this message if the last GUI message had the same content!
+    *******************************************************************************************************************/
+    function EventDataShowGuiTextMessage(message, noFlooding) {
+        if (noFlooding === void 0) { noFlooding = false; }
+        var _this = _super.call(this) || this;
+        _this.message = message;
+        _this.noFlooding = noFlooding;
+        return _this;
+    }
+    return EventDataShowGuiTextMessage;
+}(EventData));
+exports.EventDataShowGuiTextMessage = EventDataShowGuiTextMessage;
+/** ********************************************************************************************************************
+*   The event data for the event type { @see EventType.SHOW_GUI_GAME_MESSAGE }.
+***********************************************************************************************************************/
+var EventDataShowGuiGameMessage = /** @class */ (function (_super) {
+    __extends(EventDataShowGuiGameMessage, _super);
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Show GUI Game Message'.
+    *
+    *   @param image   The message to display in the GUI.
     *   @param message The message to display in the GUI.
     *******************************************************************************************************************/
-    function EventDataShowGuiMessage(message) {
+    function EventDataShowGuiGameMessage(image, message) {
         var _this = _super.call(this) || this;
+        _this.image = image;
         _this.message = message;
         return _this;
     }
-    return EventDataShowGuiMessage;
+    return EventDataShowGuiGameMessage;
 }(EventData));
-exports.EventDataShowGuiMessage = EventDataShowGuiMessage;
+exports.EventDataShowGuiGameMessage = EventDataShowGuiGameMessage;
 /** ********************************************************************************************************************
 *   The event data for the event type { @see EventType.SHOW_GUI_EFFECT }.
 ***********************************************************************************************************************/
@@ -24731,14 +24872,72 @@ var EventDataTimeDelay = /** @class */ (function (_super) {
     return EventDataTimeDelay;
 }(EventData));
 exports.EventDataTimeDelay = EventDataTimeDelay;
+/** ********************************************************************************************************************
+*   The event data for the event type { @link EventType.CAST_EXPLOSION }.
+***********************************************************************************************************************/
+var EventDataCastExplosion = /** @class */ (function (_super) {
+    __extends(EventDataCastExplosion, _super);
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Cast Explosion'.
+    *
+    *   @param center   The center point of the explosion.
+    *   @param radius   The radius of the explosion.
+    *   @param strength The strength for this explosion to apply.
+    *******************************************************************************************************************/
+    function EventDataCastExplosion(center, radius, strength) {
+        var _this = _super.call(this) || this;
+        _this.center = center;
+        _this.radius = radius;
+        _this.strength = strength;
+        return _this;
+    }
+    return EventDataCastExplosion;
+}(EventData));
+exports.EventDataCastExplosion = EventDataCastExplosion;
+/** ********************************************************************************************************************
+*   The event data for the event type { @link EventType.GAIN_PAINKILLER }.
+***********************************************************************************************************************/
+var EventDataGainPainkillers = /** @class */ (function (_super) {
+    __extends(EventDataGainPainkillers, _super);
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Gain Painkillers'.
+    *
+    *   @param amount The number of painkillers to gain.
+    *******************************************************************************************************************/
+    function EventDataGainPainkillers(amount) {
+        var _this = _super.call(this) || this;
+        _this.amount = amount;
+        return _this;
+    }
+    return EventDataGainPainkillers;
+}(EventData));
+exports.EventDataGainPainkillers = EventDataGainPainkillers;
+/** ********************************************************************************************************************
+*   The event data for the event type { @link EventType.TOGGLE_LIGHT }.
+***********************************************************************************************************************/
+var EventDataToggleLight = /** @class */ (function (_super) {
+    __extends(EventDataToggleLight, _super);
+    /** ****************************************************************************************************************
+    *   Creates the data for the event 'Toggle light'.
+    *
+    *   @param light The light to toggle.
+    *******************************************************************************************************************/
+    function EventDataToggleLight(light) {
+        var _this = _super.call(this) || this;
+        _this.light = light;
+        return _this;
+    }
+    return EventDataToggleLight;
+}(EventData));
+exports.EventDataToggleLight = EventDataToggleLight;
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/event/EventType.ts":
-/*!****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/event/EventType.ts ***!
-  \****************************************************************/
+/***/ "./src/typescript/bz/game/event/EventType.ts":
+/*!***************************************************!*\
+  !*** ./src/typescript/bz/game/event/EventType.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24751,19 +24950,23 @@ exports.EventType = void 0;
 ***********************************************************************************************************************/
 var EventType;
 (function (EventType) {
-    EventType[EventType["SWITCH_TO_STAGE"] = 0] = "SWITCH_TO_STAGE";
-    EventType[EventType["SHOW_GUI_MESSAGE"] = 1] = "SHOW_GUI_MESSAGE";
-    EventType[EventType["SHOW_GUI_EFFECT"] = 2] = "SHOW_GUI_EFFECT";
-    EventType[EventType["TIME_DELAY"] = 3] = "TIME_DELAY";
+    EventType[EventType["TIME_DELAY"] = 0] = "TIME_DELAY";
+    EventType[EventType["SWITCH_TO_STAGE"] = 1] = "SWITCH_TO_STAGE";
+    EventType[EventType["SHOW_GUI_TEXT_MESSAGE"] = 2] = "SHOW_GUI_TEXT_MESSAGE";
+    EventType[EventType["SHOW_GUI_GAME_MESSAGE"] = 3] = "SHOW_GUI_GAME_MESSAGE";
+    EventType[EventType["SHOW_GUI_EFFECT"] = 4] = "SHOW_GUI_EFFECT";
+    EventType[EventType["CAST_EXPLOSION"] = 5] = "CAST_EXPLOSION";
+    EventType[EventType["GAIN_PAINKILLERS"] = 6] = "GAIN_PAINKILLERS";
+    EventType[EventType["TOGGLE_LIGHT"] = 7] = "TOGGLE_LIGHT";
 })(EventType = exports.EventType || (exports.EventType = {}));
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/event/Interaction.ts":
-/*!******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/event/Interaction.ts ***!
-  \******************************************************************/
+/***/ "./src/typescript/bz/game/event/Interaction.ts":
+/*!*****************************************************!*\
+  !*** ./src/typescript/bz/game/event/Interaction.ts ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24784,7 +24987,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Interaction = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents one interaction.
 ***********************************************************************************************************************/
@@ -24807,15 +25010,16 @@ exports.Interaction = Interaction;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/event/InteractionType.ts":
-/*!**********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/event/InteractionType.ts ***!
-  \**********************************************************************/
+/***/ "./src/typescript/bz/game/event/InteractionType.ts":
+/*!*********************************************************!*\
+  !*** ./src/typescript/bz/game/event/InteractionType.ts ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+// noinspection JSUnusedGlobalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InteractionType = void 0;
 /** ********************************************************************************************************************
@@ -24830,10 +25034,10 @@ var InteractionType;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/GUI.ts":
-/*!********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/GUI.ts ***!
-  \********************************************************/
+/***/ "./src/typescript/bz/game/gui/GUI.ts":
+/*!*******************************************!*\
+  !*** ./src/typescript/bz/game/gui/GUI.ts ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24841,7 +25045,7 @@ var InteractionType;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUI = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 var BABYLON_GUI = __webpack_require__(/*! babylonjs-gui */ "babylonjs-gui");
 /** ********************************************************************************************************************
 *   Represents a Graphical User Interface that is displayed in the foreground of the screen.
@@ -24853,18 +25057,22 @@ var GUI = /** @class */ (function () {
     *   @param scene The scene to create this GUI for.
     *******************************************************************************************************************/
     function GUI(scene) {
-        /** The 'player' fullscreen gui lies on the lowest layer. */
+        /** The 'player' fullscreen gui lies on the lowest layer. It displays the wearpon and the crosshair. */
         this.guiPlayer = null;
         /** The 'effects' fullscreen gui lies over the player GUI. */
         this.guiEffects = null;
         /** The 'messages' fullscreen gui lies over the effects GUI. */
-        this.guiMessages = null;
+        this.guiTextMessages = null;
+        /** The 'game messages' fullscreen gui lies over the messages GUI. */
+        this.guiGameMessages = null;
         /** The 'pause' fullscreen gui lies over the messages GUI. */
         this.guiPause = null;
         /** The FPS text block. */
         this.fpsText = null;
-        /** The manager for GUI messages. */
-        this.messageManager = null;
+        /** The manager for GUI text messages. */
+        this.textMessageManager = null;
+        /** The manager for GUI game messages. */
+        this.gameMessageManager = null;
         /** The manager for GUI effects. */
         this.fxManager = null;
         /** The pause GUI. */
@@ -24876,26 +25084,28 @@ var GUI = /** @class */ (function () {
         // create all native foreground GUI
         this.guiPlayer = bz.GUIFactory.createGUI(scene, true);
         this.guiEffects = bz.GUIFactory.createGUI(scene, true);
-        this.guiMessages = bz.GUIFactory.createGUI(scene, true);
+        this.guiTextMessages = bz.GUIFactory.createGUI(scene, true);
+        this.guiGameMessages = bz.GUIFactory.createGUI(scene, true);
         this.guiPause = bz.GUIFactory.createGUI(scene, true);
         // create pause GUI and initially hide it
         this.pauseGui = new bz.GUIPause(this.guiPause);
         this.pauseGui.setVisibility(false);
         // FPS text
-        this.fpsText = bz.GUIFactory.createTextBlock('', bz.SettingGUI.GUI_FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, -bz.SettingGUI.GUI_BORDER_X, bz.SettingGUI.GUI_BORDER_Y, 250, 25, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP, null);
-        this.guiMessages.addControl(this.fpsText);
+        this.fpsText = bz.GUIFactory.createTextBlock('', bz.SettingGUI.FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, -bz.SettingGUI.BORDER_X, bz.SettingGUI.BORDER_Y, 250, 25, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP, null);
+        this.guiTextMessages.addControl(this.fpsText);
         if (!bz.SettingDebug.SHOW_FPS) {
             this.fpsText.isVisible = false;
         }
         // create the message and fx managers
-        this.messageManager = new bz.GUIMessageManager();
+        this.textMessageManager = new bz.GUITextMessageManager();
+        this.gameMessageManager = new bz.GUIGameMessageManager();
         this.fxManager = new bz.GUIFxManager();
     }
     /** ****************************************************************************************************************
     *   Initializes the Heads Up Display for a game stage.
     *******************************************************************************************************************/
     GUI.prototype.init = function () {
-        this.wearponImage = bz.GUIFactory.createImage('wearpon/autoShotgun.png', -bz.SettingGUI.GUI_BORDER_X, 0, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM, null);
+        this.wearponImage = bz.GUIFactory.createImage('wearpon/autoShotgun.png', -bz.SettingGUI.BORDER_X, 0, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM, null);
         this.guiPlayer.addControl(this.wearponImage);
         this.crosshair = bz.GUIFactory.createImage('crosshair/default.png', 0, 0, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER, null);
         this.guiPlayer.addControl(this.crosshair);
@@ -24916,7 +25126,8 @@ var GUI = /** @class */ (function () {
     GUI.prototype.dispose = function () {
         this.guiPlayer.dispose();
         this.guiEffects.dispose();
-        this.guiMessages.dispose();
+        this.guiTextMessages.dispose();
+        this.guiGameMessages.dispose();
         this.guiPause.dispose();
     };
     /** ****************************************************************************************************************
@@ -24929,7 +25140,8 @@ var GUI = /** @class */ (function () {
     GUI.prototype.render = function (game, pause, keySystem) {
         this.updateFps(game);
         if (!pause) {
-            this.messageManager.render();
+            this.textMessageManager.render();
+            this.gameMessageManager.render();
             this.fxManager.render();
         }
         if (pause) {
@@ -24939,10 +25151,20 @@ var GUI = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Adds a message to the message queue.
     *
-    *   @param msg The message to add to the message queue.
+    *   @param msg        The message to add to the message queue.
+    *   @param noFlooding If enabled, the message is ignored if the previously added text message has the same body.
     *******************************************************************************************************************/
-    GUI.prototype.addGuiMessage = function (msg) {
-        this.messageManager.addGuiMessage(this.guiMessages, msg);
+    GUI.prototype.addGuiTextMessage = function (msg, noFlooding) {
+        this.textMessageManager.addGuiTextMessage(this.guiTextMessages, msg, noFlooding);
+    };
+    /** ****************************************************************************************************************
+    *   Adds a game message to the game message queue.
+    *
+    *   @param img The image to display in this game message.
+    *   @param msg The text message to display in this game message.
+    *******************************************************************************************************************/
+    GUI.prototype.addGuiGameMessage = function (img, msg) {
+        this.gameMessageManager.addGuiGameMessage(this.guiGameMessages, img, msg);
     };
     /** ****************************************************************************************************************
     *   Adds an effect to the fx queue.
@@ -24984,7 +25206,7 @@ var GUI = /** @class */ (function () {
     GUI.prototype.zoomWearponImage = function (zoomRatio) {
         this.wearponImage.scaleX = (1.0 + zoomRatio);
         this.wearponImage.scaleY = (1.0 + zoomRatio);
-        this.wearponImage.left = (-bz.SettingGUI.GUI_BORDER_X + (zoomRatio * (this.wearponImage.widthInPixels / 2)));
+        this.wearponImage.left = (-bz.SettingGUI.BORDER_X + (zoomRatio * (this.wearponImage.widthInPixels / 2)));
         this.wearponImage.top = (-0.0 + (zoomRatio * (this.wearponImage.heightInPixels / 2)));
     };
     /** ****************************************************************************************************************
@@ -25001,10 +25223,10 @@ exports.GUI = GUI;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/GUIFactory.ts":
-/*!***************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/GUIFactory.ts ***!
-  \***************************************************************/
+/***/ "./src/typescript/bz/game/gui/GUIFactory.ts":
+/*!**************************************************!*\
+  !*** ./src/typescript/bz/game/gui/GUIFactory.ts ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25012,7 +25234,7 @@ exports.GUI = GUI;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUIFactory = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 var BABYLON_GUI = __webpack_require__(/*! babylonjs-gui */ "babylonjs-gui");
 /** ********************************************************************************************************************
 *   Creates all types of GUI components.
@@ -25074,22 +25296,27 @@ var GUIFactory = /** @class */ (function () {
     *   @param alignmentHorz The horizontal alignment.
     *   @param alignmentVert The vertical   alignment.
     *   @param onPointerDown A callback to invoke when the pointer is down.
+    *   @param textWrapping  If the text should be wrapped according to the width of this text block.
     *
     *   @return The specified text block.
     *******************************************************************************************************************/
-    GUIFactory.createTextBlock = function (text, fontSize, color, shadowColor, x, y, width, height, alignmentHorz, alignmentVert, onPointerDown) {
+    GUIFactory.createTextBlock = function (text, fontSize, color, shadowColor, x, y, width, height, alignmentHorz, alignmentVert, onPointerDown, textWrapping) {
         if (alignmentHorz === void 0) { alignmentHorz = BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER; }
         if (alignmentVert === void 0) { alignmentVert = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP; }
         if (onPointerDown === void 0) { onPointerDown = function () { }; }
+        if (textWrapping === void 0) { textWrapping = false; }
         var textBlock = new BABYLON_GUI.TextBlock(GUIFactory.createNextGuiId());
         textBlock.text = text;
         textBlock.left = x;
         textBlock.top = y;
         textBlock.width = String(width) + 'px';
         textBlock.height = String(height) + 'px';
-        textBlock.fontSize = String(fontSize) + 'px';
         textBlock.color = color;
-        textBlock.lineSpacing = String(2) + 'px';
+        textBlock.fontSize = String(fontSize) + 'px';
+        textBlock.fontWeight = bz.SettingGUI.FONT_WEIGHT;
+        textBlock.fontFamily = bz.SettingGUI.FONT_FAMILY;
+        textBlock.lineSpacing = String(bz.SettingGUI.FONT_LINESPACING) + 'px';
+        // textBlock.fontOffset = { ascent: 0, height: 0, descent: 0 }; // no effect
         if (shadowColor !== null) {
             textBlock.shadowColor = shadowColor;
             textBlock.shadowBlur = 0.0;
@@ -25100,6 +25327,7 @@ var GUIFactory = /** @class */ (function () {
         textBlock.verticalAlignment = alignmentVert;
         textBlock.textHorizontalAlignment = alignmentHorz;
         textBlock.textVerticalAlignment = alignmentVert;
+        textBlock.textWrapping = textWrapping;
         if (onPointerDown) {
             textBlock.onPointerDownObservable.add(function () {
                 onPointerDown();
@@ -25152,10 +25380,10 @@ exports.GUIFactory = GUIFactory;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/GUIPause.ts":
-/*!*************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/GUIPause.ts ***!
-  \*************************************************************/
+/***/ "./src/typescript/bz/game/gui/GUIPause.ts":
+/*!************************************************!*\
+  !*** ./src/typescript/bz/game/gui/GUIPause.ts ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25163,7 +25391,7 @@ exports.GUIFactory = GUIFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUIPause = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents the Graphical User Interface of the pause screen / menu.
 ***********************************************************************************************************************/
@@ -25197,13 +25425,13 @@ var GUIPause = /** @class */ (function () {
             + 'X = Turn around' + '\n'
             + 'C = Crouch' + '\n'
             + 'Ctlr/Strg = Fire' + '\n'
-            + 'Space = Interact' + '\n', bz.SettingGUI.GUI_FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, bz.SettingGUI.GUI_BORDER_Y, 500, 500);
+            + 'Space = Interact' + '\n', bz.SettingGUI.FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, bz.SettingGUI.BORDER_Y, 500, 500);
         guiFg.addControl(this.explanation);
         // menu headline
-        this.menuHeadline = bz.GUIFactory.createTextBlock('Paws Menu', bz.SettingGUI.GUI_FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, (bz.SettingGUI.GUI_BORDER_Y + 350.0), 250, 50);
+        this.menuHeadline = bz.GUIFactory.createTextBlock('Paws Menu', bz.SettingGUI.FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, (bz.SettingGUI.BORDER_Y + 350.0), 250, 50);
         guiFg.addControl(this.menuHeadline);
         // create GUI menu
-        this.menu = new bz.GUIMenu(guiFg, GUIPause.GUI_MENU_ITEMS, (bz.SettingGUI.GUI_BORDER_Y + 350 + 50), bz.SettingGUI.GUI_WRAP_PAUSE_MENU_ITEMS);
+        this.menu = new bz.GUIMenu(guiFg, GUIPause.GUI_MENU_ITEMS, (bz.SettingGUI.BORDER_Y + 350 + 50), bz.SettingGUI.WRAP_PAUSE_MENU_ITEMS);
     }
     /** ****************************************************************************************************************
     *   Shows or hides the pause GUI.
@@ -25278,10 +25506,10 @@ exports.GUIPause = GUIPause;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/fx/GUIFx.ts":
-/*!*************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/fx/GUIFx.ts ***!
-  \*************************************************************/
+/***/ "./src/typescript/bz/game/gui/fx/GUIFx.ts":
+/*!************************************************!*\
+  !*** ./src/typescript/bz/game/gui/fx/GUIFx.ts ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25289,7 +25517,7 @@ exports.GUIPause = GUIPause;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUIFx = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents one GUI fx that's displayed in fullscreen and slowly disappearing.
 ***********************************************************************************************************************/
@@ -25305,20 +25533,8 @@ var GUIFx = /** @class */ (function () {
         this.lifetimeTicks = 0;
         /** The fullscreen rect that represents this fx. */
         this.fxRect = null;
-        this.lifetimeTicks = bz.SettingGUI.GUI_FX_LIFETIME;
-        var color = null;
-        switch (type) {
-            case bz.GUIFxType.HURT:
-                {
-                    color = bz.SettingColor.COLOR_CSS_RED_OPAQUE;
-                    break;
-                }
-            case bz.GUIFxType.GAIN_ENERGY:
-                {
-                    color = bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
-                    break;
-                }
-        }
+        this.lifetimeTicks = bz.SettingGUI.FX_LIFETIME;
+        var color = GUIFx.getScreenColorForGuiFxType(type);
         this.fxRect = bz.GUIFactory.createRectangle(0, 0, 0, 0, bz.SettingColor.COLOR_CSS_TRANSPARENT, color);
         this.fxRect.width = '100%';
         this.fxRect.height = '100%';
@@ -25331,7 +25547,7 @@ var GUIFx = /** @class */ (function () {
         // decrease number of lifetime ticks
         --this.lifetimeTicks;
         // assign opacity according to lifetime ticks
-        this.fxRect.alpha = (bz.SettingGUI.GUI_FX_INITIAL_ALPHA * this.lifetimeTicks / bz.SettingGUI.GUI_FX_LIFETIME);
+        this.fxRect.alpha = (bz.SettingGUI.FX_INITIAL_ALPHA * this.lifetimeTicks / bz.SettingGUI.FX_LIFETIME);
     };
     /** ****************************************************************************************************************
     *   Checks if the lifetime is over for this GUI message.
@@ -25347,6 +25563,30 @@ var GUIFx = /** @class */ (function () {
     GUIFx.prototype.dispose = function () {
         this.fxRect.dispose();
     };
+    /** ****************************************************************************************************************
+    *   Get the screen color to apply for this GUI effect.
+    *
+    *   @param type The type of GUI Fx to get the screen color for.
+    *
+    *   @return The screen color to apply for this fx type.
+    *******************************************************************************************************************/
+    GUIFx.getScreenColorForGuiFxType = function (type) {
+        switch (type) {
+            case bz.GUIFxType.HURT:
+                {
+                    return bz.SettingColor.COLOR_CSS_RED_OPAQUE;
+                }
+            case bz.GUIFxType.PICK_UP_ITEM:
+                {
+                    return bz.SettingColor.COLOR_CSS_WHITE_OPAQUE;
+                }
+            case bz.GUIFxType.GAIN_ENERGY:
+                {
+                    return bz.SettingColor.COLOR_CSS_GREEN_OPAQUE;
+                }
+        }
+        return null;
+    };
     return GUIFx;
 }());
 exports.GUIFx = GUIFx;
@@ -25354,10 +25594,10 @@ exports.GUIFx = GUIFx;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/fx/GUIFxManager.ts":
-/*!********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/fx/GUIFxManager.ts ***!
-  \********************************************************************/
+/***/ "./src/typescript/bz/game/gui/fx/GUIFxManager.ts":
+/*!*******************************************************!*\
+  !*** ./src/typescript/bz/game/gui/fx/GUIFxManager.ts ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25376,7 +25616,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUIFxManager = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Manages all GUI FX shown in the GUI.
 ***********************************************************************************************************************/
@@ -25435,10 +25675,10 @@ exports.GUIFxManager = GUIFxManager;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/fx/GUIFxType.ts":
-/*!*****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/fx/GUIFxType.ts ***!
-  \*****************************************************************/
+/***/ "./src/typescript/bz/game/gui/fx/GUIFxType.ts":
+/*!****************************************************!*\
+  !*** ./src/typescript/bz/game/gui/fx/GUIFxType.ts ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25453,17 +25693,217 @@ var GUIFxType;
 (function (GUIFxType) {
     /** The effect when the user loses energy. */
     GUIFxType[GUIFxType["HURT"] = 0] = "HURT";
-    /** The effect when the user gains energy. */
-    GUIFxType[GUIFxType["GAIN_ENERGY"] = 1] = "GAIN_ENERGY";
+    /** The effect when the user picks up an item. */
+    GUIFxType[GUIFxType["PICK_UP_ITEM"] = 1] = "PICK_UP_ITEM";
+    /** The effect when the user restores energy. */
+    GUIFxType[GUIFxType["GAIN_ENERGY"] = 2] = "GAIN_ENERGY";
 })(GUIFxType = exports.GUIFxType || (exports.GUIFxType = {}));
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/menu/GUIAction.ts":
-/*!*******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/menu/GUIAction.ts ***!
-  \*******************************************************************/
+/***/ "./src/typescript/bz/game/gui/gameMessage/GUIGameMessage.ts":
+/*!******************************************************************!*\
+  !*** ./src/typescript/bz/game/gui/gameMessage/GUIGameMessage.ts ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GUIGameMessage = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
+var BABYLON_GUI = __webpack_require__(/*! babylonjs-gui */ "babylonjs-gui");
+/** ********************************************************************************************************************
+*   Represents one GUI game message that's displayed on top of the player's viewfield and disappears after some time.
+***********************************************************************************************************************/
+var GUIGameMessage = /** @class */ (function () {
+    /** ****************************************************************************************************************
+    *   Creates a new game message.
+    *
+    *   @param gui The gui to append the image and text block to.
+    *   @param img The image to use for this game message.
+    *   @param msg The text to display in this text block.
+    *******************************************************************************************************************/
+    function GUIGameMessage(gui, img, msg) {
+        /** The number of ticks this message is still visible. */
+        this.lifetimeTicks = 0;
+        /** The image that displays the initiator of this message. */
+        this.bg = null;
+        /** The image that displays the initiator of this message. */
+        this.img = null;
+        /** The text block that contains this single message. */
+        this.text = null;
+        this.lifetimeTicks = bz.SettingGUI.GAME_MESSAGE_LIFETIME;
+        this.bg = bz.GUIFactory.createRectangle(0, bz.SettingGUI.BORDER_Y, 0, bz.SettingGUI.GAME_MESSAGE_BG_HEIGHT, bz.SettingColor.COLOR_CSS_TRANSPARENT, bz.SettingColor.COLOR_CSS_GUI_MSG_GRAY_HALF_ALPHA);
+        this.bg.width = '100%';
+        // this.messageBg.height = '100%';
+        this.img = bz.GUIFactory.createImage(GUIGameMessage.getImageFromImageType(img), bz.SettingGUI.BORDER_X, bz.SettingGUI.BORDER_Y, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP, null);
+        this.text = bz.GUIFactory.createTextBlock(msg, bz.SettingGUI.FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, bz.SettingGUI.BORDER_Y, 0, bz.SettingGUI.GAME_MESSAGE_BG_HEIGHT, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP, null, true);
+        this.text.width = '100%';
+        this.text.paddingLeftInPixels = (2 * bz.SettingGUI.BORDER_X + bz.SettingGUI.GAME_MESSAGE_IMAGE_WIDTH);
+        this.text.paddingRightInPixels = bz.SettingGUI.BORDER_X;
+        this.text.textVerticalAlignment = BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        this.bg.isVisible = false;
+        this.img.isVisible = false;
+        this.text.isVisible = false;
+        gui.addControl(this.bg);
+        gui.addControl(this.img);
+        gui.addControl(this.text);
+    }
+    /** ****************************************************************************************************************
+    *   Renders this GUI game message for one game tick.
+    *******************************************************************************************************************/
+    GUIGameMessage.prototype.render = function () {
+        // show on first render
+        if (this.lifetimeTicks === bz.SettingGUI.GAME_MESSAGE_LIFETIME) {
+            this.bg.isVisible = true;
+            this.img.isVisible = true;
+            this.text.isVisible = true;
+        }
+        // decrease number of lifetime ticks
+        --this.lifetimeTicks;
+        // assign opacity according to lifetime ticks
+        if (this.lifetimeTicks < bz.SettingGUI.GAME_MESSAGE_FADE_OUT_TICKS) {
+            var alpha = (this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS);
+            this.bg.alpha = alpha;
+            this.img.alpha = alpha;
+            this.text.alpha = alpha;
+        }
+        else if (this.lifetimeTicks > bz.SettingGUI.GAME_MESSAGE_LIFETIME - bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS) {
+            var alpha = ((bz.SettingGUI.GAME_MESSAGE_LIFETIME - this.lifetimeTicks)
+                / bz.SettingGUI.GAME_MESSAGE_FADE_IN_TICKS);
+            this.bg.alpha = alpha;
+            this.text.alpha = alpha;
+            this.img.alpha = alpha;
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Checks if the lifetime is over for this GUI game message.
+    *
+    *   @return If this GUI message's lifetime is over.
+    *******************************************************************************************************************/
+    GUIGameMessage.prototype.isLifetimeOver = function () {
+        return (this.lifetimeTicks <= 0);
+    };
+    /** ****************************************************************************************************************
+    *   Disposes this GUI message's text block.
+    *******************************************************************************************************************/
+    GUIGameMessage.prototype.dispose = function () {
+        this.bg.dispose();
+        this.img.dispose();
+        this.text.dispose();
+    };
+    /** ****************************************************************************************************************
+    *   Deliver the image resource for the specified image type.
+    *
+    *   @param pic The pic to get the filename for.
+    *
+    *   @return The image file name resource.
+    *******************************************************************************************************************/
+    GUIGameMessage.getImageFromImageType = function (pic) {
+        switch (pic) {
+            case bz.GUIGameMessagePic.OFFICE_WOMAN_1:
+                {
+                    return 'gameMessage/woman1.jpg';
+                }
+        }
+        return null;
+    };
+    return GUIGameMessage;
+}());
+exports.GUIGameMessage = GUIGameMessage;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/gui/gameMessage/GUIGameMessageManager.ts":
+/*!*************************************************************************!*\
+  !*** ./src/typescript/bz/game/gui/gameMessage/GUIGameMessageManager.ts ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GUIGameMessageManager = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Manages the handling for GUI Game Messages.
+***********************************************************************************************************************/
+var GUIGameMessageManager = /** @class */ (function () {
+    function GUIGameMessageManager() {
+        /** All GUI game messages currently displayed. */
+        this.messageQueue = [];
+        this.delayTicksBeforeNextMessage = 0;
+    }
+    /** ****************************************************************************************************************
+    *   Adds a message to the message queue.
+    *
+    *   @param gui The gui to add the text message to.
+    *   @param img The image to display for this game message.
+    *   @param msg The message to add to the message queue.
+    *******************************************************************************************************************/
+    GUIGameMessageManager.prototype.addGuiGameMessage = function (gui, img, msg) {
+        this.messageQueue.push(new bz.GUIGameMessage(gui, img, msg));
+    };
+    /** ****************************************************************************************************************
+    *   Renders the GUI game message manager for one game tick.
+    *******************************************************************************************************************/
+    GUIGameMessageManager.prototype.render = function () {
+        if (this.delayTicksBeforeNextMessage > 0) {
+            --this.delayTicksBeforeNextMessage;
+            return;
+        }
+        // render the 1st GUI message
+        if (this.messageQueue.length > 0) {
+            var firstMessage = this.messageQueue[0];
+            // render message and check if still alive
+            firstMessage.render();
+            if (firstMessage.isLifetimeOver()) {
+                // dispose and prune message form queue
+                firstMessage.dispose();
+                this.messageQueue.shift();
+                // delay before handling next message
+                this.delayTicksBeforeNextMessage = bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES;
+            }
+        }
+    };
+    return GUIGameMessageManager;
+}());
+exports.GUIGameMessageManager = GUIGameMessageManager;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/gui/gameMessage/GUIGameMessagePic.ts":
+/*!*********************************************************************!*\
+  !*** ./src/typescript/bz/game/gui/gameMessage/GUIGameMessagePic.ts ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GUIGameMessagePic = void 0;
+/** ********************************************************************************************************************
+*   All possible pics to display in a GUIGameMessage.
+***********************************************************************************************************************/
+var GUIGameMessagePic;
+(function (GUIGameMessagePic) {
+    GUIGameMessagePic[GUIGameMessagePic["OFFICE_WOMAN_1"] = 0] = "OFFICE_WOMAN_1";
+})(GUIGameMessagePic = exports.GUIGameMessagePic || (exports.GUIGameMessagePic = {}));
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/gui/menu/GUIAction.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/game/gui/menu/GUIAction.ts ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25487,10 +25927,10 @@ var GUIAction;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/menu/GUIMenu.ts":
-/*!*****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/menu/GUIMenu.ts ***!
-  \*****************************************************************/
+/***/ "./src/typescript/bz/game/gui/menu/GUIMenu.ts":
+/*!****************************************************!*\
+  !*** ./src/typescript/bz/game/gui/menu/GUIMenu.ts ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25630,10 +26070,10 @@ exports.GUIMenu = GUIMenu;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/menu/GUIMenuItem.ts":
-/*!*********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/menu/GUIMenuItem.ts ***!
-  \*********************************************************************/
+/***/ "./src/typescript/bz/game/gui/menu/GUIMenuItem.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/gui/menu/GUIMenuItem.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25641,7 +26081,7 @@ exports.GUIMenu = GUIMenu;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GUIMenuItem = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 var BABYLON_GUI = __webpack_require__(/*! babylonjs-gui */ "babylonjs-gui");
 /** ********************************************************************************************************************
 *   Represents one menu item shown in the GUI menu.
@@ -25670,7 +26110,7 @@ var GUIMenuItem = /** @class */ (function () {
     *   @param y     The position Y for this menu item's text block.
     *******************************************************************************************************************/
     GUIMenuItem.prototype.createTextBlock = function (guiFg, y) {
-        this.textBlock = bz.GUIFactory.createTextBlock(this.label, bz.SettingGUI.GUI_FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, y, 500, 25, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP, null);
+        this.textBlock = bz.GUIFactory.createTextBlock(this.label, bz.SettingGUI.FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, 0, y, 500, 25, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_TOP, null);
         guiFg.addControl(this.textBlock);
     };
     /** ****************************************************************************************************************
@@ -25724,47 +26164,49 @@ exports.GUIMenuItem = GUIMenuItem;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/message/GUIMessage.ts":
-/*!***********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/message/GUIMessage.ts ***!
-  \***********************************************************************/
+/***/ "./src/typescript/bz/game/gui/textMessage/GUITextMessage.ts":
+/*!******************************************************************!*\
+  !*** ./src/typescript/bz/game/gui/textMessage/GUITextMessage.ts ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GUIMessage = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+exports.GUITextMessage = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 var BABYLON_GUI = __webpack_require__(/*! babylonjs-gui */ "babylonjs-gui");
 /** ********************************************************************************************************************
 *   Represents one GUI message that's displayed in the GUI message queue and disappearing after some time.
 ***********************************************************************************************************************/
-var GUIMessage = /** @class */ (function () {
+var GUITextMessage = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a new message text.
     *
     *   @param gui The gui to append this message text block to.
     *   @param msg The message to display in this text block.
     *******************************************************************************************************************/
-    function GUIMessage(gui, msg) {
+    function GUITextMessage(gui, msg) {
+        this.msg = null;
         /** The number of ticks this message is still visible. */
         this.lifetimeTicks = 0;
         /** The text block that contains this single message. */
-        this.messageText = null;
-        this.lifetimeTicks = bz.SettingGUI.GUI_MESSAGE_LIFETIME;
-        this.messageText = bz.GUIFactory.createTextBlock(msg, bz.SettingGUI.GUI_FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, bz.SettingGUI.GUI_BORDER_X, 0, 500, 25, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM, null);
-        gui.addControl(this.messageText);
+        this.text = null;
+        this.lifetimeTicks = bz.SettingGUI.TEXT_MESSAGE_LIFETIME;
+        this.msg = msg;
+        this.text = bz.GUIFactory.createTextBlock(msg, bz.SettingGUI.FONT_SIZE_DEFAULT, bz.SettingColor.COLOR_CSS_WHITE_OPAQUE, bz.SettingColor.COLOR_CSS_BLACK_OPAQUE, bz.SettingGUI.BORDER_X, 0, 500, 25, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_LEFT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM, null);
+        gui.addControl(this.text);
     }
     /** ****************************************************************************************************************
     *   Renders this GUI message for one game tick.
     *******************************************************************************************************************/
-    GUIMessage.prototype.render = function () {
+    GUITextMessage.prototype.render = function () {
         // decrease number of lifetime ticks
         --this.lifetimeTicks;
         // assign opacity according to lifetime ticks
-        if (this.lifetimeTicks < bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS) {
-            this.messageText.alpha = (this.lifetimeTicks / bz.SettingGUI.GUI_MESSAGE_FADE_OUT_TICKS);
+        if (this.lifetimeTicks < bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS) {
+            this.text.alpha = (this.lifetimeTicks / bz.SettingGUI.TEXT_MESSAGE_FADE_OUT_TICKS);
         }
     };
     /** ****************************************************************************************************************
@@ -25772,14 +26214,14 @@ var GUIMessage = /** @class */ (function () {
     *
     *   @return If this GUI message's lifetime is over.
     *******************************************************************************************************************/
-    GUIMessage.prototype.isLifetimeOver = function () {
+    GUITextMessage.prototype.isLifetimeOver = function () {
         return (this.lifetimeTicks <= 0);
     };
     /** ****************************************************************************************************************
     *   Disposes this GUI message's text block.
     *******************************************************************************************************************/
-    GUIMessage.prototype.dispose = function () {
-        this.messageText.dispose();
+    GUITextMessage.prototype.dispose = function () {
+        this.text.dispose();
     };
     /** ****************************************************************************************************************
     *   Assigns this GUI message's location Y according to its index and the total number of GUI messages.
@@ -25787,24 +26229,24 @@ var GUIMessage = /** @class */ (function () {
     *   @param index The index of this GUI message.
     *   @param total The total nuber of GUI messages.
     *******************************************************************************************************************/
-    GUIMessage.prototype.setPositionY = function (index, total) {
-        var MESSAGE_LINE_HEIGHT = (bz.SettingGUI.GUI_FONT_SIZE_DEFAULT + bz.SettingGUI.GUI_MESSAGE_LINES_DISTANCE_Y);
-        this.messageText.top =
-            (-bz.SettingGUI.GUI_BORDER_Y
+    GUITextMessage.prototype.setPositionY = function (index, total) {
+        var MESSAGE_LINE_HEIGHT = (bz.SettingGUI.FONT_SIZE_DEFAULT + bz.SettingGUI.TEXT_MESSAGE_LINES_DISTANCE_Y);
+        this.text.top =
+            (-bz.SettingGUI.BORDER_Y
                 - ((total - 1) * MESSAGE_LINE_HEIGHT)
                 + (index * MESSAGE_LINE_HEIGHT));
     };
-    return GUIMessage;
+    return GUITextMessage;
 }());
-exports.GUIMessage = GUIMessage;
+exports.GUITextMessage = GUITextMessage;
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/gui/message/GUIMessageManager.ts":
-/*!******************************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/gui/message/GUIMessageManager.ts ***!
-  \******************************************************************************/
+/***/ "./src/typescript/bz/game/gui/textMessage/GUITextMessageManager.ts":
+/*!*************************************************************************!*\
+  !*** ./src/typescript/bz/game/gui/textMessage/GUITextMessageManager.ts ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25822,37 +26264,44 @@ var __values = (this && this.__values) || function(o) {
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GUIMessageManager = void 0;
-var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+exports.GUITextMessageManager = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Manages all GUI messages shown in the GUI.
 ***********************************************************************************************************************/
-var GUIMessageManager = /** @class */ (function () {
-    function GUIMessageManager() {
+var GUITextMessageManager = /** @class */ (function () {
+    function GUITextMessageManager() {
         /** All GUI messages currently displayed. */
         this.messageQueue = [];
     }
     /** ****************************************************************************************************************
-    *   Renders this GUI message manager for one game tick.
+    *   Renders the GUI message manager for one game tick.
     *******************************************************************************************************************/
-    GUIMessageManager.prototype.render = function () {
+    GUITextMessageManager.prototype.render = function () {
         this.updateMessageQueue();
     };
     /** ****************************************************************************************************************
     *   Adds a message to the message queue.
     *
-    *   @param gui The gui to add the text message to.
-    *   @param msg The message to add to the message queue.
+    *   @param gui        The gui to add the text message to.
+    *   @param msg        The message to add to the message queue.
+    *   @param noFlooding If enabled, the message is ignored if the previously added text message has the same body.
     *******************************************************************************************************************/
-    GUIMessageManager.prototype.addGuiMessage = function (gui, msg) {
-        this.messageQueue.push(new bz.GUIMessage(gui, msg));
+    GUITextMessageManager.prototype.addGuiTextMessage = function (gui, msg, noFlooding) {
+        if (noFlooding
+            && this.messageQueue.length > 0
+            && this.messageQueue[this.messageQueue.length - 1].msg === msg) {
+            return;
+        }
+        // creating the GUITextMessage will show the element on the screen
+        this.messageQueue.push(new bz.GUITextMessage(gui, msg));
         this.relocateAllMessages();
     };
     /** ****************************************************************************************************************
     *   Updates the displayed GUI messages.
     *   Outdated messages are disposed, causing all remaining messages to relocate.
     *******************************************************************************************************************/
-    GUIMessageManager.prototype.updateMessageQueue = function () {
+    GUITextMessageManager.prototype.updateMessageQueue = function () {
         var e_1, _a;
         try {
             // render GUI messages
@@ -25885,22 +26334,55 @@ var GUIMessageManager = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Relocates all GUI messages concerning the Y location.
     *******************************************************************************************************************/
-    GUIMessageManager.prototype.relocateAllMessages = function () {
+    GUITextMessageManager.prototype.relocateAllMessages = function () {
         for (var index = 0; index < this.messageQueue.length; ++index) {
             this.messageQueue[index].setPositionY(index, this.messageQueue.length);
         }
     };
-    return GUIMessageManager;
+    return GUITextMessageManager;
 }());
-exports.GUIMessageManager = GUIMessageManager;
+exports.GUITextMessageManager = GUITextMessageManager;
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/Bot.ts":
-/*!***********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/Bot.ts ***!
-  \***********************************************************/
+/***/ "./src/typescript/bz/game/inventory/Inventory.ts":
+/*!*******************************************************!*\
+  !*** ./src/typescript/bz/game/inventory/Inventory.ts ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Inventory = void 0;
+/** ********************************************************************************************************************
+*   Represents one Player inventory.
+***********************************************************************************************************************/
+var Inventory = /** @class */ (function () {
+    /** ****************************************************************************************************************
+    *   Creates a new Player inventory.
+    *
+    *   @param numberOfPainkillers The number of painkillers in this inventory.
+    *******************************************************************************************************************/
+    function Inventory(numberOfPainkillers) {
+        if (numberOfPainkillers === void 0) { numberOfPainkillers = 0; }
+        /** Number of painkillers carried by the player. */
+        this.numberOfPainkillers = 0;
+        this.numberOfPainkillers = numberOfPainkillers;
+    }
+    return Inventory;
+}());
+exports.Inventory = Inventory;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/object/Bot.ts":
+/*!**********************************************!*\
+  !*** ./src/typescript/bz/game/object/Bot.ts ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25921,7 +26403,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bot = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a character being controlled by the cpu.
 ***********************************************************************************************************************/
@@ -25943,10 +26425,104 @@ exports.Bot = Bot;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/GameObject.ts":
-/*!******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/GameObject.ts ***!
-  \******************************************************************/
+/***/ "./src/typescript/bz/game/object/Collectable.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/game/object/Collectable.ts ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Collectable = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Represents a pickable item.
+***********************************************************************************************************************/
+var Collectable = /** @class */ (function (_super) {
+    __extends(Collectable, _super);
+    /** ****************************************************************************************************************
+    *   Creates a new event trigger.
+    *
+    *   @param stage    The stage where this Trigger is created.
+    *   @param position Position of the trigger.
+    *   @param eventsOnPicked The events to execute when this trigger is picked.
+    *   @param model          The graphical representation of this trigger/item.
+    *******************************************************************************************************************/
+    function Collectable(stage, position, eventsOnPicked, model) {
+        if (model === void 0) { model = new bz.Model(); }
+        var _this = _super.call(this, stage, model) || this;
+        /** Flags that this item has been picked. */
+        _this.picked = false;
+        /** The events to perform when this item is picked. */
+        _this.eventsOnPicked = [];
+        _this.eventsOnPicked = eventsOnPicked;
+        // translate model to item position
+        _this.model.translatePosition(position);
+        return _this;
+    }
+    /** ****************************************************************************************************************
+    *   Renders all stage concernings for one tick of the game loop.
+    *******************************************************************************************************************/
+    Collectable.prototype.render = function () {
+        // check if picked by player
+        if (this.checkPick(this.stage.getPlayer().getPosition())) {
+            // add to stage event pipeline
+            this.stage.addEventsToPipeline(this.eventsOnPicked);
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Flags this item as 'picked'.
+    *******************************************************************************************************************/
+    Collectable.prototype.pick = function () {
+        bz.Debug.item.log('Item/Trigger picked');
+        this.picked = true;
+    };
+    /** ****************************************************************************************************************
+    *   Checks if this item is picked by colliding with the specified model.
+    *
+    *   @param playerPosition The currenrt player position.
+    *
+    *   @return <code>true</code> if this item has been picked in this check.
+    *******************************************************************************************************************/
+    Collectable.prototype.checkPick = function (playerPosition) {
+        // only if not picked yet
+        if (!this.picked) {
+            var currentPosition = this.getCurrentPosition();
+            // get distance between item and player
+            var distance = BABYLON.Vector3.Distance(currentPosition, playerPosition);
+            if (distance < bz.SettingPlayer.RANGE_ITEM_PICK) {
+                this.pick();
+                return true;
+            }
+        }
+        return false;
+    };
+    return Collectable;
+}(bz.GameObject));
+exports.Collectable = Collectable;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/object/GameObject.ts":
+/*!*****************************************************!*\
+  !*** ./src/typescript/bz/game/object/GameObject.ts ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25965,7 +26541,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GameObject = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   The parent class of all game objects.
 ***********************************************************************************************************************/
@@ -26121,10 +26697,10 @@ exports.GameObject = GameObject;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/Item.ts":
-/*!************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/Item.ts ***!
-  \************************************************************/
+/***/ "./src/typescript/bz/game/object/Item.ts":
+/*!***********************************************!*\
+  !*** ./src/typescript/bz/game/object/Item.ts ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26145,7 +26721,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Item = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a pickable item.
 ***********************************************************************************************************************/
@@ -26169,45 +26745,104 @@ var Item = /** @class */ (function (_super) {
     *******************************************************************************************************************/
     Item.prototype.render = function () {
         _super.prototype.render.call(this);
-        // rotate this item
+        // only render if not picked
         if (!this.picked) {
-            this.model.setAbsoluteRotationXYZ(0.0, this.rotY, 0.0);
-            this.rotY += 0.5;
+            // this will prevent the items from tilting
+            if (bz.SettingEngine.ITEMS_ALWAYS_UPRIGHT_AND_ROTATING
+                && !bz.SettingEngine.ITEMS_CAN_BE_SHOT) {
+                this.model.setAbsoluteRotationXYZ(0.0, this.rotY, 0.0);
+                this.rotY += 0.5;
+            }
         }
     };
+    /** ****************************************************************************************************************
+    *   Flags this item as 'picked' and disposes the model with all according bullet holes.
+    *******************************************************************************************************************/
+    Item.prototype.pick = function () {
+        _super.prototype.pick.call(this);
+        // dispose the model and dispose all bullet holes from the stage
+        this.model.dispose();
+        this.stage.disposeBulletHolesForGameObject(this);
+    };
+    /** ****************************************************************************************************************
+    *   Delivers the current position (1st mesh's pivot point) of the item's physical body.
+    *******************************************************************************************************************/
+    Item.prototype.getCurrentPosition = function () {
+        return this.getModel().getMesh(0).getAbsolutePivotPoint();
+    };
+    /** ****************************************************************************************************************
+    *   Create the default events for this item type.
+    *
+    *   @param itemType Type of item to create events for.
+    *
+    *   @return Created events for the specified item type.
+    *******************************************************************************************************************/
     Item.createEventsByItemType = function (itemType) {
         switch (itemType) {
             case bz.ItemType.SHOTGUN_SHELLS:
                 {
                     return [
-                        new bz.Event(bz.EventType.SHOW_GUI_MESSAGE, new bz.EventDataShowGuiMessage('Picked up some shotgun shells')),
-                        new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.GAIN_ENERGY)),
+                        new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Picked up some shotgun shells')),
+                        new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.PICK_UP_ITEM)),
+                    ];
+                }
+            case bz.ItemType.BULLETS_792MM:
+                {
+                    return [
+                        new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Picked up some bullets 792mm')),
+                        new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.PICK_UP_ITEM)),
+                    ];
+                }
+            case bz.ItemType.PAINKILLER:
+                {
+                    return [
+                        new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Picked up a Painkiller')),
+                        new bz.Event(bz.EventType.GAIN_PAINKILLERS, new bz.EventDataGainPainkillers(1)),
+                        new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.PICK_UP_ITEM)),
                     ];
                 }
         }
         return [];
     };
+    /** ****************************************************************************************************************
+    *   Create the representational 3d model for this item type.
+    *
+    *   @param stage    The stage to create this 3d model in.
+    *   @param itemType Type of item to create 3d model for.
+    *
+    *   @return The created 3d model for the specified item type.
+    *******************************************************************************************************************/
     Item.createModelByItemType = function (stage, itemType) {
         switch (itemType) {
             case bz.ItemType.SHOTGUN_SHELLS:
                 {
-                    var shells = new bz.MeshFactory(stage.getScene(), stage.getConfig().ambientColor).createImportedModel(bz.ModelFile.ITEM_SHOTGUN_SHELLS);
-                    shells.changeTexture('shells.jpg', '792mmBullet.jpg');
-                    return shells;
+                    return new bz.MeshFactory(stage.getScene(), stage.getConfig().ambientColor).createImportedModel(bz.ModelFile.ITEM_SHOTGUN_SHELLS, BABYLON.Vector3.Zero(), bz.PhysicSet.ITEM);
+                }
+            case bz.ItemType.BULLETS_792MM:
+                {
+                    return new bz.MeshFactory(stage.getScene(), stage.getConfig().ambientColor)
+                        .createImportedModel(bz.ModelFile.ITEM_SHOTGUN_SHELLS, BABYLON.Vector3.Zero(), bz.PhysicSet.ITEM)
+                        .changeTexture(stage.getScene(), bz.SettingResource.PATH_MODEL + 'item/shells.jpg', bz.SettingResource.PATH_MODEL + 'item/bullets792mm.jpg');
+                }
+            case bz.ItemType.PAINKILLER:
+                {
+                    return new bz.MeshFactory(stage.getScene(), stage.getConfig().ambientColor)
+                        .createImportedModel(bz.ModelFile.ITEM_SHOTGUN_SHELLS, BABYLON.Vector3.Zero(), bz.PhysicSet.ITEM)
+                        .changeTexture(stage.getScene(), bz.SettingResource.PATH_MODEL + 'item/shells.jpg', bz.SettingResource.PATH_MODEL + 'item/bullets44mm.jpg');
                 }
         }
     };
     return Item;
-}(bz.Trigger));
+}(bz.Collectable));
 exports.Item = Item;
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/ItemType.ts":
-/*!****************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/ItemType.ts ***!
-  \****************************************************************/
+/***/ "./src/typescript/bz/game/object/ItemType.ts":
+/*!***************************************************!*\
+  !*** ./src/typescript/bz/game/object/ItemType.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26222,15 +26857,19 @@ var ItemType;
 (function (ItemType) {
     /** Shotgun shells ammo. */
     ItemType[ItemType["SHOTGUN_SHELLS"] = 0] = "SHOTGUN_SHELLS";
+    /** Bullets 792mm */
+    ItemType[ItemType["BULLETS_792MM"] = 1] = "BULLETS_792MM";
+    /** Painkillers restore the player's energy. */
+    ItemType[ItemType["PAINKILLER"] = 2] = "PAINKILLER";
 })(ItemType = exports.ItemType || (exports.ItemType = {}));
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/Player.ts":
-/*!**************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/Player.ts ***!
-  \**************************************************************/
+/***/ "./src/typescript/bz/game/object/Player.ts":
+/*!*************************************************!*\
+  !*** ./src/typescript/bz/game/object/Player.ts ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26251,7 +26890,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Player = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
 ***********************************************************************************************************************/
@@ -26264,23 +26903,25 @@ var Player = /** @class */ (function (_super) {
     *   @param scene         The scene reference.
     *   @param position      The initial position.
     *   @param rotation      The initial rotation.
+    *   @param inventory     The initial inventory.
     *   @param emissiveColor The emissive color of all mesh faces.
     *******************************************************************************************************************/
-    function Player(stage, scene, position, rotation, emissiveColor) {
+    function Player(stage, scene, position, rotation, inventory, emissiveColor) {
         if (scene === void 0) { scene = stage.getScene(); }
         if (position === void 0) { position = stage.getConfig().startupPosition; }
         if (rotation === void 0) { rotation = stage.getConfig().startupRotation; }
+        if (inventory === void 0) { inventory = stage.getConfig().startupInventory; }
         if (emissiveColor === void 0) { emissiveColor = stage.getConfig().ambientColor; }
         var _this = _super.call(this, stage, new bz.Model([
             // Player.PLAYER_BODY_ID
-            new bz.MeshFactory(scene, emissiveColor).createCylinder(position.clone().addInPlace(new BABYLON.Vector3(0.0, 0.0, 0.0)), bz.MeshAnchor.CENTER_XYZ, bz.SettingPlayer.DIAMETER_BODY, bz.SettingPlayer.HEIGHT_Y_STANDING, BABYLON.Vector3.Zero(), bz.TextureFile.WALL_GLASS, null, bz.PhysicSet.PLAYER_HUMAN, 0.5),
+            new bz.MeshFactory(scene, emissiveColor).createCylinder(position.clone().addInPlace(new BABYLON.Vector3(0.0, 0.0, 0.0)), bz.MeshAnchor.CENTER_XYZ, bz.SettingPlayer.DIAMETER_BODY, bz.SettingPlayer.HEIGHT_Y_STANDING, BABYLON.Vector3.Zero(), bz.TextureFile.WALL_GLASS_1, null, bz.PhysicSet.PLAYER_HUMAN, 0.5),
             // Player.PLAYER_HEAD_ID
             new bz.MeshFactory(scene, emissiveColor).createSphere(position.clone().addInPlace(new BABYLON.Vector3(0.0, ((bz.SettingPlayer.HEIGHT_Y_STANDING / 2)
-                - (bz.SettingPlayer.DIAMETER_HEAD / 2)), 0.0)), bz.MeshAnchor.CENTER_XYZ, bz.SettingPlayer.DIAMETER_HEAD, BABYLON.Vector3.Zero(), bz.TextureFile.WALL_SKIN_ROSE, null, bz.PhysicSet.NONE),
+                - (bz.SettingPlayer.DIAMETER_HEAD / 2)), 0.0)), bz.MeshAnchor.CENTER_XYZ, bz.SettingPlayer.DIAMETER_HEAD, BABYLON.Vector3.Zero(), bz.TextureFile.WALL_SKIN_1, null, bz.PhysicSet.NONE),
             // Player.PLAYER_LEFT_HAND_ID
-            new bz.MeshFactory(scene, emissiveColor).createBox(position.clone().addInPlace(new BABYLON.Vector3(-1.25, 1.25, 0.0)), bz.TextureFile.WALL_SKIN_ROSE, new BABYLON.Vector3(0.25, 0.25, 0.25)),
+            new bz.MeshFactory(scene, emissiveColor).createBox(position.clone().addInPlace(new BABYLON.Vector3(-1.25, 1.25, 0.0)), bz.TextureFile.WALL_SKIN_1, new BABYLON.Vector3(0.25, 0.25, 0.25)),
             // Player.PLAYER_RIGHT_HAND_ID
-            new bz.MeshFactory(scene, emissiveColor).createBox(position.clone().addInPlace(new BABYLON.Vector3(1.25, 1.25, 0.0)), bz.TextureFile.WALL_SKIN_ROSE, new BABYLON.Vector3(0.25, 0.25, 0.25)),
+            new bz.MeshFactory(scene, emissiveColor).createBox(position.clone().addInPlace(new BABYLON.Vector3(1.25, 1.25, 0.0)), bz.TextureFile.WALL_SKIN_1, new BABYLON.Vector3(0.25, 0.25, 0.25)),
         ])) || this;
         /** The current height of the player. Changes on ducking. */
         _this.heightY = 0.0;
@@ -26307,8 +26948,12 @@ var Player = /** @class */ (function (_super) {
         _this.moveDelta = null;
         /** All player physic settings. */
         _this.playerPhysics = null;
+        /** The inventory this player is carrying. */
+        _this.inventory = null;
         // new player physics instance
         _this.playerPhysics = new bz.PlayerPhysic(_this.model);
+        // new player inventory
+        _this.inventory = inventory;
         // assign initial rotation, rotation delta and move delta
         _this.rotation = rotation;
         _this.rotationDelta = BABYLON.Vector3.Zero();
@@ -26362,23 +27007,20 @@ var Player = /** @class */ (function (_super) {
         return this.playerPhysics.body;
     };
     /** ****************************************************************************************************************
-    *   Teleport the player to the target position.
+    *   Delivers the current position of the player body.
     *
-    *   @param position The position to teleport the player to.
+    *   @return Current player body position.
     *******************************************************************************************************************/
-    Player.prototype.setPosition = function (position) {
-        this.playerPhysics.body.position = position;
-    };
-    /** ****************************************************************************************************************
-    *   Set the specified rotation to the player.
-    *
-    *   @param rotation The rotation to apply to the player.
-    *******************************************************************************************************************/
-    Player.prototype.setRotation = function (rotation) {
-        this.rotation.set(rotation.x, rotation.y, rotation.z);
-    };
     Player.prototype.getPosition = function () {
         return this.playerPhysics.body.position;
+    };
+    /** ****************************************************************************************************************
+    *   Delivers the current inventory of the player.
+    *
+    *   @return The player's current holded inventory.
+    *******************************************************************************************************************/
+    Player.prototype.getInventory = function () {
+        return this.inventory;
     };
     /** ****************************************************************************************************************
     *   Handles all keys for the player.
@@ -26485,6 +27127,11 @@ var Player = /** @class */ (function (_super) {
         if (keySystem.isPressed(bz.KeyCodes.KEY_X)) {
             keySystem.setNeedsRelease(bz.KeyCodes.KEY_X);
             this.turnAroundTicks = bz.SettingPlayer.TICKS_TURN_AROUND;
+        }
+        // consume painkiller
+        if (keySystem.isPressed(bz.KeyCodes.KEY_BACKSPACE)) {
+            keySystem.setNeedsRelease(bz.KeyCodes.KEY_BACKSPACE);
+            this.consumePainkiller();
         }
     };
     /** ****************************************************************************************************************
@@ -26754,6 +27401,35 @@ var Player = /** @class */ (function (_super) {
         // update player limbs positions
         this.positionPlayerLimbs();
     };
+    /** ****************************************************************************************************************
+    *   Lets the Player consume one pain killer.
+    *******************************************************************************************************************/
+    Player.prototype.consumePainkiller = function () {
+        // check if painkillers are available
+        if (this.inventory.numberOfPainkillers <= 0) {
+            this.stage.addEventsToPipeline([
+                new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('No painkillers available!', true)),
+            ]);
+            return;
+        }
+        // lower number of painkillers
+        --this.inventory.numberOfPainkillers;
+        var message = 'Consumed one Painkiller.';
+        if (this.inventory.numberOfPainkillers > 1) {
+            message += ' ' + String(this.inventory.numberOfPainkillers) + ' remaining.';
+        }
+        else if (this.inventory.numberOfPainkillers === 1) {
+            message += ' One remaining.';
+        }
+        else {
+            message += ' No more left.';
+        }
+        // trigger stage events
+        this.stage.addEventsToPipeline([
+            new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.GAIN_ENERGY)),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage(message)),
+        ]);
+    };
     return Player;
 }(bz.GameObject));
 exports.Player = Player;
@@ -26761,10 +27437,10 @@ exports.Player = Player;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/PlayerPhysic.ts":
-/*!********************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/PlayerPhysic.ts ***!
-  \********************************************************************/
+/***/ "./src/typescript/bz/game/object/PlayerPhysic.ts":
+/*!*******************************************************!*\
+  !*** ./src/typescript/bz/game/object/PlayerPhysic.ts ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26772,7 +27448,7 @@ exports.Player = Player;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlayerPhysic = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Handles all physical aspects of the player.
 ***********************************************************************************************************************/
@@ -26810,13 +27486,13 @@ var PlayerPhysic = /** @class */ (function () {
         return (this.body.physicsImpostor !== undefined
             && this.body.physicsImpostor.getLinearVelocity().y <= bz.SettingPlayer.FALLING_VELOCITY_Y);
     };
-    /** The id of the player's body mesh in the mesh array. */
+    /** The id of the player's body mesh inside the mesh array. */
     PlayerPhysic.PLAYER_BODY_ID = 0;
-    /** The id of the player's head mesh in the mesh array. */
+    /** The id of the player's head mesh inside the mesh array. */
     PlayerPhysic.PLAYER_HEAD_ID = 1;
-    /** The id of the player's left hand mesh in the mesh array. */
+    /** The id of the player's left hand mesh inside the mesh array. */
     PlayerPhysic.PLAYER_LEFT_HAND_ID = 2;
-    /** The id of the player's left hand mesh in the mesh array. */
+    /** The id of the player's left hand mesh inside the mesh array. */
     PlayerPhysic.PLAYER_RIGHT_HAND_ID = 3;
     return PlayerPhysic;
 }());
@@ -26825,10 +27501,10 @@ exports.PlayerPhysic = PlayerPhysic;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/Trigger.ts":
-/*!***************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/Trigger.ts ***!
-  \***************************************************************/
+/***/ "./src/typescript/bz/game/object/Trigger.ts":
+/*!**************************************************!*\
+  !*** ./src/typescript/bz/game/object/Trigger.ts ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26849,74 +27525,80 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Trigger = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
-*   Represents a pickable item.
+*   Represents an event trigger.
 ***********************************************************************************************************************/
 var Trigger = /** @class */ (function (_super) {
     __extends(Trigger, _super);
-    function Trigger(stage, position, eventsOnPicked, model) {
-        if (model === void 0) { model = new bz.Model(); }
-        var _this = _super.call(this, stage, model) || this;
-        /** Flags that this item has been picked. */
-        _this.picked = false;
+    /** ****************************************************************************************************************
+    *   Creates a new event trigger.
+    *
+    *   @param stage          The stage where this Trigger is created.
+    *   @param position       Position of the trigger.
+    *   @param eventsOnPicked The events to execute when this trigger is picked.
+    *******************************************************************************************************************/
+    function Trigger(stage, position, eventsOnPicked) {
+        var _this = _super.call(this, stage, position, eventsOnPicked, new bz.Model()) || this;
+        /** The debug normal line of the hit face. */
+        _this.debugSphereMesh = null;
         /** The initial and static position of this item. */
-        _this.itemPosition = null;
-        /** The events to perform when this item is picked. */
-        _this.eventsOnPicked = [];
-        _this.itemPosition = position;
-        _this.eventsOnPicked = eventsOnPicked;
-        // translate model to item position
-        _this.model.translatePosition(position);
+        _this.triggerPosition = null;
+        _this.triggerPosition = position;
+        // add debug point
+        if (bz.SettingDebug.SHOW_TRIGGER && _this.model.getMeshCount() === 0) {
+            _this.createDebugHoleSphere(stage.getScene(), position);
+        }
         return _this;
     }
     /** ****************************************************************************************************************
-    *   Renders all stage concernings for one tick of the game loop.
-    *******************************************************************************************************************/
-    Trigger.prototype.render = function () {
-        // check if picked by player
-        if (this.checkPick(this.stage.getPlayer().getPosition())) {
-            // add to stage event pipeline
-            this.stage.addEventsToPipeline(this.eventsOnPicked);
-        }
-    };
-    /** ****************************************************************************************************************
-    *   Checks if this item is picked by colliding with the specified model.
-    *
-    *   @param playerPosition The currenrt player position.
-    *
-    *   @return <code>true</code> if this item was picked.
-    *******************************************************************************************************************/
-    Trigger.prototype.checkPick = function (playerPosition) {
-        if (!this.picked) {
-            // get distance between item and player
-            var distance = BABYLON.Vector3.Distance(this.itemPosition, playerPosition);
-            if (distance < bz.SettingPlayer.RANGE_ITEM_PICK) {
-                this.pick();
-                return true;
-            }
-        }
-        return false;
-    };
-    /** ****************************************************************************************************************
-    *   Flags this item as 'picked' and makes it invisible.
+    *   Flags this trigger as 'picked' and disposes the debug sphere mesh, if any.
     *******************************************************************************************************************/
     Trigger.prototype.pick = function () {
-        bz.Debug.item.log('Item/Trigger picked');
-        this.picked = true;
-        this.model.setVisible(false);
+        _super.prototype.pick.call(this);
+        // hide debugSphereMesh
+        if (this.debugSphereMesh !== null) {
+            this.debugSphereMesh.dispose();
+            this.debugSphereMesh = null;
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Disposes all meshes of this bullet hole.
+    *******************************************************************************************************************/
+    Trigger.prototype.dispose = function () {
+        _super.prototype.dispose.call(this);
+        if (this.debugSphereMesh !== null) {
+            this.debugSphereMesh.dispose();
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Delivers the static position of this trigger.
+    *******************************************************************************************************************/
+    Trigger.prototype.getCurrentPosition = function () {
+        return this.triggerPosition;
+    };
+    /** ****************************************************************************************************************
+    *   Creates a debug bullet hole sphere at the specified position.
+    *
+    *   @param scene    The scene to create the bullet hole for.
+    *   @param position Position for this debug sphere.
+    *******************************************************************************************************************/
+    Trigger.prototype.createDebugHoleSphere = function (scene, position) {
+        // create debug bullet hole
+        var meshFactory = new bz.MeshFactory(scene, bz.SettingColor.COLOR_RGB_GREEN);
+        this.debugSphereMesh = meshFactory.createSphere(position, bz.MeshAnchor.CENTER_XYZ, 0.10, new BABYLON.Vector3(0.0, 0.0, 0.0), null, bz.SettingColor.COLOR_RGB_GREEN, bz.PhysicSet.NONE, 1.0);
     };
     return Trigger;
-}(bz.GameObject));
+}(bz.Collectable));
 exports.Trigger = Trigger;
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/object/Wall.ts":
-/*!************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/object/Wall.ts ***!
-  \************************************************************/
+/***/ "./src/typescript/bz/game/object/Wall.ts":
+/*!***********************************************!*\
+  !*** ./src/typescript/bz/game/object/Wall.ts ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26937,7 +27619,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Wall = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a static OR movable wall object.
 ***********************************************************************************************************************/
@@ -26978,10 +27660,10 @@ exports.Wall = Wall;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/stage/Stage.ts":
-/*!************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/stage/Stage.ts ***!
-  \************************************************************/
+/***/ "./src/typescript/bz/game/stage/Stage.ts":
+/*!***********************************************!*\
+  !*** ./src/typescript/bz/game/stage/Stage.ts ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27000,8 +27682,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Stage = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
-var __1 = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Represents a custom stage set.
 ***********************************************************************************************************************/
@@ -27019,7 +27700,7 @@ var Stage = /** @class */ (function () {
         /** A collection of all walls in this stage. */
         this.walls = [];
         /** A collection of all items in this stage. */
-        this.items = [];
+        this.collectables = [];
         /** A collection of all bots in this stage. */
         this.bots = [];
         /** A collection of all sprites that appear in this stage. */
@@ -27040,8 +27721,12 @@ var Stage = /** @class */ (function () {
         this.player = null;
         /** The skybox that surrounds the whole stage. */
         this.skybox = null;
+        /** Handles one single blocking UI pipeline (for event blocking UI messages). */
+        this.uiThreadPipeline = [];
         /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
         this.eventPipelines = [];
+        /** The particle helper fx 'rain' for this stage. */
+        this.rainEffect = null;
         this.game = game;
         this.scene = game.getScene();
     }
@@ -27057,18 +27742,22 @@ var Stage = /** @class */ (function () {
         // create all stage contents
         var meshFactory = new bz.MeshFactory(this.scene, this.config.ambientColor);
         this.createStageContents(meshFactory);
-        // set player startup position and rotation if desired
-        if (this.config.startupPosition !== null) {
-            this.player.setPosition(this.config.startupPosition);
-        }
-        if (this.config.startupRotation !== null) {
-            this.player.setRotation(this.config.startupRotation);
-        }
+        // player startup position and rotation must be set via config object!
+        /*
+                if ( this.config.startupPosition !== null )
+                {
+                    this.player.setPosition( this.config.startupPosition );
+                }
+                if ( this.config.startupRotation !== null )
+                {
+                    this.player.setRotation( this.config.startupRotation );
+                }
+        */
         // create cameras and set initial cam
         this.cameraSystem = this.createCameraSystem();
         this.setActiveCamera(this.config.initialCamera);
         // add debug axis
-        if (bz.SettingDebug.DEBUG_COORDINATE_AXIS_ENABLED) {
+        if (bz.SettingDebug.ENABLE_COORDINATE_AXIS) {
             this.addCoordinalAxis();
         }
     };
@@ -27099,7 +27788,7 @@ var Stage = /** @class */ (function () {
         }
         try {
             // render items
-            for (var _e = __values(this.items), _f = _e.next(); !_f.done; _f = _e.next()) {
+            for (var _e = __values(this.collectables), _f = _e.next(); !_f.done; _f = _e.next()) {
                 var item = _f.value;
                 item.render();
             }
@@ -27111,7 +27800,7 @@ var Stage = /** @class */ (function () {
             }
             finally { if (e_2) throw e_2.error; }
         }
-        // handle events
+        // handle event system
         this.handleEventPipeline();
     };
     /** ****************************************************************************************************************
@@ -27139,7 +27828,7 @@ var Stage = /** @class */ (function () {
         }
         try {
             // dispose all items
-            for (var _l = __values(this.items), _m = _l.next(); !_m.done; _m = _l.next()) {
+            for (var _l = __values(this.collectables), _m = _l.next(); !_m.done; _m = _l.next()) {
                 var item = _m.value;
                 item.dispose();
             }
@@ -27241,6 +27930,34 @@ var Stage = /** @class */ (function () {
         }
         // dispose camera system
         this.cameraSystem.dispose();
+        // dispose rain effect
+        if (this.rainEffect !== null) {
+            this.rainEffect.dispose();
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Removed all bullet holes that are associated to the specified game object.
+    *
+    *   @param gameObject The game object to remove all bullet holes for.
+    *******************************************************************************************************************/
+    Stage.prototype.disposeBulletHolesForGameObject = function (gameObject) {
+        var e_11, _a;
+        try {
+            // browse all bullet holes
+            for (var _b = __values(this.bulletHoles), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var bulletHole = _c.value;
+                if (bulletHole.getGameObject() === gameObject) {
+                    bulletHole.dispose();
+                }
+            }
+        }
+        catch (e_11_1) { e_11 = { error: e_11_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_11) throw e_11.error; }
+        }
     };
     /** ****************************************************************************************************************
     *   Sets the active camera for this stage.
@@ -27254,7 +27971,7 @@ var Stage = /** @class */ (function () {
     *   @param shot The shot to apply onto the stage.
     *******************************************************************************************************************/
     Stage.prototype.applyShot = function (shot) {
-        var e_11, _a;
+        var e_12, _a;
         // add debug line
         if (bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS) {
             this.debugMeshes.push(shot.createDebugLine(this.scene));
@@ -27272,12 +27989,12 @@ var Stage = /** @class */ (function () {
                 this.addBulletHole(bulletHole);
             }
         }
-        catch (e_11_1) { e_11 = { error: e_11_1 }; }
+        catch (e_12_1) { e_12 = { error: e_12_1 }; }
         finally {
             try {
                 if (impactHitPoints_1_1 && !impactHitPoints_1_1.done && (_a = impactHitPoints_1.return)) _a.call(impactHitPoints_1);
             }
-            finally { if (e_11) throw e_11.error; }
+            finally { if (e_12) throw e_12.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -27286,7 +28003,7 @@ var Stage = /** @class */ (function () {
     *   @param interaction The interaction to apply onto the stage.
     *******************************************************************************************************************/
     Stage.prototype.applyInteraction = function (interaction) {
-        var e_12, _a;
+        var e_13, _a;
         // get all hit points for this interaction (won't hurt the game objects)
         var hitPoints = this.determineAllHitPoints(interaction, true);
         bz.Debug.player.log(' Gathered [' + String(hitPoints.length) + '] interaction hit points');
@@ -27300,46 +28017,64 @@ var Stage = /** @class */ (function () {
                 var hitGameObject = impactHitPoint.getGameObject();
                 if (hitGameObject instanceof bz.Wall
                     && hitGameObject.interactionEvents !== null
-                    && !(hitGameObject.interactionType === __1.InteractionType.ONCE
+                    && !(hitGameObject.interactionType === bz.InteractionType.ONCE
                         && hitGameObject.alreadyInteractedwith)) {
                     hitGameObject.alreadyInteractedwith = true;
                     this.addEventsToPipeline(hitGameObject.interactionEvents);
                 }
             }
         }
-        catch (e_12_1) { e_12 = { error: e_12_1 }; }
+        catch (e_13_1) { e_13 = { error: e_13_1 }; }
         finally {
             try {
                 if (impactHitPoints_2_1 && !impactHitPoints_2_1.done && (_a = impactHitPoints_2.return)) _a.call(impactHitPoints_2);
             }
-            finally { if (e_12) throw e_12.error; }
+            finally { if (e_13) throw e_13.error; }
         }
     };
+    /** ****************************************************************************************************************
+    *   Adds the specified events to a new event pipeline inside this stage.
+    *
+    *   @param events The events to add into a new event pipeline of this stage.
+    *******************************************************************************************************************/
     Stage.prototype.addEventsToPipeline = function (events) {
-        var e_13, _a;
+        var e_14, _a;
         // reset event data
         var newEvents = [];
+        var addToUiPipeline = false;
         try {
             for (var events_1 = __values(events), events_1_1 = events_1.next(); !events_1_1.done; events_1_1 = events_1.next()) {
                 var event_1 = events_1_1.value;
-                // clone the TIME_DELAY effect in order to use a discreet object with an own elapse-counter here!
+                // special handling for TIME_DELAY events
                 if (event_1.type === bz.EventType.TIME_DELAY) {
-                    // this object cloning might look like a technical debt
+                    // a clone of the TIME_DELAY event is created and added so it has an own elapse-counter
                     newEvents.push(new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay(event_1.data.delayInFrames)));
                 }
                 else {
+                    // add the event
                     newEvents.push(event_1);
+                    // postpone a TIME_DELAY event for shown GUI game messages
+                    if (event_1.type === bz.EventType.SHOW_GUI_GAME_MESSAGE) {
+                        newEvents.push(new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay((bz.SettingGUI.GAME_MESSAGE_LIFETIME
+                            + bz.SettingGUI.GAME_MESSAGE_DELAY_BETWEEN_MESSAGES))));
+                        addToUiPipeline = true;
+                    }
                 }
             }
         }
-        catch (e_13_1) { e_13 = { error: e_13_1 }; }
+        catch (e_14_1) { e_14 = { error: e_14_1 }; }
         finally {
             try {
                 if (events_1_1 && !events_1_1.done && (_a = events_1.return)) _a.call(events_1);
             }
-            finally { if (e_13) throw e_13.error; }
+            finally { if (e_14) throw e_14.error; }
         }
-        this.eventPipelines.push(newEvents);
+        if (addToUiPipeline) {
+            this.uiThreadPipeline = this.uiThreadPipeline.concat(newEvents);
+        }
+        else {
+            this.eventPipelines.push(newEvents);
+        }
     };
     /** ****************************************************************************************************************
     *   Delivers the current selected index of the pause menu.
@@ -27363,19 +28098,19 @@ var Stage = /** @class */ (function () {
     *   @param pause The pause state to assign.
     *******************************************************************************************************************/
     Stage.prototype.setSpritePause = function (pause) {
-        var e_14, _a;
+        var e_15, _a;
         try {
             for (var _b = __values(this.sprites), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var sprite = _c.value;
                 sprite.setPause(pause);
             }
         }
-        catch (e_14_1) { e_14 = { error: e_14_1 }; }
+        catch (e_15_1) { e_15 = { error: e_15_1 }; }
         finally {
             try {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            finally { if (e_14) throw e_14.error; }
+            finally { if (e_15) throw e_15.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -27441,6 +28176,38 @@ var Stage = /** @class */ (function () {
         this.skybox = new bz.MeshFactory(this.scene, this.config.ambientColor).createSkyBoxCube(file, alpha);
     };
     /** ****************************************************************************************************************
+    *   Adds a rain effect to the stage.
+    *******************************************************************************************************************/
+    Stage.prototype.setRainEffect = function (size, quantity, gravity) {
+        var _this = this;
+        if (size === void 0) { size = 0.3; }
+        if (quantity === void 0) { quantity = 600; }
+        if (gravity === void 0) { gravity = new BABYLON.Vector3(0.0, 0.0, 0.0); }
+        BABYLON.ParticleHelper.CreateAsync('rain', this.scene.getNativeScene(), false).then(function (set) {
+            var e_16, _a;
+            _this.rainEffect = set;
+            try {
+                for (var _b = __values(_this.rainEffect.systems), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var system = _c.value;
+                    system.maxScaleX = size;
+                    system.maxScaleY = size;
+                    system.emitRate = quantity;
+                    system.gravity = gravity;
+                }
+            }
+            catch (e_16_1) { e_16 = { error: e_16_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_16) throw e_16.error; }
+            }
+            _this.rainEffect.start();
+        }).catch(function () {
+            // no need to handle this error
+        });
+    };
+    /** ****************************************************************************************************************
     *   Adds a sprite to the stage.
     *
     *   @param sprite The sprite to add to this stage.
@@ -27449,12 +28216,12 @@ var Stage = /** @class */ (function () {
         this.sprites.push(sprite);
     };
     /** ****************************************************************************************************************
-    *   Adds an item to the stage.
+    *   Adds a collectable to the stage.
     *
-    *   @param item The item to add to this stage.
+    *   @param collectable The collectable to add to this stage.
     *******************************************************************************************************************/
-    Stage.prototype.addItem = function (item) {
-        this.items.push(item);
+    Stage.prototype.addCollectable = function (collectable) {
+        this.collectables.push(collectable);
     };
     /** ****************************************************************************************************************
     *   Adds a light to the stage.
@@ -27464,6 +28231,7 @@ var Stage = /** @class */ (function () {
     Stage.prototype.addLight = function (light) {
         this.lights.push(light);
     };
+    // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Adds a bot to the stage.
     *
@@ -27472,11 +28240,12 @@ var Stage = /** @class */ (function () {
     Stage.prototype.addBot = function (bot) {
         this.bots.push(bot);
     };
+    // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Adds a shadow generator for the specified shadow light.
     *******************************************************************************************************************/
     Stage.prototype.addShadowGenerator = function (light) {
-        var e_15, _a;
+        var e_17, _a;
         if (!bz.SettingEngine.ENABLE_SHADOWS) {
             return;
         }
@@ -27491,12 +28260,12 @@ var Stage = /** @class */ (function () {
                 wall.getModel().applyShadowGenerator(shadowGenerator);
             }
         }
-        catch (e_15_1) { e_15 = { error: e_15_1 }; }
+        catch (e_17_1) { e_17 = { error: e_17_1 }; }
         finally {
             try {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            finally { if (e_15) throw e_15.error; }
+            finally { if (e_17) throw e_17.error; }
         }
         // also working for single models, testwise
         // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
@@ -27518,11 +28287,11 @@ var Stage = /** @class */ (function () {
         var meshFactory = new bz.MeshFactory(this.scene, this.config.ambientColor);
         this.debugMeshes.push(
         // axis x
-        meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0, 0.0), bz.SettingColor.COLOR_RGBA_RED_OPAQUE), 
+        meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0, 0.0), bz.SettingColor.COLOR_RGBA_RED_OPAQUE), 
         // axis y
-        meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH, 0.0), bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE), 
+        meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(0.0, bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0), bz.SettingColor.COLOR_RGBA_GREEN_OPAQUE), 
         // axis z
-        meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(0.0, 0.0, bz.SettingDebug.DEBUG_COORDINATE_AXIS_LENGTH), bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE));
+        meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(0.0, 0.0, bz.SettingDebug.COORDINATE_AXIS_LENGTH), bz.SettingColor.COLOR_RGBA_BLUE_OPAQUE));
     };
     /** ****************************************************************************************************************
     *   Returns all hit points on all game objects of this stage on applying the specified shot.
@@ -27534,27 +28303,44 @@ var Stage = /** @class */ (function () {
     *   @return All hit points this shot collides to.
     *******************************************************************************************************************/
     Stage.prototype.determineAllHitPoints = function (shot, interactionWallsOnly) {
-        var e_16, _a;
+        var e_18, _a, e_19, _b;
         if (interactionWallsOnly === void 0) { interactionWallsOnly = false; }
         // collect all hitPoints
         var hitPoints = [];
         // check collision with walls
         bz.Debug.fire.log(' Check shot collision with [' + String(this.walls.length) + '] walls');
         try {
-            for (var _b = __values(this.walls), _c = _b.next(); !_c.done; _c = _b.next()) {
-                var wall = _c.value;
+            for (var _c = __values(this.walls), _d = _c.next(); !_d.done; _d = _c.next()) {
+                var wall = _d.value;
                 if (interactionWallsOnly && wall.interactionEvents === null) {
                     continue;
                 }
                 hitPoints = hitPoints.concat(wall.determineHitPoints(shot));
             }
         }
-        catch (e_16_1) { e_16 = { error: e_16_1 }; }
+        catch (e_18_1) { e_18 = { error: e_18_1 }; }
         finally {
             try {
-                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
             }
-            finally { if (e_16) throw e_16.error; }
+            finally { if (e_18) throw e_18.error; }
+        }
+        // check collision with items
+        if (bz.SettingEngine.ITEMS_CAN_BE_SHOT && !interactionWallsOnly) {
+            bz.Debug.fire.log(' Check shot collision with [' + String(this.collectables.length) + '] items');
+            try {
+                for (var _e = __values(this.collectables), _f = _e.next(); !_f.done; _f = _e.next()) {
+                    var item = _f.value;
+                    hitPoints = hitPoints.concat(item.determineHitPoints(shot));
+                }
+            }
+            catch (e_19_1) { e_19 = { error: e_19_1 }; }
+            finally {
+                try {
+                    if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
+                }
+                finally { if (e_19) throw e_19.error; }
+            }
         }
         return hitPoints;
     };
@@ -27578,53 +28364,101 @@ var Stage = /** @class */ (function () {
     *
     *   @return <code>true</code> if this event has been processed.
     *           <code>false</code> if this event has not been completed yet.
+    *           The lather only applies to the event { @see bz.EventType.TIME_DELAY }.
     *******************************************************************************************************************/
     Stage.prototype.launchEvent = function (event) {
         switch (event.type) {
+            case bz.EventType.TIME_DELAY:
+                {
+                    bz.Debug.event.log('Perform a time delay ..');
+                    var data = event.data;
+                    return (++data.elapsed >= data.delayInFrames);
+                }
             case bz.EventType.SWITCH_TO_STAGE:
                 {
-                    bz.Debug.stage.log('Launching stage switch event to:');
+                    bz.Debug.event.log('Launch stage switch event to:');
                     var data = event.data;
-                    this.game.switchStage(data.targetStage, data.startupPosition, data.startupRotation);
+                    this.game.switchStage(data.targetStage, data.startupPosition, data.startupRotation, this.player.getInventory());
                     return true;
                 }
-            case bz.EventType.SHOW_GUI_MESSAGE:
+            case bz.EventType.SHOW_GUI_TEXT_MESSAGE:
                 {
-                    bz.Debug.stage.log('Showing GUI message');
+                    bz.Debug.event.log('Show GUI text message');
                     var data = event.data;
-                    this.getGame().getGUI().addGuiMessage(data.message);
+                    this.getGame().getGUI().addGuiTextMessage(data.message, data.noFlooding);
+                    return true;
+                }
+            case bz.EventType.SHOW_GUI_GAME_MESSAGE:
+                {
+                    bz.Debug.event.log('Show GUI game message');
+                    var data = event.data;
+                    this.getGame().getGUI().addGuiGameMessage(data.image, data.message);
                     return true;
                 }
             case bz.EventType.SHOW_GUI_EFFECT:
                 {
-                    bz.Debug.stage.log('Showing GUI message');
+                    bz.Debug.event.log('Show GUI message');
                     var data = event.data;
                     this.getGame().getGUI().addGuiEffect(data.guiEffect);
                     return true;
                 }
-            case bz.EventType.TIME_DELAY:
+            case bz.EventType.CAST_EXPLOSION:
                 {
-                    bz.Debug.stage.log('Performing a time delay ..');
+                    bz.Debug.event.log('Cast an explosion ..');
                     var data = event.data;
-                    return (++data.elapsed >= data.delayInFrames);
+                    var physicsHelper = new BABYLON.PhysicsHelper(this.game.getScene().getNativeScene());
+                    physicsHelper.applyRadialExplosionImpulse(data.center, {
+                        radius: data.radius,
+                        strength: data.strength,
+                        falloff: BABYLON.PhysicsRadialImpulseFalloff.Linear,
+                        sphere: {
+                            segments: 32,
+                            diameter: 1,
+                        },
+                        affectedImpostorsCallback: function (affectedImpostorsWithData) {
+                            bz.Debug.event.log(' [' + String(affectedImpostorsWithData.length) + '] '
+                                + 'affected models from this explosion');
+                        },
+                    });
+                    return true;
+                }
+            case bz.EventType.GAIN_PAINKILLERS:
+                {
+                    var data = event.data;
+                    this.player.getInventory().numberOfPainkillers += data.amount;
+                    bz.Debug.event.log('Gain ' + String(data.amount) + ' Painkiller. '
+                        + 'Now carrying ' + String(this.player.getInventory().numberOfPainkillers) + '.');
+                    return true;
+                }
+            case bz.EventType.TOGGLE_LIGHT:
+                {
+                    var data = event.data;
+                    // toggle native enabled state
+                    var newState = (!data.light.isEnabled());
+                    data.light.setEnabled(newState);
+                    bz.Debug.event.log('Toggle light to enabled: ' + String(newState) + '.');
+                    return true;
                 }
         }
     };
+    /** ****************************************************************************************************************
+    *   Handles the event system by rendering all event pipelines.
+    *******************************************************************************************************************/
     Stage.prototype.handleEventPipeline = function () {
-        var e_17, _a, e_18, _b;
+        var e_20, _a, e_21, _b, e_22, _c;
         // check if event pipelines exist
         if (this.eventPipelines.length > 0) {
-            bz.Debug.events.log('Handle ' + String(this.eventPipelines.length) + ' event pipelines');
+            bz.Debug.event.log('Handle ' + String(this.eventPipelines.length) + ' event pipelines');
             var newEventPipelines = [];
             try {
                 // browse all event pipelines
-                for (var _c = __values(this.eventPipelines), _d = _c.next(); !_d.done; _d = _c.next()) {
-                    var eventPipeline = _d.value;
-                    bz.Debug.events.log(' Handle ' + String(eventPipeline.length) + ' events');
+                for (var _d = __values(this.eventPipelines), _e = _d.next(); !_e.done; _e = _d.next()) {
+                    var eventPipeline = _e.value;
+                    bz.Debug.event.log(' Handle ' + String(eventPipeline.length) + ' events');
                     var newEventPipeline = [];
                     var pipelineBlocked = false;
                     try {
-                        for (var eventPipeline_1 = (e_18 = void 0, __values(eventPipeline)), eventPipeline_1_1 = eventPipeline_1.next(); !eventPipeline_1_1.done; eventPipeline_1_1 = eventPipeline_1.next()) {
+                        for (var eventPipeline_1 = (e_21 = void 0, __values(eventPipeline)), eventPipeline_1_1 = eventPipeline_1.next(); !eventPipeline_1_1.done; eventPipeline_1_1 = eventPipeline_1.next()) {
                             var event_2 = eventPipeline_1_1.value;
                             if (pipelineBlocked) {
                                 newEventPipeline.push(event_2);
@@ -27634,34 +28468,63 @@ var Stage = /** @class */ (function () {
                                 if (!eventProcessed) {
                                     pipelineBlocked = true;
                                     newEventPipeline.push(event_2);
-                                    bz.Debug.events.log('  Event is blocking the event pipeline.');
+                                    bz.Debug.event.log('  Event is blocking the event pipeline.');
                                 }
                             }
                         }
                     }
-                    catch (e_18_1) { e_18 = { error: e_18_1 }; }
+                    catch (e_21_1) { e_21 = { error: e_21_1 }; }
                     finally {
                         try {
                             if (eventPipeline_1_1 && !eventPipeline_1_1.done && (_b = eventPipeline_1.return)) _b.call(eventPipeline_1);
                         }
-                        finally { if (e_18) throw e_18.error; }
+                        finally { if (e_21) throw e_21.error; }
                     }
                     if (newEventPipeline.length > 0) {
                         newEventPipelines.push(newEventPipeline);
                     }
                 }
             }
-            catch (e_17_1) { e_17 = { error: e_17_1 }; }
+            catch (e_20_1) { e_20 = { error: e_20_1 }; }
             finally {
                 try {
-                    if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                    if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
                 }
-                finally { if (e_17) throw e_17.error; }
+                finally { if (e_20) throw e_20.error; }
             }
             if (newEventPipelines.length === 0) {
-                bz.Debug.events.log(' All events in all event pipelines have been processed!');
+                bz.Debug.event.log(' All events in all event pipelines have been processed!');
             }
             this.eventPipelines = newEventPipelines;
+        }
+        // handle the UI thread event pipeline separately
+        if (this.uiThreadPipeline.length > 0) {
+            var newEventPipeline = [];
+            var pipelineBlocked = false;
+            try {
+                for (var _f = __values(this.uiThreadPipeline), _g = _f.next(); !_g.done; _g = _f.next()) {
+                    var event_3 = _g.value;
+                    if (pipelineBlocked) {
+                        newEventPipeline.push(event_3);
+                    }
+                    else {
+                        var eventProcessed = this.launchEvent(event_3);
+                        if (!eventProcessed) {
+                            pipelineBlocked = true;
+                            newEventPipeline.push(event_3);
+                            bz.Debug.event.log('  Event is blocking the UI-event pipeline.');
+                        }
+                    }
+                }
+            }
+            catch (e_22_1) { e_22 = { error: e_22_1 }; }
+            finally {
+                try {
+                    if (_g && !_g.done && (_c = _f.return)) _c.call(_f);
+                }
+                finally { if (e_22) throw e_22.error; }
+            }
+            this.uiThreadPipeline = newEventPipeline;
         }
     };
     /** ****************************************************************************************************************
@@ -27690,10 +28553,10 @@ exports.Stage = Stage;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/stage/StageConfig.ts":
-/*!******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/stage/StageConfig.ts ***!
-  \******************************************************************/
+/***/ "./src/typescript/bz/game/stage/StageConfig.ts":
+/*!*****************************************************!*\
+  !*** ./src/typescript/bz/game/stage/StageConfig.ts ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27701,6 +28564,7 @@ exports.Stage = Stage;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageConfig = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   One stage config.
 ***********************************************************************************************************************/
@@ -27708,15 +28572,17 @@ var StageConfig = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a stage config.
     *
-    *   @param ambientColor    The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
-    *   @param sceneBgColor    The background color of the babylon.JS scene.
-    *   @param initialCamera   The initial camera for this stage.
-    *   @param startupPosition The player startup position.
-    *   @param startupRotation The player startup rotation.
+    *   @param ambientColor     The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
+    *   @param sceneBgColor     The background color of the babylon.JS scene.
+    *   @param initialCamera    The initial camera for this stage.
+    *   @param startupPosition  The player startup position.
+    *   @param startupRotation  The player startup rotation.
+    *   @param startupInventory The player startup inventory.
     *******************************************************************************************************************/
-    function StageConfig(ambientColor, sceneBgColor, initialCamera, startupPosition, startupRotation) {
-        if (startupPosition === void 0) { startupPosition = null; }
-        if (startupRotation === void 0) { startupRotation = null; }
+    function StageConfig(ambientColor, sceneBgColor, initialCamera, startupPosition, startupRotation, startupInventory) {
+        if (startupPosition === void 0) { startupPosition = new BABYLON.Vector3(0.0, 0.0, 0.0); }
+        if (startupRotation === void 0) { startupRotation = new BABYLON.Vector3(0.0, 0.0, 0.0); }
+        if (startupInventory === void 0) { startupInventory = new bz.Inventory(); }
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         this.ambientColor = null;
         /** The scene background color is the clear color for the scene. */
@@ -27727,11 +28593,13 @@ var StageConfig = /** @class */ (function () {
         this.startupPosition = null;
         /** The player startup rotation. */
         this.startupRotation = null;
+        this.startupInventory = null;
         this.ambientColor = ambientColor;
         this.sceneBgColor = sceneBgColor;
         this.initialCamera = initialCamera;
         this.startupPosition = startupPosition;
         this.startupRotation = startupRotation;
+        this.startupInventory = startupInventory;
     }
     return StageConfig;
 }());
@@ -27740,10 +28608,10 @@ exports.StageConfig = StageConfig;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/stage/StageFactory.ts":
-/*!*******************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/stage/StageFactory.ts ***!
-  \*******************************************************************/
+/***/ "./src/typescript/bz/game/stage/StageFactory.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/game/stage/StageFactory.ts ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27762,7 +28630,7 @@ var __values = (this && this.__values) || function(o) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StageFactory = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/de/mayflower/bz/index.ts");
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Offers creation methods for stage construction.
 ***********************************************************************************************************************/
@@ -27791,28 +28659,28 @@ var StageFactory = /** @class */ (function () {
         // all walls to add to the stage at the end of this method
         var roomWalls = [];
         if (textureFileWallA !== null) {
-            StageFactory.createWall(roomWalls, doorsWallA, windowsWallA, stage, meshFactory, position.x, size.x, position.y, size.y, position.z, 0.0, textureFileWallA, bz.TextureFile.WALL_GLASS);
+            StageFactory.createWall(roomWalls, doorsWallA, windowsWallA, stage, meshFactory, position.x, size.x, position.y, size.y, position.z, 0.0, textureFileWallA, bz.TextureFile.WALL_GLASS_1);
         }
         if (textureFileWallB !== null) {
-            StageFactory.createWall(roomWalls, doorsWallB, windowsWallB, stage, meshFactory, position.x + size.x + bz.SettingEngine.WALL_DEPTH, size.z, position.y, size.y, position.z, -90.0, textureFileWallB, bz.TextureFile.WALL_GLASS);
+            StageFactory.createWall(roomWalls, doorsWallB, windowsWallB, stage, meshFactory, position.x + size.x + bz.SettingGame.WALL_DEPTH, size.z, position.y, size.y, position.z, -90.0, textureFileWallB, bz.TextureFile.WALL_GLASS_1);
         }
         if (textureFileWallC !== null) {
-            StageFactory.createWall(roomWalls, doorsWallC, windowsWallC, stage, meshFactory, position.x + size.x + bz.SettingEngine.WALL_DEPTH, size.x, position.y, size.y, position.z + size.z + bz.SettingEngine.WALL_DEPTH, -180.0, textureFileWallC, bz.TextureFile.WALL_GLASS);
+            StageFactory.createWall(roomWalls, doorsWallC, windowsWallC, stage, meshFactory, position.x + size.x + bz.SettingGame.WALL_DEPTH, size.x, position.y, size.y, position.z + size.z + bz.SettingGame.WALL_DEPTH, -180.0, textureFileWallC, bz.TextureFile.WALL_GLASS_1);
         }
         if (textureFileWallD !== null) {
-            StageFactory.createWall(roomWalls, doorsWallD, windowsWallD, stage, meshFactory, position.x, size.z, position.y, size.y, position.z + size.z + bz.SettingEngine.WALL_DEPTH, -270.0, textureFileWallD, bz.TextureFile.WALL_GLASS);
+            StageFactory.createWall(roomWalls, doorsWallD, windowsWallD, stage, meshFactory, position.x, size.z, position.y, size.y, position.z + size.z + bz.SettingGame.WALL_DEPTH, -270.0, textureFileWallD, bz.TextureFile.WALL_GLASS_1);
         }
         // ceiling
         if (textureFileCeiling !== null) {
             var ceiling = new bz.Wall(stage, new bz.Model([
-                meshFactory.createBox(new BABYLON.Vector3((position.x + bz.SettingEngine.WALL_DEPTH / 2), (position.y + size.y - bz.SettingEngine.DEPTH_FLOOR_CEILING), (position.z + bz.SettingEngine.WALL_DEPTH / 2)), textureFileCeiling, new BABYLON.Vector3(size.x, bz.SettingEngine.DEPTH_FLOOR_CEILING, size.z), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0)),
+                meshFactory.createBox(new BABYLON.Vector3((position.x + bz.SettingGame.WALL_DEPTH / 2), (position.y + size.y - bz.SettingGame.DEPTH_FLOOR_CEILING), (position.z + bz.SettingGame.WALL_DEPTH / 2)), textureFileCeiling, new BABYLON.Vector3(size.x, bz.SettingGame.DEPTH_FLOOR_CEILING, size.z), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0)),
             ]));
             roomWalls.push(ceiling);
         }
         // floor
         if (textureFileFloor !== null) {
             var floor = new bz.Wall(stage, new bz.Model([
-                meshFactory.createPlane(new BABYLON.Vector3((position.x + (size.x + bz.SettingEngine.WALL_DEPTH) / 2), (position.y + bz.SettingEngine.FLOOR_OFFSET_Y), (position.z + (size.z + bz.SettingEngine.WALL_DEPTH) / 2)), bz.MeshAnchor.CENTER_XYZ, size.x, size.z, new BABYLON.Vector3(90.0, 0.0, 0.0), textureFileFloor, null, bz.PhysicSet.STATIC, 1.0, 0),
+                meshFactory.createPlane(new BABYLON.Vector3((position.x + (size.x + bz.SettingGame.WALL_DEPTH) / 2), (position.y + bz.SettingGame.FLOOR_OFFSET_Y), (position.z + (size.z + bz.SettingGame.WALL_DEPTH) / 2)), bz.MeshAnchor.CENTER_XYZ, size.x, size.z, new BABYLON.Vector3(90.0, 0.0, 0.0), textureFileFloor, null, bz.PhysicSet.STATIC, 1.0, 0),
             ]));
             roomWalls.push(floor);
         }
@@ -27839,21 +28707,13 @@ var StageFactory = /** @class */ (function () {
     *   @param meshFactory The MeshFactory instance.
     *   @param pos         center bottom position of the boxes pile to set.
     *******************************************************************************************************************/
-    StageFactory.addBoxesWalls = function (stage, meshFactory, pos) {
-        // wooden crates
-        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, new BABYLON.Vector3(pos.x, pos.y, pos.z), bz.PhysicSet.CRATE_WOOD, bz.ModelCompoundType.NONE), 7));
-        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z + 2.5), bz.PhysicSet.CRATE_WOOD, bz.ModelCompoundType.NONE), 7));
-        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z), bz.PhysicSet.CRATE_WOOD, bz.ModelCompoundType.NONE), 7));
-        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, new BABYLON.Vector3(pos.x + 2.5, pos.y + 2.5, pos.z + 2.5), bz.PhysicSet.CRATE_WOOD, bz.ModelCompoundType.NONE), 7));
-        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, new BABYLON.Vector3(pos.x + 2.5, pos.y + 2 * 2.5, pos.z + 2.5), bz.PhysicSet.CRATE_WOOD, bz.ModelCompoundType.NONE), 7));
-        // metal boxes
-        stage.addWall(new bz.Wall(stage, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3(pos.x + 5.5, pos.y, pos.z + 10.0), bz.TextureFile.WALL_METAL, new BABYLON.Vector3(2.5, 2.5, 2.5), bz.PhysicSet.CRATE_STEEL, 1.0, bz.MeshAnchor.LOWEST_XYZ, new BABYLON.Vector3(0.0, 45.0, 0.0)),
-        ]), 12));
-        stage.addWall(new bz.Wall(stage, new bz.Model([
-            // movable glass cube
-            meshFactory.createBox(new BABYLON.Vector3(pos.x - 2.5, pos.y, pos.z + 3.5), bz.TextureFile.WALL_GLASS, new BABYLON.Vector3(2.5, 2.5, 2.5), bz.PhysicSet.CRATE_STEEL, 0.5, bz.MeshAnchor.LOWEST_XYZ, new BABYLON.Vector3(0.0, 30.0, 0.0)),
-        ]), 12));
+    StageFactory.addCratesPile = function (stage, meshFactory, pos) {
+        // add 5 wooden crates
+        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x, pos.y, pos.z)));
+        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z + 2.5)));
+        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z)));
+        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y + 2.5, pos.z + 2.5)));
+        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y + 5.0, pos.z + 2.5)));
     };
     /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
@@ -27868,7 +28728,7 @@ var StageFactory = /** @class */ (function () {
                 if (start + window_1 >= start + size) {
                     continue;
                 }
-                busyWalls.push(new BABYLON.Vector2(start + window_1, start + window_1 + bz.SettingEngine.WINDOW_WIDTH));
+                busyWalls.push(new BABYLON.Vector2(start + window_1, start + window_1 + bz.SettingGame.WINDOW_WIDTH));
             }
         }
         catch (e_2_1) { e_2 = { error: e_2_1 }; }
@@ -27884,7 +28744,7 @@ var StageFactory = /** @class */ (function () {
                 if (start + door >= start + size) {
                     continue;
                 }
-                busyWalls.push(new BABYLON.Vector2(start + door, start + door + bz.SettingEngine.DOOR_WIDTH));
+                busyWalls.push(new BABYLON.Vector2(start + door, start + door + bz.SettingGame.DOOR_WIDTH));
             }
         }
         catch (e_3_1) { e_3 = { error: e_3_1 }; }
@@ -27930,11 +28790,11 @@ var StageFactory = /** @class */ (function () {
                 if (doorPos >= sizeX) {
                     continue;
                 }
-                if (sizeY < bz.SettingEngine.DOOR_HEIGHT + bz.SettingEngine.DOOR_FRAME_HEIGHT) {
+                if (sizeY < bz.SettingGame.DOOR_HEIGHT + bz.SettingGame.DOOR_FRAME_HEIGHT) {
                     continue;
                 }
                 var doorFrame = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + doorPos, y + sizeY - bz.SettingEngine.DOOR_FRAME_HEIGHT, z), textureFileWall, new BABYLON.Vector3(bz.SettingEngine.DOOR_WIDTH, bz.SettingEngine.DOOR_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
+                    meshFactory.createBox(new BABYLON.Vector3(x + doorPos, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z), textureFileWall, new BABYLON.Vector3(bz.SettingGame.DOOR_WIDTH, bz.SettingGame.DOOR_FRAME_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
                 ]));
                 walls.push(doorFrame);
             }
@@ -27955,17 +28815,17 @@ var StageFactory = /** @class */ (function () {
                 }
                 // top window frame
                 var topWindowFrame = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, z), textureFileWall, new BABYLON.Vector3(bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
+                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT, z), textureFileWall, new BABYLON.Vector3(bz.SettingGame.WINDOW_WIDTH, bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
                 ]));
                 walls.push(topWindowFrame);
                 // window glass
                 var windowGlass = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y + sizeY - bz.SettingEngine.WINDOW_TOP_FRAME_HEIGHT - bz.SettingEngine.WINDOW_HEIGHT, z), textureFileGlass, new BABYLON.Vector3(bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_HEIGHT, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 0.25, bz.MeshAnchor.LOWEST_XYZ),
+                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT - bz.SettingGame.WINDOW_HEIGHT, z), textureFileGlass, new BABYLON.Vector3(bz.SettingGame.WINDOW_WIDTH, bz.SettingGame.WINDOW_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 0.25, bz.MeshAnchor.LOWEST_XYZ),
                 ]));
                 walls.push(windowGlass);
                 // bottom window frame
                 var bottomWindowFrame = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y, z), textureFileWall, new BABYLON.Vector3(bz.SettingEngine.WINDOW_WIDTH, bz.SettingEngine.WINDOW_BOTTOM_FRAME_HEIGHT, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
+                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y, z), textureFileWall, new BABYLON.Vector3(bz.SettingGame.WINDOW_WIDTH, bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
                 ]));
                 walls.push(bottomWindowFrame);
             }
@@ -27981,7 +28841,7 @@ var StageFactory = /** @class */ (function () {
         var freeWalls = StageFactory.calculateFreeWalls(x, sizeX, windowsPos, doorsPos);
         for (var i = 0; i < freeWalls.length; i += 2) {
             var wall = new bz.Wall(stage, new bz.Model([
-                meshFactory.createBox(new BABYLON.Vector3(freeWalls[i], y, z), textureFileWall, new BABYLON.Vector3((freeWalls[i + 1] - freeWalls[i]), sizeY, bz.SettingEngine.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
+                meshFactory.createBox(new BABYLON.Vector3(freeWalls[i], y, z), textureFileWall, new BABYLON.Vector3((freeWalls[i + 1] - freeWalls[i]), sizeY, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
             ]));
             walls.push(wall);
         }
@@ -28021,10 +28881,10 @@ exports.StageFactory = StageFactory;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/game/stage/StageId.ts":
-/*!**************************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/game/stage/StageId.ts ***!
-  \**************************************************************/
+/***/ "./src/typescript/bz/game/stage/StageId.ts":
+/*!*************************************************!*\
+  !*** ./src/typescript/bz/game/stage/StageId.ts ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28048,10 +28908,47 @@ var StageId;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/index.ts":
-/*!*************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/index.ts ***!
-  \*************************************************/
+/***/ "./src/typescript/bz/game/stage/WallFactory.ts":
+/*!*****************************************************!*\
+  !*** ./src/typescript/bz/game/stage/WallFactory.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WallFactory = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Offers creation methods for walls and models construction.
+***********************************************************************************************************************/
+var WallFactory = /** @class */ (function () {
+    function WallFactory() {
+    }
+    /** ****************************************************************************************************************
+    *   Creates one wooden crate.
+    *
+    *   @param stage Stage to create the crate in.
+    *   @param meshFactory The meshFactory for model creation.
+    *   @param position    The initial position of the crate.
+    *
+    *   @return The created wooden crate.
+    *******************************************************************************************************************/
+    WallFactory.createWoodenCrate = function (stage, meshFactory, position) {
+        return new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, position, bz.PhysicSet.CRATE_WOOD), bz.MathUtil.getRandomInt(bz.SettingGame.CRATE_MIN_ENERGY, bz.SettingGame.CRATE_MAX_ENERGY));
+    };
+    return WallFactory;
+}());
+exports.WallFactory = WallFactory;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/index.ts":
+/*!************************************!*\
+  !*** ./src/typescript/bz/index.ts ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28068,98 +28965,105 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(/*! ./base/Debug */ "./src/typescript/de/mayflower/bz/base/Debug.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/Version */ "./src/typescript/de/mayflower/bz/base/Version.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/camera/CameraFactory */ "./src/typescript/de/mayflower/bz/game/engine/camera/CameraFactory.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/camera/CameraSystem */ "./src/typescript/de/mayflower/bz/game/engine/camera/CameraSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/camera/CameraType */ "./src/typescript/de/mayflower/bz/game/engine/camera/CameraType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/stage/StageConfig */ "./src/typescript/de/mayflower/bz/game/stage/StageConfig.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/stage/StageFactory */ "./src/typescript/de/mayflower/bz/game/stage/StageFactory.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/stage/StageId */ "./src/typescript/de/mayflower/bz/game/stage/StageId.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/setting/SettingColor */ "./src/typescript/de/mayflower/bz/base/setting/SettingColor.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/setting/SettingDebug */ "./src/typescript/de/mayflower/bz/base/setting/SettingDebug.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/setting/SettingEngine */ "./src/typescript/de/mayflower/bz/base/setting/SettingEngine.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/setting/SettingGUI */ "./src/typescript/de/mayflower/bz/base/setting/SettingGUI.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/setting/SettingPlayer */ "./src/typescript/de/mayflower/bz/base/setting/SettingPlayer.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/setting/SettingResource */ "./src/typescript/de/mayflower/bz/base/setting/SettingResource.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/Engine */ "./src/typescript/de/mayflower/bz/game/engine/Engine.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/Game */ "./src/typescript/de/mayflower/bz/game/Game.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/fx/GUIFx */ "./src/typescript/de/mayflower/bz/game/gui/fx/GUIFx.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/fx/GUIFxManager */ "./src/typescript/de/mayflower/bz/game/gui/fx/GUIFxManager.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/fx/GUIFxType */ "./src/typescript/de/mayflower/bz/game/gui/fx/GUIFxType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/menu/GUIAction */ "./src/typescript/de/mayflower/bz/game/gui/menu/GUIAction.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/menu/GUIMenu */ "./src/typescript/de/mayflower/bz/game/gui/menu/GUIMenu.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/menu/GUIMenuItem */ "./src/typescript/de/mayflower/bz/game/gui/menu/GUIMenuItem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/message/GUIMessage */ "./src/typescript/de/mayflower/bz/game/gui/message/GUIMessage.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/message/GUIMessageManager */ "./src/typescript/de/mayflower/bz/game/gui/message/GUIMessageManager.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/GUI */ "./src/typescript/de/mayflower/bz/game/gui/GUI.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/GUIFactory */ "./src/typescript/de/mayflower/bz/game/gui/GUIFactory.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/gui/GUIPause */ "./src/typescript/de/mayflower/bz/game/gui/GUIPause.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/ui/CanvasSystem */ "./src/typescript/de/mayflower/bz/game/engine/ui/CanvasSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/ui/LightFactory */ "./src/typescript/de/mayflower/bz/game/engine/ui/LightFactory.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/ui/LoadingScreen */ "./src/typescript/de/mayflower/bz/game/engine/ui/LoadingScreen.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/shot/BulletHole */ "./src/typescript/de/mayflower/bz/game/engine/shot/BulletHole.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/shot/HitPoint */ "./src/typescript/de/mayflower/bz/game/engine/shot/HitPoint.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/shot/Shot */ "./src/typescript/de/mayflower/bz/game/engine/shot/Shot.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/hid/KeyCodes */ "./src/typescript/de/mayflower/bz/game/engine/hid/KeyCodes.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/hid/KeySystem */ "./src/typescript/de/mayflower/bz/game/engine/hid/KeySystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/hid/MouseCodes */ "./src/typescript/de/mayflower/bz/game/engine/hid/MouseCodes.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/hid/MouseSystem */ "./src/typescript/de/mayflower/bz/game/engine/hid/MouseSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/Scene */ "./src/typescript/de/mayflower/bz/game/engine/scene/Scene.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/material/MaterialSystem */ "./src/typescript/de/mayflower/bz/game/engine/scene/material/MaterialSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/material/TextureHasAlpha */ "./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureHasAlpha.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/material/TextureType */ "./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/material/TextureUV */ "./src/typescript/de/mayflower/bz/game/engine/scene/material/TextureUV.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/model/Model */ "./src/typescript/de/mayflower/bz/game/engine/scene/model/Model.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/model/ModelCompoundType */ "./src/typescript/de/mayflower/bz/game/engine/scene/model/ModelCompoundType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/model/ModelSystem */ "./src/typescript/de/mayflower/bz/game/engine/scene/model/ModelSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/sound/SoundSystem */ "./src/typescript/de/mayflower/bz/game/engine/scene/sound/SoundSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/sprite/Sprite */ "./src/typescript/de/mayflower/bz/game/engine/scene/sprite/Sprite.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/sprite/SpriteCollidable */ "./src/typescript/de/mayflower/bz/game/engine/scene/sprite/SpriteCollidable.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/scene/sprite/SpriteSystem */ "./src/typescript/de/mayflower/bz/game/engine/scene/sprite/SpriteSystem.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/mesh/MeshFactory */ "./src/typescript/de/mayflower/bz/game/engine/mesh/MeshFactory.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/mesh/MeshManipulation */ "./src/typescript/de/mayflower/bz/game/engine/mesh/MeshManipulation.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/mesh/MeshAnchor */ "./src/typescript/de/mayflower/bz/game/engine/mesh/MeshAnchor.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicFriction */ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicFriction.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicRestitution */ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicRestitution.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicBehaviour */ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicBehaviour.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/PhysicSet */ "./src/typescript/de/mayflower/bz/base/data/PhysicSet.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicImpostorParams */ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicImpostorParams.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicBody */ "./src/typescript/de/mayflower/bz/game/engine/physic/PhysicBody.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/event/EventType */ "./src/typescript/de/mayflower/bz/game/event/EventType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/event/EventData */ "./src/typescript/de/mayflower/bz/game/event/EventData.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/event/Interaction */ "./src/typescript/de/mayflower/bz/game/event/Interaction.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/event/InteractionType */ "./src/typescript/de/mayflower/bz/game/event/InteractionType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/event/Event */ "./src/typescript/de/mayflower/bz/game/event/Event.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/GameObject */ "./src/typescript/de/mayflower/bz/game/object/GameObject.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/Bot */ "./src/typescript/de/mayflower/bz/game/object/Bot.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/Trigger */ "./src/typescript/de/mayflower/bz/game/object/Trigger.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/Item */ "./src/typescript/de/mayflower/bz/game/object/Item.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/ItemType */ "./src/typescript/de/mayflower/bz/game/object/ItemType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/Wall */ "./src/typescript/de/mayflower/bz/game/object/Wall.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/Player */ "./src/typescript/de/mayflower/bz/game/object/Player.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/object/PlayerPhysic */ "./src/typescript/de/mayflower/bz/game/object/PlayerPhysic.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/stage/Stage */ "./src/typescript/de/mayflower/bz/game/stage/Stage.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/ModelFile */ "./src/typescript/de/mayflower/bz/base/data/ModelFile.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/SkyBoxFile */ "./src/typescript/de/mayflower/bz/base/data/SkyBoxFile.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/SoundFile */ "./src/typescript/de/mayflower/bz/base/data/SoundFile.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/SpriteFile */ "./src/typescript/de/mayflower/bz/base/data/SpriteFile.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/TextureFile */ "./src/typescript/de/mayflower/bz/base/data/TextureFile.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/data/Texture */ "./src/typescript/de/mayflower/bz/base/data/Texture.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/stage/StageIntroLogo */ "./src/typescript/de/mayflower/bz/base/stage/StageIntroLogo.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/stage/StageOffice */ "./src/typescript/de/mayflower/bz/base/stage/StageOffice.ts"), exports);
-__exportStar(__webpack_require__(/*! ./base/stage/StageOutside */ "./src/typescript/de/mayflower/bz/base/stage/StageOutside.ts"), exports);
-__exportStar(__webpack_require__(/*! ./util/DOMUtil */ "./src/typescript/de/mayflower/bz/util/DOMUtil.ts"), exports);
-__exportStar(__webpack_require__(/*! ./util/MathUtil */ "./src/typescript/de/mayflower/bz/util/MathUtil.ts"), exports);
-__exportStar(__webpack_require__(/*! ./util/StringUtil */ "./src/typescript/de/mayflower/bz/util/StringUtil.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/Debug */ "./src/typescript/bz/base/Debug.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/Version */ "./src/typescript/bz/base/Version.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/camera/CameraFactory */ "./src/typescript/bz/game/engine/camera/CameraFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/camera/CameraSystem */ "./src/typescript/bz/game/engine/camera/CameraSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/camera/CameraType */ "./src/typescript/bz/game/engine/camera/CameraType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/StageConfig */ "./src/typescript/bz/game/stage/StageConfig.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/StageFactory */ "./src/typescript/bz/game/stage/StageFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/StageId */ "./src/typescript/bz/game/stage/StageId.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/WallFactory */ "./src/typescript/bz/game/stage/WallFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingColor */ "./src/typescript/bz/base/setting/SettingColor.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingDebug */ "./src/typescript/bz/base/setting/SettingDebug.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingEngine */ "./src/typescript/bz/base/setting/SettingEngine.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingGame */ "./src/typescript/bz/base/setting/SettingGame.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingGUI */ "./src/typescript/bz/base/setting/SettingGUI.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingPlayer */ "./src/typescript/bz/base/setting/SettingPlayer.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingResource */ "./src/typescript/bz/base/setting/SettingResource.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/Engine */ "./src/typescript/bz/game/engine/Engine.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/Game */ "./src/typescript/bz/game/Game.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/fx/GUIFx */ "./src/typescript/bz/game/gui/fx/GUIFx.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/fx/GUIFxManager */ "./src/typescript/bz/game/gui/fx/GUIFxManager.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/fx/GUIFxType */ "./src/typescript/bz/game/gui/fx/GUIFxType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/menu/GUIAction */ "./src/typescript/bz/game/gui/menu/GUIAction.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/menu/GUIMenu */ "./src/typescript/bz/game/gui/menu/GUIMenu.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/menu/GUIMenuItem */ "./src/typescript/bz/game/gui/menu/GUIMenuItem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/textMessage/GUITextMessage */ "./src/typescript/bz/game/gui/textMessage/GUITextMessage.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/textMessage/GUITextMessageManager */ "./src/typescript/bz/game/gui/textMessage/GUITextMessageManager.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/gameMessage/GUIGameMessage */ "./src/typescript/bz/game/gui/gameMessage/GUIGameMessage.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/gameMessage/GUIGameMessageManager */ "./src/typescript/bz/game/gui/gameMessage/GUIGameMessageManager.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/gameMessage/GUIGameMessagePic */ "./src/typescript/bz/game/gui/gameMessage/GUIGameMessagePic.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/GUI */ "./src/typescript/bz/game/gui/GUI.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/GUIFactory */ "./src/typescript/bz/game/gui/GUIFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/gui/GUIPause */ "./src/typescript/bz/game/gui/GUIPause.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/ui/CanvasSystem */ "./src/typescript/bz/game/engine/ui/CanvasSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/ui/LightFactory */ "./src/typescript/bz/game/engine/ui/LightFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/ui/LoadingScreen */ "./src/typescript/bz/game/engine/ui/LoadingScreen.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/shot/BulletHole */ "./src/typescript/bz/game/engine/shot/BulletHole.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/shot/HitPoint */ "./src/typescript/bz/game/engine/shot/HitPoint.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/shot/Shot */ "./src/typescript/bz/game/engine/shot/Shot.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/hid/KeyCodes */ "./src/typescript/bz/game/engine/hid/KeyCodes.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/hid/KeySystem */ "./src/typescript/bz/game/engine/hid/KeySystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/hid/MouseCodes */ "./src/typescript/bz/game/engine/hid/MouseCodes.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/hid/MouseSystem */ "./src/typescript/bz/game/engine/hid/MouseSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/Scene */ "./src/typescript/bz/game/engine/scene/Scene.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/material/MaterialSystem */ "./src/typescript/bz/game/engine/scene/material/MaterialSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/material/TextureHasAlpha */ "./src/typescript/bz/game/engine/scene/material/TextureHasAlpha.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/material/TextureType */ "./src/typescript/bz/game/engine/scene/material/TextureType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/material/TextureUV */ "./src/typescript/bz/game/engine/scene/material/TextureUV.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/model/Model */ "./src/typescript/bz/game/engine/scene/model/Model.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/model/ModelCompoundType */ "./src/typescript/bz/game/engine/scene/model/ModelCompoundType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/model/ModelSystem */ "./src/typescript/bz/game/engine/scene/model/ModelSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/sound/SoundSystem */ "./src/typescript/bz/game/engine/scene/sound/SoundSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/sprite/Sprite */ "./src/typescript/bz/game/engine/scene/sprite/Sprite.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/sprite/SpriteCollidable */ "./src/typescript/bz/game/engine/scene/sprite/SpriteCollidable.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/scene/sprite/SpriteSystem */ "./src/typescript/bz/game/engine/scene/sprite/SpriteSystem.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/mesh/MeshFactory */ "./src/typescript/bz/game/engine/mesh/MeshFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/mesh/MeshManipulation */ "./src/typescript/bz/game/engine/mesh/MeshManipulation.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/mesh/MeshAnchor */ "./src/typescript/bz/game/engine/mesh/MeshAnchor.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicFriction */ "./src/typescript/bz/game/engine/physic/PhysicFriction.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicRestitution */ "./src/typescript/bz/game/engine/physic/PhysicRestitution.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicBehaviour */ "./src/typescript/bz/game/engine/physic/PhysicBehaviour.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/PhysicSet */ "./src/typescript/bz/base/data/PhysicSet.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicImpostorParams */ "./src/typescript/bz/game/engine/physic/PhysicImpostorParams.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicBody */ "./src/typescript/bz/game/engine/physic/PhysicBody.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/event/EventType */ "./src/typescript/bz/game/event/EventType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/event/EventData */ "./src/typescript/bz/game/event/EventData.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/event/Interaction */ "./src/typescript/bz/game/event/Interaction.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/event/InteractionType */ "./src/typescript/bz/game/event/InteractionType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/event/Event */ "./src/typescript/bz/game/event/Event.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/inventory/Inventory */ "./src/typescript/bz/game/inventory/Inventory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/GameObject */ "./src/typescript/bz/game/object/GameObject.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Bot */ "./src/typescript/bz/game/object/Bot.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Collectable */ "./src/typescript/bz/game/object/Collectable.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Trigger */ "./src/typescript/bz/game/object/Trigger.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Item */ "./src/typescript/bz/game/object/Item.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/ItemType */ "./src/typescript/bz/game/object/ItemType.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Wall */ "./src/typescript/bz/game/object/Wall.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Player */ "./src/typescript/bz/game/object/Player.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/PlayerPhysic */ "./src/typescript/bz/game/object/PlayerPhysic.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/Stage */ "./src/typescript/bz/game/stage/Stage.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/ModelFile */ "./src/typescript/bz/base/data/ModelFile.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/SkyBoxFile */ "./src/typescript/bz/base/data/SkyBoxFile.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/SoundFile */ "./src/typescript/bz/base/data/SoundFile.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/SpriteFile */ "./src/typescript/bz/base/data/SpriteFile.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/TextureFile */ "./src/typescript/bz/base/data/TextureFile.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/data/Texture */ "./src/typescript/bz/base/data/Texture.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/stage/StageIntroLogo */ "./src/typescript/bz/base/stage/StageIntroLogo.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/stage/StageOffice */ "./src/typescript/bz/base/stage/StageOffice.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/stage/StageOutside */ "./src/typescript/bz/base/stage/StageOutside.ts"), exports);
+__exportStar(__webpack_require__(/*! ./util/DOMUtil */ "./src/typescript/bz/util/DOMUtil.ts"), exports);
+__exportStar(__webpack_require__(/*! ./util/MathUtil */ "./src/typescript/bz/util/MathUtil.ts"), exports);
+__exportStar(__webpack_require__(/*! ./util/StringUtil */ "./src/typescript/bz/util/StringUtil.ts"), exports);
 
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/util/DOMUtil.ts":
-/*!********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/util/DOMUtil.ts ***!
-  \********************************************************/
+/***/ "./src/typescript/bz/util/DOMUtil.ts":
+/*!*******************************************!*\
+  !*** ./src/typescript/bz/util/DOMUtil.ts ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28199,10 +29103,10 @@ exports.DOMUtil = DOMUtil;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/util/MathUtil.ts":
-/*!*********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/util/MathUtil.ts ***!
-  \*********************************************************/
+/***/ "./src/typescript/bz/util/MathUtil.ts":
+/*!********************************************!*\
+  !*** ./src/typescript/bz/util/MathUtil.ts ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28307,10 +29211,10 @@ exports.MathUtil = MathUtil;
 
 /***/ }),
 
-/***/ "./src/typescript/de/mayflower/bz/util/StringUtil.ts":
-/*!***********************************************************!*\
-  !*** ./src/typescript/de/mayflower/bz/util/StringUtil.ts ***!
-  \***********************************************************/
+/***/ "./src/typescript/bz/util/StringUtil.ts":
+/*!**********************************************!*\
+  !*** ./src/typescript/bz/util/StringUtil.ts ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28351,24 +29255,22 @@ exports.StringUtil = StringUtil;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var WebApp_1 = __webpack_require__(/*! ./de/mayflower/bz/base/WebApp */ "./src/typescript/de/mayflower/bz/base/WebApp.ts");
-/*
-( global as any ).BABYLON = require( 'babylonjs' );
-( global as any ).CANNON  = require( 'cannon' );
-( global as any ).earcut  = require( 'earcut' );
-*/
+var WebApp_1 = __webpack_require__(/*! ./bz/base/WebApp */ "./src/typescript/bz/base/WebApp.ts");
+// ( global as any ).BABYLON = require( 'babylonjs' );
+// ( global as any ).CANNON  = require( 'cannon' );
+// ( global as any ).earcut  = require( 'earcut' );
 /** ********************************************************************************************************************
-*   Being invoked when the page is loaded completely.
+*   Being invoked when the website is loaded completely.
 ***********************************************************************************************************************/
 window.onload = function () {
     var webApp = new WebApp_1.WebApp();
     webApp.start();
 };
 /** ********************************************************************************************************************
-*   Being invoked when the page is left.
+*   Being invoked when the website is left.
 ***********************************************************************************************************************/
 window.onunload = function () {
-    // no tear down required
+    // no actions required
 };
 
 
@@ -28397,4 +29299,4 @@ module.exports = BABYLON.GUI;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=babylon-zero-v0.0.10.js.map
+//# sourceMappingURL=babylon-zero-v0.1.10.js.map

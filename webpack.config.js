@@ -3,7 +3,7 @@ module.exports = ( env, argv ) => {
     let config = {
         entry: './src/typescript/index.ts',
         output: {
-            filename: 'babylon-zero-v0.0.10.js',
+            filename: 'babylon-zero-v0.1.10.js',
             path: __dirname + '/dist/js/',
         },
         resolve: {
@@ -20,6 +20,7 @@ module.exports = ( env, argv ) => {
     // enable sourcemaps for debugging webpack's output.
     if ( argv.mode === 'development' ) {
         config.devtool = 'source-map';
+        // config.devtool = 'eval-cheap-source-map';
     }
 
     config.module = {
