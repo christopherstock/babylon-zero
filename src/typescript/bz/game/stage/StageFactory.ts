@@ -1,14 +1,18 @@
 import * as bz from '../..';
+import { InteractionType } from '../..';
 
 export class DoorData
 {
-    public position :number     = 0;
-    public events   :bz.Event[] = [];
+    public position         :number     = 0;
+    public events           :bz.Event[] = [];
+    public noBody           :boolean    = false;
 
-    public constructor( position:number, events:bz.Event[] = [] )
+    public constructor(
+        position:number, events:bz.Event[] = [], noBody = false )
     {
         this.position = position;
         this.events   = events;
+        this.noBody   = noBody;
     }
 }
 
@@ -396,38 +400,42 @@ export abstract class StageFactory
             }
 
             // add door
-            const door:bz.Wall = new bz.Wall
-            (
-                stage,
-                new bz.Model
+            if ( !doorData.noBody )
+            {
+                const door:bz.Wall = new bz.Wall
                 (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3(
-                                ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
-                                y,
-                                ( z + bz.SettingGame.WALL_DEPTH / 2 )
+                    stage,
+                    new bz.Model
+                    (
+                        [
+                            meshFactory.createBox
+                            (
+                                new BABYLON.Vector3(
+                                    ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
+                                    y,
+                                    ( z + bz.SettingGame.WALL_DEPTH / 2 )
+                                ),
+                                bz.TextureFile.WALL_DOOR_1,
+                                new BABYLON.Vector3(
+                                    bz.SettingGame.DOOR_WIDTH,
+                                    bz.SettingGame.DOOR_HEIGHT,
+                                    bz.SettingGame.WALL_DEPTH
+                                ),
+                                bz.PhysicSet.STATIC,
+                                1.0,
+                                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                             ),
-                            bz.TextureFile.WALL_DOOR_1,
-                            new BABYLON.Vector3(
-                                bz.SettingGame.DOOR_WIDTH,
-                                bz.SettingGame.DOOR_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                        ),
-                    ]
-                ),
-                bz.GameObject.UNBREAKABLE,
-                true,
-                false,
-                doorData.events
-            );
-            walls.push( door );
+                        ]
+                    ),
+                    bz.GameObject.UNBREAKABLE,
+                    true,
+                    false,
+                    doorData.events,
+                    InteractionType.REPEATED
+                );
+                walls.push( door );
+            }
         }
 
         // window frames

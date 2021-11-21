@@ -5,11 +5,7 @@
 ===
 MVP
 ===
-TODO static glass window that shatters on shot
 TODO Add door action / open slide etc.?
-TODO enable 'no door' for room creation DoorData 
-TODO slice meshes :D ??
-
 TODO Add Babylon.js tree generation helper?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
