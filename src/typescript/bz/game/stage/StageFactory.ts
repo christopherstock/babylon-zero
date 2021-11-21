@@ -498,7 +498,8 @@ export abstract class StageFactory
                     ]
                 ),
                 5,
-                false
+                false,
+                true
             );
             walls.push( windowGlass       );
 

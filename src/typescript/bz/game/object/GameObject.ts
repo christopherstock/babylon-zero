@@ -44,6 +44,7 @@ export abstract class GameObject
         this.initialEnergy            = energy;
         this.currentEnergy            = energy;
         this.darkenMeshesOnEnergyLoss = darkenMeshesOnEnergyLoss;
+        this.splitHitMeshOnEnergyLoss = splitHitMeshOnEnergyLoss;
     }
 
     /** ****************************************************************************************************************
@@ -205,7 +206,7 @@ export abstract class GameObject
             this.model.removeStaticState();
 
             // slice the mesh if desired
-            if ( !this.splitHitMeshOnEnergyLoss )
+            if ( this.splitHitMeshOnEnergyLoss )
             {
                 console.log( '.. slicing window glass pane ..' );
 
@@ -220,7 +221,9 @@ export abstract class GameObject
                         scene,
                         ( hitPoint.getMesh() as BABYLON.Mesh ),
                         hitPoint.getPoint(),
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        hitPoint,
+                        damage
                     );
                 }
             }
