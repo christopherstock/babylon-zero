@@ -1,5 +1,17 @@
 import * as bz from '../..';
 
+export class DoorData
+{
+    public position :number     = 0;
+    public events   :bz.Event[] = [];
+
+    public constructor( position:number, events:bz.Event[] = [] )
+    {
+        this.position = position;
+        this.events   = events;
+    }
+}
+
 /** ********************************************************************************************************************
 *   Offers creation methods for stage construction.
 ***********************************************************************************************************************/
@@ -16,10 +28,10 @@ export abstract class StageFactory
         position    :BABYLON.Vector3,
         size        :BABYLON.Vector3,
         rotZ        :number,
-        textureFileWallA   :bz.TextureFile = null, doorsWallA :number[] = [], windowsWallA :number[] = [], diamondCornerA :number = 0,
-        textureFileWallB   :bz.TextureFile = null, doorsWallB :number[] = [], windowsWallB :number[] = [], diamondCornerB :number = 0,
-        textureFileWallC   :bz.TextureFile = null, doorsWallC :number[] = [], windowsWallC :number[] = [], diamondCornerC :number = 0,
-        textureFileWallD   :bz.TextureFile = null, doorsWallD :number[] = [], windowsWallD :number[] = [], diamondCornerD :number = 0,
+        textureFileWallA   :bz.TextureFile = null, doorsWallA :bz.DoorData[] = [], windowsWallA :number[] = [], diamondCornerA :number = 0,
+        textureFileWallB   :bz.TextureFile = null, doorsWallB :bz.DoorData[] = [], windowsWallB :number[] = [], diamondCornerB :number = 0,
+        textureFileWallC   :bz.TextureFile = null, doorsWallC :bz.DoorData[] = [], windowsWallC :number[] = [], diamondCornerC :number = 0,
+        textureFileWallD   :bz.TextureFile = null, doorsWallD :bz.DoorData[] = [], windowsWallD :number[] = [], diamondCornerD :number = 0,
         textureFileFloor   :bz.TextureFile = null,
         textureFileCeiling :bz.TextureFile = null
     )
@@ -281,7 +293,7 @@ export abstract class StageFactory
     /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
-    private static calculateFreeWalls( start:number, size:number, windows:number[], doors:number[] ) : number[]
+    private static calculateFreeWalls( start:number, size:number, windows:number[], doors:bz.DoorData[] ) : number[]
     {
         // collect all busy walls
         let busyWalls :BABYLON.Vector2[] = [];
@@ -296,11 +308,11 @@ export abstract class StageFactory
         }
         for ( const door of doors )
         {
-            if ( start + door >= start + size ) {
+            if ( start + door.position >= start + size ) {
                 continue;
             }
             busyWalls.push(
-                new BABYLON.Vector2( start + door, start + door + bz.SettingGame.DOOR_WIDTH )
+                new BABYLON.Vector2( start + door.position, start + door.position + bz.SettingGame.DOOR_WIDTH )
             );
         }
 
@@ -328,7 +340,7 @@ export abstract class StageFactory
     *******************************************************************************************************************/
     private static createWall(
         roomWalls      :bz.Wall[],
-        doorsPos       :number[],
+        doorsData      :bz.DoorData[],
         windowsPos     :number[],
         stage          :bz.Stage,
         meshFactory    :bz.MeshFactory,
@@ -346,9 +358,9 @@ export abstract class StageFactory
         const walls :bz.Wall[] = [];
 
         // door frames
-        for ( const doorPos of doorsPos )
+        for ( const doorData of doorsData )
         {
-            if ( doorPos >= sizeX ) {
+            if ( doorData.position >= sizeX ) {
                 continue;
             }
 
@@ -366,7 +378,7 @@ export abstract class StageFactory
                         [
                             meshFactory.createBox
                             (
-                                new BABYLON.Vector3( x + doorPos, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z ),
+                                new BABYLON.Vector3( x + doorData.position, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z ),
                                 textureFileWall,
                                 new BABYLON.Vector3(
                                     bz.SettingGame.DOOR_WIDTH,
@@ -393,7 +405,7 @@ export abstract class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3(
-                                ( x + doorPos + bz.SettingGame.DOOR_WIDTH / 2 ),
+                                ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
                                 y,
                                 ( z + bz.SettingGame.WALL_DEPTH / 2 )
                             ),
@@ -530,7 +542,7 @@ export abstract class StageFactory
         }
 
         // walls
-        const freeWalls :number[] = StageFactory.calculateFreeWalls( x, sizeX, windowsPos, doorsPos );
+        const freeWalls :number[] = StageFactory.calculateFreeWalls( x, sizeX, windowsPos, doorsData );
         for ( let i:number = 0; i < freeWalls.length; i += 2 )
         {
             const wall :bz.Wall = new bz.Wall

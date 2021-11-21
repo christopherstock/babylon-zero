@@ -47,7 +47,7 @@ export class StageOutside extends bz.Stage
             bz.TextureFile.WALL_STONES_3, [], [], 0,
             null,                         [], [], 0,
             bz.TextureFile.WALL_STONES_3, [], [], 0,
-            bz.TextureFile.WALL_MARBLE_1, [ 60.0 - 5.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH ], [], 0,
+            bz.TextureFile.WALL_MARBLE_1, [ new bz.DoorData( 0.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH ) ], [], 0,
             bz.TextureFile.MODEL_CONCRETE,
             null
         );

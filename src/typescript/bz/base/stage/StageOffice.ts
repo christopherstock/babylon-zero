@@ -93,10 +93,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_VERT_1,    [ 1.0 ], [ 7.0 ], 2.0,
-            bz.TextureFile.WALL_WOOD_PLANKS,    [ 1.0 ], [ 7.0 ], 3.0,
-            bz.TextureFile.WALL_WOOD_STRUCTURE, [ 1.0 ], [ 7.0 ], 4.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,     [ 1.0 ], [ 7.0 ], 5.0,
+            bz.TextureFile.WALL_WOOD_VERT_1,    [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 2.0,
+            bz.TextureFile.WALL_WOOD_PLANKS,    [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 3.0,
+            bz.TextureFile.WALL_WOOD_STRUCTURE, [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 4.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,     [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 5.0,
             bz.TextureFile.WALL_PAVEMENT_GRANITE,
             null
         );
@@ -162,7 +162,7 @@ if ( true ) return;
             null, [],      [], 0,
             null, [],      [], 0,
             null, [],      [], 0,
-            null, [ 1.0 ], [], 0,
+            null, [ new bz.DoorData( 1.0 ) ], [], 0,
             bz.TextureFile.WALL_STONES_3,
             null
         );
@@ -177,7 +177,7 @@ if ( true ) return;
             bz.TextureFile.MODEL_WOOD_HORZ, [], [], 0,
             null, [],      [], 0,
             null, [],      [], 0,
-            null, [ 1.0 ], [], 0,
+            null, [ new bz.DoorData( 1.0 ) ], [], 0,
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
         );
@@ -190,7 +190,7 @@ if ( true ) return;
             null,                           [],      [], 0,
             null,                           [],      [], 0,
             bz.TextureFile.MODEL_WOOD_HORZ, [],      [], 0,
-            null,                           [ 1.0 ], [], 0,
+            null,                           [ new bz.DoorData( 1.0 ) ], [], 0,
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
         );
@@ -203,7 +203,7 @@ if ( true ) return;
             new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
             0.0,
             bz.TextureFile.MODEL_WOOD_HORZ, [],       [], 0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [ 10.0 ], [], 0,
+            bz.TextureFile.MODEL_WOOD_HORZ, [ new bz.DoorData( 10.0 ) ], [], 0,
             bz.TextureFile.MODEL_WOOD_HORZ, [],       [], 0,
             null,                           [],       [], 0,
             bz.TextureFile.WALL_CARPET_2,
