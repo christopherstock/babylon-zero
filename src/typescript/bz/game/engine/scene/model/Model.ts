@@ -556,7 +556,7 @@ export class Model
 
     public sliceMesh(
         scene         :BABYLON.Scene,
-        mesh          :BABYLON.Mesh,
+        originalMesh  :BABYLON.Mesh,
         slicePoint    :BABYLON.Vector3,
         sliceRotation :BABYLON.Vector3
     )
@@ -569,30 +569,24 @@ export class Model
             0.5 * boxSlicerSize + slicePoint.x, slicePoint.y, 0.5 * boxSlicerSize + slicePoint.z
         );
 
-        const meshCSG      :BABYLON.CSG  = BABYLON.CSG.FromMesh( mesh );
+        const meshCSG      :BABYLON.CSG  = BABYLON.CSG.FromMesh( originalMesh );
         const slicerCSG    :BABYLON.CSG  = BABYLON.CSG.FromMesh( boxSlicer );
-        const meshSliceSub :BABYLON.Mesh = meshCSG.subtract(slicerCSG).toMesh(mesh.name + '_slice_left');
-        meshSliceSub.physicsImpostor = new BABYLON.PhysicsImpostor(
-            meshSliceSub,
-            BABYLON.PhysicsImpostor.BoxImpostor,
-            { mass: 1, restitution: 0.5 },
-            scene
-        );
 
-        const meshSliceInt :BABYLON.Mesh = meshCSG.intersect(slicerCSG).toMesh(mesh.name + '_slice_right');
-        meshSliceInt.physicsImpostor = new BABYLON.PhysicsImpostor( meshSliceInt,
-            BABYLON.PhysicsImpostor.BoxImpostor,
-            { mass: 1, restitution: 0.5 },
-            scene
-        );
+        const meshSliceSub :BABYLON.Mesh = meshCSG.subtract(slicerCSG).toMesh(originalMesh.name + '_slice_left');
+        meshSliceSub.material = originalMesh.material.clone( bz.MaterialSystem.createNextMaterialId() );
+        meshSliceSub.physicsImpostor = originalMesh.physicsImpostor.clone( meshSliceSub );
+
+        const meshSliceInt :BABYLON.Mesh = meshCSG.intersect(slicerCSG).toMesh(originalMesh.name + '_slice_right');
+        meshSliceInt.physicsImpostor = originalMesh.physicsImpostor.clone( meshSliceInt );
+        meshSliceInt.material = originalMesh.material.clone( bz.MaterialSystem.createNextMaterialId() );
 
         // dispose and clear original mesh
-        mesh.dispose();
-        const index:number = this.meshes.indexOf( mesh );
+        originalMesh.dispose();
+        const index:number = this.meshes.indexOf( originalMesh );
         if ( index > -1 ) {
             this.meshes.splice( index, 1 );
         }
-        mesh = null;
+        originalMesh = null;
 
         // add the two new sliced meshes to the stack
         this.meshes.push( meshSliceInt );
