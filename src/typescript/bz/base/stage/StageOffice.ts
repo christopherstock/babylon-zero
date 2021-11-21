@@ -123,6 +123,14 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_PAVEMENT_GRANITE,
             null
         );
+
+        // boxes pile in small office
+        bz.StageFactory.addCratesPile(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 15.0 )
+        );
+
 /*
         // parking space
         bz.StageFactory.addRoomWalls(
@@ -231,13 +239,6 @@ if ( true ) return;
             null,                           [],       [], 0,
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
-        );
-
-        // boxes pile in small office
-        bz.StageFactory.addCratesPile(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // boxes pile in light yard
@@ -550,6 +551,7 @@ if ( true ) return;
                 -90.0
             ),
             5.0,
+            true,
             [
                 new bz.Event(
                     bz.EventType.SHOW_GUI_TEXT_MESSAGE,
@@ -692,6 +694,7 @@ if ( true ) return;
                 ]
             ),
             bz.GameObject.UNBREAKABLE,
+            false,
             [
                 new bz.Event(
                     bz.EventType.SHOW_GUI_TEXT_MESSAGE,

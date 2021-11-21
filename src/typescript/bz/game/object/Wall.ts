@@ -8,7 +8,7 @@ export class Wall extends bz.GameObject
     public readonly interactionType   :bz.InteractionType = null;
     public readonly interactionEvents :bz.Event[]         = null;
 
-    public alreadyInteractedwith :boolean = false;
+    public alreadyInteractedWith :boolean = false;
 
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
@@ -20,13 +20,14 @@ export class Wall extends bz.GameObject
     *   @param interactionType   Type of wall interaction.
     *******************************************************************************************************************/
     public constructor(
-        stage             :bz.Stage,
-        model             :bz.Model,
-        energy            :number             = bz.GameObject.UNBREAKABLE,
-        interactionEvents :bz.Event[]         = null,
-        interactionType   :bz.InteractionType = null
+        stage                    :bz.Stage,
+        model                    :bz.Model,
+        energy                   :number             = bz.GameObject.UNBREAKABLE,
+        darkenMeshesOnEnergyLoss :boolean            = true,
+        interactionEvents        :bz.Event[]         = null,
+        interactionType          :bz.InteractionType = bz.InteractionType.ONCE
     ) {
-        super( stage, model, energy );
+        super( stage, model, energy, darkenMeshesOnEnergyLoss );
 
         this.interactionEvents = interactionEvents;
         this.interactionType   = interactionType;

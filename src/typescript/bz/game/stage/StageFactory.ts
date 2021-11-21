@@ -423,6 +423,7 @@ export abstract class StageFactory
                     ]
                 ),
                 bz.GameObject.UNBREAKABLE,
+                true,
                 doorData.events
             );
             walls.push( door );
@@ -494,7 +495,9 @@ export abstract class StageFactory
                             bz.MeshAnchor.LOWEST_XYZ
                         ),
                     ]
-                )
+                ),
+                5,
+                false
             );
             walls.push( windowGlass       );
 

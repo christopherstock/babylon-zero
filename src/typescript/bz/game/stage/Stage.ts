@@ -301,11 +301,11 @@ export abstract class Stage
                 && hitGameObject.interactionEvents !== null
                 && !(
                     hitGameObject.interactionType === bz.InteractionType.ONCE
-                    && hitGameObject.alreadyInteractedwith
+                    && hitGameObject.alreadyInteractedWith
                 )
             )
             {
-                hitGameObject.alreadyInteractedwith = true;
+                hitGameObject.alreadyInteractedWith = true;
 
                 this.addEventsToPipeline( hitGameObject.interactionEvents );
             }

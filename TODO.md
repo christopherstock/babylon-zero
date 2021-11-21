@@ -5,27 +5,22 @@
 ===
 MVP
 ===
-TODO Add door action / open slide etc.?
 TODO static glass window that shatters on shot
+TODO Add door action / open slide etc.?
 
-TODO Add gothic church and outside parking space / scene?
-TODO different bullets, different wearpons, different gadgets to inventories
 TODO Add Babylon.js tree generation helper?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
 TODO Reset Git Repository?
 
-=========
-Locations
-=========
-TODO Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
-
 ======
 3dsmax
 ======
+TODO Add gothic church and outside parking space / scene?
 TODO Try ingame 3D wearpon model
 TODO Create realistic models and lights.
 TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
+TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 
 ==
 Fx
@@ -52,6 +47,7 @@ TODO Try hi-res textures?
 Wearpons
 ========
 TODO Create 3d gun as 2nd scene in front?
+TODO different bullets, different wearpons, different gadgets to inventories
 TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, bullet-hole-size, zoom, muzzle-flash ..
 TODO Add slower panning on aiming/zooming with wearpon. (sniper rifle etc.)
 TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon collection system.

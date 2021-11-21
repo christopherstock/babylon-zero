@@ -6,21 +6,22 @@ import * as bz from '../..';
 export abstract class GameObject
 {
     /** An energy amount that represents that this game object is unbreakable. */
-    public    static readonly UNBREAKABLE          :number   = -1;
+    public    static readonly UNBREAKABLE               :number     = -1;
 
     /** The stage this game object belongs to. */
-    protected        readonly stage                :bz.Stage = null;
+    protected        readonly stage                     :bz.Stage   = null;
     /** All meshes this game object consists of. */
-    protected        readonly model                :bz.Model = null;
+    protected        readonly model                     :bz.Model   = null;
     /** The initial energy of this game object. */
-    private          readonly initialEnergy        :number   = 0;
+    private          readonly initialEnergy             :number     = 0;
 
     /** The current energy of this wall. */
-    private                   currentEnergy        :number   = 0;
+    private                   currentEnergy             :number     = 0;
     /** Flags if this wall is broken. */
-    private                   destroyed            :boolean  = false;
+    private                   destroyed                 :boolean    = false;
     /** The next z-index for the bullet hole to assign. */
-    private                   nextBulletHoleZIndex :number   = 0;
+    private                   nextBulletHoleZIndex      :number     = 0;
+    private                   darkenMeshesOnEnergyLoss  :boolean    = false;
 
     /** ****************************************************************************************************************
     *   Creates a new game object.
@@ -29,12 +30,13 @@ export abstract class GameObject
     *   @param model  The model for this game object.
     *   @param energy The initial energy of this game object.
     *******************************************************************************************************************/
-    protected constructor( stage:bz.Stage, model:bz.Model, energy:number = GameObject.UNBREAKABLE )
+    protected constructor( stage:bz.Stage, model:bz.Model, energy:number = GameObject.UNBREAKABLE, darkenMeshesOnEnergyLoss = true )
     {
-        this.stage         = stage;
-        this.model         = model;
-        this.initialEnergy = energy;
-        this.currentEnergy = energy;
+        this.stage                    = stage;
+        this.model                    = model;
+        this.initialEnergy            = energy;
+        this.currentEnergy            = energy;
+        this.darkenMeshesOnEnergyLoss = darkenMeshesOnEnergyLoss;
     }
 
     /** ****************************************************************************************************************
@@ -169,11 +171,14 @@ export abstract class GameObject
         );
 
         // set darkening alpha value for this mesh
-        const darkenAlpha :number = (
-            bz.SettingEngine.MAX_MESH_DARKENING_RATIO
-            - ( bz.SettingEngine.MAX_MESH_DARKENING_RATIO * ( this.currentEnergy / this.initialEnergy ) )
-        );
-        this.model.setMeshDarkening( scene, darkenAlpha );
+        if ( this.darkenMeshesOnEnergyLoss )
+        {
+            const darkenAlpha :number = (
+                bz.SettingEngine.MAX_MESH_DARKENING_RATIO
+                - ( bz.SettingEngine.MAX_MESH_DARKENING_RATIO * ( this.currentEnergy / this.initialEnergy ) )
+            );
+            this.model.setMeshDarkening( scene, darkenAlpha );
+        }
 
         // shot off this mesh from the compound - if enabled by the model
         this.model.shotOffCompound( scene, mesh );
