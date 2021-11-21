@@ -5,18 +5,16 @@
 ===
 MVP
 ===
-TODO Add diamond corner feature to room creation.
 TODO Add door creation to room creation method.
 TODO Add gothic church and outside parking space / scene?
 TODO Add door action / open slide etc.?
+TODO static glass window that shatters on shot
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
-TODO static glass window that shatters on shot
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
-TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
 TODO Reset Git Repository?
 
 =========

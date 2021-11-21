@@ -93,13 +93,60 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_VERT_1,    [ 2.5 ], [], 2.0,
-            bz.TextureFile.WALL_WOOD_PLANKS,    [],      [], 3.0,
-            bz.TextureFile.WALL_WOOD_STRUCTURE, [],      [], 4.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,     [],      [], 5.0,
+            bz.TextureFile.WALL_WOOD_VERT_1,    [ 1.0 ], [ 7.0 ], 2.0,
+            bz.TextureFile.WALL_WOOD_PLANKS,    [ 1.0 ], [ 7.0 ], 3.0,
+            bz.TextureFile.WALL_WOOD_STRUCTURE, [ 1.0 ], [ 7.0 ], 4.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,     [ 1.0 ], [ 7.0 ], 5.0,
             bz.TextureFile.WALL_PAVEMENT_MILANO,
             null
         );
+
+        // add stage switch door
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3(
+                                20.0 + ( bz.SettingGame.WALL_DEPTH / 2 ),
+                                bz.SettingGame.FLOOR_OFFSET_Y,
+                                20.0 + ( bz.SettingGame.DOOR_WIDTH / 2 )
+                            ),
+                            bz.TextureFile.WALL_DOOR_1,
+                            new BABYLON.Vector3(
+                                bz.SettingGame.DOOR_WIDTH,
+                                bz.SettingGame.DOOR_HEIGHT,
+                                bz.SettingGame.WALL_DEPTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
+                        ),
+                    ]
+                ),
+                bz.GameObject.UNBREAKABLE,
+                [
+                    new bz.Event(
+                        bz.EventType.SWITCH_TO_STAGE,
+                        new bz.EventDataStageSwitch(
+                            bz.StageId.OUTSIDE,
+                            new BABYLON.Vector3(
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                            ),
+                            new BABYLON.Vector3( 0.0, 60.0, 0.0 )
+                        )
+                    ),
+                ]
+            )
+        );
+
 /*
         // parking space
         bz.StageFactory.addRoomWalls(
@@ -142,14 +189,13 @@ export class StageOffice extends bz.Stage
             )
         );
 */
-/*
+
         // add rain effect
-        this.setRainEffect(
-            5.0,
-            1000,
-            new BABYLON.Vector3( 1.5, -2.5, 1.5 )
+        if ( false ) this.setRainEffect(
+            3.0,
+            750,
+            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
-*/
 
 if ( true ) return;
 
@@ -354,52 +400,6 @@ if ( true ) return;
                 this,
                 new BABYLON.Vector3( 35.0, 0.5, -25.0 ),
                 bz.ItemType.PAINKILLER
-            )
-        );
-
-        // add stage switch door
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3(
-                                40.0 + ( bz.SettingGame.WALL_DEPTH / 2 ), // 160.0 +
-                                bz.SettingGame.FLOOR_OFFSET_Y,
-                                -10.0 + ( bz.SettingGame.DOOR_WIDTH / 2 ) // 10.0 +
-                            ),
-                            bz.TextureFile.WALL_DOOR_1,
-                            new BABYLON.Vector3(
-                                bz.SettingGame.DOOR_WIDTH,
-                                bz.SettingGame.DOOR_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
-                        ),
-                    ]
-                ),
-                bz.GameObject.UNBREAKABLE,
-                [
-                    new bz.Event(
-                        bz.EventType.SWITCH_TO_STAGE,
-                        new bz.EventDataStageSwitch(
-                            bz.StageId.OUTSIDE,
-                            new BABYLON.Vector3(
-                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                            ),
-                            new BABYLON.Vector3( 0.0, 60.0, 0.0 )
-                        )
-                    ),
-                ]
             )
         );
 

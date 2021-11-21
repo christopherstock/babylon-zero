@@ -390,6 +390,11 @@ export abstract class StageFactory
                 continue;
             }
 
+            if ( sizeY < bz.SettingGame.WINDOW_HEIGHT + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT )
+            {
+                continue;
+            }
+
             // top window frame
             const topWindowFrame :bz.Wall = new bz.Wall
             (
@@ -449,6 +454,10 @@ export abstract class StageFactory
             walls.push( windowGlass       );
 
             // bottom window frame
+            if ( sizeY < bz.SettingGame.WINDOW_HEIGHT + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT + bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT )
+            {
+                continue;
+            }
             const bottomWindowFrame :bz.Wall = new bz.Wall
             (
                 stage,
