@@ -2,9 +2,9 @@ import * as bz from '../..';
 
 export enum DoorType
 {
-    EVENT_LAUNCHER,
     SLIDE_DOOR,
     SWING_DOOR,
+    EVENTS_ONLY,
 }
 
 /** ********************************************************************************************************************
@@ -12,6 +12,8 @@ export enum DoorType
 ***********************************************************************************************************************/
 export class Door extends bz.Wall
 {
+    private             type        :bz.DoorType            = null;
+
     /** ****************************************************************************************************************
     *   Creates a new door instance.
     *
@@ -22,6 +24,7 @@ export class Door extends bz.Wall
     public constructor(
         stage    :bz.Stage,
         position :BABYLON.Vector3,
+        type     :DoorType,
         events   :bz.Event[]
     ) {
         super(
@@ -51,6 +54,35 @@ export class Door extends bz.Wall
             events,
             bz.InteractionType.REPEATED
         );
+
+        this.type = type;
+    }
+
+    public performInteraction( stage:bz.Stage ) : void
+    {
+        // launch all events if any
+        super.performInteraction( stage );
+
+        // start door animation if designed
+        switch ( this.type )
+        {
+            case DoorType.SLIDE_DOOR:
+            {
+                // start slide door animation
+                break;
+            }
+            case DoorType.SWING_DOOR:
+            {
+                // start swing door animation
+                break;
+            }
+            case DoorType.EVENTS_ONLY:
+            default:
+            {
+                // do not start door animations
+                break;
+            }
+        }
     }
 
     /** ****************************************************************************************************************
@@ -58,5 +90,7 @@ export class Door extends bz.Wall
     *******************************************************************************************************************/
     public render() : void
     {
+        // animate swing or slide door animation
+
     }
 }

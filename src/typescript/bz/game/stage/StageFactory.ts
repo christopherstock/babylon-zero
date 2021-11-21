@@ -411,6 +411,7 @@ export abstract class StageFactory
                         y,
                         ( z + bz.SettingGame.WALL_DEPTH / 2 )
                     ),
+                    bz.DoorType.EVENTS_ONLY,
                     doorData.events
                 );
                 walls.push( door );
