@@ -354,10 +354,37 @@ export abstract class StageFactory
 
             if ( sizeY < bz.SettingGame.DOOR_HEIGHT + bz.SettingGame.DOOR_FRAME_HEIGHT )
             {
-                continue;
+                // skip door frame drawing
+            }
+            else
+            {
+                const doorFrame :bz.Wall = new bz.Wall
+                (
+                    stage,
+                    new bz.Model
+                    (
+                        [
+                            meshFactory.createBox
+                            (
+                                new BABYLON.Vector3( x + doorPos, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z ),
+                                textureFileWall,
+                                new BABYLON.Vector3(
+                                    bz.SettingGame.DOOR_WIDTH,
+                                    bz.SettingGame.DOOR_FRAME_HEIGHT,
+                                    bz.SettingGame.WALL_DEPTH
+                                ),
+                                bz.PhysicSet.STATIC,
+                                1.0,
+                                bz.MeshAnchor.LOWEST_XYZ
+                            ),
+                        ]
+                    )
+                );
+                walls.push( doorFrame );
             }
 
-            const doorFrame :bz.Wall = new bz.Wall
+            // add door
+            const door:bz.Wall = new bz.Wall
             (
                 stage,
                 new bz.Model
@@ -365,22 +392,41 @@ export abstract class StageFactory
                     [
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + doorPos, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z ),
-                            textureFileWall,
+                            new BABYLON.Vector3(
+                                ( x + doorPos + bz.SettingGame.DOOR_WIDTH / 2 ),
+                                y,
+                                ( z + bz.SettingGame.WALL_DEPTH / 2 )
+                            ),
+                            bz.TextureFile.WALL_DOOR_1,
                             new BABYLON.Vector3(
                                 bz.SettingGame.DOOR_WIDTH,
-                                bz.SettingGame.DOOR_FRAME_HEIGHT,
+                                bz.SettingGame.DOOR_HEIGHT,
                                 bz.SettingGame.WALL_DEPTH
                             ),
                             bz.PhysicSet.STATIC,
                             1.0,
-                            bz.MeshAnchor.LOWEST_XYZ
+                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                         ),
                     ]
-                )
+                ),
+                bz.GameObject.UNBREAKABLE,
+                [
+                    new bz.Event(
+                        bz.EventType.SWITCH_TO_STAGE,
+                        new bz.EventDataStageSwitch(
+                            bz.StageId.OUTSIDE,
+                            new BABYLON.Vector3(
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                            ),
+                            new BABYLON.Vector3( 0.0, 60.0, 0.0 )
+                        )
+                    ),
+                ]
             );
-
-            walls.push( doorFrame );
+            walls.push( door );
         }
 
         // window frames

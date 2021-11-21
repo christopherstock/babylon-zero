@@ -100,53 +100,6 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_PAVEMENT_GRANITE,
             null
         );
-
-        // add stage switch door
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3(
-                                20.0 + ( bz.SettingGame.WALL_DEPTH / 2 ),
-                                bz.SettingGame.FLOOR_OFFSET_Y,
-                                20.0 + ( bz.SettingGame.DOOR_WIDTH / 2 )
-                            ),
-                            bz.TextureFile.WALL_DOOR_1,
-                            new BABYLON.Vector3(
-                                bz.SettingGame.DOOR_WIDTH,
-                                bz.SettingGame.DOOR_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 )
-                        ),
-                    ]
-                ),
-                bz.GameObject.UNBREAKABLE,
-                [
-                    new bz.Event(
-                        bz.EventType.SWITCH_TO_STAGE,
-                        new bz.EventDataStageSwitch(
-                            bz.StageId.OUTSIDE,
-                            new BABYLON.Vector3(
-                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                            ),
-                            new BABYLON.Vector3( 0.0, 60.0, 0.0 )
-                        )
-                    ),
-                ]
-            )
-        );
-
 /*
         // parking space
         bz.StageFactory.addRoomWalls(
