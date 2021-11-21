@@ -71,7 +71,7 @@ export abstract class SettingEngine
     public static readonly CURRENT_WEARPON_ZOOM_SPEED               :number             = 0.05;
 
     /** The HTML page title. */
-    public static readonly BRANDING_TITLE                           :string             = ( 'babylon-zero, (c) 2021 Mayflower GmbH, v.' + bz.Version.getCurrent() );
+    public static readonly BRANDING_TITLE                           :string             = ( 'babylon-zero, (c) 2021 Mayflower GmbH, ' + bz.Version.getCurrent() );
     /** The HTML page favicon. */
     public static readonly BRANDING_FAVICON                         :string             = 'mayflower.ico';
     /** The loading screen logo. */

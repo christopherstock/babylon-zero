@@ -23,6 +23,7 @@ TODO Create Locations: Park, parking site / house, garage, backyard, waste groun
 ==
 Fx
 ==
+TODO keep mouse lock between stage switches?
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)

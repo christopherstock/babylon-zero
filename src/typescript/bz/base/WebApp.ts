@@ -18,7 +18,6 @@ export class WebApp
 
         // log some output
         bz.Debug.acclaim.log( bz.SettingEngine.BRANDING_TITLE );
-        bz.Debug.acclaim.log( bz.Version.getCurrent()  );
         bz.Debug.acclaim.log();
 
         // create and init game
