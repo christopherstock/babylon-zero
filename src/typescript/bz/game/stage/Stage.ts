@@ -272,7 +272,10 @@ export abstract class Stage
                 this.config.ambientColor,
                 shot.getDamage()
             );
-            this.addBulletHole( bulletHole );
+            if ( bulletHole !== null )
+            {
+                this.addBulletHole( bulletHole );
+            }
         }
     }
 

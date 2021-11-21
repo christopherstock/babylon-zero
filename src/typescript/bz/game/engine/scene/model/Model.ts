@@ -603,6 +603,8 @@ export class Model
         // dispose the slicer helper box
         boxSlicer.dispose();
 
+        // TODO to outside method!
+
         // TODO technical debt - apply hit impulse to both submeshes ..
         hitPoint.mesh = meshSliceInt;
         hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );

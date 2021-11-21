@@ -217,6 +217,10 @@ export abstract class GameObject
                     && hitPoint.getMesh() instanceof BABYLON.Mesh
                 )
                 {
+                    // remove existing bullet holes
+                    this.stage.disposeBulletHolesForGameObject( this );
+
+                    // slice the mesh in two
                     this.model.sliceMesh(
                         scene,
                         ( hitPoint.getMesh() as BABYLON.Mesh ),

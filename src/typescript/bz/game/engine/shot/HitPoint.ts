@@ -61,7 +61,13 @@ export class HitPoint
         // hurt the game object - this may break the mesh in two!
         this.gameObject.hurt( damage, this.mesh, this );
 
-        // apply physical impulse to mesh
+        // break and return no BulletHole if the mesh has been destroyed/split
+        if ( this.mesh === null )
+        {
+            return null;
+        }
+
+        // apply a physical impulse to the mesh
         this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
 
         // return a bullet hole
