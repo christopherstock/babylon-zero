@@ -222,8 +222,7 @@ export abstract class GameObject
                     const slicedMeshes :BABYLON.Mesh[] = this.model.sliceMesh(
                         scene,
                         mesh,
-                        hitPoint.getPoint(),
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                        hitPoint.getPoint()
                     );
 
                     // apply hit impulses to both submeshes ..

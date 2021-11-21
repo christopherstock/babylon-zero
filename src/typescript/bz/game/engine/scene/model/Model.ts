@@ -557,28 +557,36 @@ export class Model
     public sliceMesh(
         scene         :BABYLON.Scene,
         originalMesh  :BABYLON.Mesh,
-        slicePoint    :BABYLON.Vector3,
-        sliceRotation :BABYLON.Vector3
+        slicePoint    :BABYLON.Vector3
     )
     : BABYLON.Mesh[]
     {
-        const boxSlicerSize :number = 100;
-        const boxSlicer :BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'boxSlicer', boxSlicerSize, scene );
-        boxSlicer.rotation = sliceRotation;
+        const boxSlicerSize :number       = 100;
+        const boxSlicer     :BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'boxSlicer', boxSlicerSize, scene );
+
+        // console.log( '> original mesh rot: ', originalMesh.rotation );
+
+        // boxSlicer.rotationQuaternion = originalMesh.rotationQuaternion.clone();
+
+        // boxSlicer.rotation = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+        // bz.MeshManipulation.setAbsoluteRotationXYZ( boxSlicer, 0.0, 0.0, 0.0 );
+
         boxSlicer.position = new BABYLON.Vector3(
-            0.5 * boxSlicerSize + slicePoint.x, slicePoint.y, 0.5 * boxSlicerSize + slicePoint.z
+            0.5 * boxSlicerSize + slicePoint.x,
+            slicePoint.y,
+            0.5 * boxSlicerSize + slicePoint.z
         );
 
         const meshCSG      :BABYLON.CSG  = BABYLON.CSG.FromMesh( originalMesh );
         const slicerCSG    :BABYLON.CSG  = BABYLON.CSG.FromMesh( boxSlicer );
 
-        const meshSliceSub :BABYLON.Mesh = meshCSG.subtract(slicerCSG).toMesh(originalMesh.name + '_slice_left');
+        const meshSliceSub :BABYLON.Mesh = meshCSG.subtract(slicerCSG).toMesh(originalMesh.name + '_sliceLeft');
         meshSliceSub.material = originalMesh.material.clone( bz.MaterialSystem.createNextMaterialId() );
         meshSliceSub.physicsImpostor = originalMesh.physicsImpostor.clone( meshSliceSub );
 
-        const meshSliceInt :BABYLON.Mesh = meshCSG.intersect(slicerCSG).toMesh(originalMesh.name + '_slice_right');
-        meshSliceInt.physicsImpostor = originalMesh.physicsImpostor.clone( meshSliceInt );
+        const meshSliceInt :BABYLON.Mesh = meshCSG.intersect(slicerCSG).toMesh(originalMesh.name + '_sliceRight');
         meshSliceInt.material = originalMesh.material.clone( bz.MaterialSystem.createNextMaterialId() );
+        meshSliceInt.physicsImpostor = originalMesh.physicsImpostor.clone( meshSliceInt );
 
         // dispose and clear original mesh
         originalMesh.dispose();
