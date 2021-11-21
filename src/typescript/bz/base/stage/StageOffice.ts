@@ -87,16 +87,39 @@ export class StageOffice extends bz.Stage
         this.addLight( hemisphericLight );
 
         // waste ground
+        const eventsSwitchStage :bz.Event[] = [
+            new bz.Event(
+                bz.EventType.SWITCH_TO_STAGE,
+                new bz.EventDataStageSwitch(
+                    bz.StageId.OUTSIDE,
+                    new BABYLON.Vector3(
+                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                    ),
+                    new BABYLON.Vector3( 0.0, 60.0, 0.0 )
+                )
+            ),
+        ];
+        const eventsDoorLocked :bz.Event[] = [
+            new bz.Event(
+                bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                new bz.EventDataShowGuiTextMessage(
+                    'This door is locked',
+                    true
+                )
+            ),
+        ];
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_VERT_1,    [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 2.0,
-            bz.TextureFile.WALL_WOOD_PLANKS,    [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 3.0,
-            bz.TextureFile.WALL_WOOD_STRUCTURE, [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 4.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,     [ new bz.DoorData( 1.0 ) ], [ 7.0 ], 5.0,
+            bz.TextureFile.WALL_WOOD_VERT_1,    [ new bz.DoorData( 1.0, eventsSwitchStage ) ], [ 7.0 ], 2.0,
+            bz.TextureFile.WALL_WOOD_PLANKS,    [ new bz.DoorData( 1.0, eventsDoorLocked  ) ], [ 7.0 ], 3.0,
+            bz.TextureFile.WALL_WOOD_STRUCTURE, [ new bz.DoorData( 1.0, eventsDoorLocked  ) ], [ 7.0 ], 4.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,     [ new bz.DoorData( 1.0, eventsDoorLocked  ) ], [ 7.0 ], 5.0,
             bz.TextureFile.WALL_PAVEMENT_GRANITE,
             null
         );
