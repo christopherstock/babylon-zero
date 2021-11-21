@@ -67,7 +67,7 @@ export abstract class StageFactory
             StageFactory.createWall(
                 roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
                 position.x + size.x + bz.SettingGame.WALL_DEPTH,
-                size.z + diamondModSizeX,
+                size.z + diamondModSizeX - diamondCornerC,
                 position.y,
                 size.y,
                 position.z + diamondModX,
@@ -94,10 +94,13 @@ export abstract class StageFactory
 
         if ( textureFileWallC !== null )
         {
+            const diamondModX :number = diamondCornerC + ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+
             StageFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
-                position.x + size.x + bz.SettingGame.WALL_DEPTH,
-                size.x,
+                position.x + size.x + bz.SettingGame.WALL_DEPTH - diamondModX,
+                size.x + diamondModSizeX,
                 position.y,
                 size.y,
                 position.z + size.z + bz.SettingGame.WALL_DEPTH,
@@ -105,6 +108,22 @@ export abstract class StageFactory
                 textureFileWallC,
                 bz.TextureFile.WALL_GLASS_1
             );
+
+            if ( diamondCornerC > 0 ) {
+                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingGame.WALL_DEPTH, 2 ) );
+                StageFactory.createWall(
+                    roomWalls, [], [], stage, meshFactory,
+                    position.x + size.x + bz.SettingGame.WALL_DEPTH,
+                    sizeCornerC,
+                    position.y,
+                    size.y,
+                    position.z + size.z - diamondCornerC,
+                    -135.0,
+                    textureFileWallB,
+                    bz.TextureFile.WALL_GLASS_1
+                );
+            }
+
         }
 
         if ( textureFileWallD !== null )
