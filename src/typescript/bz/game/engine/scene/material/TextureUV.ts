@@ -3,6 +3,8 @@
 ***********************************************************************************************************************/
 export enum TextureUV
 {
+    // TODO rename to shorter names!
+
     /** One texture dimension for the whole face size. */
     ALL_TO_ONE,
 

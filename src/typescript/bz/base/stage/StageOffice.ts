@@ -97,7 +97,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_WOOD_PLANKS,    [ 1.0 ], [ 7.0 ], 3.0,
             bz.TextureFile.WALL_WOOD_STRUCTURE, [ 1.0 ], [ 7.0 ], 4.0,
             bz.TextureFile.WALL_WOOD_OLIVE,     [ 1.0 ], [ 7.0 ], 5.0,
-            bz.TextureFile.WALL_PAVEMENT_MILANO,
+            bz.TextureFile.WALL_PAVEMENT_GRANITE,
             null
         );
 

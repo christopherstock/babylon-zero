@@ -26,7 +26,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_CHECKERS_1 ),
         new Texture( bz.TextureFile.WALL_CHECKERS_2 ),
         new Texture( bz.TextureFile.WALL_COBBLES_1 ),
-        new Texture( bz.TextureFile.WALL_COBBLES_2 ),
+        new Texture( bz.TextureFile.WALL_PAVEMENT_GRANITE ),
         new Texture( bz.TextureFile.WALL_COBBLES_3 ),
         new Texture( bz.TextureFile.WALL_COBBLES_4 ),
         new Texture( bz.TextureFile.WALL_COBBLES_5 ),
