@@ -118,7 +118,7 @@ export class StageOffice extends bz.Stage
             0.0,
             bz.TextureFile.WALL_WOOD_VERT_1,    [ new bz.DoorData( 1.0, eventsSwitchStage ) ], [ 7.0 ], 2.0,
             bz.TextureFile.WALL_WOOD_PLANKS,    [ new bz.DoorData( 1.0, eventsDoorLocked  ) ], [ 7.0 ], 3.0,
-            bz.TextureFile.WALL_WOOD_STRUCTURE, [ new bz.DoorData( 1.0, eventsDoorLocked  ) ], [ 7.0 ], 4.0,
+            bz.TextureFile.WALL_WOOD_GRAIN, [ new bz.DoorData( 1.0, eventsDoorLocked  ) ], [ 7.0 ], 4.0,
             bz.TextureFile.WALL_WOOD_OLIVE,     [ new bz.DoorData( 1.0, [], true  ) ], [ 7.0 ], 5.0,
             bz.TextureFile.WALL_ASPHALT_CRACKED,
             null
@@ -194,7 +194,7 @@ if ( true ) return;
             null, [],      [], 0,
             null, [],      [], 0,
             null, [ new bz.DoorData( 1.0 ) ], [], 0,
-            bz.TextureFile.WALL_STONES_3,
+            bz.TextureFile.WALL_STONES_DARK_GRANITE,
             null
         );
 

@@ -415,7 +415,7 @@ export abstract class StageFactory
                                     y,
                                     ( z + bz.SettingGame.WALL_DEPTH / 2 )
                                 ),
-                                bz.TextureFile.WALL_DOOR_1,
+                                bz.TextureFile.WALL_DOOR_INDUSTRIAL,
                                 new BABYLON.Vector3(
                                     bz.SettingGame.DOOR_WIDTH,
                                     bz.SettingGame.DOOR_HEIGHT,
@@ -505,11 +505,11 @@ export abstract class StageFactory
                         ),
                     ]
                 ),
-                5,
+                bz.MathUtil.getRandomInt( bz.SettingGame.WINDOW_MIN_ENERGY, bz.SettingGame.WINDOW_MAX_ENERGY ),
                 false,
                 true
             );
-            walls.push( windowGlass       );
+            walls.push( windowGlass );
 
             // bottom window frame
             if ( sizeY < bz.SettingGame.WINDOW_HEIGHT + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT + bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT )

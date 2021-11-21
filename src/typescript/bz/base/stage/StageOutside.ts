@@ -58,9 +58,9 @@ export class StageOutside extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             0.0,
-            bz.TextureFile.WALL_STONES_3, [], [], 0,
+            bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [], 0,
             null,                         [], [], 0,
-            bz.TextureFile.WALL_STONES_3, [], [], 0,
+            bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [], 0,
             bz.TextureFile.WALL_MARBLE_1, [ new bz.DoorData( 30.0, doorEventsSwitchStage ) ], [], 0,
             bz.TextureFile.MODEL_CONCRETE,
             null

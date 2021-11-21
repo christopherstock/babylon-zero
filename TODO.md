@@ -10,12 +10,14 @@ TODO Add Babylon.js tree generation helper?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
 TODO Reset Git Repository?
+TODO try again: light weight for player - so he can't push heavy objects so easily?
 
 ======
 3dsmax
 ======
 TODO Add gothic church and outside parking space / scene?
 TODO Try ingame 3D wearpon model
+TODO Performance: Try hi-res textures?
 TODO Create realistic models and lights.
 TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
@@ -40,7 +42,6 @@ TODO Enable loading of only required resources for the current scene?
 TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
 TODO Add physically correct bullet drop (+sound) out after fire.
 TODO Create staircase.
-TODO Try hi-res textures?
 
 ========
 Wearpons
