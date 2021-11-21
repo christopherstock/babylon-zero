@@ -406,28 +406,10 @@ export abstract class StageFactory
                 const door:bz.Door = new bz.Door
                 (
                     stage,
-                    new bz.Model
-                    (
-                        [
-                            meshFactory.createBox
-                            (
-                                new BABYLON.Vector3(
-                                    ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
-                                    y,
-                                    ( z + bz.SettingGame.WALL_DEPTH / 2 )
-                                ),
-                                bz.TextureFile.WALL_DOOR_INDUSTRIAL,
-                                new BABYLON.Vector3(
-                                    bz.SettingGame.DOOR_WIDTH,
-                                    bz.SettingGame.DOOR_HEIGHT,
-                                    bz.SettingGame.WALL_DEPTH
-                                ),
-                                bz.PhysicSet.STATIC,
-                                1.0,
-                                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                            ),
-                        ]
+                    new BABYLON.Vector3(
+                        ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
+                        y,
+                        ( z + bz.SettingGame.WALL_DEPTH / 2 )
                     ),
                     doorData.events
                 );
