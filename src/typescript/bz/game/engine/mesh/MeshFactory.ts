@@ -523,27 +523,15 @@ export class MeshFactory
         textureFile     :bz.TextureFile,
         color           :BABYLON.Color3,
         physic          :bz.PhysicSet,
-        materialAlpha   :number,
-        sideOrientation :number,
-        diamondCornerA  :number,
-        diamondCornerB  :number,
-        diamondCornerC  :number,
-        diamondCornerD  :number
+        diamondCornerA  :number = 0.0,
+        diamondCornerB  :number = 0.0,
+        diamondCornerC  :number = 0.0,
+        diamondCornerD  :number = 0.0,
+        materialAlpha   :number = 1.0,
+        sideOrientation :number = 0
     )
     : BABYLON.Mesh
     {
-/*
-        const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePlane
-        (
-            MeshFactory.createNextMeshId(),
-            {
-                width:           width,
-                height:          height,
-                sideOrientation: sideOrientation,
-            },
-            this.scene.getNativeScene()
-        );
-*/
         // y axis is ignored here
         const points :BABYLON.Vector3[] = [];
 
@@ -586,17 +574,7 @@ export class MeshFactory
         {
             points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
         }
-/*
-        if ( diamondCornerD > 0 )
-        {
-            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height - diamondCornerD ) );
-            points.push( new BABYLON.Vector3( position.x + diamondCornerD,         0.0, position.z + height ) );
-        }
-        else
-        {
-            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
-        }
-*/
+
         const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
         (
             MeshFactory.createNextMeshId(),
@@ -606,17 +584,7 @@ export class MeshFactory
             },
             this.scene.getNativeScene()
         );
-/*
-        bz.MeshManipulation.setPositionByAnchor
-        (
-            plane,
-            position,
-            anchor,
-            width,
-            height,
-            0.0
-        );
-*/
+
         // translate y axis
         bz.MeshManipulation.translatePosition( plane, new BABYLON.Vector3( 0.0, position.y, 0.0 ) );
 

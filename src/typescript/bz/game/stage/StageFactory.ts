@@ -9,11 +9,11 @@ export abstract class StageFactory
     *   Creates one room.
     *******************************************************************************************************************/
     public static addRoomWalls(
-        stage              :bz.Stage,
-        meshFactory        :bz.MeshFactory,
-        position           :BABYLON.Vector3,
-        size               :BABYLON.Vector3,
-        rotZ               :number,
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        size        :BABYLON.Vector3,
+        rotZ        :number,
         textureFileWallA   :bz.TextureFile = null, doorsWallA :number[] = [], windowsWallA :number[] = [], diamondCornerA :number = 0,
         textureFileWallB   :bz.TextureFile = null, doorsWallB :number[] = [], windowsWallB :number[] = [], diamondCornerB :number = 0,
         textureFileWallC   :bz.TextureFile = null, doorsWallC :number[] = [], windowsWallC :number[] = [], diamondCornerC :number = 0,
@@ -28,10 +28,13 @@ export abstract class StageFactory
 
         if ( textureFileWallA !== null )
         {
+            const diamondModX :number = diamondCornerA + ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerA - ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+
             StageFactory.createWall(
                 roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
-                position.x + diamondCornerA + ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 ),
-                size.x  - diamondCornerA - ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 ),
+                position.x + diamondModX,
+                size.x  + diamondModSizeX - diamondCornerB,
                 position.y,
                 size.y,
                 position.z,
@@ -58,17 +61,35 @@ export abstract class StageFactory
 
         if ( textureFileWallB !== null )
         {
+            const diamondModX :number = diamondCornerB + ( diamondCornerB > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerB - ( diamondCornerB > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+
             StageFactory.createWall(
                 roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
                 position.x + size.x + bz.SettingGame.WALL_DEPTH,
-                size.z,
+                size.z + diamondModSizeX,
                 position.y,
                 size.y,
-                position.z,
+                position.z + diamondModX,
                 -90.0,
                 textureFileWallB,
                 bz.TextureFile.WALL_GLASS_1
             );
+
+            if ( diamondCornerB > 0 ) {
+                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingGame.WALL_DEPTH, 2 ) );
+                StageFactory.createWall(
+                    roomWalls, [], [], stage, meshFactory,
+                    position.x + size.x - diamondCornerB,
+                    sizeCornerB,
+                    position.y,
+                    size.y,
+                    position.z, // ( position.z + diamondCornerB + 2 * bz.SettingGame.WALL_DEPTH ),
+                    -45.0,
+                    textureFileWallB,
+                    bz.TextureFile.WALL_GLASS_1
+                );
+            }
         }
 
         if ( textureFileWallC !== null )
@@ -155,8 +176,6 @@ export abstract class StageFactory
                             textureFileFloor,
                             null,
                             bz.PhysicSet.STATIC,
-                            1.0,
-                            0,
                             diamondCornerA,
                             diamondCornerB,
                             diamondCornerC,
