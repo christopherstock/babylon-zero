@@ -554,6 +554,10 @@ export class Model
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Slice one mesh of the model into two new meshes.
+    *   Welcome to a world of (code) magic. :p
+    *******************************************************************************************************************/
     public sliceMesh(
         scene       :BABYLON.Scene,
         meshToSlice :BABYLON.Mesh,
@@ -564,17 +568,17 @@ export class Model
         const boxSlicerSize :number       = 100;
         const boxSlicer     :BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'boxSlicer', boxSlicerSize, scene );
 
-        // console.log( '> original mesh rot: ', originalMesh.rotation );
-
-        // boxSlicer.rotationQuaternion = originalMesh.rotationQuaternion.clone();
-
-        // boxSlicer.rotation = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
-        // bz.MeshManipulation.setAbsoluteRotationXYZ( boxSlicer, 0.0, 0.0, 0.0 );
+        const a :number = (
+            meshToSlice.rotationQuaternion.x === 0
+            && meshToSlice.rotationQuaternion.y === 0
+            && meshToSlice.rotationQuaternion.z === 0
+                ? 1.0 : -1.0
+        );
 
         boxSlicer.position = new BABYLON.Vector3(
-            0.5 * boxSlicerSize + slicePoint.x,
-            slicePoint.y,
-            0.5 * boxSlicerSize + slicePoint.z
+            slicePoint.x + ( ( 0.5 * boxSlicerSize ) * a ),
+            0,
+            slicePoint.z + ( ( 0.5 * boxSlicerSize ) * a )
         );
 
         const meshCSG      :BABYLON.CSG  = BABYLON.CSG.FromMesh( meshToSlice );
