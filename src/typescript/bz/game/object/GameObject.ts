@@ -14,6 +14,8 @@ export abstract class GameObject
     protected        readonly model                     :bz.Model   = null;
     /** The initial energy of this game object. */
     private          readonly initialEnergy             :number     = 0;
+    private          readonly darkenMeshesOnEnergyLoss  :boolean    = false;
+    private          readonly splitHitMeshOnEnergyLoss  :boolean    = false;
 
     /** The current energy of this wall. */
     private                   currentEnergy             :number     = 0;
@@ -21,8 +23,6 @@ export abstract class GameObject
     private                   destroyed                 :boolean    = false;
     /** The next z-index for the bullet hole to assign. */
     private                   nextBulletHoleZIndex      :number     = 0;
-    private                   darkenMeshesOnEnergyLoss  :boolean    = false;
-    private                   splitHitMeshOnEnergyLoss  :boolean    = false;
 
     /** ****************************************************************************************************************
     *   Creates a new game object.
@@ -208,27 +208,30 @@ export abstract class GameObject
             // slice the mesh if desired
             if ( this.splitHitMeshOnEnergyLoss )
             {
-                console.log( '.. slicing window glass pane ..' );
-
                 // check if this hit mesh is available and not already splitted by a different HitPoint of this shot
                 if (
-                    hitPoint.getMesh() !== null
-                    && !hitPoint.getMesh().isDisposed()
-                    && hitPoint.getMesh() instanceof BABYLON.Mesh
+                    mesh !== null
+                    && !mesh.isDisposed()
+                    && mesh instanceof BABYLON.Mesh
                 )
                 {
                     // remove existing bullet holes
                     this.stage.disposeBulletHolesForGameObject( this );
 
                     // slice the mesh in two
-                    this.model.sliceMesh(
+                    const slicedMeshes :BABYLON.Mesh[] = this.model.sliceMesh(
                         scene,
-                        ( hitPoint.getMesh() as BABYLON.Mesh ),
+                        mesh,
                         hitPoint.getPoint(),
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                        hitPoint,
-                        damage
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                     );
+
+                    // apply hit impulses to both submeshes ..
+                    hitPoint.mesh = slicedMeshes[ 0 ];
+                    hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
+                    hitPoint.mesh = slicedMeshes[ 1 ];
+                    hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
+                    hitPoint.mesh = null;
                 }
             }
         }

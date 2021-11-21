@@ -558,11 +558,9 @@ export class Model
         scene         :BABYLON.Scene,
         mesh          :BABYLON.Mesh,
         slicePoint    :BABYLON.Vector3,
-        sliceRotation :BABYLON.Vector3,
-        hitPoint      :bz.HitPoint,
-        damage        :number
+        sliceRotation :BABYLON.Vector3
     )
-    : void
+    : BABYLON.Mesh[]
     {
         const boxSlicerSize :number = 100;
         const boxSlicer :BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'boxSlicer', boxSlicerSize, scene );
@@ -588,7 +586,7 @@ export class Model
             scene
         );
 
-        // prune original mesh
+        // dispose and clear original mesh
         mesh.dispose();
         const index:number = this.meshes.indexOf( mesh );
         if ( index > -1 ) {
@@ -603,14 +601,10 @@ export class Model
         // dispose the slicer helper box
         boxSlicer.dispose();
 
-        // TODO to outside method!
-
-        // TODO technical debt - apply hit impulse to both submeshes ..
-        hitPoint.mesh = meshSliceInt;
-        hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
-        hitPoint.mesh = meshSliceSub;
-        hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
-        hitPoint.mesh = null;
+        return [
+            meshSliceInt,
+            meshSliceSub,
+        ];
     }
 
     /** ****************************************************************************************************************

@@ -7,8 +7,6 @@ export class HitPoint
 {
     /** The exact collision point. */
     private readonly point      :BABYLON.Vector3        = null;
-    /** The affected mesh of the game object. TODO fix! */
-    public  mesh       :BABYLON.AbstractMesh   = null;
     /** The normal of the face this hit point impacts. */
     private readonly normal     :BABYLON.Vector3        = null;
     /** The distance from the shot source to this hit point. */
@@ -17,6 +15,8 @@ export class HitPoint
     private readonly direction  :BABYLON.Vector3        = null;
     /** The affected game object. */
     private readonly gameObject :bz.GameObject          = null;
+    /** The affected mesh of the game object. TODO fix! */
+    public  mesh       :BABYLON.AbstractMesh   = null;
 
     /** ****************************************************************************************************************
     *   Creates a new hit point that carries collision information.
