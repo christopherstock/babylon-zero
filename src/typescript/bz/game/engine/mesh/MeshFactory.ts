@@ -525,7 +525,10 @@ export class MeshFactory
         physic          :bz.PhysicSet,
         materialAlpha   :number,
         sideOrientation :number,
-        diamondCornerA  :number
+        diamondCornerA  :number,
+        diamondCornerB  :number,
+        diamondCornerC  :number,
+        diamondCornerD  :number
     )
     : BABYLON.Mesh
     {
@@ -546,18 +549,54 @@ export class MeshFactory
 
         if ( diamondCornerA > 0 )
         {
-            points.push( new BABYLON.Vector3( position.x + diamondCornerA,         0.0, position.z          ) );
             points.push( new BABYLON.Vector3( position.x,         0.0, position.z + diamondCornerA          ) );
+            points.push( new BABYLON.Vector3( position.x + diamondCornerA,         0.0, position.z          ) );
         }
         else
         {
             points.push( new BABYLON.Vector3( position.x,         0.0, position.z          ) );
         }
 
-        points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
-        points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z + height ) );
-        points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z          ) );
+        if ( diamondCornerB > 0 )
+        {
+            points.push( new BABYLON.Vector3( position.x + width - diamondCornerB, 0.0, position.z          ) );
+            points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z + diamondCornerB          ) );
+        }
+        else
+        {
+            points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z          ) );
+        }
 
+        if ( diamondCornerC > 0 )
+        {
+            points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z + height - diamondCornerC ) );
+            points.push( new BABYLON.Vector3( position.x + width - diamondCornerC, 0.0, position.z + height ) );
+        }
+        else
+        {
+            points.push( new BABYLON.Vector3( position.x + width, 0.0, position.z + height ) );
+        }
+
+        if ( diamondCornerD > 0 )
+        {
+            points.push( new BABYLON.Vector3( position.x + diamondCornerD,         0.0, position.z + height ) );
+            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height - diamondCornerD ) );
+        }
+        else
+        {
+            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
+        }
+/*
+        if ( diamondCornerD > 0 )
+        {
+            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height - diamondCornerD ) );
+            points.push( new BABYLON.Vector3( position.x + diamondCornerD,         0.0, position.z + height ) );
+        }
+        else
+        {
+            points.push( new BABYLON.Vector3( position.x,         0.0, position.z + height ) );
+        }
+*/
         const plane:BABYLON.Mesh = BABYLON.MeshBuilder.CreatePolygon
         (
             MeshFactory.createNextMeshId(),

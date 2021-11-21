@@ -47,6 +47,7 @@ export class TextureFile
     public static readonly WALL_PAVEMENT_MILANO         :TextureFile            = new TextureFile( 'wall/pavementMilano.jpg',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_SHINGLES_1              :TextureFile            = new TextureFile( 'wall/shingles1.jpg',        bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_SKIN_1                  :TextureFile            = new TextureFile( 'wall/skin1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
+    // TODO improve names ! 1 2 3 4 > YELLOW etc
     public static readonly WALL_STONES_1                :TextureFile            = new TextureFile( 'wall/stones1.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_STONES_2                :TextureFile            = new TextureFile( 'wall/stones2.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_STONES_3                :TextureFile            = new TextureFile( 'wall/stones3.jpg',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_BY_SIZE,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );

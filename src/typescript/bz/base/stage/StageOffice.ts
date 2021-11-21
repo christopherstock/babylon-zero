@@ -53,8 +53,8 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, -40.0 ),
-            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 160.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
             0.0,
             null,                         [], [], 0,
             bz.TextureFile.WALL_BRICKS_3, [], [], 0,
@@ -92,10 +92,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_VERT_1, [ 2.5 ], [], 1.0,
-            bz.TextureFile.WALL_WOOD_PLANKS, [],      [], 0,
-            bz.TextureFile.WALL_WOOD_STRUCTURE, [],      [], 0,
-            bz.TextureFile.WALL_WOOD_OLIVE, [],      [], 0,
+            bz.TextureFile.WALL_WOOD_VERT_1,    [ 2.5 ], [], 1.0,
+            bz.TextureFile.WALL_WOOD_PLANKS,    [],      [], 2.0,
+            bz.TextureFile.WALL_WOOD_STRUCTURE, [],      [], 3.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,     [],      [], 4.0,
             bz.TextureFile.WALL_PAVEMENT_MILANO,
             null
         );
