@@ -24,10 +24,11 @@ export class Wall extends bz.GameObject
         model                    :bz.Model,
         energy                   :number             = bz.GameObject.UNBREAKABLE,
         darkenMeshesOnEnergyLoss :boolean            = true,
+        splitHitMeshOnEnergyLoss :boolean            = false,
         interactionEvents        :bz.Event[]         = null,
         interactionType          :bz.InteractionType = bz.InteractionType.ONCE
     ) {
-        super( stage, model, energy, darkenMeshesOnEnergyLoss );
+        super( stage, model, energy, darkenMeshesOnEnergyLoss, splitHitMeshOnEnergyLoss );
 
         this.interactionEvents = interactionEvents;
         this.interactionType   = interactionType;

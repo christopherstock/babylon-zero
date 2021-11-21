@@ -58,7 +58,7 @@ export class HitPoint
     *******************************************************************************************************************/
     public causeImpact( scene:bz.Scene, emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
     {
-        // hurt the game object
+        // hurt the game object - this may break the mesh in two!
         this.gameObject.hurt( damage, this.mesh, this );
 
         // apply physical impulse to mesh
@@ -80,7 +80,13 @@ export class HitPoint
     *******************************************************************************************************************/
     public applyImpulseToMesh( force:number ) : void
     {
-        if ( this.mesh.physicsImpostor !== undefined && this.mesh.physicsImpostor.physicsBody !== null )
+        // check if the mesh is still present
+        if (
+            this.mesh !== null
+            && this.mesh.physicsImpostor !== undefined
+            && this.mesh.physicsImpostor !== null
+            && this.mesh.physicsImpostor.physicsBody !== null
+        )
         {
             bz.Debug.fire.log
             (

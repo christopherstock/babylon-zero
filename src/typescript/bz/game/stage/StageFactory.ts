@@ -424,6 +424,7 @@ export abstract class StageFactory
                 ),
                 bz.GameObject.UNBREAKABLE,
                 true,
+                false,
                 doorData.events
             );
             walls.push( door );

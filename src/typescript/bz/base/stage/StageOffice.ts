@@ -552,6 +552,7 @@ if ( true ) return;
             ),
             5.0,
             true,
+            false,
             [
                 new bz.Event(
                     bz.EventType.SHOW_GUI_TEXT_MESSAGE,
@@ -694,6 +695,7 @@ if ( true ) return;
                 ]
             ),
             bz.GameObject.UNBREAKABLE,
+            false,
             false,
             [
                 new bz.Event(

@@ -22,6 +22,7 @@ export abstract class GameObject
     /** The next z-index for the bullet hole to assign. */
     private                   nextBulletHoleZIndex      :number     = 0;
     private                   darkenMeshesOnEnergyLoss  :boolean    = false;
+    private                   splitHitMeshOnEnergyLoss  :boolean    = false;
 
     /** ****************************************************************************************************************
     *   Creates a new game object.
@@ -30,7 +31,13 @@ export abstract class GameObject
     *   @param model  The model for this game object.
     *   @param energy The initial energy of this game object.
     *******************************************************************************************************************/
-    protected constructor( stage:bz.Stage, model:bz.Model, energy:number = GameObject.UNBREAKABLE, darkenMeshesOnEnergyLoss = true )
+    protected constructor(
+        stage:bz.Stage,
+        model:bz.Model,
+        energy:number = GameObject.UNBREAKABLE,
+        darkenMeshesOnEnergyLoss :boolean = true,
+        splitHitMeshOnEnergyLoss :boolean = false
+    )
     {
         this.stage                    = stage;
         this.model                    = model;
@@ -198,11 +205,16 @@ export abstract class GameObject
             this.model.removeStaticState();
 
             // slice the mesh if desired
-            if ( !this.darkenMeshesOnEnergyLoss )
+            if ( !this.splitHitMeshOnEnergyLoss )
             {
                 console.log( '.. slicing window glass pane ..' );
 
-                if ( hitPoint.getMesh() instanceof BABYLON.Mesh )
+                // check if this hit mesh is available and not already splitted by a different HitPoint of this shot
+                if (
+                    hitPoint.getMesh() !== null
+                    && !hitPoint.getMesh().isDisposed()
+                    && hitPoint.getMesh() instanceof BABYLON.Mesh
+                )
                 {
                     this.model.sliceMesh(
                         scene,

@@ -555,10 +555,10 @@ export class Model
     }
 
     public sliceMesh(
-        scene:BABYLON.Scene,
-        mesh:BABYLON.Mesh,
-        slicePoint:BABYLON.Vector3,
-        sliceRotation:BABYLON.Vector3
+        scene         :BABYLON.Scene,
+        mesh          :BABYLON.Mesh,
+        slicePoint    :BABYLON.Vector3,
+        sliceRotation :BABYLON.Vector3
     )
     : void
     {
@@ -575,24 +575,33 @@ export class Model
         meshSliceSub.physicsImpostor = new BABYLON.PhysicsImpostor(
             meshSliceSub,
             BABYLON.PhysicsImpostor.BoxImpostor,
-            {mass: 10, restitution: 0.5},
+            { mass: 1, restitution: 0.5 },
             scene
         );
         const meshSliceInt :BABYLON.Mesh = meshCSG.intersect(slicerCSG).toMesh(mesh.name + '_slice_right');
         meshSliceInt.physicsImpostor = new BABYLON.PhysicsImpostor( meshSliceInt,
             BABYLON.PhysicsImpostor.BoxImpostor,
-            {mass: 10, restitution: 0.5},
+            { mass: 1, restitution: 0.5 },
             scene
         );
 
-        // prune old mesh!
-        if ( false ) mesh.dispose();
-        boxSlicer.dispose();
+        // prune original mesh
+        mesh.dispose();
+        const index:number = this.meshes.indexOf( mesh );
+        if ( index > -1 ) {
+          this.meshes.splice( index, 1 );
+            console.log( '  successfully removed from existing meshes. length is now: ' + this.meshes.length );
+        }
+        mesh = null;
+
+        // add the two new sliced meshes to the stack
+        this.meshes.push( meshSliceInt );
+        this.meshes.push( meshSliceSub );
 
         console.log( '  meshes in this model: ' + this.meshes.length );
 
-
-
+        // dispose the slicer helper box
+        boxSlicer.dispose();
     }
 
     /** ****************************************************************************************************************
