@@ -5,10 +5,10 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Wall extends bz.GameObject
 {
-    public readonly interactionType   :bz.InteractionType = null;
-    public readonly interactionEvents :bz.Event[]         = null;
+    private readonly interactionType       :bz.InteractionType = null;
+    private readonly interactionEvents     :bz.Event[]         = null;
 
-    public alreadyInteractedWith :boolean = false;
+    private         alreadyInteractedWith :boolean            = false;
 
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
@@ -41,5 +41,26 @@ export class Wall extends bz.GameObject
     {
         // lower velocities for sphere impostered meshes
         this.getModel().mitigateSphereVelocities();
+    }
+
+    public performInteraction( stage:bz.Stage ) : void
+    {
+        if (
+            this.interactionEvents !== null
+            && !(
+                this.interactionType === bz.InteractionType.ONCE
+                && this.alreadyInteractedWith
+            )
+        )
+        {
+            this.alreadyInteractedWith = true;
+
+            stage.addEventsToPipeline( this.interactionEvents );
+        }
+    }
+
+    public hasInteractionEvents() : boolean
+    {
+        return ( this.interactionEvents !== null );
     }
 }

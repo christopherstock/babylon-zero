@@ -9,6 +9,7 @@ TODO Add door action / open slide etc.?
 TODO Add Babylon.js tree generation helper?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
+TODO smaller Doors
 TODO Reset Git Repository?
 TODO try again: light weight for player - so he can't push heavy objects so easily?
 

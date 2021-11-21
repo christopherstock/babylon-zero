@@ -299,19 +299,7 @@ export abstract class Stage
         {
             const hitGameObject :bz.GameObject = impactHitPoint.getGameObject();
 
-            if (
-                hitGameObject instanceof bz.Wall
-                && hitGameObject.interactionEvents !== null
-                && !(
-                    hitGameObject.interactionType === bz.InteractionType.ONCE
-                    && hitGameObject.alreadyInteractedWith
-                )
-            )
-            {
-                hitGameObject.alreadyInteractedWith = true;
-
-                this.addEventsToPipeline( hitGameObject.interactionEvents );
-            }
+            hitGameObject.performInteraction( this );
         }
     }
 
@@ -667,7 +655,7 @@ export abstract class Stage
         bz.Debug.fire.log( ' Check shot collision with [' + String( this.walls.length ) + '] walls' );
         for ( const wall of this.walls )
         {
-            if ( interactionWallsOnly && wall.interactionEvents === null )
+            if ( interactionWallsOnly && !wall.hasInteractionEvents() )
             {
                 continue;
             }
