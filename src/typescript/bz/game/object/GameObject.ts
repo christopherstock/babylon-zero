@@ -128,12 +128,11 @@ export abstract class GameObject
     /** ****************************************************************************************************************
     *   Being invoked when this game object is hurt by a shot or any other impact source.
     *
-    *   @param scene  The native babylon.JS scene.
     *   @param damage The damage to apply onto this game object.
     *   @param mesh   The mesh that received the damage.
     *                 May be <code>null</code> if the game object received global damage.
     *******************************************************************************************************************/
-    public hurt( scene:BABYLON.Scene, damage:number, mesh:BABYLON.AbstractMesh ) : void
+    public hurt( damage:number, mesh:BABYLON.AbstractMesh, hitPoint:bz.HitPoint ) : void
     {
         // exit if unbreakable
         if ( this.currentEnergy === GameObject.UNBREAKABLE )
@@ -155,6 +154,8 @@ export abstract class GameObject
             bz.Debug.fire.log( 'No damage to apply onto this object.' );
             return;
         }
+
+        const scene :BABYLON.Scene = this.stage.getScene().getNativeScene();
 
         // lower energy and clip to 0
         this.currentEnergy -= damage;
@@ -195,6 +196,22 @@ export abstract class GameObject
 
             // change static models to gravity by setting mass
             this.model.removeStaticState();
+
+            // slice the mesh if desired
+            if ( !this.darkenMeshesOnEnergyLoss )
+            {
+                console.log( '.. slicing window glass pane ..' );
+
+                if ( hitPoint.getMesh() instanceof BABYLON.Mesh )
+                {
+                    this.model.sliceMesh(
+                        scene,
+                        ( hitPoint.getMesh() as BABYLON.Mesh ),
+                        hitPoint.getPoint(),
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    );
+                }
+            }
         }
     }
 }

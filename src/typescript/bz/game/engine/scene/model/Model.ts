@@ -554,6 +554,47 @@ export class Model
         }
     }
 
+    public sliceMesh(
+        scene:BABYLON.Scene,
+        mesh:BABYLON.Mesh,
+        slicePoint:BABYLON.Vector3,
+        sliceRotation:BABYLON.Vector3
+    )
+    : void
+    {
+        const boxSlicerSize :number = 100;
+        const boxSlicer :BABYLON.Mesh = BABYLON.Mesh.CreateBox( 'boxSlicer', boxSlicerSize, scene );
+        boxSlicer.rotation = sliceRotation;
+        boxSlicer.position = new BABYLON.Vector3(
+            0.5 * boxSlicerSize + slicePoint.x, slicePoint.y, 0.5 * boxSlicerSize + slicePoint.z
+        );
+
+        const meshCSG      :BABYLON.CSG  = BABYLON.CSG.FromMesh( mesh );
+        const slicerCSG    :BABYLON.CSG  = BABYLON.CSG.FromMesh( boxSlicer );
+        const meshSliceSub :BABYLON.Mesh = meshCSG.subtract(slicerCSG).toMesh(mesh.name + '_slice_left');
+        meshSliceSub.physicsImpostor = new BABYLON.PhysicsImpostor(
+            meshSliceSub,
+            BABYLON.PhysicsImpostor.BoxImpostor,
+            {mass: 10, restitution: 0.5},
+            scene
+        );
+        const meshSliceInt :BABYLON.Mesh = meshCSG.intersect(slicerCSG).toMesh(mesh.name + '_slice_right');
+        meshSliceInt.physicsImpostor = new BABYLON.PhysicsImpostor( meshSliceInt,
+            BABYLON.PhysicsImpostor.BoxImpostor,
+            {mass: 10, restitution: 0.5},
+            scene
+        );
+
+        // prune old mesh!
+        if ( false ) mesh.dispose();
+        boxSlicer.dispose();
+
+        console.log( '  meshes in this model: ' + this.meshes.length );
+
+
+
+    }
+
     /** ****************************************************************************************************************
     *   Returns a cloned collection of this models' meshes.
     *   All physic impostors are gone on all cloned meshes.

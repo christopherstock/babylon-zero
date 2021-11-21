@@ -59,7 +59,7 @@ export class HitPoint
     public causeImpact( scene:bz.Scene, emissiveColor:BABYLON.Color3, damage:number ) : bz.BulletHole
     {
         // hurt the game object
-        this.gameObject.hurt( scene.getNativeScene(), damage, this.mesh );
+        this.gameObject.hurt( damage, this.mesh, this );
 
         // apply physical impulse to mesh
         this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );

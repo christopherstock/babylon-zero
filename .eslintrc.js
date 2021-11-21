@@ -166,6 +166,7 @@ module.exports = {
         'space-before-function-paren': 'off',
         'spaced-comment': 'warn',
         'use-isnan': 'warn',
+        'prefer-const': 'warn',
         'valid-typeof': 'off',
 
         '@typescript-eslint/member-ordering': [
