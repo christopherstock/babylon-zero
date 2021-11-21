@@ -35,7 +35,7 @@ export class Wall extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
-    *   Renders one tick of the game loop for this game object.
+    *   Renders one tick of the game loop for this wall.
     *******************************************************************************************************************/
     public render() : void
     {

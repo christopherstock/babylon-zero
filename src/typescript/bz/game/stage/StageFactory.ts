@@ -374,6 +374,7 @@ export abstract class StageFactory
             }
             else
             {
+                // door frame
                 const doorFrame :bz.Wall = new bz.Wall
                 (
                     stage,
@@ -399,10 +400,10 @@ export abstract class StageFactory
                 walls.push( doorFrame );
             }
 
-            // add door
+            // door
             if ( !doorData.noBody )
             {
-                const door:bz.Wall = new bz.Wall
+                const door:bz.Door = new bz.Door
                 (
                     stage,
                     new bz.Model
@@ -428,11 +429,7 @@ export abstract class StageFactory
                             ),
                         ]
                     ),
-                    bz.GameObject.UNBREAKABLE,
-                    true,
-                    false,
-                    doorData.events,
-                    InteractionType.REPEATED
+                    doorData.events
                 );
                 walls.push( door );
             }

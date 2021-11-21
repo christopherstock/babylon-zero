@@ -96,6 +96,7 @@ export * from './game/object/Trigger';
 export * from './game/object/Item';
 export * from './game/object/ItemType';
 export * from './game/object/Wall';
+export * from './game/object/Door';
 
 export * from './game/object/Player';
 export * from './game/object/PlayerPhysic';
