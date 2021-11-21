@@ -19,6 +19,11 @@ TODO try gold metal effect etc for IntroVideo logo
 TODO Check out method for housing creation. https://doc.babylonjs.com/guidedLearning/workshop/House
 TODO Reset Git Repository?
 
+=========
+Locations
+=========
+TODO Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
+
 ======
 3dsmax
 ======

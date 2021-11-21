@@ -7,6 +7,8 @@ export abstract class StageFactory
 {
     /** ****************************************************************************************************************
     *   Creates one room.
+    *
+    *   TODO unify: modifiers should always be added!
     *******************************************************************************************************************/
     public static addRoomWalls(
         stage       :bz.Stage,
@@ -100,7 +102,7 @@ export abstract class StageFactory
             StageFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
                 position.x + size.x + bz.SettingGame.WALL_DEPTH - diamondModX,
-                size.x + diamondModSizeX,
+                size.x + diamondModSizeX - diamondCornerD,
                 position.y,
                 size.y,
                 position.z + size.z + bz.SettingGame.WALL_DEPTH,
@@ -119,26 +121,43 @@ export abstract class StageFactory
                     size.y,
                     position.z + size.z - diamondCornerC,
                     -135.0,
-                    textureFileWallB,
+                    textureFileWallC,
                     bz.TextureFile.WALL_GLASS_1
                 );
             }
-
         }
 
         if ( textureFileWallD !== null )
         {
+            const diamondModX :number = diamondCornerD + ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+
             StageFactory.createWall(
                 roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
                 position.x,
-                ( size.z - diamondCornerA ),
+                ( size.z - diamondCornerA + diamondModSizeX ),
                 position.y,
                 size.y,
-                position.z + size.z + bz.SettingGame.WALL_DEPTH,
+                position.z + size.z + bz.SettingGame.WALL_DEPTH - diamondModX,
                 -270.0,
                 textureFileWallD,
                 bz.TextureFile.WALL_GLASS_1
             );
+
+            if ( diamondCornerD > 0 ) {
+                const sizeCornerD :number = Math.sqrt( 2 * Math.pow( diamondCornerD + bz.SettingGame.WALL_DEPTH, 2 ) );
+                StageFactory.createWall(
+                    roomWalls, [], [], stage, meshFactory,
+                    position.x + diamondCornerD + bz.SettingGame.WALL_DEPTH,
+                    sizeCornerD,
+                    position.y,
+                    size.y,
+                    position.z + size.z + bz.SettingGame.WALL_DEPTH,
+                    -225.0,
+                    textureFileWallD,
+                    bz.TextureFile.WALL_GLASS_1
+                );
+            }
         }
 
         // ceiling

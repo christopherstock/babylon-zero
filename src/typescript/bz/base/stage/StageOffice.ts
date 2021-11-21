@@ -54,10 +54,10 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 100.0, bz.SettingGame.WALL_HEIGHT, 100.0 ),
             0.0,
-            null,                         [], [], 0,
             bz.TextureFile.WALL_BRICKS_3, [], [], 0,
+            null,                         [], [], 0,
             null,                         [], [], 0,
             null,                         [], [], 0,
             bz.TextureFile.MODEL_CONCRETE,
@@ -74,6 +74,7 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
+        // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
         (
             this.getScene().getNativeScene(),
@@ -90,12 +91,12 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
-            new BABYLON.Vector3( 15.0, 6.0, 15.0 ),
+            new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             0.0,
-            bz.TextureFile.WALL_WOOD_VERT_1,    [ 2.5 ], [], 1.0,
-            bz.TextureFile.WALL_WOOD_PLANKS,    [],      [], 2.0,
-            bz.TextureFile.WALL_WOOD_STRUCTURE, [],      [], 3.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,     [],      [], 4.0,
+            bz.TextureFile.WALL_WOOD_VERT_1,    [ 2.5 ], [], 2.0,
+            bz.TextureFile.WALL_WOOD_PLANKS,    [],      [], 3.0,
+            bz.TextureFile.WALL_WOOD_STRUCTURE, [],      [], 4.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,     [],      [], 5.0,
             bz.TextureFile.WALL_PAVEMENT_MILANO,
             null
         );
