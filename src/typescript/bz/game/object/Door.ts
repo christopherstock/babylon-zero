@@ -22,6 +22,7 @@ export class Door extends bz.Wall
 {
     private readonly animation    :DoorAnimation   = null;
     private readonly basePosition :BABYLON.Vector3 = null;
+    private readonly doorRotY     :number          = null;
     private          state        :DoorState       = DoorState.CLOSED;
     private          animationTicks :number          = 0;
 
@@ -30,12 +31,14 @@ export class Door extends bz.Wall
     *
     *   @param stage     The stage this wall belongs to.
     *   @param position  Where to place the door.
+    *   @param doorRotY  Door rotation Y for animation appliance. Will not be applied!
     *   @param animation The door animation to perform when an interaction with this door is triggered.
     *   @param events    All events to trigger when a user interaction is performed.
     *******************************************************************************************************************/
     public constructor(
         stage     :bz.Stage,
         position  :BABYLON.Vector3,
+        doorRotY  :number,
         animation :DoorAnimation,
         events    :bz.Event[]
     ) {
@@ -69,6 +72,7 @@ export class Door extends bz.Wall
 
         this.animation    = animation;
         this.basePosition = position;
+        this.doorRotY     = doorRotY;
     }
 
     public performInteraction( stage:bz.Stage ) : void
@@ -89,7 +93,7 @@ export class Door extends bz.Wall
                 {
                     case DoorState.CLOSED:
                     {
-                        console.log( '>> TODO closed door will be opened!' );
+                        console.log( '>> TODO closed door will be opened! rotY: ' + this.doorRotY );
 
                         this.animationTicks = bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS;
                         this.state          = DoorState.OPENING;
