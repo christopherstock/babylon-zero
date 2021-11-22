@@ -42,9 +42,8 @@ export abstract class SettingGame
     public static readonly CRATE_MIN_ENERGY                         :number             = 3.0;
     public static readonly CRATE_MAX_ENERGY                         :number             = 6.0;
 
-    public static readonly WINDOW_MIN_ENERGY                         :number             = 1.0;
-    public static readonly WINDOW_MAX_ENERGY                         :number             = 3.0;
+    public static readonly WINDOW_MIN_ENERGY                        :number             = 1.0;
+    public static readonly WINDOW_MAX_ENERGY                        :number             = 3.0;
 
-    public static readonly DOOR_SLIDE_OPEN_CLOSE_TICKS              :number             = 60.0;
-
+    public static readonly DOOR_OPEN_CLOSE_TICKS                    :number             = 60.0;
 }

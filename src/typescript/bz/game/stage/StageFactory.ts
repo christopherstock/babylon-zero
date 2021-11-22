@@ -1,18 +1,27 @@
+/* eslint-disable max-classes-per-file */
 import * as bz from '../..';
-import { InteractionType } from '../..';
 
+/** ********************************************************************************************************************
+*   Configuration for a Door game object.
+***********************************************************************************************************************/
 export class DoorData
 {
-    public position         :number     = 0;
-    public events           :bz.Event[] = [];
-    public noBody           :boolean    = false;
+    public position  :number           = 0;
+    public events    :bz.Event[]       = [];
+    public animation :bz.DoorAnimation = null;
+    public noBody    :boolean          = false;
 
     public constructor(
-        position:number, events:bz.Event[] = [], noBody = false )
+        position  :number,
+        events    :bz.Event[]       = [],
+        animation :bz.DoorAnimation = bz.DoorAnimation.NONE,
+        noBody    :boolean          = false
+    )
     {
-        this.position = position;
-        this.events   = events;
-        this.noBody   = noBody;
+        this.position  = position;
+        this.events    = events;
+        this.animation = animation;
+        this.noBody    = noBody;
     }
 }
 
@@ -412,7 +421,7 @@ export abstract class StageFactory
                         ( z + bz.SettingGame.WALL_DEPTH / 2 )
                     ),
                     rotY,
-                    bz.DoorAnimation.SLIDE_REVERSED, // TODO to DoorData.animtion
+                    doorData.animation,
                     doorData.events
                 );
                 walls.push( door );

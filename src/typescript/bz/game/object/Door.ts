@@ -82,51 +82,28 @@ export class Door extends bz.Wall
         super.performInteraction( stage );
 
         // start door animation if designed
-        switch ( this.animation )
+        switch ( this.state )
         {
-            case DoorAnimation.SLIDE_DEFAULT:
-            case DoorAnimation.SLIDE_REVERSED:
+            case DoorState.CLOSED:
             {
-                switch ( this.state )
-                {
-                    case DoorState.CLOSED:
-                    {
-                        // start open slide door animation
-                        this.animationTicks = bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS;
-                        this.state          = DoorState.OPENING;
-
-                        break;
-                    }
-                    case DoorState.OPEN:
-                    {
-                        // start close slide door animation
-                        this.animationTicks = bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS;
-                        this.state          = DoorState.CLOSING;
-
-                        break;
-                    }
-                    case DoorState.OPENING:
-                    case DoorState.CLOSING:
-                    {
-                        console.log( '>> door is currently opening/closing! Interaction is denied!' );
-                        break;
-                    }
-                }
-                break;
-            }
-            case DoorAnimation.SWING:
-            {
-                // start swing door animation
-                console.log( '>> Perform door swing animation' );
+                // start open slide door animation
+                this.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                this.state          = DoorState.OPENING;
 
                 break;
             }
-            case DoorAnimation.NONE:
-            default:
+            case DoorState.OPEN:
             {
-                // do not start door animations
-                console.log( '>> NO door animation to perform' );
+                // start close slide door animation
+                this.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                this.state          = DoorState.CLOSING;
 
+                break;
+            }
+            case DoorState.OPENING:
+            case DoorState.CLOSING:
+            {
+                console.log( '>> door is currently opening/closing! Interaction is denied!' );
                 break;
             }
         }
@@ -146,7 +123,7 @@ export class Door extends bz.Wall
                 {
                     case bz.DoorAnimation.SLIDE_DEFAULT:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = tickDelta * bz.MathUtil.cosDegrees( this.doorRotY );
                         const deltaZ :number = ( -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY ) );
 
@@ -157,7 +134,7 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SLIDE_REVERSED:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = ( -1.0 * tickDelta * bz.MathUtil.cosDegrees( this.doorRotY ) );
                         const deltaZ :number = tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
@@ -179,7 +156,7 @@ export class Door extends bz.Wall
                 {
                     case bz.DoorAnimation.SLIDE_DEFAULT:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = ( -1.0 * tickDelta * bz.MathUtil.cosDegrees( this.doorRotY ) );
                         const deltaZ :number = tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
@@ -190,7 +167,7 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SLIDE_REVERSED:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = tickDelta * bz.MathUtil.cosDegrees( this.doorRotY );
                         const deltaZ :number = -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
