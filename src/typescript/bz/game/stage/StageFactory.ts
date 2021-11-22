@@ -40,7 +40,7 @@ export abstract class StageFactory
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
         size        :BABYLON.Vector3,
-        rotZ        :number,
+        rotY        :number,
         textureFileWallA   :bz.TextureFile = null, doorsWallA :bz.DoorData[] = [], windowsWallA :number[] = [], diamondCornerA :number = 0,
         textureFileWallB   :bz.TextureFile = null, doorsWallB :bz.DoorData[] = [], windowsWallB :number[] = [], diamondCornerB :number = 0,
         textureFileWallC   :bz.TextureFile = null, doorsWallC :bz.DoorData[] = [], windowsWallC :number[] = [], diamondCornerC :number = 0,
@@ -252,7 +252,7 @@ export abstract class StageFactory
 
         // rotate ALL walls around pivot and add all walls to stage
         for ( const roomWall of roomWalls ) {
-            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotZ );
+            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
             stage.addWall( roomWall );
         }
     }
