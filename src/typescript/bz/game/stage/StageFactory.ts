@@ -252,7 +252,16 @@ export abstract class StageFactory
 
         // rotate ALL walls around pivot and add all walls to stage
         for ( const roomWall of roomWalls ) {
+
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
+
+            if ( roomWall instanceof bz.Door )
+            {
+                console.log( 'rotating all door points by ' + rotY + ' degrees' );
+
+                roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
+            }
+
             stage.addWall( roomWall );
         }
     }
@@ -420,6 +429,7 @@ export abstract class StageFactory
                     y,
                     z + doorOffsetZ
                 );
+                // TODO refactor to MeshManipulation.rotatePoint
                 const doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3(
                     x
                     + ( bz.MathUtil.cosDegrees( rotY ) * doorOffsetX )

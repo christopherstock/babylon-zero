@@ -25,8 +25,8 @@ export enum DoorState
 export class Door extends bz.Wall
 {
     private readonly animation       :DoorAnimation   = null;
-    private readonly doorTurnPoint   :BABYLON.Vector3 = null;
     private readonly doorRotY        :number          = null;
+    private          doorTurnPoint   :BABYLON.Vector3 = null;
     private          state           :DoorState       = DoorState.CLOSED;
     private          animationTicks  :number          = 0;
     private          debugSphereMesh :BABYLON.Mesh    = null;
@@ -289,6 +289,21 @@ export class Door extends bz.Wall
         if ( this.debugSphereMesh !== null )
         {
             this.debugSphereMesh.dispose();
+        }
+    }
+
+    public rotateDoorTurnPointAroundAxisY( x:number, z:number, rotY:number ) : void
+    {
+        this.doorTurnPoint = new BABYLON.Vector3(
+            this.doorTurnPoint.x, // x + ( this.doorTurnPoint.x - x ) * bz.MathUtil.cosDegrees( rotY ),
+            this.doorTurnPoint.y, // this.doorTurnPoint.y,
+            this.doorTurnPoint.z //, z + ( this.doorTurnPoint.z - z ) * bz.MathUtil.sinDegrees( rotY ) // correct!
+        );
+
+        // update sphere position ?
+        if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
+        {
+            this.debugSphereMesh.position = this.doorTurnPoint;
         }
     }
 }
