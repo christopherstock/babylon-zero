@@ -429,26 +429,22 @@ export abstract class StageFactory
             // door
             if ( !doorData.noBody )
             {
-                const doorOffsetX :number = ( doorData.position + bz.SettingGame.DOOR_WIDTH / 2 );
-                const doorOffsetZ :number = ( bz.SettingGame.WALL_DEPTH / 2 );
-
+                const doorPosition2D :BABYLON.Vector2 = new BABYLON.Vector2(
+                    x + ( doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
+                    z + ( bz.SettingGame.WALL_DEPTH / 2 )
+                );
                 const doorPosition :BABYLON.Vector3 = new BABYLON.Vector3(
-                    x + doorOffsetX,
+                    doorPosition2D.x,
                     y,
-                    z + doorOffsetZ
+                    doorPosition2D.y
                 );
-
-                // TODO ASAP refactor to MeshManipulation.rotatePoint
+                const turnPoint2D :BABYLON.Vector2 = new BABYLON.Vector2( x, z );
+                const doorTurnPoint2D:BABYLON.Vector2 = bz.MathUtil.rotatePoint( turnPoint2D, -rotY, doorPosition2D );
                 const doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3(
-                    x
-                    + ( bz.MathUtil.cosDegrees( rotY ) * doorOffsetX )
-                    + ( bz.MathUtil.sinDegrees( rotY ) * doorOffsetZ ),
+                    doorTurnPoint2D.x,
                     y,
-                    z
-                    - ( bz.MathUtil.sinDegrees( rotY ) * doorOffsetX )
-                    + ( bz.MathUtil.cosDegrees( rotY ) * doorOffsetZ )
+                    doorTurnPoint2D.y
                 );
-
                 const door:bz.Door = new bz.Door
                 (
                     stage,
