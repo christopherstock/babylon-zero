@@ -7,13 +7,22 @@ export enum DoorAnimation
     SWING,
 }
 
+export enum DoorState
+{
+    CLOSED,
+    OPEN,
+    OPENING,
+    CLOSING,
+}
+
 /** ********************************************************************************************************************
 *   Represents a Door with different interaction presets.
 ***********************************************************************************************************************/
 export class Door extends bz.Wall
 {
-    private animation    :bz.DoorAnimation = null;
-    private basePosition :BABYLON.Vector3  = null;
+    private readonly animation    :DoorAnimation   = null;
+    private readonly basePosition :BABYLON.Vector3 = null;
+    private          state        :DoorState       = DoorState.CLOSED;
 
     /** ****************************************************************************************************************
     *   Creates a new door instance.
@@ -57,7 +66,7 @@ export class Door extends bz.Wall
             bz.InteractionType.REPEATED
         );
 
-        this.animation         = animation;
+        this.animation    = animation;
         this.basePosition = position;
     }
 
@@ -72,8 +81,34 @@ export class Door extends bz.Wall
             case DoorAnimation.SLIDE:
             {
                 // start slide door animation
-                console.log( '>> Perform door slide animation' );
+                console.log( '>> Perform door slide interaction' );
+                console.log( '   current door state: ' + this.state );
 
+                switch ( this.state )
+                {
+                    case DoorState.CLOSED:
+                    {
+                        console.log( '>> TODO closed door will be opened!' );
+
+                        // DOOR_SLIDE_OPEN_CLOSE_TICKS
+
+                        break;
+                    }
+                    case DoorState.OPEN:
+                    {
+                        console.log( '>> TODO open door will be closed!' );
+
+
+
+                        break;
+                    }
+                    case DoorState.OPENING:
+                    case DoorState.CLOSING:
+                    {
+                        console.log( '>> door is currently opening/closing! Interaction is denied!' );
+                        break;
+                    }
+                }
                 break;
             }
             case DoorAnimation.SWING:
