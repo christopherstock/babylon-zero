@@ -58,23 +58,6 @@ export abstract class MeshManipulation
     }
 
     /** ****************************************************************************************************************
-    *   Rotates the given vector around the specified Y axis.
-    *
-    *   @param point The vector to rotate around axis Y.
-    *   @param x     Pivot point X.
-    *   @param z     Pivot point Z.
-    *   @param rotY  Rotation on axis Y to apply, in degrees.
-    *******************************************************************************************************************/
-    public static rotatePointAroundAxisY( point:BABYLON.Vector3, x:number, z:number, rotY:number ) : BABYLON.Vector3
-    {
-        return new BABYLON.Vector3(
-            x + ( point.x - x ) * bz.MathUtil.cosDegrees( rotY ),
-            point.y,
-            z + ( point.z - z ) * bz.MathUtil.sinDegrees( rotY )
-        );
-    }
-
-    /** ****************************************************************************************************************
     *   Rotates the given mesh around the specified Z axis.
     *
     *   @param mesh The mesh to rotate around axis Z.
