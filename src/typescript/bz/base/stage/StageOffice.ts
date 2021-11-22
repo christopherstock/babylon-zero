@@ -110,6 +110,7 @@ export class StageOffice extends bz.Stage
                 )
             ),
         ];
+        /* eslint-disable max-len */
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,

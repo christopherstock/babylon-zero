@@ -92,7 +92,12 @@ export class Door extends bz.Wall
         // launch all events if any
         super.performInteraction( stage );
 
-        // start door animation if designed
+        if ( this.animation === bz.DoorAnimation.NONE )
+        {
+            return;
+        }
+
+        // start door animation according to state
         switch ( this.state )
         {
             case DoorState.CLOSED:
@@ -114,7 +119,6 @@ export class Door extends bz.Wall
             case DoorState.OPENING:
             case DoorState.CLOSING:
             {
-                console.log( '>> door is currently opening/closing! Interaction is denied!' );
                 break;
             }
         }

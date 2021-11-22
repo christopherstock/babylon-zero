@@ -15,8 +15,8 @@ export class HitPoint
     private readonly direction  :BABYLON.Vector3        = null;
     /** The affected game object. */
     private readonly gameObject :bz.GameObject          = null;
-    /** The affected mesh of the game object. TODO fix! */
-    public  mesh       :BABYLON.AbstractMesh   = null;
+    /** The affected mesh of the game object. */
+    private          mesh       :BABYLON.AbstractMesh   = null;
 
     /** ****************************************************************************************************************
     *   Creates a new hit point that carries collision information.

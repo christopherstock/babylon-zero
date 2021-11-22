@@ -123,21 +123,21 @@ export abstract class MathUtil
 
     public static rotatePoint( pivot:BABYLON.Vector2, angleDegree:number, p:BABYLON.Vector2 ) : BABYLON.Vector2
     {
-        const s:number = MathUtil.sinDegrees( angleDegree );
-        const c:number = MathUtil.cosDegrees( angleDegree );
+        const sin:number = MathUtil.sinDegrees( angleDegree );
+        const cos:number = MathUtil.cosDegrees( angleDegree );
 
         // translate point back to origin:
         p.x -= pivot.x;
         p.y -= pivot.y;
 
         // rotate point
-        const xnew:number = p.x * c - p.y * s;
-        const ynew:number = p.x * s + p.y * c;
+        const xnew:number = p.x * cos - p.y * sin;
+        const ynew:number = p.x * sin + p.y * cos;
 
-        // translate point back: TODO return new point!
-        p.x = xnew + pivot.x;
-        p.y = ynew + pivot.y;
-
-        return p;
+        // translate point back
+        return new BABYLON.Vector2(
+            xnew + pivot.x,
+            ynew + pivot.y
+        );
     }
 }

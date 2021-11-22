@@ -2,7 +2,7 @@
 import * as bz from '../..';
 
 /** ********************************************************************************************************************
-*   Configuration for a Door game object.
+*   Configuration set for a Door game object.
 ***********************************************************************************************************************/
 export class DoorData
 {
@@ -11,6 +11,9 @@ export class DoorData
     public animation :bz.DoorAnimation = null;
     public noBody    :boolean          = false;
 
+    /** ****************************************************************************************************************
+    *   Creates one door config.
+    *******************************************************************************************************************/
     public constructor(
         position  :number,
         events    :bz.Event[]       = [],
@@ -32,8 +35,6 @@ export abstract class StageFactory
 {
     /** ****************************************************************************************************************
     *   Creates one room.
-    *
-    *   TODO unify: modifiers should always be added!
     *******************************************************************************************************************/
     public static addRoomWalls(
         stage       :bz.Stage,
@@ -41,10 +42,19 @@ export abstract class StageFactory
         position    :BABYLON.Vector3,
         size        :BABYLON.Vector3,
         rotY        :number,
-        textureFileWallA   :bz.TextureFile = null, doorsWallA :bz.DoorData[] = [], windowsWallA :number[] = [], diamondCornerA :number = 0,
-        textureFileWallB   :bz.TextureFile = null, doorsWallB :bz.DoorData[] = [], windowsWallB :number[] = [], diamondCornerB :number = 0,
-        textureFileWallC   :bz.TextureFile = null, doorsWallC :bz.DoorData[] = [], windowsWallC :number[] = [], diamondCornerC :number = 0,
-        textureFileWallD   :bz.TextureFile = null, doorsWallD :bz.DoorData[] = [], windowsWallD :number[] = [], diamondCornerD :number = 0,
+
+        textureFileWallA   :bz.TextureFile = null, doorsWallA :bz.DoorData[] = [],
+        windowsWallA :number[] = [], diamondCornerA :number = 0,
+
+        textureFileWallB   :bz.TextureFile = null, doorsWallB :bz.DoorData[] = [],
+        windowsWallB :number[] = [], diamondCornerB :number = 0,
+
+        textureFileWallC   :bz.TextureFile = null, doorsWallC :bz.DoorData[] = [],
+        windowsWallC :number[] = [], diamondCornerC :number = 0,
+
+        textureFileWallD   :bz.TextureFile = null, doorsWallD :bz.DoorData[] = [],
+        windowsWallD :number[] = [], diamondCornerD :number = 0,
+
         textureFileFloor   :bz.TextureFile = null,
         textureFileCeiling :bz.TextureFile = null
     )
@@ -121,12 +131,12 @@ export abstract class StageFactory
 
         if ( textureFileWallC !== null )
         {
-            const diamondModX :number = diamondCornerC + ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
 
             StageFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
-                position.x + size.x + bz.SettingGame.WALL_DEPTH - diamondModX,
+                position.x + size.x + bz.SettingGame.WALL_DEPTH + diamondModX,
                 size.x + diamondModSizeX - diamondCornerD,
                 position.y,
                 size.y,
@@ -154,7 +164,7 @@ export abstract class StageFactory
 
         if ( textureFileWallD !== null )
         {
-            const diamondModX :number = diamondCornerD + ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModX     :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
 
             StageFactory.createWall(
@@ -163,7 +173,7 @@ export abstract class StageFactory
                 ( size.z - diamondCornerA + diamondModSizeX ),
                 position.y,
                 size.y,
-                position.z + size.z + bz.SettingGame.WALL_DEPTH - diamondModX,
+                position.z + size.z + bz.SettingGame.WALL_DEPTH + diamondModX,
                 -270.0,
                 textureFileWallD,
                 bz.TextureFile.WALL_GLASS_1
@@ -257,8 +267,6 @@ export abstract class StageFactory
 
             if ( roomWall instanceof bz.Door )
             {
-                console.log( 'rotating all door points by ' + rotY + ' degrees' );
-
                 roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
             }
 
@@ -429,7 +437,8 @@ export abstract class StageFactory
                     y,
                     z + doorOffsetZ
                 );
-                // TODO refactor to MeshManipulation.rotatePoint
+
+                // TODO ASAP refactor to MeshManipulation.rotatePoint
                 const doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3(
                     x
                     + ( bz.MathUtil.cosDegrees( rotY ) * doorOffsetX )
@@ -527,8 +536,13 @@ export abstract class StageFactory
             walls.push( windowGlass );
 
             // bottom window frame
-            if ( sizeY < bz.SettingGame.WINDOW_HEIGHT + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT + bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT )
-            {
+            if (
+                sizeY < (
+                    bz.SettingGame.WINDOW_HEIGHT
+                    + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT
+                    + bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT
+                )
+            ) {
                 continue;
             }
             const bottomWindowFrame :bz.Wall = new bz.Wall
