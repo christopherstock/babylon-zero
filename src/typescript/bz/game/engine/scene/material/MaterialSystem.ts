@@ -77,21 +77,21 @@ export class MaterialSystem
             {
                 switch ( textureFile.getStrategyUV() )
                 {
-                    case bz.TextureUV.TILED_BY_SIZE:
+                    case bz.TextureUV.TILED:
                     {
                         textureU = ( sizeU * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         textureV = ( sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         break;
                     }
 
-                    case bz.TextureUV.TILED_BY_SIZE_HALF:
+                    case bz.TextureUV.TILED_HALF:
                     {
                         textureU = ( sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         textureV = ( sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         break;
                     }
 
-                    case bz.TextureUV.ALL_TO_ONE:
+                    case bz.TextureUV.ALL_ONE:
                     {
                         textureU = 1.0;
                         textureV = 1.0;

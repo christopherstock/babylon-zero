@@ -57,7 +57,7 @@ export class MeshFactory
         {
             switch ( textureFile.getStrategyUV() )
             {
-                case bz.TextureUV.ALL_TO_ONE:
+                case bz.TextureUV.ALL_ONE:
                 {
                     faceUV =
                     [
@@ -73,7 +73,7 @@ export class MeshFactory
                     break;
                 }
 
-                case bz.TextureUV.TILED_BY_SIZE:
+                case bz.TextureUV.TILED:
                 {
                     faceUV =
                     [
@@ -116,7 +116,7 @@ export class MeshFactory
                     break;
                 }
 
-                case bz.TextureUV.TILED_BY_SIZE_HALF:
+                case bz.TextureUV.TILED_HALF:
                 {
                     faceUV =
                     [
@@ -159,7 +159,7 @@ export class MeshFactory
                     break;
                 }
 
-                case bz.TextureUV.Y_ONE_XZ_TILED:
+                case bz.TextureUV.Y_ONE_XZ_TILED_QUARTER:
                 {
                     faceUV =
                     [
@@ -361,7 +361,7 @@ export class MeshFactory
         {
             switch ( textureFile.getStrategyUV() )
             {
-                case bz.TextureUV.ALL_TO_ONE:
+                case bz.TextureUV.ALL_ONE:
                 {
                     faceUV =
                     [
@@ -372,8 +372,8 @@ export class MeshFactory
                     break;
                 }
 
-                case bz.TextureUV.TILED_BY_SIZE:
-                case bz.TextureUV.TILED_BY_SIZE_HALF:
+                case bz.TextureUV.TILED:
+                case bz.TextureUV.TILED_HALF:
                 {
                     faceUV =
                     [

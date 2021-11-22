@@ -3,17 +3,15 @@
 ***********************************************************************************************************************/
 export enum TextureUV
 {
-    // TODO rename to shorter names!
-
     /** One texture dimension for the whole face size. */
-    ALL_TO_ONE,
+    ALL_ONE,
 
     /** One texture dimension per 1.0 world unit. */
-    TILED_BY_SIZE,
+    TILED,
 
     /** Two texture dimensions per 1.0 world unit. */
-    TILED_BY_SIZE_HALF,
+    TILED_HALF,
 
     /** One for Y axis and tiled for axis X Z. */
-    Y_ONE_XZ_TILED,
+    Y_ONE_XZ_TILED_QUARTER,
 }
