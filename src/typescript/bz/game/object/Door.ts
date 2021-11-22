@@ -4,6 +4,7 @@ export enum DoorAnimation
 {
     NONE,
     SLIDE_DEFAULT,
+    SLIDE_REVERSED,
     SWING,
 }
 
@@ -84,6 +85,7 @@ export class Door extends bz.Wall
         switch ( this.animation )
         {
             case DoorAnimation.SLIDE_DEFAULT:
+            case DoorAnimation.SLIDE_REVERSED:
             {
                 switch ( this.state )
                 {
@@ -152,6 +154,17 @@ export class Door extends bz.Wall
 
                         break;
                     }
+
+                    case bz.DoorAnimation.SLIDE_REVERSED:
+                    {
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const deltaX :number = ( -1.0 * tickDelta * bz.MathUtil.cosDegrees( this.doorRotY ) );
+                        const deltaZ :number = tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
+
+                        this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+
+                        break;
+                    }
                 }
 
                 if ( --this.animationTicks <= 0 )
@@ -169,6 +182,17 @@ export class Door extends bz.Wall
                         const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
                         const deltaX :number = ( -1.0 * tickDelta * bz.MathUtil.cosDegrees( this.doorRotY ) );
                         const deltaZ :number = tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
+
+                        this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+
+                        break;
+                    }
+
+                    case bz.DoorAnimation.SLIDE_REVERSED:
+                    {
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const deltaX :number = tickDelta * bz.MathUtil.cosDegrees( this.doorRotY );
+                        const deltaZ :number = -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
                         this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
 

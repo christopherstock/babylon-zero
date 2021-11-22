@@ -412,7 +412,7 @@ export abstract class StageFactory
                         ( z + bz.SettingGame.WALL_DEPTH / 2 )
                     ),
                     rotY,
-                    bz.DoorAnimation.SLIDE_DEFAULT,
+                    bz.DoorAnimation.SLIDE_REVERSED, // TODO to DoorData.animtion
                     doorData.events
                 );
                 walls.push( door );
