@@ -134,7 +134,7 @@ export abstract class MathUtil
         const xnew:number = p.x * c - p.y * s;
         const ynew:number = p.x * s + p.y * c;
 
-        // translate point back:
+        // translate point back: TODO return new point!
         p.x = xnew + pivot.x;
         p.y = ynew + pivot.y;
 

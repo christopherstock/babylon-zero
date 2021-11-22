@@ -5,9 +5,10 @@
 ===
 MVP
 ===
-TODO Add door action / open slide etc.?
 TODO Remove door flickering etc.
+TODO Try single standalone door
 TODO Add door animation 'sliding door' (slide & rotate!)
+
 TODO Add Babylon.js tree generation helper?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
