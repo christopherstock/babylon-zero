@@ -6,6 +6,10 @@ export enum DoorAnimation
     SLIDE_DEFAULT,
     SLIDE_REVERSED,
     SWING_A_CLOCKWISE,
+    SWING_INSIDE_CLOCKWISE,
+    SWING_INSIDE_COUNTER_CLOCKWISE,
+    SWING_OUTSIDE_CLOCKWISE,
+    SWING_OUTSIDE_COUNTER_CLOCKWISE,
     SWING_B_CLOCKWISE,
     SWING_A_COUNTER_CLOCKWISE,
     SWING_B_COUNTER_CLOCKWISE,
@@ -160,6 +164,8 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SWING_A_CLOCKWISE:
                     case bz.DoorAnimation.SWING_B_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
                     {
                         const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
@@ -169,6 +175,8 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
                     case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
                     {
                         const rotDelta :number = -( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
@@ -211,6 +219,8 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SWING_A_CLOCKWISE:
                     case bz.DoorAnimation.SWING_B_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
                     {
                         const rotDelta :number = ( -90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
@@ -220,6 +230,8 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
                     case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
                     {
                         const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
@@ -304,6 +316,23 @@ export class Door extends bz.Wall
                 // door turns on right edge
                 this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 this.doorTurnPoint.z -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                break;
+            }
+            case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
+            case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
+            {
+                // door turns on center behind door
+                this.doorTurnPoint.x -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                break;
+            }
+
+            case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
+            case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
+            {
+                // door turns on center before door
+                this.doorTurnPoint.x += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 break;
             }
         }

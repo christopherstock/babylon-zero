@@ -131,7 +131,7 @@ export class StageOffice extends bz.Stage
             this,
             new BABYLON.Vector3( 5.0, 0.0, 35.0 ),
             0.0,
-            bz.DoorAnimation.SWING_A_CLOCKWISE,
+            bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE,
             []
 
         );
