@@ -3,7 +3,7 @@ import * as bz from '../..';
 export enum DoorAnimation
 {
     NONE,
-    SLIDE,
+    SLIDE_DEFAULT,
     SWING,
 }
 
@@ -83,7 +83,7 @@ export class Door extends bz.Wall
         // start door animation if designed
         switch ( this.animation )
         {
-            case DoorAnimation.SLIDE:
+            case DoorAnimation.SLIDE_DEFAULT:
             {
                 // start slide door animation
                 console.log( '>> Perform door slide interaction' );
@@ -146,8 +146,19 @@ export class Door extends bz.Wall
         {
             case DoorState.OPENING:
             {
-                const deltaX :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
-                this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, 0.0 ) );
+                switch ( this.animation )
+                {
+                    case bz.DoorAnimation.SLIDE_DEFAULT:
+                    {
+                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                        const deltaX :number = tickDelta * bz.MathUtil.cosDegrees( this.doorRotY );
+                        const deltaZ :number = ( -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY ) );
+
+                        this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+
+                        break;
+                    }
+                }
 
                 if ( --this.animationTicks <= 0 )
                 {
@@ -157,6 +168,7 @@ export class Door extends bz.Wall
             }
             case DoorState.CLOSING:
             {
+/*
                 const deltaX :number = -1.0 * ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
                 this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, 0.0 ) );
 
@@ -164,6 +176,7 @@ export class Door extends bz.Wall
                 {
                     this.state = bz.DoorState.CLOSED;
                 }
+*/
                 break;
             }
             case DoorState.OPEN:
