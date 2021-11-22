@@ -5,7 +5,7 @@
 ===
 MVP
 ===
-TODO Add Babylon.js tree generation helper?
+TODO Try Babylon.js tree generation helper
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try gold metal effect etc for IntroVideo logo
 TODO smaller Doors
@@ -25,14 +25,14 @@ TODO Create Locations: Park, parking site / house, garage, backyard, waste groun
 ==
 Fx
 ==
-TODO keep mouse lock between stage switches?
+TODO Add linked doors (wing doors)
+TODO keep pointer lock between stage switches? (gets lost atm)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
 TODO Add explosion effects via sprites.
 TODO Particle FX (physical) for wall rubble!
-TODO Add linked doors (wing doors)
 TODO Fix rotated sliding doors
 TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO Constraint system for events (keycard holded)!?

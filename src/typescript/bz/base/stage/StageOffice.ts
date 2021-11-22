@@ -193,7 +193,7 @@ export class StageOffice extends bz.Stage
             750,
             new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
-
+/*
 if ( true ) return;
 
         // light yard
@@ -267,10 +267,38 @@ if ( true ) return;
             meshFactory,
             new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
+*/
+	//leaf material
+	let green = new BABYLON.StandardMaterial("green", this.getScene().getNativeScene());
+	green.diffuseColor = new BABYLON.Color3(0,1,0);
 
+	//trunk and branch material
+	let bark = new BABYLON.StandardMaterial("bark", this.getScene().getNativeScene());
+	bark.emissiveTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.getScene().getNativeScene());
+	bark.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.getScene().getNativeScene());
+    (bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0;//Repeat 5 times on the Vertical Axes
+    (bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0;//Repeat 5 times on the Horizontal Axes
 
+	//Tree parameters
+	let trunk_height = 20;
+    let trunk_taper = 0.6;
+    let trunk_slices = 5;
+    let boughs = 2; // 1 or 2
+	let forks = 4;
+	let fork_angle = Math.PI/4;
+    let fork_ratio = 2/(1+Math.sqrt(5)); //PHI the golden ratio
+	let branch_angle = Math.PI/3;
+	let bow_freq = 2;
+	let bow_height = 3.5;
+	let branches = 10;
+	let leaves_on_branch = 5;
+    let leaf_wh_ratio = 0.5;
 
-
+let tree :BABYLON.Mesh = ( global as any ).createTree(trunk_height, trunk_taper, trunk_slices, bark, boughs, forks, fork_angle, fork_ratio, branches, branch_angle, bow_freq, bow_height, leaves_on_branch, leaf_wh_ratio, green, this.getScene().getNativeScene());
+tree.isVisible = true;
+tree.position = new BABYLON.Vector3( 10.0, 0.0, 10.0 );
+tree.scaling = new BABYLON.Vector3( 0.5, 0.5, 0.5 );
+/*
         this.addFurniture( meshFactory );
 
         this.addStuffWalls(  meshFactory, pointLight );
@@ -404,6 +432,7 @@ if ( true ) return;
         );
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         this.addLight( pointLight2 );
+*/
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
