@@ -230,11 +230,7 @@ export abstract class GameObject
                     );
 
                     // apply hit impulses to both submeshes ..
-                    hitPoint.mesh = slicedMeshes[ 0 ];
-                    hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
-                    hitPoint.mesh = slicedMeshes[ 1 ];
-                    hitPoint.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
-                    hitPoint.mesh = null;
+                    hitPoint.applyImpulseToSplitSubmeshes( slicedMeshes, damage );
                 }
             }
         }

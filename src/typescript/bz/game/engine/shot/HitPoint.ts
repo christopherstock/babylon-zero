@@ -167,6 +167,15 @@ export class HitPoint
         return this.normal;
     }
 
+    public applyImpulseToSplitSubmeshes( slicedMeshes:BABYLON.Mesh[], damage:number ) : void
+    {
+        this.mesh = slicedMeshes[ 0 ];
+        this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
+        this.mesh = slicedMeshes[ 1 ];
+        this.applyImpulseToMesh( damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER );
+        this.mesh = null;
+    }
+
     /** ****************************************************************************************************************
     *   Picks the nearest hit point of all specified hit points.
     *
