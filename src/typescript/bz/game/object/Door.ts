@@ -5,7 +5,7 @@ export enum DoorAnimation
     NONE,
     SLIDE_DEFAULT,
     SLIDE_REVERSED,
-    SWING,
+    SWING_DEFAULT,
 }
 
 export enum DoorState
@@ -21,10 +21,10 @@ export enum DoorState
 ***********************************************************************************************************************/
 export class Door extends bz.Wall
 {
-    private readonly animation    :DoorAnimation   = null;
-    private readonly basePosition :BABYLON.Vector3 = null;
-    private readonly doorRotY     :number          = null;
-    private          state        :DoorState       = DoorState.CLOSED;
+    private readonly animation      :DoorAnimation   = null;
+    private readonly doorTurnPoint  :BABYLON.Vector3 = null;
+    private readonly doorRotY       :number          = null;
+    private          state          :DoorState       = DoorState.CLOSED;
     private          animationTicks :number          = 0;
 
     /** ****************************************************************************************************************
@@ -37,11 +37,12 @@ export class Door extends bz.Wall
     *   @param events    All events to trigger when a user interaction is performed.
     *******************************************************************************************************************/
     public constructor(
-        stage     :bz.Stage,
-        position  :BABYLON.Vector3,
-        doorRotY  :number,
-        animation :DoorAnimation,
-        events    :bz.Event[]
+        stage         :bz.Stage,
+        position      :BABYLON.Vector3,
+        doorRotY      :number,
+        animation     :DoorAnimation,
+        events        :bz.Event[] = [],
+        doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
     ) {
         super(
             stage,
@@ -71,9 +72,26 @@ export class Door extends bz.Wall
             bz.InteractionType.REPEATED
         );
 
-        this.animation    = animation;
-        this.basePosition = position;
-        this.doorRotY     = doorRotY;
+        this.animation     = animation;
+        this.doorRotY      = doorRotY;
+        this.doorTurnPoint = doorTurnPoint;
+
+        if ( true ) new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ).createSphere
+        (
+            this.doorTurnPoint,
+            bz.MeshAnchor.CENTER_XYZ,
+            0.50,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            null,
+            bz.SettingColor.COLOR_RGB_YELLOW,
+            bz.PhysicSet.NONE,
+            1.0
+        );
+
+/*
+        this.basePosition.x += ( 0.5 * bz.SettingGame.DOOR_WIDTH * bz.MathUtil.cosDegrees( this.doorRotY ) );
+        this.basePosition.z += ( -0.5 * bz.SettingGame.DOOR_WIDTH * bz.MathUtil.sinDegrees( this.doorRotY ) );
+*/
     }
 
     public performInteraction( stage:bz.Stage ) : void
@@ -142,6 +160,14 @@ export class Door extends bz.Wall
 
                         break;
                     }
+
+                    case bz.DoorAnimation.SWING_DEFAULT:
+                    {
+                        const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+                        this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
+
+                        break;
+                    }
                 }
 
                 if ( --this.animationTicks <= 0 )
@@ -172,6 +198,14 @@ export class Door extends bz.Wall
                         const deltaZ :number = -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
                         this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, deltaZ ) );
+
+                        break;
+                    }
+
+                    case bz.DoorAnimation.SWING_DEFAULT:
+                    {
+                        const rotDelta :number = ( -90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+                        this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
 
                         break;
                     }

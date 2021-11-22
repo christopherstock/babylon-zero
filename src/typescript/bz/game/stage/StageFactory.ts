@@ -412,17 +412,29 @@ export abstract class StageFactory
             // door
             if ( !doorData.noBody )
             {
+                const doorPosition :BABYLON.Vector3 = new BABYLON.Vector3(
+                    ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
+                    y,
+                    ( z + bz.SettingGame.WALL_DEPTH / 2 )
+                );
+
+                const doorTurnPoint :BABYLON.Vector3 = bz.MeshManipulation.rotatePointAroundAxisY(
+                    doorPosition,
+                    x,
+                    z,
+                    rotY
+                );
+
+                // const doorTurnPoint :BABYLON.Vector3 = doorPosition;
+
                 const door:bz.Door = new bz.Door
                 (
                     stage,
-                    new BABYLON.Vector3(
-                        ( x + doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
-                        y,
-                        ( z + bz.SettingGame.WALL_DEPTH / 2 )
-                    ),
+                    doorPosition,
                     rotY,
                     doorData.animation,
-                    doorData.events
+                    doorData.events,
+                    doorTurnPoint
                 );
                 walls.push( door );
             }
