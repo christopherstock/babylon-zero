@@ -56,7 +56,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 100.0, bz.SettingGame.WALL_HEIGHT, 100.0 ),
             0.0,
-            bz.TextureFile.WALL_BRICKS_3, [], [], 0,
+            bz.TextureFile.WALL_BRICKS_DARK_RED, [], [], 0,
             null,                         [], [], 0,
             null,                         [], [], 0,
             null,                         [], [], 0,

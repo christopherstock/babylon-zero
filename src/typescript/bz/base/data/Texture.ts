@@ -18,7 +18,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_ASPHALT_CRACKED ),
         new Texture( bz.TextureFile.WALL_BRICKS_ORANGE ),
         new Texture( bz.TextureFile.WALL_BRICKS_MOSSY_STONES ),
-        new Texture( bz.TextureFile.WALL_BRICKS_3 ),
+        new Texture( bz.TextureFile.WALL_BRICKS_DARK_RED ),
         new Texture( bz.TextureFile.WALL_CARPET_1 ),
         new Texture( bz.TextureFile.WALL_CARPET_2 ),
         new Texture( bz.TextureFile.WALL_CARPET_3 ),
