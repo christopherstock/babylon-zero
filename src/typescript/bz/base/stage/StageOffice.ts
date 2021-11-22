@@ -125,6 +125,18 @@ export class StageOffice extends bz.Stage
             null
         );
 
+        // test magic door
+        const magicDoor:bz.Door = new bz.Door
+        (
+            this,
+            new BABYLON.Vector3( 5.0, 0.0, 35.0 ),
+            0.0,
+            bz.DoorAnimation.SWING_A_CLOCKWISE,
+            []
+
+        );
+        this.addWall( magicDoor );
+
         // boxes pile in small office
         bz.StageFactory.addCratesPile(
             this,

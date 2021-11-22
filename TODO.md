@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Try single standalone door
 TODO Add door animation 'sliding door' (slide & rotate!)
 
 TODO Add Babylon.js tree generation helper?
