@@ -25,7 +25,7 @@ export enum DoorState
 export class Door extends bz.Wall
 {
     private readonly animation       :DoorAnimation   = null;
-    private readonly doorRotY        :number          = null;
+    private          doorRotY        :number          = null;
     private          doorTurnPoint   :BABYLON.Vector3 = null;
     private          state           :DoorState       = DoorState.CLOSED;
     private          animationTicks  :number          = 0;
@@ -311,6 +311,9 @@ export class Door extends bz.Wall
             this.doorTurnPoint.z  // , z + ( this.doorTurnPoint.z - z ) * bz.MathUtil.sinDegrees( rotY ) // correct!
 */
         );
+
+        // update stored rotation Y !
+        this.doorRotY += rotY;
 
         // update sphere position ?
         if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )

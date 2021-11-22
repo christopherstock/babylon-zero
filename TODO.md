@@ -7,6 +7,7 @@ MVP
 ===
 TODO Remove door flickering etc.
 TODO Try single standalone door
+TODO Fix rotated sliding doors
 TODO Add door animation 'sliding door' (slide & rotate!)
 
 TODO Add Babylon.js tree generation helper?
