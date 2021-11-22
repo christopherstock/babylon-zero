@@ -418,9 +418,13 @@ export abstract class StageFactory
                     ( z + bz.SettingGame.WALL_DEPTH / 2 )
                 );
                 const doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3(
-                    x, // x + ( bz.MathUtil.cosDegrees( rotY ) * ( doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ) ),
+                    x
+                    + ( bz.MathUtil.cosDegrees( rotY ) * ( doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ) )
+                    + ( bz.MathUtil.sinDegrees( rotY ) * ( bz.SettingGame.WALL_DEPTH / 2 ) ),
                     y,
-                    z  // z + ( bz.MathUtil.sinDegrees( rotY ) * ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    z
+                    - ( bz.MathUtil.sinDegrees( rotY ) * ( doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ) )
+                    - ( bz.MathUtil.cosDegrees( rotY ) * ( bz.SettingGame.WALL_DEPTH / 2 ) )
                 );
 
                 const door:bz.Door = new bz.Door
