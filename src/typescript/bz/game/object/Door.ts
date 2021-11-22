@@ -5,7 +5,8 @@ export enum DoorAnimation
     NONE,
     SLIDE_DEFAULT,
     SLIDE_REVERSED,
-    SWING_DEFAULT,
+    SWING_A_DEFAULT,
+    SWING_B_DEFAULT,
 }
 
 export enum DoorState
@@ -77,6 +78,27 @@ export class Door extends bz.Wall
         this.animation     = animation;
         this.doorRotY      = doorRotY;
         this.doorTurnPoint = doorTurnPoint;
+
+        // TODO to separate method
+
+        // manipulate door turn point for certain animation types
+        switch ( this.animation )
+        {
+            case bz.DoorAnimation.SWING_A_DEFAULT:
+            {
+                // door turns on left edge
+                this.doorTurnPoint.x -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                break;
+            }
+            case bz.DoorAnimation.SWING_B_DEFAULT:
+            {
+                // door turns on right edge
+                this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                break;
+            }
+        }
 
         // TODO to separate method
         if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
@@ -168,7 +190,8 @@ export class Door extends bz.Wall
                         break;
                     }
 
-                    case bz.DoorAnimation.SWING_DEFAULT:
+                    case bz.DoorAnimation.SWING_A_DEFAULT:
+                    case bz.DoorAnimation.SWING_B_DEFAULT:
                     {
                         const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
@@ -209,7 +232,8 @@ export class Door extends bz.Wall
                         break;
                     }
 
-                    case bz.DoorAnimation.SWING_DEFAULT:
+                    case bz.DoorAnimation.SWING_A_DEFAULT:
+                    case bz.DoorAnimation.SWING_B_DEFAULT:
                     {
                         const rotDelta :number = ( -90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
