@@ -1,10 +1,10 @@
 import * as bz from '../..';
 
-export enum DoorType
+export enum DoorAnimation
 {
-    SLIDE_DOOR,
-    SWING_DOOR,
-    EVENTS_ONLY,
+    NONE,
+    SLIDE,
+    SWING,
 }
 
 /** ********************************************************************************************************************
@@ -12,20 +12,22 @@ export enum DoorType
 ***********************************************************************************************************************/
 export class Door extends bz.Wall
 {
-    private             type        :bz.DoorType            = null;
+    private animation    :bz.DoorAnimation = null;
+    private basePosition :BABYLON.Vector3  = null;
 
     /** ****************************************************************************************************************
     *   Creates a new door instance.
     *
-    *   @param stage    The stage this wall belongs to.
-    *   @param position Where to place the door.
-    *   @param events   What happens on user interaction.
+    *   @param stage     The stage this wall belongs to.
+    *   @param position  Where to place the door.
+    *   @param animation The door animation to perform when an interaction with this door is triggered.
+    *   @param events    All events to trigger when a user interaction is performed.
     *******************************************************************************************************************/
     public constructor(
-        stage    :bz.Stage,
-        position :BABYLON.Vector3,
-        type     :DoorType,
-        events   :bz.Event[]
+        stage     :bz.Stage,
+        position  :BABYLON.Vector3,
+        animation :DoorAnimation,
+        events    :bz.Event[]
     ) {
         super(
             stage,
@@ -55,7 +57,8 @@ export class Door extends bz.Wall
             bz.InteractionType.REPEATED
         );
 
-        this.type = type;
+        this.animation         = animation;
+        this.basePosition = position;
     }
 
     public performInteraction( stage:bz.Stage ) : void
@@ -64,22 +67,28 @@ export class Door extends bz.Wall
         super.performInteraction( stage );
 
         // start door animation if designed
-        switch ( this.type )
+        switch ( this.animation )
         {
-            case DoorType.SLIDE_DOOR:
+            case DoorAnimation.SLIDE:
             {
                 // start slide door animation
+                console.log( '>> Perform door slide animation' );
+
                 break;
             }
-            case DoorType.SWING_DOOR:
+            case DoorAnimation.SWING:
             {
                 // start swing door animation
+                console.log( '>> Perform door swing animation' );
+
                 break;
             }
-            case DoorType.EVENTS_ONLY:
+            case DoorAnimation.NONE:
             default:
             {
                 // do not start door animations
+                console.log( '>> NO door animation to perform' );
+
                 break;
             }
         }
