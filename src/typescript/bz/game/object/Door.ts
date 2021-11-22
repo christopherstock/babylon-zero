@@ -294,10 +294,22 @@ export class Door extends bz.Wall
 
     public rotateDoorTurnPointAroundAxisY( x:number, z:number, rotY:number ) : void
     {
+        const rotationPivot   :BABYLON.Vector2 = new BABYLON.Vector2( x, z );
+        const doorTurnPoint2d :BABYLON.Vector2 = new BABYLON.Vector2( this.doorTurnPoint.x, this.doorTurnPoint.z );
+
+        const rotatedDoorTurnPoint2d :BABYLON.Vector2 = bz.MathUtil.rotatePoint(
+            rotationPivot, -rotY, doorTurnPoint2d
+        );
+
         this.doorTurnPoint = new BABYLON.Vector3(
+            rotatedDoorTurnPoint2d.x,
+            this.doorTurnPoint.y,
+            rotatedDoorTurnPoint2d.y
+/*
             this.doorTurnPoint.x, // x + ( this.doorTurnPoint.x - x ) * bz.MathUtil.cosDegrees( rotY ),
             this.doorTurnPoint.y, // this.doorTurnPoint.y,
-            this.doorTurnPoint.z //, z + ( this.doorTurnPoint.z - z ) * bz.MathUtil.sinDegrees( rotY ) // correct!
+            this.doorTurnPoint.z  // , z + ( this.doorTurnPoint.z - z ) * bz.MathUtil.sinDegrees( rotY ) // correct!
+*/
         );
 
         // update sphere position ?

@@ -120,4 +120,24 @@ export abstract class MathUtil
 
         return source.add( rotatedDistantVector );
     }
+
+    public static rotatePoint( pivot:BABYLON.Vector2, angleDegree:number, p:BABYLON.Vector2 ) : BABYLON.Vector2
+    {
+        const s:number = MathUtil.sinDegrees( angleDegree );
+        const c:number = MathUtil.cosDegrees( angleDegree );
+
+        // translate point back to origin:
+        p.x -= pivot.x;
+        p.y -= pivot.y;
+
+        // rotate point
+        const xnew:number = p.x * c - p.y * s;
+        const ynew:number = p.x * s + p.y * c;
+
+        // translate point back:
+        p.x = xnew + pivot.x;
+        p.y = ynew + pivot.y;
+
+        return p;
+    }
 }
