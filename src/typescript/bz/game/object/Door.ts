@@ -31,19 +31,20 @@ export class Door extends bz.Wall
     /** ****************************************************************************************************************
     *   Creates a new door instance.
     *
-    *   @param stage     The stage this wall belongs to.
-    *   @param position  Where to place the door.
-    *   @param doorRotY  Door rotation Y for animation appliance. Will not be applied!
-    *   @param animation The door animation to perform when an interaction with this door is triggered.
-    *   @param events    All events to trigger when a user interaction is performed.
+    *   @param stage         The stage this wall belongs to.
+    *   @param position      Where to place the door.
+    *   @param doorRotY      Door rotation Y for animation appliance. Will not be applied!
+    *   @param animation     The door animation to perform when an interaction with this door is triggered.
+    *   @param events        All events to trigger when a user interaction is performed.
+    *   @param doorTurnPoint The default rotation base point for this door.
     *******************************************************************************************************************/
     public constructor(
         stage         :bz.Stage,
         position      :BABYLON.Vector3,
-        doorRotY      :number,
-        animation     :DoorAnimation,
-        events        :bz.Event[] = [],
-        doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+        doorRotY      :number          = 0.0,
+        animation     :DoorAnimation   = bz.DoorAnimation.NONE,
+        events        :bz.Event[]      = [],
+        doorTurnPoint :BABYLON.Vector3 = position
     ) {
         super(
             stage,
