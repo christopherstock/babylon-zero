@@ -21,11 +21,12 @@ export enum DoorState
 ***********************************************************************************************************************/
 export class Door extends bz.Wall
 {
-    private readonly animation      :DoorAnimation   = null;
-    private readonly doorTurnPoint  :BABYLON.Vector3 = null;
-    private readonly doorRotY       :number          = null;
-    private          state          :DoorState       = DoorState.CLOSED;
-    private          animationTicks :number          = 0;
+    private readonly animation       :DoorAnimation   = null;
+    private readonly doorTurnPoint   :BABYLON.Vector3 = null;
+    private readonly doorRotY        :number          = null;
+    private          state           :DoorState       = DoorState.CLOSED;
+    private          animationTicks  :number          = 0;
+    private          debugSphereMesh :BABYLON.Mesh    = null;
 
     /** ****************************************************************************************************************
     *   Creates a new door instance.
@@ -76,17 +77,22 @@ export class Door extends bz.Wall
         this.doorRotY      = doorRotY;
         this.doorTurnPoint = doorTurnPoint;
 
-        if ( true ) new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ).createSphere
-        (
-            this.doorTurnPoint,
-            bz.MeshAnchor.CENTER_XYZ,
-            0.50,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            null,
-            bz.SettingColor.COLOR_RGB_YELLOW,
-            bz.PhysicSet.NONE,
-            1.0
-        );
+        // TODO to separate method
+        if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
+        {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.stage.getScene(), bz.SettingColor.COLOR_RGB_YELLOW );
+            this.debugSphereMesh = meshFactory.createSphere
+            (
+                this.doorTurnPoint,
+                bz.MeshAnchor.CENTER_XYZ,
+                0.50,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                bz.SettingColor.COLOR_RGB_YELLOW,
+                bz.PhysicSet.NONE,
+                1.0
+            );
+        }
 
 /*
         this.basePosition.x += ( 0.5 * bz.SettingGame.DOOR_WIDTH * bz.MathUtil.cosDegrees( this.doorRotY ) );
@@ -223,6 +229,19 @@ export class Door extends bz.Wall
                 // no animation takes place
                 break;
             }
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Disposes all meshes of this bullet hole.
+    *******************************************************************************************************************/
+    public dispose() : void
+    {
+        super.dispose();
+
+        if ( this.debugSphereMesh !== null )
+        {
+            this.debugSphereMesh.dispose();
         }
     }
 }

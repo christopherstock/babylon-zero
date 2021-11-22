@@ -5,7 +5,7 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Trigger extends bz.Collectable
 {
-    /** The debug normal line of the hit face. */
+    /** The debug sphere that shows the position of the trigger. */
     private          debugSphereMesh :BABYLON.Mesh    = null;
     /** The initial and static position of this item. */
     private readonly triggerPosition :BABYLON.Vector3 = null;

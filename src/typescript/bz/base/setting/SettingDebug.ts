@@ -14,6 +14,7 @@ export abstract class SettingDebug
     public static readonly SHOW_FPS                                :boolean            = ( true && SettingDebug.DEBUG_MODE );
     /** Show trigger. */
     public static readonly SHOW_TRIGGER                            :boolean            = ( true && SettingDebug.DEBUG_MODE );
+    public static readonly SHOW_DOOR_TURN_POINTS                   :boolean            = ( true && SettingDebug.DEBUG_MODE );
 
     /** Disables all sounds. */
     public static readonly DISABLE_SOUND                           :boolean            = true;
