@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Remove door flickering etc.
 TODO Try single standalone door
 TODO Add door animation 'sliding door' (slide & rotate!)
 

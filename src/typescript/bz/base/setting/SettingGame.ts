@@ -14,10 +14,13 @@ export abstract class SettingGame
     public static readonly WALL_DEPTH                               :number             = 0.2;
     /** Unified wall height (y) for building constructions. */
     public static readonly WALL_HEIGHT                              :number             = 10.0;
+
     /** Unified door width for building constructions. */
     public static readonly DOOR_WIDTH                               :number             = 5.0;
     /** Unified door height for building constructions. */
     public static readonly DOOR_HEIGHT                              :number             = 8.5;
+    /** Unified door depth for building constructions. */
+    public static readonly DOOR_DEPTH                               :number             = 0.195;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingGame.WALL_HEIGHT - SettingGame.DOOR_HEIGHT );
     /** Unified width for a hallway in building constructions. */

@@ -409,7 +409,11 @@ export abstract class StageFactory
                         [
                             meshFactory.createBox
                             (
-                                new BABYLON.Vector3( x + doorData.position, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z ),
+                                new BABYLON.Vector3(
+                                    x + doorData.position,
+                                    y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT,
+                                    z
+                                ),
                                 textureFileWall,
                                 new BABYLON.Vector3(
                                     bz.SettingGame.DOOR_WIDTH,

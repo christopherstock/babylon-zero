@@ -61,7 +61,7 @@ export class Door extends bz.Wall
                         new BABYLON.Vector3(
                             bz.SettingGame.DOOR_WIDTH,
                             bz.SettingGame.DOOR_HEIGHT,
-                            bz.SettingGame.WALL_DEPTH
+                            bz.SettingGame.DOOR_DEPTH
                         ),
                         bz.PhysicSet.STATIC,
                         1.0,
