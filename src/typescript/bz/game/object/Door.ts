@@ -5,8 +5,8 @@ export enum DoorAnimation
     NONE,
     SLIDE_DEFAULT,
     SLIDE_REVERSED,
-    SWING_A_DEFAULT,
-    SWING_B_DEFAULT,
+    SWING_A_CLOCKWISE,
+    SWING_B_CLOCKWISE,
 }
 
 export enum DoorState
@@ -37,7 +37,7 @@ export class Door extends bz.Wall
     *   @param doorRotY      Door rotation Y for animation appliance. Will not be applied!
     *   @param animation     The door animation to perform when an interaction with this door is triggered.
     *   @param events        All events to trigger when a user interaction is performed.
-    *   @param doorTurnPoint The default rotation base point for this door.
+    *   @param doorTurnPoint The CENTER_XZ_LOWEST_Y point of the door.
     *******************************************************************************************************************/
     public constructor(
         stage         :bz.Stage,
@@ -84,14 +84,14 @@ export class Door extends bz.Wall
         // manipulate door turn point for certain animation types
         switch ( this.animation )
         {
-            case bz.DoorAnimation.SWING_A_DEFAULT:
+            case bz.DoorAnimation.SWING_A_CLOCKWISE:
             {
                 // door turns on left edge
                 this.doorTurnPoint.x -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 this.doorTurnPoint.z += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 break;
             }
-            case bz.DoorAnimation.SWING_B_DEFAULT:
+            case bz.DoorAnimation.SWING_B_CLOCKWISE:
             {
                 // door turns on right edge
                 this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
@@ -190,8 +190,8 @@ export class Door extends bz.Wall
                         break;
                     }
 
-                    case bz.DoorAnimation.SWING_A_DEFAULT:
-                    case bz.DoorAnimation.SWING_B_DEFAULT:
+                    case bz.DoorAnimation.SWING_A_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_B_CLOCKWISE:
                     {
                         const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
@@ -232,8 +232,8 @@ export class Door extends bz.Wall
                         break;
                     }
 
-                    case bz.DoorAnimation.SWING_A_DEFAULT:
-                    case bz.DoorAnimation.SWING_B_DEFAULT:
+                    case bz.DoorAnimation.SWING_A_CLOCKWISE:
+                    case bz.DoorAnimation.SWING_B_CLOCKWISE:
                     {
                         const rotDelta :number = ( -90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
