@@ -261,7 +261,7 @@ export class Door extends bz.Wall
         const rotationPivot   :BABYLON.Vector2 = new BABYLON.Vector2( x, z );
         const doorTurnPoint2d :BABYLON.Vector2 = new BABYLON.Vector2( this.doorTurnPoint.x, this.doorTurnPoint.z );
 
-        const rotatedDoorTurnPoint2d :BABYLON.Vector2 = bz.MathUtil.rotatePoint(
+        const rotatedDoorTurnPoint2d :BABYLON.Vector2 = bz.MathUtil.rotateVector2(
             rotationPivot, -rotY, doorTurnPoint2d
         );
 

@@ -7,7 +7,6 @@ MVP
 ===
 TODO Remove door flickering etc.
 TODO Try single standalone door
-TODO Fix rotated sliding doors
 TODO Add door animation 'sliding door' (slide & rotate!)
 
 TODO Add Babylon.js tree generation helper?
@@ -37,6 +36,8 @@ TODO create player die effect (tilt cylinder and head etc.)
 TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
 TODO Add explosion effects via sprites.
 TODO Particle FX (physical) for wall rubble!
+TODO Add linked doors (wing doors)
+TODO Fix rotated sliding doors
 TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO Constraint system for events (keycard holded)!?
 TODO add rotating MF Logo sprite?

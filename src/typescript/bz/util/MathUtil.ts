@@ -96,7 +96,7 @@ export abstract class MathUtil
     *
     *   @return The rotated distant point.
     *******************************************************************************************************************/
-    public static rotateVector
+    public static rotateVector3
     (
         source   :BABYLON.Vector3,
         rotation :BABYLON.Vector3,
@@ -121,8 +121,7 @@ export abstract class MathUtil
         return source.add( rotatedDistantVector );
     }
 
-    // TODO rename rotateVector2
-    public static rotatePoint( pivot:BABYLON.Vector2, angleDegree:number, p:BABYLON.Vector2 ) : BABYLON.Vector2
+    public static rotateVector2( pivot:BABYLON.Vector2, angleDegree:number, p:BABYLON.Vector2 ) : BABYLON.Vector2
     {
         const sin:number = MathUtil.sinDegrees( angleDegree );
         const cos:number = MathUtil.cosDegrees( angleDegree );

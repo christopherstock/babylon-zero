@@ -439,7 +439,7 @@ export abstract class StageFactory
                     doorPosition2D.y
                 );
                 const turnPoint2D :BABYLON.Vector2 = new BABYLON.Vector2( x, z );
-                const doorTurnPoint2D:BABYLON.Vector2 = bz.MathUtil.rotatePoint( turnPoint2D, -rotY, doorPosition2D );
+                const doorTurnPoint2D:BABYLON.Vector2 = bz.MathUtil.rotateVector2( turnPoint2D, -rotY, doorPosition2D );
                 const doorTurnPoint :BABYLON.Vector3 = new BABYLON.Vector3(
                     doorTurnPoint2D.x,
                     y,

@@ -46,7 +46,7 @@ export class Shot
         this.damage       = damage;
 
         // calculate destination point
-        this.destination = bz.MathUtil.rotateVector
+        this.destination = bz.MathUtil.rotateVector3
         (
             source,
             rotation,
