@@ -81,50 +81,10 @@ export class Door extends bz.Wall
         this.doorRotY      = doorRotY;
         this.doorTurnPoint = doorTurnPoint;
 
-        // TODO to separate method
-
         // manipulate door turn point for certain animation types
-        switch ( this.animation )
-        {
-            case bz.DoorAnimation.SWING_A_CLOCKWISE:
-            case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
-            {
-                // door turns on left edge
-                this.doorTurnPoint.x -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                this.doorTurnPoint.z += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                break;
-            }
-            case bz.DoorAnimation.SWING_B_CLOCKWISE:
-            case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
-            {
-                // door turns on right edge
-                this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                this.doorTurnPoint.z -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                break;
-            }
-        }
+        this.manipulateTurnPointForSwingAnimations();
 
-        // TODO to separate method
-        if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
-        {
-            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.stage.getScene(), bz.SettingColor.COLOR_RGB_YELLOW );
-            this.debugSphereMesh = meshFactory.createSphere
-            (
-                this.doorTurnPoint,
-                bz.MeshAnchor.CENTER_XYZ,
-                0.50,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                null,
-                bz.SettingColor.COLOR_RGB_YELLOW,
-                bz.PhysicSet.NONE,
-                1.0
-            );
-        }
-
-/*
-        this.basePosition.x += ( 0.5 * bz.SettingGame.DOOR_WIDTH * bz.MathUtil.cosDegrees( this.doorRotY ) );
-        this.basePosition.z += ( -0.5 * bz.SettingGame.DOOR_WIDTH * bz.MathUtil.sinDegrees( this.doorRotY ) );
-*/
+        this.addDebugDoorTurnPoint();
     }
 
     public performInteraction( stage:bz.Stage ) : void
@@ -319,6 +279,48 @@ export class Door extends bz.Wall
         if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
         {
             this.debugSphereMesh.position = this.doorTurnPoint;
+        }
+    }
+
+    private manipulateTurnPointForSwingAnimations() : void
+    {
+        switch ( this.animation )
+        {
+            case bz.DoorAnimation.SWING_A_CLOCKWISE:
+            case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
+            {
+                // door turns on left edge
+                this.doorTurnPoint.x -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                break;
+            }
+            case bz.DoorAnimation.SWING_B_CLOCKWISE:
+            case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
+            {
+                // door turns on right edge
+                this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                break;
+            }
+        }
+    }
+
+    private addDebugDoorTurnPoint() : void
+    {
+        if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
+        {
+            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.stage.getScene(), bz.SettingColor.COLOR_RGB_YELLOW );
+            this.debugSphereMesh = meshFactory.createSphere
+            (
+                this.doorTurnPoint,
+                bz.MeshAnchor.CENTER_XYZ,
+                0.50,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                null,
+                bz.SettingColor.COLOR_RGB_YELLOW,
+                bz.PhysicSet.NONE,
+                1.0
+            );
         }
     }
 }

@@ -89,7 +89,7 @@ export class Trigger extends bz.Collectable
         (
             position,
             bz.MeshAnchor.CENTER_XYZ,
-            0.10,
+            0.50,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             null,
             bz.SettingColor.COLOR_RGB_GREEN,
