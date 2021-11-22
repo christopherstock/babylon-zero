@@ -322,7 +322,7 @@ export class Door extends bz.Wall
             case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
             {
                 // door turns on center behind door
-                this.doorTurnPoint.x -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.x += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 this.doorTurnPoint.z += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 break;
             }
@@ -331,7 +331,7 @@ export class Door extends bz.Wall
             case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
             {
                 // door turns on center before door
-                this.doorTurnPoint.x += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.x -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 this.doorTurnPoint.z -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
                 break;
             }

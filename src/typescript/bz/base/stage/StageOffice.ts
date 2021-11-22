@@ -117,10 +117,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             340.0, // -90.0
-            bz.TextureFile.WALL_WOOD_VERT_1, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SLIDE_DEFAULT ) ], [ 7.0 ], 2.0,
-            bz.TextureFile.WALL_WOOD_PLANKS, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SLIDE_DEFAULT ) ], [ 7.0 ], 3.0,
-            bz.TextureFile.WALL_WOOD_GRAIN,  [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SLIDE_DEFAULT ) ], [ 7.0 ], 4.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,  [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SLIDE_DEFAULT ) ], [ 7.0 ], 5.0,
+            bz.TextureFile.WALL_WOOD_VERT_1, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 2.0,
+            bz.TextureFile.WALL_WOOD_PLANKS, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 3.0,
+            bz.TextureFile.WALL_WOOD_GRAIN,  [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 4.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,  [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 5.0,
             bz.TextureFile.WALL_ASPHALT_CRACKED,
             null
         );
@@ -131,7 +131,7 @@ export class StageOffice extends bz.Stage
             this,
             new BABYLON.Vector3( 5.0, 0.0, 35.0 ),
             0.0,
-            bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE,
+            bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE,
             []
 
         );
