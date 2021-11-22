@@ -56,7 +56,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 100.0, bz.SettingGame.WALL_HEIGHT, 100.0 ),
             0.0,
-            bz.TextureFile.WALL_BRICKS_DARK_RED, [], [], 0,
+            null, [], [], 0,
             null,                         [], [], 0,
             null,                         [], [], 0,
             null,                         [], [], 0,
@@ -115,7 +115,7 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
-            20.0, // -90.0
+            340.0, // -90.0
             bz.TextureFile.WALL_WOOD_VERT_1, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE ) ], [ 7.0 ], 2.0,
             bz.TextureFile.WALL_WOOD_PLANKS, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_B_CLOCKWISE         ) ], [ 7.0 ], 3.0,
             bz.TextureFile.WALL_WOOD_GRAIN,  [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SLIDE_DEFAULT             ) ], [ 7.0 ], 4.0,
