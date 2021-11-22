@@ -23,6 +23,7 @@ export class Door extends bz.Wall
     private readonly animation    :DoorAnimation   = null;
     private readonly basePosition :BABYLON.Vector3 = null;
     private          state        :DoorState       = DoorState.CLOSED;
+    private          animationTicks :number          = 0;
 
     /** ****************************************************************************************************************
     *   Creates a new door instance.
@@ -90,7 +91,8 @@ export class Door extends bz.Wall
                     {
                         console.log( '>> TODO closed door will be opened!' );
 
-                        // DOOR_SLIDE_OPEN_CLOSE_TICKS
+                        this.animationTicks = bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS;
+                        this.state          = DoorState.OPENING;
 
                         break;
                     }
@@ -98,7 +100,8 @@ export class Door extends bz.Wall
                     {
                         console.log( '>> TODO open door will be closed!' );
 
-
+                        this.animationTicks = bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS;
+                        this.state          = DoorState.CLOSING;
 
                         break;
                     }
@@ -135,6 +138,36 @@ export class Door extends bz.Wall
     public render() : void
     {
         // animate swing or slide door animation
+        switch ( this.state )
+        {
+            case DoorState.OPENING:
+            {
+                const deltaX :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, 0.0 ) );
 
+                if ( --this.animationTicks <= 0 )
+                {
+                    this.state = bz.DoorState.OPEN;
+                }
+                break;
+            }
+            case DoorState.CLOSING:
+            {
+                const deltaX :number = -1.0 * ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_SLIDE_OPEN_CLOSE_TICKS );
+                this.model.translatePosition( new BABYLON.Vector3( deltaX, 0.0, 0.0 ) );
+
+                if ( --this.animationTicks <= 0 )
+                {
+                    this.state = bz.DoorState.CLOSED;
+                }
+                break;
+            }
+            case DoorState.OPEN:
+            case DoorState.CLOSED:
+            {
+                // no animation takes place
+                break;
+            }
+        }
     }
 }
