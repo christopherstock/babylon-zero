@@ -63,7 +63,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.MODEL_CONCRETE,
             null
         );
-
+if ( false ) {
         // point light in small office
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
@@ -143,46 +143,10 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 15.0 )
         );
+}
+        // trees
+        this.addTrees3D( meshFactory );
 
-        // tree
-        const tree1:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model(
-                [
-                    meshFactory.createTree(
-                        new BABYLON.Vector3( 20.0, 0.0, 10.0 )
-                    ),
-                ]
-            )
-        );
-        this.addWall( tree1 );
-
-        const tree2:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model(
-                [
-                    meshFactory.createTree(
-                        new BABYLON.Vector3( 40.0, 0.0, 10.0 )
-                    ),
-                ]
-            )
-        );
-        this.addWall( tree2 );
-
-        const tree3:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model(
-                [
-                    meshFactory.createTree(
-                        new BABYLON.Vector3( 60.0, 0.0, 10.0 )
-                    ),
-                ]
-            )
-        );
-        this.addWall( tree3 );
 
 /*
         // parking space
@@ -802,7 +766,7 @@ if ( true ) return;
     *
     *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    private addTrees( meshFactory :bz.MeshFactory ) :void
+    private addTreeSprites( meshFactory :bz.MeshFactory ) :void
     {
         // create and animate a sprite
         const animatedTestSprite:bz.Sprite = new bz.Sprite
@@ -869,6 +833,48 @@ if ( true ) return;
                 0.5
             )
         );
+    }
+
+    private addTrees3D( meshFactory :bz.MeshFactory ) :void
+    {
+        const tree1:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model(
+                [
+                    meshFactory.createTree(
+                        new BABYLON.Vector3( 20.0, 0.0, 10.0 )
+                    ),
+                ]
+            )
+        );
+        this.addWall( tree1 );
+
+        const tree2:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model(
+                [
+                    meshFactory.createTree(
+                        new BABYLON.Vector3( 40.0, 0.0, 10.0 )
+                    ),
+                ]
+            )
+        );
+        this.addWall( tree2 );
+
+        const tree3:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model(
+                [
+                    meshFactory.createTree(
+                        new BABYLON.Vector3( 60.0, 0.0, 10.0 )
+                    ),
+                ]
+            )
+        );
+        this.addWall( tree3 );
     }
 
     /** ****************************************************************************************************************

@@ -906,6 +906,7 @@ export class MeshFactory
     )
     : BABYLON.Mesh
     {
+/*
         // leafs
         let green = new BABYLON.StandardMaterial("green", this.scene.getNativeScene());
         green.diffuseColor = new BABYLON.Color3(0,1,0);
@@ -916,6 +917,9 @@ export class MeshFactory
         bark.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
         (bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0;//Repeat 5 times on the Vertical Axes
         (bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0;//Repeat 5 times on the Horizontal Axes
+*/
+        const green = null;
+        const bark  = null;
 
         // tree params
         let trunk_height = 20;
@@ -938,7 +942,26 @@ export class MeshFactory
             branch_angle, bow_freq, bow_height, leaves_on_branch, leaf_wh_ratio, green, this.scene.getNativeScene()
         );
         tree.position = position;
-        tree.scaling = new BABYLON.Vector3( 0.5, 0.5, 0.5 );
+
+        // tree.scaling = new BABYLON.Vector3( 0.5, 0.5, 0.5 );
+
+console.log( 'TREE CREATED!' );
+console.log( 'tree: ' + tree );
+
+/*
+const box = BABYLON.MeshBuilder.CreateBox
+(
+    MeshFactory.createNextMeshId(),
+    {
+        width:  1,
+        height: 1,
+        depth:  1,
+    },
+    this.scene.getNativeScene()
+);
+box.position = position;
+return box;
+*/
 
         return tree;
     }

@@ -659,7 +659,8 @@ export abstract class Stage
             {
                 continue;
             }
-            hitPoints = hitPoints.concat( wall.determineHitPoints( shot ) );
+            const wallHitPoints:bz.HitPoint[] = wall.determineHitPoints( shot );
+            hitPoints = hitPoints.concat( wallHitPoints );
         }
 
         // check collision with items
@@ -668,7 +669,8 @@ export abstract class Stage
             bz.Debug.fire.log( ' Check shot collision with [' + String( this.collectables.length ) + '] items' );
             for ( const item of this.collectables )
             {
-                hitPoints = hitPoints.concat( item.determineHitPoints( shot ) );
+                const itemHitPoints:bz.HitPoint[] = item.determineHitPoints( shot );
+                hitPoints = hitPoints.concat( itemHitPoints );
             }
         }
 
