@@ -892,6 +892,57 @@ export class MeshFactory
         return clonedModel;
     }
 
+    public createTree(
+        position :BABYLON.Vector3
+/*
+        textureFile   :bz.TextureFile,
+        size          :BABYLON.Vector3,
+        physic        :bz.PhysicSet       = bz.PhysicSet.NONE,
+        materialAlpha :number             = 1.0,
+        anchor        :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
+        rotation      :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        color         :BABYLON.Color3     = null
+*/
+    )
+    : BABYLON.Mesh
+    {
+        // leafs
+        let green = new BABYLON.StandardMaterial("green", this.scene.getNativeScene());
+        green.diffuseColor = new BABYLON.Color3(0,1,0);
+
+        //trunk and branches
+        let bark = new BABYLON.StandardMaterial("bark", this.scene.getNativeScene());
+        bark.emissiveTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
+        bark.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
+        (bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0;//Repeat 5 times on the Vertical Axes
+        (bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0;//Repeat 5 times on the Horizontal Axes
+
+        // tree params
+        let trunk_height = 20;
+        let trunk_taper = 0.6;
+        let trunk_slices = 5;
+        let boughs = 2; // 1 or 2
+        let forks = 4;
+        let fork_angle = Math.PI/4;
+        let fork_ratio = 2/(1+Math.sqrt(5)); //PHI the golden ratio
+        let branch_angle = Math.PI/3;
+        let bow_freq = 2;
+        let bow_height = 3.5;
+        let branches = 10;
+        let leaves_on_branch = 5;
+        let leaf_wh_ratio = 0.5;
+
+        // create mesh
+        let tree :BABYLON.Mesh = ( global as any ).createTree(
+            trunk_height, trunk_taper, trunk_slices, bark, boughs, forks, fork_angle, fork_ratio, branches,
+            branch_angle, bow_freq, bow_height, leaves_on_branch, leaf_wh_ratio, green, this.scene.getNativeScene()
+        );
+        tree.position = position;
+        tree.scaling = new BABYLON.Vector3( 0.5, 0.5, 0.5 );
+
+        return tree;
+    }
+
     /** ****************************************************************************************************************
     *   Adds general mesh properties.
     *

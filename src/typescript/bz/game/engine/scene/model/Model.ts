@@ -27,6 +27,8 @@ export class Model
     *******************************************************************************************************************/
     public constructor( meshes:BABYLON.AbstractMesh[] = [] )
     {
+        // TODO wrap if meshes is not an array but a single mesh - check for single meshed Model constructor invocations
+
         this.meshes = meshes;
     }
 

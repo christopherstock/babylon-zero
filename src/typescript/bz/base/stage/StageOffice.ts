@@ -144,6 +144,46 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 15.0 )
         );
 
+        // tree
+        const tree1:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model(
+                [
+                    meshFactory.createTree(
+                        new BABYLON.Vector3( 20.0, 0.0, 10.0 )
+                    ),
+                ]
+            )
+        );
+        this.addWall( tree1 );
+
+        const tree2:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model(
+                [
+                    meshFactory.createTree(
+                        new BABYLON.Vector3( 40.0, 0.0, 10.0 )
+                    ),
+                ]
+            )
+        );
+        this.addWall( tree2 );
+
+        const tree3:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model(
+                [
+                    meshFactory.createTree(
+                        new BABYLON.Vector3( 60.0, 0.0, 10.0 )
+                    ),
+                ]
+            )
+        );
+        this.addWall( tree3 );
+
 /*
         // parking space
         bz.StageFactory.addRoomWalls(
@@ -186,13 +226,14 @@ export class StageOffice extends bz.Stage
             )
         );
 */
-
+/*
         // add rain effect
         if ( false ) this.setRainEffect(
             3.0,
             750,
             new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
+*/
 /*
 if ( true ) return;
 
@@ -268,36 +309,6 @@ if ( true ) return;
             new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
 */
-	//leaf material
-	let green = new BABYLON.StandardMaterial("green", this.getScene().getNativeScene());
-	green.diffuseColor = new BABYLON.Color3(0,1,0);
-
-	//trunk and branch material
-	let bark = new BABYLON.StandardMaterial("bark", this.getScene().getNativeScene());
-	bark.emissiveTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.getScene().getNativeScene());
-	bark.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.getScene().getNativeScene());
-    (bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0;//Repeat 5 times on the Vertical Axes
-    (bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0;//Repeat 5 times on the Horizontal Axes
-
-	//Tree parameters
-	let trunk_height = 20;
-    let trunk_taper = 0.6;
-    let trunk_slices = 5;
-    let boughs = 2; // 1 or 2
-	let forks = 4;
-	let fork_angle = Math.PI/4;
-    let fork_ratio = 2/(1+Math.sqrt(5)); //PHI the golden ratio
-	let branch_angle = Math.PI/3;
-	let bow_freq = 2;
-	let bow_height = 3.5;
-	let branches = 10;
-	let leaves_on_branch = 5;
-    let leaf_wh_ratio = 0.5;
-
-let tree :BABYLON.Mesh = ( global as any ).createTree(trunk_height, trunk_taper, trunk_slices, bark, boughs, forks, fork_angle, fork_ratio, branches, branch_angle, bow_freq, bow_height, leaves_on_branch, leaf_wh_ratio, green, this.getScene().getNativeScene());
-tree.isVisible = true;
-tree.position = new BABYLON.Vector3( 10.0, 0.0, 10.0 );
-tree.scaling = new BABYLON.Vector3( 0.5, 0.5, 0.5 );
 /*
         this.addFurniture( meshFactory );
 
