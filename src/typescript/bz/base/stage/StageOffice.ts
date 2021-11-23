@@ -147,7 +147,7 @@ if ( false ) {
         );
 }
         // trees
-        this.addTrees3D( meshFactory );
+        if ( false ) this.addTrees3D( meshFactory );
 
 
 /*
@@ -844,7 +844,7 @@ if ( true ) return;
             this,
             new bz.Model(
                 [
-                    meshFactory.createGenratedTree(
+                    meshFactory.genratedTree(
                         new BABYLON.Vector3( 20.0, 0.0, 10.0 )
                     ),
                 ]
@@ -857,7 +857,7 @@ if ( true ) return;
             this,
             new bz.Model(
                 [
-                    meshFactory.createGenratedTree(
+                    meshFactory.genratedTree(
                         new BABYLON.Vector3( 40.0, 0.0, 10.0 )
                     ),
                 ]
@@ -870,7 +870,7 @@ if ( true ) return;
             this,
             new bz.Model(
                 [
-                    meshFactory.createGenratedTree(
+                    meshFactory.genratedTree(
                         new BABYLON.Vector3( 60.0, 0.0, 10.0 )
                     ),
                 ]

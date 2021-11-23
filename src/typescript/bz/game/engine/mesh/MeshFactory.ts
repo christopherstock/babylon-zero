@@ -900,17 +900,10 @@ export class MeshFactory
     *
     *   @return An SPS generated tree model.
     *******************************************************************************************************************/
-    public createGenratedTree(
-        position :BABYLON.Vector3,
-        scaling  :BABYLON.Vector3 = new BABYLON.Vector3( 0.5, 0.5, 0.5 )
-/*
-        textureFile   :bz.TextureFile,
-        size          :BABYLON.Vector3,
-        materialAlpha :number             = 1.0,
-        anchor        :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
-        rotation      :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-        color         :BABYLON.Color3     = null
-*/
+    public genratedTree(
+        position    :BABYLON.Vector3,
+        textureBark :bz.TextureFile = bz.TextureFile.WALL_BARK,
+        scaling     :BABYLON.Vector3 = new BABYLON.Vector3( 0.5, 0.5, 0.5 )
     )
     : BABYLON.Mesh
     {
@@ -919,12 +912,24 @@ export class MeshFactory
         green.diffuseColor = new BABYLON.Color3(0,1,0);
 
         // trunk and branches
+        const bark:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
+        (
+            this.scene.getNativeScene(),
+            textureBark,
+            true,
+            2.0,
+            2.0,
+            null,
+            1.0,
+            this.emissiveColor
+        );
+/*
         let bark:BABYLON.StandardMaterial = new BABYLON.StandardMaterial('bark' + bz.MaterialSystem.createNextMaterialId(), this.scene.getNativeScene());
         bark.emissiveTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
         bark.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
         ( bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0; // repeat 5 times on vertical axes
         ( bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0; // repeat 5 times on horizontal axes
-
+*/
         // tree params
         const trunkHeight       :number = 20;
         const trunkTaper        :number = 0.6;

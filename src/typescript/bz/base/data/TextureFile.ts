@@ -15,6 +15,7 @@ export class TextureFile
     public static readonly BULLET_HOLE_WOOD             :TextureFile            = new TextureFile( 'bulletHole/wood.png',           bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
 
     public static readonly WALL_ASPHALT_CRACKED         :TextureFile            = new TextureFile( 'wall/asphaltCracked.jpg',       bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
+    public static readonly WALL_BARK                    :TextureFile            = new TextureFile( 'wall/bark.jpg',                 bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     public static readonly WALL_BRICKS_ORANGE           :TextureFile            = new TextureFile( 'wall/bricksOrange.jpg',         bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     public static readonly WALL_BRICKS_MOSSY_STONES     :TextureFile            = new TextureFile( 'wall/bricksMossyStones.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     public static readonly WALL_BRICKS_DARK_RED         :TextureFile            = new TextureFile( 'wall/bricksDarkRed.jpg',        bz.TextureHasAlpha.NO,  bz.TextureUV.Y_ONE_XZ_TILED_QUARTER, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );

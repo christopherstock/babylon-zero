@@ -39,7 +39,7 @@ export class MaterialSystem
     *   Creates a material from the given texture or color.
     *
     *   @param scene              The scene where the new material to creat.
-    *   @param textureFile            The desired texture.
+    *   @param textureFile        The desired texture.
     *   @param ommitTextureTiling Specifies if tiling for the given texture shall be omitted.
     *   @param sizeU              The texture U size for the texture.
     *   @param sizeV              The texture V size for the texture.
@@ -70,8 +70,8 @@ export class MaterialSystem
 
         if ( textureFile !== null )
         {
-            let textureU:number = -1;
-            let textureV:number = -1;
+            let textureRepeatU:number = -1;
+            let textureRepeatV:number = -1;
 
             if ( !ommitTextureTiling )
             {
@@ -79,22 +79,22 @@ export class MaterialSystem
                 {
                     case bz.TextureUV.TILED:
                     {
-                        textureU = ( sizeU * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
-                        textureV = ( sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureRepeatU = ( sizeU * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureRepeatV = ( sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         break;
                     }
 
                     case bz.TextureUV.TILED_HALF:
                     {
-                        textureU = ( sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
-                        textureV = ( sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureRepeatU = ( sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureRepeatV = ( sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
                         break;
                     }
 
                     case bz.TextureUV.ALL_ONE:
                     {
-                        textureU = 1.0;
-                        textureV = 1.0;
+                        textureRepeatU = 1.0;
+                        textureRepeatV = 1.0;
                         break;
                     }
                 }
@@ -103,11 +103,10 @@ export class MaterialSystem
             // TODO try adding texture to emissiveTexture field too?
             // TODO try more lighting helper map textures etc?
 
-            material.diffuseTexture = textureFile.createNewTextureInstance
-            (
-                textureU,
-                textureV
-            );
+            material.diffuseTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+
+            // this will light the texture
+            // material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
             material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );
         }
