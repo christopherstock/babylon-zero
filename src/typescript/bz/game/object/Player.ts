@@ -153,12 +153,14 @@ if ( true )
                 new bz.MeshFactory( scene, emissiveColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( -0.65, 1.85, 1.0 ),
+                    new BABYLON.Vector3( 0.2, /* -0.65, */ 1.85, 2.5 ),
                     bz.PhysicSet.NONE,
                     null
                 )
             )
         );
+
+shotgun.getModel().rotateAroundAxisY( 0.0, 0.0, -40.0 );
 
         for ( let i:number = 0; i < shotgun.getModel().getMeshCount(); ++i )
         {

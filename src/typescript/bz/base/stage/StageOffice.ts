@@ -163,7 +163,7 @@ export class StageOffice extends bz.Stage
         );
 
         // trees
-        this.addTrees3D( meshFactory );
+        if ( false ) this.addTrees3D( meshFactory );
 
         // parking space
         bz.StageFactory.addRoomWalls(
