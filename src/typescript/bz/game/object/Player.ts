@@ -153,13 +153,13 @@ export class Player extends bz.GameObject
                 new bz.MeshFactory( scene, emissiveColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 1.85, -0.80, 2.25 ),
+                    new BABYLON.Vector3( 1.15, -0.60, 2.25 ),
                     bz.PhysicSet.NONE,
                     null
                 )
             )
         );
-        this.shotgun.getModel().rotateAroundAxisY( 0.0, 0.0, -15.0 );
+        this.shotgun.getModel().rotateAroundAxisY( 0.0, 0.0, 0.0 );
         for ( let i:number = 0; i < this.shotgun.getModel().getMeshCount(); ++i )
         {
             this.shotgun.getModel().getMesh(i).parent = this.playerPhysics.head;
