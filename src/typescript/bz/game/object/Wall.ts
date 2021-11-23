@@ -43,6 +43,11 @@ export class Wall extends bz.GameObject
         this.getModel().mitigateSphereVelocities();
     }
 
+    /** ****************************************************************************************************************
+    *   Performs an player interaction request with this game object.
+    *
+    *   @param stage The stage where the interaction takes place.
+    *******************************************************************************************************************/
     public performInteraction( stage:bz.Stage ) : void
     {
         if (
@@ -59,6 +64,11 @@ export class Wall extends bz.GameObject
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Checks if this Wall has specified interaction events.
+    *
+    *   @return <code>true</code> if this wall has interaction events specified. Otherwise <code>false</code>.
+    *******************************************************************************************************************/
     public hasInteractionEvents() : boolean
     {
         return ( this.interactionEvents !== null );

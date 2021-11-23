@@ -54,9 +54,9 @@ export class TextureFile
     public static readonly WALL_STONES_YELLOW_TILES     :TextureFile            = new TextureFile( 'wall/stonesYellowTiles.jpg',    bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_TEST                    :TextureFile            = new TextureFile( 'wall/test.jpg',                 bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
     public static readonly WALL_TILES_PAINTED_ORNAMENTS :TextureFile            = new TextureFile( 'wall/tilesPaintedOrnament.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL );
+    public static readonly WALL_WOOD_GRAIN              :TextureFile            = new TextureFile( 'wall/woodGrain.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_WOOD_OLIVE              :TextureFile            = new TextureFile( 'wall/woodOlive.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_WOOD_PLANKS             :TextureFile            = new TextureFile( 'wall/woodPlanks.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
-    public static readonly WALL_WOOD_GRAIN              :TextureFile            = new TextureFile( 'wall/woodGrain.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_WOOD_VERT_1             :TextureFile            = new TextureFile( 'wall/woodVert1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_WOOD_VERT_2             :TextureFile            = new TextureFile( 'wall/woodVert2.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
 

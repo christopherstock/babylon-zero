@@ -167,6 +167,12 @@ export class HitPoint
         return this.normal;
     }
 
+    /** ****************************************************************************************************************
+    *   Applies an impulse to the specified meshes and clears the assigned mesh afterwards.
+    *
+    *   @param slicedMeshes The two meshes to apply an impulse.
+    *   @param damage       The damage of the original shot to apply.
+    *******************************************************************************************************************/
     public applyImpulseToSplitSubmeshes( slicedMeshes:BABYLON.Mesh[], damage:number ) : void
     {
         this.mesh = slicedMeshes[ 0 ];

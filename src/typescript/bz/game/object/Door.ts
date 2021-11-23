@@ -91,11 +91,17 @@ export class Door extends bz.Wall
         this.addDebugDoorTurnPoint();
     }
 
+    /** ****************************************************************************************************************
+    *   Performs an player interaction request with this game object.
+    *
+    *   @param stage The stage where the interaction takes place.
+    *******************************************************************************************************************/
     public performInteraction( stage:bz.Stage ) : void
     {
         // launch all events if any
         super.performInteraction( stage );
 
+        // break if this door is not animated
         if ( this.animation === bz.DoorAnimation.NONE )
         {
             return;
@@ -138,11 +144,13 @@ export class Door extends bz.Wall
         {
             case DoorState.OPENING:
             {
+                const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+                const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+
                 switch ( this.animation )
                 {
                     case bz.DoorAnimation.SLIDE_DEFAULT:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = tickDelta * bz.MathUtil.cosDegrees( this.doorRotY );
                         const deltaZ :number = ( -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY ) );
 
@@ -153,7 +161,6 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SLIDE_REVERSED:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = ( -1.0 * tickDelta * bz.MathUtil.cosDegrees( this.doorRotY ) );
                         const deltaZ :number = tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
@@ -167,7 +174,6 @@ export class Door extends bz.Wall
                     case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
                     case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
                     {
-                        const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
 
                         break;
@@ -178,8 +184,7 @@ export class Door extends bz.Wall
                     case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
                     case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
                     {
-                        const rotDelta :number = -( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
-                        this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
+                        this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, -rotDelta );
 
                         break;
                     }
@@ -191,13 +196,16 @@ export class Door extends bz.Wall
                 }
                 break;
             }
+
             case DoorState.CLOSING:
             {
+                const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+                const rotDelta  :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+
                 switch ( this.animation )
                 {
                     case bz.DoorAnimation.SLIDE_DEFAULT:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = ( -1.0 * tickDelta * bz.MathUtil.cosDegrees( this.doorRotY ) );
                         const deltaZ :number = tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
@@ -208,7 +216,6 @@ export class Door extends bz.Wall
 
                     case bz.DoorAnimation.SLIDE_REVERSED:
                     {
-                        const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         const deltaX :number = tickDelta * bz.MathUtil.cosDegrees( this.doorRotY );
                         const deltaZ :number = -1.0 * tickDelta * bz.MathUtil.sinDegrees( this.doorRotY );
 
@@ -222,8 +229,7 @@ export class Door extends bz.Wall
                     case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
                     case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
                     {
-                        const rotDelta :number = ( -90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
-                        this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
+                        this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, -rotDelta );
 
                         break;
                     }
@@ -233,7 +239,6 @@ export class Door extends bz.Wall
                     case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
                     case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
                     {
-                        const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                         this.model.rotateAroundAxisY( this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta );
 
                         break;
@@ -268,6 +273,13 @@ export class Door extends bz.Wall
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Rotates the door's turn point on the Y axis around the specified XZ point.
+    *
+    *   @param x    Rotation pivot X.
+    *   @param z    Rotation pivot Z.
+    *   @param rotY Rotation to perform, in degrees.
+    *******************************************************************************************************************/
     public rotateDoorTurnPointAroundAxisY( x:number, z:number, rotY:number ) : void
     {
         const rotationPivot   :BABYLON.Vector2 = new BABYLON.Vector2( x, z );
@@ -298,6 +310,9 @@ export class Door extends bz.Wall
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Translates the door's turn point according to the specified door animation behaviour.
+    *******************************************************************************************************************/
     private manipulateTurnPointForSwingAnimations() : void
     {
         switch ( this.animation )
@@ -338,13 +353,17 @@ export class Door extends bz.Wall
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a debug sphere mesh to the scene that illustrates the door's turn point.
+    *******************************************************************************************************************/
     private addDebugDoorTurnPoint() : void
     {
         if ( bz.SettingDebug.SHOW_DOOR_TURN_POINTS )
         {
-            const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.stage.getScene(), bz.SettingColor.COLOR_RGB_YELLOW );
-            this.debugSphereMesh = meshFactory.createSphere
-            (
+            this.debugSphereMesh = new bz.MeshFactory(
+                this.stage.getScene(),
+                bz.SettingColor.COLOR_RGB_YELLOW
+            ).createSphere(
                 this.doorTurnPoint,
                 bz.MeshAnchor.CENTER_XYZ,
                 0.50,

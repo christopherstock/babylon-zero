@@ -294,12 +294,16 @@ export abstract class Stage
         const impactHitPoints:bz.HitPoint[] = Stage.determineImpactHitPoints( hitPoints, interaction );
         bz.Debug.player.log( ' Gathered [' + String( impactHitPoints.length ) + '] nearest hitpoint' );
 
-        // impact all hit points
+        // browse all hit points
         for ( const impactHitPoint of impactHitPoints )
         {
+            // get the hit game object
             const hitGameObject :bz.GameObject = impactHitPoint.getGameObject();
 
-            hitGameObject.performInteraction( this );
+            if ( hitGameObject instanceof bz.Wall )
+            {
+                hitGameObject.performInteraction( this );
+            }
         }
     }
 

@@ -58,10 +58,6 @@ export abstract class GameObject
         return this.nextBulletHoleZIndex++;
     }
 
-    public performInteraction( stage:bz.Stage ) : void
-    {
-    }
-
     /** ****************************************************************************************************************
     *   Returns the model of this game object.
     *

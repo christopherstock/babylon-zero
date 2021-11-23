@@ -121,18 +121,27 @@ export abstract class MathUtil
         return source.add( rotatedDistantVector );
     }
 
-    public static rotateVector2( pivot:BABYLON.Vector2, angleDegree:number, p:BABYLON.Vector2 ) : BABYLON.Vector2
+    /** ****************************************************************************************************************
+    *   Rotates a 2D point around a different 2D point by the specified angle.
+    *
+    *   @param pivot       The pivot of the rotation
+    *   @param angleDegree Angle to rotate by, in degrees.
+    *   @param point       The point to rotate.
+    *
+    *   @return The rotated 2D point.
+    *******************************************************************************************************************/
+    public static rotateVector2( pivot:BABYLON.Vector2, angleDegree:number, point:BABYLON.Vector2 ) : BABYLON.Vector2
     {
         const sin:number = MathUtil.sinDegrees( angleDegree );
         const cos:number = MathUtil.cosDegrees( angleDegree );
 
         // translate point back to origin:
-        p.x -= pivot.x;
-        p.y -= pivot.y;
+        point.x -= pivot.x;
+        point.y -= pivot.y;
 
         // rotate point
-        const xnew:number = p.x * cos - p.y * sin;
-        const ynew:number = p.x * sin + p.y * cos;
+        const xnew:number = point.x * cos - point.y * sin;
+        const ynew:number = point.x * sin + point.y * cos;
 
         // translate point back
         return new BABYLON.Vector2(

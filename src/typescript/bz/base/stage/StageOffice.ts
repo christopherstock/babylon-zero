@@ -73,20 +73,19 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
-
-        if ( false ) {
-            // hemispheric light
-            const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
-            (
-                this.getScene().getNativeScene(),
-                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-                0.5
-            );
-            this.addLight( hemisphericLight );
-        }
+/*
+        // hemispheric light
+        const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
+        (
+            this.getScene().getNativeScene(),
+            new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+            0.5
+        );
+        this.addLight( hemisphericLight );
+*/
 
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
@@ -147,7 +146,7 @@ export class StageOffice extends bz.Stage
         );
 
         // trees
-        if ( false ) this.addTrees3D( meshFactory );
+        this.addTrees3D( meshFactory );
 
         // parking space
         bz.StageFactory.addRoomWalls(
@@ -271,7 +270,6 @@ if ( true ) return;
             meshFactory,
             new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
-
 
         this.addFurniture( meshFactory );
 
@@ -687,6 +685,7 @@ if ( true ) return;
     *   Adds all stuff walls to this stage.
     *
     *   @param meshFactory The MeshFactory instance.
+    *   @param pointLight  One point light from this stage. Will be toggled inside a wall (tv) interaction event.
     *******************************************************************************************************************/
     private addStuffWalls( meshFactory:bz.MeshFactory, pointLight:BABYLON.Light ) : void
     {
@@ -833,6 +832,11 @@ if ( true ) return;
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Creates one 3D tree meshes using the SPS Generated tree helper.
+    *
+    *   @param meshFactory The MeshFactory instance.
+    *******************************************************************************************************************/
     private addTrees3D( meshFactory :bz.MeshFactory ) :void
     {
         const tree1:bz.Wall = new bz.Wall
