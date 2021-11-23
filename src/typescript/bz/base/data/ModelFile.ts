@@ -15,6 +15,7 @@ export abstract class ModelFile
     public static readonly SODA_MACHINE_2               :string             = 'furniture/sodaMachine2.babylon';
     public static readonly SCREEN_1                     :string             = 'furniture/screen1.babylon';
     public static readonly SHELVES_1                    :string             = 'furniture/shelves1.babylon';
+    public static readonly SHOTGUN_M1014                :string             = 'wearpon/shotgunM1014.babylon';
     public static readonly SOFA_1                       :string             = 'furniture/sofa1.babylon';
     public static readonly SPHERE_1                     :string             = 'furniture/sphere1.babylon';
 
@@ -33,6 +34,7 @@ export abstract class ModelFile
         ModelFile.SODA_MACHINE_2,
         ModelFile.SCREEN_1,
         ModelFile.SHELVES_1,
+        ModelFile.SHOTGUN_M1014,
         ModelFile.SOFA_1,
         ModelFile.SPHERE_1,
     ];

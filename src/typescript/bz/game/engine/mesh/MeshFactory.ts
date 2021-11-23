@@ -819,6 +819,11 @@ export class MeshFactory
         if ( physic === null )
         {
             impostors = originalModel.getImpostors()
+            clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
+        }
+        else if ( physic === bz.PhysicSet.NONE )
+        {
+            // no impostor setup!
         }
         else
         {
@@ -828,8 +833,8 @@ export class MeshFactory
             {
                 impostors.push( physicBody.createPhysicImpostorBoxParams() );
             }
+            clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
         }
-        clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
 
         // create compound parent if requested
         switch ( compoundType )
@@ -862,7 +867,7 @@ export class MeshFactory
         {
             case bz.ModelCompoundType.NONE:
             {
-                // initially rotate around axis Y
+                // initially rotate position around axis Y
                 clonedModel.rotateAroundAxisY( position.x, position.z, rotY )
                 break;
             }
@@ -870,7 +875,7 @@ export class MeshFactory
             case bz.ModelCompoundType.COMPOUND:
             case bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED:
             {
-                // initially rotate around axis Y
+                // initially rotate around by centerpoint
                 clonedModel.rotateAroundAxisY( 0, 0, rotY )
                 break;
             }

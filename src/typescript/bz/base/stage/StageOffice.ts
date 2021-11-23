@@ -26,11 +26,11 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                90.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                90.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
-            new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
+            new BABYLON.Vector3( 0.0, 180.0 + 45.0, 0.0 ),
             new bz.Inventory( 0 )
         );
     }
@@ -73,6 +73,21 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
+
+        // shotgun
+        new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.SHOTGUN_M1014,
+                new BABYLON.Vector3( 90.0, 2.1, 10.0 ),
+                bz.PhysicSet.NONE,
+                null
+            ),
+            5.0
+        );
+
 /*
         // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
