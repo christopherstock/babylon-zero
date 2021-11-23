@@ -12,6 +12,7 @@ TODO Reset Git Repository?
 3dsmax
 ======
 TODO Try ingame 3D wearpon model
+TODO center 3D gun on handbar.
 TODO Add gothic church and outside parking space / scene?
 TODO Clean up StageOffice contents
 TODO Performance: Try hi-res textures?
