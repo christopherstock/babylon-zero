@@ -5,6 +5,10 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
+    private static readonly MAX_SHOTGUN_ROT_X = 12.5;
+    private static readonly MAX_SHOTGUN_ROT_Y = 12.5;
+    private static readonly SHOTGUN_ROT_SPEED = 0.40;
+
     /** The current height of the player. Changes on ducking. */
     private          heightY            :number             = 0.0;
     /** Flags if rotZ view centering should occur this tick. */
@@ -35,10 +39,17 @@ export class Player extends bz.GameObject
 
     /** All player physic settings. */
     private readonly playerPhysics      :bz.PlayerPhysic    = null;
-    private readonly shotgun            :bz.Wall            = null;
 
     /** The inventory this player is carrying. */
     private readonly inventory          :bz.Inventory       = null;
+
+    // TODO handling to separate class!
+
+    private readonly shotgun            :bz.Wall            = null;
+    private          shotgunRotX        :number             = 0;
+    private          shotgunRotY        :number             = 0;
+    private          targetShotgunRotX  :number             = 0;
+    private          targetShotgunRotY  :number             = 0;
 
     /** ****************************************************************************************************************
     *   Creates a new player instance.
@@ -159,7 +170,6 @@ export class Player extends bz.GameObject
                 )
             )
         );
-        this.shotgun.getModel().rotateAroundAxisY( 0.0, 0.0, 0.0 );
         for ( let i:number = 0; i < this.shotgun.getModel().getMeshCount(); ++i )
         {
             this.shotgun.getModel().getMesh(i).parent = this.playerPhysics.head;
@@ -205,6 +215,9 @@ export class Player extends bz.GameObject
 
         // check stage interaction
         this.checkInteraction();
+
+        // set shotgun rotation
+        this.updateShotgunRotation();
     }
 
     /** ****************************************************************************************************************
@@ -527,24 +540,57 @@ export class Player extends bz.GameObject
     {
         if ( this.rotationDelta.y !== 0.0 )
         {
+            if ( this.rotationDelta.y < 0.0 ) {
+                this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
+            } else {
+                this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
+            }
+
             this.rotation.y = bz.MathUtil.normalizeAngleDegrees( this.rotation.y + this.rotationDelta.y );
             this.rotationDelta.y = 0.0;
+        } else {
+            this.targetShotgunRotY = 0.0;
         }
 
         if ( this.rotationDelta.z !== 0.0 )
         {
-            this.rotation.z += this.rotationDelta.z;
+            if ( this.rotationDelta.z < 0.0 ) {
+                if ( this.rotation.z === -bz.SettingPlayer.MAX_ROT_Z )
+                {
+                    this.targetShotgunRotX = 0;
+                }
+                else
+                {
+                    this.rotation.z += this.rotationDelta.z;
+                    this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
 
-            if ( this.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
-            {
-                this.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
-            }
-            else if ( this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
-            {
-                this.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
+                    if ( this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
+                    {
+                        this.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
+                    }
+                }
+            } else if ( this.rotationDelta.z > 0.0 ) {
+                if ( this.rotation.z === bz.SettingPlayer.MAX_ROT_Z )
+                {
+                    this.targetShotgunRotX = 0;
+                }
+                else
+                {
+                    this.rotation.z += this.rotationDelta.z;
+                    this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
+
+                    if ( this.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
+                    {
+                        this.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
+                    }
+                }
             }
 
             this.rotationDelta.z = 0.0;
+        }
+        else
+        {
+            this.targetShotgunRotX = 0.0;
         }
 
         // rotate body
@@ -926,5 +972,25 @@ export class Player extends bz.GameObject
                 ),
             ]
         );
+    }
+
+    private updateShotgunRotation() : void
+    {
+        if ( this.targetShotgunRotX > this.shotgunRotX ) {
+            this.shotgunRotX += Player.SHOTGUN_ROT_SPEED;
+            if ( this.shotgunRotX > this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
+        } else if ( this.targetShotgunRotX < this.shotgunRotX ) {
+            this.shotgunRotX -= Player.SHOTGUN_ROT_SPEED;
+            if ( this.shotgunRotX < this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
+        }
+        if ( this.targetShotgunRotY > this.shotgunRotY ) {
+            this.shotgunRotY += Player.SHOTGUN_ROT_SPEED;
+            if ( this.shotgunRotY > this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
+        } else if ( this.targetShotgunRotY < this.shotgunRotY ) {
+            this.shotgunRotY -= Player.SHOTGUN_ROT_SPEED;
+            if ( this.shotgunRotY < this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
+        }
+
+        this.shotgun.getModel().setAbsoluteRotationXYZ( Math.fround( this.shotgunRotX ), Math.fround( this.shotgunRotY ), 0.0 );
     }
 }
