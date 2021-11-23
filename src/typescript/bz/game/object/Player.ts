@@ -35,6 +35,7 @@ export class Player extends bz.GameObject
 
     /** All player physic settings. */
     private readonly playerPhysics      :bz.PlayerPhysic    = null;
+    private readonly shotgun            :bz.Wall            = null;
 
     /** The inventory this player is carrying. */
     private readonly inventory          :bz.Inventory       = null;
@@ -143,30 +144,39 @@ export class Player extends bz.GameObject
 
         // apply positions for all limbs
         this.positionPlayerLimbs();
-if ( true )
-{
+
         // add a shotgun to the right player hand
-        const shotgun :bz.Wall = (
+        this.shotgun = (
             new bz.Wall
             (
                 stage,
                 new bz.MeshFactory( scene, emissiveColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 0.2, /* -0.65, */ 1.85, 2.5 ),
+                    new BABYLON.Vector3( 1.25, -0.75, 2.25 ),
                     bz.PhysicSet.NONE,
                     null
                 )
             )
         );
-
-shotgun.getModel().rotateAroundAxisY( 0.0, 0.0, -40.0 );
-
-        for ( let i:number = 0; i < shotgun.getModel().getMeshCount(); ++i )
+        this.shotgun.getModel().rotateAroundAxisY( 0.0, 0.0, -15.0 );
+        for ( let i:number = 0; i < this.shotgun.getModel().getMeshCount(); ++i )
         {
-            shotgun.getModel().getMesh(i).parent = this.playerPhysics.rightHand;
+            this.shotgun.getModel().getMesh(i).parent = this.playerPhysics.head;
         }
-}
+    }
+
+    /** ****************************************************************************************************************
+    *   Disposes all meshes of this bullet hole.
+    *******************************************************************************************************************/
+    public dispose() : void
+    {
+        super.dispose();
+
+        if ( this.shotgun !== null )
+        {
+            this.shotgun.dispose();
+        }
     }
 
     /** ****************************************************************************************************************

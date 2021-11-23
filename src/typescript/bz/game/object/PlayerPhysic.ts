@@ -22,6 +22,7 @@ export class PlayerPhysic
     public        readonly leftHand                     :BABYLON.AbstractMesh               = null;
     /** The referenced right hand mesh. */
     public        readonly rightHand                    :BABYLON.AbstractMesh               = null;
+    public        readonly shotgun                      :BABYLON.AbstractMesh               = null;
 
     /** ****************************************************************************************************************
     *   Create a new physical body handling for the player.
