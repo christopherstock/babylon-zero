@@ -153,7 +153,7 @@ export class Player extends bz.GameObject
                 new bz.MeshFactory( scene, emissiveColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 1.25, -0.75, 2.25 ),
+                    new BABYLON.Vector3( 1.85, -0.80, 2.25 ),
                     bz.PhysicSet.NONE,
                     null
                 )
