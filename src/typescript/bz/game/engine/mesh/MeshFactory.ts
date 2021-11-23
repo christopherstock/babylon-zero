@@ -892,12 +892,20 @@ export class MeshFactory
         return clonedModel;
     }
 
-    public createTree(
-        position :BABYLON.Vector3
+    /** ****************************************************************************************************************
+    *   Trees can not be shot nor have a physical behaviour. :(
+    *
+    *   @param position The position for this tree to show up.
+    *   @param scaling  The scaling for this tree.
+    *
+    *   @return An SPS generated tree model.
+    *******************************************************************************************************************/
+    public createGenratedTree(
+        position :BABYLON.Vector3,
+        scaling  :BABYLON.Vector3 = new BABYLON.Vector3( 0.5, 0.5, 0.5 )
 /*
         textureFile   :bz.TextureFile,
         size          :BABYLON.Vector3,
-        physic        :bz.PhysicSet       = bz.PhysicSet.NONE,
         materialAlpha :number             = 1.0,
         anchor        :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
         rotation      :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -906,62 +914,40 @@ export class MeshFactory
     )
     : BABYLON.Mesh
     {
-/*
         // leafs
-        let green = new BABYLON.StandardMaterial("green", this.scene.getNativeScene());
+        let green:BABYLON.StandardMaterial = new BABYLON.StandardMaterial('leafs' + bz.MaterialSystem.createNextMaterialId(), this.scene.getNativeScene());
         green.diffuseColor = new BABYLON.Color3(0,1,0);
 
-        //trunk and branches
-        let bark = new BABYLON.StandardMaterial("bark", this.scene.getNativeScene());
+        // trunk and branches
+        let bark:BABYLON.StandardMaterial = new BABYLON.StandardMaterial('bark' + bz.MaterialSystem.createNextMaterialId(), this.scene.getNativeScene());
         bark.emissiveTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
         bark.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bark_texture_wood.jpg/800px-Bark_texture_wood.jpg", this.scene.getNativeScene());
-        (bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0;//Repeat 5 times on the Vertical Axes
-        (bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0;//Repeat 5 times on the Horizontal Axes
-*/
-        const green = null;
-        const bark  = null;
+        ( bark.diffuseTexture as BABYLON.Texture ).uScale = 2.0; // repeat 5 times on vertical axes
+        ( bark.diffuseTexture as BABYLON.Texture ).vScale = 2.0; // repeat 5 times on horizontal axes
 
         // tree params
-        let trunk_height = 20;
-        let trunk_taper = 0.6;
-        let trunk_slices = 5;
-        let boughs = 2; // 1 or 2
-        let forks = 4;
-        let fork_angle = Math.PI/4;
-        let fork_ratio = 2/(1+Math.sqrt(5)); //PHI the golden ratio
-        let branch_angle = Math.PI/3;
-        let bow_freq = 2;
-        let bow_height = 3.5;
-        let branches = 10;
-        let leaves_on_branch = 5;
-        let leaf_wh_ratio = 0.5;
+        const trunkHeight       :number = 20;
+        const trunkTaper        :number = 0.6;
+        const trunkSlices       :number = 5;
+        const boughs            :number = 2; // 1 or 2
+        const forks             :number = 4;
+        const forkAngle         :number = Math.PI / 4;
+        const forkRatio         :number = 2 / ( 1 + Math.sqrt( 5 ) ); // PHI the golden ratio
+        const branchAngle       :number = Math.PI / 3;
+        const bowFreq           :number = 2;
+        const bowHeight         :number = 3.5;
+        const branches          :number = 10;
+        const leavesOnBranch    :number = 5;
+        const leafWhRatio       :number = 0.5;
 
         // create mesh
-        let tree :BABYLON.Mesh = ( global as any ).createTree(
-            trunk_height, trunk_taper, trunk_slices, bark, boughs, forks, fork_angle, fork_ratio, branches,
-            branch_angle, bow_freq, bow_height, leaves_on_branch, leaf_wh_ratio, green, this.scene.getNativeScene()
+        const tree :BABYLON.Mesh = ( global as any ).createTree(
+            trunkHeight, trunkTaper, trunkSlices, bark, boughs, forks, forkAngle, forkRatio,
+            branches, branchAngle, bowFreq, bowHeight, leavesOnBranch, leafWhRatio, green,
+            this.scene.getNativeScene()
         );
         tree.position = position;
-
-        // tree.scaling = new BABYLON.Vector3( 0.5, 0.5, 0.5 );
-
-console.log( 'TREE CREATED!' );
-console.log( 'tree: ' + tree );
-
-/*
-const box = BABYLON.MeshBuilder.CreateBox
-(
-    MeshFactory.createNextMeshId(),
-    {
-        width:  1,
-        height: 1,
-        depth:  1,
-    },
-    this.scene.getNativeScene()
-);
-box.position = position;
-return box;
-*/
+        tree.scaling  = scaling;
 
         return tree;
     }

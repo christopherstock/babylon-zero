@@ -100,6 +100,9 @@ export class MaterialSystem
                 }
             }
 
+            // TODO try adding texture to emissiveTexture field too?
+            // TODO try more lighting helper map textures etc?
+
             material.diffuseTexture = textureFile.createNewTextureInstance
             (
                 textureU,

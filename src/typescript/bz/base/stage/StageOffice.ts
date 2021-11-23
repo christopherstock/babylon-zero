@@ -63,7 +63,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.MODEL_CONCRETE,
             null
         );
-if ( false ) {
+
         // point light in small office
         const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
         (
@@ -73,6 +73,8 @@ if ( false ) {
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
+
+if ( false ) {
 
         // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
@@ -842,7 +844,7 @@ if ( true ) return;
             this,
             new bz.Model(
                 [
-                    meshFactory.createTree(
+                    meshFactory.createGenratedTree(
                         new BABYLON.Vector3( 20.0, 0.0, 10.0 )
                     ),
                 ]
@@ -855,7 +857,7 @@ if ( true ) return;
             this,
             new bz.Model(
                 [
-                    meshFactory.createTree(
+                    meshFactory.createGenratedTree(
                         new BABYLON.Vector3( 40.0, 0.0, 10.0 )
                     ),
                 ]
@@ -868,7 +870,7 @@ if ( true ) return;
             this,
             new bz.Model(
                 [
-                    meshFactory.createTree(
+                    meshFactory.createGenratedTree(
                         new BABYLON.Vector3( 60.0, 0.0, 10.0 )
                     ),
                 ]
