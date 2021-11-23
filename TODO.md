@@ -5,9 +5,6 @@
 ===
 MVP
 ===
-TODO Try Babylon.js tree generation helper
-TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
-TODO try gold metal effect etc for IntroVideo logo
 TODO smaller Doors
 TODO Reset Git Repository?
 TODO try again: light weight for player - so he can't push heavy objects so easily?
@@ -15,8 +12,8 @@ TODO try again: light weight for player - so he can't push heavy objects so easi
 ======
 3dsmax
 ======
-TODO Add gothic church and outside parking space / scene?
 TODO Try ingame 3D wearpon model
+TODO Add gothic church and outside parking space / scene?
 TODO Performance: Try hi-res textures?
 TODO Create realistic models and lights.
 TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
@@ -26,6 +23,8 @@ TODO Create Locations: Park, parking site / house, garage, backyard, waste groun
 Fx
 ==
 TODO Add linked doors (wing doors)
+TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
+TODO try gold metal effect etc for IntroVideo logo
 TODO keep pointer lock between stage switches? (gets lost atm)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
