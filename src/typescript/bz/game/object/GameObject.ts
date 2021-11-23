@@ -27,14 +27,16 @@ export abstract class GameObject
     /** ****************************************************************************************************************
     *   Creates a new game object.
     *
-    *   @param stage  The stage this game object belongs to.
-    *   @param model  The model for this game object.
-    *   @param energy The initial energy of this game object.
+    *   @param stage                    The stage this game object belongs to.
+    *   @param model                    The model for this game object.
+    *   @param energy                   The initial energy of this game object.
+    *   @param darkenMeshesOnEnergyLoss If mesh darking shall be applied when this game object loses energy.
+    *   @param splitHitMeshOnEnergyLoss If the hit mesh shall be split into two meshes when energy drops to 0.
     *******************************************************************************************************************/
     protected constructor(
-        stage:bz.Stage,
-        model:bz.Model,
-        energy:number = GameObject.UNBREAKABLE,
+        stage                    :bz.Stage,
+        model                    :bz.Model,
+        energy                   :number  = GameObject.UNBREAKABLE,
         darkenMeshesOnEnergyLoss :boolean = true,
         splitHitMeshOnEnergyLoss :boolean = false
     )
@@ -136,9 +138,10 @@ export abstract class GameObject
     /** ****************************************************************************************************************
     *   Being invoked when this game object is hurt by a shot or any other impact source.
     *
-    *   @param damage The damage to apply onto this game object.
-    *   @param mesh   The mesh that received the damage.
-    *                 May be <code>null</code> if the game object received global damage.
+    *   @param damage   The damage to apply onto this game object.
+    *   @param mesh     The mesh that received the damage.
+    *                   May be <code>null</code> if the game object received global damage.
+    *   @param hitPoint The hit point that causes this hurt.
     *******************************************************************************************************************/
     public hurt( damage:number, mesh:BABYLON.AbstractMesh, hitPoint:bz.HitPoint ) : void
     {

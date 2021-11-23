@@ -13,11 +13,13 @@ export class Wall extends bz.GameObject
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
     *
-    *   @param stage             The stage this wall belongs to.
-    *   @param model             The model that represents this wall.
-    *   @param energy            The initial energy of this wall.
-    *   @param interactionEvents Possible interactions with this wall.
-    *   @param interactionType   Type of wall interaction.
+    *   @param stage                    The stage this wall belongs to.
+    *   @param model                    The model that represents this wall.
+    *   @param energy                   The initial energy of this wall.
+    *   @param darkenMeshesOnEnergyLoss If mesh darking shall be applied when this game object loses energy.
+    *   @param splitHitMeshOnEnergyLoss If the hit mesh shall be split into two meshes when energy drops to 0.
+    *   @param interactionEvents        Possible interactions with this wall.
+    *   @param interactionType          Type of wall interaction.
     *******************************************************************************************************************/
     public constructor(
         stage                    :bz.Stage,
