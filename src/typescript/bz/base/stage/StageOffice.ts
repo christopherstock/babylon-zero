@@ -74,20 +74,20 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
-// if ( false ) {
-/*
-        // hemispheric light
-        const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
-        (
-            this.getScene().getNativeScene(),
-            new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            0.5
-        );
-        this.addLight( hemisphericLight );
-*/
+        if ( false ) {
+            // hemispheric light
+            const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
+            (
+                this.getScene().getNativeScene(),
+                new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
+                new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+                new BABYLON.Color3( 0.1, 0.1, 0.1 ),
+                new BABYLON.Color3( 0.0, 0.0, 0.0 ),
+                0.5
+            );
+            this.addLight( hemisphericLight );
+        }
+
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
             new bz.Event(

@@ -13,6 +13,7 @@ TODO Reset Git Repository?
 ======
 TODO Try ingame 3D wearpon model
 TODO Add gothic church and outside parking space / scene?
+TODO Clean up StageOffice contents
 TODO Performance: Try hi-res textures?
 TODO Create realistic models and lights.
 TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
