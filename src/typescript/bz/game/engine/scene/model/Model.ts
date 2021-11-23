@@ -318,7 +318,7 @@ export class Model
         for ( const mesh of this.meshes )
         {
             // only consider STATIC meshes
-            if ( mesh.physicsImpostor.mass === 0 )
+            if ( mesh.physicsImpostor !== undefined && mesh.physicsImpostor !== null && mesh.physicsImpostor.mass === 0 )
             {
                 // determine and set original physical mass
                 let newMass :number = 0;
