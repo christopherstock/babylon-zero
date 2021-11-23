@@ -74,8 +74,8 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
-if ( false ) {
-
+// if ( false ) {
+/*
         // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
         (
@@ -87,7 +87,7 @@ if ( false ) {
             0.5
         );
         this.addLight( hemisphericLight );
-
+*/
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
             new bz.Event(
@@ -145,12 +145,10 @@ if ( false ) {
             meshFactory,
             new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 15.0 )
         );
-}
+
         // trees
         if ( false ) this.addTrees3D( meshFactory );
 
-
-/*
         // parking space
         bz.StageFactory.addRoomWalls(
             this,
@@ -162,7 +160,7 @@ if ( false ) {
             null, [], [], 0,
             null, [], [], 0,
             null, [], [], 0,
-            bz.TextureFile.WALL_STONES_4,
+            bz.TextureFile.WALL_STONES_DARK_GRANITE,
             bz.TextureFile.WALL_CEILING_1
         );
 
@@ -177,7 +175,7 @@ if ( false ) {
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( -30, 0, 10.0 ),
-                            bz.TextureFile.WALL_CONCRETE_3,
+                            bz.TextureFile.WALL_CONCRETE_NEW,
                             new BABYLON.Vector3(
                                 bz.SettingGame.PILLAR_WIDTH,
                                 bz.SettingGame.WALL_HEIGHT,
@@ -191,7 +189,6 @@ if ( false ) {
                 )
             )
         );
-*/
 /*
         // add rain effect
         if ( false ) this.setRainEffect(
@@ -260,7 +257,7 @@ if ( true ) return;
             bz.TextureFile.WALL_CARPET_2,
             bz.TextureFile.WALL_CEILING_1
         );
-
+*/
         // boxes pile in light yard
         bz.StageFactory.addCratesPile(
             this,
@@ -274,13 +271,13 @@ if ( true ) return;
             meshFactory,
             new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
         );
-*/
-/*
+
+
         this.addFurniture( meshFactory );
 
         this.addStuffWalls(  meshFactory, pointLight );
 
-        this.addTrees(  meshFactory );
+        this.addTreeSprites(  meshFactory );
 
         // add 5 items
         this.addCollectable(
@@ -409,7 +406,6 @@ if ( true ) return;
         );
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         this.addLight( pointLight2 );
-*/
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam

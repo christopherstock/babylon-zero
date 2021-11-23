@@ -4,14 +4,16 @@
 export abstract class SettingPlayer
 {
     /** The player's weight in kg. */
-    public static readonly PLAYER_MASS                              :number             = 1414.0;
+    public static readonly PLAYER_MASS                              :number             = 1414;
 
     /** The player's physical force horizontal impulse for moving. */
-    public static readonly IMPULSE_MOVE                             :number             = 25000.0;
+    public static readonly IMPULSE_MOVE                             :number             = 17.68 * SettingPlayer.PLAYER_MASS;
     /** The player's physical force horizontal impulse for running. */
-    public static readonly IMPULSE_RUN                              :number             = 50000.0;
+    public static readonly IMPULSE_RUN                              :number             = 35.36 * SettingPlayer.PLAYER_MASS;
     /** The player's physical force horizontal impulse for straving. */
-    public static readonly IMPULSE_STRAVE                           :number             = 20000.0;
+    public static readonly IMPULSE_STRAVE                           :number             = 14.14 * SettingPlayer.PLAYER_MASS;
+    /** The player's physical force ascend impulse for jumping. */
+    public static readonly IMPULSE_JUMP                             :number             = 7.07 * SettingPlayer.PLAYER_MASS;
 
     /** The player's physical velocity y that determines falling. */
     public static readonly FALLING_VELOCITY_Y                       :number             = -1.0;
@@ -59,8 +61,6 @@ export abstract class SettingPlayer
 
     /** Specifies if the player may jump. ( acts as a feature flag ) */
     public static readonly JUMP_ENABLED                             :boolean            = false;
-    /** The player's physical force ascend impulse for jumping. */
-    public static readonly JUMP_ASCEND_IMPULSE_Y                    :number             = 10000.0;
 
     /** The player's maximum rotation Z (looking up/down) in degrees. */
     public static readonly MAX_ROT_Z                                :number             = 60.0;

@@ -562,7 +562,7 @@ export class Player extends bz.GameObject
         }
 
         bz.Debug.player.log( 'Player jumps' );
-        this.moveDelta.y = bz.SettingPlayer.JUMP_ASCEND_IMPULSE_Y;
+        this.moveDelta.y = bz.SettingPlayer.IMPULSE_JUMP;
     }
 
     /** ****************************************************************************************************************

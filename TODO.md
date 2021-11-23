@@ -7,7 +7,6 @@ MVP
 ===
 TODO smaller Doors
 TODO Reset Git Repository?
-TODO try again: light weight for player - so he can't push heavy objects so easily?
 
 ======
 3dsmax
