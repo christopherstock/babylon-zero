@@ -143,6 +143,28 @@ export class Player extends bz.GameObject
 
         // apply positions for all limbs
         this.positionPlayerLimbs();
+if ( true )
+{
+        // add a shotgun to the right player hand
+        const shotgun :bz.Wall = (
+            new bz.Wall
+            (
+                stage,
+                new bz.MeshFactory( scene, emissiveColor ).createImportedModel
+                (
+                    bz.ModelFile.SHOTGUN_M1014,
+                    new BABYLON.Vector3( -0.65, 1.85, 1.0 ),
+                    bz.PhysicSet.NONE,
+                    null
+                )
+            )
+        );
+
+        for ( let i:number = 0; i < shotgun.getModel().getMeshCount(); ++i )
+        {
+            shotgun.getModel().getMesh(i).parent = this.playerPhysics.rightHand;
+        }
+}
     }
 
     /** ****************************************************************************************************************
