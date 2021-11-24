@@ -8,7 +8,7 @@ export class Player extends bz.GameObject
     private static readonly SHOTGUN_NOISE_X      = 0.05;
     private static readonly SHOTGUN_NOISE_Y      = 0.05;
     private static readonly MAX_SHOTGUN_ROT_X    = 12.5;
-    private static readonly MAX_SHOTGUN_ROT_Y    = 6.5;
+    private static readonly MAX_SHOTGUN_ROT_Y    = 10.0;
     private static readonly SHOTGUN_ROT_SPEED_X  = 0.20;
     private static readonly SHOTGUN_ROT_SPEED_Y  = 0.20;
     private static readonly SHOTGUN_CENTER_SPEED = 1.00;
@@ -168,7 +168,7 @@ export class Player extends bz.GameObject
                 new bz.MeshFactory( scene, emissiveColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 1.15, -0.60, 2.25 ),
+                    new BABYLON.Vector3( 1.2, -0.75, 1.5 ),
                     bz.PhysicSet.NONE,
                     null
                 )
@@ -582,7 +582,7 @@ export class Player extends bz.GameObject
                     }
                     else
                     {
-                        this.targetShotgunRotX -= Player.SHOTGUN_NOISE_X;
+                        this.targetShotgunRotX -= Player.SHOTGUN_NOISE_X * this.rotationDelta.z;
                         if ( this.targetShotgunRotX < -Player.MAX_SHOTGUN_ROT_X ) this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
                     }
 
@@ -606,7 +606,7 @@ export class Player extends bz.GameObject
                     }
                     else
                     {
-                        this.targetShotgunRotX += Player.SHOTGUN_NOISE_X;
+                        this.targetShotgunRotX += Player.SHOTGUN_NOISE_X * -this.rotationDelta.z;
                         if ( this.targetShotgunRotX > Player.MAX_SHOTGUN_ROT_X ) this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
                     }
 
