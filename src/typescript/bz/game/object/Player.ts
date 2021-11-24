@@ -5,9 +5,10 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
-    private static readonly MAX_SHOTGUN_ROT_X = 12.5;
-    private static readonly MAX_SHOTGUN_ROT_Y = 12.5;
-    private static readonly SHOTGUN_ROT_SPEED = 0.40;
+    private static readonly MAX_SHOTGUN_ROT_X    = 12.5;
+    private static readonly MAX_SHOTGUN_ROT_Y    = 12.5;
+    private static readonly SHOTGUN_ROT_SPEED    = 0.40;
+    private static readonly SHOTGUN_CENTER_SPEED = 1.40;
 
     /** The current height of the player. Changes on ducking. */
     private          heightY            :number             = 0.0;
@@ -540,10 +541,17 @@ export class Player extends bz.GameObject
     {
         if ( this.rotationDelta.y !== 0.0 )
         {
-            if ( this.rotationDelta.y < 0.0 ) {
-                this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
-            } else {
-                this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
+            if ( this.zoom )
+            {
+                this.targetShotgunRotY = 0;
+            }
+            else
+            {
+                if ( this.rotationDelta.y < 0.0 ) {
+                    this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
+                } else {
+                    this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
+                }
             }
 
             this.rotation.y = bz.MathUtil.normalizeAngleDegrees( this.rotation.y + this.rotationDelta.y );
@@ -562,7 +570,15 @@ export class Player extends bz.GameObject
                 else
                 {
                     this.rotation.z += this.rotationDelta.z;
-                    this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
+
+                    if ( this.zoom )
+                    {
+                        this.targetShotgunRotX = 0.0;
+                    }
+                    else
+                    {
+                        this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
+                    }
 
                     if ( this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
                     {
@@ -577,7 +593,15 @@ export class Player extends bz.GameObject
                 else
                 {
                     this.rotation.z += this.rotationDelta.z;
-                    this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
+
+                    if ( this.zoom )
+                    {
+                        this.targetShotgunRotX = 0;
+                    }
+                    else
+                    {
+                        this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
+                    }
 
                     if ( this.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
                     {
@@ -974,20 +998,21 @@ export class Player extends bz.GameObject
         );
     }
 
+    // TODO to new class PlayerWearpon, analog to PlayerBody
     private updateShotgunRotation() : void
     {
         if ( this.targetShotgunRotX > this.shotgunRotX ) {
-            this.shotgunRotX += Player.SHOTGUN_ROT_SPEED;
+            this.shotgunRotX += ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
             if ( this.shotgunRotX > this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
         } else if ( this.targetShotgunRotX < this.shotgunRotX ) {
-            this.shotgunRotX -= Player.SHOTGUN_ROT_SPEED;
+            this.shotgunRotX -= ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
             if ( this.shotgunRotX < this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
         }
         if ( this.targetShotgunRotY > this.shotgunRotY ) {
-            this.shotgunRotY += Player.SHOTGUN_ROT_SPEED;
+            this.shotgunRotY += ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
             if ( this.shotgunRotY > this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
         } else if ( this.targetShotgunRotY < this.shotgunRotY ) {
-            this.shotgunRotY -= Player.SHOTGUN_ROT_SPEED;
+            this.shotgunRotY -= ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
             if ( this.shotgunRotY < this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
         }
 

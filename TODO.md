@@ -5,6 +5,7 @@
 ===
 MVP
 ===
+TODO 3D gun disappears in walls
 TODO smaller Doors
 TODO Reset Git Repository?
 
