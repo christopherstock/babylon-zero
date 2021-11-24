@@ -54,7 +54,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 100.0, bz.SettingGame.WALL_HEIGHT, 100.0 ),
+            new BABYLON.Vector3( 100.0, bz.SettingGame.WALL_HEIGHT, 250.0 ),
             0.0,
             null, [], [], 0,
             null,                         [], [], 0,
@@ -90,7 +90,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
-/*
+        // gothic church
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.GOTHIC_CHURCH,
+                    new BABYLON.Vector3( 0.0, 0.0, 200.0 ),
+                    bz.PhysicSet.NONE,
+                    bz.ModelCompoundType.NONE,
+                    180.0
+                )
+            )
+        );
+
         // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
         (
@@ -99,10 +114,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.1, 0.1, 0.1 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            0.5
+            0.3
         );
         this.addLight( hemisphericLight );
-*/
+
 
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
@@ -169,8 +184,8 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( -40.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( -400.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 400.0, bz.SettingGame.WALL_HEIGHT, 400.0 ),
             0.0,
             null, [], [], 0,
             null, [], [], 0,
