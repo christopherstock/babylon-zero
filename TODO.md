@@ -8,10 +8,6 @@ MVP
 TODO 3D gun disappears in walls
 TODO smaller Doors
 TODO Reset Git Repository?
-
-======
-3dsmax
-======
 TODO center 3D gun on handbar.
 TODO Add gothic church and outside parking space / scene?
 TODO Clean up StageOffice contents

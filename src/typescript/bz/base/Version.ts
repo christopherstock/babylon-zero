@@ -31,9 +31,10 @@ export class Version
     private static readonly V_0_1_11            :Version            = new Version( '0.1.11', 'DIAMOND ROOMS & SPLIT MESHES', '21.11.2021, 15:42:10 GMT+1' );
     private static readonly V_0_1_12            :Version            = new Version( '0.1.12', 'DOORS 360',                    '22.11.2021, 16:16:02 GMT+1' );
     private static readonly V_0_1_13            :Version            = new Version( '0.1.13', 'GENERATED TREES',              '23.11.2021, 12:04:17 GMT+1' );
+    private static readonly V_0_1_14            :Version            = new Version( '0.1.14', '3D GUN',                       '24.11.2021, 10:14:03 GMT+1' );
 
     /** The project's current version. */
-    private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_13;
+    private static readonly CURRENT_VERSION     :Version            = Version.V_0_1_14;
 
     /** This version's specifier. */
     private        readonly version             :string             = null;

@@ -6,8 +6,9 @@ import * as bz from '../..';
 export class Player extends bz.GameObject
 {
     private static readonly MAX_SHOTGUN_ROT_X    = 12.5;
-    private static readonly MAX_SHOTGUN_ROT_Y    = 12.5;
-    private static readonly SHOTGUN_ROT_SPEED    = 0.40;
+    private static readonly MAX_SHOTGUN_ROT_Y    = 6.5;
+    private static readonly SHOTGUN_ROT_SPEED_X  = 0.40;
+    private static readonly SHOTGUN_ROT_SPEED_Y  = 0.20;
     private static readonly SHOTGUN_CENTER_SPEED = 1.40;
 
     /** The current height of the player. Changes on ducking. */
@@ -1002,17 +1003,17 @@ export class Player extends bz.GameObject
     private updateShotgunRotation() : void
     {
         if ( this.targetShotgunRotX > this.shotgunRotX ) {
-            this.shotgunRotX += ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
+            this.shotgunRotX += ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X );
             if ( this.shotgunRotX > this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
         } else if ( this.targetShotgunRotX < this.shotgunRotX ) {
-            this.shotgunRotX -= ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
+            this.shotgunRotX -= ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X );
             if ( this.shotgunRotX < this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
         }
         if ( this.targetShotgunRotY > this.shotgunRotY ) {
-            this.shotgunRotY += ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
+            this.shotgunRotY += ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y );
             if ( this.shotgunRotY > this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
         } else if ( this.targetShotgunRotY < this.shotgunRotY ) {
-            this.shotgunRotY -= ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED );
+            this.shotgunRotY -= ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y );
             if ( this.shotgunRotY < this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
         }
 
