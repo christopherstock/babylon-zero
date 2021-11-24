@@ -7,9 +7,9 @@ export class Player extends bz.GameObject
 {
     private static readonly MAX_SHOTGUN_ROT_X    = 12.5;
     private static readonly MAX_SHOTGUN_ROT_Y    = 6.5;
-    private static readonly SHOTGUN_NOISE_X      = 2.0;
-    private static readonly SHOTGUN_NOISE_Y      = 2.0;
-    private static readonly SHOTGUN_ROT_SPEED_X  = 0.40;
+    private static readonly SHOTGUN_NOISE_X      = 1.0;
+    private static readonly SHOTGUN_NOISE_Y      = 1.0;
+    private static readonly SHOTGUN_ROT_SPEED_X  = 0.20;
     private static readonly SHOTGUN_ROT_SPEED_Y  = 0.20;
     private static readonly SHOTGUN_CENTER_SPEED = 1.40;
 
@@ -551,10 +551,10 @@ export class Player extends bz.GameObject
             else
             {
                 if ( this.rotationDelta.y < 0.0 ) {
-                    this.targetShotgunRotY += Player.SHOTGUN_NOISE_Y;
+                    this.targetShotgunRotY += Player.SHOTGUN_NOISE_Y * -this.rotationDelta.y;
                     if ( this.targetShotgunRotY > Player.MAX_SHOTGUN_ROT_Y ) this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
                 } else {
-                    this.targetShotgunRotY -= Player.SHOTGUN_NOISE_Y;
+                    this.targetShotgunRotY -= Player.SHOTGUN_NOISE_Y * this.rotationDelta.y;
                     if ( this.targetShotgunRotY < -Player.MAX_SHOTGUN_ROT_Y ) this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
                 }
             }
