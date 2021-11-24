@@ -106,6 +106,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // house 1 church
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.HOUSE_1,
+                    new BABYLON.Vector3( 50.0, 0.0, 130.0 ),
+                    bz.PhysicSet.STATIC,
+                    bz.ModelCompoundType.NONE,
+                    135.0
+                )
+            )
+        );
+
         // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
         (

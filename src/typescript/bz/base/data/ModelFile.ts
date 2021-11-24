@@ -7,6 +7,7 @@ export abstract class ModelFile
     public static readonly CAR_1                        :string             = 'object/car1.babylon';
     public static readonly CRATE                        :string             = 'furniture/crate1.babylon';
     public static readonly GOTHIC_CHURCH                :string             = 'house/gothicChurch.babylon';
+    public static readonly HOUSE_1                      :string             = 'house/house1.babylon';
     public static readonly ITEM_SHOTGUN_SHELLS          :string             = 'item/shells.babylon';
     public static readonly MF_LOGO                      :string             = 'presentation/mfLogo.babylon';
     public static readonly OFFICE_CHAIR_1_MULTI_MESH    :string             = 'furniture/officeChair1.babylon';
@@ -26,6 +27,7 @@ export abstract class ModelFile
         ModelFile.CAR_1,
         ModelFile.CRATE,
         ModelFile.GOTHIC_CHURCH,
+        ModelFile.HOUSE_1,
         ModelFile.ITEM_SHOTGUN_SHELLS,
         ModelFile.MF_LOGO,
         ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
