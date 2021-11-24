@@ -695,6 +695,7 @@ if ( true ) return;
             ),
             8.0
         );
+        // bench1.getModel().addOutline( this.getScene() );
         this.addWall( bench1 );
     }
 

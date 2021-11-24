@@ -616,6 +616,28 @@ export class Model
     }
 
     /** ****************************************************************************************************************
+    *   Adds an experimental outline effect to all meshes using BABYLON.HightlightLayer.
+    *   The stencil buffer must be enabled for the BABYLON.Engine instance for this to work.
+    *
+    *   @param scene The babylon.JS scene where the outline effect shall be added to.
+    *
+    *   @return A reference to this model.
+    *
+    *   @deprecated Sadly not working yet, even with stencil buffer enabled.
+    *******************************************************************************************************************/
+    public addOutline( scene:bz.Scene ) : bz.Model
+    {
+        const hl :BABYLON.HighlightLayer = new BABYLON.HighlightLayer( 'hl1', scene.getNativeScene() );
+
+        for ( const mesh of this.meshes )
+        {
+            hl.addMesh( ( mesh as BABYLON.Mesh ), BABYLON.Color3.Green() );
+        }
+
+        return this;
+    }
+
+    /** ****************************************************************************************************************
     *   Returns a cloned collection of this models' meshes.
     *   All physic impostors are gone on all cloned meshes.
     *
