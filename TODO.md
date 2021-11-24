@@ -5,14 +5,12 @@
 ===
 MVP
 ===
+TODO Improve models (screen, shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO 3D gun disappears in walls
 TODO smaller Doors
 TODO Reset Git Repository?
-TODO center 3D gun on handbar.
-TODO Add gothic church and outside parking space / scene?
 TODO Clean up StageOffice contents
 TODO Create realistic models and lights.
-TODO Improve models (e.g. shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Performance: Try hi-res textures?
 

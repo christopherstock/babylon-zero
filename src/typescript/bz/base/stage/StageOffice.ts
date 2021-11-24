@@ -98,8 +98,8 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.GOTHIC_CHURCH,
-                    new BABYLON.Vector3( 0.0, 0.0, 200.0 ),
-                    bz.PhysicSet.NONE,
+                    new BABYLON.Vector3( 100.0, 0.0, 200.0 ),
+                    bz.PhysicSet.STATIC,
                     bz.ModelCompoundType.NONE,
                     180.0
                 )
