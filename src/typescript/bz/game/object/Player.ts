@@ -5,13 +5,13 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
+    private static readonly SHOTGUN_NOISE_X      = 0.05;
+    private static readonly SHOTGUN_NOISE_Y      = 0.05;
     private static readonly MAX_SHOTGUN_ROT_X    = 12.5;
     private static readonly MAX_SHOTGUN_ROT_Y    = 6.5;
-    private static readonly SHOTGUN_NOISE_X      = 1.0;
-    private static readonly SHOTGUN_NOISE_Y      = 1.0;
     private static readonly SHOTGUN_ROT_SPEED_X  = 0.20;
     private static readonly SHOTGUN_ROT_SPEED_Y  = 0.20;
-    private static readonly SHOTGUN_CENTER_SPEED = 1.40;
+    private static readonly SHOTGUN_CENTER_SPEED = 1.00;
 
     /** The current height of the player. Changes on ducking. */
     private          heightY            :number             = 0.0;
