@@ -21,6 +21,7 @@ export abstract class ModelFile
     public static readonly SHOTGUN_M1014                :string             = 'wearpon/shotgunM1014.babylon';
     public static readonly SOFA_1                       :string             = 'furniture/sofa1.babylon';
     public static readonly SPHERE_1                     :string             = 'furniture/sphere1.babylon';
+    public static readonly WASTE_CONTAINER              :string             = 'object/wasteContainer.babylon';
 
     /** All filenames for all meshes. */
     public static readonly ALL_MESH_FILES               :string[]           =
@@ -43,5 +44,6 @@ export abstract class ModelFile
         ModelFile.SHOTGUN_M1014,
         ModelFile.SOFA_1,
         ModelFile.SPHERE_1,
+        ModelFile.WASTE_CONTAINER,
     ];
 }

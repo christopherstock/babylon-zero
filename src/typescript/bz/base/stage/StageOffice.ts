@@ -122,9 +122,41 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // trash container blue
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.WASTE_CONTAINER,
+                    new BABYLON.Vector3( 20.0, 0.0, 15.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
 
-
-
+        // trash container green
+        const trashContainer :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.WASTE_CONTAINER,
+                new BABYLON.Vector3( 35.0, 0.0, 15.0 ),
+                bz.PhysicSet.SHELVES,
+                null
+            ),
+            10.0
+        );
+        trashContainer.getModel().changeTexture(
+            this.getScene(),
+            bz.SettingResource.PATH_MODEL + 'object/wasteContainer_blue.jpg',
+            bz.SettingResource.PATH_MODEL + 'object/wasteContainer_green.jpg'
+        );
+        this.addWall( trashContainer );
 
 
 
