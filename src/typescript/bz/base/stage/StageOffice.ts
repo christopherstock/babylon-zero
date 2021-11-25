@@ -203,7 +203,7 @@ export class StageOffice extends bz.Stage
                     bz.ModelFile.WOODEN_FENCE_1,
                     new BABYLON.Vector3( 10.0, 0.0, 0.0 ),
                     bz.PhysicSet.SHELVES,
-                    270.0
+                    90.0
                 ),
                 10.0
             )
@@ -219,7 +219,7 @@ export class StageOffice extends bz.Stage
                     bz.ModelFile.WOODEN_FENCE_2,
                     new BABYLON.Vector3( 18.5, 0.0, 0.0 ),
                     bz.PhysicSet.SHELVES,
-                    270.0
+                    90.0
                 ),
                 10.0
             )
@@ -235,7 +235,7 @@ export class StageOffice extends bz.Stage
                     bz.ModelFile.WOODEN_FENCE_3,
                     new BABYLON.Vector3( 27.0, 0.0, 0.0 ),
                     bz.PhysicSet.SHELVES,
-                    270.0
+                    90.0
                 ),
                 10.0
             )
@@ -251,7 +251,7 @@ export class StageOffice extends bz.Stage
                     bz.ModelFile.WOODEN_FENCE_4,
                     new BABYLON.Vector3( 35.5, 0.0, 0.0 ),
                     bz.PhysicSet.SHELVES,
-                    270.0
+                    90.0
                 ),
                 10.0
             )
@@ -267,7 +267,23 @@ export class StageOffice extends bz.Stage
                     bz.ModelFile.WOODEN_FENCE_5,
                     new BABYLON.Vector3( 44.0, 0.0, 0.0 ),
                     bz.PhysicSet.SHELVES,
-                    270.0
+                    90.0
+                ),
+                10.0
+            )
+        );
+
+        // big bin
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.BIG_BIN,
+                    new BABYLON.Vector3( 45.0, 0.0, 10.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
                 ),
                 10.0
             )
