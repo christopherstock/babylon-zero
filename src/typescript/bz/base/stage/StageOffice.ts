@@ -74,6 +74,45 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
+        // car opel record
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CAR_OPEL_RECORD,
+                    new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
+
+        // car 1
+        const car1 :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.CAR_1,
+                new BABYLON.Vector3( 30.0, 0.0, 50.5 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                180.0
+            ),
+            12.0
+        );
+        this.addWall( car1 );
+
+
+
+
+
+
+
+/*
         // shotgun
         this.addWall(
             new bz.Wall
@@ -121,7 +160,7 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
-
+*/
         // hemispheric light
         const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
         (
@@ -133,8 +172,7 @@ export class StageOffice extends bz.Stage
             0.3
         );
         this.addLight( hemisphericLight );
-
-
+/*
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
             new bz.Event(
@@ -159,7 +197,6 @@ export class StageOffice extends bz.Stage
                 )
             ),
         ];
-        /* eslint-disable max-len */
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
@@ -236,15 +273,14 @@ export class StageOffice extends bz.Stage
                 )
             )
         );
-/*
+
         // add rain effect
         if ( false ) this.setRainEffect(
             3.0,
             750,
             new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
-*/
-/*
+
 if ( true ) return;
 
         // light yard
@@ -305,6 +341,7 @@ if ( true ) return;
             bz.TextureFile.WALL_CEILING_1
         );
 */
+/*
         // boxes pile in light yard
         bz.StageFactory.addCratesPile(
             this,
@@ -440,17 +477,19 @@ if ( true ) return;
                 bz.ItemType.PAINKILLER
             )
         );
-
+*/
         // 2nd point light in 2nd office // stick to chair
         const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
         (
             this.getScene().getNativeScene(),
-            new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
-            // new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
+
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
+        // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
         this.addLight( pointLight2 );
 /*
         // add fog
@@ -695,22 +734,6 @@ if ( true ) return;
             5.0
         );
         this.addWall( sofa1 );
-
-        // car 1
-        const car1 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.CAR_1,
-                new BABYLON.Vector3( 100.0, 3.0, 20.5 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                180.0
-            ),
-            12.0
-        );
-        this.addWall( car1 );
 
         // bench 1
         const bench1 :bz.Wall = new bz.Wall
