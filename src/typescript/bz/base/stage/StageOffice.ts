@@ -191,7 +191,7 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // TODO to StageFactory.createFence(random or specific);
+        // TODO to StageFactory.createFence(random or specific); different textures (lighter etc)!
 
         // wooden fence 1
         this.addWall(
@@ -232,7 +232,7 @@ export class StageOffice extends bz.Stage
                 this,
                 meshFactory.createImportedModel
                 (
-                    bz.ModelFile.WOODEN_FENCE_1,
+                    bz.ModelFile.WOODEN_FENCE_3,
                     new BABYLON.Vector3( 27.0, 0.0, 0.0 ),
                     bz.PhysicSet.SHELVES,
                     270.0
