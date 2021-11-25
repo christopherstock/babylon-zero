@@ -27,6 +27,7 @@ export abstract class ModelFile
     public static readonly WOODEN_FENCE_1               :string             = 'house/woodenFence1.babylon';
     public static readonly WOODEN_FENCE_2               :string             = 'house/woodenFence2.babylon';
     public static readonly WOODEN_FENCE_3               :string             = 'house/woodenFence3.babylon';
+    public static readonly WOODEN_FENCE_4               :string             = 'house/woodenFence4.babylon';
 
     /** All filenames for all meshes. */
     public static readonly ALL_MESH_FILES               :string[]           =
@@ -55,5 +56,6 @@ export abstract class ModelFile
         ModelFile.WOODEN_FENCE_1,
         ModelFile.WOODEN_FENCE_2,
         ModelFile.WOODEN_FENCE_3,
+        ModelFile.WOODEN_FENCE_4,
     ];
 }

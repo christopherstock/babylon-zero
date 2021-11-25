@@ -241,6 +241,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // wooden fence 4
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.WOODEN_FENCE_4,
+                    new BABYLON.Vector3( 35.5, 0.0, 0.0 ),
+                    bz.PhysicSet.SHELVES,
+                    270.0
+                ),
+                10.0
+            )
+        );
+
 
 
 /*
