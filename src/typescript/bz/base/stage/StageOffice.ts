@@ -337,6 +337,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // pallet cement
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.PALLET_CEMENT_3,
+                    new BABYLON.Vector3( 15.0, 0.0, 90.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
+
 
 
 /*
