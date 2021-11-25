@@ -26,11 +26,11 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                90.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                0.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                10.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                0.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
-            new BABYLON.Vector3( 0.0, 180.0 + 45.0, 0.0 ),
+            new BABYLON.Vector3( 0.0, 360.0 + 45.0, 0.0 ),
             new bz.Inventory( 0 )
         );
     }
@@ -74,6 +74,22 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLight );
 
+        // car camaro
+        const carCamaro :bz.Wall = new bz.Wall
+        (
+            this,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.CAR_CAMARO,
+                new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                180.0
+            ),
+            12.0
+        );
+        this.addWall( carCamaro );
+
         // car opel record
         this.addWall(
             new bz.Wall
@@ -82,7 +98,7 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.CAR_OPEL_RECORD,
-                    new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                    new BABYLON.Vector3( 50.0, 0.0, 30.0 ),
                     bz.PhysicSet.SHELVES,
                     null
                 ),
@@ -90,21 +106,6 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // car 1
-        const car1 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.CAR_1,
-                new BABYLON.Vector3( 30.0, 0.0, 50.5 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                180.0
-            ),
-            12.0
-        );
-        this.addWall( car1 );
 
 
 
