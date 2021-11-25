@@ -803,8 +803,8 @@ export class MeshFactory
         fileName     :string,
         position     :BABYLON.Vector3      = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
         physic       :bz.PhysicSet         = null,
-        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE,
-        rotY         :number               = 0.0
+        rotY         :number               = 0.0,
+        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE
     )
     : bz.Model
     {
@@ -834,6 +834,11 @@ export class MeshFactory
                 impostors.push( physicBody.createPhysicImpostorBoxParams() );
             }
             clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
+        }
+
+        // set compound type to NONE if null
+        if ( compoundType === null ) {
+            compoundType = bz.ModelCompoundType.NONE;
         }
 
         // create compound parent if requested
