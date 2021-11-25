@@ -18,6 +18,7 @@ export abstract class ModelFile
     public static readonly OFFICE_CHAIR_1_MULTI_MESH    :string             = 'furniture/officeChair1.babylon';
     public static readonly OFFICE_DESK_1                :string             = 'furniture/officeDesk1.babylon';
     public static readonly OFFICE_DESK_2                :string             = 'furniture/officeDesk2.babylon';
+    public static readonly OFFICE_DESK_3                :string             = 'furniture/officeDesk3.babylon';
     public static readonly SODA_MACHINE_2               :string             = 'furniture/sodaMachine2.babylon';
     public static readonly SCREEN_1                     :string             = 'furniture/screen1.babylon';
     public static readonly SHELVES_1                    :string             = 'furniture/shelves1.babylon';
@@ -49,6 +50,7 @@ export abstract class ModelFile
         ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
         ModelFile.OFFICE_DESK_1,
         ModelFile.OFFICE_DESK_2,
+        ModelFile.OFFICE_DESK_3,
         ModelFile.SODA_MACHINE_2,
         ModelFile.SCREEN_1,
         ModelFile.SHELVES_1,

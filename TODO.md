@@ -8,6 +8,7 @@ MVP
 TODO Improve models (screen, shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO 3D gun disappears in walls
 TODO smaller Doors
+TODO Door interaction on imported officeDesk3
 TODO Reset Git Repository?
 TODO Clean up StageOffice contents
 TODO Create realistic models and lights.

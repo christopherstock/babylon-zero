@@ -289,6 +289,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // office desk 3
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_DESK_3,
+                    new BABYLON.Vector3( 10.0, 0.0, 50.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
+
 
 
 /*
