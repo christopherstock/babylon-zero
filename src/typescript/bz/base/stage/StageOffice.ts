@@ -122,6 +122,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // bike suzuki
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.BIKE_SUZUKI,
+                    new BABYLON.Vector3( 70.0, 0.0, 30.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
+
         // trash container blue
         this.addWall(
             new bz.Wall

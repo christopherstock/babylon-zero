@@ -4,6 +4,7 @@
 export abstract class ModelFile
 {
     public static readonly BENCH_1                      :string             = 'furniture/bench1.babylon';
+    public static readonly BIKE_SUZUKI                  :string             = 'object/bikeSuzuki.babylon';
     public static readonly CAR_CAMARO                   :string             = 'object/carCamaro.babylon';
     public static readonly CAR_CADILLAC                 :string             = 'object/carCadillac.babylon';
     public static readonly CAR_OPEL_RECORD              :string             = 'object/carOpelRecord.babylon';
@@ -27,6 +28,7 @@ export abstract class ModelFile
     public static readonly ALL_MESH_FILES               :string[]           =
     [
         ModelFile.BENCH_1,
+        ModelFile.BIKE_SUZUKI,
         ModelFile.CAR_CAMARO,
         ModelFile.CAR_CADILLAC,
         ModelFile.CAR_OPEL_RECORD,
