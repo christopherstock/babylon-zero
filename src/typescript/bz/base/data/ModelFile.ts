@@ -24,6 +24,7 @@ export abstract class ModelFile
     public static readonly SOFA_1                       :string             = 'furniture/sofa1.babylon';
     public static readonly SPHERE_1                     :string             = 'furniture/sphere1.babylon';
     public static readonly WASTE_CONTAINER              :string             = 'object/wasteContainer.babylon';
+    public static readonly WOODEN_FENCE_1               :string             = 'house/woodenFence1.babylon';
 
     /** All filenames for all meshes. */
     public static readonly ALL_MESH_FILES               :string[]           =
@@ -49,5 +50,6 @@ export abstract class ModelFile
         ModelFile.SOFA_1,
         ModelFile.SPHERE_1,
         ModelFile.WASTE_CONTAINER,
+        ModelFile.WOODEN_FENCE_1,
     ];
 }
