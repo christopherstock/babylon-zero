@@ -20,6 +20,7 @@ export abstract class ModelFile
     public static readonly OFFICE_DESK_2                :string             = 'furniture/officeDesk2.babylon';
     public static readonly OFFICE_DESK_3                :string             = 'furniture/officeDesk3.babylon';
     public static readonly PALLET_CEMENT_1              :string             = 'object/palletCement1.babylon';
+    public static readonly PALLET_CEMENT_2              :string             = 'object/palletCement2.babylon';
     public static readonly SODA_MACHINE_2               :string             = 'furniture/sodaMachine2.babylon';
     public static readonly SCREEN_1                     :string             = 'furniture/screen1.babylon';
     public static readonly SHELVES_1                    :string             = 'furniture/shelves1.babylon';
@@ -53,6 +54,7 @@ export abstract class ModelFile
         ModelFile.OFFICE_DESK_2,
         ModelFile.OFFICE_DESK_3,
         ModelFile.PALLET_CEMENT_1,
+        ModelFile.PALLET_CEMENT_2,
         ModelFile.SODA_MACHINE_2,
         ModelFile.SCREEN_1,
         ModelFile.SHELVES_1,
