@@ -77,6 +77,8 @@ export class ModelSystem
                 ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
 
                     bz.Debug.init.err( 'ERROR on model import [' + file + ']' );
+                    bz.Debug.init.err( callbackMessage );
+                    bz.Debug.init.err( callbackException );
 
                     // simulate load
                     this.onLoadModel();

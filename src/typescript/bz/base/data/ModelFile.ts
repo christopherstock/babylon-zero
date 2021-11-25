@@ -5,6 +5,7 @@ export abstract class ModelFile
 {
     public static readonly BENCH_1                      :string             = 'furniture/bench1.babylon';
     public static readonly CAR_CAMARO                   :string             = 'object/carCamaro.babylon';
+    public static readonly CAR_CADILLAC                 :string             = 'object/carCadillac.babylon';
     public static readonly CAR_OPEL_RECORD              :string             = 'object/carOpelRecord.babylon';
     public static readonly CRATE                        :string             = 'furniture/crate1.babylon';
     public static readonly GOTHIC_CHURCH                :string             = 'house/gothicChurch.babylon';
@@ -26,6 +27,7 @@ export abstract class ModelFile
     [
         ModelFile.BENCH_1,
         ModelFile.CAR_CAMARO,
+        ModelFile.CAR_CADILLAC,
         ModelFile.CAR_OPEL_RECORD,
         ModelFile.CRATE,
         ModelFile.GOTHIC_CHURCH,

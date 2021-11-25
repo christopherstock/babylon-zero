@@ -81,7 +81,7 @@ export class StageOffice extends bz.Stage
             meshFactory.createImportedModel
             (
                 bz.ModelFile.CAR_CAMARO,
-                new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                new BABYLON.Vector3( 10.0, 0.0, 30.0 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -98,6 +98,22 @@ export class StageOffice extends bz.Stage
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.CAR_OPEL_RECORD,
+                    new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
+
+        // car cadillac
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CAR_CADILLAC,
                     new BABYLON.Vector3( 50.0, 0.0, 30.0 ),
                     bz.PhysicSet.SHELVES,
                     null
