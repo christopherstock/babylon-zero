@@ -174,6 +174,22 @@ export class StageOffice extends bz.Stage
         );
         this.addWall( trashContainer );
 
+        // garage 1
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.GARAGE_1,
+                    new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null,
+                    180.0
+                ),
+                10.0
+            )
+        );
 
 
 

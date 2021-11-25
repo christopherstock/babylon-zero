@@ -9,6 +9,7 @@ export abstract class ModelFile
     public static readonly CAR_CADILLAC                 :string             = 'object/carCadillac.babylon';
     public static readonly CAR_OPEL_RECORD              :string             = 'object/carOpelRecord.babylon';
     public static readonly CRATE                        :string             = 'furniture/crate1.babylon';
+    public static readonly GARAGE_1                     :string             = 'house/garage1.babylon';
     public static readonly GOTHIC_CHURCH                :string             = 'house/gothicChurch.babylon';
     public static readonly HOUSE_1                      :string             = 'house/house1.babylon';
     public static readonly ITEM_SHOTGUN_SHELLS          :string             = 'item/shells.babylon';
@@ -33,6 +34,7 @@ export abstract class ModelFile
         ModelFile.CAR_CADILLAC,
         ModelFile.CAR_OPEL_RECORD,
         ModelFile.CRATE,
+        ModelFile.GARAGE_1,
         ModelFile.GOTHIC_CHURCH,
         ModelFile.HOUSE_1,
         ModelFile.ITEM_SHOTGUN_SHELLS,
