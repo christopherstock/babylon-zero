@@ -192,6 +192,7 @@ export class StageOffice extends bz.Stage
         );
 
         // TODO to StageFactory.createFence(random or specific); different textures (lighter etc)!
+        // from 1-5 range x count
 
         // wooden fence 1
         this.addWall(
