@@ -137,7 +137,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+/*
         // trash container blue
         this.addWall(
             new bz.Wall
@@ -153,7 +153,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+*/
         // trash container green
         const trashContainer :bz.Wall = new bz.Wall
         (
@@ -777,7 +777,7 @@ if ( true ) return;
             new bz.Bot(
                 this,
                 bz.BotType.TEST_WALK_TOWARDS_PLAYER,
-                new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 10.0 )
+                new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
             )
         );
 

@@ -152,14 +152,28 @@ export abstract class MathUtil
 
     public static angleBetweenPointsXZ( from:BABYLON.Vector3, to:BABYLON.Vector3 ) : number
     {
-        const deltaX  :number = Math.abs( to.x - from.x )
-        const deltaZ  :number = Math.abs( to.z - from.z )
+        const distX :number = to.x - from.x;
+        const distY :number = to.z - from.z;
+        let   angle :number;
 
-        const rad     :number = Math.atan2( deltaZ, deltaX );
-        const degrees :number = MathUtil.radToDegrees( rad );
+        if ( distX === 0.0 )
+        {
+            if ( distY === 0.0 )    angle = 0.0;
+            else if( distY > 0.0 )  angle = Math.PI / 2.0;
+            else                    angle = ( Math.PI * 3.0 ) / 2.0;
+        }
+        else if ( distY === 0.0 )
+        {
+            if ( distX > 0.0 )      angle = 0.0;
+            else                    angle = Math.PI;
+        }
+        else
+        {
+            if ( distX < 0.0 )      angle = Math.atan( distY / distX ) + Math.PI;
+            else if ( distY < 0.0 ) angle = Math.atan( distY / distX ) + ( 2 * Math.PI );
+            else                    angle = Math.atan( distY / distX );
+        }
 
-        console.log( '>> DEBUG: ', rad, degrees, from, to );
-
-        return degrees;
+        return MathUtil.radToDegrees( angle );
     }
 }
