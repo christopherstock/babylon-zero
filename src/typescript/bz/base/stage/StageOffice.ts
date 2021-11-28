@@ -30,7 +30,7 @@ export class StageOffice extends bz.Stage
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
                 0.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
-            new BABYLON.Vector3( 0.0, 360.0 + 45.0, 0.0 ),
+            new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
             new bz.Inventory( 0 )
         );
     }
@@ -73,7 +73,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLight );
-
+/*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
         (
@@ -121,7 +121,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+*/
         // bike suzuki
         this.addWall(
             new bz.Wall
@@ -273,7 +273,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+/*
         // big bin
         this.addWall(
             new bz.Wall
@@ -385,9 +385,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
-
-
+*/
 /*
         // shotgun
         this.addWall(
@@ -774,6 +772,11 @@ if ( true ) return;
         // add shadows for point light
         this.addShadowGenerator( pointLight );
 */
+        // add bot
+        this.addBot(
+            new bz.Bot( this, new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 10.0 ) )
+        );
+
     }
 
     /** ****************************************************************************************************************

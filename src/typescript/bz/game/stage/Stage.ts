@@ -134,6 +134,12 @@ export abstract class Stage
             item.render();
         }
 
+        // render bots
+        for ( const bot of this.bots )
+        {
+            bot.render();
+        }
+
         // handle event system
         this.handleEventPipeline();
     }
@@ -551,7 +557,7 @@ export abstract class Stage
     *
     *   @param bot The bot to add to this stage.
     *******************************************************************************************************************/
-    protected addBot( bot:bz.Item ) : void
+    protected addBot( bot:bz.Bot ) : void
     {
         this.bots.push( bot );
     }
@@ -675,6 +681,17 @@ export abstract class Stage
             {
                 const itemHitPoints:bz.HitPoint[] = item.determineHitPoints( shot );
                 hitPoints = hitPoints.concat( itemHitPoints );
+            }
+        }
+
+        // check collision with bots
+        if ( !interactionWallsOnly )
+        {
+            bz.Debug.fire.log( ' Check shot collision with [' + String( this.bots.length ) + '] bots' );
+            for ( const bot of this.bots )
+            {
+                const botHitPoints:bz.HitPoint[] = bot.determineHitPoints( shot );
+                hitPoints = hitPoints.concat( botHitPoints );
             }
         }
 
