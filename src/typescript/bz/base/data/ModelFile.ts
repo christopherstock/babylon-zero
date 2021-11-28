@@ -24,6 +24,7 @@ export abstract class ModelFile
     public static readonly PALLET_CEMENT_3              :string             = 'object/palletCement3.babylon';
     public static readonly SODA_MACHINE_2               :string             = 'furniture/sodaMachine2.babylon';
     public static readonly SCREEN_1                     :string             = 'furniture/screen1.babylon';
+    public static readonly SEWERAGE_PUMPING             :string             = 'house/seweragePumping.babylon';
     public static readonly SHELVES_1                    :string             = 'furniture/shelves1.babylon';
     public static readonly SHOTGUN_M1014                :string             = 'wearpon/shotgunM1014.babylon';
     public static readonly SOFA_1                       :string             = 'furniture/sofa1.babylon';
@@ -60,6 +61,7 @@ export abstract class ModelFile
         ModelFile.PALLET_CEMENT_3,
         ModelFile.SODA_MACHINE_2,
         ModelFile.SCREEN_1,
+        ModelFile.SEWERAGE_PUMPING,
         ModelFile.SHELVES_1,
         ModelFile.SHOTGUN_M1014,
         ModelFile.SOFA_1,

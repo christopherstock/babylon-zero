@@ -370,6 +370,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // sewerage pumping
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SEWERAGE_PUMPING,
+                    new BABYLON.Vector3( 50.0, 0.0, 200.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
+
 
 
 /*
