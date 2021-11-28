@@ -5,12 +5,15 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Bot extends bz.GameObject
 {
+    private type     :bz.BotType      = null;
+    private position :BABYLON.Vector3 = null;
+
     /** ****************************************************************************************************************
     *   Creates a new bot instance.
     *
     *   @param stage The stage this bot belongs to.
     *******************************************************************************************************************/
-    public constructor( stage:bz.Stage, startupPosition:BABYLON.Vector3 )
+    public constructor( stage:bz.Stage, type:bz.BotType, startupPosition:BABYLON.Vector3 )
     {
         super(
             stage,
@@ -19,13 +22,34 @@ export class Bot extends bz.GameObject
                 startupPosition
             )
         );
+
+        this.type     = type;
+        this.position = startupPosition;
     }
 
     public render() : void
     {
         super.render();
 
-        this.model.translatePosition( new BABYLON.Vector3( 0.0, 0.0, 0.11 ) );
+        switch ( this.type )
+        {
+            case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
+            {
+                const delta :BABYLON.Vector3 = new BABYLON.Vector3( 0.05, 0.0, 0.0 );
+                this.position.add( delta );
+                this.model.translatePosition( delta );
+                this.model.setAbsoluteRotationXYZ( 0.0, 45.0, 0.0 );
+                break;
+            }
+
+            case bz.BotType.TEST_WALK_X:
+            {
+                const delta :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.01 );
+                this.position.add( delta );
+                this.model.translatePosition( delta );
+                break;
+            }
+        }
     }
 
     /** ****************************************************************************************************************

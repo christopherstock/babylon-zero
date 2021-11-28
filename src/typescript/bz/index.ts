@@ -90,6 +90,7 @@ export * from './game/event/Event';
 export * from './game/inventory/Inventory';
 
 export * from './game/object/GameObject';
+export * from './game/object/BotType';
 export * from './game/object/Bot';
 export * from './game/object/Collectable';
 export * from './game/object/Trigger';

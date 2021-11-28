@@ -772,9 +772,22 @@ if ( true ) return;
         // add shadows for point light
         this.addShadowGenerator( pointLight );
 */
-        // add bot
+        // add bot - walking towards player
         this.addBot(
-            new bz.Bot( this, new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 10.0 ) )
+            new bz.Bot(
+                this,
+                bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 10.0 )
+            )
+        );
+
+        // add bot - walking towards axis X
+        this.addBot(
+            new bz.Bot(
+                this,
+                bz.BotType.TEST_WALK_X,
+                new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
+            )
         );
 
     }
