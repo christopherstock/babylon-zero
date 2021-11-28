@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Improve models (screen, shelves = 12 sub-objects) and add some more (better) 3dsmax models?
 TODO 3D gun disappears in walls
 TODO smaller Doors
 TODO Door interaction on imported officeDesk3
@@ -21,6 +20,7 @@ Fx
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Add linked doors (wing doors)
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
+TODO try exploding mayflower logo (from 3dsmax promo?)
 TODO try gold metal effect etc for IntroVideo logo
 TODO keep pointer lock between stage switches? (gets lost atm)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
