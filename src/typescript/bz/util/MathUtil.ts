@@ -149,4 +149,13 @@ export abstract class MathUtil
             ynew + pivot.y
         );
     }
+
+    public static angleBetweenPointsXZ( from:BABYLON.Vector3, to:BABYLON.Vector3 ) : number
+    {
+
+
+
+
+        return 0.0;
+    }
 }

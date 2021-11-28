@@ -35,17 +35,35 @@ export class Bot extends bz.GameObject
         {
             case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
             {
-                const delta :BABYLON.Vector3 = new BABYLON.Vector3( 0.05, 0.0, 0.0 );
-                this.position.add( delta );
+                const anchorBetweenBotAndPlayer :number = bz.MathUtil.angleBetweenPointsXZ(
+                    this.position,
+                    this.stage.getPlayer().getPosition()
+                );
+                const delta :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+/*
+                if ( this.position.x < this.stage.getPlayer().getPosition().x )
+                {
+                    delta.x = 0.1;
+                } else if ( this.position.x > this.stage.getPlayer().getPosition().x ) {
+                    delta.x = -0.1;
+                }
+                if ( this.position.z < this.stage.getPlayer().getPosition().z )
+                {
+                    delta.z = 0.1;
+                } else if ( this.position.z > this.stage.getPlayer().getPosition().z ) {
+                    delta.z = -0.1;
+                }
+*/
+                this.position.addInPlace( delta );
                 this.model.translatePosition( delta );
-                this.model.setAbsoluteRotationXYZ( 0.0, 45.0, 0.0 );
+                this.model.setAbsoluteRotationXYZ( 0.0, anchorBetweenBotAndPlayer, 0.0 );
                 break;
             }
 
             case bz.BotType.TEST_WALK_X:
             {
                 const delta :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.01 );
-                this.position.add( delta );
+                this.position.addInPlace( delta );
                 this.model.translatePosition( delta );
                 break;
             }
