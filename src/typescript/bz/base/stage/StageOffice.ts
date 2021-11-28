@@ -354,6 +354,22 @@ export class StageOffice extends bz.Stage
             )
         );
 
+        // transpallet
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.TRANSPALLET,
+                    new BABYLON.Vector3( 22.0, 0.0, 90.0 ),
+                    bz.PhysicSet.SHELVES,
+                    -90.0
+                ),
+                10.0
+            )
+        );
+
 
 
 /*
