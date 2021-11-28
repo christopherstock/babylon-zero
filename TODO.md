@@ -5,31 +5,31 @@
 ===
 MVP
 ===
+TODO Physical Bodies for Players?
 TODO 3D gun disappears in walls
+TODO Add linked doors (wing doors)
 TODO smaller Doors
 TODO Door interaction on imported officeDesk3
+TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Reset Git Repository?
 TODO Clean up StageOffice contents
 TODO Create realistic models and lights.
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
-TODO Performance: Try hi-res textures?
+TODO Performance: Try hi-res textures? 512 or 1024 ?
 
 ==
 Fx
 ==
-TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
-TODO Add linked doors (wing doors)
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try exploding mayflower logo (from 3dsmax promo?)
 TODO try gold metal effect etc for IntroVideo logo
 TODO keep pointer lock between stage switches? (gets lost atm)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
-TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
 TODO Add explosion effects via sprites.
 TODO Particle FX (physical) for wall rubble!
-TODO Fix rotated sliding doors
+TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Explosion effect when objects break: fire sprites and global explosion?
 TODO Constraint system for events (keycard holded)!?
 TODO add rotating MF Logo sprite?
@@ -66,11 +66,9 @@ TODO Sounds for shot, bullet hit and bullet drop.
 Bots
 ====
 TODO Add bots as sprites in 1st instance
-TODO Create (different?) characters from primitives or mesh objects??
-TODO Create class Character, the abstract class of Player and Bot??
-TODO Checkout babylon.JS bones and skeletons?
+TODO Checkout babylon.JS bones and skeletons!
 TODO Check cannonJs examples ? (human.js .. bones etc.)
-TODO Create class Bot that represents an enemy with one field for attitude.
+TODO Create class Character, the abstract class of Player and Bot??
 
 =========
 Secondary
