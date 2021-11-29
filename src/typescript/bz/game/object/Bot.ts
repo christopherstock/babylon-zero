@@ -118,21 +118,16 @@ export class Bot extends bz.GameObject
                     startupPosition
                 );
 
-                // dancingGirl.setVisible( true );
-                // dancingGirl.rotateAroundAxisX( 0.0, 0.0, -90.0 )
-
                 dancingGirl.scaleSize( new BABYLON.Vector3( 100.0, 100.0, 100.0 ) );
 
+                // @see https://playground.babylonjs.com/#AHQEIB#17
+/*
                 // get and play Samba animation Group
                 let sambaAnim :BABYLON.AnimationGroup = scene.getAnimationGroupByName( 'Samba' );
-                sambaAnim.reset();
-                sambaAnim = sambaAnim.clone( "Chrisy2" );
-                sambaAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
-
-
-
                 console.log( '> Samba Anim: ', sambaAnim );
-                console.log( '> Dancing Girl:', dancingGirl );
+                sambaAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
+*/
+                // scene.beginAnimation( dancingGirl.getMesh( 0 ).skeleton, 0, 10, true, 1.0 );
 
                 return dancingGirl;
             }

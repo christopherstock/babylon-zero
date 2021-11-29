@@ -55,7 +55,7 @@ export class ModelSystem
                 (
                     importedMeshes:BABYLON.AbstractMesh[],
                     particleSystems,
-                    skeletons,
+                    skeletons :BABYLON.Skeleton[],
                     animationGroups
                 ) => {
 
