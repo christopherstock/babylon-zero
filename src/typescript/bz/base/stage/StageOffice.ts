@@ -775,6 +775,7 @@ if ( true ) return;
         // add bot - walking towards player
         this.addBot(
             new bz.Bot(
+                0,
                 this,
                 bz.BotType.TEST_WALK_TOWARDS_PLAYER,
                 new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
@@ -784,20 +785,43 @@ if ( true ) return;
         // add bot - walking towards axis X
         this.addBot(
             new bz.Bot(
+                0,
                 this,
                 bz.BotType.TEST_WALK_X,
                 new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
             )
         );
 
-        // add bot - dancing girl on 0,0,0
+        // add bot 1 - dancing girl on 0,0,0
         this.addBot(
             new bz.Bot(
+                0.0,
                 this,
                 bz.BotType.TEST_DANCING_GIRL,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
             )
         );
+/*
+        // add bot 2 - dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                90.0,
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
+
+        // add bot 3 - dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                -90.0,
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
+*/
     }
 
     /** ****************************************************************************************************************
