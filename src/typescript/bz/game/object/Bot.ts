@@ -83,6 +83,10 @@ export class Bot extends bz.GameObject
             case bz.BotType.TEST_DANCING_GIRL:
             {
                 // do nothing!
+
+                // no effect
+                // this.model.translatePosition( new BABYLON.Vector3( -50 * 100.0, 50 * 100.0, 0 ) );
+
                 break;
             }
         }
@@ -118,7 +122,6 @@ export class Bot extends bz.GameObject
                 // dancingGirl.rotateAroundAxisX( 0.0, 0.0, -90.0 )
 
                 dancingGirl.scaleSize( new BABYLON.Vector3( 100.0, 100.0, 100.0 ) );
-                dancingGirl.translatePosition( new BABYLON.Vector3( -25 * 100.0, 25 * 100.0, 0 ) );
 
                 // get and play Samba animation Group
                 let sambaAnim :BABYLON.AnimationGroup = scene.getAnimationGroupByName( 'Samba' );
