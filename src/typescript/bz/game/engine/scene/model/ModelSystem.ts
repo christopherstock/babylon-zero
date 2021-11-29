@@ -52,7 +52,7 @@ export class ModelSystem
 
             bz.Debug.init.log( ' Import model file ' + file );
 
-            await BABYLON.SceneLoader.ImportMeshAsync
+            const createdModel :(bz.Model|void) = await BABYLON.SceneLoader.ImportMeshAsync
             (
                 // first parameter specifies the name of the mesh to import - empty string imports all meshes
                 '',
@@ -90,10 +90,10 @@ export class ModelSystem
                     }
 
                     // save in models array
-                    this.models[ fileName ] = new bz.Model( importedMeshes as any );
-                    this.models[ fileName ].extractPhysicsImpostors();
+                    const newModel :bz.Model = new bz.Model( importedMeshes as any );
+                    newModel.extractPhysicsImpostors();
 
-                    return this.models[ fileName ];
+                    return newModel;
                 }
 
             ).catch(
@@ -102,6 +102,9 @@ export class ModelSystem
                     bz.Debug.init.err( reason );
                 }
             );
+
+            // assign created model
+            this.models[ fileName ] = createdModel;
         }
 
         bz.Debug.init.log( '  Model import complete [' + String( this.fileNames.length ) + '] files' );
