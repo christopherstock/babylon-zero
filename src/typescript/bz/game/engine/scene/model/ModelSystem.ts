@@ -9,14 +9,14 @@ import 'babylonjs-loaders';
 ***********************************************************************************************************************/
 export class ModelSystem
 {
-    /** All model file names to load. */
+    /** All model file names to load. TODO remove! */
     private readonly fileNames              :string[]               = null;
-    /** The method to invoke when all model files are loaded. */
+    /** The method to invoke when all model files are loaded. TODO remove! */
     private readonly onLoadComplete         :()=>void               = null;
 
-    /** The number of currently loaded model files. */
+    /** The number of currently loaded model files. TODO remove! */
     private          loadedModelCount       :number                 = 0;
-    /** All loaded mesh objects. */
+    /** All loaded mesh objects. TODO remove! */
     private          models                 :bz.Model[]             = [];
 
     /** ****************************************************************************************************************
@@ -37,30 +37,40 @@ export class ModelSystem
     *   TODO maybe try to load not ALL models but only on demand? => blocking version of
     *        BABYLON.SceneLoader.ImportMesh via async await?
     *******************************************************************************************************************/
-    public load( scene:BABYLON.Scene ) : void
+    public async load( scene:BABYLON.Scene ) : Promise<any>
     {
         bz.Debug.init.log( ' Import [' + String( this.fileNames.length ) + '] model files' );
 
         for ( const fileName of this.fileNames )
         {
+            // TODO extract to separate method?
+
             const fullPath      :string = ( bz.SettingResource.PATH_MODEL + fileName );
             const lastSeparator :number = fullPath.lastIndexOf( '/' );
             const directory     :string = fullPath.substr( 0, lastSeparator + 1 );
             const file          :string = fullPath.substr( lastSeparator + 1 );
 
-            BABYLON.SceneLoader.ImportMesh
+            bz.Debug.init.log( ' Import model file ' + file );
+
+            await BABYLON.SceneLoader.ImportMeshAsync
             (
                 // first parameter specifies the name of the mesh to import - empty string imports all meshes
                 '',
                 directory,
                 file,
-                scene,
+                scene
+            ).then(
+
                 (
-                    importedMeshes:BABYLON.AbstractMesh[],
-                    particleSystems,
-                    skeletons :BABYLON.Skeleton[],
-                    animationGroups
+                    data :any
                 ) => {
+
+                    console.log( 'Mesh loaded successfully!' );
+
+                    const importedMeshes:BABYLON.AbstractMesh[]     = data.meshes;
+                    const particleSystems :BABYLON.ParticleSystem[] = data.particleSystems;
+                    const skeletons :BABYLON.Skeleton[]             = data.skeletons;
+                    const animationGroups :BABYLON.AnimationGroup[] = data.animationGroups;
 
                     bz.Debug.init.log(
                         '  Model file ' + file + ' imported. '
@@ -83,21 +93,22 @@ export class ModelSystem
                     this.models[ fileName ] = new bz.Model( importedMeshes as any );
                     this.models[ fileName ].extractPhysicsImpostors();
 
-                    // notify load
-                    this.onLoadModel();
-                },
-                null,
-                ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
+                    return this.models[ fileName ];
+                }
 
+            ).catch(
+                ( reason:any ) => {
                     bz.Debug.init.err( 'ERROR on model import [' + file + ']' );
-                    bz.Debug.init.err( callbackMessage );
-                    bz.Debug.init.err( callbackException );
-
-                    // simulate load
-                    // this.onLoadModel();
+                    bz.Debug.init.err( reason );
                 }
             );
         }
+
+        bz.Debug.init.log( '  Model import complete [' + String( this.fileNames.length ) + '] files' );
+
+        bz.Debug.init.log( 'All models (pre)loaded!' );
+
+        this.onLoadComplete();
     }
 
     /** ****************************************************************************************************************
@@ -108,18 +119,5 @@ export class ModelSystem
     public getOriginalModel( fileName:string ) : bz.Model
     {
         return this.models[ fileName ];
-    }
-
-    /** ****************************************************************************************************************
-    *   Being invoked when one mesh was loaded completely.
-    *******************************************************************************************************************/
-    private onLoadModel() : void
-    {
-        if ( ++this.loadedModelCount >= this.fileNames.length )
-        {
-            bz.Debug.init.log( '  Model import complete [' + String( this.fileNames.length ) + '] files' );
-
-            this.onLoadComplete();
-        }
     }
 }
