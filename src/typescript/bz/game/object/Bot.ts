@@ -210,6 +210,13 @@ walkingDude.getMesh( 5 ).isVisible = false;
 
 
 console.log( '> Walking Dude Mesh Count: ' + walkingDude.getMeshCount() );
+console.log( '> Walking Dude Mesh 0 submeshes: ', walkingDude.getMesh( 0 ).subMeshes );
+console.log( '> Walking Dude Mesh 1 submeshes: ', walkingDude.getMesh( 1 ).subMeshes );
+console.log( '> Walking Dude Mesh 2 submeshes: ', walkingDude.getMesh( 2 ).subMeshes );
+console.log( '> Walking Dude Mesh 3 submeshes: ', walkingDude.getMesh( 3 ).subMeshes );
+console.log( '> Walking Dude Mesh 4 submeshes: ', walkingDude.getMesh( 4 ).subMeshes );
+console.log( '> Walking Dude Mesh 5 submeshes: ', walkingDude.getMesh( 5 ).subMeshes );
+console.log( '> Walking Dude: ', walkingDude );
 
                 return walkingDude;
             }
