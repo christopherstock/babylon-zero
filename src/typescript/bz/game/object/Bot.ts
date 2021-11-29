@@ -89,6 +89,8 @@ export class Bot extends bz.GameObject
                 const BOT_SPEED_MOVE         :number = 0.1;
                 const MAX_DISTANCE_TO_PLAYER :number = 5.0;
 
+                const ANIMATE :boolean = false;
+
                 // TODO refactor to methods!
 
                 // face player
@@ -96,7 +98,6 @@ export class Bot extends bz.GameObject
                     this.position,
                     this.stage.getPlayer().getPosition()
                 );
-                this.model.setAbsoluteRotationXYZ( 0.0, ( -angleBetweenBotAndPlayer + 270.0 ), 0.0 );
 
                 // TODO refactor to methods!
 
@@ -118,26 +119,40 @@ export class Bot extends bz.GameObject
 
                     if ( !this.walking )
                     {
+if ( ANIMATE )
+{
                         this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 1 ).skeleton, 0, 100, true, 1.0 );
                         this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 2 ).skeleton, 0, 100, true, 1.0 );
                         this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 3 ).skeleton, 0, 100, true, 1.0 );
                         this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 4 ).skeleton, 0, 100, true, 1.0 );
                         this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 5 ).skeleton, 0, 100, true, 1.0 );
-
+}
                         this.walking = true;
                     }
+
+                    this.model.setAbsoluteRotationXYZ( 0.0, ( -angleBetweenBotAndPlayer + 270.0 ), 0.0 );
                 }
                 else
                 {
                     if ( this.walking )
                     {
+if ( ANIMATE )
+{
                         this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 1 ).skeleton );
                         this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 2 ).skeleton );
                         this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 3 ).skeleton );
                         this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 4 ).skeleton );
                         this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 5 ).skeleton );
 
+                        this.model.getMesh( 1 ).skeleton.returnToRest();
+                        this.model.getMesh( 2 ).skeleton.returnToRest();
+                        this.model.getMesh( 3 ).skeleton.returnToRest();
+                        this.model.getMesh( 4 ).skeleton.returnToRest();
+                        this.model.getMesh( 5 ).skeleton.returnToRest();
+}
                         this.walking = false;
+
+                        this.model.setAbsoluteRotationXYZ( 0.0, ( -angleBetweenBotAndPlayer + 90.0 ), 0.0 );
                     }
                 }
                 break;
@@ -182,7 +197,19 @@ export class Bot extends bz.GameObject
                     bz.ModelFile.TEST_WALKING_DUDE,
                     startupPosition
                 );
+
                 walkingDude.scaleSize( new BABYLON.Vector3( 0.1, 0.1, 0.1 ) );
+/*
+walkingDude.getMesh( 0 ).isVisible = false;
+walkingDude.getMesh( 1 ).isVisible = false;
+walkingDude.getMesh( 2 ).isVisible = false;
+walkingDude.getMesh( 3 ).isVisible = false;
+walkingDude.getMesh( 4 ).isVisible = false;
+walkingDude.getMesh( 5 ).isVisible = false;
+*/
+
+
+console.log( '> Walking Dude Mesh Count: ' + walkingDude.getMeshCount() );
 
                 return walkingDude;
             }

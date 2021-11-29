@@ -105,6 +105,15 @@ export class Model
     *******************************************************************************************************************/
     public applyRayCollision( ray:BABYLON.Ray ) : BABYLON.PickingInfo[]
     {
+        // TODO might help to update the mesh on animated models ..
+        if ( false )
+        {
+            for ( const mesh of this.meshes )
+            {
+                mesh.refreshBoundingInfo( true );
+            }
+        }
+
         return ray.intersectsMeshes(
             this.meshes as any
         );
