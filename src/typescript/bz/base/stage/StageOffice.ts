@@ -802,13 +802,22 @@ if ( true ) return;
             )
         );
 
-        // add bot 2 - walking dude
+        // add bot 2 - walking dude A
         this.addBot(
             new bz.Bot(
                 0.0,
                 this,
                 bz.BotType.TEST_WALKING_DUDE,
                 new BABYLON.Vector3( 20.0, 0.0, 20.0 )
+            )
+        );
+        // add bot 2 - walking dude B
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 10.0, 0.0, 25.0 )
             )
         );
 /*
