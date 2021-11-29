@@ -664,7 +664,16 @@ export class Model
             {
                 clonedMesh.skeleton = mesh.skeleton.clone( mesh.name + '-skeleton' );
             }
-
+/*
+            if ( mesh.subMeshes )
+            {
+                clonedMesh.subMeshes = [];
+                for ( const subMesh of mesh.subMeshes )
+                {
+                    clonedMesh.subMeshes.push( subMesh.clone( clonedMesh ) );
+                }
+            }
+*/
             clonedMeshes.push( clonedMesh );
         }
 
