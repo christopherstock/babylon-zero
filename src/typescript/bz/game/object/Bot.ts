@@ -87,7 +87,7 @@ export class Bot extends bz.GameObject
             {
                 // do nothing!
 
-                // this.model.setAbsoluteRotationXYZ( 0.0, this.test, 0.0 );
+                // this.model.setAbsoluteRotationXYZ( 90.0, this.test, 0.0 );
 
                 // no effect
                 // this.model.translatePosition( new BABYLON.Vector3( -50 * 100.0, 50 * 100.0, 0 ) );
@@ -126,7 +126,7 @@ export class Bot extends bz.GameObject
                 dancingGirl.scaleSize( new BABYLON.Vector3( 100.0, 100.0, 100.0 ) );
 
                 // @see https://playground.babylonjs.com/#AHQEIB#17
-
+/*
                 // get and play Samba animation Group
                 let sambaAnim :BABYLON.AnimationGroup = scene.getAnimationGroupByName( 'Samba' );
                 console.log( '> Samba Anim: ', sambaAnim );
@@ -134,8 +134,7 @@ export class Bot extends bz.GameObject
                 const newAnim :BABYLON.AnimationGroup = sambaAnim.clone( '' );
 
                 newAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
-
-
+*/
 
 //                scene.beginAnimation( dancingGirl.getMesh( 0 ).skeleton, 0, 10, true, 1.0 );
 

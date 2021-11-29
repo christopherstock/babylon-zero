@@ -8,6 +8,7 @@ MVP
 TODO Physical Bodies for Players?
 TODO 3D gun disappears in walls
 TODO try cloning via scene importer?
+TODO skeleton cloning: https://doc.babylonjs.com/divingDeeper/mesh/bonesSkeletons#cloning-bones
 TODO Add linked doors (wing doors)
 TODO smaller Doors
 TODO Door interaction on imported officeDesk3
