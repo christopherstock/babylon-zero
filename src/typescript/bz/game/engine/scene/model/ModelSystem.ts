@@ -43,58 +43,12 @@ export class ModelSystem
 
         for ( const fileName of this.fileNames )
         {
-            const fullPath      :string = ( bz.SettingResource.PATH_MODEL + fileName );
-            const lastSeparator :number = fullPath.lastIndexOf( '/' );
-            const directory     :string = fullPath.substr( 0, lastSeparator + 1 );
-            const file          :string = fullPath.substr( lastSeparator + 1 );
-
-            BABYLON.SceneLoader.ImportMesh
-            (
-                // first parameter specifies the name of the mesh to import - empty string imports all meshes
-                '',
-                directory,
-                file,
+            ModelSystem.importModel(
                 scene,
-                (
-                    importedMeshes:BABYLON.AbstractMesh[],
-                    particleSystems,
-                    skeletons :BABYLON.Skeleton[],
-                    animationGroups
-                ) => {
-
-                    bz.Debug.init.log(
-                        '  Model file ' + file + ' imported. '
-                        + 'Mesh count: ' + String( importedMeshes.length )
-                    );
-
-                    // hide all meshes
-                    for ( const importedMesh of importedMeshes )
-                    {
-                        importedMesh.isVisible = false;
-
-                        // disable backface culling by default
-                        if ( importedMesh.material !== null )
-                        {
-                            importedMesh.material.backFaceCulling = false;
-                        }
-                    }
-
-                // save in models array
-                const newModel :bz.Model = new bz.Model( importedMeshes as any );
-                newModel.extractPhysicsImpostors();
-
-                    // notify load
+                fileName,
+                ( model:bz.Model ) => {
+                    this.models[ fileName ] = model;
                     this.onLoadModel();
-                },
-                null,
-                ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
-
-                    bz.Debug.init.err( 'ERROR on model import [' + file + ']' );
-                    bz.Debug.init.err( callbackMessage );
-                    bz.Debug.init.err( callbackException );
-
-                    // simulate load
-                    // this.onLoadModel();
                 }
             );
         }
@@ -121,5 +75,63 @@ export class ModelSystem
 
             this.onLoadComplete();
         }
+    }
+
+    public static importModel( scene:BABYLON.Scene, fileName:string, onLoaded:( model:bz.Model ) => void ) : void
+    {
+        const fullPath      :string = ( bz.SettingResource.PATH_MODEL + fileName );
+        const lastSeparator :number = fullPath.lastIndexOf( '/' );
+        const directory     :string = fullPath.substr( 0, lastSeparator + 1 );
+        const file          :string = fullPath.substr( lastSeparator + 1 );
+
+        BABYLON.SceneLoader.ImportMesh
+        (
+            // first parameter specifies the name of the mesh to import - empty string imports all meshes
+            '',
+            directory,
+            file,
+            scene,
+            (
+                importedMeshes  :BABYLON.AbstractMesh[],
+                particleSystems :BABYLON.IParticleSystem[],
+                skeletons       :BABYLON.Skeleton[],
+                animationGroups :BABYLON.AnimationGroup[]
+            ) => {
+
+                bz.Debug.init.log(
+                    '  Model file ' + file + ' imported. '
+                    + 'Mesh count: ' + String( importedMeshes.length )
+                );
+
+                // hide all meshes
+                for ( const importedMesh of importedMeshes )
+                {
+                    importedMesh.isVisible = false;
+
+                    // disable backface culling by default
+                    if ( importedMesh.material !== null )
+                    {
+                        importedMesh.material.backFaceCulling = false;
+                    }
+                }
+
+                // save in models array
+                const newModel :bz.Model = new bz.Model( importedMeshes as any );
+                newModel.extractPhysicsImpostors();
+
+                // notify load
+                onLoaded( newModel );
+            },
+            null,
+            ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
+
+                bz.Debug.init.err( 'ERROR on model import [' + file + ']' );
+                bz.Debug.init.err( callbackMessage );
+                bz.Debug.init.err( callbackException );
+
+                // simulate load
+                onLoaded( null );
+            }
+        );
     }
 }
