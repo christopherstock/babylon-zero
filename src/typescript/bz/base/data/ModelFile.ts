@@ -29,7 +29,8 @@ export abstract class ModelFile
     public static readonly SHOTGUN_M1014                :string             = 'wearpon/shotgunM1014.babylon';
     public static readonly SOFA_1                       :string             = 'furniture/sofa1.babylon';
     public static readonly SPHERE_1                     :string             = 'furniture/sphere1.babylon';
-    public static readonly TEST_DANCING_GIRL            :string             = 'bot/HVGirl.glb';
+    public static readonly TEST_DANCING_GIRL            :string             = 'bot/testDancingGirl.glb';
+    public static readonly TEST_WALKING_DUDE            :string             = 'bot/testWalkingDude.babylon';
     public static readonly TRANSPALLET                  :string             = 'object/transpallet.babylon';
     public static readonly WASTE_CONTAINER              :string             = 'object/wasteContainer.babylon';
     public static readonly WOODEN_FENCE_1               :string             = 'house/woodenFence1.babylon';
@@ -68,6 +69,7 @@ export abstract class ModelFile
         ModelFile.SOFA_1,
         ModelFile.SPHERE_1,
         ModelFile.TEST_DANCING_GIRL,
+        ModelFile.TEST_WALKING_DUDE,
         ModelFile.TRANSPALLET,
         ModelFile.WASTE_CONTAINER,
         ModelFile.WOODEN_FENCE_1,

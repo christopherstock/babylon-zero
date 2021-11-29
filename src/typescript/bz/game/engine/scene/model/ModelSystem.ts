@@ -33,6 +33,9 @@ export class ModelSystem
 
     /** ****************************************************************************************************************
     *   Loads all specified model files into system memory.
+    *
+    *   TODO maybe try to load not ALL models but only on demand? => blocking version of
+    *        BABYLON.SceneLoader.ImportMesh via async await?
     *******************************************************************************************************************/
     public load( scene:BABYLON.Scene ) : void
     {

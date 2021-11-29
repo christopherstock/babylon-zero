@@ -801,17 +801,17 @@ if ( true ) return;
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
             )
         );
-/*
-        // add bot 2 - dancing girl on 0,0,0
+
+        // add bot 2 - walking dude
         this.addBot(
             new bz.Bot(
-                90.0,
+                0.0,
                 this,
-                bz.BotType.TEST_DANCING_GIRL,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 20.0, 0.0, 20.0 )
             )
         );
-
+/*
         // add bot 3 - dancing girl on 0,0,0
         this.addBot(
             new bz.Bot(

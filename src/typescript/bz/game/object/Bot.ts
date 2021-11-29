@@ -83,6 +83,14 @@ export class Bot extends bz.GameObject
                 break;
             }
 
+            case bz.BotType.TEST_WALKING_DUDE:
+            {
+                const delta :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.01 );
+                this.position.addInPlace( delta );
+                this.model.translatePosition( delta );
+                break;
+            }
+
             case bz.BotType.TEST_DANCING_GIRL:
             {
                 // do nothing!
@@ -115,6 +123,16 @@ export class Bot extends bz.GameObject
                     bz.ModelFile.CRATE,
                     startupPosition
                 );
+            }
+            case bz.BotType.TEST_WALKING_DUDE:
+            {
+                const walkingDude :bz.Model = meshFactory.createImportedModel(
+                    bz.ModelFile.TEST_WALKING_DUDE,
+                    startupPosition
+                );
+                walkingDude.scaleSize( new BABYLON.Vector3( 0.1, 0.1, 0.1 ) );
+
+                return walkingDude;
             }
             case bz.BotType.TEST_DANCING_GIRL:
             {
