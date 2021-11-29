@@ -7,7 +7,8 @@ export class Bot extends bz.GameObject
 {
     private type     :bz.BotType      = null;
     private position :BABYLON.Vector3 = null;
-    private test     :number = 0.0;
+    private test     :number          = 0.0;
+    private walking  :boolean         = false;
 
     /** ****************************************************************************************************************
     *   Creates a new bot instance.
@@ -95,7 +96,7 @@ export class Bot extends bz.GameObject
                     this.position,
                     this.stage.getPlayer().getPosition()
                 );
-                this.model.setAbsoluteRotationXYZ( 0.0, ( -angleBetweenBotAndPlayer + 90.0 ), 0.0 );
+                this.model.setAbsoluteRotationXYZ( 0.0, ( -angleBetweenBotAndPlayer + 270.0 ), 0.0 );
 
                 // TODO refactor to methods!
 
@@ -114,6 +115,30 @@ export class Bot extends bz.GameObject
                     );
                     this.position.addInPlace( delta );
                     this.model.translatePosition( delta );
+
+                    if ( !this.walking )
+                    {
+                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 1 ).skeleton, 0, 100, true, 1.0 );
+                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 2 ).skeleton, 0, 100, true, 1.0 );
+                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 3 ).skeleton, 0, 100, true, 1.0 );
+                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 4 ).skeleton, 0, 100, true, 1.0 );
+                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 5 ).skeleton, 0, 100, true, 1.0 );
+
+                        this.walking = true;
+                    }
+                }
+                else
+                {
+                    if ( this.walking )
+                    {
+                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 1 ).skeleton );
+                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 2 ).skeleton );
+                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 3 ).skeleton );
+                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 4 ).skeleton );
+                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 5 ).skeleton );
+
+                        this.walking = false;
+                    }
                 }
                 break;
             }

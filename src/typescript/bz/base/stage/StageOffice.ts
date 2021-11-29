@@ -811,6 +811,7 @@ if ( true ) return;
                 new BABYLON.Vector3( 20.0, 0.0, 20.0 )
             )
         );
+/*
         // add bot 2 - walking dude B
         this.addBot(
             new bz.Bot(
@@ -820,6 +821,7 @@ if ( true ) return;
                 new BABYLON.Vector3( 10.0, 0.0, 25.0 )
             )
         );
+*/
 /*
         // add bot 3 - dancing girl on 0,0,0
         this.addBot(
