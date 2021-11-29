@@ -18,6 +18,7 @@ export class Bot extends bz.GameObject
         super(
             stage,
             Bot.createModel(
+                type,
                 new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ),
                 startupPosition
             )
@@ -82,13 +83,27 @@ export class Bot extends bz.GameObject
     *
     *   @return The model that represents this bot.
     *******************************************************************************************************************/
-    private static createModel( meshFactory:bz.MeshFactory, startupPosition:BABYLON.Vector3 ) : bz.Model
+    private static createModel( botType:bz.BotType, meshFactory:bz.MeshFactory, startupPosition:BABYLON.Vector3 ) : bz.Model
     {
-        const model :bz.Model = meshFactory.createImportedModel(
-            bz.ModelFile.CRATE,
-            startupPosition
-        );
+        switch ( botType )
+        {
+            case bz.BotType.TEST_WALK_X:
+            {
+                return meshFactory.createImportedModel(
+                    bz.ModelFile.CRATE,
+                    // bz.ModelFile.TEST_DANCING_GIRL,
+                    startupPosition
+                );
+            }
+            case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
+            {
+                return meshFactory.createImportedModel(
+                    bz.ModelFile.TEST_DANCING_GIRL,
+                    startupPosition
+                );
+            }
+        }
 
-        return model;
+        return null;
     }
 }

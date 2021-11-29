@@ -1,6 +1,8 @@
 // noinspection JSUnusedLocalSymbols
 
 import * as bz from '../../../..';
+import * as BABYLON from 'babylonjs'
+import 'babylonjs-loaders';
 
 /** ********************************************************************************************************************
 *   Imports all .babylon model files from 3ds max.
@@ -45,14 +47,19 @@ export class ModelSystem
 
             BABYLON.SceneLoader.ImportMesh
             (
-                // first parameter specifies the name of the mesh to import - an empty string will import all meshes
+                // first parameter specifies the name of the mesh to import - empty string imports all meshes
                 '',
                 directory,
                 file,
                 scene,
-                ( importedMeshes:BABYLON.AbstractMesh[] ) => {
+                (
+                    importedMeshes:BABYLON.AbstractMesh[],
+                    particleSystems,
+                    skeletons,
+                    animationGroups
+                ) => {
 
-                    // bz.Debug.init.log( '  Imported [' + importedMeshes.length + '] meshes' );
+                    bz.Debug.init.log( '  One model imported. Mesh count: ' + String( importedMeshes.length ) );
 
                     // hide all meshes
                     for ( const importedMesh of importedMeshes )
@@ -67,7 +74,7 @@ export class ModelSystem
                     }
 
                     // save in models array
-                    this.models[ fileName ] = new bz.Model( importedMeshes );
+                    this.models[ fileName ] = new bz.Model( importedMeshes as any );
                     this.models[ fileName ].extractPhysicsImpostors();
 
                     // notify load
@@ -81,7 +88,7 @@ export class ModelSystem
                     bz.Debug.init.err( callbackException );
 
                     // simulate load
-                    this.onLoadModel();
+                    // this.onLoadModel();
                 }
             );
         }

@@ -236,6 +236,6 @@ export class Scene
             bz.ModelFile.ALL_MESH_FILES,
             this.onLoadingComplete
         );
-        this.modelSystem.load( this.babylonScene );
+        this.modelSystem.load( this.babylonScene as any );
     }
 }
