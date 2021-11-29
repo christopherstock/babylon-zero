@@ -43,7 +43,7 @@ export class ModelSystem
             const fullPath      :string = ( bz.SettingResource.PATH_MODEL + fileName );
             const lastSeparator :number = fullPath.lastIndexOf( '/' );
             const directory     :string = fullPath.substr( 0, lastSeparator + 1 );
-            const file          :string = fullPath.substr( lastSeparator    + 1 );
+            const file          :string = fullPath.substr( lastSeparator + 1 );
 
             BABYLON.SceneLoader.ImportMesh
             (
@@ -59,7 +59,10 @@ export class ModelSystem
                     animationGroups
                 ) => {
 
-                    bz.Debug.init.log( '  One model imported. Mesh count: ' + String( importedMeshes.length ) );
+                    bz.Debug.init.log(
+                        '  Model file ' + file + ' imported. '
+                        + 'Mesh count: ' + String( importedMeshes.length )
+                    );
 
                     // hide all meshes
                     for ( const importedMesh of importedMeshes )

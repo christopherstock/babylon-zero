@@ -658,6 +658,13 @@ export class Model
 
             // clone this mesh ( without a physics impostor )
             const clonedMesh:BABYLON.AbstractMesh = mesh.clone( mesh.name, null );
+
+            // clone all skeletons if available
+            if ( mesh.skeleton )
+            {
+                clonedMesh.skeleton = mesh.skeleton.clone( mesh.name + '-skeleton' );
+            }
+
             clonedMeshes.push( clonedMesh );
         }
 
