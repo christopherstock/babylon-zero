@@ -5,4 +5,5 @@ export enum BotType
 {
     TEST_WALK_X,
     TEST_WALK_TOWARDS_PLAYER,
+    TEST_DANCING_GIRL,
 }

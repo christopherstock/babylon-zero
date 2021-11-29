@@ -790,6 +790,14 @@ if ( true ) return;
             )
         );
 
+        // add bot - dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
     }
 
     /** ****************************************************************************************************************

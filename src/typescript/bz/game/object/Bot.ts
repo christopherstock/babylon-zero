@@ -18,8 +18,14 @@ export class Bot extends bz.GameObject
         super(
             stage,
             Bot.createModel(
+                stage.getScene().getNativeScene(),
                 type,
-                new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ),
+                new bz.MeshFactory(
+                    stage.getScene(),
+                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
+                    // bz.SettingColor.COLOR_RGB_WHITE
+                    // stage.getConfig().ambientColor
+                ),
                 startupPosition
             )
         );
@@ -73,6 +79,12 @@ export class Bot extends bz.GameObject
                 this.model.translatePosition( delta );
                 break;
             }
+
+            case bz.BotType.TEST_DANCING_GIRL:
+            {
+                // do nothing!
+                break;
+            }
         }
     }
 
@@ -83,24 +95,43 @@ export class Bot extends bz.GameObject
     *
     *   @return The model that represents this bot.
     *******************************************************************************************************************/
-    private static createModel( botType:bz.BotType, meshFactory:bz.MeshFactory, startupPosition:BABYLON.Vector3 ) : bz.Model
+    private static createModel( scene:BABYLON.Scene, botType:bz.BotType, meshFactory:bz.MeshFactory, startupPosition:BABYLON.Vector3 ) : bz.Model
     {
         switch ( botType )
         {
             case bz.BotType.TEST_WALK_X:
-            {
-                return meshFactory.createImportedModel(
-                    bz.ModelFile.CRATE,
-                    // bz.ModelFile.TEST_DANCING_GIRL,
-                    startupPosition
-                );
-            }
             case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
             {
                 return meshFactory.createImportedModel(
+                    bz.ModelFile.CRATE,
+                    startupPosition
+                );
+            }
+            case bz.BotType.TEST_DANCING_GIRL:
+            {
+                const dancingGirl :bz.Model = meshFactory.createImportedModel(
                     bz.ModelFile.TEST_DANCING_GIRL,
                     startupPosition
                 );
+
+                // dancingGirl.setVisible( true );
+                // dancingGirl.rotateAroundAxisX( 0.0, 0.0, -90.0 )
+
+                dancingGirl.scaleSize( new BABYLON.Vector3( 100.0, 100.0, 100.0 ) );
+                dancingGirl.translatePosition( new BABYLON.Vector3( -25 * 100.0, 25 * 100.0, 0 ) );
+
+                // get and play Samba animation Group
+                let sambaAnim :BABYLON.AnimationGroup = scene.getAnimationGroupByName( 'Samba' );
+                sambaAnim.reset();
+                sambaAnim = sambaAnim.clone( "Chrisy2" );
+                sambaAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
+
+
+
+                console.log( '> Samba Anim: ', sambaAnim );
+                console.log( '> Dancing Girl:', dancingGirl );
+
+                return dancingGirl;
             }
         }
 
