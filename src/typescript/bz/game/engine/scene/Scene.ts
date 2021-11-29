@@ -45,8 +45,8 @@ export class Scene
         // enable debug collisions for free debug camera
         this.babylonScene.collisionsEnabled = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
 
-        // show the babylon.JS debug layer
-        if ( bz.SettingDebug.SHOW_SCENE_DEBUG_PANEL )
+        // show the babylon.JS debug scene explorer
+        if ( bz.SettingDebug.SHOW_SCENE_DEBUG_SCENE_EXPLORER )
         {
             this.babylonScene.debugLayer.show().then(
                 () :void => {

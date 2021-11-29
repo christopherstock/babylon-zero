@@ -29,7 +29,7 @@ export abstract class SettingDebug
     /** Show the bounding boxes for all meshes. */
     public static readonly SHOW_MESH_BOUNDING_BOXES                :boolean            = ( false && SettingDebug.DEBUG_MODE );
     /** Show the babylon.JS scene debug panel. */
-    public static readonly SHOW_SCENE_DEBUG_PANEL                  :boolean            = ( false && SettingDebug.DEBUG_MODE );
+    public static readonly SHOW_SCENE_DEBUG_SCENE_EXPLORER          :boolean            = ( false && SettingDebug.DEBUG_MODE );
     /** Show the shot debug lines. */
     public static readonly SHOW_SHOT_LINES_AND_COLLISIONS          :boolean            = ( false && SettingDebug.DEBUG_MODE );
     /** Show the shot debug bullet holes. */
