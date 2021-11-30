@@ -81,10 +81,7 @@ export class StageOutside extends bz.Stage
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        for ( const pointLight of pointLights )
-        {
-            this.addLight( pointLight );
-        }
+        this.addLight( pointLights );
 
         // point light in 2nd office
         const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
@@ -94,10 +91,7 @@ export class StageOutside extends bz.Stage
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        for ( const pointLight2 of pointLights2 )
-        {
-            this.addLight( pointLight2 );
-        }
+        this.addLight( pointLights2 );
     }
 
     /** ****************************************************************************************************************

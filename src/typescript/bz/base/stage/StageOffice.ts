@@ -72,10 +72,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        for ( const pointLight of pointLights )
-        {
-            this.addLight( pointLight );
-        }
+        this.addLight( pointLights );
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
@@ -365,7 +362,7 @@ export class StageOffice extends bz.Stage
         );
 */
         // hemispheric light
-        const hemisphericLight :BABYLON.HemisphericLight[] = bz.LightFactory.createHemispheric
+        const hemisphericLights :BABYLON.HemisphericLight[] = bz.LightFactory.createHemispheric
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
@@ -374,10 +371,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
             0.3
         );
-        for ( const light of hemisphericLight )
-        {
-            this.addLight( light );
-        }
+        this.addLight( hemisphericLights );
 /*
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
@@ -578,33 +572,33 @@ if ( true ) return;
 
         this.addStuffWalls(  meshFactory, pointLight );
 
-        this.addTreeSprites(  meshFactory );
+*/
+        this.addTreeSprites( meshFactory );
 
-        // add 5 items
+        // add some items
         this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
-                bz.ItemType.BULLETS_792MM
-            )
+            [
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
+                    bz.ItemType.BULLETS_792MM
+                ),
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
+                    bz.ItemType.SHOTGUN_SHELLS
+                ),
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
+                    bz.ItemType.BULLETS_792MM
+                ),
+            ]
         );
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
-                bz.ItemType.SHOTGUN_SHELLS
-            )
-        );
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
-                bz.ItemType.BULLETS_792MM
-            )
-        );
+/*
         this.addCollectable(
             new bz.Item
             (
@@ -708,10 +702,7 @@ if ( true ) return;
 
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
-        for ( const pointLight2 of pointLights2 )
-        {
-            this.addLight( pointLight2 );
-        }
+        this.addLight( pointLights2 );
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
@@ -1158,56 +1149,52 @@ if ( true ) return;
         this.addSprite( animatedTestSprite );
 
         this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.PALM,
-                new BABYLON.Vector3( 130.0, 0.0, 10.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5,
-                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                bz.MathUtil.getRandomInt( -10.0, 10.0 )
-            )
-        );
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.TREE,
-                new BABYLON.Vector3( 130.0, 0.0, 20.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5
-            )
-        );
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.PALM,
-                new BABYLON.Vector3( 140.0, 0.0, 20.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5,
-                bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                bz.MathUtil.getRandomInt( -10.0, 10.0 )
-            )
-        );
-        this.addSprite(
-            new bz.Sprite
-            (
-                this.getScene(),
-                bz.SpriteFile.TREE,
-                new BABYLON.Vector3( 140.0, 0.0, 10.0 ),
-                10.0,
-                10.0,
-                bz.SpriteCollidable.YES,
-                0.5
-            )
+            [
+                new bz.Sprite
+                (
+                    this.getScene(),
+                    bz.SpriteFile.PALM,
+                    new BABYLON.Vector3( 130.0, 0.0, 10.0 ),
+                    10.0,
+                    10.0,
+                    bz.SpriteCollidable.YES,
+                    0.5,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MathUtil.getRandomInt( -10.0, 10.0 )
+                ),
+                new bz.Sprite
+                (
+                    this.getScene(),
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 130.0, 0.0, 20.0 ),
+                    10.0,
+                    10.0,
+                    bz.SpriteCollidable.YES,
+                    0.5
+                ),
+                new bz.Sprite
+                (
+                    this.getScene(),
+                    bz.SpriteFile.PALM,
+                    new BABYLON.Vector3( 140.0, 0.0, 20.0 ),
+                    10.0,
+                    10.0,
+                    bz.SpriteCollidable.YES,
+                    0.5,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                    bz.MathUtil.getRandomInt( -10.0, 10.0 )
+                ),
+                new bz.Sprite
+                (
+                    this.getScene(),
+                    bz.SpriteFile.TREE,
+                    new BABYLON.Vector3( 140.0, 0.0, 10.0 ),
+                    10.0,
+                    10.0,
+                    bz.SpriteCollidable.YES,
+                    0.5
+                ),
+            ]
         );
     }
 

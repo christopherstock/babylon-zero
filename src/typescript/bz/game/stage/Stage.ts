@@ -437,18 +437,6 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a wall to the stage.
-    *
-    *   TODO allow array param
-    *
-    *   @param wall The wall to add to this stage.
-    *******************************************************************************************************************/
-    public addWall( wall:bz.Wall ) : void
-    {
-        this.walls.push( wall );
-    }
-
-    /** ****************************************************************************************************************
     *   Returns the according scene.
     *
     *   @return The scene this stage belongs to.
@@ -466,6 +454,119 @@ export abstract class Stage
     public getConfig() : bz.StageConfig
     {
         return this.config;
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds walls to the stage.
+    *
+    *   @param walls The walls to add to this stage.
+    *******************************************************************************************************************/
+    public addWall( walls:(bz.Wall[]|bz.Wall) ) : void
+    {
+        if ( !Array.isArray( walls ) )
+        {
+            walls = [ walls ];
+        }
+
+        for ( const wall of walls )
+        {
+            this.walls.push( wall );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a sprite to the stage.
+    *
+    *   @param sprites The sprites to add to this stage.
+    *******************************************************************************************************************/
+    protected addSprite( sprites:(bz.Sprite[]|bz.Sprite) ) : void
+    {
+        if ( !Array.isArray( sprites ) )
+        {
+            sprites = [ sprites ];
+        }
+
+        for ( const sprite of sprites )
+        {
+            this.sprites.push( sprite );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds collectables to the stage.
+    *
+    *   @param collectables The collectables to add to this stage.
+    *******************************************************************************************************************/
+    protected addCollectable( collectables:(bz.Collectable[]|bz.Collectable) ) : void
+    {
+        if ( !Array.isArray( collectables ) )
+        {
+            collectables = [ collectables ];
+        }
+
+        for ( const collectable of collectables )
+        {
+            this.collectables.push( collectable );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a light to the stage.
+    *
+    *   @param lights The lights to add to this stage.
+    *******************************************************************************************************************/
+    protected addLight( lights:(BABYLON.Light[]|BABYLON.Light) ) : void
+    {
+        if ( !Array.isArray( lights ) )
+        {
+            lights = [ lights ];
+        }
+
+        for ( const light of lights )
+        {
+            this.lights.push( light );
+        }
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+
+    /** ****************************************************************************************************************
+    *   Adds a bot to the stage.
+    *
+    *   TODO allow array param
+    *
+    *   @param bot The bot to add to this stage.
+    *******************************************************************************************************************/
+    protected addBot( bot:bz.Bot ) : void
+    {
+        this.bots.push( bot );
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+
+    /** ****************************************************************************************************************
+    *   Adds a shadow generator for the specified shadow light.
+    *******************************************************************************************************************/
+    protected addShadowGenerator( light:BABYLON.IShadowLight ) : void
+    {
+        if ( !bz.SettingEngine.ENABLE_SHADOWS )
+        {
+            return;
+        }
+
+        const shadowGenerator:BABYLON.ShadowGenerator = new BABYLON.ShadowGenerator( 2048, light );
+        shadowGenerator.useExponentialShadowMap = true;
+        shadowGenerator.usePoissonSampling      = true;
+
+        this.shadowGenerators.push( shadowGenerator );
+
+        // set shadows for all walls (best quality but costs lots of performance)
+        for ( const wall of this.walls )
+        {
+            wall.getModel().applyShadowGenerator( shadowGenerator );
+        }
+        // also working for single models, testwise
+        // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
     }
 
     /** ****************************************************************************************************************
@@ -521,83 +622,6 @@ export abstract class Stage
                 // no need to handle this error
             }
         )
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds a sprite to the stage.
-    *
-    *   TODO allow array param
-    *
-    *   @param sprite The sprite to add to this stage.
-    *******************************************************************************************************************/
-    protected addSprite( sprite:bz.Sprite ) : void
-    {
-        this.sprites.push( sprite );
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds a collectable to the stage.
-    *
-    *   TODO allow array param
-    *
-    *   @param collectable The collectable to add to this stage.
-    *******************************************************************************************************************/
-    protected addCollectable(collectable:bz.Collectable ) : void
-    {
-        this.collectables.push( collectable );
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds a light to the stage.
-    *
-    *   TODO allow array param
-    *
-    *   @param light The light to add to this stage.
-    *******************************************************************************************************************/
-    protected addLight( light:BABYLON.Light ) : void
-    {
-        this.lights.push( light );
-    }
-
-    // noinspection JSUnusedGlobalSymbols
-
-    /** ****************************************************************************************************************
-    *   Adds a bot to the stage.
-    *
-    *   TODO allow array param
-    *
-    *   @param bot The bot to add to this stage.
-    *******************************************************************************************************************/
-    protected addBot( bot:bz.Bot ) : void
-    {
-        this.bots.push( bot );
-    }
-
-    // noinspection JSUnusedGlobalSymbols
-
-    /** ****************************************************************************************************************
-    *   Adds a shadow generator for the specified shadow light.
-    *******************************************************************************************************************/
-    protected addShadowGenerator( light:BABYLON.IShadowLight ) : void
-    {
-        if ( !bz.SettingEngine.ENABLE_SHADOWS )
-        {
-            return;
-        }
-
-        const shadowGenerator:BABYLON.ShadowGenerator = new BABYLON.ShadowGenerator( 2048, light );
-        shadowGenerator.useExponentialShadowMap = true;
-        shadowGenerator.usePoissonSampling      = true;
-
-        this.shadowGenerators.push( shadowGenerator );
-
-        // set shadows for all walls (best quality but costs lots of performance)
-        for ( const wall of this.walls )
-        {
-            wall.getModel().applyShadowGenerator( shadowGenerator );
-        }
-        // also working for single models, testwise
-        // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
     }
 
     /** ****************************************************************************************************************

@@ -260,7 +260,7 @@ export abstract class StageFactory
             roomWalls.push( floor );
         }
 
-        // rotate ALL walls around pivot and add all walls to stage
+        // rotate ALL walls around pivot
         for ( const roomWall of roomWalls )
         {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
@@ -270,8 +270,10 @@ export abstract class StageFactory
                 roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
             }
 
-            stage.addWall( roomWall );
         }
+
+        // add all room walls to stage
+        stage.addWall( roomWalls );
     }
 
     /** ****************************************************************************************************************

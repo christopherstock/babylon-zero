@@ -5,20 +5,20 @@
 ===
 MVP
 ===
-TODO Add linked doors (wing doors)
 TODO Create staircase.
+TODO Add linked doors (wing doors)
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Create realistic models and lights.
 TODO Clean up StageOffice contents
 TODO smaller Doors?
+
+TODO Performance: Try hi-res textures? 512 or 1024 ?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Add explosion effects via sprites.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Door interaction on imported officeDesk3?
-TODO Performance: Try hi-res textures? 512 or 1024 ?
-TODO Physical Bodies for Bots?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
 TODO Reset Git Repository?
@@ -26,6 +26,7 @@ TODO Reset Git Repository?
 ==
 Fx
 ==
+TODO Physical Bodies for Bots?
 TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
 TODO Particle FX (physical) for wall rubble!
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations

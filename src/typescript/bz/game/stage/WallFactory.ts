@@ -94,11 +94,13 @@ export abstract class WallFactory
             z += FENCE_WIOTH;
         }
 
-        // rotate all fence walls around pivot and add all walls to stage
+        // rotate all fence walls around pivot
         for ( const fenceWall of fenceWalls )
         {
             fenceWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
-            stage.addWall( fenceWall );
         }
+
+        // add fence walls to stage
+        stage.addWall( fenceWalls );
     }
 }
