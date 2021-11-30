@@ -33,4 +33,38 @@ export abstract class WallFactory
             bz.MathUtil.getRandomInt( bz.SettingGame.CRATE_MIN_ENERGY, bz.SettingGame.CRATE_MAX_ENERGY )
         )
     }
+
+    /** ****************************************************************************************************************
+    *   Creates a fence.
+    *
+    *   @param stage       Stage to create the fence in.
+    *   @param meshFactory The meshFactory for model creation.
+    *   @param position    The initial position of the fence.
+    *   @param ids         The id of the fence.
+    *
+    *   @return The created wooden crate.
+    *******************************************************************************************************************/
+    public static createFence(
+        stage              :bz.Stage,
+        meshFactory        :bz.MeshFactory,
+        position           :BABYLON.Vector3,
+        ids                :number[],
+        rotY               :number
+    )
+    : void
+    {
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.WOODEN_FENCE_1,
+                    position,
+                    bz.PhysicSet.SHELVES,
+                    rotY
+                )
+            )
+        );
+    }
 }
