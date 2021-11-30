@@ -195,9 +195,9 @@ export class StageOffice extends bz.Stage
         bz.WallFactory.createFence(
             this,
             meshFactory,
-            new BABYLON.Vector3( 10.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( ( 5 * 8.5 ), 0.0, 0.0 ),
             [ 1, 2, 3, 4, 5 ],
-            90.0
+            -90.0
         );
 /*
         // big bin
@@ -710,6 +710,7 @@ if ( true ) return;
         // add shadows for point light
         this.addShadowGenerator( pointLight );
 */
+/*
         // add bot - walking towards player
         this.addBot(
             new bz.Bot(
@@ -777,7 +778,7 @@ if ( true ) return;
                 new BABYLON.Vector3( 40.5, 0.0, 55.0 )
             )
         );
-
+*/
 /*
         // add bot 3 - dancing girl on 0,0,0
         this.addBot(

@@ -54,8 +54,11 @@ export abstract class WallFactory
     )
     : void
     {
-        const anchor :BABYLON.Vector3 = position.clone();
-        let   x      :number          = position.x;
+        const fenceWalls  :bz.Wall[]       = [];
+
+        const FENCE_WIOTH :number          = 8.5;
+        const anchor      :BABYLON.Vector3 = position.clone();
+        let   z           :number          = position.z;
 
         for ( const id of ids )
         {
@@ -74,21 +77,28 @@ export abstract class WallFactory
                 }
             }
 
-            stage.addWall(
+            fenceWalls.push(
                 new bz.Wall
                 (
                     stage,
                     meshFactory.createImportedModel
                     (
                         fileName,
-                        new BABYLON.Vector3( x, anchor.y, anchor.z ),
+                        new BABYLON.Vector3( anchor.x, anchor.y, z + ( FENCE_WIOTH / 2 ) ),
                         bz.PhysicSet.SHELVES,
-                        rotY
+                        0.0
                     )
                 )
             );
 
-            x += 8.5;
+            z += FENCE_WIOTH;
+        }
+
+        // rotate all fence walls around pivot and add all walls to stage
+        for ( const fenceWall of fenceWalls )
+        {
+            fenceWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
+            stage.addWall( fenceWall );
         }
     }
 }

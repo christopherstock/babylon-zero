@@ -106,11 +106,12 @@ export class ModelSystem
                 animationGroups :BABYLON.AnimationGroup[]
             ) =>
             {
+/*
                 bz.Debug.init.log(
                     '  Model file ' + file + ' imported. '
                     + 'Mesh count: ' + String( importedMeshes.length )
                 );
-
+*/
                 // hide all meshes
                 for ( const importedMesh of importedMeshes )
                 {
