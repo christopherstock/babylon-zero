@@ -6,13 +6,13 @@ import * as bz from '../..';
 export class Player extends bz.GameObject
 {
     // TODO move to PlayerWearpon
-    private static readonly SHOTGUN_NOISE_X      = 0.05;
-    private static readonly SHOTGUN_NOISE_Y      = 0.05;
-    private static readonly MAX_SHOTGUN_ROT_X    = 12.5;
-    private static readonly MAX_SHOTGUN_ROT_Y    = 10.0;
-    private static readonly SHOTGUN_ROT_SPEED_X  = 0.20;
-    private static readonly SHOTGUN_ROT_SPEED_Y  = 0.20;
-    private static readonly SHOTGUN_CENTER_SPEED = 1.00;
+    private static readonly SHOTGUN_NOISE_X      :number = 0.05;
+    private static readonly SHOTGUN_NOISE_Y      :number = 0.05;
+    private static readonly MAX_SHOTGUN_ROT_X    :number = 12.5;
+    private static readonly MAX_SHOTGUN_ROT_Y    :number = 10.0;
+    private static readonly SHOTGUN_ROT_SPEED_X  :number = 0.20;
+    private static readonly SHOTGUN_ROT_SPEED_Y  :number = 0.20;
+    private static readonly SHOTGUN_CENTER_SPEED :number = 1.00;
 
     /** The current height of the player. Changes on ducking. */
     private          heightY            :number             = 0.0;
@@ -551,24 +551,36 @@ export class Player extends bz.GameObject
             }
             else
             {
-                if ( this.rotationDelta.y < 0.0 ) {
+                if ( this.rotationDelta.y < 0.0 )
+                {
                     this.targetShotgunRotY += Player.SHOTGUN_NOISE_Y * -this.rotationDelta.y;
-                    if ( this.targetShotgunRotY > Player.MAX_SHOTGUN_ROT_Y ) this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
-                } else {
+                    if ( this.targetShotgunRotY > Player.MAX_SHOTGUN_ROT_Y )
+                    {
+                        this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
+                    }
+                }
+                else
+                {
                     this.targetShotgunRotY -= Player.SHOTGUN_NOISE_Y * this.rotationDelta.y;
-                    if ( this.targetShotgunRotY < -Player.MAX_SHOTGUN_ROT_Y ) this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
+                    if ( this.targetShotgunRotY < -Player.MAX_SHOTGUN_ROT_Y )
+                    {
+                        this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
+                    }
                 }
             }
 
             this.rotation.y = bz.MathUtil.normalizeAngleDegrees( this.rotation.y + this.rotationDelta.y );
             this.rotationDelta.y = 0.0;
-        } else {
+        }
+        else
+        {
             this.targetShotgunRotY = 0.0;
         }
 
         if ( this.rotationDelta.z !== 0.0 )
         {
-            if ( this.rotationDelta.z < 0.0 ) {
+            if ( this.rotationDelta.z < 0.0 )
+            {
                 if ( this.rotation.z === -bz.SettingPlayer.MAX_ROT_Z )
                 {
                     this.targetShotgunRotX = 0;
@@ -584,7 +596,10 @@ export class Player extends bz.GameObject
                     else
                     {
                         this.targetShotgunRotX -= Player.SHOTGUN_NOISE_X * this.rotationDelta.z;
-                        if ( this.targetShotgunRotX < -Player.MAX_SHOTGUN_ROT_X ) this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
+                        if ( this.targetShotgunRotX < -Player.MAX_SHOTGUN_ROT_X )
+                        {
+                            this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
+                        }
                     }
 
                     if ( this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
@@ -592,7 +607,9 @@ export class Player extends bz.GameObject
                         this.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
                     }
                 }
-            } else if ( this.rotationDelta.z > 0.0 ) {
+            }
+            else if ( this.rotationDelta.z > 0.0 )
+            {
                 if ( this.rotation.z === bz.SettingPlayer.MAX_ROT_Z )
                 {
                     this.targetShotgunRotX = 0;
@@ -608,7 +625,10 @@ export class Player extends bz.GameObject
                     else
                     {
                         this.targetShotgunRotX += Player.SHOTGUN_NOISE_X * -this.rotationDelta.z;
-                        if ( this.targetShotgunRotX > Player.MAX_SHOTGUN_ROT_X ) this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
+                        if ( this.targetShotgunRotX > Player.MAX_SHOTGUN_ROT_X )
+                        {
+                            this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
+                        }
                     }
 
                     if ( this.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
@@ -1007,23 +1027,57 @@ export class Player extends bz.GameObject
     }
 
     // TODO to new class PlayerWearpon, analog to PlayerBody
+
+    /** ****************************************************************************************************************
+    *   Rotates the wearpon according to the current wearpon target rotation.
+    *******************************************************************************************************************/
     private updateShotgunRotation() : void
     {
-        if ( this.targetShotgunRotX > this.shotgunRotX ) {
-            this.shotgunRotX += ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X );
-            if ( this.shotgunRotX > this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
-        } else if ( this.targetShotgunRotX < this.shotgunRotX ) {
-            this.shotgunRotX -= ( this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X );
-            if ( this.shotgunRotX < this.targetShotgunRotX ) this.shotgunRotX = this.targetShotgunRotX;
+        if ( this.targetShotgunRotX > this.shotgunRotX )
+        {
+            this.shotgunRotX += (
+                this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X
+            );
+            if ( this.shotgunRotX > this.targetShotgunRotX )
+            {
+                this.shotgunRotX = this.targetShotgunRotX;
+            }
         }
-        if ( this.targetShotgunRotY > this.shotgunRotY ) {
-            this.shotgunRotY += ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y );
-            if ( this.shotgunRotY > this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
-        } else if ( this.targetShotgunRotY < this.shotgunRotY ) {
-            this.shotgunRotY -= ( this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y );
-            if ( this.shotgunRotY < this.targetShotgunRotY ) this.shotgunRotY = this.targetShotgunRotY;
+        else if ( this.targetShotgunRotX < this.shotgunRotX )
+        {
+            this.shotgunRotX -= (
+                this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X
+            );
+            if ( this.shotgunRotX < this.targetShotgunRotX )
+            {
+                this.shotgunRotX = this.targetShotgunRotX;
+            }
+        }
+        if ( this.targetShotgunRotY > this.shotgunRotY )
+        {
+            this.shotgunRotY += (
+                this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y
+            );
+            if ( this.shotgunRotY > this.targetShotgunRotY )
+            {
+                this.shotgunRotY = this.targetShotgunRotY;
+            }
+        }
+        else if ( this.targetShotgunRotY < this.shotgunRotY )
+        {
+            this.shotgunRotY -= (
+                this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y
+            );
+            if ( this.shotgunRotY < this.targetShotgunRotY )
+            {
+                this.shotgunRotY = this.targetShotgunRotY;
+            }
         }
 
-        this.shotgun.getModel().setAbsoluteRotationXYZ( Math.fround( this.shotgunRotX ), Math.fround( this.shotgunRotY ), 0.0 );
+        this.shotgun.getModel().setAbsoluteRotationXYZ(
+            Math.fround( this.shotgunRotX ),
+            Math.fround( this.shotgunRotY ),
+            0.0
+        );
     }
 }

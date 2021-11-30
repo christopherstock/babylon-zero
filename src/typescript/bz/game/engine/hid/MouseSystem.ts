@@ -56,7 +56,8 @@ export class MouseSystem
         {
             this.game.getScene().getNativeScene().onPointerDown =
             (
-                ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void => {
+                ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void =>
+                {
                     this.game.onDebugPointerDown( evt, pickResult );
                 }
             );
@@ -66,13 +67,16 @@ export class MouseSystem
 
         if ( assignPointerLock )
         {
-            nativeCanvas.onclick     = ( me: MouseEvent ) :any => {
+            nativeCanvas.onclick = ( me: MouseEvent ) :any =>
+            {
                 this.onMouseClick( me );
             };
-            nativeCanvas.onmousedown = ( me: MouseEvent ) :any => {
+            nativeCanvas.onmousedown = ( me: MouseEvent ) :any =>
+            {
                 this.onMouseDown(  me );
             };
-            nativeCanvas.onmouseup   = ( me: MouseEvent ) :any => {
+            nativeCanvas.onmouseup = ( me: MouseEvent ) :any =>
+            {
                 this.onMouseUp(    me );
             };
         }
@@ -330,9 +334,10 @@ export class MouseSystem
     {
         document.addEventListener( 'pointerlockchange',    () => { this.onPointerLockChange(); } );
         document.addEventListener( 'mozpointerlockchange', () => { this.onPointerLockChange(); } );
-        document.addEventListener( 'mousemove',            ( mouseEvent:MouseEvent ) => {
-            this.onMouseMove( mouseEvent ); }
-        );
+        document.addEventListener( 'mousemove',            ( mouseEvent:MouseEvent ) =>
+        {
+            this.onMouseMove( mouseEvent );
+        } );
 
         const nativeCanvas :HTMLCanvasElement = this.game.getEngine().getCanvasSystem().getNativeCanvas();
 
@@ -357,7 +362,8 @@ export class MouseSystem
         if (
             (    document        ).pointerLockElement    === nativeCanvas
             || ( document as any ).mozPointerLockElement === nativeCanvas
-        ) {
+        )
+        {
             bz.Debug.pointer.log( 'Pointer lock status is now LOCKED' );
 
             this.mouseLocked = true;

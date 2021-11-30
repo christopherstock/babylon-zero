@@ -466,7 +466,8 @@ export class CameraSystem
         (
             engine,
             'fxaa',
-            () : BABYLON.FxaaPostProcess => {
+            () : BABYLON.FxaaPostProcess =>
+            {
                 return new BABYLON.FxaaPostProcess
                 (
                     'antialias',

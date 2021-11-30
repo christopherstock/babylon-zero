@@ -118,6 +118,13 @@ module.exports = {
         'import/no-deprecated': 'warn',
         'import/order': 'off',
         'linebreak-style': 'off',
+        'brace-style': [
+            'warn',
+            'allman',
+            {
+                'allowSingleLine': true,
+            },
+        ],
         'max-classes-per-file': [ 'warn', 1 ],
         'max-len': [
             'warn',

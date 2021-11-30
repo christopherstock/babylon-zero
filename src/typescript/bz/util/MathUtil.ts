@@ -165,28 +165,44 @@ export abstract class MathUtil
         const distY :number = to.z - from.z;
         let   angle :number;
 
-        if ( distX === 0.0 ) {
-            if ( distY === 0.0 ) {
+        if ( distX === 0.0 )
+        {
+            if ( distY === 0.0 )
+            {
                 angle = 0.0;
             }
-            else if ( distY > 0.0 ) {
+            else if ( distY > 0.0 )
+            {
                 angle = Math.PI / 2.0;
-            } else {
+            }
+            else
+            {
                 angle = ( Math.PI * 3.0 ) / 2.0;
             }
         }
-        else if ( distY === 0.0 ) {
-            if ( distX > 0.0 ) {
+        else if ( distY === 0.0 )
+        {
+            if ( distX > 0.0 )
+            {
                 angle = 0.0;
-            } else {
+            }
+            else
+            {
                 angle = Math.PI;
             }
-        } else {
-            if ( distX < 0.0 ) {
+        }
+        else
+        {
+            if ( distX < 0.0 )
+            {
                 angle = Math.atan( distY / distX ) + Math.PI;
-            } else if ( distY < 0.0 ) {
+            }
+            else if ( distY < 0.0 )
+            {
                 angle = Math.atan( distY / distX ) + ( 2 * Math.PI );
-            } else {
+            }
+            else
+            {
                 angle = Math.atan( distY / distX );
             }
         }

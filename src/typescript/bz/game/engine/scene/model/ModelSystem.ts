@@ -46,7 +46,8 @@ export class ModelSystem
             ModelSystem.importModel(
                 scene,
                 fileName,
-                ( model:bz.Model ) => {
+                ( model:bz.Model ) =>
+                {
                     this.models[ fileName ] = model;
                     this.onLoadModel();
                 }
@@ -103,8 +104,8 @@ export class ModelSystem
                 particleSystems :BABYLON.IParticleSystem[],
                 skeletons       :BABYLON.Skeleton[],
                 animationGroups :BABYLON.AnimationGroup[]
-            ) => {
-
+            ) =>
+            {
                 bz.Debug.init.log(
                     '  Model file ' + file + ' imported. '
                     + 'Mesh count: ' + String( importedMeshes.length )
@@ -130,8 +131,8 @@ export class ModelSystem
                 onLoaded( newModel );
             },
             null,
-            ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) => {
-
+            ( callbackScene:BABYLON.Scene, callbackMessage:string, callbackException?:any ) =>
+            {
                 bz.Debug.init.err( 'ERROR on model import [' + file + ']' );
                 bz.Debug.init.err( callbackMessage );
                 bz.Debug.init.err( callbackException );

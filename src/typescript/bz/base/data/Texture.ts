@@ -119,11 +119,13 @@ export class Texture
                 videoTexture.video.muted    = true;
                 videoTexture.video.autoplay = true;
                 videoTexture.video.play().then(
-                    () :void => {
+                    () :void =>
+                    {
                         // handle promise fulfillment
                     }
                 ).catch(
-                    () :void => {
+                    () :void =>
+                    {
                         // catch promise error
                     }
                 );

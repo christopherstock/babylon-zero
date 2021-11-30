@@ -499,8 +499,8 @@ export abstract class Stage
             this.scene.getNativeScene(),
             false
         ).then(
-            ( set:BABYLON.ParticleSystemSet ) => {
-
+            ( set:BABYLON.ParticleSystemSet ) =>
+            {
                 this.rainEffect = set;
 
                 for ( const system of this.rainEffect.systems )
@@ -514,7 +514,8 @@ export abstract class Stage
                 this.rainEffect.start();
             }
         ).catch(
-            () => {
+            () =>
+            {
                 // no need to handle this error
             }
         )
@@ -569,7 +570,8 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected addShadowGenerator( light:BABYLON.IShadowLight ) : void
     {
-        if ( !bz.SettingEngine.ENABLE_SHADOWS ) {
+        if ( !bz.SettingEngine.ENABLE_SHADOWS )
+        {
             return;
         }
 
@@ -804,7 +806,8 @@ export abstract class Stage
                         },
                         affectedImpostorsCallback: (
                             affectedImpostorsWithData :BABYLON.PhysicsAffectedImpostorWithData[]
-                        ) => {
+                        ) =>
+                        {
                             bz.Debug.event.log(
                                 ' [' + String( affectedImpostorsWithData.length ) + '] '
                                 + 'affected models from this explosion'

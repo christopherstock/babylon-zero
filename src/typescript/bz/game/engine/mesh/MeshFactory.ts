@@ -282,8 +282,8 @@ export class MeshFactory
             subdivisions: sideSize,
             minHeight: 0.0,
             maxHeight: height,
-            onReady: () :void => {
-
+            onReady: () :void =>
+            {
                 const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
                 (
                     this.scene.getNativeScene(),
@@ -837,7 +837,8 @@ export class MeshFactory
         }
 
         // set compound type to NONE if null
-        if ( compoundType === null ) {
+        if ( compoundType === null )
+        {
             compoundType = bz.ModelCompoundType.NONE;
         }
 

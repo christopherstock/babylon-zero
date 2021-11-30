@@ -16,7 +16,8 @@ export class Interaction extends bz.Shot
         source       :BABYLON.Vector3,
         rotation     :BABYLON.Vector3,
         range        :number
-    ) {
+    )
+    {
         super(
             source,
             rotation,

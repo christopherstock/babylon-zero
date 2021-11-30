@@ -322,7 +322,8 @@ export class Model
                 mesh.physicsImpostor !== undefined
                 && mesh.physicsImpostor !== null
                 && mesh.physicsImpostor.mass === 0
-            ) {
+            )
+            {
                 // determine and set original physical mass
                 let newMass :number = 0;
                 if ( this.physicSet !== null )
@@ -600,7 +601,8 @@ export class Model
         // dispose and clear original mesh
         meshToSlice.dispose();
         const index:number = this.meshes.indexOf( meshToSlice );
-        if ( index > -1 ) {
+        if ( index > -1 )
+        {
             this.meshes.splice( index, 1 );
         }
         meshToSlice = null;

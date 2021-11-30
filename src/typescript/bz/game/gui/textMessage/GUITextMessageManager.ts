@@ -30,7 +30,8 @@ export class GUITextMessageManager
             noFlooding
             && this.messageQueue.length > 0
             && this.messageQueue[ this.messageQueue.length - 1 ].msg === msg
-        ) {
+        )
+        {
             return;
         }
 

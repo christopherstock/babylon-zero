@@ -106,7 +106,8 @@ export class Sprite
             to,
             loop,
             bz.SettingEngine.SPRITE_FRAME_DELAY,
-            () => {
+            () =>
+            {
                 this.isAnimated = false;
             }
         )

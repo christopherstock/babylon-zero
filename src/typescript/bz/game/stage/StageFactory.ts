@@ -80,7 +80,8 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( diamondCornerA > 0 ) {
+            if ( diamondCornerA > 0 )
+            {
                 const sizeCornerA :number = Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingGame.WALL_DEPTH, 2 ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -113,7 +114,8 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( diamondCornerB > 0 ) {
+            if ( diamondCornerB > 0 )
+            {
                 const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingGame.WALL_DEPTH, 2 ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -146,7 +148,8 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( diamondCornerC > 0 ) {
+            if ( diamondCornerC > 0 )
+            {
                 const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingGame.WALL_DEPTH, 2 ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -179,7 +182,8 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( diamondCornerD > 0 ) {
+            if ( diamondCornerD > 0 )
+            {
                 const sizeCornerD :number = Math.sqrt( 2 * Math.pow( diamondCornerD + bz.SettingGame.WALL_DEPTH, 2 ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -261,8 +265,8 @@ export abstract class StageFactory
         }
 
         // rotate ALL walls around pivot and add all walls to stage
-        for ( const roomWall of roomWalls ) {
-
+        for ( const roomWall of roomWalls )
+        {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
 
             if ( roomWall instanceof bz.Door )
@@ -329,7 +333,8 @@ export abstract class StageFactory
         let busyWalls :BABYLON.Vector2[] = [];
         for ( const window of windows )
         {
-            if ( start + window >= start + size ) {
+            if ( start + window >= start + size )
+            {
                 continue;
             }
             busyWalls.push(
@@ -338,7 +343,8 @@ export abstract class StageFactory
         }
         for ( const door of doors )
         {
-            if ( start + door.position >= start + size ) {
+            if ( start + door.position >= start + size )
+            {
                 continue;
             }
             busyWalls.push(
@@ -348,7 +354,8 @@ export abstract class StageFactory
 
         // sort busy walls by 1st value (X)
         busyWalls = busyWalls.sort(
-            ( a:BABYLON.Vector2, b:BABYLON.Vector2 ) => {
+            ( a:BABYLON.Vector2, b:BABYLON.Vector2 ) =>
+            {
                 return ( a.x > b.x ? 1 : -1 );
             }
         );
@@ -390,7 +397,8 @@ export abstract class StageFactory
         // door frames
         for ( const doorData of doorsData )
         {
-            if ( doorData.position >= sizeX ) {
+            if ( doorData.position >= sizeX )
+            {
                 continue;
             }
 
@@ -465,7 +473,8 @@ export abstract class StageFactory
         // window frames
         for ( const windowPos of windowsPos )
         {
-            if ( windowPos >= sizeX ) {
+            if ( windowPos >= sizeX )
+            {
                 continue;
             }
 
@@ -542,7 +551,8 @@ export abstract class StageFactory
                     + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT
                     + bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT
                 )
-            ) {
+            )
+            {
                 continue;
             }
             const bottomWindowFrame :bz.Wall = new bz.Wall

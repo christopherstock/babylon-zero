@@ -145,7 +145,8 @@ export abstract class GUIFactory
         {
             textBlock.onPointerDownObservable.add
             (
-                () : void => {
+                () : void =>
+                {
                     onPointerDown();
                 }
             );

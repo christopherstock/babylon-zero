@@ -70,7 +70,8 @@ export class StageIntroLogo extends bz.Stage
         else
         {
             this.pointLight.range -= 1.5;
-            if ( this.pointLight.range < 0.0 ) {
+            if ( this.pointLight.range < 0.0 )
+            {
                 this.pointLight.range = 0.0;
             }
         }

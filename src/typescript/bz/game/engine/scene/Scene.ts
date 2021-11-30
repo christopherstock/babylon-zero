@@ -49,11 +49,13 @@ export class Scene
         if ( bz.SettingDebug.SHOW_SCENE_DEBUG_SCENE_EXPLORER )
         {
             this.babylonScene.debugLayer.show().then(
-                () :void => {
+                () :void =>
+                {
                     // handle promise fulfillment
                 }
             ).catch(
-                () :void => {
+                () :void =>
+                {
                     // handle promise error
                 }
             );

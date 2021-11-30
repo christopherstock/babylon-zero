@@ -29,7 +29,8 @@ export class Wall extends bz.GameObject
         splitHitMeshOnEnergyLoss :boolean            = false,
         interactionEvents        :bz.Event[]         = null,
         interactionType          :bz.InteractionType = bz.InteractionType.ONCE
-    ) {
+    )
+    {
         super( stage, model, energy, darkenMeshesOnEnergyLoss, splitHitMeshOnEnergyLoss );
 
         this.interactionEvents = interactionEvents;

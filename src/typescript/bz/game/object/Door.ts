@@ -52,7 +52,8 @@ export class Door extends bz.Wall
         animation     :DoorAnimation   = bz.DoorAnimation.NONE,
         events        :bz.Event[]      = [],
         doorTurnPoint :BABYLON.Vector3 = position
-    ) {
+    )
+    {
         super(
             stage,
             new bz.Model
