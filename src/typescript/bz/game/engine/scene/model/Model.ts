@@ -105,15 +105,6 @@ export class Model
     *******************************************************************************************************************/
     public applyRayCollision( ray:BABYLON.Ray ) : BABYLON.PickingInfo[]
     {
-        // TODO might help to update the mesh on animated models ..
-        if ( false )
-        {
-            for ( const mesh of this.meshes )
-            {
-                mesh.refreshBoundingInfo( true );
-            }
-        }
-
         return ray.intersectsMeshes(
             this.meshes as any
         );
@@ -327,8 +318,11 @@ export class Model
         for ( const mesh of this.meshes )
         {
             // only consider STATIC meshes
-            if ( mesh.physicsImpostor !== undefined && mesh.physicsImpostor !== null && mesh.physicsImpostor.mass === 0 )
-            {
+            if (
+                mesh.physicsImpostor !== undefined
+                && mesh.physicsImpostor !== null
+                && mesh.physicsImpostor.mass === 0
+            ) {
                 // determine and set original physical mass
                 let newMass :number = 0;
                 if ( this.physicSet !== null )

@@ -5,6 +5,7 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
+    // TODO move to PlayerWearpon
     private static readonly SHOTGUN_NOISE_X      = 0.05;
     private static readonly SHOTGUN_NOISE_Y      = 0.05;
     private static readonly MAX_SHOTGUN_ROT_X    = 12.5;

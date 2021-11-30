@@ -23,12 +23,8 @@ export abstract class SettingGame
     public static readonly DOOR_DEPTH                               :number             = 0.195;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingGame.WALL_HEIGHT - SettingGame.DOOR_HEIGHT );
-    /** Unified width for a hallway in building constructions. */
-    public static readonly HALLWAY_WIDTH                            :number             = 10.0;
     /** Unified floor and ceiling depth for building constructions. */
     public static readonly DEPTH_FLOOR_CEILING                      :number             = 0.1;
-    /** Unified pillar width for building constructions. */
-    public static readonly PILLAR_WIDTH                             :number             = 2.0;
 
     /** Unified window width for building constructions. */
     public static readonly WINDOW_WIDTH                             :number             = 4.5;
@@ -41,6 +37,11 @@ export abstract class SettingGame
 
     /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
     public static readonly FLOOR_OFFSET_Y                           :number             = 0.001;
+
+    /** Unified width for a hallway in building constructions. */
+    public static readonly HALLWAY_WIDTH                            :number             = 10.0;
+    /** Unified pillar width for building constructions. */
+    public static readonly PILLAR_WIDTH                             :number             = 2.0;
 
     public static readonly CRATE_MIN_ENERGY                         :number             = 3.0;
     public static readonly CRATE_MAX_ENERGY                         :number             = 6.0;

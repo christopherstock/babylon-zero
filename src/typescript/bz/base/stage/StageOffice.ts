@@ -26,9 +26,9 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                0.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                0.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
             new bz.Inventory( 0 )
@@ -477,10 +477,22 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             340.0, // -90.0
-            bz.TextureFile.WALL_WOOD_VERT_1, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 2.0,
-            bz.TextureFile.WALL_WOOD_PLANKS, [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 3.0,
-            bz.TextureFile.WALL_WOOD_GRAIN,  [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ], [ 7.0 ], 4.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,  [ new bz.DoorData( 2.5, eventsSwitchStage, bz.DoorAnimation.NONE ) ], [ 7.0 ], 5.0,
+            bz.TextureFile.WALL_WOOD_VERT_1,
+            [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
+            [ 7.0 ],
+            2.0,
+            bz.TextureFile.WALL_WOOD_PLANKS,
+            [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
+            [ 7.0 ],
+            3.0,
+            bz.TextureFile.WALL_WOOD_GRAIN,
+            [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
+            [ 7.0 ],
+            4.0,
+            bz.TextureFile.WALL_WOOD_OLIVE,
+            [ new bz.DoorData( 2.5, eventsSwitchStage, bz.DoorAnimation.NONE ) ],
+            [ 7.0 ],
+            5.0,
             bz.TextureFile.WALL_ASPHALT_CRACKED,
             null
         );

@@ -5,15 +5,18 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Bot extends bz.GameObject
 {
-    private type     :bz.BotType      = null;
-    private position :BABYLON.Vector3 = null;
-    private test     :number          = 0.0;
-    private walking  :boolean         = false;
+    private readonly type     :bz.BotType      = null;
+    private readonly position :BABYLON.Vector3 = null;
+    private readonly test     :number          = 0.0;
+    private          walking  :boolean         = false;
 
     /** ****************************************************************************************************************
     *   Creates a new bot instance.
     *
-    *   @param stage The stage this bot belongs to.
+    *   @param test            Used for testing purposes.
+    *   @param stage           The stage this bot belongs to.
+    *   @param type            The type of bot. Specifies the behaviour.
+    *   @param startupPosition The initial position of this Bot.
     *******************************************************************************************************************/
     public constructor( test:number, stage:bz.Stage, type:bz.BotType, startupPosition:BABYLON.Vector3 )
     {
@@ -38,6 +41,9 @@ export class Bot extends bz.GameObject
         this.test = test;
     }
 
+    /** ****************************************************************************************************************
+    *   Renders one tick of the game loop for this game object.
+    *******************************************************************************************************************/
     public render() : void
     {
         super.render();
@@ -60,7 +66,10 @@ export class Bot extends bz.GameObject
                 // get distance to player
                 const distanceToPlayer :number = BABYLON.Vector2.Distance(
                     new BABYLON.Vector2( this.position.x, this.position.z ),
-                    new BABYLON.Vector2( this.stage.getPlayer().getPosition().x, this.stage.getPlayer().getPosition().z )
+                    new BABYLON.Vector2(
+                        this.stage.getPlayer().getPosition().x,
+                        this.stage.getPlayer().getPosition().z
+                    )
                 );
                 if ( distanceToPlayer >= MAX_DISTANCE_TO_PLAYER )
                 {
@@ -89,7 +98,7 @@ export class Bot extends bz.GameObject
                 const BOT_SPEED_MOVE         :number = 0.1;
                 const MAX_DISTANCE_TO_PLAYER :number = 5.0;
 
-                const ANIMATE :boolean = false;
+                const ANIMATE_WALKING_DUDE :boolean = true;
 
                 // TODO refactor to methods!
 
@@ -104,7 +113,10 @@ export class Bot extends bz.GameObject
                 // get distance to player
                 const distanceToPlayer :number = BABYLON.Vector2.Distance(
                     new BABYLON.Vector2( this.position.x, this.position.z ),
-                    new BABYLON.Vector2( this.stage.getPlayer().getPosition().x, this.stage.getPlayer().getPosition().z )
+                    new BABYLON.Vector2(
+                        this.stage.getPlayer().getPosition().x,
+                        this.stage.getPlayer().getPosition().z
+                    )
                 );
                 if ( distanceToPlayer >= MAX_DISTANCE_TO_PLAYER )
                 {
@@ -119,14 +131,24 @@ export class Bot extends bz.GameObject
 
                     if ( !this.walking )
                     {
-if ( ANIMATE )
-{
-                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 1 ).skeleton, 0, 100, true, 1.0 );
-                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 2 ).skeleton, 0, 100, true, 1.0 );
-                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 3 ).skeleton, 0, 100, true, 1.0 );
-                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 4 ).skeleton, 0, 100, true, 1.0 );
-                        this.stage.getScene().getNativeScene().beginAnimation( this.model.getMesh( 5 ).skeleton, 0, 100, true, 1.0 );
-}
+                        if ( ANIMATE_WALKING_DUDE )
+                        {
+                            this.stage.getScene().getNativeScene().beginAnimation(
+                                this.model.getMesh( 1 ).skeleton, 0, 100, true, 1.0
+                            );
+                            this.stage.getScene().getNativeScene().beginAnimation(
+                                this.model.getMesh( 2 ).skeleton, 0, 100, true, 1.0
+                            );
+                            this.stage.getScene().getNativeScene().beginAnimation(
+                                this.model.getMesh( 3 ).skeleton, 0, 100, true, 1.0
+                            );
+                            this.stage.getScene().getNativeScene().beginAnimation(
+                                this.model.getMesh( 4 ).skeleton, 0, 100, true, 1.0
+                            );
+                            this.stage.getScene().getNativeScene().beginAnimation(
+                                this.model.getMesh( 5 ).skeleton, 0, 100, true, 1.0
+                            );
+                        }
                         this.walking = true;
                     }
 
@@ -136,20 +158,20 @@ if ( ANIMATE )
                 {
                     if ( this.walking )
                     {
-if ( ANIMATE )
-{
-                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 1 ).skeleton );
-                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 2 ).skeleton );
-                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 3 ).skeleton );
-                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 4 ).skeleton );
-                        this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 5 ).skeleton );
+                        if ( ANIMATE_WALKING_DUDE )
+                        {
+                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 1 ).skeleton );
+                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 2 ).skeleton );
+                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 3 ).skeleton );
+                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 4 ).skeleton );
+                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 5 ).skeleton );
 
-                        this.model.getMesh( 1 ).skeleton.returnToRest();
-                        this.model.getMesh( 2 ).skeleton.returnToRest();
-                        this.model.getMesh( 3 ).skeleton.returnToRest();
-                        this.model.getMesh( 4 ).skeleton.returnToRest();
-                        this.model.getMesh( 5 ).skeleton.returnToRest();
-}
+                            this.model.getMesh( 1 ).skeleton.returnToRest();
+                            this.model.getMesh( 2 ).skeleton.returnToRest();
+                            this.model.getMesh( 3 ).skeleton.returnToRest();
+                            this.model.getMesh( 4 ).skeleton.returnToRest();
+                            this.model.getMesh( 5 ).skeleton.returnToRest();
+                        }
                         this.walking = false;
 
                         this.model.setAbsoluteRotationXYZ( 0.0, ( -angleBetweenBotAndPlayer + 90.0 ), 0.0 );
@@ -175,11 +197,20 @@ if ( ANIMATE )
     /** ****************************************************************************************************************
     *   Creates the model for this bot.
     *
-    *   @param meshFactory A mesh factory instance.
+    *   @param scene           The scene to load the model into.
+    *   @param botType         The type of the bot to create the model for.
+    *   @param meshFactory     A mesh factory instance.
+    *   @param startupPosition The initial position of the bot.
     *
     *   @return The model that represents this bot.
     *******************************************************************************************************************/
-    private static createModel( scene:BABYLON.Scene, botType:bz.BotType, meshFactory:bz.MeshFactory, startupPosition:BABYLON.Vector3 ) : bz.Model
+    private static createModel(
+        scene           :BABYLON.Scene,
+        botType         :bz.BotType,
+        meshFactory     :bz.MeshFactory,
+        startupPosition :BABYLON.Vector3
+    )
+    : bz.Model
     {
         switch ( botType )
         {
@@ -199,24 +230,6 @@ if ( ANIMATE )
                 );
 
                 walkingDude.scaleSize( new BABYLON.Vector3( 0.1, 0.1, 0.1 ) );
-/*
-walkingDude.getMesh( 0 ).isVisible = false;
-walkingDude.getMesh( 1 ).isVisible = false;
-walkingDude.getMesh( 2 ).isVisible = false;
-walkingDude.getMesh( 3 ).isVisible = false;
-walkingDude.getMesh( 4 ).isVisible = false;
-walkingDude.getMesh( 5 ).isVisible = false;
-*/
-
-
-console.log( '> Walking Dude Mesh Count: ' + walkingDude.getMeshCount() );
-console.log( '> Walking Dude Mesh 0 submeshes: ', walkingDude.getMesh( 0 ).subMeshes );
-console.log( '> Walking Dude Mesh 1 submeshes: ', walkingDude.getMesh( 1 ).subMeshes );
-console.log( '> Walking Dude Mesh 2 submeshes: ', walkingDude.getMesh( 2 ).subMeshes );
-console.log( '> Walking Dude Mesh 3 submeshes: ', walkingDude.getMesh( 3 ).subMeshes );
-console.log( '> Walking Dude Mesh 4 submeshes: ', walkingDude.getMesh( 4 ).subMeshes );
-console.log( '> Walking Dude Mesh 5 submeshes: ', walkingDude.getMesh( 5 ).subMeshes );
-console.log( '> Walking Dude: ', walkingDude );
 
                 return walkingDude;
             }
@@ -234,14 +247,9 @@ console.log( '> Walking Dude: ', walkingDude );
                 // get and play Samba animation Group
                 let sambaAnim :BABYLON.AnimationGroup = scene.getAnimationGroupByName( 'Samba' );
                 console.log( '> Samba Anim: ', sambaAnim );
-
-                const newAnim :BABYLON.AnimationGroup = sambaAnim.clone( '' );
-
-                newAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
+                sambaAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
+                // scene.beginAnimation( dancingGirl.getMesh( 0 ).skeleton, 0, 10, true, 1.0 );
 */
-
-//                scene.beginAnimation( dancingGirl.getMesh( 0 ).skeleton, 0, 10, true, 1.0 );
-
                 return dancingGirl;
             }
         }

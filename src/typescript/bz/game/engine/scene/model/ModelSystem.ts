@@ -77,6 +77,13 @@ export class ModelSystem
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Loads one model from disk using the asynchronous BABYLON.SceneLoader.ImportMesh functionality.
+    *
+    *   @param scene    The scene to import the model into.
+    *   @param fileName The filename of the model to load.
+    *   @param onLoaded The callback to invoke when the model is loaded.
+    *******************************************************************************************************************/
     public static importModel( scene:BABYLON.Scene, fileName:string, onLoaded:( model:bz.Model ) => void ) : void
     {
         const fullPath      :string = ( bz.SettingResource.PATH_MODEL + fileName );

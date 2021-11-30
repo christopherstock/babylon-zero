@@ -150,28 +150,45 @@ export abstract class MathUtil
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Delivers the angle between 0 and 360 degrees between the two specified points in 2D space.
+    *   The axis X and Z are used for the 2D points. Axis Y is ignored.
+    *
+    *   @param from Source point.
+    *   @param to   Destination point.
+    *
+    *   @return The angle between the source and destination point. From 0 to 360.
+    *******************************************************************************************************************/
     public static angleBetweenPointsXZ( from:BABYLON.Vector3, to:BABYLON.Vector3 ) : number
     {
         const distX :number = to.x - from.x;
         const distY :number = to.z - from.z;
         let   angle :number;
 
-        if ( distX === 0.0 )
-        {
-            if ( distY === 0.0 )    angle = 0.0;
-            else if( distY > 0.0 )  angle = Math.PI / 2.0;
-            else                    angle = ( Math.PI * 3.0 ) / 2.0;
+        if ( distX === 0.0 ) {
+            if ( distY === 0.0 ) {
+                angle = 0.0;
+            }
+            else if ( distY > 0.0 ) {
+                angle = Math.PI / 2.0;
+            } else {
+                angle = ( Math.PI * 3.0 ) / 2.0;
+            }
         }
-        else if ( distY === 0.0 )
-        {
-            if ( distX > 0.0 )      angle = 0.0;
-            else                    angle = Math.PI;
-        }
-        else
-        {
-            if ( distX < 0.0 )      angle = Math.atan( distY / distX ) + Math.PI;
-            else if ( distY < 0.0 ) angle = Math.atan( distY / distX ) + ( 2 * Math.PI );
-            else                    angle = Math.atan( distY / distX );
+        else if ( distY === 0.0 ) {
+            if ( distX > 0.0 ) {
+                angle = 0.0;
+            } else {
+                angle = Math.PI;
+            }
+        } else {
+            if ( distX < 0.0 ) {
+                angle = Math.atan( distY / distX ) + Math.PI;
+            } else if ( distY < 0.0 ) {
+                angle = Math.atan( distY / distX ) + ( 2 * Math.PI );
+            } else {
+                angle = Math.atan( distY / distX );
+            }
         }
 
         return MathUtil.radToDegrees( angle );
