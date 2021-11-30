@@ -65,14 +65,17 @@ export class StageOffice extends bz.Stage
         );
 
         // point light in small office
-        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
+        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        this.addLight( pointLight );
+        for ( const pointLight of pointLights )
+        {
+            this.addLight( pointLight );
+        }
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
@@ -362,16 +365,19 @@ export class StageOffice extends bz.Stage
         );
 */
         // hemispheric light
-        const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
+        const hemisphericLight :BABYLON.HemisphericLight[] = bz.LightFactory.createHemispheric
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.1, 0.1, 0.1 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
             0.3
         );
-        this.addLight( hemisphericLight );
+        for ( const light of hemisphericLight )
+        {
+            this.addLight( light );
+        }
 /*
         // waste ground
         const eventsSwitchStage :bz.Event[] = [
@@ -691,9 +697,9 @@ if ( true ) return;
         );
 */
         // 2nd point light in 2nd office // stick to chair
-        const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
+        const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
@@ -702,7 +708,10 @@ if ( true ) return;
 
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
-        this.addLight( pointLight2 );
+        for ( const pointLight2 of pointLights2 )
+        {
+            this.addLight( pointLight2 );
+        }
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam

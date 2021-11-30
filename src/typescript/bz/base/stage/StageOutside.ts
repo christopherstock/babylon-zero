@@ -74,24 +74,30 @@ export class StageOutside extends bz.Stage
         );
 
         // point light in small office
-        const pointLight :BABYLON.PointLight = bz.LightFactory.createPoint
+        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        this.addLight( pointLight );
+        for ( const pointLight of pointLights )
+        {
+            this.addLight( pointLight );
+        }
 
         // point light in 2nd office
-        const pointLight2 :BABYLON.PointLight = bz.LightFactory.createPoint
+        const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        this.addLight( pointLight2 );
+        for ( const pointLight2 of pointLights2 )
+        {
+            this.addLight( pointLight2 );
+        }
     }
 
     /** ****************************************************************************************************************

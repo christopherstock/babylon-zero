@@ -54,7 +54,7 @@ export class MouseSystem
 
         if ( assignDebugPointerDown )
         {
-            this.game.getScene().getNativeScene().onPointerDown =
+            this.game.getScene().getNativeSceneBG().onPointerDown =
             (
                 ( evt:PointerEvent, pickResult:BABYLON.PickingInfo ) :void =>
                 {

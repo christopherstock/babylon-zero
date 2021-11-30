@@ -6,8 +6,11 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class Scene
 {
-    /** The current babylon.JS scene. */
-    private babylonScene            :BABYLON.Scene                      = null;
+    /** The default babylon.JS scene that shows the 3d world. */
+    private babylonSceneBG          :BABYLON.Scene                      = null;
+    /** The babylon.JS scene in the foreground. */
+    private babylonSceneFG          :BABYLON.Scene                      = null;
+
     /** The physics plugin being used in the scene. */
     private physicsPlugin           :BABYLON.IPhysicsEnginePlugin       = null;
 
@@ -37,18 +40,20 @@ export class Scene
         this.onLoadingComplete = onLoadingComplete;
 
         // create babylon.JS scene
-        this.babylonScene = engine.createNewScene();
+        this.babylonSceneBG   = engine.createNewScene();
+        this.babylonSceneFG = engine.createNewScene();
 
         // set default scene clear color
-        this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
+        this.babylonSceneBG.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
+        this.babylonSceneFG.autoClear = false;
 
         // enable debug collisions for free debug camera
-        this.babylonScene.collisionsEnabled = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
+        this.babylonSceneBG.collisionsEnabled = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
 
         // show the babylon.JS debug scene explorer
         if ( bz.SettingDebug.SHOW_SCENE_DEBUG_SCENE_EXPLORER )
         {
-            this.babylonScene.debugLayer.show().then(
+            this.babylonSceneBG.debugLayer.show().then(
                 () :void =>
                 {
                     // handle promise fulfillment
@@ -67,12 +72,12 @@ export class Scene
         // init all materials
         bz.Debug.init.log( 'Init materials' );
         this.materialSystem = new bz.MaterialSystem( bz.Texture.ALL_TEXTURES );
-        this.materialSystem.load( this.babylonScene );
+        this.materialSystem.load( this.babylonSceneBG );
 
         // init all sprites
         bz.Debug.init.log( 'Init sprites' );
         this.spriteSystem = new bz.SpriteSystem( bz.SpriteFile.ALL_SPRITE_FILES );
-        this.spriteSystem.load( this.babylonScene );
+        this.spriteSystem.load( this.babylonSceneBG );
 
         // init all sounds
         bz.Debug.init.log( 'Init sounds' );
@@ -80,17 +85,27 @@ export class Scene
             bz.SoundFile.ALL_SOUND_FILES,
             () => { this.onSoundsLoaded(); }
         );
-        this.soundSystem.load( this.babylonScene );
+        this.soundSystem.load( this.babylonSceneBG );
     }
 
     /** ****************************************************************************************************************
-    *   Delivers a reference to the native babylon.JS scene.
+    *   Delivers a reference to the native babylon.JS BG scene.
     *
     *   @return The babylon.JS scene.
     *******************************************************************************************************************/
-    public getNativeScene() : BABYLON.Scene
+    public getNativeSceneBG() : BABYLON.Scene
     {
-        return this.babylonScene;
+        return this.babylonSceneBG;
+    }
+
+    /** ****************************************************************************************************************
+    *   Delivers a reference to the native babylon.JS FG scene.
+    *
+    *   @return The babylon.JS scene.
+    *******************************************************************************************************************/
+    public getNativeSceneFG() : BABYLON.Scene
+    {
+        return this.babylonSceneFG;
     }
 
     /** ****************************************************************************************************************
@@ -140,7 +155,8 @@ export class Scene
     *******************************************************************************************************************/
     public render() : void
     {
-        this.babylonScene.render();
+        this.babylonSceneBG.render();
+        this.babylonSceneFG.render();
     }
 
     /** ****************************************************************************************************************
@@ -183,11 +199,11 @@ export class Scene
     public enableFog( color:BABYLON.Color3, density:number ) : void
     {
         // Fog Mode 'LINEAR' is faster!
-        this.babylonScene.fogMode    = BABYLON.Scene.FOGMODE_EXP2;
-        this.babylonScene.fogColor   = color;
+        this.babylonSceneBG.fogMode    = BABYLON.Scene.FOGMODE_EXP2;
+        this.babylonSceneBG.fogColor   = color;
 
         // for exponential mode
-        this.babylonScene.fogDensity = density;
+        this.babylonSceneBG.fogDensity = density;
 /*
         // for linear mode
         this.babylonScene.fogStart = 20.0;
@@ -200,7 +216,7 @@ export class Scene
     *******************************************************************************************************************/
     public disableFog() : void
     {
-        this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
+        this.babylonSceneBG.fogMode = BABYLON.Scene.FOGMODE_NONE;
     }
 
     /** ****************************************************************************************************************
@@ -215,11 +231,11 @@ export class Scene
             bz.SettingEngine.PHYSIC_ENGINE_ITERATIONS
         );
 
-        // stop physics engine immediately
+        // stop physics engine immediately (prevents unwanted physical reactions)
         this.enablePhysics( false );
 
-        // enable physics engine and stop it immediately in order to prevent unwanted startup impulses!
-        this.babylonScene.enablePhysics
+        // enable physics engine
+        this.babylonSceneBG.enablePhysics
         (
             bz.SettingEngine.PHYSIC_GLOBAL_STAGE_GRAVITY,
             this.physicsPlugin
@@ -238,6 +254,9 @@ export class Scene
             bz.ModelFile.ALL_MESH_FILES,
             this.onLoadingComplete
         );
-        this.modelSystem.load( this.babylonScene as any );
+        this.modelSystem.load(
+            this.babylonSceneBG as any,
+            this.babylonSceneFG as any
+        );
     }
 }

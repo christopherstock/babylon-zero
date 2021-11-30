@@ -215,7 +215,7 @@ export class MeshFactory
 
                 faceUV: faceUV,
             },
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
 
         bz.MeshManipulation.setPositionByAnchor
@@ -230,7 +230,7 @@ export class MeshFactory
 
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             textureFile,
             true,
             size.x,
@@ -286,7 +286,7 @@ export class MeshFactory
             {
                 const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
                 (
-                    this.scene.getNativeScene(),
+                    this.scene.getNativeSceneBG(),
                     bz.TextureFile.WALL_GRASS_1,
                     false,
                     sideSize,
@@ -320,7 +320,7 @@ export class MeshFactory
             MeshFactory.createNextMeshId(),
             textureFile.fileName,
             options,
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
 
         return ground;
@@ -395,7 +395,7 @@ export class MeshFactory
 
                 faceUV:   faceUV,
             },
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
 
         bz.MeshManipulation.setPositionByAnchor
@@ -410,7 +410,7 @@ export class MeshFactory
 
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             textureFile,
             true,
             diameter,
@@ -463,7 +463,7 @@ export class MeshFactory
             {
                 diameter: diameter,
             },
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
 
         bz.MeshManipulation.setPositionByAnchor
@@ -478,7 +478,7 @@ export class MeshFactory
 
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             textureFile,
             false,
             diameter,
@@ -584,7 +584,7 @@ export class MeshFactory
                 shape: points,
                 sideOrientation: sideOrientation,
             },
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
 
         // translate y axis
@@ -592,7 +592,7 @@ export class MeshFactory
 
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             textureFile,
             false,
             width,
@@ -650,7 +650,7 @@ export class MeshFactory
                 ],
                 useVertexAlpha: true,
             },
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
 
         bz.MeshManipulation.setPositionByAnchor
@@ -716,7 +716,7 @@ export class MeshFactory
 
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             textureFile,
             true,
             size.x,
@@ -754,7 +754,7 @@ export class MeshFactory
         const skyboxMaterial:BABYLON.StandardMaterial = new BABYLON.StandardMaterial
         (
             bz.MaterialSystem.createNextMaterialId(),
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
         const skyBoxName:string = skyBox.toString();
 
@@ -762,7 +762,7 @@ export class MeshFactory
         skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture
         (
             bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName,
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
@@ -778,7 +778,7 @@ export class MeshFactory
         (
             MeshFactory.createNextMeshId(),
             { size: 1000.0 },
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
         skybox.infiniteDistance = true;
         skybox.material         = skyboxMaterial;
@@ -819,7 +819,7 @@ export class MeshFactory
         if ( physic === null )
         {
             impostors = originalModel.getImpostors()
-            clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
+            clonedModel.assignImpostors( this.scene.getNativeSceneBG(), impostors );
         }
         else if ( physic === bz.PhysicSet.NONE )
         {
@@ -833,7 +833,7 @@ export class MeshFactory
             {
                 impostors.push( physicBody.createPhysicImpostorBoxParams() );
             }
-            clonedModel.assignImpostors( this.scene.getNativeScene(), impostors );
+            clonedModel.assignImpostors( this.scene.getNativeSceneBG(), impostors );
         }
 
         // set compound type to NONE if null
@@ -924,14 +924,14 @@ export class MeshFactory
         // leafs
         const green:BABYLON.StandardMaterial = new BABYLON.StandardMaterial(
             'leafs' + bz.MaterialSystem.createNextMaterialId(),
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
         green.diffuseColor = new BABYLON.Color3( 0,1,0 );
 
         // trunk and branches
         const bark:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             textureBark,
             true,
             2.0,
@@ -960,7 +960,7 @@ export class MeshFactory
         const tree :BABYLON.Mesh = ( global as any ).createTree(
             trunkHeight, trunkTaper, trunkSlices, bark, boughs, forks, forkAngle, forkRatio,
             branches, branchAngle, bowFreq, bowHeight, leavesOnBranch, leafWhRatio, green,
-            this.scene.getNativeScene()
+            this.scene.getNativeSceneBG()
         );
         tree.position = position;
         tree.scaling  = scaling;
@@ -998,7 +998,7 @@ export class MeshFactory
         // buggy physics for primitives since babylon.JS 4.0.
         new bz.PhysicBody( physic ).applyPhysicToMesh
         (
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             mesh,
             physicsImpostorType
         );

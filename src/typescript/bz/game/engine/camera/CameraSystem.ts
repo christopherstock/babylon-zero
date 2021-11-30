@@ -13,10 +13,13 @@ export class CameraSystem
     /** The currently active camera type. */
     private activeCameraType                :bz.CameraType                  = null;
 
-    /** The native babylon.JS scene these cameras belong to. */
-    private readonly scene                  :BABYLON.Scene                  = null;
     /** The canvas this camera system is connected with. */
     private readonly canvas                 :HTMLCanvasElement              = null;
+
+    /** The native babylon.JS BG scene these cameras belong to. */
+    private readonly sceneBG                :BABYLON.Scene                  = null;
+    /** The native babylon.JS FG scene these cameras belong to. */
+    private readonly sceneFG                :BABYLON.Scene                  = null;
 
     /** The free controllable babylon.JS (debug) camera. */
     private readonly freeCamera             :BABYLON.FreeCamera             = null;
@@ -57,35 +60,37 @@ export class CameraSystem
         targetFirstPersonCamera  :BABYLON.AbstractMesh
     )
     {
-        this.scene  = game.getScene().getNativeScene();
-        this.canvas = game.getEngine().getCanvasSystem().getNativeCanvas();
+        this.canvas  = game.getEngine().getCanvasSystem().getNativeCanvas();
+
+        this.sceneBG   = game.getScene().getNativeSceneBG();
+        this.sceneFG = game.getScene().getNativeSceneFG();
 
         const cameraFactory :bz.CameraFactory = new bz.CameraFactory();
 
         this.freeCamera = cameraFactory.createFreeCamera
         (
-            this.scene,
+            this.sceneBG,
             positionFreeCamera,
             targetFreeCamera
         );
         this.stationaryCamera = cameraFactory.createStationaryTargetCamera
         (
-            this.scene,
+            this.sceneBG,
             positionStationaryCamera
         );
         this.followCamera = cameraFactory.createFollowCamera
         (
-            this.scene,
+            this.sceneBG,
             positionFollowCamera
         );
         this.firstPersonCamera = cameraFactory.createFirstPersonCamera
         (
-            this.scene,
+            this.sceneBG,
             bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
         );
         this.arcRotateCamera = cameraFactory.createArcRotateCamera
         (
-            this.scene,
+            this.sceneBG,
             0.0,
             0.0,
             200,
@@ -116,7 +121,7 @@ export class CameraSystem
     *******************************************************************************************************************/
     public getActiveCamera() : BABYLON.Camera
     {
-        return this.scene.activeCamera;
+        return this.sceneBG.activeCamera;
     }
 
     /** ****************************************************************************************************************
@@ -134,8 +139,9 @@ export class CameraSystem
     )
     : void
     {
-        this.activeCameraType   = cameraType;
-        this.scene.activeCamera = this.getCameraFromType( cameraType );
+        this.activeCameraType     = cameraType;
+        this.sceneBG.activeCamera   = this.getCameraFromType( cameraType );
+        this.sceneFG.activeCamera = this.getCameraFromType( cameraType );
 
         switch ( cameraType )
         {
@@ -480,9 +486,9 @@ export class CameraSystem
             }
         );
         pipeline.addEffect( effect );
-        this.scene.postProcessRenderPipelineManager.addPipeline( pipeline );
+        this.sceneBG.postProcessRenderPipelineManager.addPipeline( pipeline );
 
-        this.scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline(
+        this.sceneBG.postProcessRenderPipelineManager.attachCamerasToRenderPipeline(
             'standardPipeline',
             this.stationaryCamera
         );

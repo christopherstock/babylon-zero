@@ -108,7 +108,7 @@ export class Game
         }
 
         // reset and init GUI
-        this.gui = new bz.GUI( this.scene.getNativeScene() );
+        this.gui = new bz.GUI( this.scene.getNativeSceneBG() );
         this.gui.init();
 
         // get config for new stage
@@ -141,7 +141,7 @@ export class Game
         this.stage.setPauseMenuIndex( lastPauseMenuItem );
 
         // specify callback to invoke when the scene is fully loaded
-        this.scene.getNativeScene().executeWhenReady( () => { this.initSceneCompleted(); } );
+        this.scene.getNativeSceneBG().executeWhenReady( () => { this.initSceneCompleted(); } );
     }
 
     /** ****************************************************************************************************************

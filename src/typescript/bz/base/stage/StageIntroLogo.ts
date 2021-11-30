@@ -114,13 +114,13 @@ export class StageIntroLogo extends bz.Stage
 */
         this.pointLight = bz.LightFactory.createPoint
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG() ],
             new BABYLON.Vector3( 50.0, 0.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             0.0,
             2.5
-        );
+        )[ 0 ];
 
         this.addLight( this.pointLight );
     }

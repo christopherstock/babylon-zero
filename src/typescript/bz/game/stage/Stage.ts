@@ -79,8 +79,8 @@ export abstract class Stage
         this.config = config;
 
         // assign scene colors from config
-        this.scene.getNativeScene().ambientColor = this.config.ambientColor;
-        this.scene.getNativeScene().clearColor   = this.config.sceneBgColor;
+        this.scene.getNativeSceneBG().ambientColor = this.config.ambientColor;
+        this.scene.getNativeSceneBG().clearColor   = this.config.sceneBgColor;
 
         // create all stage contents
         const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
@@ -439,6 +439,8 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Adds a wall to the stage.
     *
+    *   TODO allow array param
+    *
     *   @param wall The wall to add to this stage.
     *******************************************************************************************************************/
     public addWall( wall:bz.Wall ) : void
@@ -496,7 +498,7 @@ export abstract class Stage
     {
         BABYLON.ParticleHelper.CreateAsync(
             'rain',
-            this.scene.getNativeScene(),
+            this.scene.getNativeSceneBG(),
             false
         ).then(
             ( set:BABYLON.ParticleSystemSet ) =>
@@ -524,6 +526,8 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Adds a sprite to the stage.
     *
+    *   TODO allow array param
+    *
     *   @param sprite The sprite to add to this stage.
     *******************************************************************************************************************/
     protected addSprite( sprite:bz.Sprite ) : void
@@ -534,6 +538,8 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Adds a collectable to the stage.
     *
+    *   TODO allow array param
+    *
     *   @param collectable The collectable to add to this stage.
     *******************************************************************************************************************/
     protected addCollectable(collectable:bz.Collectable ) : void
@@ -543,6 +549,8 @@ export abstract class Stage
 
     /** ****************************************************************************************************************
     *   Adds a light to the stage.
+    *
+    *   TODO allow array param
     *
     *   @param light The light to add to this stage.
     *******************************************************************************************************************/
@@ -555,6 +563,8 @@ export abstract class Stage
 
     /** ****************************************************************************************************************
     *   Adds a bot to the stage.
+    *
+    *   TODO allow array param
     *
     *   @param bot The bot to add to this stage.
     *******************************************************************************************************************/
@@ -792,7 +802,7 @@ export abstract class Stage
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(
-                    this.game.getScene().getNativeScene()
+                    this.game.getScene().getNativeSceneBG()
                 );
                 physicsHelper.applyRadialExplosionImpulse(
                     data.center,

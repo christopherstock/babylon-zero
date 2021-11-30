@@ -8,7 +8,6 @@ MVP
 TODO Add linked doors (wing doors)
 TODO Create staircase.
 TODO Add muzzle flash to gun on firing. (via sprite!)
-TODO Fix 3D gun disappearing in walls
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Create realistic models and lights.
 TODO Clean up StageOffice contents
@@ -48,7 +47,6 @@ TODO Add physically correct bullet drop (+sound) out after fire.
 ========
 Wearpons
 ========
-TODO Create 3d gun as 2nd scene in front?
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, bullet-hole-size, zoom, muzzle-flash ..
 TODO Add slower panning on aiming/zooming with wearpon. (sniper rifle etc.)

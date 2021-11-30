@@ -13,7 +13,7 @@ export abstract class LightFactory
     /** ****************************************************************************************************************
     *   Creates a hemispheric light.
     *
-    *   @param scene         The scene that contains this light.
+    *   @param scenes        The scenes that contain this light.
     *   @param direction     The direction for this light.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
@@ -22,28 +22,35 @@ export abstract class LightFactory
     *******************************************************************************************************************/
     public static createHemispheric
     (
-        scene         :BABYLON.Scene,
+        scenes        :BABYLON.Scene[],
         direction     :BABYLON.Vector3,
         diffuseColor  :BABYLON.Color3,
         specularColor :BABYLON.Color3,
         groundColor   :BABYLON.Color3,
         intensity     :number
     )
-    : BABYLON.HemisphericLight
+    : BABYLON.HemisphericLight[]
     {
-        const light:BABYLON.HemisphericLight = new BABYLON.HemisphericLight
-        (
-            LightFactory.createNextLightId(),
-            direction,
-            scene
-        );
+        const lights:BABYLON.HemisphericLight[] = [];
 
-        light.diffuse     = diffuseColor ;
-        light.specular    = specularColor;
-        light.groundColor = groundColor  ;
-        light.intensity   = intensity;
+        for ( const scene of scenes )
+        {
+            const light:BABYLON.HemisphericLight = new BABYLON.HemisphericLight
+            (
+                LightFactory.createNextLightId(),
+                direction,
+                scene
+            );
 
-        return light;
+            light.diffuse     = diffuseColor ;
+            light.specular    = specularColor;
+            light.groundColor = groundColor  ;
+            light.intensity   = intensity;
+
+            lights.push( light );
+        }
+
+        return lights;
     }
 
     /** ****************************************************************************************************************
@@ -55,6 +62,8 @@ export abstract class LightFactory
     *   @param intensity     The intensity of this light.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
+    *
+    *   @deprecated Needs to be extended for multiple scenes.
     *******************************************************************************************************************/
     public static createDirectional
     (
@@ -93,6 +102,8 @@ export abstract class LightFactory
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param range         How far the spot light shall reach.
+    *
+    *   @deprecated Needs to be extended for multiple scenes.
     *******************************************************************************************************************/
     public static createSpot
     (
@@ -127,7 +138,7 @@ export abstract class LightFactory
     /** ****************************************************************************************************************
     *   Creates a point light.
     *
-    *   @param scene         The scene that contains this light.
+    *   @param scenes        The scenes that contain this light.
     *   @param position      Where this light is located.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
@@ -136,28 +147,35 @@ export abstract class LightFactory
     *******************************************************************************************************************/
     public static createPoint
     (
-        scene         :BABYLON.Scene,
+        scenes        :BABYLON.Scene[],
         position      :BABYLON.Vector3,
         diffuseColor  :BABYLON.Color3,
         specularColor :BABYLON.Color3,
         range         :number = 100.0,
         intensity     :number = 2.0
     )
-    : BABYLON.PointLight
+    : BABYLON.PointLight[]
     {
-        const light:BABYLON.PointLight = new BABYLON.PointLight
-        (
-            LightFactory.createNextLightId(),
-            position,
-            scene
-        );
+        const lights:BABYLON.PointLight[] = [];
 
-        light.intensity = intensity;
-        light.diffuse   = diffuseColor;
-        light.specular  = specularColor;
-        light.range     = range;
+        for ( const scene of scenes )
+        {
+            const light:BABYLON.PointLight = new BABYLON.PointLight
+            (
+                LightFactory.createNextLightId(),
+                position,
+                scene
+            );
 
-        return light;
+            light.intensity = intensity;
+            light.diffuse   = diffuseColor;
+            light.specular  = specularColor;
+            light.range     = range;
+
+            lights.push( light );
+        }
+
+        return lights;
     }
 
     /** ****************************************************************************************************************
@@ -168,6 +186,8 @@ export abstract class LightFactory
     *   @param scaling       Scale to apply to the light mesh.
     *   @param boundCamera   The camera to apply this post processing effect to.
     *   @param engine        The parent engine reference.
+    *
+    *   @deprecated Needs to be extended for multiple scenes.
     *******************************************************************************************************************/
     public static createVolumetricLightScatteringPostProcess
     (

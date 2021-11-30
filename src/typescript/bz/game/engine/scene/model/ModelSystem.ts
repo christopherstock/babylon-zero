@@ -33,14 +33,15 @@ export class ModelSystem
     /** ****************************************************************************************************************
     *   Loads all specified model files into system memory.
     *******************************************************************************************************************/
-    public load( scene:BABYLON.Scene ) : void
+    public load( sceneBG:BABYLON.Scene, sceneFG:BABYLON.Scene ) : void
     {
         bz.Debug.init.log( ' Import [' + String( this.fileNames.length ) + '] model files' );
 
         for ( const fileName of this.fileNames )
         {
             ModelSystem.importModel(
-                scene,
+                // TODO improve introduce ModelType? class instances of ModelFile?
+                ( fileName.indexOf( 'wearpon/' ) !== -1 ? sceneFG : sceneBG ),
                 fileName,
                 ( model:bz.Model ) =>
                 {

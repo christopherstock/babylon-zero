@@ -273,7 +273,7 @@ export class Model
         // set physics for compound
         new bz.PhysicBody( bz.PhysicSet.SYNTHETIC_IMPOSTOR ).applyPhysicToMesh
         (
-            scene.getNativeScene(),
+            scene.getNativeSceneBG(),
             this.compoundMesh,
             BABYLON.PhysicsImpostor.BoxImpostor
         );
@@ -372,7 +372,7 @@ export class Model
                 newMaterial.diffuseTexture = null;
                 newMaterial.diffuseTexture = new BABYLON.Texture(
                     to,
-                    scene.getNativeScene()
+                    scene.getNativeSceneBG()
                 );
 
                 mesh.material = null;
@@ -631,7 +631,7 @@ export class Model
     *******************************************************************************************************************/
     public addOutline( scene:bz.Scene ) : bz.Model
     {
-        const hl :BABYLON.HighlightLayer = new BABYLON.HighlightLayer( 'hl1', scene.getNativeScene() );
+        const hl :BABYLON.HighlightLayer = new BABYLON.HighlightLayer( 'hl1', scene.getNativeSceneBG() );
 
         for ( const mesh of this.meshes )
         {

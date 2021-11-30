@@ -23,7 +23,7 @@ export class Bot extends bz.GameObject
         super(
             stage,
             Bot.createModel(
-                stage.getScene().getNativeScene(),
+                stage.getScene().getNativeSceneBG(),
                 type,
                 new bz.MeshFactory(
                     stage.getScene(),
@@ -106,19 +106,19 @@ export class Bot extends bz.GameObject
                     {
                         if ( ANIMATE_WALKING_DUDE )
                         {
-                            this.stage.getScene().getNativeScene().beginAnimation(
+                            this.stage.getScene().getNativeSceneBG().beginAnimation(
                                 this.model.getMesh( 1 ).skeleton, 0, 100, true, 1.0
                             );
-                            this.stage.getScene().getNativeScene().beginAnimation(
+                            this.stage.getScene().getNativeSceneBG().beginAnimation(
                                 this.model.getMesh( 2 ).skeleton, 0, 100, true, 1.0
                             );
-                            this.stage.getScene().getNativeScene().beginAnimation(
+                            this.stage.getScene().getNativeSceneBG().beginAnimation(
                                 this.model.getMesh( 3 ).skeleton, 0, 100, true, 1.0
                             );
-                            this.stage.getScene().getNativeScene().beginAnimation(
+                            this.stage.getScene().getNativeSceneBG().beginAnimation(
                                 this.model.getMesh( 4 ).skeleton, 0, 100, true, 1.0
                             );
-                            this.stage.getScene().getNativeScene().beginAnimation(
+                            this.stage.getScene().getNativeSceneBG().beginAnimation(
                                 this.model.getMesh( 5 ).skeleton, 0, 100, true, 1.0
                             );
                         }
@@ -133,11 +133,11 @@ export class Bot extends bz.GameObject
                     {
                         if ( ANIMATE_WALKING_DUDE )
                         {
-                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 1 ).skeleton );
-                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 2 ).skeleton );
-                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 3 ).skeleton );
-                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 4 ).skeleton );
-                            this.stage.getScene().getNativeScene().stopAnimation( this.model.getMesh( 5 ).skeleton );
+                            this.stage.getScene().getNativeSceneBG().stopAnimation( this.model.getMesh( 1 ).skeleton );
+                            this.stage.getScene().getNativeSceneBG().stopAnimation( this.model.getMesh( 2 ).skeleton );
+                            this.stage.getScene().getNativeSceneBG().stopAnimation( this.model.getMesh( 3 ).skeleton );
+                            this.stage.getScene().getNativeSceneBG().stopAnimation( this.model.getMesh( 4 ).skeleton );
+                            this.stage.getScene().getNativeSceneBG().stopAnimation( this.model.getMesh( 5 ).skeleton );
 
                             this.model.getMesh( 1 ).skeleton.returnToRest();
                             this.model.getMesh( 2 ).skeleton.returnToRest();

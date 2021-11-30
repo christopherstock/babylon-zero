@@ -166,7 +166,7 @@ export abstract class GameObject
             return;
         }
 
-        const scene :BABYLON.Scene = this.stage.getScene().getNativeScene();
+        const scene :BABYLON.Scene = this.stage.getScene().getNativeSceneBG();
 
         // lower energy and clip to 0
         this.currentEnergy -= damage;
