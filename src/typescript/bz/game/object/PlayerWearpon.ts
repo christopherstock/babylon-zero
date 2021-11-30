@@ -44,7 +44,14 @@ export class PlayerWearpon
         );
         for ( let i:number = 0; i < this.shotgun.getModel().getMeshCount(); ++i )
         {
-            this.shotgun.getModel().getMesh(i).parent = playerHead;
+            const mesh :BABYLON.AbstractMesh = this.shotgun.getModel().getMesh( i );
+
+            mesh.parent = playerHead;
+
+            // mesh.showBoundingBox = true;
+            // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
+            // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
+            // mesh.getBoundingInfo().boundingSphere.scale( 10.0 );
         }
     }
 

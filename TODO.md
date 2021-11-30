@@ -6,6 +6,8 @@
 MVP
 ===
 TODO Add linked doors (wing doors)
+TODO Create staircase.
+TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Fix 3D gun disappearing in walls
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Create realistic models and lights.
@@ -15,10 +17,8 @@ TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable 
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Add explosion effects via sprites.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
-TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Door interaction on imported officeDesk3?
 TODO Performance: Try hi-res textures? 512 or 1024 ?
-TODO Create staircase.
 TODO Physical Bodies for Bots?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
@@ -59,6 +59,11 @@ TODO Flashlite on player - depending on wearpon.
 TODO Create explosive wearpons etc.
 TODO Create wearpons with projectiles (exploding or non-exploding)..
 
+====
+Bots
+====
+TODO Create class Character, the abstract class of Player and Bot??
+
 ======
 Sounds
 ======
@@ -66,21 +71,13 @@ TODO Create and test spatial sounds [radio etc.] (shot, bullet hit).
      https://doc.babylonjs.com/how_to/playing_sounds_and_music
 TODO Sounds for shot, bullet hit and bullet drop.
 
-====
-Bots
-====
-TODO Add bots as sprites in 1st instance
-TODO Checkout babylon.JS bones and skeletons!
-TODO Check cannonJs examples ? (human.js .. bones etc.)
-TODO Create class Character, the abstract class of Player and Bot??
-
 =========
 Secondary
 =========
 TODO Try stored 3dsmax model animations.
-TODO Fix head shaking?
-TODO Fix jumping?
-TODO try class SubMeshes?
+TODO Fix/add head shaking?
+TODO Fix/add jumping?
+TODO try class SubMeshes? (filled automatically from 3dsmax)
 TODO dark bullet holes?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO clear error message 'the user has exited the lock before ..'?
