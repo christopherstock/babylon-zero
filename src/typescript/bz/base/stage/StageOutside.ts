@@ -114,18 +114,16 @@ export class StageOutside extends bz.Stage
                 this,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createHeightMapGround
-                        (
-                            new BABYLON.Vector3( 40.0, 0.0, 40 ),
-                            bz.MeshAnchor.CENTER_XYZ,
-                            400.0,
-                            15.0,
-                            bz.TextureFile.HEIGHTMAP_VALLEY,
-                            new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
-                            bz.PhysicSet.NONE
-                        ),
-                    ]
+                    meshFactory.createHeightMapGround
+                    (
+                        new BABYLON.Vector3( 40.0, 0.0, 40 ),
+                        bz.MeshAnchor.CENTER_XYZ,
+                        400.0,
+                        15.0,
+                        bz.TextureFile.HEIGHTMAP_VALLEY,
+                        new BABYLON.Vector3( 0.0, 90.0, 0.0 ),
+                        bz.PhysicSet.NONE
+                    )
                 )
             )
         );

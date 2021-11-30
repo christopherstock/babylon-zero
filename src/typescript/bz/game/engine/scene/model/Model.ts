@@ -25,11 +25,9 @@ export class Model
     *
     *   @param meshes All meshes that belong to this model.
     *******************************************************************************************************************/
-    public constructor( meshes:BABYLON.AbstractMesh[] = [] )
+    public constructor( meshes:(BABYLON.AbstractMesh|BABYLON.AbstractMesh[]) = [] )
     {
-        // TODO wrap if meshes is not an array but a single mesh - check for single meshed Model constructor invocations
-
-        this.meshes = meshes;
+        this.meshes = ( Array.isArray( meshes ) ? meshes : [ meshes ] );
     }
 
     /** ****************************************************************************************************************
@@ -466,6 +464,7 @@ export class Model
 
         const model :bz.Model = new bz.Model( clonedMeshes );
         model.physicSet = physicSet;
+
         return model;
     }
 

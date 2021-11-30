@@ -710,17 +710,17 @@ if ( true ) return;
         // add shadows for point light
         this.addShadowGenerator( pointLight );
 */
-/*
+
         // add bot - walking towards player
         this.addBot(
             new bz.Bot(
                 0,
                 this,
-                bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                bz.BotType.TEST_WALKING_DUDE,
                 new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
             )
         );
-
+/*
         // add bot - walking towards axis X
         this.addBot(
             new bz.Bot(
@@ -1059,18 +1059,16 @@ if ( true ) return;
             this,
             new bz.Model
             (
-                [
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3( 17.0, 5.0, 39.5 ),
-                        bz.TextureFile.VIDEO_TEST,
-                        new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
-                        bz.PhysicSet.SHELVES,
-                        1.0,
-                        bz.MeshAnchor.CENTER_XYZ,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                    ),
-                ]
+                meshFactory.createBox
+                (
+                    new BABYLON.Vector3( 17.0, 5.0, 39.5 ),
+                    bz.TextureFile.VIDEO_TEST,
+                    new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
+                    bz.PhysicSet.SHELVES,
+                    1.0,
+                    bz.MeshAnchor.CENTER_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                )
             ),
             bz.GameObject.UNBREAKABLE,
             false,
@@ -1105,18 +1103,16 @@ if ( true ) return;
                 this,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createSphere
-                        (
-                            new BABYLON.Vector3( 10.5, 1.5, 30.0 ),
-                            bz.MeshAnchor.CENTER_XYZ,
-                            3.0,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.TextureFile.MODEL_WOOD_HORZ,
-                            null,
-                            bz.PhysicSet.WHITE_TEST_SPHERE
-                        ),
-                    ]
+                    meshFactory.createSphere
+                    (
+                        new BABYLON.Vector3( 10.5, 1.5, 30.0 ),
+                        bz.MeshAnchor.CENTER_XYZ,
+                        3.0,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.TextureFile.MODEL_WOOD_HORZ,
+                        null,
+                        bz.PhysicSet.WHITE_TEST_SPHERE
+                    )
                 )
             )
         );
@@ -1207,11 +1203,9 @@ if ( true ) return;
         (
             this,
             new bz.Model(
-                [
-                    meshFactory.genratedTree(
-                        new BABYLON.Vector3( 20.0, 0.0, 10.0 )
-                    ),
-                ]
+                meshFactory.genratedTree(
+                    new BABYLON.Vector3( 20.0, 0.0, 10.0 )
+                )
             )
         );
         this.addWall( tree1 );
@@ -1220,11 +1214,9 @@ if ( true ) return;
         (
             this,
             new bz.Model(
-                [
-                    meshFactory.genratedTree(
-                        new BABYLON.Vector3( 40.0, 0.0, 10.0 )
-                    ),
-                ]
+                meshFactory.genratedTree(
+                    new BABYLON.Vector3( 40.0, 0.0, 10.0 )
+                )
             )
         );
         this.addWall( tree2 );
@@ -1233,11 +1225,9 @@ if ( true ) return;
         (
             this,
             new bz.Model(
-                [
-                    meshFactory.genratedTree(
-                        new BABYLON.Vector3( 60.0, 0.0, 10.0 )
-                    ),
-                ]
+                meshFactory.genratedTree(
+                    new BABYLON.Vector3( 60.0, 0.0, 10.0 )
+                )
             )
         );
         this.addWall( tree3 );
@@ -1255,18 +1245,16 @@ if ( true ) return;
                 this,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createHeightMapGround
-                        (
-                            new BABYLON.Vector3( -50.0, 0.0, 0.0 ),
-                            bz.MeshAnchor.CENTER_XYZ,
-                            1000.0,
-                            50.0,
-                            bz.TextureFile.HEIGHTMAP_HILLS,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                            bz.PhysicSet.NONE
-                        ),
-                    ]
+                    meshFactory.createHeightMapGround
+                    (
+                        new BABYLON.Vector3( -50.0, 0.0, 0.0 ),
+                        bz.MeshAnchor.CENTER_XYZ,
+                        1000.0,
+                        50.0,
+                        bz.TextureFile.HEIGHTMAP_HILLS,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.PhysicSet.NONE
+                    )
                 )
             )
         );

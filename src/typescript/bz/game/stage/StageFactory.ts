@@ -207,26 +207,24 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3(
-                                ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                                ( position.y + size.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
-                                ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
-                            ),
-                            textureFileCeiling,
-                            new BABYLON.Vector3(
-                                size.x,
-                                bz.SettingGame.DEPTH_FLOOR_CEILING,
-                                size.z
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.LOWEST_XYZ,
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
+                            ( position.y + size.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
-                    ]
+                        textureFileCeiling,
+                        new BABYLON.Vector3(
+                            size.x,
+                            bz.SettingGame.DEPTH_FLOOR_CEILING,
+                            size.z
+                        ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    )
                 )
             );
             roomWalls.push( ceiling );
@@ -240,25 +238,23 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createPlane
-                        (
-                            new BABYLON.Vector3(
-                                ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                                ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ),
-                                ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
-                            ),
-                            size.x,
-                            size.z,
-                            textureFileFloor,
-                            null,
-                            bz.PhysicSet.STATIC,
-                            diamondCornerA,
-                            diamondCornerB,
-                            diamondCornerC,
-                            diamondCornerD
+                    meshFactory.createPlane
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                            ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ),
+                            ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                         ),
-                    ]
+                        size.x,
+                        size.z,
+                        textureFileFloor,
+                        null,
+                        bz.PhysicSet.STATIC,
+                        diamondCornerA,
+                        diamondCornerB,
+                        diamondCornerC,
+                        diamondCornerD
+                    )
                 )
             )
             roomWalls.push( floor );
@@ -414,25 +410,23 @@ export abstract class StageFactory
                     stage,
                     new bz.Model
                     (
-                        [
-                            meshFactory.createBox
-                            (
-                                new BABYLON.Vector3(
-                                    x + doorData.position,
-                                    y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT,
-                                    z
-                                ),
-                                textureFileWall,
-                                new BABYLON.Vector3(
-                                    bz.SettingGame.DOOR_WIDTH,
-                                    bz.SettingGame.DOOR_FRAME_HEIGHT,
-                                    bz.SettingGame.WALL_DEPTH
-                                ),
-                                bz.PhysicSet.STATIC,
-                                1.0,
-                                bz.MeshAnchor.LOWEST_XYZ
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3(
+                                x + doorData.position,
+                                y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT,
+                                z
                             ),
-                        ]
+                            textureFileWall,
+                            new BABYLON.Vector3(
+                                bz.SettingGame.DOOR_WIDTH,
+                                bz.SettingGame.DOOR_FRAME_HEIGHT,
+                                bz.SettingGame.WALL_DEPTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        )
                     )
                 );
                 walls.push( doorFrame );
@@ -489,25 +483,23 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3(
-                                x + windowPos,
-                                y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
-                                z
-                            ),
-                            textureFileWall,
-                            new BABYLON.Vector3(
-                                bz.SettingGame.WINDOW_WIDTH,
-                                bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.LOWEST_XYZ
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3(
+                            x + windowPos,
+                            y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
+                            z
                         ),
-                    ]
+                        textureFileWall,
+                        new BABYLON.Vector3(
+                            bz.SettingGame.WINDOW_WIDTH,
+                            bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
+                            bz.SettingGame.WALL_DEPTH
+                        ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    )
                 )
             );
             walls.push( topWindowFrame    );
@@ -518,25 +510,23 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3(
-                                x + windowPos,
-                                y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT - bz.SettingGame.WINDOW_HEIGHT,
-                                z
-                            ),
-                            textureFileGlass,
-                            new BABYLON.Vector3(
-                                bz.SettingGame.WINDOW_WIDTH,
-                                bz.SettingGame.WINDOW_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            0.25,
-                            bz.MeshAnchor.LOWEST_XYZ
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3(
+                            x + windowPos,
+                            y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT - bz.SettingGame.WINDOW_HEIGHT,
+                            z
                         ),
-                    ]
+                        textureFileGlass,
+                        new BABYLON.Vector3(
+                            bz.SettingGame.WINDOW_WIDTH,
+                            bz.SettingGame.WINDOW_HEIGHT,
+                            bz.SettingGame.WALL_DEPTH
+                        ),
+                        bz.PhysicSet.STATIC,
+                        0.25,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    )
                 ),
                 bz.MathUtil.getRandomInt( bz.SettingGame.WINDOW_MIN_ENERGY, bz.SettingGame.WINDOW_MAX_ENERGY ),
                 false,
@@ -560,21 +550,19 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( x + windowPos, y, z ),
-                            textureFileWall,
-                            new BABYLON.Vector3(
-                                bz.SettingGame.WINDOW_WIDTH,
-                                bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.LOWEST_XYZ
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( x + windowPos, y, z ),
+                        textureFileWall,
+                        new BABYLON.Vector3(
+                            bz.SettingGame.WINDOW_WIDTH,
+                            bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT,
+                            bz.SettingGame.WALL_DEPTH
                         ),
-                    ]
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    )
                 )
             );
             walls.push( bottomWindowFrame );
@@ -589,21 +577,19 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    [
-                        meshFactory.createBox
-                        (
-                            new BABYLON.Vector3( freeWalls[ i ], y, z ),
-                            textureFileWall,
-                            new BABYLON.Vector3(
-                                ( freeWalls[ i + 1 ] - freeWalls[ i ] ),
-                                sizeY,
-                                bz.SettingGame.WALL_DEPTH
-                            ),
-                            bz.PhysicSet.STATIC,
-                            1.0,
-                            bz.MeshAnchor.LOWEST_XYZ
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3( freeWalls[ i ], y, z ),
+                        textureFileWall,
+                        new BABYLON.Vector3(
+                            ( freeWalls[ i + 1 ] - freeWalls[ i ] ),
+                            sizeY,
+                            bz.SettingGame.WALL_DEPTH
                         ),
-                    ]
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    )
                 )
             );
             walls.push( wall );

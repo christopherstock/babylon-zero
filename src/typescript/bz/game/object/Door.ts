@@ -58,22 +58,20 @@ export class Door extends bz.Wall
             stage,
             new bz.Model
             (
-                [
-                    new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ).createBox
-                    (
-                        position,
-                        bz.TextureFile.WALL_DOOR_INDUSTRIAL,
-                        new BABYLON.Vector3(
-                            bz.SettingGame.DOOR_WIDTH,
-                            bz.SettingGame.DOOR_HEIGHT,
-                            bz.SettingGame.DOOR_DEPTH
-                        ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ).createBox
+                (
+                    position,
+                    bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+                    new BABYLON.Vector3(
+                        bz.SettingGame.DOOR_WIDTH,
+                        bz.SettingGame.DOOR_HEIGHT,
+                        bz.SettingGame.DOOR_DEPTH
                     ),
-                ]
+                    bz.PhysicSet.STATIC,
+                    1.0,
+                    bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                )
             ),
             bz.GameObject.UNBREAKABLE,
             true,
