@@ -40,7 +40,6 @@ export class ModelSystem
         for ( const fileName of this.fileNames )
         {
             ModelSystem.importModel(
-                // TODO improve introduce ModelType? class instances of ModelFile?
                 ( fileName.indexOf( 'wearpon/' ) !== -1 ? sceneFG : sceneBG ),
                 fileName,
                 ( model:bz.Model ) =>

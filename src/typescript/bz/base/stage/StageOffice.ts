@@ -713,22 +713,20 @@ if ( true ) return;
 
         // add bot - walking towards player
         this.addBot(
-            new bz.Bot(
-                0,
-                this,
-                bz.BotType.TEST_WALKING_DUDE,
-                new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
-            )
-        );
-
-        // add crate - walking towards player
-        this.addBot(
-            new bz.Bot(
-                0,
-                this,
-                bz.BotType.TEST_WALK_TOWARDS_PLAYER,
-                new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
-            )
+            [
+                new bz.Bot(
+                    0,
+                    this,
+                    bz.BotType.TEST_WALKING_DUDE,
+                    new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
+                ),
+                new bz.Bot(
+                    0,
+                    this,
+                    bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                    new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
+                ),
+            ]
         );
 /*
         // add bot - walking towards axis X

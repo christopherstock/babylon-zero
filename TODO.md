@@ -17,6 +17,7 @@ TODO Performance: Try hi-res textures? 512 or 1024 ?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Add explosion effects via sprites.
+TODO Improve ModelSystem.load: introduce ModelType? class instances of ModelFile? (remove indexOf'wearpon/')
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Door interaction on imported officeDesk3?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.

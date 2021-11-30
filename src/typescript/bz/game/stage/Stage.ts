@@ -533,13 +533,19 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Adds a bot to the stage.
     *
-    *   TODO allow array param
-    *
-    *   @param bot The bot to add to this stage.
+    *   @param bots The bots to add to this stage.
     *******************************************************************************************************************/
-    protected addBot( bot:bz.Bot ) : void
+    protected addBot( bots:(bz.Bot[]|bz.Bot) ) : void
     {
-        this.bots.push( bot );
+        if ( !Array.isArray( bots ) )
+        {
+            bots = [ bots ];
+        }
+
+        for ( const bot of bots )
+        {
+            this.bots.push( bot );
+        }
     }
 
     // noinspection JSUnusedGlobalSymbols
