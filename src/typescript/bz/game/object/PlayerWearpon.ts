@@ -20,9 +20,15 @@ export class PlayerWearpon
     private                shotgunRotX          :number  = 0;
     private                shotgunRotY          :number  = 0;
 
+    /** ****************************************************************************************************************
+    *   Create a new PlayerWearpon instance for 3D wearpon handling.
+    *
+    *   @param stage      The stage to create the 3D wearpon into.
+    *   @param playerHead The mesh of the player's head where the 3D wearpon will be attached to.
+    *******************************************************************************************************************/
     public constructor( stage:bz.Stage, playerHead:BABYLON.AbstractMesh )
     {
-// add a shotgun to the right player hand
+        // add a shotgun to the right player hand
         this.shotgun = (
             new bz.Wall
             (
