@@ -5,6 +5,8 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class PlayerWearpon
 {
+    // TODO all private!
+
     public static readonly SHOTGUN_NOISE_X      :number = 0.05;
     public static readonly SHOTGUN_NOISE_Y      :number = 0.05;
     public static readonly MAX_SHOTGUN_ROT_X    :number = 12.5;
@@ -13,11 +15,12 @@ export class PlayerWearpon
     public static readonly SHOTGUN_ROT_SPEED_Y  :number = 0.20;
     public static readonly SHOTGUN_CENTER_SPEED :number = 1.00;
 
-    private readonly shotgun            :bz.Wall            = null;
-    public           shotgunRotX        :number             = 0;
-    public           shotgunRotY        :number             = 0;
     public           targetShotgunRotX  :number             = 0;
     public           targetShotgunRotY  :number             = 0;
+
+    private readonly shotgun            :bz.Wall            = null;
+    private          shotgunRotX        :number             = 0;
+    private          shotgunRotY        :number             = 0;
 
     public constructor( stage:bz.Stage, playerHead:BABYLON.AbstractMesh )
     {

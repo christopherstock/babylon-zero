@@ -65,23 +65,11 @@ export class Bot extends bz.GameObject
                 this.model.setAbsoluteRotationXYZ( 0.0, -angleBetweenBotAndPlayer, 0.0 );
 
                 // get distance to player
-                const distanceToPlayer :number = BABYLON.Vector2.Distance(
-                    new BABYLON.Vector2( this.position.x, this.position.z ),
-                    new BABYLON.Vector2(
-                        playerPosition.x,
-                        playerPosition.z
-                    )
-                );
+                const distanceToPlayer :number = this.getFloorDistanceTo( playerPosition )
                 if ( distanceToPlayer >= MAX_DISTANCE_TO_PLAYER )
                 {
                     // walk towards player
-                    const delta :BABYLON.Vector3 = new BABYLON.Vector3(
-                        BOT_SPEED_MOVE * bz.MathUtil.cosDegrees( angleBetweenBotAndPlayer ),
-                        0.0,
-                        BOT_SPEED_MOVE * bz.MathUtil.sinDegrees( angleBetweenBotAndPlayer )
-                    );
-                    this.position.addInPlace( delta );
-                    this.model.translatePosition( delta );
+                    this.moveIntoDirection( angleBetweenBotAndPlayer, BOT_SPEED_MOVE );
                 }
                 break;
             }
@@ -112,23 +100,11 @@ export class Bot extends bz.GameObject
                 // TODO refactor to methods!
 
                 // get distance to player
-                const distanceToPlayer :number = BABYLON.Vector2.Distance(
-                    new BABYLON.Vector2( this.position.x, this.position.z ),
-                    new BABYLON.Vector2(
-                        playerPosition.x,
-                        playerPosition.z
-                    )
-                );
+                const distanceToPlayer :number = this.getFloorDistanceTo( playerPosition )
                 if ( distanceToPlayer >= MAX_DISTANCE_TO_PLAYER )
                 {
                     // walk towards player
-                    const delta :BABYLON.Vector3 = new BABYLON.Vector3(
-                        BOT_SPEED_MOVE * bz.MathUtil.cosDegrees( angleBetweenBotAndPlayer ),
-                        0.0,
-                        BOT_SPEED_MOVE * bz.MathUtil.sinDegrees( angleBetweenBotAndPlayer )
-                    );
-                    this.position.addInPlace( delta );
-                    this.model.translatePosition( delta );
+                    this.moveIntoDirection( angleBetweenBotAndPlayer, BOT_SPEED_MOVE );
 
                     if ( !this.walking )
                     {
@@ -256,5 +232,24 @@ export class Bot extends bz.GameObject
         }
 
         return null;
+    }
+
+    private getFloorDistanceTo( point:BABYLON.Vector3 ) : number
+    {
+        return BABYLON.Vector2.Distance(
+            new BABYLON.Vector2( this.position.x, this.position.z ),
+            new BABYLON.Vector2( point.x, point.z )
+        );
+    }
+
+    private moveIntoDirection( angle:number, speed:number ) : void
+    {
+        const delta :BABYLON.Vector3 = new BABYLON.Vector3(
+            speed * bz.MathUtil.cosDegrees( angle ),
+            0.0,
+            speed * bz.MathUtil.sinDegrees( angle )
+        );
+        this.position.addInPlace( delta );
+        this.model.translatePosition( delta );
     }
 }
