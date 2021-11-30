@@ -14,6 +14,8 @@ export class PlayerPhysic
     /** The id of the player's left hand mesh inside the mesh array. */
     private static readonly PLAYER_RIGHT_HAND_ID         :number                             = 3;
 
+    // TODO all private?
+
     /** The referenced body mesh. */
     public        readonly body                         :BABYLON.AbstractMesh               = null;
     /** The referenced head mesh. */
@@ -54,5 +56,42 @@ export class PlayerPhysic
             this.body.physicsImpostor !== undefined
             &&  this.body.physicsImpostor.getLinearVelocity().y <= bz.SettingPlayer.FALLING_VELOCITY_Y
         );
+    }
+
+    /** ****************************************************************************************************************
+    *   Overrides the player's linear and angular velocities for improved player controls and user experience.
+    *******************************************************************************************************************/
+    public manipulateVelocities() : void
+    {
+        if ( this.body.physicsImpostor !== undefined )
+        {
+            // suppress linear velocities for X and Z axis
+            const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
+
+            this.body.physicsImpostor.setLinearVelocity
+            (
+                new BABYLON.Vector3
+                (
+                    ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION ),
+
+                    // check player ascending
+                    (
+                        velocity.y >= 1.0
+                            ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
+                            : velocity.y <= -1.0
+                                ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
+                                : velocity.y
+                    ),
+
+                    ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )
+                )
+            );
+
+            // completely suppress angular velocities
+            this.body.physicsImpostor.setAngularVelocity
+            (
+                BABYLON.Vector3.Zero()
+            );
+        }
     }
 }

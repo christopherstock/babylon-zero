@@ -89,15 +89,11 @@ export class Bot extends bz.GameObject
 
                 const ANIMATE_WALKING_DUDE :boolean = true;
 
-                // TODO refactor to methods!
-
                 // face player
                 const angleBetweenBotAndPlayer :number = bz.MathUtil.angleBetweenPointsXZ(
                     this.position,
                     playerPosition
                 );
-
-                // TODO refactor to methods!
 
                 // get distance to player
                 const distanceToPlayer :number = this.getFloorDistanceTo( playerPosition )
