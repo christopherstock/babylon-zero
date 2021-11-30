@@ -42,8 +42,10 @@ export class Player extends bz.GameObject
     /** Current move delta. */
     private readonly moveDelta          :BABYLON.Vector3    = null;
 
-    /** All player physic settings. */
+    /** All handling for the player physic. */
     private readonly playerPhysics      :bz.PlayerPhysic    = null;
+    /** All handling for the player wearpon. */
+    private readonly playerWearpon      :bz.PlayerWearpon   = null;
 
     /** The inventory this player is carrying. */
     private readonly inventory          :bz.Inventory       = null;
@@ -140,8 +142,9 @@ export class Player extends bz.GameObject
             )
         );
 
-        // new player physics instance
+        // new player physics and wearpons instance
         this.playerPhysics = new bz.PlayerPhysic( this.model );
+        this.playerWearpon = new bz.PlayerWearpon();
 
         // new player inventory
         this.inventory = inventory;

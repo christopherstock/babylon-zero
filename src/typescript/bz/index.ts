@@ -101,6 +101,7 @@ export * from './game/object/Door';
 
 export * from './game/object/Player';
 export * from './game/object/PlayerPhysic';
+export * from './game/object/PlayerWearpon';
 
 export * from './game/stage/Stage';
 

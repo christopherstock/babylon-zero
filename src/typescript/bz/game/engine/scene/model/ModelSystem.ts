@@ -1,7 +1,6 @@
 // noinspection JSUnusedLocalSymbols
 
 import * as bz from '../../../..';
-import * as BABYLON from 'babylonjs'
 import 'babylonjs-loaders';
 
 /** ********************************************************************************************************************
