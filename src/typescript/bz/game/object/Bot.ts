@@ -168,6 +168,38 @@ export class Bot extends bz.GameObject
     }
 
     /** ****************************************************************************************************************
+    *   Calculate the floor distance from this bot to the given vector.
+    *
+    *   @param point The vector to meassure floor distance to.
+    *
+    *   @return The floor distance (XZ-Points) between this bot's position and the specified point.
+    *******************************************************************************************************************/
+    private getFloorDistanceTo( point:BABYLON.Vector3 ) : number
+    {
+        return BABYLON.Vector2.Distance(
+            new BABYLON.Vector2( this.position.x, this.position.z ),
+            new BABYLON.Vector2( point.x, point.z )
+        );
+    }
+
+    /** ****************************************************************************************************************
+    *   Moves this bot into the specified direction and with the specified speed.
+    *
+    *   @param angle The direction to move to.
+    *   @param speed The distance to move.
+    *******************************************************************************************************************/
+    private moveIntoDirection( angle:number, speed:number ) : void
+    {
+        const delta :BABYLON.Vector3 = new BABYLON.Vector3(
+            speed * bz.MathUtil.cosDegrees( angle ),
+            0.0,
+            speed * bz.MathUtil.sinDegrees( angle )
+        );
+        this.position.addInPlace( delta );
+        this.model.translatePosition( delta );
+    }
+
+    /** ****************************************************************************************************************
     *   Creates the model for this bot.
     *
     *   @param scene           The scene to load the model into.
@@ -228,24 +260,5 @@ export class Bot extends bz.GameObject
         }
 
         return null;
-    }
-
-    private getFloorDistanceTo( point:BABYLON.Vector3 ) : number
-    {
-        return BABYLON.Vector2.Distance(
-            new BABYLON.Vector2( this.position.x, this.position.z ),
-            new BABYLON.Vector2( point.x, point.z )
-        );
-    }
-
-    private moveIntoDirection( angle:number, speed:number ) : void
-    {
-        const delta :BABYLON.Vector3 = new BABYLON.Vector3(
-            speed * bz.MathUtil.cosDegrees( angle ),
-            0.0,
-            speed * bz.MathUtil.sinDegrees( angle )
-        );
-        this.position.addInPlace( delta );
-        this.model.translatePosition( delta );
     }
 }

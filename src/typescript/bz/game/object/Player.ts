@@ -551,7 +551,9 @@ export class Player extends bz.GameObject
                     }
                     else
                     {
-                        this.playerWearpon.targetShotgunRotX += bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.rotationDelta.z;
+                        this.playerWearpon.targetShotgunRotX += (
+                            bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.rotationDelta.z
+                        );
                         if ( this.playerWearpon.targetShotgunRotX > bz.PlayerWearpon.MAX_SHOTGUN_ROT_X )
                         {
                             this.playerWearpon.targetShotgunRotX = bz.PlayerWearpon.MAX_SHOTGUN_ROT_X;
