@@ -5,15 +5,6 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
-    // TODO move to PlayerWearpon
-    private static readonly SHOTGUN_NOISE_X      :number = 0.05;
-    private static readonly SHOTGUN_NOISE_Y      :number = 0.05;
-    private static readonly MAX_SHOTGUN_ROT_X    :number = 12.5;
-    private static readonly MAX_SHOTGUN_ROT_Y    :number = 10.0;
-    private static readonly SHOTGUN_ROT_SPEED_X  :number = 0.20;
-    private static readonly SHOTGUN_ROT_SPEED_Y  :number = 0.20;
-    private static readonly SHOTGUN_CENTER_SPEED :number = 1.00;
-
     /** The current height of the player. Changes on ducking. */
     private          heightY            :number             = 0.0;
     /** Flags if rotZ view centering should occur this tick. */
@@ -42,21 +33,13 @@ export class Player extends bz.GameObject
     /** Current move delta. */
     private readonly moveDelta          :BABYLON.Vector3    = null;
 
+    /** The inventory this player is carrying. */
+    private readonly inventory          :bz.Inventory       = null;
+
     /** All handling for the player physic. */
     private readonly playerPhysics      :bz.PlayerPhysic    = null;
     /** All handling for the player wearpon. */
     private readonly playerWearpon      :bz.PlayerWearpon   = null;
-
-    /** The inventory this player is carrying. */
-    private readonly inventory          :bz.Inventory       = null;
-
-    // TODO handling to separate class!
-
-    private readonly shotgun            :bz.Wall            = null;
-    private          shotgunRotX        :number             = 0;
-    private          shotgunRotY        :number             = 0;
-    private          targetShotgunRotX  :number             = 0;
-    private          targetShotgunRotY  :number             = 0;
 
     /** ****************************************************************************************************************
     *   Creates a new player instance.
@@ -144,7 +127,7 @@ export class Player extends bz.GameObject
 
         // new player physics and wearpons instance
         this.playerPhysics = new bz.PlayerPhysic( this.model );
-        this.playerWearpon = new bz.PlayerWearpon();
+        this.playerWearpon = new bz.PlayerWearpon( stage, this.playerPhysics.head );
 
         // new player inventory
         this.inventory = inventory;
@@ -163,38 +146,16 @@ export class Player extends bz.GameObject
 
         // apply positions for all limbs
         this.positionPlayerLimbs();
-
-        // add a shotgun to the right player hand
-        this.shotgun = (
-            new bz.Wall
-            (
-                stage,
-                new bz.MeshFactory( scene, emissiveColor ).createImportedModel
-                (
-                    bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 1.2, -0.75, 1.5 ),
-                    bz.PhysicSet.NONE,
-                    null
-                )
-            )
-        );
-        for ( let i:number = 0; i < this.shotgun.getModel().getMeshCount(); ++i )
-        {
-            this.shotgun.getModel().getMesh(i).parent = this.playerPhysics.head;
-        }
     }
 
     /** ****************************************************************************************************************
-    *   Disposes all meshes of this bullet hole.
+    *   Disposes all meshes of the player.
     *******************************************************************************************************************/
     public dispose() : void
     {
         super.dispose();
 
-        if ( this.shotgun !== null )
-        {
-            this.shotgun.dispose();
-        }
+        this.playerWearpon.dispose();
     }
 
     /** ****************************************************************************************************************
@@ -225,7 +186,7 @@ export class Player extends bz.GameObject
         this.checkInteraction();
 
         // set shotgun rotation
-        this.updateShotgunRotation();
+        this.playerWearpon.updateShotgunRotation();
     }
 
     /** ****************************************************************************************************************
@@ -437,6 +398,8 @@ export class Player extends bz.GameObject
 
     /** ****************************************************************************************************************
     *   Moves all player's meshes by the current move deltas.
+    *
+    *   TODO to PlayerPhysic?
     *******************************************************************************************************************/
     private movePlayer() : void
     {
@@ -506,6 +469,8 @@ export class Player extends bz.GameObject
 
     /** ****************************************************************************************************************
     *   Overrides the player's linear and angular velocities for improved player controls and user experience.
+    *
+    *   TODO to PlayerPhysic?
     *******************************************************************************************************************/
     private manipulateVelocities() : void
     {
@@ -550,24 +515,24 @@ export class Player extends bz.GameObject
         {
             if ( this.zoom )
             {
-                this.targetShotgunRotY = 0;
+                this.playerWearpon.targetShotgunRotY = 0;
             }
             else
             {
                 if ( this.rotationDelta.y < 0.0 )
                 {
-                    this.targetShotgunRotY += Player.SHOTGUN_NOISE_Y * -this.rotationDelta.y;
-                    if ( this.targetShotgunRotY > Player.MAX_SHOTGUN_ROT_Y )
+                    this.playerWearpon.targetShotgunRotY += bz.PlayerWearpon.SHOTGUN_NOISE_Y * -this.rotationDelta.y;
+                    if ( this.playerWearpon.targetShotgunRotY > bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y )
                     {
-                        this.targetShotgunRotY = Player.MAX_SHOTGUN_ROT_Y;
+                        this.playerWearpon.targetShotgunRotY = bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y;
                     }
                 }
                 else
                 {
-                    this.targetShotgunRotY -= Player.SHOTGUN_NOISE_Y * this.rotationDelta.y;
-                    if ( this.targetShotgunRotY < -Player.MAX_SHOTGUN_ROT_Y )
+                    this.playerWearpon.targetShotgunRotY -= bz.PlayerWearpon.SHOTGUN_NOISE_Y * this.rotationDelta.y;
+                    if ( this.playerWearpon.targetShotgunRotY < -bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y )
                     {
-                        this.targetShotgunRotY = -Player.MAX_SHOTGUN_ROT_Y;
+                        this.playerWearpon.targetShotgunRotY = -bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y;
                     }
                 }
             }
@@ -577,7 +542,7 @@ export class Player extends bz.GameObject
         }
         else
         {
-            this.targetShotgunRotY = 0.0;
+            this.playerWearpon.targetShotgunRotY = 0.0;
         }
 
         if ( this.rotationDelta.z !== 0.0 )
@@ -586,7 +551,7 @@ export class Player extends bz.GameObject
             {
                 if ( this.rotation.z === -bz.SettingPlayer.MAX_ROT_Z )
                 {
-                    this.targetShotgunRotX = 0;
+                    this.playerWearpon.targetShotgunRotX = 0;
                 }
                 else
                 {
@@ -594,14 +559,14 @@ export class Player extends bz.GameObject
 
                     if ( this.zoom )
                     {
-                        this.targetShotgunRotX = 0.0;
+                        this.playerWearpon.targetShotgunRotX = 0.0;
                     }
                     else
                     {
-                        this.targetShotgunRotX -= Player.SHOTGUN_NOISE_X * this.rotationDelta.z;
-                        if ( this.targetShotgunRotX < -Player.MAX_SHOTGUN_ROT_X )
+                        this.playerWearpon.targetShotgunRotX -= bz.PlayerWearpon.SHOTGUN_NOISE_X * this.rotationDelta.z;
+                        if ( this.playerWearpon.targetShotgunRotX < -bz.PlayerWearpon.MAX_SHOTGUN_ROT_X )
                         {
-                            this.targetShotgunRotX = -Player.MAX_SHOTGUN_ROT_X;
+                            this.playerWearpon.targetShotgunRotX = -bz.PlayerWearpon.MAX_SHOTGUN_ROT_X;
                         }
                     }
 
@@ -615,7 +580,7 @@ export class Player extends bz.GameObject
             {
                 if ( this.rotation.z === bz.SettingPlayer.MAX_ROT_Z )
                 {
-                    this.targetShotgunRotX = 0;
+                    this.playerWearpon.targetShotgunRotX = 0;
                 }
                 else
                 {
@@ -623,14 +588,14 @@ export class Player extends bz.GameObject
 
                     if ( this.zoom )
                     {
-                        this.targetShotgunRotX = 0;
+                        this.playerWearpon.targetShotgunRotX = 0;
                     }
                     else
                     {
-                        this.targetShotgunRotX += Player.SHOTGUN_NOISE_X * -this.rotationDelta.z;
-                        if ( this.targetShotgunRotX > Player.MAX_SHOTGUN_ROT_X )
+                        this.playerWearpon.targetShotgunRotX += bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.rotationDelta.z;
+                        if ( this.playerWearpon.targetShotgunRotX > bz.PlayerWearpon.MAX_SHOTGUN_ROT_X )
                         {
-                            this.targetShotgunRotX = Player.MAX_SHOTGUN_ROT_X;
+                            this.playerWearpon.targetShotgunRotX = bz.PlayerWearpon.MAX_SHOTGUN_ROT_X;
                         }
                     }
 
@@ -645,7 +610,7 @@ export class Player extends bz.GameObject
         }
         else
         {
-            this.targetShotgunRotX = 0.0;
+            this.playerWearpon.targetShotgunRotX = 0.0;
         }
 
         // rotate body
@@ -1026,61 +991,6 @@ export class Player extends bz.GameObject
                     new bz.EventDataShowGuiTextMessage( message )
                 ),
             ]
-        );
-    }
-
-    // TODO to new class PlayerWearpon, analog to PlayerBody
-
-    /** ****************************************************************************************************************
-    *   Rotates the wearpon according to the current wearpon target rotation.
-    *******************************************************************************************************************/
-    private updateShotgunRotation() : void
-    {
-        if ( this.targetShotgunRotX > this.shotgunRotX )
-        {
-            this.shotgunRotX += (
-                this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X
-            );
-            if ( this.shotgunRotX > this.targetShotgunRotX )
-            {
-                this.shotgunRotX = this.targetShotgunRotX;
-            }
-        }
-        else if ( this.targetShotgunRotX < this.shotgunRotX )
-        {
-            this.shotgunRotX -= (
-                this.targetShotgunRotX === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_X
-            );
-            if ( this.shotgunRotX < this.targetShotgunRotX )
-            {
-                this.shotgunRotX = this.targetShotgunRotX;
-            }
-        }
-        if ( this.targetShotgunRotY > this.shotgunRotY )
-        {
-            this.shotgunRotY += (
-                this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y
-            );
-            if ( this.shotgunRotY > this.targetShotgunRotY )
-            {
-                this.shotgunRotY = this.targetShotgunRotY;
-            }
-        }
-        else if ( this.targetShotgunRotY < this.shotgunRotY )
-        {
-            this.shotgunRotY -= (
-                this.targetShotgunRotY === 0 ? Player.SHOTGUN_CENTER_SPEED : Player.SHOTGUN_ROT_SPEED_Y
-            );
-            if ( this.shotgunRotY < this.targetShotgunRotY )
-            {
-                this.shotgunRotY = this.targetShotgunRotY;
-            }
-        }
-
-        this.shotgun.getModel().setAbsoluteRotationXYZ(
-            Math.fround( this.shotgunRotX ),
-            Math.fround( this.shotgunRotY ),
-            0.0
         );
     }
 }
