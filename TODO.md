@@ -7,6 +7,7 @@ MVP
 ===
 TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
 TODO Physical Bodies for Players?
+TODO Load multiple 'dancing queens'?
 TODO 3D gun disappears in walls
 TODO skeleton cloning: https://doc.babylonjs.com/divingDeeper/mesh/bonesSkeletons#cloning-bones
 TODO Add linked doors (wing doors)

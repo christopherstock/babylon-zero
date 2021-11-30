@@ -100,12 +100,9 @@ export class MaterialSystem
                 }
             }
 
-            // TODO try adding texture to emissiveTexture field too?
-            // TODO try more lighting helper map textures etc?
-
             material.diffuseTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
-            // this will light the texture
+            // this will light the texture - try more lighting helper map textures later?
             // material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
             material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );

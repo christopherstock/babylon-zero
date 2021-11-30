@@ -48,6 +48,8 @@ export class Bot extends bz.GameObject
     {
         super.render();
 
+        const playerPosition :BABYLON.Vector3 = this.stage.getPlayer().getPosition();
+
         switch ( this.type )
         {
             case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
@@ -58,8 +60,7 @@ export class Bot extends bz.GameObject
                 // face player
                 const angleBetweenBotAndPlayer :number = bz.MathUtil.angleBetweenPointsXZ(
                     this.position,
-                    // TODO refactor to local var
-                    this.stage.getPlayer().getPosition()
+                    playerPosition
                 );
                 this.model.setAbsoluteRotationXYZ( 0.0, -angleBetweenBotAndPlayer, 0.0 );
 
@@ -67,8 +68,8 @@ export class Bot extends bz.GameObject
                 const distanceToPlayer :number = BABYLON.Vector2.Distance(
                     new BABYLON.Vector2( this.position.x, this.position.z ),
                     new BABYLON.Vector2(
-                        this.stage.getPlayer().getPosition().x,
-                        this.stage.getPlayer().getPosition().z
+                        playerPosition.x,
+                        playerPosition.z
                     )
                 );
                 if ( distanceToPlayer >= MAX_DISTANCE_TO_PLAYER )
@@ -105,7 +106,7 @@ export class Bot extends bz.GameObject
                 // face player
                 const angleBetweenBotAndPlayer :number = bz.MathUtil.angleBetweenPointsXZ(
                     this.position,
-                    this.stage.getPlayer().getPosition()
+                    playerPosition
                 );
 
                 // TODO refactor to methods!
@@ -114,8 +115,8 @@ export class Bot extends bz.GameObject
                 const distanceToPlayer :number = BABYLON.Vector2.Distance(
                     new BABYLON.Vector2( this.position.x, this.position.z ),
                     new BABYLON.Vector2(
-                        this.stage.getPlayer().getPosition().x,
-                        this.stage.getPlayer().getPosition().z
+                        playerPosition.x,
+                        playerPosition.z
                     )
                 );
                 if ( distanceToPlayer >= MAX_DISTANCE_TO_PLAYER )
