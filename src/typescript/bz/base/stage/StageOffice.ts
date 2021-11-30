@@ -204,67 +204,39 @@ export class StageOffice extends bz.Stage
         );
 
         // wooden fence 2
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.WOODEN_FENCE_2,
-                    new BABYLON.Vector3( 18.5, 0.0, 0.0 ),
-                    bz.PhysicSet.SHELVES,
-                    90.0
-                ),
-                10.0
-            )
+        bz.WallFactory.createFence(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 18.5, 0.0, 0.0 ),
+            [ 2 ],
+            90.0
         );
 
         // wooden fence 3
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.WOODEN_FENCE_3,
-                    new BABYLON.Vector3( 27.0, 0.0, 0.0 ),
-                    bz.PhysicSet.SHELVES,
-                    90.0
-                ),
-                10.0
-            )
+        bz.WallFactory.createFence(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 27.0, 0.0, 0.0 ),
+            [ 3 ],
+            90.0
         );
 
         // wooden fence 4
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.WOODEN_FENCE_4,
-                    new BABYLON.Vector3( 35.5, 0.0, 0.0 ),
-                    bz.PhysicSet.SHELVES,
-                    90.0
-                ),
-                10.0
-            )
+        bz.WallFactory.createFence(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 35.5, 0.0, 0.0 ),
+            [ 4 ],
+            90.0
         );
 
         // wooden fence 5
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.WOODEN_FENCE_5,
-                    new BABYLON.Vector3( 44.0, 0.0, 0.0 ),
-                    bz.PhysicSet.SHELVES,
-                    90.0
-                ),
-                10.0
-            )
+        bz.WallFactory.createFence(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 44.0, 0.0, 0.0 ),
+            [ 5 ],
+            90.0
         );
 /*
         // big bin
