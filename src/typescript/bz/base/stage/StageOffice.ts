@@ -195,19 +195,12 @@ export class StageOffice extends bz.Stage
         // from 1-5 range x count
 
         // wooden fence 1
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.WOODEN_FENCE_1,
-                    new BABYLON.Vector3( 10.0, 0.0, 0.0 ),
-                    bz.PhysicSet.SHELVES,
-                    90.0
-                ),
-                10.0
-            )
+        bz.WallFactory.createFence(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 10.0, 0.0, 0.0 ),
+            [ 1 ],
+            90.0
         );
 
         // wooden fence 2
