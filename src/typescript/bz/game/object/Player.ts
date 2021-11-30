@@ -398,8 +398,6 @@ export class Player extends bz.GameObject
 
     /** ****************************************************************************************************************
     *   Moves all player's meshes by the current move deltas.
-    *
-    *   TODO to PlayerPhysic?
     *******************************************************************************************************************/
     private movePlayer() : void
     {

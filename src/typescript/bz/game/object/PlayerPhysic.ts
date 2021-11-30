@@ -14,8 +14,6 @@ export class PlayerPhysic
     /** The id of the player's left hand mesh inside the mesh array. */
     private static readonly PLAYER_RIGHT_HAND_ID         :number                             = 3;
 
-    // TODO all private?
-
     /** The referenced body mesh. */
     public        readonly body                         :BABYLON.AbstractMesh               = null;
     /** The referenced head mesh. */

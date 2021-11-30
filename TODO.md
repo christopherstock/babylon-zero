@@ -9,6 +9,8 @@ TODO try cloning via scene importer? instead of method cloneModel() !? try async
 TODO Physical Bodies for Players?
 TODO Load multiple 'dancing queens'?
 TODO 3D gun disappears in walls
+TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
+TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO skeleton cloning: https://doc.babylonjs.com/divingDeeper/mesh/bonesSkeletons#cloning-bones
 TODO Add linked doors (wing doors)
 TODO smaller Doors
