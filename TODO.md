@@ -5,46 +5,45 @@
 ===
 MVP
 ===
-TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
-TODO Physical Bodies for Players?
-TODO Load multiple 'dancing queens'?
-TODO 3D gun disappears in walls
-TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
-TODO Refactor: PlayerPhysic and PlayerWearpon all private.
-TODO skeleton cloning: https://doc.babylonjs.com/divingDeeper/mesh/bonesSkeletons#cloning-bones
 TODO Add linked doors (wing doors)
-TODO smaller Doors
-TODO Door interaction on imported officeDesk3
-TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-TODO Reset Git Repository?
-TODO Clean up StageOffice contents
+TODO Fix 3D gun disappearing in walls
+TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Create realistic models and lights.
+TODO Clean up StageOffice contents
+TODO smaller Doors?
+TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
+TODO Add explosion effects via sprites.
+TODO Add Explosion effect when objects break: fire sprites and global explosion?
+TODO Add muzzle flash to gun on firing. (via sprite!)
+TODO Door interaction on imported officeDesk3?
 TODO Performance: Try hi-res textures? 512 or 1024 ?
+TODO Create staircase.
+TODO Physical Bodies for Bots?
+TODO Refactor: PlayerPhysic and PlayerWearpon all private.
+TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
+TODO Reset Git Repository?
 
 ==
 Fx
 ==
+TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
+TODO Particle FX (physical) for wall rubble!
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try exploding mayflower logo (from 3dsmax promo?)
-TODO try gold metal effect etc for IntroVideo logo
-TODO keep pointer lock between stage switches? (gets lost atm)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO create player die effect (tilt cylinder and head etc.)
-TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
-TODO Add explosion effects via sprites.
-TODO Particle FX (physical) for wall rubble!
-TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
-TODO Explosion effect when objects break: fire sprites and global explosion?
+TODO try gold metal effect etc for IntroVideo logo
+TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
+TODO Load multiple 'dancing girls'?
+TODO keep pointer lock between stage switches? (gets lost at the moment)
 TODO Constraint system for events (keycard holded)!?
 TODO add rotating MF Logo sprite?
 TODO Add glossiness to floors (marbel in light etc)
-TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Enable loading of only required resources for the current scene?
 TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
 TODO Add physically correct bullet drop (+sound) out after fire.
-TODO Create staircase.
 
 ========
 Wearpons
