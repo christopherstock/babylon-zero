@@ -54,6 +54,9 @@ export abstract class WallFactory
     )
     : void
     {
+        const anchor :BABYLON.Vector3 = position.clone();
+        let   x      :number          = position.x;
+
         for ( const id of ids )
         {
             let fileName :string = null;
@@ -78,12 +81,14 @@ export abstract class WallFactory
                     meshFactory.createImportedModel
                     (
                         fileName,
-                        position,
+                        new BABYLON.Vector3( x, anchor.y, anchor.z ),
                         bz.PhysicSet.SHELVES,
                         rotY
                     )
                 )
             );
+
+            x += 8.5;
         }
     }
 }

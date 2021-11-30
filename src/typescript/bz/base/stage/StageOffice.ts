@@ -191,51 +191,12 @@ export class StageOffice extends bz.Stage
             )
         );
 
-        // TODO to StageFactory.createFence(random or specific); different textures (lighter etc)!
-        // from 1-5 range x count
-
-        // wooden fence 1
+        // wooden fence
         bz.WallFactory.createFence(
             this,
             meshFactory,
             new BABYLON.Vector3( 10.0, 0.0, 0.0 ),
-            [ 1 ],
-            90.0
-        );
-
-        // wooden fence 2
-        bz.WallFactory.createFence(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 18.5, 0.0, 0.0 ),
-            [ 2 ],
-            90.0
-        );
-
-        // wooden fence 3
-        bz.WallFactory.createFence(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 27.0, 0.0, 0.0 ),
-            [ 3 ],
-            90.0
-        );
-
-        // wooden fence 4
-        bz.WallFactory.createFence(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 35.5, 0.0, 0.0 ),
-            [ 4 ],
-            90.0
-        );
-
-        // wooden fence 5
-        bz.WallFactory.createFence(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 44.0, 0.0, 0.0 ),
-            [ 5 ],
+            [ 1, 2, 3, 4, 5 ],
             90.0
         );
 /*
