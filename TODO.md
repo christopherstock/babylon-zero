@@ -5,6 +5,7 @@
 ===
 MVP
 ===
+TODO Create one realistic model with all 3/4 different textures?
 TODO Create staircase.
 TODO Add linked doors (wing doors)
 TODO Add muzzle flash to gun on firing. (via sprite!)
