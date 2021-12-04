@@ -177,6 +177,8 @@ export class Texture
             && mesh.material.getActiveTextures().length > 0
         )
         {
+            // TODO create method getTextureFileFromMesh()
+
             // pick texture filename from Texture field 'url'
             let meshTextureFullFileName:string = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).url;
             if ( meshTextureFullFileName === null )

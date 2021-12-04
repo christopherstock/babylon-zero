@@ -605,6 +605,27 @@ export abstract class Stage
     )
     : void
     {
+        const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
+            'wall_rubble',
+            100,
+            this.getScene().getNativeSceneBG()
+        );
+        particleSystem.particleTexture = bz.Texture.cloneNativeTexture(bz.TextureFile.WALL_CEILING_1);
+
+        particleSystem.emitter = point;
+
+        // TODO get shot angle from BulletHole!
+
+        particleSystem.disposeOnStop = true;
+        particleSystem.updateSpeed = 0.1;
+        particleSystem.minSize = 0.05;
+        particleSystem.maxSize = 0.15;
+        particleSystem.targetStopDuration = 2.5;
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity;
+        particleSystem.direction1 = normal;
+        particleSystem.direction2 = normal;
+
+        particleSystem.start();
     }
 
     /** ****************************************************************************************************************
@@ -622,18 +643,18 @@ export abstract class Stage
             this.getScene().getNativeSceneBG(),
             false
         ).then(
-            ( set:BABYLON.ParticleSystemSet ) =>
+            ( particleSystem:BABYLON.ParticleSystemSet ) =>
             {
-                for ( const system of set.systems )
+                for ( const system of particleSystem.systems )
                 {
                     system.maxScaleX = size;
                     system.maxScaleY = size;
                     system.emitRate  = quantity;
                     system.gravity   = gravity;
                 }
-                set.start();
+                particleSystem.start();
 
-                this.particleEffects.push( set );
+                this.particleEffects.push( particleSystem );
             }
         ).catch(
             () =>
