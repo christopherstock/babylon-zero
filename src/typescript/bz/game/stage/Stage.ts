@@ -6,43 +6,41 @@ import * as bz from '../..';
 export abstract class Stage
 {
     /** The game instance. */
-    private readonly game               :bz.Game                    = null;
-    /** The scene instance of the game instance. */
-    private readonly scene              :bz.Scene                   = null;
+    private readonly game               :bz.Game                        = null;
 
     /** A collection of all walls in this stage. */
-    private readonly walls              :bz.Wall[]                  = [];
+    private readonly walls              :bz.Wall[]                      = [];
     /** A collection of all items in this stage. */
-    private readonly collectables       :bz.Collectable[]           = [];
+    private readonly collectables       :bz.Collectable[]               = [];
     /** A collection of all bots in this stage. */
-    private readonly bots               :bz.Bot[]                   = [];
+    private readonly bots               :bz.Bot[]                       = [];
     /** A collection of all sprites that appear in this stage. */
-    private readonly sprites            :bz.Sprite[]                = [];
+    private readonly sprites            :bz.Sprite[]                    = [];
     /** A collection of all lights that appear in this stage. */
-    private readonly lights             :BABYLON.Light[]            = [];
+    private readonly lights             :BABYLON.Light[]                = [];
     /** A collection of all shadowGenerators that appear in this stage. */
-    private readonly shadowGenerators   :BABYLON.ShadowGenerator[]  = [];
+    private readonly shadowGenerators   :BABYLON.ShadowGenerator[]      = [];
     /** A collection of all bullet holes in this stage. */
-    private readonly bulletHoles        :bz.BulletHole[]            = [];
+    private readonly bulletHoles        :bz.BulletHole[]                = [];
     /** A collection of all debug meshes in this stage. */
-    private readonly debugMeshes        :BABYLON.Mesh[]             = [];
+    private readonly debugMeshes        :BABYLON.Mesh[]                 = [];
 
     /** The stage config. */
-    private          config             :bz.StageConfig             = null;
+    private          config             :bz.StageConfig                 = null;
     /** The camera system that manages all scene cameras. */
-    private          cameraSystem       :bz.CameraSystem            = null;
+    private          cameraSystem       :bz.CameraSystem                = null;
     /** The player instance. */
-    private          player             :bz.Player                  = null;
+    private          player             :bz.Player                      = null;
     /** The skybox that surrounds the whole stage. */
-    private          skybox             :BABYLON.Mesh               = null;
+    private          skybox             :BABYLON.Mesh                   = null;
 
     /** Handles one single blocking UI pipeline (for event blocking UI messages). */
-    private         uiThreadPipeline    :bz.Event[]                 = [];
+    private         uiThreadPipeline    :bz.Event[]                     = [];
     /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
-    private         eventPipelines      :bz.Event[][]               = [];
+    private         eventPipelines      :bz.Event[][]                   = [];
 
     /** The particle helper fx 'rain' for this stage. */
-    private         rainEffect          :BABYLON.ParticleSystemSet  = null;
+    private         particleEffects     :BABYLON.ParticleSystemSet[]    = [];
 
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
@@ -51,8 +49,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     public constructor( game :bz.Game )
     {
-        this.game  = game;
-        this.scene = game.getScene();
+        this.game = game;
     }
 
     /** ****************************************************************************************************************
@@ -79,11 +76,11 @@ export abstract class Stage
         this.config = config;
 
         // assign scene colors from config
-        this.scene.getNativeSceneBG().ambientColor = this.config.ambientColor;
-        this.scene.getNativeSceneBG().clearColor   = this.config.sceneBgColor;
+        this.getScene().getNativeSceneBG().ambientColor = this.config.ambientColor;
+        this.getScene().getNativeSceneBG().clearColor   = this.config.sceneBgColor;
 
         // create all stage contents
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.getScene(), this.config.ambientColor );
         this.createStageContents( meshFactory );
 
         // player startup position and rotation must be set via config object!
@@ -213,9 +210,9 @@ export abstract class Stage
         this.cameraSystem.dispose();
 
         // dispose rain effect
-        if ( this.rainEffect !== null )
+        for ( const particleEffect of this.particleEffects )
         {
-            this.rainEffect.dispose();
+            particleEffect.dispose();
         }
     }
 
@@ -259,7 +256,7 @@ export abstract class Stage
         // add debug line
         if ( bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS )
         {
-            this.debugMeshes.push( shot.createDebugLine( this.scene ) );
+            this.debugMeshes.push( shot.createDebugLine( this.getScene() ) );
         }
 
         // determine all hit points without hurting the game objects
@@ -274,7 +271,7 @@ export abstract class Stage
         {
             const bulletHole:bz.BulletHole = impactHitPoint.causeImpact
             (
-                this.scene,
+                this.getScene(),
                 this.config.ambientColor,
                 shot.getDamage()
             );
@@ -443,7 +440,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     public getScene() : bz.Scene
     {
-        return this.scene;
+        return this.game.getScene();
     }
 
     /** ****************************************************************************************************************
@@ -590,7 +587,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
-        this.skybox = new bz.MeshFactory( this.scene, this.config.ambientColor ).createSkyBoxCube( file, alpha );
+        this.skybox = new bz.MeshFactory( this.getScene(), this.config.ambientColor ).createSkyBoxCube( file, alpha );
     }
 
     /** ****************************************************************************************************************
@@ -605,22 +602,21 @@ export abstract class Stage
     {
         BABYLON.ParticleHelper.CreateAsync(
             'rain',
-            this.scene.getNativeSceneBG(),
+            this.getScene().getNativeSceneBG(),
             false
         ).then(
             ( set:BABYLON.ParticleSystemSet ) =>
             {
-                this.rainEffect = set;
-
-                for ( const system of this.rainEffect.systems )
+                for ( const system of set.systems )
                 {
                     system.maxScaleX = size;
                     system.maxScaleY = size;
                     system.emitRate  = quantity;
                     system.gravity   = gravity;
                 }
+                set.start();
 
-                this.rainEffect.start();
+                this.particleEffects.push( set );
             }
         ).catch(
             () =>
@@ -659,7 +655,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     private addCoordinalAxis() : void
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.scene, this.config.ambientColor );
+        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.getScene(), this.config.ambientColor );
 
         this.debugMeshes.push
         (
