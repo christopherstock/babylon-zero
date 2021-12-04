@@ -71,7 +71,7 @@ export abstract class SettingPlayer
     public static readonly JUMP_ENABLED                             :boolean            = false;
 
     /** The player's maximum rotation Z (looking up/down) in degrees. */
-    public static readonly MAX_ROT_Z                                :number             = 60.0;
+    public static readonly MAX_ROT_Z                                :number             = 80.0;
     /** Enable centering rotation Z (look up/down) centering on walking. */
     public static readonly ENABLE_CENTERING_ROT_Z_ON_WALKING        :boolean            = false;
 

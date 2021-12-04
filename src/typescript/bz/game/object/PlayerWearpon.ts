@@ -14,6 +14,7 @@ export class PlayerWearpon
     public static readonly SHOTGUN_CENTER_SPEED :number  = 1.00;
     public static readonly LOWER_SIZE_Y         :number  = 0.07;
     public static readonly LOWER_ROT_SPEED_X    :number  = 3.0;
+    public static readonly RAISE_ROT_SPEED_X    :number  = 1.5;
 
     public                 lowerWearpon         :boolean = false;
     public                 lowerWearponAnim     :number  = 0;
@@ -45,7 +46,15 @@ export class PlayerWearpon
                     stage.getConfig().ambientColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 1.2, -0.75 - (this.lowerWearpon ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.LOWER_SIZE_Y : 0.0), 1.5 ),
+                    new BABYLON.Vector3(
+                        1.2,
+                        -0.75 - (
+                            this.lowerWearpon
+                            ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.LOWER_SIZE_Y
+                            : 0.0
+                        ),
+                        1.5
+                    ),
                     bz.PhysicSet.NONE,
                     null
                 )
@@ -81,7 +90,10 @@ export class PlayerWearpon
         }
     }
 
-    public update() : void
+    /** ****************************************************************************************************************
+    *   Renders one tick of the player's displayed wearpon.
+    *******************************************************************************************************************/
+    public render() : void
     {
         this.updateLowerRaiseAnimation();
         this.updateShotgunRotation();
@@ -118,7 +130,7 @@ export class PlayerWearpon
         else if ( this.targetShotgunRotX < this.shotgunRotX )
         {
             this.shotgunRotX -= (
-                this.lowerWearponAnim > 0 ? PlayerWearpon.LOWER_ROT_SPEED_X / 2 :
+                this.lowerWearponAnim > 0 ? PlayerWearpon.RAISE_ROT_SPEED_X :
                     (this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X)
             );
             if ( this.shotgunRotX < this.targetShotgunRotX )

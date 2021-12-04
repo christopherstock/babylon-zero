@@ -186,7 +186,7 @@ export class Player extends bz.GameObject
         this.checkInteraction();
 
         // set shotgun rotation
-        this.playerWearpon.update();
+        this.playerWearpon.render();
     }
 
     /** ****************************************************************************************************************

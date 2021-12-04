@@ -74,7 +74,9 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
-        if ( true ) return;
+        if ( true ) {
+            return;
+        }
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
@@ -576,7 +578,9 @@ if ( true ) return;
         this.addStuffWalls(  meshFactory, pointLight );
 
 */
-        if ( false ) this.addTreeSprites( meshFactory );
+        if ( false ) {
+            this.addTreeSprites( meshFactory );
+        }
 
         // add some items
         this.addCollectable(
@@ -715,22 +719,24 @@ if ( true ) return;
 */
 
         // add bot - walking towards player
-        if ( false ) this.addBot(
-            [
-                new bz.Bot(
-                    0,
-                    this,
-                    bz.BotType.TEST_WALKING_DUDE,
-                    new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
-                ),
-                new bz.Bot(
-                    0,
-                    this,
-                    bz.BotType.TEST_WALK_TOWARDS_PLAYER,
-                    new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
-                ),
-            ]
-        );
+        if ( false ) {
+            this.addBot(
+                [
+                    new bz.Bot(
+                        0,
+                        this,
+                        bz.BotType.TEST_WALKING_DUDE,
+                        new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
+                    ),
+                    new bz.Bot(
+                        0,
+                        this,
+                        bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                        new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
+                    ),
+                ]
+            );
+        }
 /*
         // add bot - walking towards axis X
         this.addBot(
