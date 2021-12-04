@@ -615,7 +615,7 @@ export abstract class Stage
 
         const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
             'wall_rubble',
-            10,
+            100,
             this.getScene().getNativeSceneBG()
         );
 
@@ -623,25 +623,25 @@ export abstract class Stage
 
         particleSystem.emitter = point;
 
-        particleSystem.emitRate = 10.0;
-        particleSystem.targetStopDuration = 5.0;
+        particleSystem.emitRate = 7.5;
+        particleSystem.targetStopDuration = 1.0;
         particleSystem.updateSpeed = 0.01;
 
-        particleSystem.minEmitPower = 1;
-        particleSystem.maxEmitPower = 3;
+        particleSystem.minEmitPower = 0.1;
+        particleSystem.maxEmitPower = 1.5;
 
         particleSystem.minAngularSpeed = 0;
-        particleSystem.maxAngularSpeed = Math.PI;
+        particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad( 90.0 );
 
         particleSystem.minLifeTime = 5.0;
-        particleSystem.maxLifeTime = 7.5;
+        particleSystem.maxLifeTime = 12.5;
 
         particleSystem.minInitialRotation = 0;
-        particleSystem.maxInitialRotation = Math.PI / 2;
+        particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad( 90.0 );
 
-        particleSystem.addVelocityGradient( 1, 3.5 );
-        particleSystem.addAngularSpeedGradient( 0, 1.5 );
-        particleSystem.addDragGradient(0, 0.5);
+        particleSystem.addVelocityGradient( 1, 1.5 );
+        // particleSystem.addAngularSpeedGradient( 0, 1.5 );
+        // particleSystem.addDragGradient(0, 0.5);
 
         // TODO get shot angle from BulletHole!
 
@@ -651,7 +651,7 @@ export abstract class Stage
         particleSystem.minSize = 0.05;
         particleSystem.maxSize = 0.15;
 
-        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.33 );
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.20 );
 
         particleSystem.direction1 = normal;
         particleSystem.direction2 = normal;
