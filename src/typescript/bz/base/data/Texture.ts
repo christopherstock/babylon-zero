@@ -211,6 +211,47 @@ export class Texture
     }
 
     /** ****************************************************************************************************************
+    *   Delivers the according texture for this mesh.
+    *
+    *   @param mesh The mesh to determine the Texture for.
+    *
+    *   @return The meshe's used texture.
+    *******************************************************************************************************************/
+    public static getTextureFromMesh( mesh:BABYLON.AbstractMesh ) : bz.TextureFile
+    {
+        const DEFAULT_TEXTURE:bz.TextureFile = bz.TextureFile.WALL_BRICKS_DARK_RED;
+
+        // try to pick the texture filename
+        if
+        (
+            mesh !== null
+            && mesh.material !== null
+            && mesh.material.getActiveTextures() !== null
+            && mesh.material.getActiveTextures().length > 0
+        )
+        {
+            // pick texture filename from Texture field 'url'
+            let meshTextureFullFileName:string = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).url;
+            if ( meshTextureFullFileName === null )
+            {
+                // video textures have their file path in field 'name'
+                meshTextureFullFileName = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).name;
+            }
+
+            // compare with all existent textures
+            for ( const texture of Texture.ALL_TEXTURES )
+            {
+                if ( texture.file.fileName === meshTextureFullFileName )
+                {
+                    return texture.file;
+                }
+            }
+        }
+
+        return DEFAULT_TEXTURE;
+    }
+
+    /** ****************************************************************************************************************
     *   Returns the Texture from the specified TextureFile.
     *
     *   @return The texture data from the specified file name.

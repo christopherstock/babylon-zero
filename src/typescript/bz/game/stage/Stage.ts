@@ -270,9 +270,11 @@ export abstract class Stage
         for ( const impactHitPoint of impactHitPoints )
         {
             // add particle fx
+            const meshTextureFile:bz.TextureFile = bz.Texture.getTextureFromMesh( impactHitPoint.getMesh() );
             this.addWallRubble(
                 impactHitPoint.getPoint(),
-                impactHitPoint.getNormal()
+                impactHitPoint.getNormal(),
+                meshTextureFile
             );
 
             // hurt the wall
@@ -604,7 +606,8 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected addWallRubble(
         point  :BABYLON.Vector3,
-        normal :BABYLON.Vector3
+        normal :BABYLON.Vector3,
+        tex :bz.TextureFile
     )
     : void
     {
@@ -616,7 +619,7 @@ export abstract class Stage
             this.getScene().getNativeSceneBG()
         );
 
-        particleSystem.particleTexture = bz.Texture.cloneNativeTexture(bz.TextureFile.WALL_CEILING_1);
+        particleSystem.particleTexture = bz.Texture.cloneNativeTexture(tex);
 
         particleSystem.emitter = point;
 
