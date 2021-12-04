@@ -8,6 +8,9 @@ export abstract class SettingPlayer
     /** The player's weight in kg. */
     public static readonly PLAYER_MASS                              :number             = 1414;
 
+    /** If the player should start with a lowered wearpon. */
+    public static readonly START_WITH_LOWERED_WEARPON               :boolean            = true;
+
     /** The player's physical force horizontal impulse for moving. */
     public static readonly IMPULSE_MOVE                             :number             = 17.68 * SettingPlayer.PLAYER_MASS;
     /** The player's physical force horizontal impulse for running. */

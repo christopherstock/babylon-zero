@@ -33,6 +33,8 @@ export class PlayerWearpon
     *******************************************************************************************************************/
     public constructor( stage:bz.Stage, playerHead:BABYLON.AbstractMesh )
     {
+        this.lowerWearpon = bz.SettingPlayer.START_WITH_LOWERED_WEARPON;
+
         // add a shotgun to the right player hand
         this.shotgun = (
             new bz.Wall
@@ -43,7 +45,7 @@ export class PlayerWearpon
                     stage.getConfig().ambientColor ).createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 1.2, -0.75, 1.5 ),
+                    new BABYLON.Vector3( 1.2, -0.75 - (this.lowerWearpon ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.LOWER_SIZE_Y : 0.0), 1.5 ),
                     bz.PhysicSet.NONE,
                     null
                 )
@@ -59,6 +61,12 @@ export class PlayerWearpon
             // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
             // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
             // mesh.getBoundingInfo().boundingSphere.scale( 10.0 );
+        }
+
+        // raise the wearpon if initially lowered
+        if ( this.lowerWearpon )
+        {
+            this.toggleWearponRaise();
         }
     }
 
@@ -158,8 +166,7 @@ export class PlayerWearpon
                 )
             );
 
-            // this.targetShotgunRotX = ( this.lowerWearpon ? 30.0 : 15.0 );
-            this.targetShotgunRotX = 45.0; // ( this.lowerWearpon ? 30.0 : this.targetShotgunRotX );
+            this.targetShotgunRotX = ( this.lowerWearpon ? 45.0 : 45.0 );
 
             // upright from this magic tick on ..
             if ( !this.lowerWearpon && this.lowerWearponAnim < 17 ) {

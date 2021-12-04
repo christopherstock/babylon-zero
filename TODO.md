@@ -5,24 +5,26 @@
 ===
 MVP
 ===
-TODO lower/raise wearpon - also on level start
 TODO Create one realistic model with all 3/4 different textures?
 TODO Create staircase.
-TODO Add linked doors (wing doors)
+TODO Add linked doors (double wing doors)
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Fix fence
-TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
-TODO Create realistic models and lights.
 TODO Clean up StageOffice contents
+TODO Create realistic models and lights.
 TODO smaller Doors?
-
+TODO Particle FX (physical) for wall rubble!
+TODO Add possibility for general particle systems (fx, non-physical) for bullet holes' wall rubble, explosions etc.
 TODO Performance: Try hi-res textures? 512 or 1024 ?
+
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
+
 TODO Add explosion effects via sprites.
-TODO Improve ModelSystem.load: introduce ModelType? class instances of ModelFile? (remove indexOf'wearpon/')
-TODO Add Explosion effect when objects break: fire sprites and global explosion?
-TODO Door interaction on imported officeDesk3?
+
+TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
+
+TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (remove indexOf'wearpon/')
+TODO Door animation interaction on imported officeDesk3?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
 TODO Reset Git Repository?
@@ -30,9 +32,8 @@ TODO Reset Git Repository?
 ==
 Fx
 ==
+TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Physical Bodies for Bots?
-TODO Try particle system (fx, non-physical) for bullet holes' wall rubble etc.
-TODO Particle FX (physical) for wall rubble!
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try exploding mayflower logo (from 3dsmax promo?)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
@@ -77,6 +78,7 @@ TODO Sounds for shot, bullet hit and bullet drop.
 =========
 Secondary
 =========
+TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Try stored 3dsmax model animations.
 TODO Fix/add head shaking?
 TODO Fix/add jumping?
