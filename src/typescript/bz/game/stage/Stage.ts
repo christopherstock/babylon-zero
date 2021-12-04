@@ -271,6 +271,7 @@ export abstract class Stage
         {
             // add particle fx
             const meshTextureFile:bz.TextureFile = bz.Texture.getTextureFromMesh( impactHitPoint.getMesh() );
+            const bulletHoleTextureFile:bz.TextureFile = bz.Texture.getBulletHoleTextureForMesh( impactHitPoint.getMesh() );
             this.addWallRubble(
                 impactHitPoint.getPoint(),
                 impactHitPoint.getNormal(),
@@ -607,7 +608,7 @@ export abstract class Stage
     protected addWallRubble(
         point  :BABYLON.Vector3,
         normal :BABYLON.Vector3,
-        tex :bz.TextureFile
+        tex    :bz.TextureFile
     )
     : void
     {
@@ -619,15 +620,22 @@ export abstract class Stage
             this.getScene().getNativeSceneBG()
         );
 
-        particleSystem.particleTexture = bz.Texture.cloneNativeTexture(tex);
-        particleSystem.particleTexture = bz.Texture.cloneNativeTexture(tex);
+        // let myDynamicTexture:BABYLON.DynamicTexture = new BABYLON.DynamicTexture('', {}, this.getScene().getNativeSceneBG(), false,0,0);
+        // myDynamicTexture.drawText("example", 0, 0, 'Arial', 'black', 'transparent', false, false);
 
-        particleSystem.particleTexture.uScale = 10.0;
-        particleSystem.particleTexture.vScale = 10.0;
+        particleSystem.particleTexture = tex.createNewTextureInstance( 10.0, 10.0 );
+/*
+        particleSystem.particleTexture.hasAlpha = true;
+        particleSystem.particleTexture.uScale = 5.0;
+        particleSystem.particleTexture.vScale = 5.0;
+        // particleSystem.particleTexture.wrapU  = 0.0001;
+        // particleSystem.particleTexture.wrapV  = 0.0001;
+*/
+        // particleSystem.color1 = new BABYLON.Color4(0.0, 0.0, 0.0, 0.01 * bz.MathUtil.getRandomInt( 1, 5 ) );
+        // particleSystem.color2 = new BABYLON.Color4(1.0, 1.0, 1.0, 0.01 * bz.MathUtil.getRandomInt( 1, 5 ) );
+        // particleSystem.colorDead = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
 
-        // particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
-        // particleSystem.color2 = new BABYLON.Color4(0.2, 0.5, 1.0, 1.0);
-        // particleSystem.colorDead = new BABYLON.Color4(0.0, 0.0, 0.0, 0.0);
+       particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
 
         particleSystem.emitter = point;
 
@@ -650,6 +658,8 @@ export abstract class Stage
         particleSystem.addVelocityGradient( 1, 1.5 );
         particleSystem.addAngularSpeedGradient( 0, 1.5 );
         particleSystem.addDragGradient(0, 0.25);
+
+        // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
         // TODO get shot angle from BulletHole!
 
