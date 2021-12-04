@@ -165,44 +165,19 @@ export class Texture
     *
     *   @return The according bullet hole texture.
     *******************************************************************************************************************/
-    public static getBulletHoleTextureForMesh(mesh:BABYLON.AbstractMesh ) : bz.TextureFile
+    public static getBulletHoleTextureForMesh( mesh:BABYLON.AbstractMesh ) : bz.TextureFile
     {
         const DEFAULT_BULLET_HOLE_TEXTURE:bz.TextureFile = bz.TextureFile.BULLET_HOLE_CONCRETE;
 
-        // try to pick the texture filename
-        if
-        (
-            mesh !== null
-            && mesh.material !== null
-            && mesh.material.getActiveTextures() !== null
-            && mesh.material.getActiveTextures().length > 0
-        )
+        const texture:bz.TextureFile = Texture.getTextureFromMesh( mesh );
+
+        if ( texture.bulletHoleTexture !== null )
         {
-            // TODO create method getTextureFileFromMesh()
-
-            // pick texture filename from Texture field 'url'
-            let meshTextureFullFileName:string = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).url;
-            if ( meshTextureFullFileName === null )
+            for ( const tex of Texture.ALL_TEXTURES )
             {
-                // video textures have their file path in field 'name'
-                meshTextureFullFileName = ( mesh.material.getActiveTextures()[ 0 ] as BABYLON.Texture ).name;
-            }
-
-            // compare with all existent textures
-            for ( const texture of Texture.ALL_TEXTURES )
-            {
-                if ( texture.file.fileName === meshTextureFullFileName )
+                if ( tex.file.fileName === texture.bulletHoleTexture.fileName )
                 {
-                    if ( texture.file.bulletHoleTexture !== null )
-                    {
-                        for ( const tex of Texture.ALL_TEXTURES )
-                        {
-                            if ( tex.file.fileName === texture.file.bulletHoleTexture.fileName )
-                            {
-                                return tex.file;
-                            }
-                        }
-                    }
+                    return tex.file;
                 }
             }
         }
