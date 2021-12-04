@@ -5,27 +5,21 @@
 ===
 MVP
 ===
-TODO Particle FX (physical) for wall rubble!
 TODO Realistic textures (Floor with four textures, maximum quality?)
-TODO Add possibility for general particle systems (fx, non-physical) for bullet holes' wall rubble, explosions etc.
+TODO Performance: Try hi-res textures? 512 or 1024 or 2048 ? ?
 TODO Create one realistic model with all 3/4 different textures?
 TODO Create staircase.
+TODO Add glossiness to floors (marbel in light etc)
 TODO Add linked doors (double wing doors)
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Fix fence
 TODO Clean up StageOffice contents
 TODO Create realistic models and lights.
 TODO smaller Doors?
-TODO Performance: Try hi-res textures? 512 or 1024 ?
-
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-
 TODO Add explosion effects via sprites.
-
-TODO Add glossiness to floors (marbel in light etc)
 TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
-
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (remove indexOf'wearpon/')
 TODO Door animation interaction on imported officeDesk3?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
@@ -70,7 +64,7 @@ TODO Create wearpons with projectiles (exploding or non-exploding)..
 ====
 Bots
 ====
-TODO Create class Character, the abstract class of Player and Bot??
+TODO Bots attack player and cast a shoot onto the level.
 
 ======
 Sounds
