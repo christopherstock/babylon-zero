@@ -21,6 +21,7 @@ TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable 
 
 TODO Add explosion effects via sprites.
 
+TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (remove indexOf'wearpon/')
@@ -28,6 +29,14 @@ TODO Door animation interaction on imported officeDesk3?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
 TODO Reset Git Repository?
+
+TODO create player die effect (tilt cylinder and head etc.)
+TODO keep pointer lock between stage switches? (gets lost at the moment)
+TODO Constraint system for events (keycard holded)!?
+TODO Add glossiness to floors (marbel in light etc)
+TODO Quick fire animation in bullet hole (for certain materials..)?
+
+TODO Spawn painkiller model when used.
 
 ==
 Fx
@@ -37,17 +46,11 @@ TODO Physical Bodies for Bots?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try exploding mayflower logo (from 3dsmax promo?)
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
-TODO create player die effect (tilt cylinder and head etc.)
 TODO try gold metal effect etc for IntroVideo logo
 TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
 TODO Load multiple 'dancing girls'?
-TODO keep pointer lock between stage switches? (gets lost at the moment)
-TODO Constraint system for events (keycard holded)!?
 TODO add rotating MF Logo sprite?
-TODO Add glossiness to floors (marbel in light etc)
-TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Enable loading of only required resources for the current scene?
-TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
 TODO Add physically correct bullet drop (+sound) out after fire.
 
 ========
