@@ -620,6 +620,14 @@ export abstract class Stage
         );
 
         particleSystem.particleTexture = bz.Texture.cloneNativeTexture(tex);
+        particleSystem.particleTexture = bz.Texture.cloneNativeTexture(tex);
+
+        particleSystem.particleTexture.uScale = 10.0;
+        particleSystem.particleTexture.vScale = 10.0;
+
+        // particleSystem.color1 = new BABYLON.Color4(0.7, 0.8, 1.0, 1.0);
+        // particleSystem.color2 = new BABYLON.Color4(0.2, 0.5, 1.0, 1.0);
+        // particleSystem.colorDead = new BABYLON.Color4(0.0, 0.0, 0.0, 0.0);
 
         particleSystem.emitter = point;
 
@@ -631,17 +639,17 @@ export abstract class Stage
         particleSystem.maxEmitPower = 1.5;
 
         particleSystem.minAngularSpeed = 0;
-        particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad( 90.0 );
+        particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad( 360.0 );
 
         particleSystem.minLifeTime = 5.0;
         particleSystem.maxLifeTime = 12.5;
 
         particleSystem.minInitialRotation = 0;
-        particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad( 90.0 );
+        particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad( 360.0 );
 
         particleSystem.addVelocityGradient( 1, 1.5 );
-        // particleSystem.addAngularSpeedGradient( 0, 1.5 );
-        // particleSystem.addDragGradient(0, 0.5);
+        particleSystem.addAngularSpeedGradient( 0, 1.5 );
+        particleSystem.addDragGradient(0, 0.25);
 
         // TODO get shot angle from BulletHole!
 
@@ -655,6 +663,9 @@ export abstract class Stage
 
         particleSystem.direction1 = normal;
         particleSystem.direction2 = normal;
+
+        particleSystem.minEmitBox = new BABYLON.Vector3( -0.1, -0.1, -0.1 ); // Bottom Left Front
+        particleSystem.maxEmitBox = new BABYLON.Vector3( 0.1, 0.1, 0.1 ); // Top Right Back
 
         particleSystem.start();
     }
