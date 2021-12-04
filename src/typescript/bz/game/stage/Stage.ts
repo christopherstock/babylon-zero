@@ -269,12 +269,18 @@ export abstract class Stage
         // impact all hit points
         for ( const impactHitPoint of impactHitPoints )
         {
+            // add particle fx
+            this.addWallRubble( impactHitPoint.getPoint(), impactHitPoint.getNormal() );
+
+            // hurt the wall
             const bulletHole:bz.BulletHole = impactHitPoint.causeImpact
             (
                 this.getScene(),
                 this.config.ambientColor,
                 shot.getDamage()
             );
+
+            // append bullet hole (if the wall still exists)
             if ( bulletHole !== null )
             {
                 this.addBulletHole( bulletHole );
@@ -588,6 +594,17 @@ export abstract class Stage
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
         this.skybox = new bz.MeshFactory( this.getScene(), this.config.ambientColor ).createSkyBoxCube( file, alpha );
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a parficle effect for wall rubble on the specified point and normal.
+    *******************************************************************************************************************/
+    protected addWallRubble(
+        point  :BABYLON.Vector3,
+        normal :BABYLON.Vector3
+    )
+    : void
+    {
     }
 
     /** ****************************************************************************************************************

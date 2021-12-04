@@ -59,6 +59,7 @@ export class TextureFile
     public static readonly WALL_WOOD_PLANKS             :TextureFile            = new TextureFile( 'wall/woodPlanks.jpg',           bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_WOOD_VERT_1             :TextureFile            = new TextureFile( 'wall/woodVert1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_WOOD_VERT_2             :TextureFile            = new TextureFile( 'wall/woodVert2.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
+    public static readonly WALL_WOOD_HORZ_2             :TextureFile            = new TextureFile( 'wall/woodHorz2.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
 
     public static readonly MODEL_WOOD_HORZ              :TextureFile            = new TextureFile( 'furniture/woodHorz.jpg',        bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL_AND_MODEL );
     public static readonly MODEL_WOOD_LIGHT             :TextureFile            = new TextureFile( 'furniture/woodLight.jpg',       bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL_AND_MODEL );

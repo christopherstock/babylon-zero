@@ -43,25 +43,27 @@ export class StageOffice extends bz.Stage
         // blue skybox
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
+        // player
+        this.setPlayer( new bz.Player( this ) );
+
         // ground walls
         // this.addGroundWalls( meshFactory );
 
-        // player
-        this.setPlayer( new bz.Player( this ) );
+        // this.createFourStaffOffice( 0.0, 0.0 );
 
         // small office
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 100.0, bz.SettingGame.WALL_HEIGHT, 250.0 ),
+            new BABYLON.Vector3( 60.0, bz.SettingGame.WALL_HEIGHT, 30.0 ),
             0.0,
-            null, [], [], 0,
-            null,                         [], [], 0,
-            null,                         [], [], 0,
-            null,                         [], [], 0,
-            bz.TextureFile.MODEL_CONCRETE,
-            null
+            bz.TextureFile.WALL_WOOD_HORZ_2, [], [], 0,
+            bz.TextureFile.WALL_WOOD_HORZ_2, [], [], 0,
+            bz.TextureFile.WALL_WOOD_HORZ_2, [], [], 0,
+            bz.TextureFile.WALL_WOOD_HORZ_2, [], [], 0,
+            bz.TextureFile.WALL_CARPET_3,
+            bz.TextureFile.WALL_CEILING_1
         );
 
         // point light in small office

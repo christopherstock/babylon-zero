@@ -60,6 +60,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_WOOD_PLANKS ),
         new Texture( bz.TextureFile.WALL_WOOD_VERT_1 ),
         new Texture( bz.TextureFile.WALL_WOOD_VERT_2 ),
+        new Texture( bz.TextureFile.WALL_WOOD_HORZ_2 ),
 
         new Texture( bz.TextureFile.MODEL_WOOD_HORZ ),
         new Texture( bz.TextureFile.MODEL_WOOD_LIGHT ),
