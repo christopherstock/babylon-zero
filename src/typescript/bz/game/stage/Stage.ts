@@ -270,7 +270,11 @@ export abstract class Stage
         for ( const impactHitPoint of impactHitPoints )
         {
             // add particle fx
-            this.addWallRubble( impactHitPoint.getPoint(), impactHitPoint.getNormal() );
+            this.addWallRubble(
+                impactHitPoint.getPoint(),
+                impactHitPoint.getNormal(),
+                bz.MathUtil.getRandomInt( 6, 12 )
+            );
 
             // hurt the wall
             const bulletHole:bz.BulletHole = impactHitPoint.causeImpact
@@ -601,16 +605,17 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected addWallRubble(
         point  :BABYLON.Vector3,
-        normal :BABYLON.Vector3
+        normal :BABYLON.Vector3,
+        particlesToSpawn :number
     )
     : void
     {
         const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
             'wall_rubble',
-            100,
+            particlesToSpawn,
             this.getScene().getNativeSceneBG()
         );
-/*
+
         particleSystem.particleTexture = bz.Texture.cloneNativeTexture(bz.TextureFile.WALL_CEILING_1);
 
         particleSystem.emitter = point;
@@ -624,18 +629,12 @@ export abstract class Stage
         particleSystem.disposeOnStop = true;
         particleSystem.targetStopDuration = 2.5;
 
-        particleSystem.updateSpeed = 0.01;
+        particleSystem.updateSpeed = 0.005;
         particleSystem.minSize = 0.05;
         particleSystem.maxSize = 0.15;
-        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale(0.5);
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale(0.25);
         particleSystem.direction1 = normal;
         particleSystem.direction2 = normal;
-*/
-        const sphereEmitter :BABYLON.SphereParticleEmitter = particleSystem.createSphereEmitter(
-            0.0,
-            0.0
-        );
-        sphereEmitter.directionRandomizer = 1.0;
 
         particleSystem.start();
     }
