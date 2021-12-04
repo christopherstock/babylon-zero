@@ -272,8 +272,7 @@ export abstract class Stage
             // add particle fx
             this.addWallRubble(
                 impactHitPoint.getPoint(),
-                impactHitPoint.getNormal(),
-                bz.MathUtil.getRandomInt( 6, 12 )
+                impactHitPoint.getNormal()
             );
 
             // hurt the wall
@@ -605,14 +604,15 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected addWallRubble(
         point  :BABYLON.Vector3,
-        normal :BABYLON.Vector3,
-        particlesToSpawn :number
+        normal :BABYLON.Vector3
     )
     : void
     {
+        const RUBBLE_COUNT = 5;
+
         const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
             'wall_rubble',
-            particlesToSpawn,
+            10,
             this.getScene().getNativeSceneBG()
         );
 
@@ -620,19 +620,22 @@ export abstract class Stage
 
         particleSystem.emitter = point;
 
+        particleSystem.emitRate = 10.0;
+        particleSystem.targetStopDuration = 1.0;
+
         particleSystem.addVelocityGradient( 1, 2.1 );
         particleSystem.addAngularSpeedGradient( 0, 0.7 );
         particleSystem.addDragGradient(0, 0.1);
 
         // TODO get shot angle from BulletHole!
 
+        particleSystem.startDelay = 0.0;
         particleSystem.disposeOnStop = true;
-        particleSystem.targetStopDuration = 2.5;
 
-        particleSystem.updateSpeed = 0.005;
+        particleSystem.updateSpeed = 0.01;
         particleSystem.minSize = 0.05;
         particleSystem.maxSize = 0.15;
-        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale(0.25);
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.25 );
         particleSystem.direction1 = normal;
         particleSystem.direction2 = normal;
 

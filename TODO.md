@@ -6,6 +6,7 @@
 MVP
 ===
 TODO Particle FX (physical) for wall rubble!
+TODO Realistic textures (Floor with four textures, maximum quality?)
 TODO Add possibility for general particle systems (fx, non-physical) for bullet holes' wall rubble, explosions etc.
 TODO Create one realistic model with all 3/4 different textures?
 TODO Create staircase.
