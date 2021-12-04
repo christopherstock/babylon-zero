@@ -36,6 +36,9 @@ export abstract class SettingPlayer
     /** The player's speed for standing up in world coordinates per tick. */
     public static readonly SPEED_STAND_UP                           :number             = 0.25;
 
+    /** Number of ticks the player takes for lowering and raising his wearpon. */
+    public static readonly TICKS_LOWER_RAISE_WEARPON                :number             = 25;
+
     /** Number of ticks it takes for the player to turn around (180 degrees). */
     public static readonly TICKS_TURN_AROUND                        :number             = 10;
 

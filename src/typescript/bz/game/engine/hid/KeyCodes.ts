@@ -26,6 +26,7 @@ export abstract class KeyCodes
     public static readonly KEY_C                :string = 'KeyC';
 
     public static readonly KEY_P                :string = 'KeyP';
+    public static readonly KEY_L                :string = 'KeyL';
 
     public static readonly KEY_ENTER            :string = 'Enter';
     public static readonly KEY_ESCAPE           :string = 'Escape';

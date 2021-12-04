@@ -5,10 +5,12 @@
 ===
 MVP
 ===
+TODO lower/raise wearpon - also on level start
 TODO Create one realistic model with all 3/4 different textures?
 TODO Create staircase.
 TODO Add linked doors (wing doors)
 TODO Add muzzle flash to gun on firing. (via sprite!)
+TODO Fix fence
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Create realistic models and lights.
 TODO Clean up StageOffice contents

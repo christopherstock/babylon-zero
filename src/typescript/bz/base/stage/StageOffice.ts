@@ -73,6 +73,8 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLights );
+
+        if ( true ) return;
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
@@ -190,7 +192,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+/*
         // wooden fence
         bz.WallFactory.createFence(
             this,
@@ -199,6 +201,7 @@ export class StageOffice extends bz.Stage
             [ 1, 2, 3, 4, 5 ],
             -90.0
         );
+ */
 /*
         // big bin
         this.addWall(
@@ -263,7 +266,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+*/
         // pallet cement
         this.addWall(
             new bz.Wall
@@ -295,7 +298,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-
+/*
         // sewerage pumping
         this.addWall(
             new bz.Wall
@@ -573,7 +576,7 @@ if ( true ) return;
         this.addStuffWalls(  meshFactory, pointLight );
 
 */
-        this.addTreeSprites( meshFactory );
+        if ( false ) this.addTreeSprites( meshFactory );
 
         // add some items
         this.addCollectable(
@@ -712,7 +715,7 @@ if ( true ) return;
 */
 
         // add bot - walking towards player
-        this.addBot(
+        if ( false ) this.addBot(
             [
                 new bz.Bot(
                     0,

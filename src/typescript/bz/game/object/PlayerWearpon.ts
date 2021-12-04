@@ -12,6 +12,11 @@ export class PlayerWearpon
     public static readonly SHOTGUN_ROT_SPEED_X  :number  = 0.20;
     public static readonly SHOTGUN_ROT_SPEED_Y  :number  = 0.20;
     public static readonly SHOTGUN_CENTER_SPEED :number  = 1.00;
+    public static readonly LOWER_SIZE_Y         :number  = 0.07;
+    public static readonly LOWER_ROT_SPEED_X    :number  = 3.0;
+
+    public                 lowerWearpon         :boolean = false;
+    public                 lowerWearponAnim     :number  = 0;
 
     public                 targetShotgunRotX    :number  = 0;
     public                 targetShotgunRotY    :number  = 0;
@@ -68,15 +73,34 @@ export class PlayerWearpon
         }
     }
 
+    public update() : void
+    {
+        this.updateLowerRaiseAnimation();
+        this.updateShotgunRotation();
+    }
+
+    /** ****************************************************************************************************************
+    *   Toggles the wearpon.
+    *******************************************************************************************************************/
+    public toggleWearponRaise() : void
+    {
+        if ( this.lowerWearponAnim === 0 )
+        {
+            this.lowerWearpon     = !this.lowerWearpon;
+            this.lowerWearponAnim = bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON;
+        }
+    }
+
     /** ****************************************************************************************************************
     *   Rotates the wearpon according to the current wearpon target rotation.
     *******************************************************************************************************************/
-    public updateShotgunRotation() : void
+    private updateShotgunRotation() : void
     {
         if ( this.targetShotgunRotX > this.shotgunRotX )
         {
             this.shotgunRotX += (
-                this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X
+                this.lowerWearponAnim > 0 ? PlayerWearpon.LOWER_ROT_SPEED_X :
+                    (this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X)
             );
             if ( this.shotgunRotX > this.targetShotgunRotX )
             {
@@ -86,7 +110,8 @@ export class PlayerWearpon
         else if ( this.targetShotgunRotX < this.shotgunRotX )
         {
             this.shotgunRotX -= (
-                this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X
+                this.lowerWearponAnim > 0 ? PlayerWearpon.LOWER_ROT_SPEED_X / 2 :
+                    (this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X)
             );
             if ( this.shotgunRotX < this.targetShotgunRotX )
             {
@@ -119,5 +144,35 @@ export class PlayerWearpon
             Math.fround( this.shotgunRotY ),
             0.0
         );
+    }
+
+    private updateLowerRaiseAnimation() : void
+    {
+        if ( this.lowerWearponAnim > 0 )
+        {
+            this.shotgun.getModel().translatePosition(
+                new BABYLON.Vector3(
+                    0.0,
+                    ( this.lowerWearpon ? -PlayerWearpon.LOWER_SIZE_Y : PlayerWearpon.LOWER_SIZE_Y ),
+                    0.0
+                )
+            );
+
+            // this.targetShotgunRotX = ( this.lowerWearpon ? 30.0 : 15.0 );
+            this.targetShotgunRotX = 45.0; // ( this.lowerWearpon ? 30.0 : this.targetShotgunRotX );
+
+            // upright from this magic tick on ..
+            if ( !this.lowerWearpon && this.lowerWearponAnim < 17 ) {
+                this.targetShotgunRotX = 0;
+            }
+
+            --this.lowerWearponAnim;
+
+            if ( this.lowerWearponAnim === 0 )
+            {
+                this.shotgunRotX = 0.0;
+                this.targetShotgunRotX = 0.0;
+            }
+        }
     }
 }

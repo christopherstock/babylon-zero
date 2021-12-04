@@ -186,7 +186,7 @@ export class Player extends bz.GameObject
         this.checkInteraction();
 
         // set shotgun rotation
-        this.playerWearpon.updateShotgunRotation();
+        this.playerWearpon.update();
     }
 
     /** ****************************************************************************************************************
@@ -393,6 +393,14 @@ export class Player extends bz.GameObject
             keySystem.setNeedsRelease( bz.KeyCodes.KEY_BACKSPACE );
 
             this.consumePainkiller();
+        }
+
+        // consume painkiller
+        if ( keySystem.isPressed( bz.KeyCodes.KEY_L ) )
+        {
+            keySystem.setNeedsRelease( bz.KeyCodes.KEY_L );
+
+            this.playerWearpon.toggleWearponRaise();
         }
     }
 
