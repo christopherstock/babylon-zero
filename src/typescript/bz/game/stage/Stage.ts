@@ -610,20 +610,32 @@ export abstract class Stage
             100,
             this.getScene().getNativeSceneBG()
         );
+/*
         particleSystem.particleTexture = bz.Texture.cloneNativeTexture(bz.TextureFile.WALL_CEILING_1);
 
         particleSystem.emitter = point;
 
+        particleSystem.addVelocityGradient( 1, 2.1 );
+        particleSystem.addAngularSpeedGradient( 0, 0.7 );
+        particleSystem.addDragGradient(0, 0.1);
+
         // TODO get shot angle from BulletHole!
 
         particleSystem.disposeOnStop = true;
-        particleSystem.updateSpeed = 0.1;
+        particleSystem.targetStopDuration = 2.5;
+
+        particleSystem.updateSpeed = 0.01;
         particleSystem.minSize = 0.05;
         particleSystem.maxSize = 0.15;
-        particleSystem.targetStopDuration = 2.5;
-        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity;
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale(0.5);
         particleSystem.direction1 = normal;
         particleSystem.direction2 = normal;
+*/
+        const sphereEmitter :BABYLON.SphereParticleEmitter = particleSystem.createSphereEmitter(
+            0.0,
+            0.0
+        );
+        sphereEmitter.directionRandomizer = 1.0;
 
         particleSystem.start();
     }

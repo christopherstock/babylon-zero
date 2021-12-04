@@ -32,6 +32,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_COBBLES_5 ),
         new Texture( bz.TextureFile.WALL_CONCRETE_DARK ),
         new Texture( bz.TextureFile.WALL_CONCRETE_NEW ),
+        new Texture( bz.TextureFile.WALL_DARK_WOOD_PARQUET ),
         new Texture( bz.TextureFile.WALL_DIAMOND_PLATE_1 ),
         new Texture( bz.TextureFile.WALL_DIAMOND_PLATE_2 ),
         new Texture( bz.TextureFile.WALL_DOOR_INDUSTRIAL ),

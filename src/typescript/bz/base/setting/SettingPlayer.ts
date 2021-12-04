@@ -51,7 +51,7 @@ export abstract class SettingPlayer
     public static readonly HEIGHT_Y_DUCKING                         :number             = 2.0;
 
     /** The player's diameter on the XZ axis. */
-    public static readonly DIAMETER_BODY                            :number             = 3.0;
+    public static readonly DIAMETER_BODY                            :number             = 3.5;
     /** The player's head diameter on all axis. */
     public static readonly DIAMETER_HEAD                            :number             = 1.0;
 
