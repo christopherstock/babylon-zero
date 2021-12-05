@@ -6,14 +6,13 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class DoorData
 {
-    public position  :number           = 0;
-    public events    :bz.Event[]       = [];
-    public animation :bz.DoorAnimation = null;
-    public noBody    :boolean          = false;
-    public texture   :bz.TextureFile   = null;
-    public linkedDoorIndex   :number = -1;
-    // TODO door texture
-    // TODO double door?
+    public position         :number           = 0;
+    public events           :bz.Event[]       = [];
+    public animation        :bz.DoorAnimation = null;
+    public noBody           :boolean          = false;
+    public texture          :bz.TextureFile   = null;
+    public linkedDoorIndex  :number           = -1;
+    // TODO flipTextureX
 
     /** ****************************************************************************************************************
     *   Creates one door config.
@@ -333,7 +332,7 @@ export abstract class StageFactory
     /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
-    private static calculateFreeWalls( start:number, size:number, windows:number[], doors:bz.DoorData[] ) : number[]
+    private static calculateBlankWalls( start:number, size:number, windows:number[], doors:bz.DoorData[] ) : number[]
     {
         // collect all busy walls
         let busyWalls :BABYLON.Vector2[] = [];
@@ -368,10 +367,12 @@ export abstract class StageFactory
 
         const freeWalls :number[] = [];
         freeWalls.push( start );
-        for ( const busyWall of busyWalls )
+        for ( let i:number = 0; i < busyWalls.length; ++i )
         {
-            freeWalls.push( busyWall.x );
-            freeWalls.push( busyWall.y );
+            const newBusyWall :BABYLON.Vector2 = busyWalls[ i ];
+
+            freeWalls.push( newBusyWall.x );
+            freeWalls.push( newBusyWall.y );
         }
         freeWalls.push( start + size );
 
@@ -591,10 +592,19 @@ export abstract class StageFactory
             walls.push( bottomWindowFrame );
         }
 
-        // walls
-        const freeWalls :number[] = []; // StageFactory.calculateFreeWalls( x, sizeX, windowsPos, doorsData );
-        for ( let i:number = 0; i < freeWalls.length; i += 2 )
+        // blank walls ( all walls beside doors and windows )
+        const blankWalls :number[] = StageFactory.calculateBlankWalls( x, sizeX, windowsPos, doorsData );
+        for ( let i:number = 0; i < blankWalls.length; i += 2 )
         {
+            const from  :number = blankWalls[ i ];
+            const to    :number = blankWalls[ i + 1 ];
+            const width :number = ( to - from );
+
+            if ( width === 0.0 )
+            {
+                continue;
+            }
+
             const wall :bz.Wall = new bz.Wall
             (
                 stage,
@@ -602,10 +612,10 @@ export abstract class StageFactory
                 (
                     meshFactory.createBox
                     (
-                        new BABYLON.Vector3( freeWalls[ i ], y, z ),
+                        new BABYLON.Vector3( from, y, z ),
                         textureFileWall,
                         new BABYLON.Vector3(
-                            ( freeWalls[ i + 1 ] - freeWalls[ i ] ),
+                            width,
                             sizeY,
                             bz.SettingGame.WALL_DEPTH
                         ),
