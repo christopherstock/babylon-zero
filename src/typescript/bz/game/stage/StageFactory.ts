@@ -11,6 +11,7 @@ export class DoorData
     public animation :bz.DoorAnimation = null;
     public noBody    :boolean          = false;
     public texture   :bz.TextureFile   = null;
+    public linkedDoorIndex   :number = -1;
     // TODO door texture
     // TODO double door?
 
@@ -22,7 +23,8 @@ export class DoorData
         events    :bz.Event[]       = [],
         animation :bz.DoorAnimation = bz.DoorAnimation.NONE,
         noBody    :boolean          = false,
-        texture   :bz.TextureFile   = bz.TextureFile.WALL_DOOR_INDUSTRIAL
+        texture   :bz.TextureFile   = bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+        linkedDoorIndex :number = -1
     )
     {
         this.position  = position;
@@ -30,6 +32,7 @@ export class DoorData
         this.animation = animation;
         this.noBody    = noBody;
         this.texture   = texture;
+        this.linkedDoorIndex = linkedDoorIndex;
     }
 }
 
@@ -398,6 +401,7 @@ export abstract class StageFactory
         const walls :bz.Wall[] = [];
 
         // door frames
+        const createdDoors = [];
         for ( const doorData of doorsData )
         {
             if ( doorData.position >= sizeX )
@@ -469,6 +473,17 @@ export abstract class StageFactory
                     doorData.texture
                 );
                 walls.push( door );
+
+                createdDoors.push( door );
+            }
+        }
+
+        // connect doors
+        for ( let i:number = 0; i < doorsData.length; ++i ) {
+            if ( doorsData[ i ].linkedDoorIndex !== -1 )
+            {
+                createdDoors[ i ].setLinkedDoor( createdDoors[ doorsData[ i ].linkedDoorIndex ] );
+                createdDoors[ doorsData[ i ].linkedDoorIndex ].setLinkedDoor( createdDoors[ i ] );
             }
         }
 
@@ -577,7 +592,7 @@ export abstract class StageFactory
         }
 
         // walls
-        const freeWalls :number[] = StageFactory.calculateFreeWalls( x, sizeX, windowsPos, doorsData );
+        const freeWalls :number[] = []; // StageFactory.calculateFreeWalls( x, sizeX, windowsPos, doorsData );
         for ( let i:number = 0; i < freeWalls.length; i += 2 )
         {
             const wall :bz.Wall = new bz.Wall

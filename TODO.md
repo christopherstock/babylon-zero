@@ -5,7 +5,7 @@
 ===
 MVP
 ===
-TODO Realistic textures (Floor with four textures, maximum quality?)
+TODO Create carpet with realistic textures (maximum quality)
 TODO Performance: Try hi-res textures? 512 or 1024 or 2048 ? ?
 TODO Create one realistic model with all 3/4 different textures?
 TODO Create staircase.
