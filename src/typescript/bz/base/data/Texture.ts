@@ -49,6 +49,7 @@ export class Texture
 
         new Texture( bz.TextureFile.WALL_OLD_ROCKS ),
         new Texture( bz.TextureFile.WALL_OLD_ROCKS_BUMP ),
+        new Texture( bz.TextureFile.WALL_OLD_ROCKS_SPEC ),
 
         new Texture( bz.TextureFile.WALL_PAVEMENT_GRANITE ),
         new Texture( bz.TextureFile.WALL_PAVEMENT_MILANO ),

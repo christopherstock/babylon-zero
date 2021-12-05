@@ -100,23 +100,25 @@ export class MaterialSystem
                 }
             }
 
-            // base texture
+            // diffuse texture - basic material texture as viewed under a light
             material.diffuseTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
             if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
             {
                 console.log( '>> Setting special Textures for OLD_ROCKS' );
 
-                // test bump texture
+                // bump texture - structure
                 material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV );
+
+                // specular (shininess) - hightlights given by a light
+                material.specularTexture = bz.TextureFile.WALL_OLD_ROCKS_SPEC.createNewTextureInstance( textureRepeatU, textureRepeatV );
 /*
                 // TODO try all textures ..
 
-                // specular (shininess)
-                material.specularTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
-
+                // the color or texture of the material as if self lit;
                 material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
+                // the color or texture of the material lit by the environmental background lighting.
                 material.ambientTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
                 material.lightmapTexture
