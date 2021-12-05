@@ -100,14 +100,25 @@ export class MaterialSystem
                 }
             }
 
-            material.diffuseTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+            material.diffuseTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+/*
+    // TODO try all textures ..
 
+            material.specularTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+            material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+            material.ambientTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+
+            material.lightmapTexture
+            material.opacityTexture
+            material.reflectionTexture
+            material.refractionTexture
+*/
+            // test bump texture
             if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
             {
                 material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV );
                 console.log( '>> Specular Texture set for OLD_ROCKS' );
             }
-
 
             // this will light the texture - try more lighting helper map textures later?
             // material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
