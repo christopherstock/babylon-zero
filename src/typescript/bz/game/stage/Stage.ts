@@ -628,11 +628,13 @@ export abstract class Stage
         // particleSystem.particleTexture.wrapU  = 0.0001;
         // particleSystem.particleTexture.wrapV  = 0.0001;
 */
-/*
-        particleSystem.color1 = new BABYLON.Color4(0.0, 0.0, 0.0, 0.01 * bz.MathUtil.getRandomInt( 1, 5 ) );
-        particleSystem.color2 = new BABYLON.Color4(1.0, 1.0, 1.0, 0.01 * bz.MathUtil.getRandomInt( 1, 5 ) );
-        particleSystem.colorDead = new BABYLON.Color4( 0.0, 0.0, 0.0, 0.0 );
-*/
+
+        // 0.01 * bz.MathUtil.getRandomInt( 1, 5 )
+
+        // particleSystem.color1 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
+        // particleSystem.color2 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
+        // particleSystem.colorDead = new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 );
+
         particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
 
         particleSystem.emitter = point;
@@ -656,6 +658,8 @@ export abstract class Stage
         particleSystem.addVelocityGradient( 1, 3.0 );
         particleSystem.addAngularSpeedGradient( 0, 1.5 );
         particleSystem.addDragGradient(0, 0.25);
+        particleSystem.addColorGradient( 0.0, new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 ) );
+        particleSystem.addColorGradient( 0.75, new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 ) );
 
         // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
