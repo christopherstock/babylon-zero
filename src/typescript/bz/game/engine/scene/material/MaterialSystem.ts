@@ -102,6 +102,13 @@ export class MaterialSystem
 
             material.diffuseTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
+            if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
+            {
+                material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                console.log( '>> Specular Texture set for OLD_ROCKS' );
+            }
+
+
             // this will light the texture - try more lighting helper map textures later?
             // material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
