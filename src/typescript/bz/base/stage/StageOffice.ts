@@ -63,12 +63,12 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1 ),
-                new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0 ),
+                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1, false ),
+                new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1 ),
-                new bz.DoorData( 16.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0 ),
+                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 1, false ),
+                new bz.DoorData( 16.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 0, true ),
             ], [], 0,
             bz.TextureFile.WALL_OLD_ROCKS,
             bz.TextureFile.WALL_CEILING_1
@@ -93,8 +93,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
             0.0,
             bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE,
-            []
-
+            [],
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+            false
         );
         this.addWall( magicDoor1 );
 
@@ -105,8 +107,10 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
             0.0,
             bz.DoorAnimation.SWING_B_CLOCKWISE,
-            []
-
+            [],
+            new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
+            bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+            true
         );
         this.addWall( magicDoor2 );
 

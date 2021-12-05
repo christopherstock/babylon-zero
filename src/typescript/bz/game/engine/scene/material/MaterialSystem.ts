@@ -58,7 +58,9 @@ export class MaterialSystem
 
         color              :BABYLON.Color3,
         alpha              :number,
-        emissiveColor      :BABYLON.Color3
+        emissiveColor      :BABYLON.Color3,
+
+        reverseTextureY    :boolean = false
     )
     : BABYLON.StandardMaterial
     {
@@ -101,34 +103,34 @@ export class MaterialSystem
             }
 
             // diffuse texture - basic material texture as viewed under a light
-            material.diffuseTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+            material.diffuseTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
 
             if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
             {
                 console.log( '>> Setting special Textures for OLD_ROCKS' );
 
                 // bump texture - structure
-                material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
                 // material.invertNormalMapX = true;
                 // material.invertNormalMapY = true;
 
                 // specular (shininess) - hightlights given by a light
-                material.specularTexture = bz.TextureFile.WALL_OLD_ROCKS_SPEC.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                material.specularTexture = bz.TextureFile.WALL_OLD_ROCKS_SPEC.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
 
                 // the color or texture of the material as if self lit;
-                material.emissiveTexture = bz.TextureFile.WALL_OLD_ROCKS_DISPERSION.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                material.emissiveTexture = bz.TextureFile.WALL_OLD_ROCKS_DISPERSION.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
 
                 // the color or texture of the material lit by the environmental background lighting.
-                material.ambientTexture  = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                material.ambientTexture  = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
 
                 // unused?
                 // material.opacityTexture
                 // (albedo = reflection)
-                // material.reflectionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                // material.reflectionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
                 // (dispersion = refraction?)
-                // material.refractionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                // material.refractionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
                 // only used for extended light cases?
-                // material.lightmapTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                // material.lightmapTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV, reverseTextureY );
             }
 
             material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );

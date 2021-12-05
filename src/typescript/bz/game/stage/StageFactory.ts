@@ -12,7 +12,7 @@ export class DoorData
     public noBody           :boolean          = false;
     public texture          :bz.TextureFile   = null;
     public linkedDoorIndex  :number           = -1;
-    // TODO flipTextureX
+    public reverseTextureX  :boolean          = false;
 
     /** ****************************************************************************************************************
     *   Creates one door config.
@@ -23,7 +23,8 @@ export class DoorData
         animation :bz.DoorAnimation = bz.DoorAnimation.NONE,
         noBody    :boolean          = false,
         texture   :bz.TextureFile   = bz.TextureFile.WALL_DOOR_INDUSTRIAL,
-        linkedDoorIndex :number = -1
+        linkedDoorIndex :number = -1,
+        reverseTextureX :boolean = false
     )
     {
         this.position  = position;
@@ -32,6 +33,7 @@ export class DoorData
         this.noBody    = noBody;
         this.texture   = texture;
         this.linkedDoorIndex = linkedDoorIndex;
+        this.reverseTextureX = reverseTextureX;
     }
 }
 
@@ -471,7 +473,8 @@ export abstract class StageFactory
                     doorData.animation,
                     doorData.events,
                     doorTurnPoint,
-                    doorData.texture
+                    doorData.texture,
+                    doorData.reverseTextureX
                 );
                 walls.push( door );
 
@@ -526,7 +529,7 @@ export abstract class StageFactory
                     )
                 )
             );
-            walls.push( topWindowFrame    );
+            walls.push( topWindowFrame );
 
             // window glass
             const windowGlass :bz.Wall = new bz.Wall

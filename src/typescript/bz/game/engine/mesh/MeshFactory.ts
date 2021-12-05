@@ -40,14 +40,15 @@ export class MeshFactory
     *******************************************************************************************************************/
     public createBox
     (
-        position      :BABYLON.Vector3,
-        textureFile   :bz.TextureFile,
-        size          :BABYLON.Vector3,
-        physic        :bz.PhysicSet       = bz.PhysicSet.NONE,
-        materialAlpha :number             = 1.0,
-        anchor        :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
-        rotation      :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-        color         :BABYLON.Color3     = null
+        position        :BABYLON.Vector3,
+        textureFile     :bz.TextureFile,
+        size            :BABYLON.Vector3,
+        physic          :bz.PhysicSet       = bz.PhysicSet.NONE,
+        materialAlpha   :number             = 1.0,
+        anchor          :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
+        rotation        :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        color           :BABYLON.Color3     = null,
+        reverseTextureY :boolean            = false
     )
     : BABYLON.Mesh
     {
@@ -237,7 +238,8 @@ export class MeshFactory
             size.z,
             color,
             materialAlpha,
-            this.emissiveColor
+            this.emissiveColor,
+            reverseTextureY
         );
 
         return this.decorateMesh

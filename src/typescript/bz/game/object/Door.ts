@@ -54,7 +54,8 @@ export class Door extends bz.Wall
         animation     :DoorAnimation   = bz.DoorAnimation.NONE,
         events        :bz.Event[]      = [],
         doorTurnPoint :BABYLON.Vector3 = position,
-        texture       :bz.TextureFile  = bz.TextureFile.WALL_DOOR_INDUSTRIAL
+        texture       :bz.TextureFile  = bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+        reverseTextureY :boolean = false
     )
     {
         super(
@@ -73,7 +74,9 @@ export class Door extends bz.Wall
                     bz.PhysicSet.STATIC,
                     1.0,
                     bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                    null,
+                    reverseTextureY
                 )
             ),
             bz.GameObject.UNBREAKABLE,

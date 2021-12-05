@@ -157,7 +157,7 @@ export class TextureFile
     *   @param repeatU The amount for U repeating this texture.
     *   @param repeatV The amount for V repeating this texture.
     *******************************************************************************************************************/
-    public createNewTextureInstance( repeatU:number, repeatV:number ) : BABYLON.Texture
+    public createNewTextureInstance( repeatU:number, repeatV:number, reverseTextureY:boolean = false ) : BABYLON.Texture
     {
         // do not clone native video textures! ( babylon.JS will hang otherwise! )
         const newTexture:BABYLON.Texture =
@@ -175,7 +175,14 @@ export class TextureFile
         }
         else
         {
-            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            if ( reverseTextureY )
+            {
+                newTexture.wrapU = BABYLON.Texture.MIRROR_ADDRESSMODE;
+            }
+            else
+            {
+                newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
+            }
             newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
