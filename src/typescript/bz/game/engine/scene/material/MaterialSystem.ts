@@ -100,24 +100,35 @@ export class MaterialSystem
                 }
             }
 
+            // base texture
             material.diffuseTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
-/*
-    // TODO try all textures ..
 
-            material.specularTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
-            material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
-            material.ambientTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
-
-            material.lightmapTexture
-            material.opacityTexture
-            material.reflectionTexture
-            material.refractionTexture
-*/
-            // test bump texture
             if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
             {
+                console.log( '>> Setting special Textures for OLD_ROCKS' );
+
+                // test bump texture
                 material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV );
-                console.log( '>> Specular Texture set for OLD_ROCKS' );
+/*
+                // TODO try all textures ..
+
+                // specular (shininess)
+                material.specularTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+
+                material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+
+                material.ambientTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+
+                material.lightmapTexture
+
+                // (Occlusion? 'dirt map')
+                material.opacityTexture
+
+                material.reflectionTexture (albedo = reflection)
+
+                //  (dispersion?)
+                material.refractionTexture
+*/
             }
 
             // this will light the texture - try more lighting helper map textures later?
