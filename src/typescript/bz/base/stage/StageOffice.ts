@@ -78,6 +78,33 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
+        // test magic door 1
+        const magicDoor1:bz.Door = new bz.Door
+        (
+            this,
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            0.0,
+            bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE,
+            []
+
+        );
+        this.addWall( magicDoor1 );
+
+        // test magic door 2
+        const magicDoor2:bz.Door = new bz.Door
+        (
+            this,
+            new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
+            0.0,
+            bz.DoorAnimation.SWING_B_CLOCKWISE,
+            []
+
+        );
+        this.addWall( magicDoor2 );
+
+        magicDoor1.setLinkedDoor( magicDoor2 );
+        magicDoor2.setLinkedDoor( magicDoor1 );
+
         if ( true ) {
             return;
         }
@@ -431,18 +458,6 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_ASPHALT_CRACKED,
             null
         );
-
-        // test magic door
-        const magicDoor:bz.Door = new bz.Door
-        (
-            this,
-            new BABYLON.Vector3( 5.0, 0.0, 35.0 ),
-            0.0,
-            bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE,
-            []
-
-        );
-        this.addWall( magicDoor );
 
         // boxes pile in small office
         bz.StageFactory.addCratesPile(

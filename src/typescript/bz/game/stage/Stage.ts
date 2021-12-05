@@ -612,7 +612,7 @@ export abstract class Stage
     )
     : void
     {
-        const RUBBLE_COUNT:number = 5;
+        const RUBBLE_COUNT:number = bz.MathUtil.getRandomInt( 3, 6 );
 
         const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
             'wall_rubble',
@@ -639,7 +639,7 @@ export abstract class Stage
 
         particleSystem.emitter = point;
 
-        particleSystem.emitRate = 7.5;
+        particleSystem.emitRate = RUBBLE_COUNT;
         particleSystem.targetStopDuration = 1.0;
         particleSystem.updateSpeed = 0.01;
 

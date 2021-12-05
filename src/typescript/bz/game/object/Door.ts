@@ -34,6 +34,7 @@ export class Door extends bz.Wall
     private          state           :DoorState       = DoorState.CLOSED;
     private          animationTicks  :number          = 0;
     private          debugSphereMesh :BABYLON.Mesh    = null;
+    private          linkedDoor      :bz.Door         = null;
 
     /** ****************************************************************************************************************
     *   Creates a new door instance.
@@ -115,6 +116,12 @@ export class Door extends bz.Wall
                 this.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
                 this.state          = DoorState.OPENING;
 
+                if ( this.linkedDoor !== null )
+                {
+                    this.linkedDoor.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                    this.linkedDoor.state          = DoorState.OPENING;
+                }
+
                 break;
             }
             case DoorState.OPEN:
@@ -122,6 +129,12 @@ export class Door extends bz.Wall
                 // start close slide door animation
                 this.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
                 this.state          = DoorState.CLOSING;
+
+                if ( this.linkedDoor !== null )
+                {
+                    this.linkedDoor.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                    this.linkedDoor.state          = DoorState.CLOSING;
+                }
 
                 break;
             }
@@ -270,6 +283,11 @@ export class Door extends bz.Wall
         {
             this.debugSphereMesh.dispose();
         }
+    }
+
+    public setLinkedDoor( linkedDoor:bz.Door ) : void
+    {
+        this.linkedDoor = linkedDoor;
     }
 
     /** ****************************************************************************************************************
