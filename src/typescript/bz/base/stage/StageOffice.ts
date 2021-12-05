@@ -72,7 +72,9 @@ export class StageOffice extends bz.Stage
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 )
+            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
+            125.0,
+            1.25
         );
         this.addLight( pointLights );
 

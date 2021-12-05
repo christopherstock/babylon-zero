@@ -109,32 +109,27 @@ export class MaterialSystem
 
                 // bump texture - structure
                 material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                // material.invertNormalMapX = true;
+                // material.invertNormalMapY = true;
 
                 // specular (shininess) - hightlights given by a light
                 material.specularTexture = bz.TextureFile.WALL_OLD_ROCKS_SPEC.createNewTextureInstance( textureRepeatU, textureRepeatV );
-/*
-                // TODO try all textures ..
 
                 // the color or texture of the material as if self lit;
-                material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                material.emissiveTexture = bz.TextureFile.WALL_OLD_ROCKS_DISPERSION.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
                 // the color or texture of the material lit by the environmental background lighting.
-                material.ambientTexture  = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                material.ambientTexture  = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
-                material.lightmapTexture
-
-                // (Occlusion? 'dirt map')
-                material.opacityTexture
-
-                material.reflectionTexture (albedo = reflection)
-
-                //  (dispersion?)
-                material.refractionTexture
-*/
+                // unused?
+                // material.opacityTexture
+                // (albedo = reflection)
+                // material.reflectionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                // (dispersion = refraction?)
+                // material.refractionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
+                // only used for extended light cases?
+                // material.lightmapTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance( textureRepeatU, textureRepeatV );
             }
-
-            // this will light the texture - try more lighting helper map textures later?
-            // material.emissiveTexture = textureFile.createNewTextureInstance( textureRepeatU, textureRepeatV );
 
             material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );
         }

@@ -49,6 +49,8 @@ export class TextureFile
     public static readonly WALL_OLD_ROCKS               :TextureFile            = new TextureFile( 'wall/oldRocks_1024.png',        bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_OLD_ROCKS_BUMP          :TextureFile            = new TextureFile( 'wall/oldRocks_1024_bump.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_OLD_ROCKS_SPEC          :TextureFile            = new TextureFile( 'wall/oldRocks_1024_spec.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+    public static readonly WALL_OLD_ROCKS_ALBEDO        :TextureFile            = new TextureFile( 'wall/oldRocks_1024_albedo.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+    public static readonly WALL_OLD_ROCKS_DISPERSION    :TextureFile            = new TextureFile( 'wall/oldRocks_1024_disp.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
 
     public static readonly WALL_PAVEMENT_GRANITE        :TextureFile            = new TextureFile( 'wall/pavementGranite.jpg',      bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_PAVEMENT_MILANO         :TextureFile            = new TextureFile( 'wall/pavementMilano.jpg',       bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );

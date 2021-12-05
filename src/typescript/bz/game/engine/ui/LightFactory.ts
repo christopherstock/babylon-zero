@@ -168,9 +168,10 @@ export abstract class LightFactory
             );
 
             light.intensity = intensity;
+            light.range     = range;
+
             light.diffuse   = diffuseColor;
             light.specular  = specularColor;
-            light.range     = range;
 
             lights.push( light );
         }
