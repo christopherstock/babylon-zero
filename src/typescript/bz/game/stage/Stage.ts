@@ -676,7 +676,7 @@ export abstract class Stage
         // direction
         particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.30 );
         particleSystem.direction1 = normal.clone().scale( 0.10 );
-        particleSystem.direction2 = normal.clone().scale( 0.50 );
+        particleSystem.direction2 = normal.clone().scale( 1.00 );
 
         // emit box size
         // particleSystem.minEmitBox = new BABYLON.Vector3( -0.1, -0.1, -0.1 ); // Bottom Left Front

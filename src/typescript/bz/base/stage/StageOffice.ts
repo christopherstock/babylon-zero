@@ -63,7 +63,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false ),
+                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1 ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [], 0,

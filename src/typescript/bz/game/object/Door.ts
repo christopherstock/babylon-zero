@@ -45,6 +45,7 @@ export class Door extends bz.Wall
     *   @param animation     The door animation to perform when an interaction with this door is triggered.
     *   @param events        All events to trigger when a user interaction is performed.
     *   @param doorTurnPoint The CENTER_XZ_LOWEST_Y point of the door.
+    *   @param texture       The texture to use for this door.
     *******************************************************************************************************************/
     public constructor(
         stage         :bz.Stage,
@@ -52,7 +53,8 @@ export class Door extends bz.Wall
         doorRotY      :number          = 0.0,
         animation     :DoorAnimation   = bz.DoorAnimation.NONE,
         events        :bz.Event[]      = [],
-        doorTurnPoint :BABYLON.Vector3 = position
+        doorTurnPoint :BABYLON.Vector3 = position,
+        texture       :bz.TextureFile  = bz.TextureFile.WALL_DOOR_INDUSTRIAL
     )
     {
         super(
@@ -62,7 +64,7 @@ export class Door extends bz.Wall
                 new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ).createBox
                 (
                     position,
-                    bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+                    texture,
                     new BABYLON.Vector3(
                         bz.SettingGame.DOOR_WIDTH,
                         bz.SettingGame.DOOR_HEIGHT,

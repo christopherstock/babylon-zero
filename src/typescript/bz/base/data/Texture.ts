@@ -36,6 +36,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_DIAMOND_PLATE_1 ),
         new Texture( bz.TextureFile.WALL_DIAMOND_PLATE_2 ),
         new Texture( bz.TextureFile.WALL_DOOR_INDUSTRIAL ),
+        new Texture( bz.TextureFile.WALL_DOOR_WOOD_1 ),
         new Texture( bz.TextureFile.WALL_GLASS_1 ),
         new Texture( bz.TextureFile.WALL_GRASS_1 ),
         new Texture( bz.TextureFile.WALL_GRASS_2 ),

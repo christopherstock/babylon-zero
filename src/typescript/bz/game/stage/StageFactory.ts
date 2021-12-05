@@ -10,6 +10,7 @@ export class DoorData
     public events    :bz.Event[]       = [];
     public animation :bz.DoorAnimation = null;
     public noBody    :boolean          = false;
+    public texture   :bz.TextureFile   = null;
     // TODO door texture
     // TODO double door?
 
@@ -20,13 +21,15 @@ export class DoorData
         position  :number,
         events    :bz.Event[]       = [],
         animation :bz.DoorAnimation = bz.DoorAnimation.NONE,
-        noBody    :boolean          = false
+        noBody    :boolean          = false,
+        texture   :bz.TextureFile   = bz.TextureFile.WALL_DOOR_INDUSTRIAL
     )
     {
         this.position  = position;
         this.events    = events;
         this.animation = animation;
         this.noBody    = noBody;
+        this.texture   = texture;
     }
 }
 
@@ -462,7 +465,8 @@ export abstract class StageFactory
                     rotY,
                     doorData.animation,
                     doorData.events,
-                    doorTurnPoint
+                    doorTurnPoint,
+                    doorData.texture
                 );
                 walls.push( door );
             }
