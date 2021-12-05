@@ -643,8 +643,8 @@ export abstract class Stage
         particleSystem.targetStopDuration = 1.0;
         particleSystem.updateSpeed = 0.01;
 
-        particleSystem.minEmitPower = 0.1;
-        particleSystem.maxEmitPower = 1.5;
+        particleSystem.minEmitPower = 0.20;
+        particleSystem.maxEmitPower = 2.00;
 
         particleSystem.minAngularSpeed = 0;
         particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad( 360.0 );
@@ -655,11 +655,13 @@ export abstract class Stage
         particleSystem.minInitialRotation = 0;
         particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad( 360.0 );
 
-        particleSystem.addVelocityGradient( 1, 3.0 );
         particleSystem.addAngularSpeedGradient( 0, 1.5 );
-        particleSystem.addDragGradient(0, 0.25);
         particleSystem.addColorGradient( 0.0, new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 ) );
         particleSystem.addColorGradient( 0.75, new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 ) );
+
+        // particleSystem.addVelocityGradient( 0, 0.75 );
+        particleSystem.addVelocityGradient( 1, 2.5 );
+        particleSystem.addDragGradient( 0, 0.1 );
 
         // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
@@ -668,16 +670,19 @@ export abstract class Stage
         particleSystem.startDelay = 0.0;
         particleSystem.disposeOnStop = true;
 
-        particleSystem.minSize = 0.10;
-        particleSystem.maxSize = 0.30;
+        particleSystem.minSize = 0.05;
+        particleSystem.maxSize = 0.25;
 
-        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.20 );
+        // direction
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.30 );
+        particleSystem.direction1 = normal.clone().scale( 0.10 );
+        particleSystem.direction2 = normal.clone().scale( 0.50 );
 
-        particleSystem.direction1 = normal;
-        particleSystem.direction2 = normal;
-
-        particleSystem.minEmitBox = new BABYLON.Vector3( -0.2, -0.2, -0.2 ); // Bottom Left Front
-        particleSystem.maxEmitBox = new BABYLON.Vector3( 0.2, 0.2, 0.2 ); // Top Right Back
+        // emit box size
+        // particleSystem.minEmitBox = new BABYLON.Vector3( -0.1, -0.1, -0.1 ); // Bottom Left Front
+        // particleSystem.maxEmitBox = new BABYLON.Vector3( 0.1, 0.1, 0.1 ); // Top Right Back
+        particleSystem.minEmitBox = BABYLON.Vector3.Zero();
+        particleSystem.maxEmitBox = BABYLON.Vector3.Zero();
 
         particleSystem.start();
     }

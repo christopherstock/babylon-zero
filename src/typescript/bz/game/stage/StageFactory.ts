@@ -10,6 +10,8 @@ export class DoorData
     public events    :bz.Event[]       = [];
     public animation :bz.DoorAnimation = null;
     public noBody    :boolean          = false;
+    // TODO door texture
+    // TODO double door?
 
     /** ****************************************************************************************************************
     *   Creates one door config.
