@@ -94,10 +94,29 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
-        if ( true )
-        {
-            return;
-        }
+        const eventsSwitchStage :bz.Event[] = [
+            new bz.Event(
+                bz.EventType.SWITCH_TO_STAGE,
+                new bz.EventDataStageSwitch(
+                    bz.StageId.OUTSIDE,
+                    new BABYLON.Vector3(
+                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
+                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                    ),
+                    new BABYLON.Vector3( 0.0, 60.0, 0.0 )
+                )
+            ),
+        ];
+        const eventsDoorLocked :bz.Event[] = [
+            new bz.Event(
+                bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                new bz.EventDataShowGuiTextMessage(
+                    'This door is locked',
+                    true
+                )
+            ),
+        ];
 
         // test magic door 1
         const magicDoor1:bz.Door = new bz.Door
@@ -106,7 +125,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
             0.0,
             bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE,
-            [],
+            eventsSwitchStage,
             new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
             bz.TextureFile.WALL_DOOR_INDUSTRIAL,
             false
@@ -120,7 +139,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
             0.0,
             bz.DoorAnimation.SWING_B_CLOCKWISE,
-            [],
+            eventsSwitchStage,
             new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
             bz.TextureFile.WALL_DOOR_INDUSTRIAL,
             true
@@ -129,6 +148,11 @@ export class StageOffice extends bz.Stage
 
         magicDoor1.setLinkedDoor( magicDoor2 );
         magicDoor2.setLinkedDoor( magicDoor1 );
+
+        if ( true )
+        {
+            return;
+        }
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
@@ -429,52 +453,30 @@ export class StageOffice extends bz.Stage
             0.3
         );
         this.addLight( hemisphericLights );
-/*
+
         // waste ground
-        const eventsSwitchStage :bz.Event[] = [
-            new bz.Event(
-                bz.EventType.SWITCH_TO_STAGE,
-                new bz.EventDataStageSwitch(
-                    bz.StageId.OUTSIDE,
-                    new BABYLON.Vector3(
-                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
-                    ),
-                    new BABYLON.Vector3( 0.0, 60.0, 0.0 )
-                )
-            ),
-        ];
-        const eventsDoorLocked :bz.Event[] = [
-            new bz.Event(
-                bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                new bz.EventDataShowGuiTextMessage(
-                    'This door is locked',
-                    true
-                )
-            ),
-        ];
+/*
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 ),
+            new BABYLON.Vector3( 100.0, bz.SettingGame.FLOOR_OFFSET_Y, 100.0 ),
             new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
             340.0, // -90.0
             bz.TextureFile.WALL_WOOD_VERT_1,
             [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
-            [ 7.0 ],
+            [],
             2.0,
             bz.TextureFile.WALL_WOOD_PLANKS,
             [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
-            [ 7.0 ],
+            [],
             3.0,
             bz.TextureFile.WALL_WOOD_GRAIN,
             [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
-            [ 7.0 ],
+            [],
             4.0,
             bz.TextureFile.WALL_WOOD_OLIVE,
             [ new bz.DoorData( 2.5, eventsSwitchStage, bz.DoorAnimation.NONE ) ],
-            [ 7.0 ],
+            [],
             5.0,
             bz.TextureFile.WALL_ASPHALT_CRACKED,
             null
