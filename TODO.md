@@ -13,6 +13,7 @@ TODO Create one realistic model with all (3 or 4) different textures?
 TODO Create realistic models and lights.
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Clean up StageOffice contents
+TODO Remove all ESLint-Disablers?
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Add explosion effects via sprites.
 TODO Pause particles when game is paused

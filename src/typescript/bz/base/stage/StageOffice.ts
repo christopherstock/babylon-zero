@@ -82,6 +82,35 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CEILING_1
         );
 
+        // small office - 1st floor
+        bz.StageFactory.addRoomWalls(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, bz.SettingGame.WALL_HEIGHT, 0.0 ),
+            new BABYLON.Vector3( 60.0, bz.SettingGame.WALL_HEIGHT, 30.0 ),
+            0.0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            ], [], 0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            ], [
+                new bz.WindowData( 2.0,  true, true ),
+                new bz.WindowData( 6.5,  true, true ),
+                new bz.WindowData( 11.0, true, true ),
+            ], 0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1, false ),
+                new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),
+            ], [], 0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 1, false ),
+                new bz.DoorData( 16.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 0, true ),
+            ], [
+                new bz.WindowData( 2.0,  false ),
+            ], 0,
+            bz.TextureFile.WALL_CARPET_RASPBERRY,
+            bz.TextureFile.WALL_CEILING_1
+        );
+
         // point light in small office
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
@@ -148,11 +177,6 @@ export class StageOffice extends bz.Stage
 
         magicDoor1.setLinkedDoor( magicDoor2 );
         magicDoor2.setLinkedDoor( magicDoor1 );
-
-        if ( true )
-        {
-            return;
-        }
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
@@ -201,7 +225,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-*/
+
         // bike suzuki
         this.addWall(
             new bz.Wall
@@ -217,7 +241,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
-/*
+
         // trash container blue
         this.addWall(
             new bz.Wall
@@ -234,6 +258,7 @@ export class StageOffice extends bz.Stage
             )
         );
 */
+/*
         // trash container green
         const trashContainer :bz.Wall = new bz.Wall
         (
@@ -270,6 +295,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
+*/
 /*
         // wooden fence
         bz.WallFactory.createFence(
@@ -345,6 +371,7 @@ export class StageOffice extends bz.Stage
             )
         );
 */
+/*
         // pallet cement
         this.addWall(
             new bz.Wall
@@ -376,6 +403,7 @@ export class StageOffice extends bz.Stage
                 10.0
             )
         );
+*/
 /*
         // sewerage pumping
         this.addWall(
@@ -450,7 +478,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.1, 0.1, 0.1 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            0.3
+            1.5
         );
         this.addLight( hemisphericLights );
 
@@ -620,6 +648,7 @@ if ( true ) return;
         this.addStuffWalls(  meshFactory, pointLight );
 
 */
+/*
         if ( false )
         {
             this.addTreeSprites( meshFactory );
@@ -648,6 +677,7 @@ if ( true ) return;
                 ),
             ]
         );
+*/
 /*
         this.addCollectable(
             new bz.Item
@@ -740,6 +770,7 @@ if ( true ) return;
             )
         );
 */
+/*
         // 2nd point light in 2nd office // stick to chair
         const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
@@ -753,6 +784,7 @@ if ( true ) return;
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
         this.addLight( pointLights2 );
+*/
 /*
         // add fog
         // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
@@ -760,7 +792,6 @@ if ( true ) return;
         // add shadows for point light
         this.addShadowGenerator( pointLight );
 */
-
         // add bot - walking towards player
         if ( false )
         {
