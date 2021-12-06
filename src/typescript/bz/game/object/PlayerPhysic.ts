@@ -22,7 +22,11 @@ export class PlayerPhysic
     public        readonly leftHand                     :BABYLON.AbstractMesh               = null;
     /** The referenced right hand mesh. */
     public        readonly rightHand                    :BABYLON.AbstractMesh               = null;
+    /** The referenced 3D wearpon mesh. */
     public        readonly shotgun                      :BABYLON.AbstractMesh               = null;
+
+    /** The current height of the player. Changes on ducking. */
+    public                 heightY                      :number                             = 0.0;
 
     /** ****************************************************************************************************************
     *   Create a new physical body handling for the player.
@@ -41,6 +45,9 @@ export class PlayerPhysic
         this.head.setParent(      this.body );
         this.leftHand.setParent(  this.body );
         this.rightHand.setParent( this.body );
+
+        // set initial height
+        this.heightY     = bz.SettingPlayer.HEIGHT_Y_STANDING;
     }
 
     /** ****************************************************************************************************************

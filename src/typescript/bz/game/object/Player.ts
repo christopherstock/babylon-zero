@@ -5,8 +5,6 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
-    /** The current height of the player. Changes on ducking. */
-    private          heightY            :number             = 0.0;
     /** Flags if rotZ view centering should occur this tick. */
     private          centerRotZ         :boolean            = false;
     /** The current angle for the sinus calculation of the head shaking. */
@@ -137,8 +135,6 @@ export class Player extends bz.GameObject
         this.rotationDelta = BABYLON.Vector3.Zero();
         this.moveDelta     = BABYLON.Vector3.Zero();
 
-        // set initial height
-        this.heightY     = bz.SettingPlayer.HEIGHT_Y_STANDING;
         this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
 
         // apply initial rotation
@@ -641,13 +637,13 @@ export class Player extends bz.GameObject
     {
         if ( this.duck )
         {
-            if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKING )
+            if ( this.playerPhysic.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKING )
             {
-                this.heightY -= bz.SettingPlayer.SPEED_DUCK_DOWN;
+                this.playerPhysic.heightY -= bz.SettingPlayer.SPEED_DUCK_DOWN;
 
-                if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKING )
+                if ( this.playerPhysic.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKING )
                 {
-                    this.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKING;
+                    this.playerPhysic.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKING;
                 }
 
                 this.positionPlayerLimbs();
@@ -655,13 +651,13 @@ export class Player extends bz.GameObject
         }
         else
         {
-            if ( this.heightY < bz.SettingPlayer.HEIGHT_Y_STANDING )
+            if ( this.playerPhysic.heightY < bz.SettingPlayer.HEIGHT_Y_STANDING )
             {
-                this.heightY += bz.SettingPlayer.SPEED_STAND_UP;
+                this.playerPhysic.heightY += bz.SettingPlayer.SPEED_STAND_UP;
 
-                if ( this.heightY > bz.SettingPlayer.HEIGHT_Y_STANDING )
+                if ( this.playerPhysic.heightY > bz.SettingPlayer.HEIGHT_Y_STANDING )
                 {
-                    this.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
+                    this.playerPhysic.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
                 }
 
                 this.positionPlayerLimbs();
@@ -862,7 +858,7 @@ export class Player extends bz.GameObject
     private positionPlayerLimbs() : void
     {
         // get half player height
-        const halfPlayerHeight:number = ( this.heightY / 2 );
+        const halfPlayerHeight:number = ( this.playerPhysic.heightY / 2 );
 
         // get current modifier Y
         const headShakingModifierY:number =

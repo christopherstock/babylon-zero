@@ -5,36 +5,36 @@
 ===
 MVP
 ===
-TODO Clean up StageOffice contents
-
-TODO Pause particles when game is paused
-TODO Create staircase.
-TODO smaller Doors?
-
-TODO Performance: Try hi-res textures? 512 or 1024 or 2048 ? ?
-TODO Fix fence
-TODO Create one realistic model with all (3 or 4) different textures?
-TODO Add glossiness to floors (marbel in light etc)
-TODO Create realistic models and lights.
-TODO Add muzzle flash to gun on firing. (via sprite!)
-TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-TODO Add explosion effects via sprites.
-TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
-TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
-TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (remove indexOf'wearpon/')
-TODO Door animation interaction on imported officeDesk3?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
-TODO Reset Git Repository?
-TODO create player die effect (tilt cylinder and head etc.)
+
 TODO keep pointer lock between stage switches? (gets lost at the moment)
+TODO Create staircase.
+TODO non breakable windows on room creation!
+TODO smaller Doors?
+TODO Fix fence
+TODO Create one realistic model with all (3 or 4) different textures?
+TODO Enable switchable glossiness to floors (marbel in light etc)
+TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
+TODO Create realistic models and lights.
+TODO Add muzzle flash to gun on firing. (via sprite!)
+TODO Clean up StageOffice contents
+TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
+TODO Add explosion effects via sprites.
+TODO Pause particles when game is paused
+TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (remove indexOf'wearpon/')
+TODO Door animation interaction on imported officeDesk3?
+
+TODO create player die effect (tilt cylinder and head etc.)
 TODO Constraint system for events (keycard holded)!?
-TODO Quick fire animation in bullet hole (for certain materials..)?
-TODO Spawn painkiller model when used.
+
+TODO Reset Git Repository?
 
 ==
 Fx
 ==
+TODO Quick fire animation in bullet hole (for certain materials..)?
+TODO Spawn painkiller model when a painkiller has been used.
 TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Physical Bodies for Bots?
@@ -47,6 +47,7 @@ TODO Load multiple 'dancing girls'?
 TODO add rotating MF Logo sprite?
 TODO Enable loading of only required resources for the current scene?
 TODO Add physically correct bullet drop (+sound) out after fire.
+TODO Performance: Try all hi-res textures? 512 or 1024 or 2048 ? ?
 
 ========
 Wearpons
