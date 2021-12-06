@@ -154,10 +154,11 @@ export class TextureFile
     /** ****************************************************************************************************************
     *   Creates a new Babylon.js texture from this TextureFile.
     *
-    *   @param repeatU The amount for U repeating this texture.
-    *   @param repeatV The amount for V repeating this texture.
+    *   @param repeatU        The amount for U repeating this texture.
+    *   @param repeatV        The amount for V repeating this texture.
+    *   @param mirrorTextureY If the texture shall be mirrored on axis Y.
     *******************************************************************************************************************/
-    public createNewTextureInstance( repeatU:number, repeatV:number, reverseTextureY:boolean = false ) : BABYLON.Texture
+    public createNewTextureInstance( repeatU:number, repeatV:number, mirrorTextureY:boolean = false ) : BABYLON.Texture
     {
         // do not clone native video textures! ( babylon.JS will hang otherwise! )
         const newTexture:BABYLON.Texture =
@@ -175,7 +176,7 @@ export class TextureFile
         }
         else
         {
-            if ( reverseTextureY )
+            if ( mirrorTextureY )
             {
                 newTexture.wrapU = BABYLON.Texture.MIRROR_ADDRESSMODE;
             }

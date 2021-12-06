@@ -50,8 +50,8 @@ export class PlayerWearpon
                         1.2,
                         -0.75 - (
                             this.lowerWearpon
-                            ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.LOWER_SIZE_Y
-                            : 0.0
+                                ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.LOWER_SIZE_Y
+                                : 0.0
                         ),
                         1.5
                     ),
@@ -119,8 +119,13 @@ export class PlayerWearpon
         if ( this.targetShotgunRotX > this.shotgunRotX )
         {
             this.shotgunRotX += (
-                this.lowerWearponAnim > 0 ? PlayerWearpon.LOWER_ROT_SPEED_X :
-                    (this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X)
+                this.lowerWearponAnim > 0
+                    ? PlayerWearpon.LOWER_ROT_SPEED_X
+                    : (
+                        this.targetShotgunRotX === 0
+                            ? PlayerWearpon.SHOTGUN_CENTER_SPEED
+                            : PlayerWearpon.SHOTGUN_ROT_SPEED_X
+                    )
             );
             if ( this.shotgunRotX > this.targetShotgunRotX )
             {
@@ -130,8 +135,13 @@ export class PlayerWearpon
         else if ( this.targetShotgunRotX < this.shotgunRotX )
         {
             this.shotgunRotX -= (
-                this.lowerWearponAnim > 0 ? PlayerWearpon.RAISE_ROT_SPEED_X :
-                    (this.targetShotgunRotX === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_X)
+                this.lowerWearponAnim > 0
+                    ? PlayerWearpon.RAISE_ROT_SPEED_X
+                    : (
+                        this.targetShotgunRotX === 0
+                            ? PlayerWearpon.SHOTGUN_CENTER_SPEED
+                            : PlayerWearpon.SHOTGUN_ROT_SPEED_X
+                    )
             );
             if ( this.shotgunRotX < this.targetShotgunRotX )
             {
@@ -166,6 +176,9 @@ export class PlayerWearpon
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Renders one tick for the 'lower' and 'raise' animation of the player wearpon.
+    *******************************************************************************************************************/
     private updateLowerRaiseAnimation() : void
     {
         if ( this.lowerWearponAnim > 0 )
@@ -181,7 +194,8 @@ export class PlayerWearpon
             this.targetShotgunRotX = ( this.lowerWearpon ? 45.0 : 45.0 );
 
             // upright from this magic tick on ..
-            if ( !this.lowerWearpon && this.lowerWearponAnim < 17 ) {
+            if ( !this.lowerWearpon && this.lowerWearponAnim < 17 )
+            {
                 this.targetShotgunRotX = 0;
             }
 

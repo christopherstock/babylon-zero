@@ -39,23 +39,24 @@ export class Door extends bz.Wall
     /** ****************************************************************************************************************
     *   Creates a new door instance.
     *
-    *   @param stage         The stage this wall belongs to.
-    *   @param position      Where to place the door.
-    *   @param doorRotY      Door rotation Y for animation appliance. Will not be applied!
-    *   @param animation     The door animation to perform when an interaction with this door is triggered.
-    *   @param events        All events to trigger when a user interaction is performed.
-    *   @param doorTurnPoint The CENTER_XZ_LOWEST_Y point of the door.
-    *   @param texture       The texture to use for this door.
+    *   @param stage          The stage this wall belongs to.
+    *   @param position       Where to place the door.
+    *   @param doorRotY       Door rotation Y for animation appliance. Will not be applied!
+    *   @param animation      The door animation to perform when an interaction with this door is triggered.
+    *   @param events         All events to trigger when a user interaction is performed.
+    *   @param doorTurnPoint  The CENTER_XZ_LOWEST_Y point of the door.
+    *   @param texture        The texture to use for this door.
+    *   @param mirrorTextureY If the texture shall be mirrored on axis Y.
     *******************************************************************************************************************/
     public constructor(
-        stage         :bz.Stage,
-        position      :BABYLON.Vector3,
-        doorRotY      :number          = 0.0,
-        animation     :DoorAnimation   = bz.DoorAnimation.NONE,
-        events        :bz.Event[]      = [],
-        doorTurnPoint :BABYLON.Vector3 = position,
-        texture       :bz.TextureFile  = bz.TextureFile.WALL_DOOR_INDUSTRIAL,
-        reverseTextureY :boolean = false
+        stage          :bz.Stage,
+        position       :BABYLON.Vector3,
+        doorRotY       :number          = 0.0,
+        animation      :DoorAnimation   = bz.DoorAnimation.NONE,
+        events         :bz.Event[]      = [],
+        doorTurnPoint  :BABYLON.Vector3 = position,
+        texture        :bz.TextureFile  = bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+        mirrorTextureY :boolean         = false
     )
     {
         super(
@@ -76,7 +77,7 @@ export class Door extends bz.Wall
                     bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
                     new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
                     null,
-                    reverseTextureY
+                    mirrorTextureY
                 )
             ),
             bz.GameObject.UNBREAKABLE,
@@ -290,6 +291,11 @@ export class Door extends bz.Wall
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Sets up a link to a second door that will be opened and closed synchronouslsy.
+    *
+    *   @param linkedDoor The linked door to set.
+    *******************************************************************************************************************/
     public setLinkedDoor( linkedDoor:bz.Door ) : void
     {
         this.linkedDoor = linkedDoor;

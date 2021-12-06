@@ -38,14 +38,22 @@ export class DoorData
 }
 
 /** ********************************************************************************************************************
-*   Configuration set for a Door game object.
+*   Configuration set for a Window game object.
 ***********************************************************************************************************************/
 export class WindowData
 {
     public position   :number  = 0.0;
     public fullHeight :boolean = false;
 
-    public constructor( position:number, fullHeight:boolean = false ) {
+    /** ****************************************************************************************************************
+    *   Creates the data that describes one window.
+    *
+    *   @param position   The position of this window inside the wall.
+    *   @param fullHeight If <code>true</code>, the top and bottom window frames will not be drawn
+    *                     and the window's height is extended to the wall height.
+    *******************************************************************************************************************/
+    public constructor( position:number, fullHeight:boolean = false )
+    {
         this.position   = position;
         this.fullHeight = fullHeight;
     }
@@ -356,7 +364,13 @@ export abstract class StageFactory
     /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
-    private static calculateBlankWalls( start:number, size:number, windows:bz.WindowData[], doors:bz.DoorData[] ) : number[]
+    private static calculateBlankWalls(
+        start:number,
+        size:number,
+        windows:bz.WindowData[],
+        doors:bz.DoorData[]
+    )
+    : number[]
     {
         // collect all busy walls
         let busyWalls :BABYLON.Vector2[] = [];

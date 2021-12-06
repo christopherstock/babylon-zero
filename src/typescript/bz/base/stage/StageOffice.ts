@@ -1,5 +1,4 @@
 import * as bz from '../..';
-import { WindowData } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' stage.
@@ -76,7 +75,6 @@ export class StageOffice extends bz.Stage
                 new bz.DoorData( 16.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 0, true ),
             ], [
                 new bz.WindowData( 2.0,  false ),
-                new bz.WindowData( 6.5,  false ),
             ], 0,
             bz.TextureFile.WALL_OLD_ROCKS,
             bz.TextureFile.WALL_CEILING_1
@@ -125,7 +123,8 @@ export class StageOffice extends bz.Stage
         magicDoor1.setLinkedDoor( magicDoor2 );
         magicDoor2.setLinkedDoor( magicDoor1 );
 
-        if ( true ) {
+        if ( true )
+        {
             return;
         }
 /*
@@ -617,7 +616,8 @@ if ( true ) return;
         this.addStuffWalls(  meshFactory, pointLight );
 
 */
-        if ( false ) {
+        if ( false )
+        {
             this.addTreeSprites( meshFactory );
         }
 
@@ -758,7 +758,8 @@ if ( true ) return;
 */
 
         // add bot - walking towards player
-        if ( false ) {
+        if ( false )
+        {
             this.addBot(
                 [
                     new bz.Bot(

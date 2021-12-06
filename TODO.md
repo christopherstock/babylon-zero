@@ -6,18 +6,18 @@
 MVP
 ===
 TODO Create carpet with realistic textures (maximum quality)
-TODO Performance: Try hi-res textures? 512 or 1024 or 2048 ? ?
-TODO Create one realistic model with all 3/4 different textures?
-TODO Create staircase.
-TODO Add glossiness to floors (marbel in light etc)
-TODO Add linked doors (double wing doors)
-TODO Add muzzle flash to gun on firing. (via sprite!)
-TODO Fix fence
-TODO Full height windows
 TODO Clean up StageOffice contents
+
 TODO Pause particles when game is paused
-TODO Create realistic models and lights.
+TODO Create staircase.
 TODO smaller Doors?
+
+TODO Performance: Try hi-res textures? 512 or 1024 or 2048 ? ?
+TODO Fix fence
+TODO Create one realistic model with all (3 or 4) different textures?
+TODO Add glossiness to floors (marbel in light etc)
+TODO Create realistic models and lights.
+TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Add explosion effects via sprites.
 TODO Check out particle helpers https://doc.babylonjs.com/divingDeeper/particles/particle_system/particleHelper
@@ -27,17 +27,16 @@ TODO Door animation interaction on imported officeDesk3?
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
 TODO Reset Git Repository?
-
 TODO create player die effect (tilt cylinder and head etc.)
 TODO keep pointer lock between stage switches? (gets lost at the moment)
 TODO Constraint system for events (keycard holded)!?
 TODO Quick fire animation in bullet hole (for certain materials..)?
-
 TODO Spawn painkiller model when used.
 
 ==
 Fx
 ==
+TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Physical Bodies for Bots?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations

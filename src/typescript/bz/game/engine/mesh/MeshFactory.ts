@@ -27,14 +27,15 @@ export class MeshFactory
     /** ****************************************************************************************************************
     *   Creates a box mesh.
     *
-    *   @param position      Where to place this mesh.
-    *   @param anchor        The anchor point of this mesh.
-    *   @param size          The dimensions of this mesh for all axis.
-    *   @param rotation      The initial rotation for all axis.
-    *   @param textureFile       The texture to apply.
-    *   @param color         The solid color to apply.
-    *   @param physic        The physical attributes to apply for this mesh.
-    *   @param materialAlpha The opacity for this mesh.
+    *   @param position       Where to place this mesh.
+    *   @param anchor         The anchor point of this mesh.
+    *   @param size           The dimensions of this mesh for all axis.
+    *   @param rotation       The initial rotation for all axis.
+    *   @param textureFile    The texture to apply.
+    *   @param color          The solid color to apply.
+    *   @param physic         The physical attributes to apply for this mesh.
+    *   @param materialAlpha  The opacity for this mesh.
+    *   @param mirrorTextureY If the texture shall be mirrored on axis Y.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
@@ -48,7 +49,7 @@ export class MeshFactory
         anchor          :bz.MeshAnchor      = bz.MeshAnchor.CENTER_XYZ,
         rotation        :BABYLON.Vector3    = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
         color           :BABYLON.Color3     = null,
-        reverseTextureY :boolean            = false
+        mirrorTextureY  :boolean            = false
     )
     : BABYLON.Mesh
     {
@@ -239,7 +240,7 @@ export class MeshFactory
             color,
             materialAlpha,
             this.emissiveColor,
-            reverseTextureY
+            mirrorTextureY
         );
 
         return this.decorateMesh
