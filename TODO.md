@@ -5,8 +5,6 @@
 ===
 MVP
 ===
-TODO keep pointer lock between stage switches? (gets lost at the moment)
-
 TODO Create staircase.
 TODO Fix fence
 TODO smaller Doors? Adjust room sizes once more!

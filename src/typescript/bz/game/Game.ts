@@ -130,9 +130,9 @@ export class Game
         bz.Debug.stage.log( ' Init target stage [' + String( targetStage ) + ']' );
         this.stage.init( config );
 
-        // release keys and pointer lock
-        this.keySystem.releaseAllKeys();
-        this.mouseSystem.releasePointerLock();
+        // do NOT release keys or pointers here - for a fluid game experience
+        // this.keySystem.releaseAllKeys();
+        // this.mouseSystem.releasePointerLock();
 
         // disable pause flag
         this.pause = false;

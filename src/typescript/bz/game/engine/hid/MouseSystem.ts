@@ -9,7 +9,7 @@ export class MouseSystem
     private readonly game                               :bz.Game        = null;
 
     /** Indicates that the mouse is currently locked inside the canvas. */
-    private          mouseLocked                        :boolean        = false;
+    private          pointerLocked                      :boolean        = false;
 
     /** The last mouse drag X if the pointer is locked. */
     private          lastMovementX                      :number         = 0;
@@ -91,6 +91,7 @@ export class MouseSystem
     {
         const ret :number = this.lastMovementX;
         this.lastMovementX = 0;
+
         return ret;
     }
 
@@ -103,6 +104,7 @@ export class MouseSystem
     {
         const ret :number = this.lastMovementY;
         this.lastMovementY = 0;
+
         return ret;
     }
 
@@ -222,7 +224,9 @@ export class MouseSystem
     *******************************************************************************************************************/
     public releasePointerLock() : void
     {
-        this.mouseLocked = false;
+        bz.Debug.pointer.log( 'releasePointerLock() being invoked manually!' );
+
+        this.pointerLocked = false;
     }
 
     /** ****************************************************************************************************************
@@ -234,7 +238,7 @@ export class MouseSystem
     private onMouseClick( me:MouseEvent ) : void
     {
         // check if the pointer is not locked yet
-        if ( !this.mouseLocked )
+        if ( !this.pointerLocked )
         {
             this.requestPointerLock();
         }
@@ -248,7 +252,7 @@ export class MouseSystem
     private onMouseDown( me:MouseEvent ) : void
     {
         // only handle this event if the pointer is locked
-        if ( this.mouseLocked )
+        if ( this.pointerLocked )
         {
             switch ( me.button )
             {
@@ -296,7 +300,7 @@ export class MouseSystem
     private onMouseUp( me:MouseEvent ) : void
     {
         // only handle this event if the pointer is locked
-        if ( this.mouseLocked )
+        if ( this.pointerLocked )
         {
             switch ( me.button )
             {
@@ -332,6 +336,8 @@ export class MouseSystem
     *******************************************************************************************************************/
     private requestPointerLock() : void
     {
+        bz.Debug.pointer.log( 'requestPointerLock()' );
+
         document.addEventListener( 'pointerlockchange',    () => { this.onPointerLockChange(); } );
         document.addEventListener( 'mozpointerlockchange', () => { this.onPointerLockChange(); } );
         document.addEventListener( 'mousemove',            ( mouseEvent:MouseEvent ) =>
@@ -357,6 +363,8 @@ export class MouseSystem
     *******************************************************************************************************************/
     private onPointerLockChange() : void
     {
+        bz.Debug.pointer.log( 'onPointerLockChange()' );
+
         const nativeCanvas :HTMLCanvasElement = this.game.getEngine().getCanvasSystem().getNativeCanvas();
 
         if (
@@ -366,13 +374,13 @@ export class MouseSystem
         {
             bz.Debug.pointer.log( 'Pointer lock status is now LOCKED' );
 
-            this.mouseLocked = true;
+            this.pointerLocked = true;
         }
         else
         {
             bz.Debug.pointer.log( 'Pointer lock status is now UNLOCKED' );
 
-            this.mouseLocked = false;
+            this.pointerLocked = false;
         }
     }
 
@@ -385,7 +393,7 @@ export class MouseSystem
     private onMouseMove( me:MouseEvent ) : void
     {
         // only handle this event if the pointer is locked
-        if ( this.mouseLocked )
+        if ( this.pointerLocked )
         {
             bz.Debug.pointer.log(
                 'PointerMovement X: ['
