@@ -525,7 +525,7 @@ export class MeshFactory
         position        :BABYLON.Vector3,
         width           :number,
         height          :number,
-        texture     :bz.TextureFile,
+        texture         :bz.TextureFile,
         color           :BABYLON.Color3,
         physic          :bz.PhysicSet,
         diamondCornerA  :number = 0.0,

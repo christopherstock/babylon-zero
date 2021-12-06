@@ -62,6 +62,8 @@ export class MaterialSystem
         emissiveColor      :BABYLON.Color3,
 
         mirrorTextureY    :boolean = false
+
+        // TODO add material flags here (dispersion, bump etc.)
     )
     : BABYLON.StandardMaterial
     {

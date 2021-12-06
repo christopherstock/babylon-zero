@@ -381,6 +381,7 @@ export abstract class StageFactory
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
         const STAIRCASE_CASESTEP_SIZE :number = 5.0;
         const MID_HEIGHT :number = ( STAIRCASE_SIZE.y / 2 );
+        const STAIRS_DEPTH :number = ( STAIRCASE_SIZE.x - ( 2 * STAIRCASE_CASESTEP_SIZE ) );
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
@@ -483,6 +484,34 @@ export abstract class StageFactory
             )
         )
         roomWalls.push( midFloor );
+
+        // add lower stairs
+        const lowerStairs :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
+            (
+                meshFactory.createPlane
+                (
+                    new BABYLON.Vector3(
+                        ( position.x + STAIRCASE_CASESTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + MID_HEIGHT - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRS_DEPTH,
+                    ( STAIRCASE_SIZE.z / 2 ),
+                    bz.TextureFile.WALL_OLD_ROCKS,
+                    null,
+                    bz.PhysicSet.STATIC
+                )
+            )
+        )
+        lowerStairs.getModel().rotateAroundAxisZ(
+            ( position.x + STAIRCASE_CASESTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+            ( position.y + MID_HEIGHT - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+            -45.0
+        );
+        roomWalls.push( lowerStairs );
 
         // rotate ALL walls around pivot TODO to method!
         for ( const roomWall of roomWalls )
