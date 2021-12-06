@@ -24,6 +24,8 @@ export abstract class Stage
     private readonly bulletHoles        :bz.BulletHole[]                = [];
     /** A collection of all debug meshes in this stage. */
     private readonly debugMeshes        :BABYLON.Mesh[]                 = [];
+    /** The particle helper fx 'rain' for this stage. */
+    private readonly particleEffects    :BABYLON.ParticleSystemSet[]    = [];
 
     /** The stage config. */
     private          config             :bz.StageConfig                 = null;
@@ -38,9 +40,6 @@ export abstract class Stage
     private         uiThreadPipeline    :bz.Event[]                     = [];
     /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
     private         eventPipelines      :bz.Event[][]                   = [];
-
-    /** The particle helper fx 'rain' for this stage. */
-    private         particleEffects     :BABYLON.ParticleSystemSet[]    = [];
 
     /** ****************************************************************************************************************
     *   Creates a new custom stage.
@@ -271,7 +270,11 @@ export abstract class Stage
         {
             // add particle fx
             const meshTextureFile:bz.TextureFile = bz.Texture.getTextureFromMesh( impactHitPoint.getMesh() );
-            const bulletHoleTextureFile:bz.TextureFile = bz.Texture.getBulletHoleTextureForMesh( impactHitPoint.getMesh() );
+/*
+            const bulletHoleTextureFile:bz.TextureFile = bz.Texture.getBulletHoleTextureForMesh(
+                impactHitPoint.getMesh()
+            );
+ */
             this.addWallRubble(
                 impactHitPoint.getPoint(),
                 impactHitPoint.getNormal(),

@@ -438,7 +438,7 @@ export abstract class StageFactory
         const walls :bz.Wall[] = [];
 
         // door frames
-        const createdDoors = [];
+        const createdDoors :bz.Door[] = [];
         for ( const doorData of doorsData )
         {
             if ( doorData.position >= sizeX )
