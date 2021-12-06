@@ -29,8 +29,6 @@ export class GUI
     /** The pause GUI. */
     private readonly pauseGui           :bz.GUIPause                            = null;
 
-    /** The wearpon image. */
-    // private          wearponImage       :BABYLON_GUI.Image                      = null;
     /** The corsshair. */
     private          crosshair          :BABYLON_GUI.Image                      = null;
 
@@ -84,18 +82,6 @@ export class GUI
     *******************************************************************************************************************/
     public init() : void
     {
-/*
-        this.wearponImage = bz.GUIFactory.createImage
-        (
-            'wearpon/autoShotgun.png',
-            -bz.SettingGUI.BORDER_X,
-            0,
-            BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
-            BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
-            null
-        );
-        this.guiPlayer.addControl( this.wearponImage );
-*/
         this.crosshair = bz.GUIFactory.createImage
         (
             'crosshair/default.png',
@@ -116,7 +102,6 @@ export class GUI
     public setFirstPlayerViewComponentsVisibility( visible:boolean ) : void
     {
         // change visibility for wearpon and crosshair
-        // this.wearponImage.isVisible = visible;
         this.crosshair.isVisible    = visible;
     }
 
@@ -216,25 +201,6 @@ export class GUI
     public setPauseMenuIndex( index:number ) : void
     {
         this.pauseGui.setPauseMenuIndex( index );
-    }
-
-    /** ****************************************************************************************************************
-    *   Zooms the GUI wearpon image by the specified ratio.
-    *
-    *   @param zoomRatio The current zoom factor - from 0.0 (no zoom) to 1.0 (max zoom).
-    *******************************************************************************************************************/
-    public zoomWearponImage( zoomRatio:number ) : void
-    {
-/*
-        this.wearponImage.scaleX = ( 1.0 + zoomRatio );
-        this.wearponImage.scaleY = ( 1.0 + zoomRatio );
-        this.wearponImage.left   = (
-            -bz.SettingGUI.BORDER_X + ( zoomRatio * ( this.wearponImage.widthInPixels  / 2 ) )
-        );
-        this.wearponImage.top    = (
-            -0.0                        + ( zoomRatio * ( this.wearponImage.heightInPixels / 2 ) )
-        );
- */
     }
 
     /** ****************************************************************************************************************

@@ -695,12 +695,6 @@ export class Player extends bz.GameObject
         if ( fovChanged )
         {
             cameraSystem.setFirstPersonCameraFieldOfView( this.fieldOfView );
-            this.stage.getGame().getGUI().zoomWearponImage(
-                1.0 - (
-                    ( this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM )
-                    - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW
-                )
-            );
         }
     }
 
