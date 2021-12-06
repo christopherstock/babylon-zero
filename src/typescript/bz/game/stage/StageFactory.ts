@@ -711,12 +711,13 @@ export abstract class StageFactory
         rotY           :number,
 
         textureWalls   :bz.TextureFile = null,
-        textureFloor   :bz.TextureFile = null,
-        textureCeiling :bz.TextureFile = null
+        textureFloor   :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
+        textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1
     )
     : void
     {
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
+        const STAIRCASE_ENTER_SIZE :number = 5.0;
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
@@ -775,6 +776,32 @@ export abstract class StageFactory
                 )
             )
             roomWalls.push( floor );
+        }
+
+        // add upper floor
+        if ( textureFloor !== null )
+        {
+            const upperFloor :bz.Wall = new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    meshFactory.createPlane
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + STAIRCASE_SIZE.x - STAIRCASE_ENTER_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                        ),
+                        STAIRCASE_ENTER_SIZE,
+                        STAIRCASE_SIZE.z,
+                        textureFloor,
+                        null,
+                        bz.PhysicSet.STATIC
+                    )
+                )
+            )
+            roomWalls.push( upperFloor );
         }
 
         // rotate ALL walls around pivot TODO to method!
