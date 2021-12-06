@@ -542,6 +542,10 @@ export abstract class StageFactory
         );
         roomWalls.push( upperStairs );
 
+        // center railing wall
+
+
+
         // rotate ALL walls around pivot TODO to method!
         for ( const roomWall of roomWalls )
         {

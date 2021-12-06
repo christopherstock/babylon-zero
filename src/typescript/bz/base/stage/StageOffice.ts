@@ -121,7 +121,11 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
-
+/*
+        bz.StageFactory.addStairs(
+            10, 10, 10
+        );
+*/
         // point light in small office
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
