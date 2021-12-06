@@ -42,11 +42,11 @@ export class DoorData
 ***********************************************************************************************************************/
 export class WindowData
 {
-    public position      :number  = 0.0;
+    public position   :number  = 0.0;
     public fullHeight :boolean = false;
 
-    public constructor( position:number, fullHeight:boolean ) {
-        this.position      = position;
+    public constructor( position:number, fullHeight:boolean = false ) {
+        this.position   = position;
         this.fullHeight = fullHeight;
     }
 }
@@ -405,19 +405,19 @@ export abstract class StageFactory
     *   Creates one straight wall for a room.
     *******************************************************************************************************************/
     private static createWall(
-        roomWalls      :bz.Wall[],
-        doorsData      :bz.DoorData[],
-        windowsPos     :bz.WindowData[],
-        stage          :bz.Stage,
-        meshFactory    :bz.MeshFactory,
-        x              :number,
-        sizeX          :number,
-        y              :number,
-        sizeY          :number,
-        z              :number,
-        rotY           :number,
-        textureFileWall    :bz.TextureFile,
-        textureFileGlass   :bz.TextureFile
+        roomWalls        :bz.Wall[],
+        doorsData        :bz.DoorData[],
+        windowsData      :bz.WindowData[],
+        stage            :bz.Stage,
+        meshFactory      :bz.MeshFactory,
+        x                :number,
+        sizeX            :number,
+        y                :number,
+        sizeY            :number,
+        z                :number,
+        rotY             :number,
+        textureFileWall  :bz.TextureFile,
+        textureFileGlass :bz.TextureFile
     )
     : void
     {
@@ -502,8 +502,9 @@ export abstract class StageFactory
             }
         }
 
-        // connect doors
-        for ( let i:number = 0; i < doorsData.length; ++i ) {
+        // link doors if specified
+        for ( let i:number = 0; i < doorsData.length; ++i )
+        {
             if ( doorsData[ i ].linkedDoorIndex !== -1 )
             {
                 createdDoors[ i ].setLinkedDoor( createdDoors[ doorsData[ i ].linkedDoorIndex ] );
@@ -512,44 +513,58 @@ export abstract class StageFactory
         }
 
         // window frames
-        for ( const windowPos of windowsPos )
+        for ( const windowPos of windowsData )
         {
             if ( windowPos.position >= sizeX )
             {
                 continue;
             }
 
-            if ( sizeY < bz.SettingGame.WINDOW_HEIGHT + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT )
+            // calculate window dimensions
+            let windowHeight            :number = bz.SettingGame.WINDOW_HEIGHT;
+            let windowTopFrameHeight    :number = bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT;
+            let windowBottomFrameHeight :number = bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT;
+            if ( windowPos.fullHeight )
+            {
+                windowHeight            = sizeY;
+                windowTopFrameHeight    = 0.0;
+                windowBottomFrameHeight = 0.0;
+            }
+
+            if ( sizeY < windowHeight + windowTopFrameHeight )
             {
                 continue;
             }
 
             // top window frame
-            const topWindowFrame :bz.Wall = new bz.Wall
-            (
-                stage,
-                new bz.Model
+            if ( windowTopFrameHeight > 0.0 )
+            {
+                const topWindowFrame :bz.Wall = new bz.Wall
                 (
-                    meshFactory.createBox
+                    stage,
+                    new bz.Model
                     (
-                        new BABYLON.Vector3(
-                            x + windowPos.position,
-                            y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
-                            z
-                        ),
-                        textureFileWall,
-                        new BABYLON.Vector3(
-                            bz.SettingGame.WINDOW_WIDTH,
-                            bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
-                            bz.SettingGame.WALL_DEPTH
-                        ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3(
+                                x + windowPos.position,
+                                y + sizeY - windowTopFrameHeight,
+                                z
+                            ),
+                            textureFileWall,
+                            new BABYLON.Vector3(
+                                bz.SettingGame.WINDOW_WIDTH,
+                                windowTopFrameHeight,
+                                bz.SettingGame.WALL_DEPTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        )
                     )
-                )
-            );
-            walls.push( topWindowFrame );
+                );
+                walls.push( topWindowFrame );
+            }
 
             // window glass
             const windowGlass :bz.Wall = new bz.Wall
@@ -561,13 +576,13 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             x + windowPos.position,
-                            y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT - bz.SettingGame.WINDOW_HEIGHT,
+                            y + sizeY - windowTopFrameHeight - windowHeight,
                             z
                         ),
                         textureFileGlass,
                         new BABYLON.Vector3(
                             bz.SettingGame.WINDOW_WIDTH,
-                            bz.SettingGame.WINDOW_HEIGHT,
+                            windowHeight,
                             bz.SettingGame.WALL_DEPTH
                         ),
                         bz.PhysicSet.STATIC,
@@ -584,39 +599,43 @@ export abstract class StageFactory
             // bottom window frame
             if (
                 sizeY < (
-                    bz.SettingGame.WINDOW_HEIGHT
-                    + bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT
-                    + bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT
+                    windowHeight
+                    + windowTopFrameHeight
+                    + windowBottomFrameHeight
                 )
             )
             {
                 continue;
             }
-            const bottomWindowFrame :bz.Wall = new bz.Wall
-            (
-                stage,
-                new bz.Model
+
+            if ( windowBottomFrameHeight > 0.0 )
+            {
+                const bottomWindowFrame :bz.Wall = new bz.Wall
                 (
-                    meshFactory.createBox
+                    stage,
+                    new bz.Model
                     (
-                        new BABYLON.Vector3( x + windowPos.position, y, z ),
-                        textureFileWall,
-                        new BABYLON.Vector3(
-                            bz.SettingGame.WINDOW_WIDTH,
-                            bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT,
-                            bz.SettingGame.WALL_DEPTH
-                        ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
+                        meshFactory.createBox
+                        (
+                            new BABYLON.Vector3( x + windowPos.position, y, z ),
+                            textureFileWall,
+                            new BABYLON.Vector3(
+                                bz.SettingGame.WINDOW_WIDTH,
+                                windowBottomFrameHeight,
+                                bz.SettingGame.WALL_DEPTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        )
                     )
-                )
-            );
-            walls.push( bottomWindowFrame );
+                );
+                walls.push( bottomWindowFrame );
+            }
         }
 
         // blank walls ( all walls beside doors and windows )
-        const blankWalls :number[] = StageFactory.calculateBlankWalls( x, sizeX, windowsPos, doorsData );
+        const blankWalls :number[] = StageFactory.calculateBlankWalls( x, sizeX, windowsData, doorsData );
         for ( let i:number = 0; i < blankWalls.length; i += 2 )
         {
             const from  :number = blankWalls[ i ];
