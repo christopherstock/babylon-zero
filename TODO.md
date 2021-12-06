@@ -7,6 +7,7 @@ MVP
 ===
 TODO Create staircase.
 TODO Fix fence
+TODO Try rotation on rooms and staircases :) unify wall rotation methods invocations!
 TODO smaller Doors? Adjust room sizes once more!
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Create one realistic model with all (3 or 4) different textures?

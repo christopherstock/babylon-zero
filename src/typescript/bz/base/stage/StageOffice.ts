@@ -73,8 +73,8 @@ export class StageOffice extends bz.Stage
                 new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 1, false ),
-                new bz.DoorData( 16.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 0, true ),
+                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, false ),
+                new bz.DoorData( 15.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, true ),
             ], [
                 new bz.WindowData( 2.0,  false ),
             ], 0,
@@ -102,11 +102,22 @@ export class StageOffice extends bz.Stage
                 new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 1, false ),
-                new bz.DoorData( 16.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_INDUSTRIAL, 0, true ),
+                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, false ),
+                new bz.DoorData( 15.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, true ),
             ], [
                 new bz.WindowData( 2.0,  false ),
             ], 0,
+            bz.TextureFile.WALL_CARPET_RASPBERRY,
+            bz.TextureFile.WALL_CEILING_1
+        );
+
+        // staircase
+        bz.StageFactory.addStaircase(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( -20.0, 0.0, 10.0 ),
+            0.0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );

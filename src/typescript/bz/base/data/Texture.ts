@@ -155,9 +155,9 @@ export class Texture
     *
     *   @return The texture's native texture data.
     *******************************************************************************************************************/
-    public static getNativeTexture( textureFile:bz.TextureFile ) : BABYLON.Texture
+    public static getNativeTexture( texture:bz.TextureFile ) : BABYLON.Texture
     {
-        return Texture.getTextureFromFileName( textureFile ).nativeTexture;
+        return Texture.getTextureFromFileName( texture ).nativeTexture;
     }
 
     /** ****************************************************************************************************************
@@ -165,9 +165,9 @@ export class Texture
     *
     *   @return A clone of this texture's native texture data.
     *******************************************************************************************************************/
-    public static cloneNativeTexture( textureFile:bz.TextureFile ) : BABYLON.Texture
+    public static cloneNativeTexture( texture:bz.TextureFile ) : BABYLON.Texture
     {
-        return Texture.getTextureFromFileName( textureFile ).nativeTexture.clone();
+        return Texture.getTextureFromFileName( texture ).nativeTexture.clone();
     }
 
     /** ****************************************************************************************************************

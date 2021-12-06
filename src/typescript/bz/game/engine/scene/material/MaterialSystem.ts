@@ -39,7 +39,7 @@ export class MaterialSystem
     *   Creates a material from the given texture or color.
     *
     *   @param scene              The scene where the new material to creat.
-    *   @param textureFile        The desired texture.
+    *   @param texture            The desired texture.
     *   @param ommitTextureTiling Specifies if tiling for the given texture shall be omitted.
     *   @param sizeU              The texture U size for the texture.
     *   @param sizeV              The texture V size for the texture.
@@ -51,7 +51,7 @@ export class MaterialSystem
     public createMaterial
     (
         scene              :BABYLON.Scene,
-        textureFile        :bz.TextureFile,
+        texture        :bz.TextureFile,
         ommitTextureTiling :boolean,
 
         sizeU              :number,
@@ -71,14 +71,14 @@ export class MaterialSystem
             scene
         );
 
-        if ( textureFile !== null )
+        if ( texture !== null )
         {
             let textureRepeatU:number = -1;
             let textureRepeatV:number = -1;
 
             if ( !ommitTextureTiling )
             {
-                switch ( textureFile.getStrategyUV() )
+                switch ( texture.getStrategyUV() )
                 {
                     case bz.TextureUV.TILED:
                     {
@@ -104,19 +104,19 @@ export class MaterialSystem
             }
 
             // diffuse texture - basic material texture as viewed under a light
-            material.diffuseTexture  = textureFile.createNewTextureInstance(
+            material.diffuseTexture  = texture.createNewTextureInstance(
                 textureRepeatU,
                 textureRepeatV,
                 mirrorTextureY
             );
 /*
-            material.ambientTexture  = textureFile.createNewTextureInstance(
+            material.ambientTexture  = texture.createNewTextureInstance(
                 textureRepeatU,
                 textureRepeatV,
                 mirrorTextureY
             );
 */
-            if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
+            if ( texture === bz.TextureFile.WALL_OLD_ROCKS )
             {
                 // bump texture - structure
                 material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance(
@@ -161,7 +161,7 @@ export class MaterialSystem
                 //     textureRepeatU, textureRepeatV, reverseTextureY );
             }
 
-            if ( textureFile === bz.TextureFile.WALL_CARPET_RASPBERRY )
+            if ( texture === bz.TextureFile.WALL_CARPET_RASPBERRY )
             {
                 // bump texture - structure
                 material.bumpTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_BUMP.createNewTextureInstance(
@@ -194,7 +194,7 @@ export class MaterialSystem
                 );
             }
 
-            material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );
+            material.backFaceCulling = ( texture.hasAlpha() || alpha < 1.0 );
         }
         else if ( color !== null )
         {

@@ -77,35 +77,35 @@ export abstract class StageFactory
         size        :BABYLON.Vector3,
         rotY        :number,
 
-        textureFileWallA   :bz.TextureFile = null,
+        textureWallA   :bz.TextureFile = null,
         doorsWallA :bz.DoorData[] = [],
         windowsWallA :bz.WindowData[] = [],
         diamondCornerA :number = 0,
 
-        textureFileWallB   :bz.TextureFile = null,
+        textureWallB   :bz.TextureFile = null,
         doorsWallB :bz.DoorData[] = [],
         windowsWallB :bz.WindowData[] = [],
         diamondCornerB :number = 0,
 
-        textureFileWallC   :bz.TextureFile = null,
+        textureWallC   :bz.TextureFile = null,
         doorsWallC :bz.DoorData[] = [],
         windowsWallC :bz.WindowData[] = [],
         diamondCornerC :number = 0,
 
-        textureFileWallD   :bz.TextureFile = null,
+        textureWallD   :bz.TextureFile = null,
         doorsWallD :bz.DoorData[] = [],
         windowsWallD :bz.WindowData[] = [],
         diamondCornerD :number = 0,
 
-        textureFileFloor   :bz.TextureFile = null,
-        textureFileCeiling :bz.TextureFile = null
+        textureFloor   :bz.TextureFile = null,
+        textureCeiling :bz.TextureFile = null
     )
     : void
     {
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
 
-        if ( textureFileWallA !== null )
+        if ( textureWallA !== null )
         {
             const diamondModX :number = diamondCornerA + ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerA - ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
@@ -118,7 +118,7 @@ export abstract class StageFactory
                 size.y,
                 position.z,
                 0.0,
-                textureFileWallA,
+                textureWallA,
                 bz.TextureFile.WALL_GLASS_1
             );
 
@@ -133,13 +133,13 @@ export abstract class StageFactory
                     size.y,
                     ( position.z + diamondCornerA + bz.SettingGame.WALL_DEPTH ),
                     45.0,
-                    textureFileWallA,
+                    textureWallA,
                     bz.TextureFile.WALL_GLASS_1
                 );
             }
         }
 
-        if ( textureFileWallB !== null )
+        if ( textureWallB !== null )
         {
             const diamondModX :number = diamondCornerB + ( diamondCornerB > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerB - ( diamondCornerB > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
@@ -152,7 +152,7 @@ export abstract class StageFactory
                 size.y,
                 position.z + diamondModX,
                 -90.0,
-                textureFileWallB,
+                textureWallB,
                 bz.TextureFile.WALL_GLASS_1
             );
 
@@ -167,13 +167,13 @@ export abstract class StageFactory
                     size.y,
                     position.z, // ( position.z + diamondCornerB + 2 * bz.SettingGame.WALL_DEPTH ),
                     -45.0,
-                    textureFileWallB,
+                    textureWallB,
                     bz.TextureFile.WALL_GLASS_1
                 );
             }
         }
 
-        if ( textureFileWallC !== null )
+        if ( textureWallC !== null )
         {
             const diamondModX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
@@ -186,7 +186,7 @@ export abstract class StageFactory
                 size.y,
                 position.z + size.z + bz.SettingGame.WALL_DEPTH,
                 -180.0,
-                textureFileWallC,
+                textureWallC,
                 bz.TextureFile.WALL_GLASS_1
             );
 
@@ -201,13 +201,13 @@ export abstract class StageFactory
                     size.y,
                     position.z + size.z - diamondCornerC,
                     -135.0,
-                    textureFileWallC,
+                    textureWallC,
                     bz.TextureFile.WALL_GLASS_1
                 );
             }
         }
 
-        if ( textureFileWallD !== null )
+        if ( textureWallD !== null )
         {
             const diamondModX     :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
@@ -220,7 +220,7 @@ export abstract class StageFactory
                 size.y,
                 position.z + size.z + bz.SettingGame.WALL_DEPTH + diamondModX,
                 -270.0,
-                textureFileWallD,
+                textureWallD,
                 bz.TextureFile.WALL_GLASS_1
             );
 
@@ -235,14 +235,14 @@ export abstract class StageFactory
                     size.y,
                     position.z + size.z + bz.SettingGame.WALL_DEPTH,
                     -225.0,
-                    textureFileWallD,
+                    textureWallD,
                     bz.TextureFile.WALL_GLASS_1
                 );
             }
         }
 
         // ceiling
-        if ( textureFileCeiling !== null )
+        if ( textureCeiling !== null )
         {
             const ceiling :bz.Wall = new bz.Wall
             (
@@ -256,7 +256,7 @@ export abstract class StageFactory
                             ( position.y + size.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
                             ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
-                        textureFileCeiling,
+                        textureCeiling,
                         new BABYLON.Vector3(
                             size.x,
                             bz.SettingGame.DEPTH_FLOOR_CEILING,
@@ -273,7 +273,7 @@ export abstract class StageFactory
         }
 
         // floor
-        if ( textureFileFloor !== null )
+        if ( textureFloor !== null )
         {
             const floor :bz.Wall = new bz.Wall
             (
@@ -289,7 +289,7 @@ export abstract class StageFactory
                         ),
                         size.x,
                         size.z,
-                        textureFileFloor,
+                        textureFloor,
                         null,
                         bz.PhysicSet.STATIC,
                         diamondCornerA,
@@ -311,7 +311,6 @@ export abstract class StageFactory
             {
                 roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
             }
-
         }
 
         // add all room walls to stage
@@ -433,8 +432,8 @@ export abstract class StageFactory
         sizeY            :number,
         z                :number,
         rotY             :number,
-        textureFileWall  :bz.TextureFile,
-        textureFileGlass :bz.TextureFile
+        textureWall  :bz.TextureFile,
+        textureGlass :bz.TextureFile
     )
     : void
     {
@@ -468,7 +467,7 @@ export abstract class StageFactory
                                 y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT,
                                 z
                             ),
-                            textureFileWall,
+                            textureWall,
                             new BABYLON.Vector3(
                                 bz.SettingGame.DOOR_WIDTH,
                                 bz.SettingGame.DOOR_FRAME_HEIGHT,
@@ -568,7 +567,7 @@ export abstract class StageFactory
                                 y + sizeY - windowTopFrameHeight,
                                 z
                             ),
-                            textureFileWall,
+                            textureWall,
                             new BABYLON.Vector3(
                                 bz.SettingGame.WINDOW_WIDTH,
                                 windowTopFrameHeight,
@@ -596,7 +595,7 @@ export abstract class StageFactory
                             y + sizeY - windowTopFrameHeight - windowHeight,
                             z
                         ),
-                        textureFileGlass,
+                        textureGlass,
                         new BABYLON.Vector3(
                             bz.SettingGame.WINDOW_WIDTH,
                             windowHeight,
@@ -637,7 +636,7 @@ export abstract class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3( x + windowPos.position, y, z ),
-                            textureFileWall,
+                            textureWall,
                             new BABYLON.Vector3(
                                 bz.SettingGame.WINDOW_WIDTH,
                                 windowBottomFrameHeight,
@@ -674,7 +673,7 @@ export abstract class StageFactory
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3( from, y, z ),
-                        textureFileWall,
+                        textureWall,
                         new BABYLON.Vector3(
                             width,
                             sizeY,
@@ -700,5 +699,96 @@ export abstract class StageFactory
         {
             roomWalls.push( wall );
         }
+    }
+
+    /** ****************************************************************************************************************
+    *   Creates one staircase.
+    *******************************************************************************************************************/
+    public static addStaircase(
+        stage          :bz.Stage,
+        meshFactory    :bz.MeshFactory,
+        position       :BABYLON.Vector3,
+        rotY           :number,
+
+        textureWalls   :bz.TextureFile = null,
+        textureFloor   :bz.TextureFile = null,
+        textureCeiling :bz.TextureFile = null
+    )
+    : void
+    {
+        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
+
+        // all walls to add to the stage at the end of this method
+        const roomWalls :bz.Wall[] = [];
+
+        // ceiling
+        if ( textureCeiling !== null )
+        {
+            const ceiling :bz.Wall = new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
+                            ( position.y + 2 * STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
+                        ),
+                        textureCeiling,
+                        new BABYLON.Vector3(
+                            STAIRCASE_SIZE.x,
+                            bz.SettingGame.DEPTH_FLOOR_CEILING,
+                            STAIRCASE_SIZE.z
+                        ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    )
+                )
+            );
+            roomWalls.push( ceiling );
+        }
+
+        // floor
+        if ( textureFloor !== null )
+        {
+            const floor :bz.Wall = new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    meshFactory.createPlane
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                            ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ), // TODO magic 10 * in this class?
+                            ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                        ),
+                        STAIRCASE_SIZE.x,
+                        STAIRCASE_SIZE.z,
+                        textureFloor,
+                        null,
+                        bz.PhysicSet.STATIC
+                    )
+                )
+            )
+            roomWalls.push( floor );
+        }
+
+        // rotate ALL walls around pivot TODO to method!
+        for ( const roomWall of roomWalls )
+        {
+            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
+
+            if ( roomWall instanceof bz.Door )
+            {
+                roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
+            }
+        }
+
+        // add all room walls to stage
+        stage.addWall( roomWalls );
     }
 }

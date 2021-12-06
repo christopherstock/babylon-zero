@@ -31,7 +31,7 @@ export class MeshFactory
     *   @param anchor         The anchor point of this mesh.
     *   @param size           The dimensions of this mesh for all axis.
     *   @param rotation       The initial rotation for all axis.
-    *   @param textureFile    The texture to apply.
+    *   @param texture    The texture to apply.
     *   @param color          The solid color to apply.
     *   @param physic         The physical attributes to apply for this mesh.
     *   @param materialAlpha  The opacity for this mesh.
@@ -42,7 +42,7 @@ export class MeshFactory
     public createBox
     (
         position        :BABYLON.Vector3,
-        textureFile     :bz.TextureFile,
+        texture         :bz.TextureFile,
         size            :BABYLON.Vector3,
         physic          :bz.PhysicSet       = bz.PhysicSet.NONE,
         materialAlpha   :number             = 1.0,
@@ -55,9 +55,9 @@ export class MeshFactory
     {
         let faceUV:BABYLON.Vector4[] = [];
 
-        if ( textureFile !== null )
+        if ( texture !== null )
         {
-            switch ( textureFile.getStrategyUV() )
+            switch ( texture.getStrategyUV() )
             {
                 case bz.TextureUV.ALL_ONE:
                 {
@@ -233,7 +233,7 @@ export class MeshFactory
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
             this.scene.getNativeSceneBG(),
-            textureFile,
+            texture,
             true,
             size.x,
             size.z,
@@ -260,7 +260,7 @@ export class MeshFactory
     *   @param anchor        The anchor point of this mesh.
     *   @param sideSize      The dimension of one side (XZ) of the heightmap.
     *   @param height        The ground height for the heightmap.
-    *   @param textureFile   The texture file to use for this heightmap.
+    *   @param texture       The texture file to use for this heightmap.
     *   @param rotation      The initial rotation for all axis.
     *   @param physic        The physical attributes to apply for this mesh.
     *
@@ -272,7 +272,7 @@ export class MeshFactory
         anchor        :bz.MeshAnchor,
         sideSize      :number,
         height        :number,
-        textureFile   :bz.TextureFile,
+        texture   :bz.TextureFile,
         rotation      :BABYLON.Vector3,
         physic        :bz.PhysicSet
     )
@@ -321,7 +321,7 @@ export class MeshFactory
         };
         let ground :BABYLON.Mesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
             MeshFactory.createNextMeshId(),
-            textureFile.fileName,
+            texture.fileName,
             options,
             this.scene.getNativeSceneBG()
         );
@@ -337,7 +337,7 @@ export class MeshFactory
     *   @param diameter        The diameter of the cylinder.
     *   @param height          The height of the cylinder.
     *   @param rotation        The initial rotation for all axis.
-    *   @param textureFile         The texture to apply.
+    *   @param texture         The texture to apply.
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
     *   @param materialAlpha   The opacity for this mesh.
@@ -351,7 +351,7 @@ export class MeshFactory
         diameter      :number,
         height        :number,
         rotation      :BABYLON.Vector3,
-        textureFile   :bz.TextureFile,
+        texture   :bz.TextureFile,
         color         :BABYLON.Color3,
         physic        :bz.PhysicSet,
         materialAlpha :number
@@ -360,9 +360,9 @@ export class MeshFactory
     {
         let faceUV:BABYLON.Vector4[] = [];
 
-        if ( textureFile !== null )
+        if ( texture !== null )
         {
-            switch ( textureFile.getStrategyUV() )
+            switch ( texture.getStrategyUV() )
             {
                 case bz.TextureUV.ALL_ONE:
                 {
@@ -414,7 +414,7 @@ export class MeshFactory
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
             this.scene.getNativeSceneBG(),
-            textureFile,
+            texture,
             true,
             diameter,
             height,
@@ -440,7 +440,7 @@ export class MeshFactory
     *   @param anchor   The anchor point of this mesh.
     *   @param diameter      The diameter of the sphere.
     *   @param rotation      The initial rotation for all axis.
-    *   @param textureFile       The texture to apply.
+    *   @param texture       The texture to apply.
     *   @param color         The solid color to apply.
     *   @param physic        The physical attributes to apply for this mesh.
     *   @param materialAlpha The opacity for this mesh.
@@ -453,7 +453,7 @@ export class MeshFactory
         anchor        :bz.MeshAnchor,
         diameter      :number,
         rotation      :BABYLON.Vector3,
-        textureFile   :bz.TextureFile,
+        texture   :bz.TextureFile,
         color         :BABYLON.Color3,
         physic        :bz.PhysicSet,
         materialAlpha :number          = 1.0
@@ -482,7 +482,7 @@ export class MeshFactory
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
             this.scene.getNativeSceneBG(),
-            textureFile,
+            texture,
             false,
             diameter,
             diameter,
@@ -508,7 +508,7 @@ export class MeshFactory
     *   @param position        Where to place this mesh.
     *   @param width           Width  of the plane.
     *   @param height          Height of the plane.
-    *   @param textureFile         The texture to apply.
+    *   @param texture         The texture to apply.
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
     *   @param diamondCornerA  The side size of the diamond corner on wall A.
@@ -525,7 +525,7 @@ export class MeshFactory
         position        :BABYLON.Vector3,
         width           :number,
         height          :number,
-        textureFile     :bz.TextureFile,
+        texture     :bz.TextureFile,
         color           :BABYLON.Color3,
         physic          :bz.PhysicSet,
         diamondCornerA  :number = 0.0,
@@ -596,7 +596,7 @@ export class MeshFactory
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
             this.scene.getNativeSceneBG(),
-            textureFile,
+            texture,
             false,
             width,
             height,
@@ -685,7 +685,7 @@ export class MeshFactory
     *   @param size          The dimensions of this mesh for all axis.
     *   @param rotation      The initial rotation for all axis.
     *   @param indexZ        The z index for this material that prevents overlapping materials.
-    *   @param textureFile       The texture to apply.
+    *   @param texture       The texture to apply.
     *   @param color         The solid color to apply.
     *   @param materialAlpha The opacity for this mesh.
     *
@@ -699,7 +699,7 @@ export class MeshFactory
         size          :BABYLON.Vector3,
         rotation      :number,
         indexZ        :number,
-        textureFile   :bz.TextureFile,
+        texture   :bz.TextureFile,
         color         :BABYLON.Color3,
         materialAlpha :number
     )
@@ -720,7 +720,7 @@ export class MeshFactory
         const material:BABYLON.StandardMaterial = this.scene.getMaterialSystem().createMaterial
         (
             this.scene.getNativeSceneBG(),
-            textureFile,
+            texture,
             true,
             size.x,
             size.y,
