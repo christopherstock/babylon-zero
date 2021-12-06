@@ -718,6 +718,7 @@ export abstract class StageFactory
     {
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
         const STAIRCASE_CASESTEP_SIZE :number = 5.0;
+        const MID_HEIGHT :number = ( STAIRCASE_SIZE.y / 2 );
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
@@ -808,7 +809,7 @@ export abstract class StageFactory
                 (
                     new BABYLON.Vector3(
                         ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + ( STAIRCASE_SIZE.y / 2 ) - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.y + MID_HEIGHT - bz.SettingGame.DEPTH_FLOOR_CEILING ),
                         ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                     ),
                     STAIRCASE_CASESTEP_SIZE,
