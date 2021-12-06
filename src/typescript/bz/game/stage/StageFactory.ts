@@ -364,6 +364,142 @@ export abstract class StageFactory
     }
 
     /** ****************************************************************************************************************
+    *   Creates one staircase.
+    *******************************************************************************************************************/
+    public static addStaircase(
+        stage          :bz.Stage,
+        meshFactory    :bz.MeshFactory,
+        position       :BABYLON.Vector3,
+        rotY           :number,
+
+        textureWalls   :bz.TextureFile = null,
+        textureFloor   :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
+        textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1
+    )
+    : void
+    {
+        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
+        const STAIRCASE_CASESTEP_SIZE :number = 5.0;
+        const MID_HEIGHT :number = ( STAIRCASE_SIZE.y / 2 );
+
+        // all walls to add to the stage at the end of this method
+        const roomWalls :bz.Wall[] = [];
+
+        // ceiling
+        if ( textureCeiling !== null )
+        {
+            const ceiling :bz.Wall = new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    meshFactory.createBox
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
+                            ( position.y + 2 * STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
+                        ),
+                        textureCeiling,
+                        new BABYLON.Vector3(
+                            STAIRCASE_SIZE.x,
+                            bz.SettingGame.DEPTH_FLOOR_CEILING,
+                            STAIRCASE_SIZE.z
+                        ),
+                        bz.PhysicSet.STATIC,
+                        1.0,
+                        bz.MeshAnchor.LOWEST_XYZ
+                    )
+                )
+            );
+            roomWalls.push( ceiling );
+        }
+
+        // floor
+        const floor :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
+            (
+                meshFactory.createPlane
+                (
+                    new BABYLON.Vector3(
+                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ), // TODO magic 10 * in this class?
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRCASE_SIZE.x,
+                    STAIRCASE_SIZE.z,
+                    textureFloor,
+                    null,
+                    bz.PhysicSet.STATIC
+                )
+            )
+        )
+        roomWalls.push( floor );
+
+        // add upper floor
+        const upperFloor :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
+            (
+                meshFactory.createPlane
+                (
+                    new BABYLON.Vector3(
+                        ( position.x + STAIRCASE_SIZE.x - STAIRCASE_CASESTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRCASE_CASESTEP_SIZE,
+                    STAIRCASE_SIZE.z,
+                    textureFloor,
+                    null,
+                    bz.PhysicSet.STATIC
+                )
+            )
+        )
+        roomWalls.push( upperFloor );
+
+        // add mid floor
+        const midFloor :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
+            (
+                meshFactory.createPlane
+                (
+                    new BABYLON.Vector3(
+                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + MID_HEIGHT - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRCASE_CASESTEP_SIZE,
+                    STAIRCASE_SIZE.z,
+                    textureFloor,
+                    null,
+                    bz.PhysicSet.STATIC
+                )
+            )
+        )
+        roomWalls.push( midFloor );
+
+        // rotate ALL walls around pivot TODO to method!
+        for ( const roomWall of roomWalls )
+        {
+            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
+
+            if ( roomWall instanceof bz.Door )
+            {
+                roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
+            }
+        }
+
+        // add all room walls to stage
+        stage.addWall( roomWalls );
+    }
+
+    /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
     private static calculateBlankWalls(
@@ -699,141 +835,5 @@ export abstract class StageFactory
         {
             roomWalls.push( wall );
         }
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates one staircase.
-    *******************************************************************************************************************/
-    public static addStaircase(
-        stage          :bz.Stage,
-        meshFactory    :bz.MeshFactory,
-        position       :BABYLON.Vector3,
-        rotY           :number,
-
-        textureWalls   :bz.TextureFile = null,
-        textureFloor   :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
-        textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1
-    )
-    : void
-    {
-        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
-        const STAIRCASE_CASESTEP_SIZE :number = 5.0;
-        const MID_HEIGHT :number = ( STAIRCASE_SIZE.y / 2 );
-
-        // all walls to add to the stage at the end of this method
-        const roomWalls :bz.Wall[] = [];
-
-        // ceiling
-        if ( textureCeiling !== null )
-        {
-            const ceiling :bz.Wall = new bz.Wall
-            (
-                stage,
-                new bz.Model
-                (
-                    meshFactory.createBox
-                    (
-                        new BABYLON.Vector3(
-                            ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + 2 * STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
-                            ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
-                        ),
-                        textureCeiling,
-                        new BABYLON.Vector3(
-                            STAIRCASE_SIZE.x,
-                            bz.SettingGame.DEPTH_FLOOR_CEILING,
-                            STAIRCASE_SIZE.z
-                        ),
-                        bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
-                    )
-                )
-            );
-            roomWalls.push( ceiling );
-        }
-
-        // floor
-        const floor :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                meshFactory.createPlane
-                (
-                    new BABYLON.Vector3(
-                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ), // TODO magic 10 * in this class?
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
-                    ),
-                    STAIRCASE_SIZE.x,
-                    STAIRCASE_SIZE.z,
-                    textureFloor,
-                    null,
-                    bz.PhysicSet.STATIC
-                )
-            )
-        )
-        roomWalls.push( floor );
-
-        // add upper floor
-        const upperFloor :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                meshFactory.createPlane
-                (
-                    new BABYLON.Vector3(
-                        ( position.x + STAIRCASE_SIZE.x - STAIRCASE_CASESTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
-                    ),
-                    STAIRCASE_CASESTEP_SIZE,
-                    STAIRCASE_SIZE.z,
-                    textureFloor,
-                    null,
-                    bz.PhysicSet.STATIC
-                )
-            )
-        )
-        roomWalls.push( upperFloor );
-
-        // add mid floor
-        const midFloor :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                meshFactory.createPlane
-                (
-                    new BABYLON.Vector3(
-                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + MID_HEIGHT - bz.SettingGame.DEPTH_FLOOR_CEILING ),
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
-                    ),
-                    STAIRCASE_CASESTEP_SIZE,
-                    STAIRCASE_SIZE.z,
-                    textureFloor,
-                    null,
-                    bz.PhysicSet.STATIC
-                )
-            )
-        )
-        roomWalls.push( midFloor );
-
-        // rotate ALL walls around pivot TODO to method!
-        for ( const roomWall of roomWalls )
-        {
-            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
-
-            if ( roomWall instanceof bz.Door )
-            {
-                roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
-            }
-        }
-
-        // add all room walls to stage
-        stage.addWall( roomWalls );
     }
 }
