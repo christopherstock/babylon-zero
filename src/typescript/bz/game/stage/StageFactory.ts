@@ -717,7 +717,7 @@ export abstract class StageFactory
     : void
     {
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
-        const STAIRCASE_ENTER_SIZE :number = 5.0;
+        const STAIRCASE_CASESTEP_SIZE :number = 5.0;
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
@@ -753,56 +753,73 @@ export abstract class StageFactory
         }
 
         // floor
-        if ( textureFloor !== null )
-        {
-            const floor :bz.Wall = new bz.Wall
+        const floor :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
             (
-                stage,
-                new bz.Model
+                meshFactory.createPlane
                 (
-                    meshFactory.createPlane
-                    (
-                        new BABYLON.Vector3(
-                            ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                            ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ), // TODO magic 10 * in this class?
-                            ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
-                        ),
-                        STAIRCASE_SIZE.x,
-                        STAIRCASE_SIZE.z,
-                        textureFloor,
-                        null,
-                        bz.PhysicSet.STATIC
-                    )
+                    new BABYLON.Vector3(
+                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ), // TODO magic 10 * in this class?
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRCASE_SIZE.x,
+                    STAIRCASE_SIZE.z,
+                    textureFloor,
+                    null,
+                    bz.PhysicSet.STATIC
                 )
             )
-            roomWalls.push( floor );
-        }
+        )
+        roomWalls.push( floor );
 
         // add upper floor
-        if ( textureFloor !== null )
-        {
-            const upperFloor :bz.Wall = new bz.Wall
+        const upperFloor :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
             (
-                stage,
-                new bz.Model
+                meshFactory.createPlane
                 (
-                    meshFactory.createPlane
-                    (
-                        new BABYLON.Vector3(
-                            ( position.x + STAIRCASE_SIZE.x - STAIRCASE_ENTER_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
-                            ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
-                        ),
-                        STAIRCASE_ENTER_SIZE,
-                        STAIRCASE_SIZE.z,
-                        textureFloor,
-                        null,
-                        bz.PhysicSet.STATIC
-                    )
+                    new BABYLON.Vector3(
+                        ( position.x + STAIRCASE_SIZE.x - STAIRCASE_CASESTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRCASE_CASESTEP_SIZE,
+                    STAIRCASE_SIZE.z,
+                    textureFloor,
+                    null,
+                    bz.PhysicSet.STATIC
                 )
             )
-            roomWalls.push( upperFloor );
-        }
+        )
+        roomWalls.push( upperFloor );
+
+        // add mid floor
+        const midFloor :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
+            (
+                meshFactory.createPlane
+                (
+                    new BABYLON.Vector3(
+                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.y + ( STAIRCASE_SIZE.y / 2 ) - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                    ),
+                    STAIRCASE_CASESTEP_SIZE,
+                    STAIRCASE_SIZE.z,
+                    textureFloor,
+                    null,
+                    bz.PhysicSet.STATIC
+                )
+            )
+        )
+        roomWalls.push( midFloor );
 
         // rotate ALL walls around pivot TODO to method!
         for ( const roomWall of roomWalls )
