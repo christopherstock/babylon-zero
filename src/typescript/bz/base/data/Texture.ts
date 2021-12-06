@@ -62,6 +62,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_PAVEMENT_MILANO ),
         new Texture( bz.TextureFile.WALL_SHINGLES_1 ),
         new Texture( bz.TextureFile.WALL_SKIN_1 ),
+        new Texture( bz.TextureFile.WALL_STAIRS_1 ),
         new Texture( bz.TextureFile.WALL_STONES_DARK_GRANITE ),
         new Texture( bz.TextureFile.WALL_STONES_PAVEMENT ),
         new Texture( bz.TextureFile.WALL_STONES_WHITE_PEBBLES ),
