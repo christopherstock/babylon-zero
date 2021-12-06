@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Create carpet with realistic textures (maximum quality)
 TODO Clean up StageOffice contents
 
 TODO Pause particles when game is paused

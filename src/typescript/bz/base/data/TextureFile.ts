@@ -22,6 +22,12 @@ export class TextureFile
     public static readonly WALL_CARPET_1                :TextureFile            = new TextureFile( 'wall/carpet1.jpg',              bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_GLASS,    bz.TextureType.WALL );
     public static readonly WALL_CARPET_2                :TextureFile            = new TextureFile( 'wall/carpet2.jpg',              bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_GLASS,    bz.TextureType.WALL );
     public static readonly WALL_CARPET_3                :TextureFile            = new TextureFile( 'wall/carpet3.jpg',              bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_GLASS,    bz.TextureType.WALL );
+
+    public static readonly WALL_CARPET_RASPBERRY            :TextureFile            = new TextureFile( 'wall/carpetRaspberry.jpg',      bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+    public static readonly WALL_CARPET_RASPBERRY_BUMP       :TextureFile            = new TextureFile( 'wall/carpetRaspberry_bump.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+    public static readonly WALL_CARPET_RASPBERRY_SPEC       :TextureFile            = new TextureFile( 'wall/carpetRaspberry_spec.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+    public static readonly WALL_CARPET_RASPBERRY_DISPERSION :TextureFile            = new TextureFile( 'wall/carpetRaspberry_disp.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+
     public static readonly WALL_CEILING_1               :TextureFile            = new TextureFile( 'wall/ceiling1.jpg',             bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_CHECKERS_1              :TextureFile            = new TextureFile( 'wall/checkers1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_CHECKERS_2              :TextureFile            = new TextureFile( 'wall/checkers2.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );

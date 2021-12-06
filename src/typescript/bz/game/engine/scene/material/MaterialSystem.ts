@@ -109,7 +109,13 @@ export class MaterialSystem
                 textureRepeatV,
                 mirrorTextureY
             );
-
+/*
+            material.ambientTexture  = textureFile.createNewTextureInstance(
+                textureRepeatU,
+                textureRepeatV,
+                mirrorTextureY
+            );
+*/
             if ( textureFile === bz.TextureFile.WALL_OLD_ROCKS )
             {
                 // bump texture - structure
@@ -153,6 +159,39 @@ export class MaterialSystem
                 // only used for extended light cases?
                 // material.lightmapTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance(
                 //     textureRepeatU, textureRepeatV, reverseTextureY );
+            }
+
+            if ( textureFile === bz.TextureFile.WALL_CARPET_RASPBERRY )
+            {
+                // bump texture - structure
+                material.bumpTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_BUMP.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+                // material.invertNormalMapX = true;
+                // material.invertNormalMapY = true;
+
+                // specular (shininess) - hightlights given by a light
+                material.specularTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_SPEC.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+
+                // the color or texture of the material as if self lit;
+                material.emissiveTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_DISPERSION.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+
+                // the color or texture of the material lit by the environmental background lighting.
+                material.ambientTexture  = bz.TextureFile.WALL_CARPET_RASPBERRY.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
             }
 
             material.backFaceCulling = ( textureFile.hasAlpha() || alpha < 1.0 );

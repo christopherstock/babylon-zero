@@ -78,7 +78,7 @@ export class StageOffice extends bz.Stage
             ], [
                 new bz.WindowData( 2.0,  false ),
             ], 0,
-            bz.TextureFile.WALL_OLD_ROCKS,
+            bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
 
@@ -93,6 +93,11 @@ export class StageOffice extends bz.Stage
             1.25
         );
         this.addLight( pointLights );
+
+        if ( true )
+        {
+            return;
+        }
 
         // test magic door 1
         const magicDoor1:bz.Door = new bz.Door
@@ -124,11 +129,6 @@ export class StageOffice extends bz.Stage
 
         magicDoor1.setLinkedDoor( magicDoor2 );
         magicDoor2.setLinkedDoor( magicDoor1 );
-
-        if ( true )
-        {
-            return;
-        }
 /*
         // car camaro
         const carCamaro :bz.Wall = new bz.Wall
