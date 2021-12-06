@@ -1,4 +1,5 @@
 import * as bz from '../..';
+import { WindowData } from '../..';
 
 /** ********************************************************************************************************************
 *   Specifies the 'office' stage.
@@ -61,7 +62,11 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-            ], [], 0,
+            ], [
+                new bz.WindowData( 2.0,  false ),
+                new bz.WindowData( 6.5,  false ),
+                new bz.WindowData( 11.0, false ),
+            ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
                 new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1, false ),
                 new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),

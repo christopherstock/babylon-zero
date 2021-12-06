@@ -38,6 +38,20 @@ export class DoorData
 }
 
 /** ********************************************************************************************************************
+*   Configuration set for a Door game object.
+***********************************************************************************************************************/
+export class WindowData
+{
+    public position      :number  = 0.0;
+    public fullHeight :boolean = false;
+
+    public constructor( position:number, fullHeight:boolean ) {
+        this.position      = position;
+        this.fullHeight = fullHeight;
+    }
+}
+
+/** ********************************************************************************************************************
 *   Offers creation methods for stage construction.
 ***********************************************************************************************************************/
 export abstract class StageFactory
@@ -52,17 +66,25 @@ export abstract class StageFactory
         size        :BABYLON.Vector3,
         rotY        :number,
 
-        textureFileWallA   :bz.TextureFile = null, doorsWallA :bz.DoorData[] = [],
-        windowsWallA :number[] = [], diamondCornerA :number = 0,
+        textureFileWallA   :bz.TextureFile = null,
+        doorsWallA :bz.DoorData[] = [],
+        windowsWallA :bz.WindowData[] = [],
+        diamondCornerA :number = 0,
 
-        textureFileWallB   :bz.TextureFile = null, doorsWallB :bz.DoorData[] = [],
-        windowsWallB :number[] = [], diamondCornerB :number = 0,
+        textureFileWallB   :bz.TextureFile = null,
+        doorsWallB :bz.DoorData[] = [],
+        windowsWallB :bz.WindowData[] = [],
+        diamondCornerB :number = 0,
 
-        textureFileWallC   :bz.TextureFile = null, doorsWallC :bz.DoorData[] = [],
-        windowsWallC :number[] = [], diamondCornerC :number = 0,
+        textureFileWallC   :bz.TextureFile = null,
+        doorsWallC :bz.DoorData[] = [],
+        windowsWallC :bz.WindowData[] = [],
+        diamondCornerC :number = 0,
 
-        textureFileWallD   :bz.TextureFile = null, doorsWallD :bz.DoorData[] = [],
-        windowsWallD :number[] = [], diamondCornerD :number = 0,
+        textureFileWallD   :bz.TextureFile = null,
+        doorsWallD :bz.DoorData[] = [],
+        windowsWallD :bz.WindowData[] = [],
+        diamondCornerD :number = 0,
 
         textureFileFloor   :bz.TextureFile = null,
         textureFileCeiling :bz.TextureFile = null
@@ -334,18 +356,18 @@ export abstract class StageFactory
     /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
-    private static calculateBlankWalls( start:number, size:number, windows:number[], doors:bz.DoorData[] ) : number[]
+    private static calculateBlankWalls( start:number, size:number, windows:bz.WindowData[], doors:bz.DoorData[] ) : number[]
     {
         // collect all busy walls
         let busyWalls :BABYLON.Vector2[] = [];
         for ( const window of windows )
         {
-            if ( start + window >= start + size )
+            if ( start + window.position >= start + size )
             {
                 continue;
             }
             busyWalls.push(
-                new BABYLON.Vector2( start + window, start + window + bz.SettingGame.WINDOW_WIDTH )
+                new BABYLON.Vector2( start + window.position, start + window.position + bz.SettingGame.WINDOW_WIDTH )
             );
         }
         for ( const door of doors )
@@ -369,12 +391,10 @@ export abstract class StageFactory
 
         const freeWalls :number[] = [];
         freeWalls.push( start );
-        for ( let i:number = 0; i < busyWalls.length; ++i )
+        for ( const busyWall of busyWalls )
         {
-            const newBusyWall :BABYLON.Vector2 = busyWalls[ i ];
-
-            freeWalls.push( newBusyWall.x );
-            freeWalls.push( newBusyWall.y );
+            freeWalls.push( busyWall.x );
+            freeWalls.push( busyWall.y );
         }
         freeWalls.push( start + size );
 
@@ -387,7 +407,7 @@ export abstract class StageFactory
     private static createWall(
         roomWalls      :bz.Wall[],
         doorsData      :bz.DoorData[],
-        windowsPos     :number[],
+        windowsPos     :bz.WindowData[],
         stage          :bz.Stage,
         meshFactory    :bz.MeshFactory,
         x              :number,
@@ -494,7 +514,7 @@ export abstract class StageFactory
         // window frames
         for ( const windowPos of windowsPos )
         {
-            if ( windowPos >= sizeX )
+            if ( windowPos.position >= sizeX )
             {
                 continue;
             }
@@ -513,7 +533,7 @@ export abstract class StageFactory
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3(
-                            x + windowPos,
+                            x + windowPos.position,
                             y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT,
                             z
                         ),
@@ -540,7 +560,7 @@ export abstract class StageFactory
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3(
-                            x + windowPos,
+                            x + windowPos.position,
                             y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT - bz.SettingGame.WINDOW_HEIGHT,
                             z
                         ),
@@ -579,7 +599,7 @@ export abstract class StageFactory
                 (
                     meshFactory.createBox
                     (
-                        new BABYLON.Vector3( x + windowPos, y, z ),
+                        new BABYLON.Vector3( x + windowPos.position, y, z ),
                         textureFileWall,
                         new BABYLON.Vector3(
                             bz.SettingGame.WINDOW_WIDTH,

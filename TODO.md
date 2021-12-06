@@ -13,7 +13,9 @@ TODO Add glossiness to floors (marbel in light etc)
 TODO Add linked doors (double wing doors)
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Fix fence
+TODO Full height windows
 TODO Clean up StageOffice contents
+TODO Pause particles when game is paused
 TODO Create realistic models and lights.
 TODO smaller Doors?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
