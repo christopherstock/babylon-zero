@@ -91,7 +91,7 @@ export class BulletHole
             this.hitPoint.getPoint().clone(),
             this.hitPoint.getMesh(),
             this.hitPoint.getNormal(),
-            new BABYLON.Vector3( 0.2, 0.2, bz.SettingEngine.BULLET_HOLE_DEPTH ),
+            new BABYLON.Vector3( 0.5, 0.5, bz.SettingEngine.BULLET_HOLE_DEPTH ),
             bz.MathUtil.getRandomInt( 0, 359 ),
             this.hitPoint.getGameObjectNextBulletHoleIndexZ(),
             meshTextureFile,

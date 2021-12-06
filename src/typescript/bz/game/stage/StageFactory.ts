@@ -42,20 +42,23 @@ export class DoorData
 ***********************************************************************************************************************/
 export class WindowData
 {
-    public position   :number  = 0.0;
-    public fullHeight :boolean = false;
+    public position     :number  = 0.0;
+    public fullHeight   :boolean = false;
+    public nonBreakable :boolean = false;
 
     /** ****************************************************************************************************************
     *   Creates the data that describes one window.
     *
-    *   @param position   The position of this window inside the wall.
-    *   @param fullHeight If <code>true</code>, the top and bottom window frames will not be drawn
-    *                     and the window's height is extended to the wall height.
+    *   @param position     The position of this window inside the wall.
+    *   @param fullHeight   If <code>true</code>, the top and bottom window frames will not be drawn
+    *                       and the window's height is extended to the wall height.
+    *   @param nonBreakable If the glass is bullet proof and won't break.
     *******************************************************************************************************************/
-    public constructor( position:number, fullHeight:boolean = false )
+    public constructor( position:number, fullHeight:boolean = false, nonBreakable:boolean = false )
     {
-        this.position   = position;
-        this.fullHeight = fullHeight;
+        this.position     = position;
+        this.fullHeight   = fullHeight;
+        this.nonBreakable = nonBreakable;
     }
 }
 
@@ -604,7 +607,9 @@ export abstract class StageFactory
                         bz.MeshAnchor.LOWEST_XYZ
                     )
                 ),
-                bz.MathUtil.getRandomInt( bz.SettingGame.WINDOW_MIN_ENERGY, bz.SettingGame.WINDOW_MAX_ENERGY ),
+                windowPos.nonBreakable
+                    ? bz.GameObject.UNBREAKABLE
+                    : bz.MathUtil.getRandomInt( bz.SettingGame.WINDOW_MIN_ENERGY, bz.SettingGame.WINDOW_MAX_ENERGY ),
                 false,
                 true
             );

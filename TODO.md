@@ -5,14 +5,12 @@
 ===
 MVP
 ===
-TODO Refactor: PlayerPhysic and PlayerWearpon all private.
-TODO Refactor: Player.movePlayer and dependencies to PlayerPhysic
 
-TODO keep pointer lock between stage switches? (gets lost at the moment)
 TODO Create staircase.
-TODO non breakable windows on room creation!
-TODO smaller Doors?
 TODO Fix fence
+TODO smaller Doors?
+TODO keep pointer lock between stage switches? (gets lost at the moment)
+TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!)
 TODO Create one realistic model with all (3 or 4) different textures?
 TODO Enable switchable glossiness to floors (marbel in light etc)
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
@@ -77,6 +75,7 @@ TODO Sounds for shot, bullet hit and bullet drop.
 =========
 Secondary
 =========
+TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Try stored 3dsmax model animations.
 TODO Fix/add head shaking?
