@@ -28,6 +28,13 @@ export class PlayerPhysic
     /** The current height of the player. Changes on ducking. */
     public                 heightY                      :number                             = 0.0;
 
+    /** Current rotation. */
+    public                 rotation                     :BABYLON.Vector3                    = null;
+    /** Current rotation delta. */
+    public                 rotationDelta                :BABYLON.Vector3                    = null;
+    /** Current move delta. */
+    public                 moveDelta                    :BABYLON.Vector3                    = null;
+
     /** ****************************************************************************************************************
     *   Create a new physical body handling for the player.
     *

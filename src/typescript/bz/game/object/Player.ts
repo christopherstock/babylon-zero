@@ -5,31 +5,23 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class Player extends bz.GameObject
 {
-    /** Flags if rotZ view centering should occur this tick. */
+    /** Flags if the player wants to center rotZ. */
     private          centerRotZ         :boolean            = false;
+    /** Flags if the player wants to fire. */
+    private          fire               :boolean            = false;
+    /** Flags if the player wants to duck. */
+    private          duck               :boolean            = false;
+    /** Flags if the player wants to interact. */
+    private          interact           :boolean            = false;
+    /** Flags if the player wants to zoom. */
+    private          zoom               :boolean            = false;
+
     /** The current angle for the sinus calculation of the head shaking. */
     private          headShakingAngle   :number             = 0.0;
-
-    /** Flags if fire should be performed this tick. */
-    private          fire               :boolean            = false;
-    /** Flags if the player currently wants to duck. */
-    private          duck               :boolean            = false;
-    /** Flags if the player currently wants to interact. */
-    private          interact           :boolean            = false;
-
-    /** Flags if the player currently wants to zoom. */
-    private          zoom               :boolean            = false;
     /** The current field of view of the player. Changes on zooming. */
     private          fieldOfView        :number             = 0.0;
-
+    /** Tick counter for turn around animation. */
     private          turnAroundTicks    :number             = 0;
-
-    /** Current rotation. */
-    private readonly rotation           :BABYLON.Vector3    = null;
-    /** Current rotation delta. */
-    private readonly rotationDelta      :BABYLON.Vector3    = null;
-    /** Current move delta. */
-    private readonly moveDelta          :BABYLON.Vector3    = null;
 
     /** The inventory this player is carrying. */
     private readonly inventory          :bz.Inventory       = null;
@@ -131,9 +123,9 @@ export class Player extends bz.GameObject
         this.inventory = inventory;
 
         // assign initial rotation, rotation delta and move delta
-        this.rotation      = rotation;
-        this.rotationDelta = BABYLON.Vector3.Zero();
-        this.moveDelta     = BABYLON.Vector3.Zero();
+        this.playerPhysic.rotation      = rotation;
+        this.playerPhysic.rotationDelta = BABYLON.Vector3.Zero();
+        this.playerPhysic.moveDelta     = BABYLON.Vector3.Zero();
 
         this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
 
@@ -254,8 +246,8 @@ export class Player extends bz.GameObject
                 speedForward = bz.SettingPlayer.IMPULSE_MOVE;
             }
 
-            this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.rotation.y );
-            this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.rotation.y );
+            this.playerPhysic.moveDelta.x += speedForward * bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y );
+            this.playerPhysic.moveDelta.z += speedForward * bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y );
 
             // shake head if enabled
             if ( bz.SettingPlayer.HEAD_SHAKING_ENABLED )
@@ -269,8 +261,8 @@ export class Player extends bz.GameObject
             // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
         )
         {
-            this.moveDelta.x -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.sinDegrees( this.rotation.y );
-            this.moveDelta.z -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.cosDegrees( this.rotation.y );
+            this.playerPhysic.moveDelta.x -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y );
+            this.playerPhysic.moveDelta.z -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y );
 
             // shake head if enabled
             if ( bz.SettingPlayer.HEAD_SHAKING_ENABLED )
@@ -286,8 +278,8 @@ export class Player extends bz.GameObject
             // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
         )
         {
-            this.moveDelta.x -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-            this.moveDelta.z += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+            this.playerPhysic.moveDelta.x -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y );
+            this.playerPhysic.moveDelta.z += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y );
         }
         if
         (
@@ -295,40 +287,40 @@ export class Player extends bz.GameObject
             // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
         )
         {
-            this.moveDelta.x += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees( this.rotation.y );
-            this.moveDelta.z -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees( this.rotation.y );
+            this.playerPhysic.moveDelta.x += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y );
+            this.playerPhysic.moveDelta.z -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y );
         }
 
         // turn Y
         if ( keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
         {
-            this.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN;
+            this.playerPhysic.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN;
         }
         if ( keySystem.isPressed( bz.KeyCodes.KEY_E ) )
         {
-            this.rotationDelta.y = bz.SettingPlayer.SPEED_TURN;
+            this.playerPhysic.rotationDelta.y = bz.SettingPlayer.SPEED_TURN;
         }
         const lastPointerMovementX :number = mouseSystem.getAndResetLastMouseMovementX();
         if ( lastPointerMovementX !== 0 )
         {
             // noinspection JSSuspiciousNameCombination
-            this.rotationDelta.y += ( lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER );
+            this.playerPhysic.rotationDelta.y += ( lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER );
         }
 
         // look up / down
         if ( keySystem.isPressed( bz.KeyCodes.KEY_T ) )
         {
-            this.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
+            this.playerPhysic.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
         }
         if ( keySystem.isPressed( bz.KeyCodes.KEY_G ) )
         {
-            this.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
+            this.playerPhysic.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
         }
         const lastPointerMovementY :number = mouseSystem.getAndResetLastMouseMovementY();
         if ( lastPointerMovementY !== 0 )
         {
             // noinspection JSSuspiciousNameCombination
-            this.rotationDelta.z += ( lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER );
+            this.playerPhysic.rotationDelta.z += ( lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER );
         }
 
         // fire
@@ -408,9 +400,9 @@ export class Player extends bz.GameObject
         // check if moving occurred
         if
         (
-            this.moveDelta.x !== 0.0
-            || this.moveDelta.y !== 0.0
-            || this.moveDelta.z !== 0.0
+            this.playerPhysic.moveDelta.x !== 0.0
+            || this.playerPhysic.moveDelta.y !== 0.0
+            || this.playerPhysic.moveDelta.z !== 0.0
         )
         {
             // direct movement is completely inoperative! :(
@@ -423,9 +415,9 @@ export class Player extends bz.GameObject
                 (
                     new BABYLON.Vector3
                     (
-                        this.moveDelta.x,
-                        this.moveDelta.y,
-                        this.moveDelta.z
+                        this.playerPhysic.moveDelta.x,
+                        this.playerPhysic.moveDelta.y,
+                        this.playerPhysic.moveDelta.z
                     )
                 );
             }
@@ -440,9 +432,9 @@ export class Player extends bz.GameObject
                     (
                         new BABYLON.Vector3
                         (
-                            this.moveDelta.x,
-                            this.moveDelta.y,
-                            this.moveDelta.z
+                            this.playerPhysic.moveDelta.x,
+                            this.playerPhysic.moveDelta.y,
+                            this.playerPhysic.moveDelta.z
                         ),
                         this.playerPhysic.body.position
                     );
@@ -452,16 +444,14 @@ export class Player extends bz.GameObject
             // force rotZ centering on horizontal movements if enabled
             if ( bz.SettingPlayer.ENABLE_CENTERING_ROT_Z_ON_WALKING )
             {
-                if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
+                if ( this.playerPhysic.moveDelta.x !== 0.0 || this.playerPhysic.moveDelta.z !== 0.0 )
                 {
                     this.centerRotZ = true;
                 }
             }
 
             // reset move deltas
-            this.moveDelta.x = 0.0;
-            this.moveDelta.y = 0.0;
-            this.moveDelta.z = 0.0;
+            this.playerPhysic.moveDelta = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
         }
         else
         {
@@ -474,7 +464,7 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     private rotatePlayerXYZ() : void
     {
-        if ( this.rotationDelta.y !== 0.0 )
+        if ( this.playerPhysic.rotationDelta.y !== 0.0 )
         {
             if ( this.zoom )
             {
@@ -482,9 +472,9 @@ export class Player extends bz.GameObject
             }
             else
             {
-                if ( this.rotationDelta.y < 0.0 )
+                if ( this.playerPhysic.rotationDelta.y < 0.0 )
                 {
-                    this.playerWearpon.targetShotgunRotY += bz.PlayerWearpon.SHOTGUN_NOISE_Y * -this.rotationDelta.y;
+                    this.playerWearpon.targetShotgunRotY += bz.PlayerWearpon.SHOTGUN_NOISE_Y * -this.playerPhysic.rotationDelta.y;
                     if ( this.playerWearpon.targetShotgunRotY > bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y )
                     {
                         this.playerWearpon.targetShotgunRotY = bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y;
@@ -492,7 +482,7 @@ export class Player extends bz.GameObject
                 }
                 else
                 {
-                    this.playerWearpon.targetShotgunRotY -= bz.PlayerWearpon.SHOTGUN_NOISE_Y * this.rotationDelta.y;
+                    this.playerWearpon.targetShotgunRotY -= bz.PlayerWearpon.SHOTGUN_NOISE_Y * this.playerPhysic.rotationDelta.y;
                     if ( this.playerWearpon.targetShotgunRotY < -bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y )
                     {
                         this.playerWearpon.targetShotgunRotY = -bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y;
@@ -500,25 +490,25 @@ export class Player extends bz.GameObject
                 }
             }
 
-            this.rotation.y = bz.MathUtil.normalizeAngleDegrees( this.rotation.y + this.rotationDelta.y );
-            this.rotationDelta.y = 0.0;
+            this.playerPhysic.rotation.y = bz.MathUtil.normalizeAngleDegrees( this.playerPhysic.rotation.y + this.playerPhysic.rotationDelta.y );
+            this.playerPhysic.rotationDelta.y = 0.0;
         }
         else
         {
             this.playerWearpon.targetShotgunRotY = 0.0;
         }
 
-        if ( this.rotationDelta.z !== 0.0 )
+        if ( this.playerPhysic.rotationDelta.z !== 0.0 )
         {
-            if ( this.rotationDelta.z < 0.0 )
+            if ( this.playerPhysic.rotationDelta.z < 0.0 )
             {
-                if ( this.rotation.z === -bz.SettingPlayer.MAX_ROT_Z )
+                if ( this.playerPhysic.rotation.z === -bz.SettingPlayer.MAX_ROT_Z )
                 {
                     this.playerWearpon.targetShotgunRotX = 0;
                 }
                 else
                 {
-                    this.rotation.z += this.rotationDelta.z;
+                    this.playerPhysic.rotation.z += this.playerPhysic.rotationDelta.z;
 
                     if ( this.zoom )
                     {
@@ -526,28 +516,28 @@ export class Player extends bz.GameObject
                     }
                     else
                     {
-                        this.playerWearpon.targetShotgunRotX -= bz.PlayerWearpon.SHOTGUN_NOISE_X * this.rotationDelta.z;
+                        this.playerWearpon.targetShotgunRotX -= bz.PlayerWearpon.SHOTGUN_NOISE_X * this.playerPhysic.rotationDelta.z;
                         if ( this.playerWearpon.targetShotgunRotX < -bz.PlayerWearpon.MAX_SHOTGUN_ROT_X )
                         {
                             this.playerWearpon.targetShotgunRotX = -bz.PlayerWearpon.MAX_SHOTGUN_ROT_X;
                         }
                     }
 
-                    if ( this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
+                    if ( this.playerPhysic.rotation.z < -bz.SettingPlayer.MAX_ROT_Z )
                     {
-                        this.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
+                        this.playerPhysic.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
                     }
                 }
             }
-            else if ( this.rotationDelta.z > 0.0 )
+            else if ( this.playerPhysic.rotationDelta.z > 0.0 )
             {
-                if ( this.rotation.z === bz.SettingPlayer.MAX_ROT_Z )
+                if ( this.playerPhysic.rotation.z === bz.SettingPlayer.MAX_ROT_Z )
                 {
                     this.playerWearpon.targetShotgunRotX = 0;
                 }
                 else
                 {
-                    this.rotation.z += this.rotationDelta.z;
+                    this.playerPhysic.rotation.z += this.playerPhysic.rotationDelta.z;
 
                     if ( this.zoom )
                     {
@@ -556,7 +546,7 @@ export class Player extends bz.GameObject
                     else
                     {
                         this.playerWearpon.targetShotgunRotX += (
-                            bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.rotationDelta.z
+                            bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.playerPhysic.rotationDelta.z
                         );
                         if ( this.playerWearpon.targetShotgunRotX > bz.PlayerWearpon.MAX_SHOTGUN_ROT_X )
                         {
@@ -564,14 +554,14 @@ export class Player extends bz.GameObject
                         }
                     }
 
-                    if ( this.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
+                    if ( this.playerPhysic.rotation.z > bz.SettingPlayer.MAX_ROT_Z )
                     {
-                        this.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
+                        this.playerPhysic.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
                     }
                 }
             }
 
-            this.rotationDelta.z = 0.0;
+            this.playerPhysic.rotationDelta.z = 0.0;
         }
         else
         {
@@ -583,7 +573,7 @@ export class Player extends bz.GameObject
         (
             this.playerPhysic.body,
             0.0, // this.rotation.z,
-            this.rotation.y,
+            this.playerPhysic.rotation.y,
             0.0
         );
 
@@ -591,7 +581,7 @@ export class Player extends bz.GameObject
         bz.MeshManipulation.setAbsoluteRotationXYZ
         (
             this.playerPhysic.head,
-            this.rotation.z,
+            this.playerPhysic.rotation.z,
             0.0,
             0.0
         );
@@ -627,7 +617,7 @@ export class Player extends bz.GameObject
         }
 
         bz.Debug.player.log( 'Player jumps' );
-        this.moveDelta.y = bz.SettingPlayer.IMPULSE_JUMP;
+        this.playerPhysic.moveDelta.y = bz.SettingPlayer.IMPULSE_JUMP;
     }
 
     /** ****************************************************************************************************************
@@ -723,8 +713,8 @@ export class Player extends bz.GameObject
         {
             --this.turnAroundTicks;
 
-            this.rotationDelta.y = bz.MathUtil.normalizeAngleDegrees(
-                ( this.rotationDelta.y + ( 180.0 / bz.SettingPlayer.TICKS_TURN_AROUND ) )
+            this.playerPhysic.rotationDelta.y = bz.MathUtil.normalizeAngleDegrees(
+                ( this.playerPhysic.rotationDelta.y + ( 180.0 / bz.SettingPlayer.TICKS_TURN_AROUND ) )
             );
         }
     }
@@ -736,22 +726,22 @@ export class Player extends bz.GameObject
     {
         if ( this.centerRotZ )
         {
-            if ( this.rotation.z > 0.0 )
+            if ( this.playerPhysic.rotation.z > 0.0 )
             {
-                this.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
+                this.playerPhysic.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
 
-                if ( this.rotation.z <= 0.0 )
+                if ( this.playerPhysic.rotation.z <= 0.0 )
                 {
-                    this.rotation.z = 0.0;
+                    this.playerPhysic.rotation.z = 0.0;
                 }
             }
-            else if ( this.rotation.z < 0.0 )
+            else if ( this.playerPhysic.rotation.z < 0.0 )
             {
-                this.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
+                this.playerPhysic.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
 
-                if ( this.rotation.z >= 0.0 )
+                if ( this.playerPhysic.rotation.z >= 0.0 )
                 {
-                    this.rotation.z = 0.0;
+                    this.playerPhysic.rotation.z = 0.0;
                 }
             }
         }
@@ -811,8 +801,8 @@ export class Player extends bz.GameObject
         const source      :BABYLON.Vector3 = this.playerPhysic.head.absolutePosition;
         const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
         (
-            this.rotation.z + divergenceZ,
-            this.rotation.y + divergenceY,
+            this.playerPhysic.rotation.z + divergenceZ,
+            this.playerPhysic.rotation.y + divergenceY,
             0.0
         );
         const range :number = 50.0;
@@ -839,8 +829,8 @@ export class Player extends bz.GameObject
         const source      :BABYLON.Vector3 = this.playerPhysic.head.absolutePosition;
         const rotation    :BABYLON.Vector3 = new BABYLON.Vector3
         (
-            this.rotation.z,
-            this.rotation.y,
+            this.playerPhysic.rotation.z,
+            this.playerPhysic.rotation.y,
             0.0
         );
 
