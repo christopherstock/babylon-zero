@@ -5,19 +5,19 @@
 ===
 MVP
 ===
-TODO Create staircase.
-TODO Fix / unify floor and ceiling heights/depths problems!
-TODO Try rotation on rooms and staircases :) unify wall rotation methods invocations!
+TODO Solve stairs descending
+TODO Solve mirrored door textures?
+TODO Improve stairs texture
 TODO Increase glass bullet hole.
 TODO Enhance multi level staircases.
-TODO Fix fence
+
 TODO smaller Doors? Adjust room sizes once more!
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
-TODO Create one realistic model with all (3 or 4) different textures?
-TODO Create realistic models and lights.
+
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Clean up StageOffice contents
 TODO Remove all ESLint-Disablers?
+
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Add explosion effects via sprites.
 TODO Pause particles when game is paused
@@ -27,6 +27,13 @@ TODO Door animation interaction on imported officeDesk3?
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Constraint system for events (keycard holded)!?
 TODO Reset Git Repository?
+
+======
+3dsmax
+======
+TODO Create one realistic model with all (3 or 4) different textures?
+TODO Create realistic models and lights.
+TODO Fix fence
 
 ==
 Fx

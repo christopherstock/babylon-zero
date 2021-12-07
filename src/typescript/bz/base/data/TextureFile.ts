@@ -184,14 +184,8 @@ export class TextureFile
         }
         else
         {
-            if ( mirrorTextureY )
-            {
-                newTexture.wrapU = BABYLON.Texture.MIRROR_ADDRESSMODE;
-            }
-            else
-            {
-                newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
-            }
+            // newTexture.wrapU = BABYLON.Texture.MIRROR_ADDRESSMODE;
+            newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
             newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
 
             // working around poor typings for scaling ..
@@ -203,6 +197,11 @@ export class TextureFile
             {
                 ( newTexture as any ).vScale = repeatV;
             }
+        }
+
+        if ( mirrorTextureY )
+        {
+            newTexture.uScale = -newTexture.uScale;
         }
 
         newTexture.hasAlpha = this.hasAlpha();
