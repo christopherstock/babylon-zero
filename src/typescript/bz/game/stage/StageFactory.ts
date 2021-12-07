@@ -547,7 +547,12 @@ export abstract class StageFactory
         );
         roomWalls.push( upperStairs );
 
+
+
         // center railing wall
+
+        // TODO replace with wall method!
+
         const centerRailingWall :bz.Wall = new bz.Wall
         (
             stage,
@@ -574,6 +579,15 @@ export abstract class StageFactory
         );
         // centerRailingWall.getModel().rotateAroundAxisY( x, z, rotY );
         roomWalls.push( centerRailingWall );
+
+        // left wall
+        // TODO use wall method!
+
+        // rear wall
+        // TODO use wall method!
+
+        // right wall
+        // TODO use wall method!
 
         // rotate ALL walls around pivot TODO extract to method!
         for ( const roomWall of roomWalls )
