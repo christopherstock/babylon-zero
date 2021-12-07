@@ -80,6 +80,24 @@ export class PlayerPhysic
             // suppress linear velocities for X and Z axis
             const velocity:BABYLON.Vector3 = this.body.physicsImpostor.getLinearVelocity();
 
+            // check ascending/descending
+            if ( velocity.y >= 1.0 )
+            {
+                // player is ascending - mitigate ascending velocity!
+                velocity.y = velocity.y * bz.SettingPlayer.CLIMP_VELOCITY_MITIGATION;
+            }
+            else if ( velocity.y <= -1.0 )
+            {
+                // player is falling - increase falling velocity!
+                velocity.y = velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION;
+
+                // clamp falling velocity
+                if ( velocity.y < bz.SettingPlayer.MAX_FALLING_VELOCITY )
+                {
+                    velocity.y = bz.SettingPlayer.MAX_FALLING_VELOCITY;
+                }
+            }
+
             this.body.physicsImpostor.setLinearVelocity
             (
                 new BABYLON.Vector3
@@ -88,15 +106,7 @@ export class PlayerPhysic
                     ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION ),
 
                     // check player ascending/descending
-                    (
-                        velocity.y >= 1.0
-                            // player is ascending
-                            ? velocity.y * bz.SettingPlayer.CLIMP_VELOCITY_MITIGATION
-                            : velocity.y <= -1.0
-                                // player is falling
-                                ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
-                                : velocity.y
-                    ),
+                    velocity.y,
 
                     // mitigate axis Z movements
                     ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )

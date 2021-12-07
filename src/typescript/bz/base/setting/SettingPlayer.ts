@@ -29,6 +29,7 @@ export abstract class SettingPlayer
     public static readonly CLIMP_VELOCITY_MITIGATION                :number             = 0.6;
     /** The player's physical force downscale multiplier on descending. */
     public static readonly FALL_VELOCITY_MITIGATION                 :number             = 1.25;
+    public static readonly MAX_FALLING_VELOCITY                     :number             = -7.5;
 
     /** The player's turning speed in degrees per tick. */
     public static readonly SPEED_TURN                               :number             = 2.5;
