@@ -547,38 +547,21 @@ export abstract class StageFactory
         );
         roomWalls.push( upperStairs );
 
-
-
         // center railing wall
-
-        // TODO replace with wall method!
-
-        const centerRailingWall :bz.Wall = new bz.Wall
-        (
+        StageFactory.createWall(
+            roomWalls,
+            [],
+            [],
             stage,
-            new bz.Model
-            (
-                meshFactory.createBox
-                (
-                    new BABYLON.Vector3(
-                        position.x + STAIRSTEP_SIZE,
-                        position.y,
-                        position.z + ( STAIRCASE_SIZE.z / 2 )
-                    ),
-                    textureWalls,
-                    new BABYLON.Vector3(
-                        STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ),
-                        STAIRCASE_SIZE.y,
-                        bz.SettingGame.WALL_DEPTH
-                    ),
-                    bz.PhysicSet.STATIC,
-                    1.0,
-                    bz.MeshAnchor.LOWEST_XYZ
-                )
-            )
+            meshFactory,
+            position.x + STAIRSTEP_SIZE,
+            STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ),
+            position.y,
+            STAIRCASE_SIZE.y,
+            position.z + ( STAIRCASE_SIZE.z / 2 ),
+            0.0,
+            textureWalls
         );
-        // centerRailingWall.getModel().rotateAroundAxisY( x, z, rotY );
-        roomWalls.push( centerRailingWall );
 
         // left wall
         // TODO use wall method!
@@ -673,8 +656,8 @@ export abstract class StageFactory
         sizeY            :number,
         z                :number,
         rotY             :number,
-        textureWall  :bz.TextureFile,
-        textureGlass :bz.TextureFile
+        textureWall  :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
+        textureGlass :bz.TextureFile = bz.TextureFile.WALL_GLASS_1
     )
     : void
     {
