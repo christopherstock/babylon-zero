@@ -6,7 +6,6 @@
 MVP
 ===
 TODO Solve stairs descending
-TODO Solve mirrored door textures?
 TODO Improve stairs texture
 TODO Increase glass bullet hole.
 TODO Enhance multi level staircases.
