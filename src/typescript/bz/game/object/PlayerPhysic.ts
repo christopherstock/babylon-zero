@@ -84,17 +84,21 @@ export class PlayerPhysic
             (
                 new BABYLON.Vector3
                 (
+                    // mitigate axis X movements
                     ( velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION ),
 
-                    // check player ascending
+                    // check player ascending/descending
                     (
                         velocity.y >= 1.0
-                            ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
+                            // player is ascending
+                            ? velocity.y * bz.SettingPlayer.CLIMP_VELOCITY_MITIGATION
                             : velocity.y <= -1.0
+                                // player is falling
                                 ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
                                 : velocity.y
                     ),
 
+                    // mitigate axis Z movements
                     ( velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION )
                 )
             );

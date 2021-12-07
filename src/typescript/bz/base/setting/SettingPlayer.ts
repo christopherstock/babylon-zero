@@ -25,8 +25,10 @@ export abstract class SettingPlayer
 
     /** The player's physical force downscale multiplier for horizontal movements. */
     public static readonly MOVE_VELOCITY_MITIGATION                 :number             = 0.5;
-    /** The player's physical force downscale multiplier on ascending or descending. */
-    public static readonly FALL_VELOCITY_MITIGATION                 :number             = 0.5;
+    /** The player's physical force downscale multiplier on ascending. */
+    public static readonly CLIMP_VELOCITY_MITIGATION                :number             = 0.75;
+    /** The player's physical force downscale multiplier on descending. */
+    public static readonly FALL_VELOCITY_MITIGATION                 :number             = 1.20;
 
     /** The player's turning speed in degrees per tick. */
     public static readonly SPEED_TURN                               :number             = 2.5;

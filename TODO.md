@@ -5,9 +5,10 @@
 ===
 MVP
 ===
-TODO Solve stairs descending
 TODO Improve stairs texture
 TODO Increase glass bullet hole.
+TODO Solve stairs all custom sizes!
+
 TODO Enhance multi level staircases.
 
 TODO smaller Doors? Adjust room sizes once more!
