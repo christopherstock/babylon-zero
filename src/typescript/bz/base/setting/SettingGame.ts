@@ -25,6 +25,10 @@ export abstract class SettingGame
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingGame.WALL_HEIGHT - SettingGame.DOOR_HEIGHT );
     /** Unified ceiling height. This height will never be calculated into height calculations! */
     public static readonly CEILING_HEIGHT                           :number             = 0.1;
+    /** The default offset Y for room ceilings in order to keep distance to vertical wall endings. */
+    public static readonly CEILING_OFFSET_Y                         :number             = 0.01;
+    /** The default offset Y for room floors in order to keep distance to vertical wall endings. */
+    public static readonly FLOOR_OFFSET_Y                           :number             = 0.01;
 
     /** Unified window width for building constructions. */
     public static readonly WINDOW_WIDTH                             :number             = 4.5;
@@ -34,9 +38,6 @@ export abstract class SettingGame
     public static readonly WINDOW_TOP_FRAME_HEIGHT                  :number             = 1.5;
     /** Unified window bottom frame height for building constructions. */
     public static readonly WINDOW_BOTTOM_FRAME_HEIGHT               :number             = ( SettingGame.WALL_HEIGHT - SettingGame.WINDOW_HEIGHT - SettingGame.WINDOW_TOP_FRAME_HEIGHT );
-
-    /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
-    public static readonly FLOOR_OFFSET_Y                           :number             = 0.001;
 
     /** Unified width for a hallway in building constructions. */
     public static readonly HALLWAY_WIDTH                            :number             = 10.0;

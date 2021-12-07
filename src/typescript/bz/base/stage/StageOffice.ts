@@ -79,7 +79,7 @@ export class StageOffice extends bz.Stage
                 new bz.WindowData( 2.0,  false ),
             ], 0,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
-            null // bz.TextureFile.WALL_CEILING_1
+            bz.TextureFile.WALL_CEILING_1
         );
 
         // small office - 1st floor

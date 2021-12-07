@@ -668,7 +668,7 @@ export abstract class Stage
 
         // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
-        // TODO get shot angle from BulletHole!
+        // TODO get shot angle from BulletHole and mirror it!
 
         particleSystem.startDelay = 0.0;
         particleSystem.disposeOnStop = true;

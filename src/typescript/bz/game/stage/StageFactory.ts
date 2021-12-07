@@ -242,7 +242,7 @@ export abstract class StageFactory
         }
 
         // ceiling
-        if ( false && textureCeiling !== null )
+        if ( textureCeiling !== null )
         {
             const ceiling :bz.Wall = new bz.Wall
             (
@@ -253,7 +253,7 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + size.y - bz.SettingGame.CEILING_HEIGHT ),
+                            ( position.y + size.y - bz.SettingGame.CEILING_HEIGHT - bz.SettingGame.CEILING_OFFSET_Y ),
                             ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
@@ -284,7 +284,7 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                            ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ),
+                            position.y + bz.SettingGame.FLOOR_OFFSET_Y,
                             ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                         ),
                         size.x,
@@ -393,7 +393,7 @@ export abstract class StageFactory
         const roomWalls :bz.Wall[] = [];
 
         // ceiling
-        if ( false && textureCeiling !== null )
+        if ( textureCeiling !== null )
         {
             const ceiling :bz.Wall = new bz.Wall
             (
@@ -404,7 +404,7 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.CEILING_HEIGHT ),
+                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.CEILING_HEIGHT - bz.SettingGame.CEILING_OFFSET_Y ),
                             ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
@@ -432,7 +432,7 @@ export abstract class StageFactory
                 (
                     new BABYLON.Vector3(
                         ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + 10 * bz.SettingGame.FLOOR_OFFSET_Y ), // TODO magic 10 * in this class?
+                        position.y + bz.SettingGame.FLOOR_OFFSET_Y,
                         ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                     ),
                     STAIRCASE_SIZE.x,
@@ -575,7 +575,7 @@ export abstract class StageFactory
         // centerRailingWall.getModel().rotateAroundAxisY( x, z, rotY );
         roomWalls.push( centerRailingWall );
 
-        // rotate ALL walls around pivot TODO to method!
+        // rotate ALL walls around pivot TODO extract to method!
         for ( const roomWall of roomWalls )
         {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
