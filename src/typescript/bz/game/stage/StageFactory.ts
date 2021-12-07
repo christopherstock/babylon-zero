@@ -567,7 +567,20 @@ export abstract class StageFactory
         );
 
         // left wall
-        // TODO use wall method!
+        StageFactory.createWall(
+            roomWalls,
+            [],
+            [],
+            stage,
+            meshFactory,
+            position.x + STAIRCASE_SIZE.x, // + bz.SettingGame.WALL_DEPTH, // / 2 ),
+            STAIRCASE_SIZE.x,
+            position.y,
+            STAIRCASE_SIZE.y,
+            position.z + bz.SettingGame.WALL_DEPTH,
+            -180.0,
+            textureWalls
+        );
 
         // rear wall
         StageFactory.createWall(
@@ -576,11 +589,11 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            position.x + bz.SettingGame.WALL_DEPTH, // / 2 ),
+            position.x + bz.SettingGame.WALL_DEPTH,
             STAIRCASE_SIZE.x,
             position.y,
             STAIRCASE_SIZE.y,
-            position.z, // + bz.SettingGame.WALL_DEPTH ),
+            position.z + bz.SettingGame.WALL_DEPTH,
             -90.0,
             textureWalls
         );
@@ -671,6 +684,7 @@ export abstract class StageFactory
         y                :number,
         sizeY            :number,
         z                :number,
+        // TODO create enum for rot ? LEFT = -90.0 etc !
         rotY             :number,
         textureWall  :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
         textureGlass :bz.TextureFile = bz.TextureFile.WALL_GLASS_1
