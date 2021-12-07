@@ -599,7 +599,20 @@ export abstract class StageFactory
         );
 
         // right wall
-        // TODO use wall method!
+        StageFactory.createWall(
+            roomWalls,
+            [],
+            [],
+            stage,
+            meshFactory,
+            position.x + bz.SettingGame.WALL_DEPTH, // + STAIRCASE_SIZE.x, // + bz.SettingGame.WALL_DEPTH, // / 2 ),
+            STAIRCASE_SIZE.x - bz.SettingGame.WALL_DEPTH,
+            position.y,
+            STAIRCASE_SIZE.y,
+            position.z + STAIRCASE_SIZE.z, // + STAIRCASE_SIZE.z + bz.SettingGame.WALL_DEPTH,
+            0.0,
+            textureWalls
+        );
 
         // rotate ALL walls around pivot TODO extract to method!
         for ( const roomWall of roomWalls )
