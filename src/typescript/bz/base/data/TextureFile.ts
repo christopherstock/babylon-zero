@@ -8,7 +8,7 @@ import * as bz from '../..';
 export class TextureFile
 {
     public static readonly BULLET_HOLE_CONCRETE         :TextureFile            = new TextureFile( 'bulletHole/concrete.png',       bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
-    public static readonly BULLET_HOLE_GLASS            :TextureFile            = new TextureFile( 'bulletHole/glass.png',          bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
+    public static readonly BULLET_HOLE_GLASS            :TextureFile            = new TextureFile( 'bulletHole/glass1.png',         bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
     public static readonly BULLET_HOLE_IRON             :TextureFile            = new TextureFile( 'bulletHole/iron.png',           bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
     public static readonly BULLET_HOLE_METAL            :TextureFile            = new TextureFile( 'bulletHole/metal.png',          bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
     public static readonly BULLET_HOLE_PLASTIC          :TextureFile            = new TextureFile( 'bulletHole/plastic.png',        bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE,         null,                             bz.TextureType.WALL );
