@@ -8,6 +8,7 @@ MVP
 TODO Create staircase.
 TODO Fix / unify floor and ceiling heights/depths problems!
 TODO Fix fence
+TODO Increase glass bullet hole.
 TODO Try rotation on rooms and staircases :) unify wall rotation methods invocations!
 TODO smaller Doors? Adjust room sizes once more!
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)

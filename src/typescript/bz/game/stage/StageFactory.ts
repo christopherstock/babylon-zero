@@ -132,7 +132,7 @@ export abstract class StageFactory
                     position.y,
                     size.y,
                     ( position.z + diamondCornerA + bz.SettingGame.WALL_DEPTH ),
-                    45.0,
+                    45.0, // TODO replace with -315.0 for unification
                     textureWallA,
                     bz.TextureFile.WALL_GLASS_1
                 );
@@ -159,6 +159,7 @@ export abstract class StageFactory
             if ( diamondCornerB > 0 )
             {
                 const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingGame.WALL_DEPTH, 2 ) );
+
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x + size.x - diamondCornerB,
@@ -193,6 +194,7 @@ export abstract class StageFactory
             if ( diamondCornerC > 0 )
             {
                 const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingGame.WALL_DEPTH, 2 ) );
+
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x + size.x + bz.SettingGame.WALL_DEPTH,
@@ -227,6 +229,7 @@ export abstract class StageFactory
             if ( diamondCornerD > 0 )
             {
                 const sizeCornerD :number = Math.sqrt( 2 * Math.pow( diamondCornerD + bz.SettingGame.WALL_DEPTH, 2 ) );
+
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x + diamondCornerD + bz.SettingGame.WALL_DEPTH,
@@ -567,7 +570,20 @@ export abstract class StageFactory
         // TODO use wall method!
 
         // rear wall
-        // TODO use wall method!
+        StageFactory.createWall(
+            roomWalls,
+            [],
+            [],
+            stage,
+            meshFactory,
+            position.x + bz.SettingGame.WALL_DEPTH, // / 2 ),
+            STAIRCASE_SIZE.x,
+            position.y,
+            STAIRCASE_SIZE.y,
+            position.z, // + bz.SettingGame.WALL_DEPTH ),
+            -90.0,
+            textureWalls
+        );
 
         // right wall
         // TODO use wall method!
