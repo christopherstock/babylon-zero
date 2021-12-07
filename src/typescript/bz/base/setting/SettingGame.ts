@@ -23,8 +23,8 @@ export abstract class SettingGame
     public static readonly DOOR_DEPTH                               :number             = 0.195;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingGame.WALL_HEIGHT - SettingGame.DOOR_HEIGHT );
-    /** Unified floor and ceiling depth for building constructions. */
-    public static readonly DEPTH_FLOOR_CEILING                      :number             = 0.1;
+    /** Unified ceiling height. This height will never be calculated into height calculations! */
+    public static readonly CEILING_HEIGHT                           :number             = 0.1;
 
     /** Unified window width for building constructions. */
     public static readonly WINDOW_WIDTH                             :number             = 4.5;

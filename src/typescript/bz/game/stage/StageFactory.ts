@@ -242,7 +242,7 @@ export abstract class StageFactory
         }
 
         // ceiling
-        if ( textureCeiling !== null )
+        if ( false && textureCeiling !== null )
         {
             const ceiling :bz.Wall = new bz.Wall
             (
@@ -253,13 +253,13 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + size.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.y + size.y - bz.SettingGame.CEILING_HEIGHT ),
                             ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
                         new BABYLON.Vector3(
                             size.x,
-                            bz.SettingGame.DEPTH_FLOOR_CEILING,
+                            bz.SettingGame.CEILING_HEIGHT,
                             size.z
                         ),
                         bz.PhysicSet.STATIC,
@@ -378,9 +378,14 @@ export abstract class StageFactory
     )
     : void
     {
-        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, ( 2 * bz.SettingGame.WALL_HEIGHT ), 20.0 );
+        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
+            20.0,
+            ( 2 * bz.SettingGame.WALL_HEIGHT ),
+            20.0
+        );
+        const QUARTER_HEIGHT :number          = ( STAIRCASE_SIZE.y / 4 );
+
         const STAIRSTEP_SIZE :number          = 5.0;
-        const QUARTER_HEIGHT :number          = ( ( STAIRCASE_SIZE.y + 2 * bz.SettingGame.DEPTH_FLOOR_CEILING ) / 4 );
         const STAIRS_SIZE    :number          = 1.18 + ( STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ) );
         const STAIR_ANGLE    :number          = 26.6;
 
@@ -388,7 +393,7 @@ export abstract class StageFactory
         const roomWalls :bz.Wall[] = [];
 
         // ceiling
-        if ( textureCeiling !== null )
+        if ( false && textureCeiling !== null )
         {
             const ceiling :bz.Wall = new bz.Wall
             (
@@ -399,13 +404,13 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.CEILING_HEIGHT ),
                             ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
                         new BABYLON.Vector3(
                             STAIRCASE_SIZE.x,
-                            bz.SettingGame.DEPTH_FLOOR_CEILING,
+                            bz.SettingGame.CEILING_HEIGHT,
                             STAIRCASE_SIZE.z
                         ),
                         bz.PhysicSet.STATIC,
@@ -551,13 +556,13 @@ export abstract class StageFactory
                 meshFactory.createBox
                 (
                     new BABYLON.Vector3(
-                        position.x + STAIRSTEP_SIZE, // ( STAIRCASE_SIZE.x / 2 ),
+                        position.x + STAIRSTEP_SIZE,
                         position.y,
                         position.z + ( STAIRCASE_SIZE.z / 2 )
                     ),
                     textureWalls,
                     new BABYLON.Vector3(
-                        STAIRS_SIZE, // ( STAIRCASE_SIZE.x / 2 ),
+                        STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ),
                         STAIRCASE_SIZE.y,
                         bz.SettingGame.WALL_DEPTH
                     ),
