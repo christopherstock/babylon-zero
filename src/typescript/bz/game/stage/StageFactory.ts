@@ -372,15 +372,15 @@ export abstract class StageFactory
         position       :BABYLON.Vector3,
         rotY           :number,
 
-        textureWalls   :bz.TextureFile = null,
+        textureWalls   :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
         textureFloor   :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
         textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1
     )
     : void
     {
-        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, bz.SettingGame.WALL_HEIGHT, 20.0 );
+        const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3( 20.0, ( 2 * bz.SettingGame.WALL_HEIGHT ), 20.0 );
         const STAIRSTEP_SIZE :number          = 5.0;
-        const MID_HEIGHT     :number          = ( ( STAIRCASE_SIZE.y + bz.SettingGame.DEPTH_FLOOR_CEILING ) / 2 );
+        const QUARTER_HEIGHT :number          = ( ( STAIRCASE_SIZE.y + 2 * bz.SettingGame.DEPTH_FLOOR_CEILING ) / 4 );
         const STAIRS_SIZE    :number          = 1.18 + ( STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ) );
         const STAIR_ANGLE    :number          = 26.6;
 
@@ -399,7 +399,7 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + ( 2 * STAIRCASE_SIZE.y ) - bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.DEPTH_FLOOR_CEILING ),
                             ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
@@ -450,7 +450,7 @@ export abstract class StageFactory
                 (
                     new BABYLON.Vector3(
                         ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + STAIRCASE_SIZE.y + bz.SettingGame.DEPTH_FLOOR_CEILING ),
+                        ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingGame.FLOOR_OFFSET_Y,
                         ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                     ),
                     STAIRSTEP_SIZE,
@@ -473,7 +473,7 @@ export abstract class StageFactory
                 (
                     new BABYLON.Vector3(
                         ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + MID_HEIGHT ),
+                        ( position.y + QUARTER_HEIGHT ),
                         ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                     ),
                     STAIRSTEP_SIZE,
@@ -496,7 +496,7 @@ export abstract class StageFactory
                 (
                     new BABYLON.Vector3(
                         ( position.x + STAIRSTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + MID_HEIGHT ),
+                        ( position.y + QUARTER_HEIGHT ),
                         ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
                     ),
                     STAIRS_SIZE,
@@ -509,7 +509,7 @@ export abstract class StageFactory
         )
         lowerStairs.getModel().rotateAroundAxisZ(
             ( position.x + STAIRSTEP_SIZE ),
-            ( position.y + MID_HEIGHT ),
+            ( position.y + QUARTER_HEIGHT ),
             -STAIR_ANGLE
         );
         roomWalls.push( lowerStairs );
@@ -524,7 +524,7 @@ export abstract class StageFactory
                 (
                     new BABYLON.Vector3(
                         ( position.x + STAIRSTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + MID_HEIGHT ),
+                        ( position.y + QUARTER_HEIGHT ),
                         ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) + ( STAIRCASE_SIZE.z / 2 ) )
                     ),
                     STAIRS_SIZE,
@@ -537,14 +537,38 @@ export abstract class StageFactory
         )
         upperStairs.getModel().rotateAroundAxisZ(
             ( position.x + STAIRSTEP_SIZE ),
-            ( position.y + MID_HEIGHT ),
+            ( position.y + QUARTER_HEIGHT ),
             STAIR_ANGLE
         );
         roomWalls.push( upperStairs );
 
         // center railing wall
-
-
+        const centerRailingWall :bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model
+            (
+                meshFactory.createBox
+                (
+                    new BABYLON.Vector3(
+                        position.x + STAIRSTEP_SIZE, // ( STAIRCASE_SIZE.x / 2 ),
+                        position.y,
+                        position.z + ( STAIRCASE_SIZE.z / 2 )
+                    ),
+                    textureWalls,
+                    new BABYLON.Vector3(
+                        STAIRS_SIZE, // ( STAIRCASE_SIZE.x / 2 ),
+                        STAIRCASE_SIZE.y,
+                        bz.SettingGame.WALL_DEPTH
+                    ),
+                    bz.PhysicSet.STATIC,
+                    1.0,
+                    bz.MeshAnchor.LOWEST_XYZ
+                )
+            )
+        );
+        // centerRailingWall.getModel().rotateAroundAxisY( x, z, rotY );
+        roomWalls.push( centerRailingWall );
 
         // rotate ALL walls around pivot TODO to method!
         for ( const roomWall of roomWalls )

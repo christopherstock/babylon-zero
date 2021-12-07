@@ -6,6 +6,7 @@
 MVP
 ===
 TODO Create staircase.
+TODO Fix / unify floor and ceiling heights/depths problems!
 TODO Fix fence
 TODO Try rotation on rooms and staircases :) unify wall rotation methods invocations!
 TODO smaller Doors? Adjust room sizes once more!
