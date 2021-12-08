@@ -38,6 +38,7 @@ TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Spawn painkiller model when a painkiller has been used.
 TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
+TODO Try glow effect? https://playground.babylonjs.com/#7QCYPB
 TODO Physical Bodies for Bots?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try exploding mayflower logo (from 3dsmax promo?)

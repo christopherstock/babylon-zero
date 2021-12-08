@@ -48,19 +48,31 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
-        // ground walls
-        // this.addGroundWalls( meshFactory );
-
-        // this.createFourStaffOffice( 0.0, 0.0 );
-
+        // medium office
         bz.StageFactory.addMediumOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 100.0, 100.0, 0.0 ),
+            0.0
+        );
+
+        // small office
+        bz.StageFactory.addSmallOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 200.0, 0.0, 200.0 ),
+            0.0
+        );
+
+        // parking lot
+        bz.StageFactory.addParkingLot(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
 
-        // point light in medium office
+        // point light
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
@@ -102,6 +114,9 @@ if ( true ) return;
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
+
+        // ground walls
+        // this.addGroundWalls( meshFactory );
 
         // staircase
         bz.StageFactory.addStaircase(
@@ -296,7 +311,7 @@ if ( true ) return;
             [ 1, 2, 3, 4, 5 ],
             -90.0
         );
- */
+*/
 /*
         // big bin
         this.addWall(
