@@ -53,36 +53,14 @@ export class StageOffice extends bz.Stage
 
         // this.createFourStaffOffice( 0.0, 0.0 );
 
-        // small office - basement
-        bz.StageFactory.addRoomWalls(
+        bz.StageFactory.addMediumOffice(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 60.0, bz.SettingGame.WALL_HEIGHT, 30.0 ),
-            0.0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-            ], [], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-            ], [
-                new bz.WindowData( 2.0,  true, true ),
-                new bz.WindowData( 6.5,  true, true ),
-                new bz.WindowData( 11.0, true, true ),
-            ], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1, false ),
-                new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),
-            ], [], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, false ),
-                new bz.DoorData( 15.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, true ),
-            ], [
-                new bz.WindowData( 2.0,  false ),
-            ], 0,
-            bz.TextureFile.WALL_CARPET_RASPBERRY,
-            bz.TextureFile.WALL_CEILING_1
+            0.0
         );
 
-        // point light in small office
+        // point light in medium office
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],

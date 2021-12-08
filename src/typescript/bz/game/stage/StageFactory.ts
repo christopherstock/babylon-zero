@@ -45,6 +45,7 @@ export class WindowData
     public position     :number  = 0.0;
     public fullHeight   :boolean = false;
     public nonBreakable :boolean = false;
+    public width        :number  = 0.0;
 
     /** ****************************************************************************************************************
     *   Creates the data that describes one window.
@@ -53,12 +54,14 @@ export class WindowData
     *   @param fullHeight   If <code>true</code>, the top and bottom window frames will not be drawn
     *                       and the window's height is extended to the wall height.
     *   @param nonBreakable If the glass is bullet proof and won't break.
+    *   @param width        The width of this window.
     *******************************************************************************************************************/
-    public constructor( position:number, fullHeight:boolean = false, nonBreakable:boolean = false )
+    public constructor( position:number, fullHeight:boolean = false, nonBreakable:boolean = false, width:number = bz.SettingGame.WINDOW_WIDTH )
     {
         this.position     = position;
         this.fullHeight   = fullHeight;
         this.nonBreakable = nonBreakable;
+        this.width        = width;
     }
 }
 
@@ -67,6 +70,39 @@ export class WindowData
 ***********************************************************************************************************************/
 export abstract class StageFactory
 {
+    public static addMediumOffice(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number          = 0
+    ) : void
+    {
+        bz.StageFactory.addRoomWalls(
+            stage,
+            meshFactory,
+            position,
+            new BABYLON.Vector3( 70.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            rotY,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+                new bz.WindowData( 2.0,  false, false ),
+            ], 0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+                // new bz.WindowData( 6.5,  true, true ),
+                // new bz.WindowData( 11.0, true, true ),
+            ], 0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
+                new bz.DoorData( 40.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+            ], [], 0,
+            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            ], [
+                // new bz.WindowData( 2.0,  false ),
+            ], 0,
+            bz.TextureFile.WALL_CARPET_RASPBERRY,
+            bz.TextureFile.WALL_CEILING_1
+        );
+    }
+
     /** ****************************************************************************************************************
     *   Creates one room.
     *******************************************************************************************************************/
