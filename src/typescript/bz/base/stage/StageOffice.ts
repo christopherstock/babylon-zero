@@ -46,6 +46,28 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
+        // point light
+        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        (
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
+            new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
+            125.0,
+            1.25
+        );
+        this.addLight( pointLights );
+
+        // back yard
+        bz.AECFactory.addBackyard(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
+        if ( true ) return;
+
         // small park
         bz.AECFactory.addSmallPark(
             this,
@@ -59,14 +81,6 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
-            0.0
-        );
-
-        // back yard
-        bz.AECFactory.addBackyard(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 200.0, 0.0, 200.0 ),
             0.0
         );
 
@@ -117,18 +131,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
             0.0
         );
-
-        // point light
-        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
-        (
-            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
-            125.0,
-            1.25
-        );
-        this.addLight( pointLights );
 
         // staircase
         bz.StageFactory.addStaircase(

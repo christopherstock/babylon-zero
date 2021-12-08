@@ -347,22 +347,6 @@ export class AECFactory
         );
         stage.addWall( carCamaro );
 
-        // car opel record
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CAR_OPEL_RECORD,
-                    position.add( new BABYLON.Vector3(30.0, 0.0, 30.0 ) ),
-                    bz.PhysicSet.SHELVES,
-                    null
-                ),
-                10.0
-            )
-        );
-
         // car cadillac
         stage.addWall(
             new bz.Wall
@@ -430,22 +414,29 @@ export class AECFactory
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             rotY,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
-            new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-
+            new bz.DoorData(
+                5.0,
+                [],
+                bz.DoorAnimation.SWING_A_CLOCKWISE,
+                true,
+                bz.TextureFile.WALL_DOOR_WOOD_1,
+                -1,
+                false
+            ),
             ], [
-//                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-//                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             null, [], [
-                // new bz.WindowData( 6.5,  true, true ),
-                // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-//                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                // new bz.DoorData( 32.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData(
+                    10.0,
+                    [],
+                    bz.DoorAnimation.SWING_A_CLOCKWISE,
+                    true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1,
+                    -1,
+                    false
+                ),
             ], [], 0,
             null, [
             ], [
@@ -459,7 +450,7 @@ export class AECFactory
         bz.AECFactory.createFence(
             stage,
             meshFactory,
-            position.add( new BABYLON.Vector3(0.0, /* ( 5 * 8.5 ) */ 0.0, 0.0 ) ),
+            position.add( new BABYLON.Vector3(0.0, 0.0, 0.0 ) ),
             [ 1, 2, 3, 4, 5 ],
             0.0
         );
@@ -470,7 +461,7 @@ export class AECFactory
             stage,
             new bz.Model(
                 meshFactory.genrateTree(
-                    position.add( new BABYLON.Vector3( -10.0, 0.0, 10.0 ) )
+                    position.add( new BABYLON.Vector3( -10.0, 0.0, 15.0 ) )
                 )
             )
         );
@@ -482,23 +473,11 @@ export class AECFactory
             stage,
             new bz.Model(
                 meshFactory.genrateTree(
-                    position.add( new BABYLON.Vector3( -10.0, 0.0, 20.0 ) )
-                )
-            )
-        );
-        stage.addWall( tree2 );
-
-        // 3d tree 3
-        const tree3:bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model(
-                meshFactory.genrateTree(
                     position.add( new BABYLON.Vector3( -10.0, 0.0, 30.0 ) )
                 )
             )
         );
-        stage.addWall( tree3 );
+        stage.addWall( tree2 );
 
         // trash container blue
         stage.addWall(
@@ -547,6 +526,22 @@ export class AECFactory
                     position.add( new BABYLON.Vector3( 45.0, 0.0, 10.0 ) ),
                     bz.PhysicSet.SHELVES,
                     0.0
+                ),
+                10.0
+            )
+        );
+
+        // car opel record
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CAR_OPEL_RECORD,
+                    position.add( new BABYLON.Vector3(30.0, 0.0, 30.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    30.0
                 ),
                 10.0
             )
