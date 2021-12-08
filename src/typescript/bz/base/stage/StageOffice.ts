@@ -47,23 +47,25 @@ export class StageOffice extends bz.Stage
         this.setPlayer( new bz.Player( this ) );
 
         // warehouse
-        bz.StageFactory.addWarehouse(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 400.0, 0.0, 400.0 ),
-            0.0
-        );
-
-        // back yard
-        bz.StageFactory.addBackyard(
+        bz.AECFactory.addWarehouse(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
 
+
+
+        // back yard
+        bz.AECFactory.addBackyard(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 400.0, 0.0, 400.0 ),
+            0.0
+        );
+
         // hallway
-        bz.StageFactory.addHallway(
+        bz.AECFactory.addHallway(
             this,
             meshFactory,
             new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
@@ -71,7 +73,7 @@ export class StageOffice extends bz.Stage
         );
 
         // large office
-        bz.StageFactory.addLargeOffice(
+        bz.AECFactory.addLargeOffice(
             this,
             meshFactory,
             new BABYLON.Vector3( 700.0, 0.0, 700.0 ),
@@ -79,7 +81,7 @@ export class StageOffice extends bz.Stage
         );
 
         // medium office
-        bz.StageFactory.addMediumOffice(
+        bz.AECFactory.addMediumOffice(
             this,
             meshFactory,
             new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
@@ -87,7 +89,7 @@ export class StageOffice extends bz.Stage
         );
 
         // small office
-        bz.StageFactory.addSmallOffice(
+        bz.AECFactory.addSmallOffice(
             this,
             meshFactory,
             new BABYLON.Vector3( 200.0, 0.0, 200.0 ),
@@ -95,7 +97,7 @@ export class StageOffice extends bz.Stage
         );
 
         // parking lot
-        bz.StageFactory.addParkingLot(
+        bz.AECFactory.addParkingLot(
             this,
             meshFactory,
             new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
@@ -115,38 +117,6 @@ export class StageOffice extends bz.Stage
         this.addLight( pointLights );
 
 if ( true ) return;
-
-        // small office - 1st floor
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 0.0, bz.SettingAEC.WALL_HEIGHT, 0.0 ),
-            new BABYLON.Vector3( 60.0, bz.SettingAEC.WALL_HEIGHT, 30.0 ),
-            0.0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-            ], [], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-            ], [
-                new bz.WindowData( 2.0,  true, true ),
-                new bz.WindowData( 6.5,  true, true ),
-                new bz.WindowData( 11.0, true, true ),
-            ], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 1, false ),
-                new bz.DoorData( 30.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, false, bz.TextureFile.WALL_DOOR_WOOD_1, 0, true ),
-            ], [], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, false ),
-                new bz.DoorData( 15.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_INDUSTRIAL, -1, true ),
-            ], [
-                new bz.WindowData( 2.0,  false ),
-            ], 0,
-            bz.TextureFile.WALL_CARPET_RASPBERRY,
-            bz.TextureFile.WALL_CEILING_1
-        );
-
-        // ground walls
-        // this.addGroundWalls( meshFactory );
 
         // staircase
         bz.StageFactory.addStaircase(
@@ -1171,6 +1141,9 @@ if ( true ) return;
         );
         // bench1.getModel().addOutline( this.getScene() );
         this.addWall( bench1 );
+
+        // ground walls
+        // this.addGroundWalls( meshFactory );
     }
 
     /** ****************************************************************************************************************

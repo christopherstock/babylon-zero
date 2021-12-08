@@ -8,6 +8,7 @@ MVP
 TODO Remove all ESLint-Disablers?
 TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Clean up StageOffice contents
+TODO Prune StageOutside!
 TODO Solve stairs all custom sizes
 TODO Enhance multi level staircases.
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
