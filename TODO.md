@@ -5,8 +5,6 @@
 ===
 MVP
 ===
-TODO Remove all ESLint-Disablers?
-TODO Create Locations: Park, parking site / house, garage, backyard, waste ground, backstreet, shop site, town site, mart, housing area, offices..
 TODO Clean up StageOffice contents
 TODO Prune StageOutside!
 TODO Solve stairs all custom sizes
@@ -81,6 +79,7 @@ TODO Sounds for shot, bullet hit and bullet drop.
 =========
 Secondary
 =========
+TODO Create new Locations: garage, wastrground, backstreet, shop site, town site, mart, housing area
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Try stored 3dsmax model animations.

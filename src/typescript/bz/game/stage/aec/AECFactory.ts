@@ -5,6 +5,28 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class AECFactory
 {
+    public static addResidentalStreet(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number          = 0
+    )
+    : void
+    {
+
+    }
+
+    public static addSmallPark(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number          = 0
+    )
+    : void
+    {
+
+    }
+
     public static addHallway(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -191,6 +213,54 @@ export class AECFactory
             ], 0,
             bz.TextureFile.MODEL_CONCRETE,
             null
+        );
+
+        // car camaro
+        const carCamaro :bz.Wall = new bz.Wall
+        (
+            stage,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.CAR_CAMARO,
+                new BABYLON.Vector3( 10.0, 0.0, 30.0 ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                180.0
+            ),
+            12.0
+        );
+        stage.addWall( carCamaro );
+
+        // car opel record
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CAR_OPEL_RECORD,
+                    new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
+
+        // car cadillac
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.CAR_CADILLAC,
+                    new BABYLON.Vector3( 50.0, 0.0, 30.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
         );
     }
 

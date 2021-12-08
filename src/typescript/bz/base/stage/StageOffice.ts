@@ -46,15 +46,37 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
-        // warehouse
-        bz.AECFactory.addWarehouse(
+        // parking lot
+        bz.AECFactory.addParkingLot(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
 
+        // warehouse
+        bz.AECFactory.addWarehouse(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
+            0.0
+        );
 
+        // residental street
+        bz.AECFactory.addResidentalStreet(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
+            0.0
+        );
+
+        // small park
+        bz.AECFactory.addSmallPark(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 1000.0, 0.0, 1000.0 ),
+            0.0
+        );
 
         // back yard
         bz.AECFactory.addBackyard(
@@ -96,14 +118,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // parking lot
-        bz.AECFactory.addParkingLot(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
-            0.0
-        );
-
         // point light
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
@@ -116,19 +130,20 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
-if ( true ) return;
-
         // staircase
         bz.StageFactory.addStaircase(
             this,
             meshFactory,
-            new BABYLON.Vector3( -20.0, 0.0, 10.0 ),
+            new BABYLON.Vector3( 1100.0, 0.0, 1100.0 ),
             0.0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
 
+if ( true ) return;
+
+/*
         const eventsSwitchStage :bz.Event[] = [
             new bz.Event(
                 bz.EventType.SWITCH_TO_STAGE,
@@ -183,55 +198,8 @@ if ( true ) return;
 
         magicDoor1.setLinkedDoor( magicDoor2 );
         magicDoor2.setLinkedDoor( magicDoor1 );
+*/
 /*
-        // car camaro
-        const carCamaro :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.CAR_CAMARO,
-                new BABYLON.Vector3( 10.0, 0.0, 30.0 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                180.0
-            ),
-            12.0
-        );
-        this.addWall( carCamaro );
-
-        // car opel record
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CAR_OPEL_RECORD,
-                    new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
-                    bz.PhysicSet.SHELVES,
-                    null
-                ),
-                10.0
-            )
-        );
-
-        // car cadillac
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.CAR_CADILLAC,
-                    new BABYLON.Vector3( 50.0, 0.0, 30.0 ),
-                    bz.PhysicSet.SHELVES,
-                    null
-                ),
-                10.0
-            )
-        );
-
         // bike suzuki
         this.addWall(
             new bz.Wall
