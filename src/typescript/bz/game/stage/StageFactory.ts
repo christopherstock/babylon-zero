@@ -269,34 +269,34 @@ export abstract class StageFactory
     {
         // add 5 wooden crates
         stage.addWall(
-            bz.WallFactory.createWoodenCrate(
+            bz.AECFactory.createWoodenCrate(
                 stage,
                 meshFactory,
                 new BABYLON.Vector3( pos.x, pos.y, pos.z )
             )
         );
         stage.addWall(
-            bz.WallFactory.createWoodenCrate(
+            bz.AECFactory.createWoodenCrate(
                 stage,
                 meshFactory,
                 new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 )
             )
         );
         stage.addWall(
-            bz.WallFactory.createWoodenCrate(
+            bz.AECFactory.createWoodenCrate(
                 stage,
                 meshFactory,
                 new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ) )
         );
         stage.addWall(
-            bz.WallFactory.createWoodenCrate(
+            bz.AECFactory.createWoodenCrate(
                 stage,
                 meshFactory,
                 new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 )
             )
         );
         stage.addWall(
-            bz.WallFactory.createWoodenCrate(
+            bz.AECFactory.createWoodenCrate(
                 stage,
                 meshFactory,
                 new BABYLON.Vector3( pos.x + 2.5, pos.y + 5.0, pos.z + 2.5 )

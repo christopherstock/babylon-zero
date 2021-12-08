@@ -8,7 +8,6 @@ export * from './game/engine/camera/CameraType';
 export * from './game/stage/StageConfig';
 export * from './game/stage/StageFactory';
 export * from './game/stage/StageId';
-export * from './game/stage/WallFactory';
 
 export * from './game/stage/aec/AECFactory';
 export * from './game/stage/aec/DoorData';
