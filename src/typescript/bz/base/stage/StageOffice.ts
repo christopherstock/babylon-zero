@@ -52,7 +52,23 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addWarehouse(
             this,
             meshFactory,
+            new BABYLON.Vector3( 400.0, 0.0, 400.0 ),
+            0.0
+        );
+
+        // hallway
+        bz.StageFactory.addHallway(
+            this,
+            meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
+        // large office
+        bz.StageFactory.addLargeOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 700.0, 0.0, 700.0 ),
             0.0
         );
 
@@ -60,7 +76,7 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addMediumOffice(
             this,
             meshFactory,
-            new BABYLON.Vector3( 100.0, 100.0, 0.0 ),
+            new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
             0.0
         );
 
