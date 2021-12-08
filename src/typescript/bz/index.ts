@@ -10,6 +10,9 @@ export * from './game/stage/StageFactory';
 export * from './game/stage/StageId';
 export * from './game/stage/WallFactory';
 
+export * from './game/stage/aec/AECFactory';
+
+export * from './base/setting/SettingAEC';
 export * from './base/setting/SettingColor';
 export * from './base/setting/SettingDebug';
 export * from './base/setting/SettingEngine';
