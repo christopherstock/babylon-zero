@@ -48,6 +48,14 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
+        // warehouse
+        bz.StageFactory.addWarehouse(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
         // medium office
         bz.StageFactory.addMediumOffice(
             this,
@@ -68,7 +76,7 @@ export class StageOffice extends bz.Stage
         bz.StageFactory.addParkingLot(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
 
