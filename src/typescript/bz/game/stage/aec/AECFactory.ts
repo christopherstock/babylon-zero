@@ -5,6 +5,9 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class AECFactory
 {
+    /** ****************************************************************************************************************
+    *   Adds a 'residental street' location to the stage.
+    *******************************************************************************************************************/
     public static addResidentalStreet(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -77,6 +80,9 @@ export class AECFactory
         stage.addWall( tree1 );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a 'small park' location to the stage.
+    *******************************************************************************************************************/
     public static addSmallPark(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -85,9 +91,49 @@ export class AECFactory
     )
     : void
     {
+        bz.StageFactory.addRoomWalls(
+            stage,
+            meshFactory,
+            position,
+            new BABYLON.Vector3( 100.0, bz.SettingAEC.WALL_HEIGHT, 100.0 ),
+            rotY,
+            null, [], [
+            ], 0,
+            null, [], [
+                // new bz.WindowData( 6.5,  true, true ),
+                // new bz.WindowData( 11.0, true, true ),
+            ], 0,
+            null, [
+            ], [], 0,
+            null , [
+            ], [
+                // new bz.WindowData( 2.0,  false ),
+            ], 0,
+            bz.TextureFile.WALL_GRASS_1,
+            null
+        );
 
+        for ( let x:number = 0.0; x <= 100.0; x += 50.0 )
+        {
+            for ( let z:number = 0.0; z <= 100.0; z += 50.0 )
+            {
+                const tree:bz.Wall = new bz.Wall
+                (
+                    stage,
+                    new bz.Model(
+                        meshFactory.genrateTree(
+                            position.add( new BABYLON.Vector3( x, 0.0, z ) )
+                        )
+                    )
+                );
+                stage.addWall( tree );
+            }
+        }
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a hallway to the stage.
+    *******************************************************************************************************************/
     public static addHallway(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -127,6 +173,9 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a large office to the stage.
+    *******************************************************************************************************************/
     public static addLargeOffice(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -163,6 +212,9 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a medium office to the stage.
+    *******************************************************************************************************************/
     public static addMediumOffice(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -199,6 +251,9 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a small office to the stage.
+    *******************************************************************************************************************/
     public static addSmallOffice(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -234,6 +289,9 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a 'parking lot' location to the stage.
+    *******************************************************************************************************************/
     public static addParkingLot(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -355,6 +413,9 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a 'backyard' location to the stage.
+    *******************************************************************************************************************/
     public static addBackyard(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -492,6 +553,9 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a 'warehouse' location to the stage.
+    *******************************************************************************************************************/
     public static addWarehouse(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,

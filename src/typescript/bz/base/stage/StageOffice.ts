@@ -46,11 +46,19 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
+        // small park
+        bz.AECFactory.addSmallPark(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
         // residental street
         bz.AECFactory.addResidentalStreet(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
             0.0
         );
 
@@ -58,7 +66,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addBackyard(
             this,
             meshFactory,
-            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
+            new BABYLON.Vector3( 200.0, 0.0, 200.0 ),
             0.0
         );
 
@@ -66,7 +74,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addParkingLot(
             this,
             meshFactory,
-            new BABYLON.Vector3( 2000.0, 0.0, 2000.0 ),
+            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
 
@@ -74,15 +82,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addWarehouse(
             this,
             meshFactory,
-            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
-            0.0
-        );
-
-        // small park
-        bz.AECFactory.addSmallPark(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 1000.0, 0.0, 1000.0 ),
+            new BABYLON.Vector3( 400.0, 0.0, 400.0 ),
             0.0
         );
 
@@ -90,7 +90,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addHallway(
             this,
             meshFactory,
-            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
+            new BABYLON.Vector3( 500.0, 0.0, 500.0 ),
             0.0
         );
 
@@ -98,7 +98,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addLargeOffice(
             this,
             meshFactory,
-            new BABYLON.Vector3( 700.0, 0.0, 700.0 ),
+            new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
             0.0
         );
 
@@ -106,7 +106,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addMediumOffice(
             this,
             meshFactory,
-            new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
+            new BABYLON.Vector3( 700.0, 0.0, 700.0 ),
             0.0
         );
 
@@ -114,7 +114,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addSmallOffice(
             this,
             meshFactory,
-            new BABYLON.Vector3( 200.0, 0.0, 200.0 ),
+            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
             0.0
         );
 
