@@ -1,4 +1,4 @@
-import * as bz from '../..';
+import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   A bundle of data that is associated to an event. Type of event data varies by the according EventType.

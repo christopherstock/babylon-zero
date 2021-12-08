@@ -262,6 +262,22 @@ export class AECFactory
                 10.0
             )
         );
+
+        // bike suzuki
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.BIKE_SUZUKI,
+                    new BABYLON.Vector3( 70.0, 0.0, 30.0 ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
     }
 
     public static addBackyard(

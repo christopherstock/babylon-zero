@@ -50,7 +50,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addParkingLot(
             this,
             meshFactory,
-            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
 
@@ -58,7 +58,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addWarehouse(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
 
@@ -200,22 +200,6 @@ if ( true ) return;
         magicDoor2.setLinkedDoor( magicDoor1 );
 */
 /*
-        // bike suzuki
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.BIKE_SUZUKI,
-                    new BABYLON.Vector3( 70.0, 0.0, 30.0 ),
-                    bz.PhysicSet.SHELVES,
-                    null
-                ),
-                10.0
-            )
-        );
-
         // trash container blue
         this.addWall(
             new bz.Wall
