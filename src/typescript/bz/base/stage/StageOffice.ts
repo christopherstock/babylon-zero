@@ -140,19 +140,6 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
-
-
-
-
-
-
-
-
-
-
-
-if ( true ) return;
-
 /*
         const eventsSwitchStage :bz.Event[] = [
             new bz.Event(
@@ -209,6 +196,7 @@ if ( true ) return;
         magicDoor1.setLinkedDoor( magicDoor2 );
         magicDoor2.setLinkedDoor( magicDoor1 );
 */
+
 /*
         // office desk 3
         this.addWall(
@@ -225,7 +213,6 @@ if ( true ) return;
                 10.0
             )
         );
-*/
 /*
         // sewerage pumping
         this.addWall(
@@ -272,34 +259,10 @@ if ( true ) return;
         );
         this.addLight( hemisphericLights );
 
+        // TODO create casino with diamond corners
+
         // waste ground
 /*
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 100.0, bz.SettingGame.FLOOR_OFFSET_Y, 100.0 ),
-            new BABYLON.Vector3( 25.0, 6.0, 25.0 ),
-            340.0, // -90.0
-            bz.TextureFile.WALL_WOOD_VERT_1,
-            [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
-            [],
-            2.0,
-            bz.TextureFile.WALL_WOOD_PLANKS,
-            [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
-            [],
-            3.0,
-            bz.TextureFile.WALL_WOOD_GRAIN,
-            [ new bz.DoorData( 1.0, eventsDoorLocked, bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE ) ],
-            [],
-            4.0,
-            bz.TextureFile.WALL_WOOD_OLIVE,
-            [ new bz.DoorData( 2.5, eventsSwitchStage, bz.DoorAnimation.NONE ) ],
-            [],
-            5.0,
-            bz.TextureFile.WALL_ASPHALT_CRACKED,
-            null
-        );
-
         // boxes pile in small office
         bz.StageFactory.addCratesPile(
             this,
@@ -307,22 +270,7 @@ if ( true ) return;
             new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 15.0 )
         );
 
-        // parking space
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( -400.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 400.0, bz.SettingGame.WALL_HEIGHT, 400.0 ),
-            0.0,
-            null, [], [], 0,
-            null, [], [], 0,
-            null, [], [], 0,
-            null, [], [], 0,
-            bz.TextureFile.WALL_STONES_DARK_GRANITE,
-            bz.TextureFile.WALL_CEILING_1
-        );
-
-        // pillar from new concrete
+        // pillar from new concrete TODO to AEC method
         this.addWall(
             new bz.Wall
             (
@@ -347,9 +295,9 @@ if ( true ) return;
                 )
             )
         );
-
+*/
         // add rain effect
-        if ( false ) this.setRainEffect(
+        this.setRainEffect(
             3.0,
             750,
             new BABYLON.Vector3( 0.5, -1.5, 0.5 )
@@ -357,6 +305,7 @@ if ( true ) return;
 
 if ( true ) return;
 
+/*
         // light yard
         bz.StageFactory.addRoomWalls(
             this,
@@ -599,76 +548,9 @@ if ( true ) return;
                 ]
             );
         }
-/*
-        // add bot - walking towards axis X
-        this.addBot(
-            new bz.Bot(
-                0,
-                this,
-                bz.BotType.TEST_WALK_X,
-                new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
-            )
-        );
 
-        // add bot 1 - dancing girl on 0,0,0
-        this.addBot(
-            new bz.Bot(
-                0.0,
-                this,
-                bz.BotType.TEST_DANCING_GIRL,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-            )
-        );
-
-        // add bot 2 - walking dude A
-        this.addBot(
-            new bz.Bot(
-                0.0,
-                this,
-                bz.BotType.TEST_WALKING_DUDE,
-                new BABYLON.Vector3( 20.0, 0.0, 20.0 )
-            )
-        );
-        // add bot 2 - walking dude B
-        this.addBot(
-            new bz.Bot(
-                0.0,
-                this,
-                bz.BotType.TEST_WALKING_DUDE,
-                new BABYLON.Vector3( 10.0, 0.0, 25.0 )
-            )
-        );
-
-        // add bot 2 - walking dude C
-        this.addBot(
-            new bz.Bot(
-                0.0,
-                this,
-                bz.BotType.TEST_WALKING_DUDE,
-                new BABYLON.Vector3( 32.5, 0.0, 45.0 )
-            )
-        );
-        // add bot 2 - walking dude D
-        this.addBot(
-            new bz.Bot(
-                0.0,
-                this,
-                bz.BotType.TEST_WALKING_DUDE,
-                new BABYLON.Vector3( 40.5, 0.0, 55.0 )
-            )
-        );
-*/
-/*
-        // add bot 3 - dancing girl on 0,0,0
-        this.addBot(
-            new bz.Bot(
-                -90.0,
-                this,
-                bz.BotType.TEST_DANCING_GIRL,
-                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-            )
-        );
-*/
+        // add testwise bots
+        this.addTestBots();
     }
 
     /** ****************************************************************************************************************
@@ -1068,5 +950,77 @@ if ( true ) return;
                 ),
             ]
         );
+    }
+
+    private addTestBots() : void
+    {
+        // add bot - walking towards axis X
+        this.addBot(
+            new bz.Bot(
+                0,
+                this,
+                bz.BotType.TEST_WALK_X,
+                new BABYLON.Vector3( 10.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0 )
+            )
+        );
+
+        // add bot 1 - dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
+
+        // add bot 2 - walking dude A
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 20.0, 0.0, 20.0 )
+            )
+        );
+        // add bot 2 - walking dude B
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 10.0, 0.0, 25.0 )
+            )
+        );
+
+        // add bot 2 - walking dude C
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 32.5, 0.0, 45.0 )
+            )
+        );
+        // add bot 2 - walking dude D
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 40.5, 0.0, 55.0 )
+            )
+        );
+/*
+        // add bot 3 - one more dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                -90.0,
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
+*/
     }
 }
