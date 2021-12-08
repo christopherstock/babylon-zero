@@ -1,3 +1,5 @@
+import * as bz from '../..';
+
 /** ********************************************************************************************************************
 *   Specifies all adjustments and balancings for the human player.
 ***********************************************************************************************************************/
@@ -26,7 +28,7 @@ export abstract class SettingPlayer
     /** The player's physical force downscale multiplier on ascending. */
     public static readonly CLIMP_VELOCITY_MITIGATION                :number             = 0.6;
     /** The player's physical force downscale multiplier on descending. */
-    public static readonly FALL_VELOCITY_MITIGATION                 :number             = 1.25;
+    public static readonly FALL_VELOCITY_MITIGATION                 :number             = ( bz.SettingDebug.DEBUG_MODE ? 0.0 : 1.25 );
     public static readonly MAX_FALLING_VELOCITY                     :number             = -7.5;
 
     /** The player's turning speed in degrees per tick. */
