@@ -9,6 +9,8 @@ TODO Clean up StageOffice contents
 TODO Prune StageOutside!
 TODO Solve stairs all custom sizes
 TODO Enhance multi level staircases.
+TODO update code taste!
+TODO remove offset in transpallet (rotY chaos)
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
 TODO smaller Doors? Adjust room sizes once more!

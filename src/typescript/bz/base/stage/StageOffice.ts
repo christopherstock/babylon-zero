@@ -50,7 +50,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addParkingLot(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
 
@@ -58,7 +58,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addWarehouse(
             this,
             meshFactory,
-            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
 
@@ -308,71 +308,6 @@ if ( true ) return;
                     new BABYLON.Vector3( 10.0, 0.0, 50.0 ),
                     bz.PhysicSet.SHELVES,
                     0.0
-                ),
-                10.0
-            )
-        );
-
-        // pallet cement
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.PALLET_CEMENT_1,
-                    new BABYLON.Vector3( 15.0, 0.0, 70.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
-
-        // pallet cement
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.PALLET_CEMENT_2,
-                    new BABYLON.Vector3( 15.0, 0.0, 80.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
-*/
-/*
-        // pallet cement
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.PALLET_CEMENT_3,
-                    new BABYLON.Vector3( 15.0, 0.0, 90.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
-
-        // transpallet
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.TRANSPALLET,
-                    new BABYLON.Vector3( 22.0, 0.0, 90.0 ),
-                    bz.PhysicSet.SHELVES,
-                    -90.0
                 ),
                 10.0
             )

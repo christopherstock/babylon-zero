@@ -222,7 +222,7 @@ export class AECFactory
             meshFactory.createImportedModel
             (
                 bz.ModelFile.CAR_CAMARO,
-                new BABYLON.Vector3( 10.0, 0.0, 30.0 ),
+                position.addInPlaceFromFloats( 10.0, 0.0, 30.0 ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -239,7 +239,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.CAR_OPEL_RECORD,
-                    new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                    position.addInPlaceFromFloats( 30.0, 0.0, 30.0 ),
                     bz.PhysicSet.SHELVES,
                     null
                 ),
@@ -255,7 +255,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.CAR_CADILLAC,
-                    new BABYLON.Vector3( 50.0, 0.0, 30.0 ),
+                    position.addInPlaceFromFloats( 50.0, 0.0, 30.0 ),
                     bz.PhysicSet.SHELVES,
                     null
                 ),
@@ -341,6 +341,70 @@ export class AECFactory
             ], 0,
             bz.TextureFile.WALL_DIAMOND_PLATE_1,
             bz.TextureFile.WALL_CEILING_1
+        );
+
+        // pallet cement 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.PALLET_CEMENT_1,
+                    position.addInPlaceFromFloats( 15.0, 0.0, 10.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
+
+        // pallet cement 2
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.PALLET_CEMENT_2,
+                    position.addInPlaceFromFloats( 25.0, 0.0, 10.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
+
+        // pallet cement 3
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.PALLET_CEMENT_3,
+                    position.addInPlaceFromFloats( 10.0, 0.0, 25.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
+
+        // transpallet
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.TRANSPALLET,
+                    position.addInPlaceFromFloats( -5.0, 0.0, -5.0 ),
+                    bz.PhysicSet.SHELVES,
+                    45.0
+                ),
+                10.0
+            )
         );
     }
 }
