@@ -210,42 +210,6 @@ if ( true ) return;
         magicDoor2.setLinkedDoor( magicDoor1 );
 */
 /*
-        // garage 1
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.GARAGE_1,
-                    new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
-                    bz.PhysicSet.SHELVES,
-                    null,
-                    180.0
-                ),
-                10.0
-            )
-        );
-*/
-/*
-*/
-/*
-        // big bin
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.BIG_BIN,
-                    new BABYLON.Vector3( 45.0, 0.0, 10.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
-
         // office desk 3
         this.addWall(
             new bz.Wall

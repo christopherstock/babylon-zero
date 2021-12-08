@@ -268,9 +268,26 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.BIKE_SUZUKI,
-                    new BABYLON.Vector3( 70.0, 0.0, 30.0 ),
+                    position.add( new BABYLON.Vector3( 70.0, 0.0, 30.0 ) ),
                     bz.PhysicSet.SHELVES,
                     null
+                ),
+                10.0
+            )
+        );
+
+        // garage 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.GARAGE_1,
+                    position.add( new BABYLON.Vector3( 100.0, 0.0, 100.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    null,
+                    180.0
                 ),
                 10.0
             )
@@ -396,6 +413,22 @@ export class AECFactory
             bz.SettingResource.PATH_MODEL + 'object/wasteContainer_green.jpg'
         );
         stage.addWall( trashContainer );
+
+        // big bin
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.BIG_BIN,
+                    position.add( new BABYLON.Vector3( 45.0, 0.0, 10.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
     }
 
     public static addWarehouse(
