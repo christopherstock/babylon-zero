@@ -52,8 +52,6 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                // new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                // new bz.DoorData( 65.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [
                 new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
                 new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
@@ -165,7 +163,6 @@ export class AECFactory
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
                 new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                // new bz.DoorData( 32.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [
@@ -222,7 +219,7 @@ export class AECFactory
             meshFactory.createImportedModel
             (
                 bz.ModelFile.CAR_CAMARO,
-                position.addInPlaceFromFloats( 10.0, 0.0, 30.0 ),
+                position.add( new BABYLON.Vector3(10.0, 0.0, 30.0 ) ),
                 bz.PhysicSet.SHELVES,
                 bz.ModelCompoundType.NONE,
                 180.0
@@ -239,7 +236,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.CAR_OPEL_RECORD,
-                    position.addInPlaceFromFloats( 30.0, 0.0, 30.0 ),
+                    position.add( new BABYLON.Vector3(30.0, 0.0, 30.0 ) ),
                     bz.PhysicSet.SHELVES,
                     null
                 ),
@@ -255,7 +252,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.CAR_CADILLAC,
-                    position.addInPlaceFromFloats( 50.0, 0.0, 30.0 ),
+                    position.add( new BABYLON.Vector3(50.0, 0.0, 30.0 ) ),
                     bz.PhysicSet.SHELVES,
                     null
                 ),
@@ -318,6 +315,51 @@ export class AECFactory
             bz.TextureFile.WALL_ASPHALT_CRACKED,
             null
         );
+
+        // wooden fence
+        bz.WallFactory.createFence(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3(0.0, /* ( 5 * 8.5 ) */ 0.0, 0.0 ) ),
+            [ 1, 2, 3, 4, 5 ],
+            0.0
+        );
+
+        // 3d tree 1
+        const tree1:bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model(
+                meshFactory.genratedTree(
+                    position.add( new BABYLON.Vector3( -10.0, 0.0, 10.0 ) )
+                )
+            )
+        );
+        stage.addWall( tree1 );
+
+        // 3d tree 2
+        const tree2:bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model(
+                meshFactory.genratedTree(
+                    position.add( new BABYLON.Vector3( -10.0, 0.0, 20.0 ) )
+                )
+            )
+        );
+        stage.addWall( tree2 );
+
+        // 3d tree 3
+        const tree3:bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model(
+                meshFactory.genratedTree(
+                    position.add( new BABYLON.Vector3( -10.0, 0.0, 30.0 ) )
+                )
+            )
+        );
+        stage.addWall( tree3 );
     }
 
     public static addWarehouse(
@@ -348,8 +390,6 @@ export class AECFactory
             ], 0,
             bz.TextureFile.WALL_CONCRETE_NEW, [
                 new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-//                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                // new bz.DoorData( 32.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [], 0,
             bz.TextureFile.WALL_CONCRETE_NEW, [
             ], [
@@ -367,7 +407,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.PALLET_CEMENT_1,
-                    position.addInPlaceFromFloats( 15.0, 0.0, 10.0 ),
+                    position.add( new BABYLON.Vector3( 15.0, 0.0, 10.0 ) ),
                     bz.PhysicSet.SHELVES,
                     0.0
                 ),
@@ -383,7 +423,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.PALLET_CEMENT_2,
-                    position.addInPlaceFromFloats( 25.0, 0.0, 10.0 ),
+                    position.add( new BABYLON.Vector3( 25.0, 0.0, 10.0 ) ),
                     bz.PhysicSet.SHELVES,
                     0.0
                 ),
@@ -399,7 +439,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.PALLET_CEMENT_3,
-                    position.addInPlaceFromFloats( 10.0, 0.0, 25.0 ),
+                    position.add( new BABYLON.Vector3( 10.0, 0.0, 25.0 ) ),
                     bz.PhysicSet.SHELVES,
                     0.0
                 ),
@@ -415,7 +455,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.TRANSPALLET,
-                    position.addInPlaceFromFloats( -5.0, 0.0, -5.0 ),
+                    position.add( new BABYLON.Vector3(-5.0, 0.0, -5.0 ) ),
                     bz.PhysicSet.SHELVES,
                     45.0
                 ),

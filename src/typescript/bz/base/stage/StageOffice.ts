@@ -46,11 +46,19 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
+        // back yard
+        bz.AECFactory.addBackyard(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
         // parking lot
         bz.AECFactory.addParkingLot(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 2000.0, 0.0, 2000.0 ),
             0.0
         );
 
@@ -75,14 +83,6 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 1000.0, 0.0, 1000.0 ),
-            0.0
-        );
-
-        // back yard
-        bz.AECFactory.addBackyard(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 400.0, 0.0, 400.0 ),
             0.0
         );
 
@@ -255,14 +255,6 @@ if ( true ) return;
         );
 */
 /*
-        // wooden fence
-        bz.WallFactory.createFence(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( ( 5 * 8.5 ), 0.0, 0.0 ),
-            [ 1, 2, 3, 4, 5 ],
-            -90.0
-        );
 */
 /*
         // big bin
@@ -409,9 +401,6 @@ if ( true ) return;
             meshFactory,
             new BABYLON.Vector3( 10.0, bz.SettingGame.FLOOR_OFFSET_Y, 15.0 )
         );
-
-        // trees
-        if ( false ) this.addTrees3D( meshFactory );
 
         // parking space
         bz.StageFactory.addRoomWalls(
@@ -1173,74 +1162,6 @@ if ( true ) return;
                     0.5
                 ),
             ]
-        );
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates one 3D tree meshes using the SPS Generated tree helper.
-    *
-    *   @param meshFactory The MeshFactory instance.
-    *******************************************************************************************************************/
-    private addTrees3D( meshFactory :bz.MeshFactory ) :void
-    {
-        const tree1:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model(
-                meshFactory.genratedTree(
-                    new BABYLON.Vector3( 20.0, 0.0, 10.0 )
-                )
-            )
-        );
-        this.addWall( tree1 );
-
-        const tree2:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model(
-                meshFactory.genratedTree(
-                    new BABYLON.Vector3( 40.0, 0.0, 10.0 )
-                )
-            )
-        );
-        this.addWall( tree2 );
-
-        const tree3:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model(
-                meshFactory.genratedTree(
-                    new BABYLON.Vector3( 60.0, 0.0, 10.0 )
-                )
-            )
-        );
-        this.addWall( tree3 );
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates the ground walls for this stage.
-    *******************************************************************************************************************/
-    private addGroundWalls( meshFactory:bz.MeshFactory ) : void
-    {
-        // dam ( heightmap ground )
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    meshFactory.createHeightMapGround
-                    (
-                        new BABYLON.Vector3( -50.0, 0.0, 0.0 ),
-                        bz.MeshAnchor.CENTER_XYZ,
-                        1000.0,
-                        50.0,
-                        bz.TextureFile.HEIGHTMAP_HILLS,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                        bz.PhysicSet.NONE
-                    )
-                )
-            )
         );
     }
 }
