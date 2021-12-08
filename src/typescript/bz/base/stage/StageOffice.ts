@@ -56,11 +56,19 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // back yard
+        bz.StageFactory.addBackyard(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
         // hallway
         bz.StageFactory.addHallway(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
             0.0
         );
 
