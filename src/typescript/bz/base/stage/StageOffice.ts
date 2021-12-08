@@ -82,6 +82,20 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CEILING_1
         );
 
+        // point light in small office
+        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        (
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
+            new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
+            125.0,
+            1.25
+        );
+        this.addLight( pointLights );
+
+if ( true ) return;
+
         // small office - 1st floor
         bz.StageFactory.addRoomWalls(
             this,
@@ -121,18 +135,6 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
-
-        // point light in small office
-        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
-        (
-            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
-            125.0,
-            1.25
-        );
-        this.addLight( pointLights );
 
         const eventsSwitchStage :bz.Event[] = [
             new bz.Event(
