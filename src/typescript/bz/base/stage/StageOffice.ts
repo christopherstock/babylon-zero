@@ -46,11 +46,19 @@ export class StageOffice extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
+        // residental street
+        bz.AECFactory.addResidentalStreet(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
         // back yard
         bz.AECFactory.addBackyard(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
             0.0
         );
 
@@ -67,14 +75,6 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
-            0.0
-        );
-
-        // residental street
-        bz.AECFactory.addResidentalStreet(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
             0.0
         );
 
@@ -257,38 +257,6 @@ if ( true ) return;
                     null
                 ),
                 5.0
-            )
-        );
-
-        // gothic church
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.GOTHIC_CHURCH,
-                    new BABYLON.Vector3( 100.0, 0.0, 200.0 ),
-                    bz.PhysicSet.STATIC,
-                    bz.ModelCompoundType.NONE,
-                    180.0
-                )
-            )
-        );
-
-        // house 1 church
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.HOUSE_1,
-                    new BABYLON.Vector3( 50.0, 0.0, 130.0 ),
-                    bz.PhysicSet.STATIC,
-                    bz.ModelCompoundType.NONE,
-                    135.0
-                )
             )
         );
 */

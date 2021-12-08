@@ -917,7 +917,7 @@ export class MeshFactory
     *
     *   @return An SPS generated tree model.
     *******************************************************************************************************************/
-    public genratedTree(
+    public genrateTree(
         position    :BABYLON.Vector3,
         textureBark :bz.TextureFile  = bz.TextureFile.WALL_BARK,
         scaling     :BABYLON.Vector3 = new BABYLON.Vector3( 0.5, 0.5, 0.5 )

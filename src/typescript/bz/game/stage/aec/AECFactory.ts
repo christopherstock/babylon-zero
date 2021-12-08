@@ -13,7 +13,68 @@ export class AECFactory
     )
     : void
     {
+        bz.StageFactory.addRoomWalls(
+            stage,
+            meshFactory,
+            position,
+            new BABYLON.Vector3( 80.0, 7.5, 40.0 ),
+            rotY,
+            bz.TextureFile.WALL_WOOD_VERT_1, [], [
+            ], 0,
+            bz.TextureFile.WALL_WOOD_VERT_2, [], [
+            ], 0,
+            null, [
+            ], [], 0,
+            null, [
+            ], [
+            ], 0,
+            bz.TextureFile.WALL_PAVEMENT_MILANO,
+            null
+        );
 
+        // gothic church
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.GOTHIC_CHURCH,
+                    position.add( new BABYLON.Vector3( 50.0, 0.0, 100.0 ) ),
+                    bz.PhysicSet.STATIC,
+                    bz.ModelCompoundType.NONE,
+                    180.0
+                )
+            )
+        );
+
+        // house 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.HOUSE_1,
+                    position.add( new BABYLON.Vector3( 45.0, 0.0, 35.0 ) ),
+                    bz.PhysicSet.STATIC,
+                    90.0,
+                    135.0
+                )
+            )
+        );
+
+        // 3d tree 1
+        const tree1:bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model(
+                meshFactory.genrateTree(
+                    position.add( new BABYLON.Vector3( 10.0, 0.0, 30.0 ) )
+                )
+            )
+        );
+        stage.addWall( tree1 );
     }
 
     public static addSmallPark(
@@ -347,7 +408,7 @@ export class AECFactory
         (
             stage,
             new bz.Model(
-                meshFactory.genratedTree(
+                meshFactory.genrateTree(
                     position.add( new BABYLON.Vector3( -10.0, 0.0, 10.0 ) )
                 )
             )
@@ -359,7 +420,7 @@ export class AECFactory
         (
             stage,
             new bz.Model(
-                meshFactory.genratedTree(
+                meshFactory.genrateTree(
                     position.add( new BABYLON.Vector3( -10.0, 0.0, 20.0 ) )
                 )
             )
@@ -371,7 +432,7 @@ export class AECFactory
         (
             stage,
             new bz.Model(
-                meshFactory.genratedTree(
+                meshFactory.genrateTree(
                     position.add( new BABYLON.Vector3( -10.0, 0.0, 30.0 ) )
                 )
             )
