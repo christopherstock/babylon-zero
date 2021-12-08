@@ -45,6 +45,7 @@ export class Debug
     {
         if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
         {
+            /* eslint-disable no-console */
             console.log( '[' + bz.StringUtil.getDateTimeString() + '] ' + msg );
         }
     }
@@ -59,6 +60,7 @@ export class Debug
     {
         if ( bz.SettingDebug.DEBUG_MODE && this.debugEnabled )
         {
+            /* eslint-disable no-console */
             console.error( '[' + bz.StringUtil.getDateTimeString() + '] ' + msg );
         }
     }

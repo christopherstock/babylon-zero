@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+
+// noinspection JSUnusedGlobalSymbols
 
 import * as BABYLON from 'babylonjs'
 

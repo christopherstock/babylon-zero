@@ -11,6 +11,8 @@ export * from './game/stage/StageId';
 export * from './game/stage/WallFactory';
 
 export * from './game/stage/aec/AECFactory';
+export * from './game/stage/aec/DoorData';
+export * from './game/stage/aec/WindowData';
 
 export * from './base/setting/SettingAEC';
 export * from './base/setting/SettingColor';

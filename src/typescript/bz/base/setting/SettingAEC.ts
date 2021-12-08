@@ -23,8 +23,6 @@ export abstract class SettingAEC
     /** The default offset Y for room floors in order to keep distance to vertical wall endings. */
     public static readonly FLOOR_OFFSET_Y                           :number             = 0.01;
 
-    // TODO extract to SettingAEC
-
     /** Unified default window width for building constructions. */
     public static readonly WINDOW_WIDTH_DEFAULT                     :number             = 4.5;
     /** Unified wide window width for building constructions. */
