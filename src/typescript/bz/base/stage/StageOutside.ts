@@ -15,9 +15,9 @@ export class StageOutside extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 60.0, 0.0 )
         );
@@ -44,9 +44,9 @@ export class StageOutside extends bz.Stage
                 new bz.EventDataStageSwitch(
                     bz.StageId.OFFICE,
                     new BABYLON.Vector3(
-                        30.0 + ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                        30.0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                        ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                     ),
                     new BABYLON.Vector3( 0.0, 270.0, 0.0 )
                 )
@@ -70,7 +70,7 @@ export class StageOutside extends bz.Stage
         bz.StageFactory.addCratesPile(
             this,
             meshFactory,
-            new BABYLON.Vector3( 20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
+            new BABYLON.Vector3( 20.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0 )
         );
 
         // point light in small office

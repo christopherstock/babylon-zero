@@ -68,9 +68,9 @@ export class Door extends bz.Wall
                     position,
                     texture,
                     new BABYLON.Vector3(
-                        bz.SettingGame.DOOR_WIDTH,
-                        bz.SettingGame.DOOR_HEIGHT,
-                        bz.SettingGame.DOOR_DEPTH
+                        bz.SettingAEC.DOOR_WIDTH,
+                        bz.SettingAEC.DOOR_HEIGHT,
+                        bz.SettingAEC.DOOR_DEPTH
                     ),
                     bz.PhysicSet.STATIC,
                     1.0,
@@ -162,7 +162,7 @@ export class Door extends bz.Wall
         {
             case DoorState.OPENING:
             {
-                const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+                const tickDelta :number = ( bz.SettingAEC.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                 const rotDelta :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
 
                 switch ( this.animation )
@@ -217,7 +217,7 @@ export class Door extends bz.Wall
 
             case DoorState.CLOSING:
             {
-                const tickDelta :number = ( bz.SettingGame.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
+                const tickDelta :number = ( bz.SettingAEC.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
                 const rotDelta  :number = ( 90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS );
 
                 switch ( this.animation )
@@ -349,24 +349,24 @@ export class Door extends bz.Wall
             case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
             {
                 // door turns on left edge
-                this.doorTurnPoint.x -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                this.doorTurnPoint.z += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.x -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
                 break;
             }
             case bz.DoorAnimation.SWING_B_CLOCKWISE:
             case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
             {
                 // door turns on right edge
-                this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                this.doorTurnPoint.z -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.x += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
                 break;
             }
             case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
             case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
             {
                 // door turns on center behind door
-                this.doorTurnPoint.x += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                this.doorTurnPoint.z += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.x += bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z += bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
                 break;
             }
 
@@ -374,8 +374,8 @@ export class Door extends bz.Wall
             case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
             {
                 // door turns on center before door
-                this.doorTurnPoint.x -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
-                this.doorTurnPoint.z -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingGame.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.x -= bz.MathUtil.sinDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
+                this.doorTurnPoint.z -= bz.MathUtil.cosDegrees( this.doorRotY ) * ( bz.SettingAEC.DOOR_WIDTH / 2 );
                 break;
             }
         }

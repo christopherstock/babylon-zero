@@ -347,13 +347,10 @@ export class MouseSystem
 
         const nativeCanvas :HTMLCanvasElement = this.game.getEngine().getCanvasSystem().getNativeCanvas();
 
-        // eslint-disable-next-line @typescript-eslint/unbound-method
         nativeCanvas.requestPointerLock =
         (
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            nativeCanvas.requestPointerLock
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            || nativeCanvas.mozRequestPointerLock
+            (nativeCanvas as any ).requestPointerLock
+            || (nativeCanvas as any).mozRequestPointerLock
         );
         nativeCanvas.requestPointerLock();
     }

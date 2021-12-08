@@ -1,6 +1,3 @@
-/* eslint-disable max-len */
-
-// noinspection PointlessBooleanExpressionJS
 
 /** ********************************************************************************************************************
 *   Specifies all debug adjustments for the application.

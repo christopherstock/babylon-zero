@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import * as bz from '../..';
 
 /** ********************************************************************************************************************
@@ -64,7 +63,7 @@ export class WindowData
         position     :number,
         fullHeight   :boolean = false,
         nonBreakable :boolean = false,
-        width        :number  = bz.SettingGame.WINDOW_WIDTH_DEFAULT
+        width        :number  = bz.SettingAEC.WINDOW_WIDTH_DEFAULT
     )
     {
         this.position     = position;
@@ -91,13 +90,13 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 80.0, bz.SettingAEC.WALL_HEIGHT, bz.SettingAEC.HALLWAY_WIDTH ),
             rotY,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
-                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 52.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 66.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             null, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -107,10 +106,10 @@ export abstract class StageFactory
                 // new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
                 // new bz.DoorData( 65.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [
-                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 52.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 66.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             null, [
             ], [
@@ -131,13 +130,13 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 80.0, bz.SettingAEC.WALL_HEIGHT, 40.0 ),
             rotY,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
-                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 52.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 66.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -167,13 +166,13 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 58.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 58.0, bz.SettingAEC.WALL_HEIGHT, 40.0 ),
             rotY,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
-                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 30.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 44.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -203,13 +202,13 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 30.0, bz.SettingGame.WALL_HEIGHT, 20.0 ),
+            new BABYLON.Vector3( 30.0, bz.SettingAEC.WALL_HEIGHT, 20.0 ),
             rotY,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
-                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 30.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 44.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -245,10 +244,10 @@ export abstract class StageFactory
             new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
 
             ], [
-//                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-//                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 30.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 44.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+//                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+//                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -285,10 +284,10 @@ export abstract class StageFactory
             new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
 
             ], [
-//                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-//                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 30.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 44.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+//                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+//                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             null, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -319,16 +318,16 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 60.0, bz.SettingGame.WALL_HEIGHT, 60.0 ),
+            new BABYLON.Vector3( 60.0, bz.SettingAEC.WALL_HEIGHT, 60.0 ),
             rotY,
             bz.TextureFile.WALL_CONCRETE_NEW, [
             new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
 
             ], [
-//                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-//                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 30.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
-                // new bz.WindowData( 44.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+//                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+//                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             bz.TextureFile.WALL_CONCRETE_NEW, [], [
                 // new bz.WindowData( 6.5,  true, true ),
@@ -388,8 +387,8 @@ export abstract class StageFactory
 
         if ( textureWallA !== null )
         {
-            const diamondModX :number = diamondCornerA + ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
-            const diamondModSizeX :number = - diamondCornerA - ( diamondCornerA > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModX :number = diamondCornerA + ( diamondCornerA > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerA - ( diamondCornerA > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
             StageFactory.createWall(
                 roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
@@ -405,14 +404,14 @@ export abstract class StageFactory
 
             if ( diamondCornerA > 0 )
             {
-                const sizeCornerA :number = Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingGame.WALL_DEPTH, 2 ) );
+                const sizeCornerA :number = Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x,
                     sizeCornerA,
                     position.y,
                     size.y,
-                    ( position.z + diamondCornerA + bz.SettingGame.WALL_DEPTH ),
+                    ( position.z + diamondCornerA + bz.SettingAEC.WALL_DEPTH ),
                     45.0, // TODO replace with -315.0 for unification
                     textureWallA,
                     bz.TextureFile.WALL_GLASS_1
@@ -422,12 +421,12 @@ export abstract class StageFactory
 
         if ( textureWallB !== null )
         {
-            const diamondModX :number = diamondCornerB + ( diamondCornerB > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
-            const diamondModSizeX :number = - diamondCornerB - ( diamondCornerB > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModX :number = diamondCornerB + ( diamondCornerB > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerB - ( diamondCornerB > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
             StageFactory.createWall(
                 roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
-                position.x + size.x + bz.SettingGame.WALL_DEPTH,
+                position.x + size.x + bz.SettingAEC.WALL_DEPTH,
                 size.z + diamondModSizeX - diamondCornerC,
                 position.y,
                 size.y,
@@ -439,7 +438,7 @@ export abstract class StageFactory
 
             if ( diamondCornerB > 0 )
             {
-                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingGame.WALL_DEPTH, 2 ) );
+                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -447,7 +446,7 @@ export abstract class StageFactory
                     sizeCornerB,
                     position.y,
                     size.y,
-                    position.z, // ( position.z + diamondCornerB + 2 * bz.SettingGame.WALL_DEPTH ),
+                    position.z, // ( position.z + diamondCornerB + 2 * bz.SettingAEC.WALL_DEPTH ),
                     -45.0,
                     textureWallB,
                     bz.TextureFile.WALL_GLASS_1
@@ -457,16 +456,16 @@ export abstract class StageFactory
 
         if ( textureWallC !== null )
         {
-            const diamondModX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
-            const diamondModSizeX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
             StageFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
-                position.x + size.x + bz.SettingGame.WALL_DEPTH + diamondModX,
+                position.x + size.x + bz.SettingAEC.WALL_DEPTH + diamondModX,
                 size.x + diamondModSizeX - diamondCornerD,
                 position.y,
                 size.y,
-                position.z + size.z + bz.SettingGame.WALL_DEPTH,
+                position.z + size.z + bz.SettingAEC.WALL_DEPTH,
                 -180.0,
                 textureWallC,
                 bz.TextureFile.WALL_GLASS_1
@@ -474,11 +473,11 @@ export abstract class StageFactory
 
             if ( diamondCornerC > 0 )
             {
-                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingGame.WALL_DEPTH, 2 ) );
+                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
-                    position.x + size.x + bz.SettingGame.WALL_DEPTH,
+                    position.x + size.x + bz.SettingAEC.WALL_DEPTH,
                     sizeCornerC,
                     position.y,
                     size.y,
@@ -492,8 +491,8 @@ export abstract class StageFactory
 
         if ( textureWallD !== null )
         {
-            const diamondModX     :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
-            const diamondModSizeX :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingGame.WALL_DEPTH : 0 );
+            const diamondModX     :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
+            const diamondModSizeX :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
             StageFactory.createWall(
                 roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
@@ -501,7 +500,7 @@ export abstract class StageFactory
                 ( size.z - diamondCornerA + diamondModSizeX ),
                 position.y,
                 size.y,
-                position.z + size.z + bz.SettingGame.WALL_DEPTH + diamondModX,
+                position.z + size.z + bz.SettingAEC.WALL_DEPTH + diamondModX,
                 -270.0,
                 textureWallD,
                 bz.TextureFile.WALL_GLASS_1
@@ -509,15 +508,15 @@ export abstract class StageFactory
 
             if ( diamondCornerD > 0 )
             {
-                const sizeCornerD :number = Math.sqrt( 2 * Math.pow( diamondCornerD + bz.SettingGame.WALL_DEPTH, 2 ) );
+                const sizeCornerD :number = Math.sqrt( 2 * Math.pow( diamondCornerD + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
-                    position.x + diamondCornerD + bz.SettingGame.WALL_DEPTH,
+                    position.x + diamondCornerD + bz.SettingAEC.WALL_DEPTH,
                     sizeCornerD,
                     position.y,
                     size.y,
-                    position.z + size.z + bz.SettingGame.WALL_DEPTH,
+                    position.z + size.z + bz.SettingAEC.WALL_DEPTH,
                     -225.0,
                     textureWallD,
                     bz.TextureFile.WALL_GLASS_1
@@ -536,14 +535,14 @@ export abstract class StageFactory
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3(
-                            ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + size.y - bz.SettingGame.CEILING_HEIGHT - bz.SettingGame.CEILING_OFFSET_Y ),
-                            ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
+                            ( position.x + bz.SettingAEC.WALL_DEPTH / 2 ),
+                            ( position.y + size.y - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y ),
+                            ( position.z + bz.SettingAEC.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
                         new BABYLON.Vector3(
                             size.x,
-                            bz.SettingGame.CEILING_HEIGHT,
+                            bz.SettingAEC.CEILING_HEIGHT,
                             size.z
                         ),
                         bz.PhysicSet.STATIC,
@@ -567,9 +566,9 @@ export abstract class StageFactory
                     meshFactory.createPlane
                     (
                         new BABYLON.Vector3(
-                            ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                            position.y + bz.SettingGame.FLOOR_OFFSET_Y,
-                            ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                            ( position.x + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
+                            position.y + bz.SettingAEC.FLOOR_OFFSET_Y,
+                            ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                         ),
                         size.x,
                         size.z,
@@ -664,7 +663,7 @@ export abstract class StageFactory
     {
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
             20.0,
-            ( 2 * bz.SettingGame.WALL_HEIGHT ),
+            ( 2 * bz.SettingAEC.WALL_HEIGHT ),
             20.0
         );
         const QUARTER_HEIGHT :number          = ( STAIRCASE_SIZE.y / 4 );
@@ -687,14 +686,14 @@ export abstract class StageFactory
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3(
-                            ( position.x + bz.SettingGame.WALL_DEPTH / 2 ),
-                            ( position.y + STAIRCASE_SIZE.y - bz.SettingGame.CEILING_HEIGHT - bz.SettingGame.CEILING_OFFSET_Y ),
-                            ( position.z + bz.SettingGame.WALL_DEPTH / 2 )
+                            ( position.x + bz.SettingAEC.WALL_DEPTH / 2 ),
+                            ( position.y + STAIRCASE_SIZE.y - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y ),
+                            ( position.z + bz.SettingAEC.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,
                         new BABYLON.Vector3(
                             STAIRCASE_SIZE.x,
-                            bz.SettingGame.CEILING_HEIGHT,
+                            bz.SettingAEC.CEILING_HEIGHT,
                             STAIRCASE_SIZE.z
                         ),
                         bz.PhysicSet.STATIC,
@@ -715,9 +714,9 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        position.y + bz.SettingGame.FLOOR_OFFSET_Y,
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                        ( position.x + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
+                        position.y + bz.SettingAEC.FLOOR_OFFSET_Y,
+                        ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
                     STAIRCASE_SIZE.x,
                     STAIRCASE_SIZE.z,
@@ -738,9 +737,9 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
-                        ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                        ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
+                        ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                        ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
                     STAIRSTEP_SIZE,
                     STAIRCASE_SIZE.z,
@@ -761,9 +760,9 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.x + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
                         ( position.y + QUARTER_HEIGHT ),
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                        ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
                     STAIRSTEP_SIZE,
                     STAIRCASE_SIZE.z,
@@ -784,9 +783,9 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + STAIRSTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.x + STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
                         ( position.y + QUARTER_HEIGHT ),
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) )
+                        ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
                     STAIRS_SIZE,
                     ( STAIRCASE_SIZE.z / 2 ),
@@ -812,9 +811,9 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + STAIRSTEP_SIZE + ( bz.SettingGame.WALL_DEPTH / 2 ) ),
+                        ( position.x + STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
                         ( position.y + QUARTER_HEIGHT ),
-                        ( position.z + ( bz.SettingGame.WALL_DEPTH / 2 ) + ( STAIRCASE_SIZE.z / 2 ) )
+                        ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) + ( STAIRCASE_SIZE.z / 2 ) )
                     ),
                     STAIRS_SIZE,
                     ( STAIRCASE_SIZE.z / 2 ),
@@ -854,11 +853,11 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            position.x + STAIRCASE_SIZE.x, // + bz.SettingGame.WALL_DEPTH, // / 2 ),
+            position.x + STAIRCASE_SIZE.x, // + bz.SettingAEC.WALL_DEPTH, // / 2 ),
             STAIRCASE_SIZE.x,
             position.y,
             STAIRCASE_SIZE.y,
-            position.z + bz.SettingGame.WALL_DEPTH,
+            position.z + bz.SettingAEC.WALL_DEPTH,
             -180.0,
             textureWalls
         );
@@ -870,11 +869,11 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            position.x + bz.SettingGame.WALL_DEPTH,
+            position.x + bz.SettingAEC.WALL_DEPTH,
             STAIRCASE_SIZE.x,
             position.y,
             STAIRCASE_SIZE.y,
-            position.z + bz.SettingGame.WALL_DEPTH,
+            position.z + bz.SettingAEC.WALL_DEPTH,
             -90.0,
             textureWalls
         );
@@ -886,11 +885,11 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            position.x + bz.SettingGame.WALL_DEPTH, // + STAIRCASE_SIZE.x, // + bz.SettingGame.WALL_DEPTH, // / 2 ),
-            STAIRCASE_SIZE.x - bz.SettingGame.WALL_DEPTH,
+            position.x + bz.SettingAEC.WALL_DEPTH, // + STAIRCASE_SIZE.x, // + bz.SettingAEC.WALL_DEPTH, // / 2 ),
+            STAIRCASE_SIZE.x - bz.SettingAEC.WALL_DEPTH,
             position.y,
             STAIRCASE_SIZE.y,
-            position.z + STAIRCASE_SIZE.z, // + STAIRCASE_SIZE.z + bz.SettingGame.WALL_DEPTH,
+            position.z + STAIRCASE_SIZE.z, // + STAIRCASE_SIZE.z + bz.SettingAEC.WALL_DEPTH,
             0.0,
             textureWalls
         );
@@ -940,7 +939,7 @@ export abstract class StageFactory
                 continue;
             }
             busyWalls.push(
-                new BABYLON.Vector2( start + doorData.position, start + doorData.position + bz.SettingGame.DOOR_WIDTH )
+                new BABYLON.Vector2( start + doorData.position, start + doorData.position + bz.SettingAEC.DOOR_WIDTH )
             );
         }
 
@@ -996,7 +995,7 @@ export abstract class StageFactory
                 continue;
             }
 
-            if ( sizeY < bz.SettingGame.DOOR_HEIGHT + bz.SettingGame.DOOR_FRAME_HEIGHT )
+            if ( sizeY < bz.SettingAEC.DOOR_HEIGHT + bz.SettingAEC.DOOR_FRAME_HEIGHT )
             {
                 // skip door frame drawing
             }
@@ -1012,14 +1011,14 @@ export abstract class StageFactory
                         (
                             new BABYLON.Vector3(
                                 x + doorData.position,
-                                y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT,
+                                y + sizeY - bz.SettingAEC.DOOR_FRAME_HEIGHT,
                                 z
                             ),
                             textureWall,
                             new BABYLON.Vector3(
-                                bz.SettingGame.DOOR_WIDTH,
-                                bz.SettingGame.DOOR_FRAME_HEIGHT,
-                                bz.SettingGame.WALL_DEPTH
+                                bz.SettingAEC.DOOR_WIDTH,
+                                bz.SettingAEC.DOOR_FRAME_HEIGHT,
+                                bz.SettingAEC.WALL_DEPTH
                             ),
                             bz.PhysicSet.STATIC,
                             1.0,
@@ -1034,8 +1033,8 @@ export abstract class StageFactory
             if ( !doorData.noBody )
             {
                 const doorPosition2D :BABYLON.Vector2 = new BABYLON.Vector2(
-                    x + ( doorData.position + bz.SettingGame.DOOR_WIDTH / 2 ),
-                    z + ( bz.SettingGame.WALL_DEPTH / 2 )
+                    x + ( doorData.position + bz.SettingAEC.DOOR_WIDTH / 2 ),
+                    z + ( bz.SettingAEC.WALL_DEPTH / 2 )
                 );
                 const doorPosition :BABYLON.Vector3 = new BABYLON.Vector3(
                     doorPosition2D.x,
@@ -1085,9 +1084,9 @@ export abstract class StageFactory
             }
 
             // calculate window dimensions
-            let windowHeight            :number = bz.SettingGame.WINDOW_HEIGHT;
-            let windowTopFrameHeight    :number = bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT;
-            let windowBottomFrameHeight :number = bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT;
+            let windowHeight            :number = bz.SettingAEC.WINDOW_HEIGHT;
+            let windowTopFrameHeight    :number = bz.SettingAEC.WINDOW_TOP_FRAME_HEIGHT;
+            let windowBottomFrameHeight :number = bz.SettingAEC.WINDOW_BOTTOM_FRAME_HEIGHT;
             if ( windowData.fullHeight )
             {
                 windowHeight            = sizeY;
@@ -1119,7 +1118,7 @@ export abstract class StageFactory
                             new BABYLON.Vector3(
                                 windowData.width,
                                 windowTopFrameHeight,
-                                bz.SettingGame.WALL_DEPTH
+                                bz.SettingAEC.WALL_DEPTH
                             ),
                             bz.PhysicSet.STATIC,
                             1.0,
@@ -1147,7 +1146,7 @@ export abstract class StageFactory
                         new BABYLON.Vector3(
                             windowData.width,
                             windowHeight,
-                            bz.SettingGame.WALL_DEPTH
+                            bz.SettingAEC.WALL_DEPTH
                         ),
                         bz.PhysicSet.STATIC,
                         0.25,
@@ -1188,7 +1187,7 @@ export abstract class StageFactory
                             new BABYLON.Vector3(
                                 windowData.width,
                                 windowBottomFrameHeight,
-                                bz.SettingGame.WALL_DEPTH
+                                bz.SettingAEC.WALL_DEPTH
                             ),
                             bz.PhysicSet.STATIC,
                             1.0,
@@ -1225,7 +1224,7 @@ export abstract class StageFactory
                         new BABYLON.Vector3(
                             width,
                             sizeY,
-                            bz.SettingGame.WALL_DEPTH
+                            bz.SettingAEC.WALL_DEPTH
                         ),
                         bz.PhysicSet.STATIC,
                         1.0,

@@ -26,16 +26,14 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
             new bz.Inventory( 0 )
         );
     }
-
-    /* eslint-disable max-len */
 
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -122,8 +120,8 @@ if ( true ) return;
         bz.StageFactory.addRoomWalls(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, bz.SettingGame.WALL_HEIGHT, 0.0 ),
-            new BABYLON.Vector3( 60.0, bz.SettingGame.WALL_HEIGHT, 30.0 ),
+            new BABYLON.Vector3( 0.0, bz.SettingAEC.WALL_HEIGHT, 0.0 ),
+            new BABYLON.Vector3( 60.0, bz.SettingAEC.WALL_HEIGHT, 30.0 ),
             0.0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [], 0,
@@ -167,9 +165,9 @@ if ( true ) return;
                 new bz.EventDataStageSwitch(
                     bz.StageId.OUTSIDE,
                     new BABYLON.Vector3(
-                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
-                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingGame.FLOOR_OFFSET_Y,
-                        ( bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                        ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                        ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                     ),
                     new BABYLON.Vector3( 0.0, 60.0, 0.0 )
                 )
@@ -203,11 +201,11 @@ if ( true ) return;
         const magicDoor2:bz.Door = new bz.Door
         (
             this,
-            new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
+            new BABYLON.Vector3( 20.0 + bz.SettingAEC.DOOR_WIDTH, 0.0, 20.0 ),
             0.0,
             bz.DoorAnimation.SWING_B_CLOCKWISE,
             eventsSwitchStage,
-            new BABYLON.Vector3( 20.0 + bz.SettingGame.DOOR_WIDTH, 0.0, 20.0 ),
+            new BABYLON.Vector3( 20.0 + bz.SettingAEC.DOOR_WIDTH, 0.0, 20.0 ),
             bz.TextureFile.WALL_DOOR_INDUSTRIAL,
             true
         );
@@ -839,13 +837,13 @@ if ( true ) return;
                         0,
                         this,
                         bz.BotType.TEST_WALKING_DUDE,
-                        new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
+                        new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
                     ),
                     new bz.Bot(
                         0,
                         this,
                         bz.BotType.TEST_WALK_TOWARDS_PLAYER,
-                        new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 70.0 )
+                        new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
                     ),
                 ]
             );
@@ -953,7 +951,7 @@ if ( true ) return;
                     new bz.Event(
                         bz.EventType.CAST_EXPLOSION,
                         new bz.EventDataCastExplosion(
-                            new BABYLON.Vector3( 20.5, bz.SettingGame.FLOOR_OFFSET_Y, 20.5 ),
+                            new BABYLON.Vector3( 20.5, bz.SettingAEC.FLOOR_OFFSET_Y, 20.5 ),
                             12.5,
                             25.0
                         )
