@@ -360,6 +360,42 @@ export class AECFactory
             )
         );
         stage.addWall( tree3 );
+
+        // trash container blue
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.WASTE_CONTAINER,
+                    position.add( new BABYLON.Vector3( 20.0, 0.0, 15.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    null
+                ),
+                10.0
+            )
+        );
+
+        // trash container green
+        const trashContainer :bz.Wall = new bz.Wall
+        (
+            stage,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.WASTE_CONTAINER,
+                position.add( new BABYLON.Vector3( 35.0, 0.0, 15.0 ) ),
+                bz.PhysicSet.SHELVES,
+                null
+            ),
+            10.0
+        );
+        trashContainer.getModel().changeTexture(
+            stage.getScene(),
+            bz.SettingResource.PATH_MODEL + 'object/wasteContainer_blue.jpg',
+            bz.SettingResource.PATH_MODEL + 'object/wasteContainer_green.jpg'
+        );
+        stage.addWall( trashContainer );
     }
 
     public static addWarehouse(
