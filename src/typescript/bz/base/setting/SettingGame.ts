@@ -30,8 +30,10 @@ export abstract class SettingGame
     /** The default offset Y for room floors in order to keep distance to vertical wall endings. */
     public static readonly FLOOR_OFFSET_Y                           :number             = 0.01;
 
-    /** Unified window width for building constructions. */
-    public static readonly WINDOW_WIDTH                             :number             = 4.5;
+    /** Unified default window width for building constructions. */
+    public static readonly WINDOW_WIDTH_DEFAULT                     :number             = 4.5;
+    /** Unified wide window width for building constructions. */
+    public static readonly WINDOW_WIDTH_WIDE                        :number             = 12.0;
     /** Unified window height for building constructions. */
     public static readonly WINDOW_HEIGHT                            :number             = 4.5;
     /** Unified door frame height for building constructions. */

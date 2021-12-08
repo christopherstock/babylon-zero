@@ -56,7 +56,12 @@ export class WindowData
     *   @param nonBreakable If the glass is bullet proof and won't break.
     *   @param width        The width of this window.
     *******************************************************************************************************************/
-    public constructor( position:number, fullHeight:boolean = false, nonBreakable:boolean = false, width:number = bz.SettingGame.WINDOW_WIDTH )
+    public constructor(
+        position     :number,
+        fullHeight   :boolean = false,
+        nonBreakable :boolean = false,
+        width        :number  = bz.SettingGame.WINDOW_WIDTH_DEFAULT
+    )
     {
         this.position     = position;
         this.fullHeight   = fullHeight;
@@ -81,18 +86,21 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 70.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 58.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
             rotY,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
-                new bz.WindowData( 2.0,  false, false ),
+                new bz.WindowData( 2.0,  false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 16.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 30.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 44.0, false, false, bz.SettingGame.WINDOW_WIDTH_WIDE ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 25.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                new bz.DoorData( 40.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData( 21.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
+                new bz.DoorData( 32.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [
@@ -669,33 +677,33 @@ export abstract class StageFactory
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
     private static calculateBlankWalls(
-        start:number,
-        size:number,
-        windows:bz.WindowData[],
-        doors:bz.DoorData[]
+        start       :number,
+        size        :number,
+        windowsData :bz.WindowData[],
+        doorsData   :bz.DoorData[]
     )
     : number[]
     {
         // collect all busy walls
         let busyWalls :BABYLON.Vector2[] = [];
-        for ( const window of windows )
+        for ( const windowData of windowsData )
         {
-            if ( start + window.position >= start + size )
+            if ( start + windowData.position >= start + size )
             {
                 continue;
             }
             busyWalls.push(
-                new BABYLON.Vector2( start + window.position, start + window.position + bz.SettingGame.WINDOW_WIDTH )
+                new BABYLON.Vector2( start + windowData.position, start + windowData.position + windowData.width )
             );
         }
-        for ( const door of doors )
+        for ( const doorData of doorsData )
         {
-            if ( start + door.position >= start + size )
+            if ( start + doorData.position >= start + size )
             {
                 continue;
             }
             busyWalls.push(
-                new BABYLON.Vector2( start + door.position, start + door.position + bz.SettingGame.DOOR_WIDTH )
+                new BABYLON.Vector2( start + doorData.position, start + doorData.position + bz.SettingGame.DOOR_WIDTH )
             );
         }
 
@@ -832,9 +840,9 @@ export abstract class StageFactory
         }
 
         // window frames
-        for ( const windowPos of windowsData )
+        for ( const windowData of windowsData )
         {
-            if ( windowPos.position >= sizeX )
+            if ( windowData.position >= sizeX )
             {
                 continue;
             }
@@ -843,7 +851,7 @@ export abstract class StageFactory
             let windowHeight            :number = bz.SettingGame.WINDOW_HEIGHT;
             let windowTopFrameHeight    :number = bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT;
             let windowBottomFrameHeight :number = bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT;
-            if ( windowPos.fullHeight )
+            if ( windowData.fullHeight )
             {
                 windowHeight            = sizeY;
                 windowTopFrameHeight    = 0.0;
@@ -866,13 +874,13 @@ export abstract class StageFactory
                         meshFactory.createBox
                         (
                             new BABYLON.Vector3(
-                                x + windowPos.position,
+                                x + windowData.position,
                                 y + sizeY - windowTopFrameHeight,
                                 z
                             ),
                             textureWall,
                             new BABYLON.Vector3(
-                                bz.SettingGame.WINDOW_WIDTH,
+                                windowData.width,
                                 windowTopFrameHeight,
                                 bz.SettingGame.WALL_DEPTH
                             ),
@@ -894,13 +902,13 @@ export abstract class StageFactory
                     meshFactory.createBox
                     (
                         new BABYLON.Vector3(
-                            x + windowPos.position,
+                            x + windowData.position,
                             y + sizeY - windowTopFrameHeight - windowHeight,
                             z
                         ),
                         textureGlass,
                         new BABYLON.Vector3(
-                            bz.SettingGame.WINDOW_WIDTH,
+                            windowData.width,
                             windowHeight,
                             bz.SettingGame.WALL_DEPTH
                         ),
@@ -909,7 +917,7 @@ export abstract class StageFactory
                         bz.MeshAnchor.LOWEST_XYZ
                     )
                 ),
-                windowPos.nonBreakable
+                windowData.nonBreakable
                     ? bz.GameObject.UNBREAKABLE
                     : bz.MathUtil.getRandomInt( bz.SettingGame.WINDOW_MIN_ENERGY, bz.SettingGame.WINDOW_MAX_ENERGY ),
                 false,
@@ -938,10 +946,10 @@ export abstract class StageFactory
                     (
                         meshFactory.createBox
                         (
-                            new BABYLON.Vector3( x + windowPos.position, y, z ),
+                            new BABYLON.Vector3( x + windowData.position, y, z ),
                             textureWall,
                             new BABYLON.Vector3(
-                                bz.SettingGame.WINDOW_WIDTH,
+                                windowData.width,
                                 windowBottomFrameHeight,
                                 bz.SettingGame.WALL_DEPTH
                             ),
