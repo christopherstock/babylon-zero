@@ -158,6 +158,8 @@ export abstract class MathUtil
     *   @param to   Destination point.
     *
     *   @return The angle between the source and destination point. From 0 to 360.
+    *
+    *   TODO refactor! extract main method x1,y1,x2,y2
     *******************************************************************************************************************/
     public static angleBetweenPointsXZ( from:BABYLON.Vector3, to:BABYLON.Vector3 ) : number
     {

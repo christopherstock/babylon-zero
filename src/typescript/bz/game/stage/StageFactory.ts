@@ -273,6 +273,7 @@ export abstract class StageFactory
     )
     : void
     {
+        // TODO refactor!
         const SIZE_X :number = 60.0;
 
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
@@ -291,8 +292,19 @@ export abstract class StageFactory
         const STAIRS_SIZE    :number = SIZE_X - 2 * STAIRSTEP_SIZE; // 1.0; // 11.18;
         const STAIR_ANGLE    :number = 0.0; // 45.0; // 26.6;
 
+        const LOWER_STAIRS_X1 :number = ( position.x + STAIRSTEP_SIZE );
+        const LOWER_STAIRS_X2 :number = ( position.x + SIZE_X - 2 * STAIRSTEP_SIZE );
+        const LOWER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
+        const LOWER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT );
 
-
+        const LOWER_STAIRS_ANGLE  :number = bz.MathUtil.angleBetweenPointsXZ(
+            new BABYLON.Vector3( LOWER_STAIRS_X1, 0.0, LOWER_STAIRS_Y1 ),
+            new BABYLON.Vector3( LOWER_STAIRS_X2, 0.0, LOWER_STAIRS_Y2 )
+        );
+        const LOWER_STAIRS_LENGTH :number = BABYLON.Vector3.Distance(
+            new BABYLON.Vector3( LOWER_STAIRS_X1, 0.0, LOWER_STAIRS_Y1 ),
+            new BABYLON.Vector3( LOWER_STAIRS_X2, 0.0, LOWER_STAIRS_Y2 )
+        );
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
@@ -405,11 +417,11 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
-                        ( position.y + QUARTER_HEIGHT ),
+                        LOWER_STAIRS_X1,
+                        LOWER_STAIRS_Y1,
                         ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
-                    STAIRS_SIZE,
+                    LOWER_STAIRS_LENGTH,
                     ( STAIRCASE_SIZE.z / 2 ),
                     bz.TextureFile.WALL_STAIRS_1,
                     null,
@@ -418,9 +430,9 @@ export abstract class StageFactory
             )
         )
         lowerStairs.getModel().rotateAroundAxisZ(
-            ( position.x + STAIRSTEP_SIZE ),
-            ( position.y + QUARTER_HEIGHT ),
-            -STAIR_ANGLE
+            ( LOWER_STAIRS_X1 ),
+            ( LOWER_STAIRS_Y1 ),
+            -LOWER_STAIRS_ANGLE
         );
         roomWalls.push( lowerStairs );
 
