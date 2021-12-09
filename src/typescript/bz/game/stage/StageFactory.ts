@@ -262,20 +262,21 @@ export abstract class StageFactory
     *   Creates one staircase.
     *******************************************************************************************************************/
     public static addStaircase(
-        stage          :bz.Stage,
-        meshFactory    :bz.MeshFactory,
-        position       :BABYLON.Vector3,
-        rotY           :number,
+        stage              :bz.Stage,
+        meshFactory        :bz.MeshFactory,
+        position           :BABYLON.Vector3,
+        rotY               :number,
 
-        textureWalls   :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
-        textureFloor   :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
-        textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1,
+        textureWalls       :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
+        textureFloor       :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
+        textureCeiling     :bz.TextureFile = bz.TextureFile.WALL_CEILING_1,
 
-        sizeX          :number = 20.0,
-        sizeY          :number = ( 2 * bz.SettingAEC.WALL_HEIGHT ),
-        sizeZ          :number = 20.0,
+        sizeX              :number = 20.0,
+        sizeY              :number = ( 2 * bz.SettingAEC.WALL_HEIGHT ),
+        sizeZ              :number = 20.0,
 
-        stairstepSize  :number = 5.0
+        stairstepFrontSize :number = 5.0,
+        stairstepRearSize  :number = 5.0
     )
     : void
     {
@@ -290,13 +291,13 @@ export abstract class StageFactory
         const QUARTER_HEIGHT :number = ( STAIRCASE_SIZE.y / 4 );
 
         // calculate stairs angle and stairs size according to dimensions X and Y
-        const LOWER_STAIRS_X1 :number = ( position.x + stairstepSize );
-        const LOWER_STAIRS_X2 :number = ( position.x + STAIRCASE_SIZE.x - stairstepSize );
+        const LOWER_STAIRS_X1 :number = ( position.x + stairstepRearSize );
+        const LOWER_STAIRS_X2 :number = ( position.x + STAIRCASE_SIZE.x - stairstepFrontSize );
         const LOWER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
         const LOWER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT_ISWALL );
 
-        const UPPER_STAIRS_X1 :number = ( position.x + stairstepSize );
-        const UPPER_STAIRS_X2 :number = ( position.x + STAIRCASE_SIZE.x - stairstepSize );
+        const UPPER_STAIRS_X1 :number = ( position.x + stairstepRearSize );
+        const UPPER_STAIRS_X2 :number = ( position.x + STAIRCASE_SIZE.x - stairstepFrontSize );
         const UPPER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
         const UPPER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT_ISWALL );
 
@@ -375,27 +376,30 @@ export abstract class StageFactory
         roomWalls.push( lowerFloor );
 
         // upper floor
-        const upperFloor :bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
+        if ( stairstepFrontSize > 0.0 )
+        {
+            const upperFloor :bz.Wall = new bz.Wall
             (
-                meshFactory.createPlane
+                stage,
+                new bz.Model
                 (
-                    new BABYLON.Vector3(
-                        ( position.x + STAIRCASE_SIZE.x - stairstepSize ), // + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
-                        ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingAEC.FLOOR_OFFSET_Y,
-                        ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
-                    ),
-                    stairstepSize + ( bz.SettingAEC.WALL_DEPTH / 2 ),
-                    STAIRCASE_SIZE.z,
-                    textureFloor,
-                    null,
-                    bz.PhysicSet.STATIC
+                    meshFactory.createPlane
+                    (
+                        new BABYLON.Vector3(
+                            ( position.x + STAIRCASE_SIZE.x - stairstepFrontSize ),
+                            ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                            ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
+                        ),
+                        stairstepFrontSize + ( bz.SettingAEC.WALL_DEPTH / 2 ),
+                        STAIRCASE_SIZE.z,
+                        textureFloor,
+                        null,
+                        bz.PhysicSet.STATIC
+                    )
                 )
             )
-        )
-        roomWalls.push( upperFloor );
+            roomWalls.push( upperFloor );
+        }
 
         // mid floor
         const midFloor :bz.Wall = new bz.Wall
@@ -410,7 +414,7 @@ export abstract class StageFactory
                         ( position.y + QUARTER_HEIGHT ),
                         ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
-                    stairstepSize,
+                    stairstepRearSize,
                     STAIRCASE_SIZE.z,
                     textureFloor,
                     null,
@@ -483,8 +487,8 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            position.x + stairstepSize,
-            STAIRCASE_SIZE.x - ( 2 * stairstepSize ),
+            position.x + stairstepRearSize,
+            STAIRCASE_SIZE.x - stairstepFrontSize - stairstepRearSize,
             position.y,
             STAIRCASE_SIZE.y,
             position.z + ( STAIRCASE_SIZE.z / 2 ),
@@ -547,7 +551,7 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            ( position.x + STAIRCASE_SIZE.x - stairstepSize ),
+            ( position.x + STAIRCASE_SIZE.x - stairstepFrontSize ),
             ( STAIRCASE_SIZE.z / 2 ),
             position.y,
             HALF_HEIGHT_ISWALL,
@@ -563,7 +567,7 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            ( position.x + STAIRCASE_SIZE.x - stairstepSize ),
+            ( position.x + STAIRCASE_SIZE.x - stairstepFrontSize ),
             ( STAIRCASE_SIZE.z / 2 ) - bz.SettingAEC.WALL_DEPTH,
             ( position.y + HALF_HEIGHT_ISWALL ),
             ( bz.SettingAEC.WALL_HEIGHT / 2 ),
