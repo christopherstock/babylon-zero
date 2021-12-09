@@ -973,11 +973,15 @@ export abstract class Stage
             {
                 const data :bz.EventDataToggleLight = ( event.data as bz.EventDataToggleLight );
 
-                // toggle native enabled state
-                const newState :boolean = ( !data.light.isEnabled() );
-                data.light.setEnabled( newState );
+                // browse all lights
+                for ( const light of data.lights )
+                {
+                    // toggle native enabled state
+                    const newState :boolean = ( !light.isEnabled() );
+                    light.setEnabled( newState );
 
-                bz.Debug.event.log( 'Toggle light to enabled: ' + String( newState ) + '.' );
+                    bz.Debug.event.log( 'Toggle light to enabled: ' + String( newState ) + '.' );
+                }
 
                 return true;
             }

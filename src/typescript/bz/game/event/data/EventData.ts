@@ -174,17 +174,17 @@ export class EventDataGainPainkillers extends EventData
 ***********************************************************************************************************************/
 export class EventDataToggleLight extends EventData
 {
-    public light :BABYLON.Light;
+    public lights :BABYLON.Light[];
 
     /** ****************************************************************************************************************
     *   Creates the data for the event 'Toggle light'.
     *
-    *   @param light The light to toggle.
+    *   @param lights The light to toggle.
     *******************************************************************************************************************/
-    public constructor( light:BABYLON.Light )
+    public constructor( lights:BABYLON.Light[] )
     {
         super();
 
-        this.light = light;
+        this.lights = lights;
     }
 }

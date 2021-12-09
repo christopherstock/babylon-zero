@@ -50,21 +50,30 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
+        // large office
+        bz.AECFactory.addLargeOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0,
+            pointLights
+        );
+
+        if ( true ) return;
+
         // small park
         bz.AECFactory.addSmallPark(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
             0.0
         );
-
-        if ( true ) return;
 
         // medium office
         bz.AECFactory.addMediumOffice(
             this,
             meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
             0.0
         );
 
@@ -115,14 +124,6 @@ export class StageOffice extends bz.Stage
         // TODO addOfficeKitchen?
 
         // TODO addKickerLounge?
-
-        // large office
-        bz.AECFactory.addLargeOffice(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
-            0.0
-        );
 
         // small office
         bz.AECFactory.addSmallOffice(
@@ -188,9 +189,23 @@ export class StageOffice extends bz.Stage
 
 if ( true ) return;
 
-        this.addFurniture( meshFactory );
-        // this.addStuffWalls(  meshFactory, pointLight );
-        // this.addTreeSprites( meshFactory );
+        this.addTreeSprites( meshFactory );
+
+        // sewerage pumping
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SEWERAGE_PUMPING,
+                    new BABYLON.Vector3( 50.0, 0.0, 200.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
 /*
         // add some items
         this.addCollectable(
@@ -403,106 +418,6 @@ if ( true ) return;
                 ]
             );
         }
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds all chairs to this stage.
-    *
-    *   @param meshFactory The MeshFactory instance.
-    *******************************************************************************************************************/
-    private addFurniture( meshFactory:bz.MeshFactory ) : void
-    {
-        // ground walls
-        // this.addGroundWalls( meshFactory );
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds all stuff walls to this stage.
-    *
-    *   @param meshFactory The MeshFactory instance.
-    *   @param pointLight  One point light from this stage. Will be toggled inside a wall (tv) interaction event.
-    *******************************************************************************************************************/
-    private addStuffWalls( meshFactory:bz.MeshFactory, pointLight:BABYLON.Light ) : void
-    {
-        // tv (65 inch)
-        const tv:bz.Wall = new bz.Wall
-        (
-            this,
-            new bz.Model
-            (
-                meshFactory.createBox
-                (
-                    new BABYLON.Vector3( 17.0, 5.0, 39.5 ),
-                    bz.TextureFile.VIDEO_TEST,
-                    new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
-                    bz.PhysicSet.SHELVES,
-                    1.0,
-                    bz.MeshAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                )
-            ),
-            bz.GameObject.UNBREAKABLE,
-            false,
-            false,
-            [
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'Nothing on the television today' )
-                ),
-                new bz.Event(
-                    bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( ( 2 * 60 ) )
-                ),
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'DELAYED: I will turn the lights off :)' )
-                ),
-                new bz.Event(
-                    bz.EventType.TOGGLE_LIGHT,
-                    new bz.EventDataToggleLight( pointLight )
-                ),
-            ],
-            bz.InteractionType.REPEATED
-        );
-
-        this.addWall( tv );
-
-        // solid white sphere
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                new bz.Model
-                (
-                    meshFactory.createSphere
-                    (
-                        new BABYLON.Vector3( 10.5, 1.5, 30.0 ),
-                        bz.MeshAnchor.CENTER_XYZ,
-                        3.0,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                        bz.TextureFile.MODEL_WOOD_HORZ,
-                        null,
-                        bz.PhysicSet.WHITE_TEST_SPHERE
-                    )
-                )
-            )
-        );
-
-        // sewerage pumping
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SEWERAGE_PUMPING,
-                    new BABYLON.Vector3( 50.0, 0.0, 200.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
     }
 
     /** ****************************************************************************************************************
