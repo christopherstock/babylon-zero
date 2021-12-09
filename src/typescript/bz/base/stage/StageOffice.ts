@@ -22,7 +22,7 @@ export class StageOffice extends bz.Stage
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
                 ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
-            new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
+            new BABYLON.Vector3( 0.0, 45.0 + 180.0, 0.0 ),
             new bz.Inventory( 0 )
         );
     }

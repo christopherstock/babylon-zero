@@ -284,8 +284,15 @@ export abstract class StageFactory
         const QUARTER_HEIGHT :number = ( STAIRCASE_SIZE.y / 4 );
 
         const STAIRSTEP_SIZE :number = 5.0;
-        const STAIRS_SIZE    :number = 11.18;
-        const STAIR_ANGLE    :number = 26.6;
+
+
+        // calculate stairs angle and stairs size according to dimensions X and Y
+
+        const STAIRS_SIZE    :number = SIZE_X - 2 * STAIRSTEP_SIZE; // 1.0; // 11.18;
+        const STAIR_ANGLE    :number = 0.0; // 45.0; // 26.6;
+
+
+
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
@@ -485,7 +492,7 @@ export abstract class StageFactory
             stage,
             meshFactory,
             position.x + bz.SettingAEC.WALL_DEPTH,
-            STAIRCASE_SIZE.x,
+            STAIRCASE_SIZE.z,
             position.y,
             STAIRCASE_SIZE.y,
             position.z + bz.SettingAEC.WALL_DEPTH,
@@ -517,7 +524,7 @@ export abstract class StageFactory
             stage,
             meshFactory,
             ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ),
-            ( STAIRCASE_SIZE.x / 2 ),
+            ( STAIRCASE_SIZE.z / 2 ),
             position.y,
             HALF_HEIGHT,
             position.z + bz.SettingAEC.WALL_DEPTH + ( STAIRCASE_SIZE.z / 2 ),
@@ -533,10 +540,10 @@ export abstract class StageFactory
             stage,
             meshFactory,
             ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ),
-            ( STAIRCASE_SIZE.x / 2 ) - bz.SettingAEC.WALL_DEPTH,
+            ( STAIRCASE_SIZE.z / 2 ) - bz.SettingAEC.WALL_DEPTH,
             ( position.y + HALF_HEIGHT ),
             QUARTER_HEIGHT,
-            position.z + bz.SettingAEC.WALL_DEPTH, // + ( STAIRCASE_SIZE.z / 2 ),
+            position.z + bz.SettingAEC.WALL_DEPTH,
             -90.0,
             textureWalls
         );
