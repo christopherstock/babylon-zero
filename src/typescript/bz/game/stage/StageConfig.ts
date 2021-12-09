@@ -20,28 +20,28 @@ export class StageConfig
     /** ****************************************************************************************************************
     *   Creates a stage config.
     *
-    *   @param ambientColor     The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
-    *   @param sceneBgColor     The background color of the babylon.JS scene.
-    *   @param initialCamera    The initial camera for this stage.
-    *   @param startupPosition  The player startup position.
-    *   @param startupRotation  The player startup rotation.
-    *   @param startupInventory The player startup inventory.
+    *   @param ambientColor   The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
+    *   @param sceneBgColor   The background color of the babylon.JS scene.
+    *   @param initialCamera  The initial camera for this stage.
+    *   @param startPosition  The player startup position.
+    *   @param startRotation  The player startup rotation.
+    *   @param startInventory The player startup inventory.
     *******************************************************************************************************************/
     public constructor
     (
-        ambientColor     :BABYLON.Color3,
-        sceneBgColor     :BABYLON.Color4,
-        initialCamera    :bz.CameraType,
-        startupPosition  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-        startupRotation  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-        startupInventory :bz.Inventory    = new bz.Inventory()
+        ambientColor   :BABYLON.Color3,
+        sceneBgColor   :BABYLON.Color4,
+        initialCamera  :bz.CameraType,
+        startPosition  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        startRotation  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+        startInventory :bz.Inventory    = new bz.Inventory()
     )
     {
         this.ambientColor     = ambientColor;
         this.sceneBgColor     = sceneBgColor;
         this.initialCamera    = initialCamera;
-        this.startupPosition  = startupPosition;
-        this.startupRotation  = startupRotation;
-        this.startupInventory = startupInventory;
+        this.startupPosition  = startPosition;
+        this.startupRotation  = startRotation;
+        this.startupInventory = startInventory;
     }
 }

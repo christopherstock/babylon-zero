@@ -67,7 +67,7 @@ export class StageOutside extends bz.Stage
         );
 
         // boxes pile in small office
-        bz.StageFactory.addCratesPile(
+        bz.AECFactory.addCratesPile(
             this,
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0 )

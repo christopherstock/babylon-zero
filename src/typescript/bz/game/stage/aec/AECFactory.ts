@@ -651,35 +651,38 @@ export class AECFactory
                 10.0
             )
         );
-    }
 
-    /** ****************************************************************************************************************
-    *   Creates one wooden crate.
-    *
-    *   @param stage Stage to create the crate in.
-    *   @param meshFactory The meshFactory for model creation.
-    *   @param position    The initial position of the crate.
-    *
-    *   @return The created wooden crate.
-    *******************************************************************************************************************/
-    public static createWoodenCrate(
-        stage              :bz.Stage,
-        meshFactory        :bz.MeshFactory,
-        position           :BABYLON.Vector3
-    )
-    : bz.Wall
-    {
-        return new bz.Wall
-        (
+        // boxes pile
+        bz.AECFactory.addCratesPile(
             stage,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.CRATE,
-                position,
-                bz.PhysicSet.CRATE_WOOD
-            ),
-            bz.MathUtil.getRandomInt( bz.SettingGame.CRATE_MIN_ENERGY, bz.SettingGame.CRATE_MAX_ENERGY )
-        )
+            meshFactory,
+            position.add( new BABYLON.Vector3( 5.0, 0.0, 25.0 ) )
+        );
+
+        // pillar from new concrete
+        bz.AECFactory.addPillar(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 15.0, 0.0, 20.0 ) )
+        );
+        // pillar from new concrete
+        bz.AECFactory.addPillar(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 25.0, 0.0, 20.0 ) )
+        );
+        // pillar from new concrete
+        bz.AECFactory.addPillar(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 15.0, 0.0, 30.0 ) )
+        );
+        // pillar from new concrete
+        bz.AECFactory.addPillar(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 25.0, 0.0, 30.0 ) )
+        );
     }
 
     /** ****************************************************************************************************************
@@ -750,5 +753,115 @@ export class AECFactory
 
         // add fence walls to stage
         stage.addWall( fenceWalls );
+    }
+
+
+    /** ****************************************************************************************************************
+    *   Adds a pile of boxes to this stage.
+    *
+    *   @param stage       The stage to apply the pile of boxes to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param pos         center bottom position of the boxes pile to set.
+    *******************************************************************************************************************/
+    public static addCratesPile( stage:bz.Stage, meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
+    {
+        // add 5 wooden crates
+        stage.addWall(
+            bz.AECFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x, pos.y, pos.z )
+            )
+        );
+        stage.addWall(
+            bz.AECFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 )
+            )
+        );
+        stage.addWall(
+            bz.AECFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ) )
+        );
+        stage.addWall(
+            bz.AECFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 )
+            )
+        );
+        stage.addWall(
+            bz.AECFactory.createWoodenCrate(
+                stage,
+                meshFactory,
+                new BABYLON.Vector3( pos.x + 2.5, pos.y + 5.0, pos.z + 2.5 )
+            )
+        );
+    }
+
+
+    /** ****************************************************************************************************************
+    *   Creates one wooden crate.
+    *
+    *   @param stage Stage to create the crate in.
+    *   @param meshFactory The meshFactory for model creation.
+    *   @param position    The initial position of the crate.
+    *
+    *   @return The created wooden crate.
+    *******************************************************************************************************************/
+    public static createWoodenCrate(
+        stage              :bz.Stage,
+        meshFactory        :bz.MeshFactory,
+        position           :BABYLON.Vector3
+    )
+    : bz.Wall
+    {
+        return new bz.Wall
+        (
+            stage,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.CRATE,
+                position,
+                bz.PhysicSet.CRATE_WOOD
+            ),
+            bz.MathUtil.getRandomInt( bz.SettingGame.CRATE_MIN_ENERGY, bz.SettingGame.CRATE_MAX_ENERGY )
+        )
+    }
+
+    private static addPillar(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3
+    )
+    : void
+    {
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    [
+                        meshFactory.createBox
+                        (
+                            position,
+                            bz.TextureFile.WALL_CONCRETE_NEW,
+                            new BABYLON.Vector3(
+                                bz.SettingAEC.PILLAR_WIDTH,
+                                bz.SettingAEC.WALL_HEIGHT,
+                                bz.SettingAEC.PILLAR_WIDTH
+                            ),
+                            bz.PhysicSet.STATIC,
+                            1.0,
+                            bz.MeshAnchor.LOWEST_XYZ
+                        ),
+                    ]
+                )
+            )
+        );
     }
 }

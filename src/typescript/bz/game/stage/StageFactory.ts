@@ -259,52 +259,6 @@ export abstract class StageFactory
     }
 
     /** ****************************************************************************************************************
-    *   Adds a pile of boxes to this stage.
-    *
-    *   @param stage       The stage to apply the pile of boxes to.
-    *   @param meshFactory The MeshFactory instance.
-    *   @param pos         center bottom position of the boxes pile to set.
-    *******************************************************************************************************************/
-    public static addCratesPile( stage:bz.Stage, meshFactory:bz.MeshFactory, pos:BABYLON.Vector3 ) : void
-    {
-        // add 5 wooden crates
-        stage.addWall(
-            bz.AECFactory.createWoodenCrate(
-                stage,
-                meshFactory,
-                new BABYLON.Vector3( pos.x, pos.y, pos.z )
-            )
-        );
-        stage.addWall(
-            bz.AECFactory.createWoodenCrate(
-                stage,
-                meshFactory,
-                new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z + 2.5 )
-            )
-        );
-        stage.addWall(
-            bz.AECFactory.createWoodenCrate(
-                stage,
-                meshFactory,
-                new BABYLON.Vector3( pos.x + 2.5, pos.y, pos.z ) )
-        );
-        stage.addWall(
-            bz.AECFactory.createWoodenCrate(
-                stage,
-                meshFactory,
-                new BABYLON.Vector3( pos.x + 2.5, pos.y + 2.5, pos.z + 2.5 )
-            )
-        );
-        stage.addWall(
-            bz.AECFactory.createWoodenCrate(
-                stage,
-                meshFactory,
-                new BABYLON.Vector3( pos.x + 2.5, pos.y + 5.0, pos.z + 2.5 )
-            )
-        );
-    }
-
-    /** ****************************************************************************************************************
     *   Creates one staircase.
     *******************************************************************************************************************/
     public static addStaircase(
