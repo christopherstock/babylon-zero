@@ -5,12 +5,13 @@
 ===
 MVP
 ===
-TODO Prune StageOutside!
 TODO Solve stairs all custom sizes
 TODO Enhance multi level staircases.
+
 TODO update code taste!
+
 TODO Add camera intro run into player head.
-TODO remove offset in transpallet (rotY chaos)
+
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
 TODO smaller Doors? Adjust room sizes once more!
@@ -31,6 +32,7 @@ TODO dark/correctly lightet bullet holes?
 ======
 3dsmax
 ======
+TODO remove offset in transpallet (rotY chaos)
 TODO Change to cylindric physical impostor for model 'SEWERAGE_PUMPING'?
 TODO Create one realistic model with all (3 or 4) different textures?
 TODO Create realistic models and lights.

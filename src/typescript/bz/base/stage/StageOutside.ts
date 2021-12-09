@@ -66,24 +66,24 @@ export class StageOutside extends bz.Stage
             null
         );
 
-        // boxes pile in small office
+        // boxes pile
         bz.AECFactory.addCratesPile(
             this,
             meshFactory,
             new BABYLON.Vector3( 20.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0 )
         );
 
-        // point light in small office
-        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        // point light 1
+        const pointLights1 :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-        this.addLight( pointLights );
+        this.addLight( pointLights1 );
 
-        // point light in 2nd office
+        // point light 2
         const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],

@@ -58,6 +58,17 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // staircase
+        bz.StageFactory.addStaircase(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 10.0, 0.0, 40.0 + bz.SettingAEC.WALL_DEPTH ),
+            90.0,
+            bz.TextureFile.WALL_CONCRETE_NEW,
+            bz.TextureFile.WALL_CARPET_1,
+            bz.TextureFile.WALL_COBBLES_1
+        );
+
         if ( true ) return;
 
         // parking lot
@@ -138,17 +149,6 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( 500.0, 0.0, 500.0 ),
             0.0
-        );
-
-        // staircase
-        bz.StageFactory.addStaircase(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 1100.0, 0.0, 1100.0 ),
-            0.0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET,
-            bz.TextureFile.WALL_CARPET_RASPBERRY,
-            bz.TextureFile.WALL_CEILING_1
         );
 
         // TODO addCasino with diamond corners

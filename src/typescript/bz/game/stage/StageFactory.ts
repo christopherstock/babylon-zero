@@ -278,6 +278,7 @@ export abstract class StageFactory
             ( 2 * bz.SettingAEC.WALL_HEIGHT ),
             20.0
         );
+        const HALF_HEIGHT    :number          = ( STAIRCASE_SIZE.y / 2 );
         const QUARTER_HEIGHT :number          = ( STAIRCASE_SIZE.y / 4 );
 
         const STAIRSTEP_SIZE :number          = 5.0;
@@ -442,7 +443,7 @@ export abstract class StageFactory
         );
         roomWalls.push( upperStairs );
 
-        // center railing wall
+        // center divider wall
         StageFactory.createWall(
             roomWalls,
             [],
@@ -503,6 +504,38 @@ export abstract class StageFactory
             STAIRCASE_SIZE.y,
             position.z + STAIRCASE_SIZE.z, // + STAIRCASE_SIZE.z + bz.SettingAEC.WALL_DEPTH,
             0.0,
+            textureWalls
+        );
+
+        // lower front wall (blocks lower stairs)
+        StageFactory.createWall(
+            roomWalls,
+            [],
+            [],
+            stage,
+            meshFactory,
+            ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ),
+            ( STAIRCASE_SIZE.x / 2 ),
+            position.y,
+            HALF_HEIGHT,
+            position.z + bz.SettingAEC.WALL_DEPTH + ( STAIRCASE_SIZE.z / 2 ),
+            -90.0,
+            textureWalls
+        );
+
+        // upper front wall (blocks falling into stairs)
+        StageFactory.createWall(
+            roomWalls,
+            [],
+            [],
+            stage,
+            meshFactory,
+            ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ),
+            ( STAIRCASE_SIZE.x / 2 ) - bz.SettingAEC.WALL_DEPTH,
+            ( position.y + HALF_HEIGHT ),
+            QUARTER_HEIGHT,
+            position.z + bz.SettingAEC.WALL_DEPTH, // + ( STAIRCASE_SIZE.z / 2 ),
+            -90.0,
             textureWalls
         );
 
