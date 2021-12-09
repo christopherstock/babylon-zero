@@ -2,6 +2,9 @@ import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Configuration set for a Door game object.
+*
+*   TODO add rotations for all rooms/objects :p
+*        new Wall().getModel().rotateAroundAxisY
 ***********************************************************************************************************************/
 export class AECFactory
 {
@@ -248,6 +251,192 @@ export class AECFactory
             ], 0,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
+        );
+
+        // office desk 3
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.WORKBENCH,
+                    position.add( new BABYLON.Vector3( 10.0, 0.0, 25.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    30.0
+                ),
+                10.0
+            )
+        );
+
+        // multi mesh chair with compound .. scatters after being shot multiple times!
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    position.add( new BABYLON.Vector3( 5.0, 2.1, 30.0 ) ),
+                    bz.PhysicSet.OFFICE_CHAIR,
+                    0.0,
+                    bz.ModelCompoundType.COMPOUND
+                ),
+                5.0
+            )
+        );
+
+        // office chair - multi meshed - single meshes destroyable
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    position.add( new BABYLON.Vector3( 10.0, 2.1, 30.0 ) ),
+                    bz.PhysicSet.OFFICE_CHAIR,
+                    0.0,
+                    bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
+                ),
+                5.0
+            )
+        );
+
+        // multi mesh chair without compound .. immediately collapses!
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    position.add( new BABYLON.Vector3( 15.0, 2.1, 30.0 ) ),
+                    bz.PhysicSet.OFFICE_CHAIR,
+                    0.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
+
+        // office desk 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_DESK_1,
+                    position.add( new BABYLON.Vector3( 10.0, 1.7, 7.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    90.0,
+                    bz.ModelCompoundType.NONE // bz.ModelCompoundType.COMPOUND,
+                ),
+                5.0
+            )
+        );
+
+        // screen 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SCREEN_1,
+                    position.add( new BABYLON.Vector3( 12.5, 4.5, 5.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    -90.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0,
+                true,
+                false,
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.TIME_DELAY,
+                        new bz.EventDataTimeDelay( 600 )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
+                    ),
+                ],
+                bz.InteractionType.ONCE
+            )
+        );
+
+        // shelves
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SHELVES_1,
+                    position.add( new BABYLON.Vector3( 33.5, 3.15, 37.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    10.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
+
+        // office desk 2
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_DESK_2,
+                    position.add( new BABYLON.Vector3( 38.5, 1.6, 16.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    85.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
+
+        // soda machine 2
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SODA_MACHINE_2,
+                    position.add( new BABYLON.Vector3( 5.5, 3.15, 37.5 ) ),
+                    bz.PhysicSet.SODA_MACHINE,
+                    0.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                7.0
+            )
+        );
+
+        // sofa 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SOFA_1,
+                    position.add( new BABYLON.Vector3( 25.5, 2.0, 2.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    180.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
         );
     }
 

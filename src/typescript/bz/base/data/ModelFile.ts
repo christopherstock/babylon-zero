@@ -18,7 +18,7 @@ export abstract class ModelFile
     public static readonly OFFICE_CHAIR_1_MULTI_MESH    :string             = 'furniture/officeChair1.babylon';
     public static readonly OFFICE_DESK_1                :string             = 'furniture/officeDesk1.babylon';
     public static readonly OFFICE_DESK_2                :string             = 'furniture/officeDesk2.babylon';
-    public static readonly OFFICE_DESK_3                :string             = 'furniture/officeDesk3.babylon';
+    public static readonly WORKBENCH                    :string             = 'furniture/officeDesk3.babylon';
     public static readonly PALLET_CEMENT_1              :string             = 'object/palletCement1.babylon';
     public static readonly PALLET_CEMENT_2              :string             = 'object/palletCement2.babylon';
     public static readonly PALLET_CEMENT_3              :string             = 'object/palletCement3.babylon';
@@ -57,7 +57,7 @@ export abstract class ModelFile
         ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
         ModelFile.OFFICE_DESK_1,
         ModelFile.OFFICE_DESK_2,
-        ModelFile.OFFICE_DESK_3,
+        ModelFile.WORKBENCH,
         ModelFile.PALLET_CEMENT_1,
         ModelFile.PALLET_CEMENT_2,
         ModelFile.PALLET_CEMENT_3,

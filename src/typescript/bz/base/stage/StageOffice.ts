@@ -5,12 +5,6 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageOffice extends bz.Stage
 {
-    /** A testwise mesh - made from a single 3dsmax Mesh. */
-    private          chairCompoundDestroyable       :bz.Wall                = null;
-    /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
-    private          chairCompoundSingleShotOff     :bz.Wall                = null;
-    /** A testwise mesh - made from multiple 3dsmax Meshes. */
-    private          chairMultiMeshesNoCompound     :bz.Wall                = null;
     private          desk                           :bz.Wall                = null;
 
     /** Testwise camera target toggle. */
@@ -145,37 +139,6 @@ export class StageOffice extends bz.Stage
 
         // TODO create casino with diamond corners
 /*
-        // office desk 3
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_DESK_3,
-                    new BABYLON.Vector3( 10.0, 0.0, 50.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
-/*
-        // sewerage pumping
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SEWERAGE_PUMPING,
-                    new BABYLON.Vector3( 50.0, 0.0, 200.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
 */
 /*
         // shotgun ( TODO to item! )
@@ -504,163 +467,6 @@ if ( true ) return;
     *******************************************************************************************************************/
     private addFurniture( meshFactory:bz.MeshFactory ) : void
     {
-        // multi mesh chair with compound .. scatters after being shot multiple times!
-        this.chairCompoundDestroyable = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 5.0, 2.1, 30.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND
-            ),
-            5.0
-        );
-        // office chair - multi meshed - single meshes destroyable
-        this.chairCompoundSingleShotOff = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 10.0, 2.1, 30.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
-            ),
-            5.0
-        );
-        // multi mesh chair without compound .. immediately collapses!
-        this.chairMultiMeshesNoCompound = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                new BABYLON.Vector3( 15.0, 2.1, 30.0 ),
-                bz.PhysicSet.OFFICE_CHAIR,
-                bz.ModelCompoundType.NONE
-            ),
-            5.0
-        );
-
-        this.addWall( this.chairCompoundDestroyable   );
-        this.addWall( this.chairCompoundSingleShotOff );
-        this.addWall( this.chairMultiMeshesNoCompound );
-
-        // office desk 1
-        this.desk = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_DESK_1,
-                new BABYLON.Vector3( 10.0, 1.7, 7.0 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE, // bz.ModelCompoundType.COMPOUND,
-                90.0
-            ),
-            5.0
-        );
-        this.addWall( this.desk );
-
-        // screen 1
-        const screen1 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.SCREEN_1,
-                new BABYLON.Vector3( 12.5, 4.5, 5.5 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                -90.0
-            ),
-            5.0,
-            true,
-            false,
-            [
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
-                ),
-                new bz.Event(
-                    bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( 600 )
-                ),
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
-                ),
-            ],
-            bz.InteractionType.ONCE
-        );
-        this.addWall( screen1 );
-
-        // shelves
-        const shelves1 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.SHELVES_1,
-                new BABYLON.Vector3( 33.5, 3.15, 37.0 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                10.0
-            ),
-            5.0
-        );
-        this.addWall( shelves1 );
-
-        // office desk 2
-        const officeDesk2 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.OFFICE_DESK_2,
-                new BABYLON.Vector3( 38.5, 1.6, 16.5 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                85.0
-            ),
-            5.0
-        );
-        this.addWall( officeDesk2 );
-
-        // soda machine 2
-        const sodaMachine2 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.SODA_MACHINE_2,
-                new BABYLON.Vector3( 5.5, 3.15, 37.5 ),
-                bz.PhysicSet.SODA_MACHINE,
-                bz.ModelCompoundType.NONE,
-                0.0
-            ),
-            7.0
-        );
-        this.addWall( sodaMachine2 );
-
-        // sofa 1
-        const sofa1 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.SOFA_1,
-                new BABYLON.Vector3( 25.5, 1.5, 2.5 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                180.0
-            ),
-            5.0
-        );
-        this.addWall( sofa1 );
-
         // bench 1
         const bench1 :bz.Wall = new bz.Wall
         (
@@ -751,6 +557,22 @@ if ( true ) return;
                         bz.PhysicSet.WHITE_TEST_SPHERE
                     )
                 )
+            )
+        );
+
+        // sewerage pumping
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SEWERAGE_PUMPING,
+                    new BABYLON.Vector3( 50.0, 0.0, 200.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
             )
         );
     }
