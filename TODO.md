@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Clean up StageOffice contents
 TODO Prune StageOutside!
 TODO Solve stairs all custom sizes
 TODO Enhance multi level staircases.
@@ -32,6 +31,7 @@ TODO dark/correctly lightet bullet holes?
 ======
 3dsmax
 ======
+TODO Change to cylindric physical impostor for model 'SEWERAGE_PUMPING'?
 TODO Create one realistic model with all (3 or 4) different textures?
 TODO Create realistic models and lights.
 TODO Fix fence

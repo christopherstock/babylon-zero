@@ -12,17 +12,17 @@
         );
         this.addLight( pointLight );
 
-        const hemisphericLight :BABYLON.HemisphericLight = bz.LightFactory.createHemispheric
+        // hemispheric light
+        const hemisphericLights :BABYLON.HemisphericLight[] = bz.LightFactory.createHemispheric
         (
-            this.getScene().getNativeScene(),
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
             new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.1, 0.1, 0.1 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            0.5,
-            true
+            1.5
         );
-        this.addLight( hemisphericLight );
+        this.addLight( hemisphericLights );
 
         // directional light
         const directionalLight:BABYLON.DirectionalLight = bz.LightFactory.createDirectional

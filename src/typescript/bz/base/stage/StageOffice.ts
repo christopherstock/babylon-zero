@@ -6,7 +6,7 @@ import * as bz from '../..';
 export class StageOffice extends bz.Stage
 {
     /** Testwise camera target toggle. */
-    private          camTarget                      :boolean                = false;
+    private camTarget :boolean = false;
 
     /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
@@ -50,6 +50,31 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
+        // small office
+        bz.AECFactory.addSmallOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
+        if ( true ) return;
+
+        // parking lot
+        bz.AECFactory.addParkingLot(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
+        // add rain effect
+        this.setRainEffect(
+            3.0,
+            750,
+            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
+        );
+
         // large office
         bz.AECFactory.addLargeOffice(
             this,
@@ -58,8 +83,6 @@ export class StageOffice extends bz.Stage
             0.0,
             pointLights
         );
-
-        if ( true ) return;
 
         // small park
         bz.AECFactory.addSmallPark(
@@ -117,22 +140,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // TODO addCasino with diamond corners
-
-        // TODO addLightyard
-
-        // TODO addOfficeKitchen?
-
-        // TODO addKickerLounge?
-
-        // small office
-        bz.AECFactory.addSmallOffice(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 800.0, 0.0, 800.0 ),
-            0.0
-        );
-
         // staircase
         bz.StageFactory.addStaircase(
             this,
@@ -144,181 +151,13 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CEILING_1
         );
 
-        // TODO create casino with diamond corners
-/*
-*/
-/*
-        // shotgun ( TODO create shotgun item! )
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 90.0, 2.1, 10.0 ),
-                    bz.PhysicSet.NONE,
-                    null
-                ),
-                5.0
-            )
-        );
-*/
-        // hemispheric light
-        const hemisphericLights :BABYLON.HemisphericLight[] = bz.LightFactory.createHemispheric
-        (
-            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 0.0, 1.0, 0.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.1, 0.1, 0.1 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 ),
-            1.5
-        );
-        this.addLight( hemisphericLights );
+        // TODO addCasino with diamond corners
 
+        // TODO addLightyard
 
-        // waste ground
-/*
-*/
-        // add rain effect
-        this.setRainEffect(
-            3.0,
-            750,
-            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
-        );
+        // TODO addOfficeKitchen?
 
-        if ( true ) return;
-
-        // sewerage pumping
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SEWERAGE_PUMPING,
-                    new BABYLON.Vector3( 50.0, 0.0, 200.0 ),
-                    bz.PhysicSet.SHELVES,
-                    0.0
-                ),
-                10.0
-            )
-        );
-
-        // add some items
-        this.addCollectable(
-            [
-                new bz.Item
-                (
-                    this,
-                    new BABYLON.Vector3( 11.5, 3.8, 9.5 ),
-                    bz.ItemType.BULLETS_792MM
-                ),
-                new bz.Item
-                (
-                    this,
-                    new BABYLON.Vector3( 38.0, 3.8, 14.0 ),
-                    bz.ItemType.SHOTGUN_SHELLS
-                ),
-                new bz.Item
-                (
-                    this,
-                    new BABYLON.Vector3( 38.0, 3.8, 18.0 ),
-                    bz.ItemType.BULLETS_792MM
-                ),
-            ]
-        );
-
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 40.0, 0.5, 25.5 ),
-                bz.ItemType.SHOTGUN_SHELLS
-            )
-        );
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 40.0, 0.5, 30.0 ),
-                bz.ItemType.BULLETS_792MM
-            )
-        );
-
-        // add invisible event trigger
-        this.addCollectable(
-            new bz.Trigger
-            (
-                this,
-                new BABYLON.Vector3( 100.0, 1.0, 5.0 ),
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.HURT )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'Ouch .. just hurt myself here ..' )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'Damn!' )
-                    ),
-                ]
-            )
-        );
-        this.addCollectable(
-            new bz.Trigger
-            (
-                this,
-                new BABYLON.Vector3( 100.0, 1.0, 35.0 ),
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_EFFECT,
-                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'Yeah .. gained some energy here ..' )
-                    ),
-                ]
-            )
-        );
-
-        // add painkillers
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 35.0, 0.5, -10.0 ),
-                bz.ItemType.PAINKILLER
-            )
-        );
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 35.0, 0.5, -15.0 ),
-                bz.ItemType.PAINKILLER
-            )
-        );
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 35.0, 0.5, -20.0 ),
-                bz.ItemType.PAINKILLER
-            )
-        );
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 35.0, 0.5, -25.0 ),
-                bz.ItemType.PAINKILLER
-            )
-        );
+        // TODO addKickerLounge?
 
         // 2nd point light in 2nd office // stick to chair or to player head
         const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
@@ -341,6 +180,9 @@ export class StageOffice extends bz.Stage
 
         // add test sprites
         this.addTestSprites( meshFactory );
+
+        // add test items
+        this.addTestItems();
 
         // add test bots
         this.addTestBots();
@@ -576,5 +418,140 @@ export class StageOffice extends bz.Stage
             ]
         );
 */
+    }
+
+    private addTestItems() : void
+    {
+/*
+        // shotgun ( TODO create shotgun item! )
+        this.addWall(
+            new bz.Wall
+            (
+                this,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SHOTGUN_M1014,
+                    new BABYLON.Vector3( 90.0, 2.1, 10.0 ),
+                    bz.PhysicSet.NONE,
+                    null
+                ),
+                5.0
+            )
+        );
+*/
+        // add some items
+        this.addCollectable(
+            [
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 2.5, 0.0, 2.5 ),
+                    bz.ItemType.BULLETS_792MM
+                ),
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                    bz.ItemType.SHOTGUN_SHELLS
+                ),
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 2.5, 0.0, 5.0 ),
+                    bz.ItemType.BULLETS_792MM
+                ),
+            ]
+        );
+
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 5.0, 0.0, 7.5 ),
+                bz.ItemType.SHOTGUN_SHELLS
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 7.5, 0.0, 7.5 ),
+                bz.ItemType.BULLETS_792MM
+            )
+        );
+
+        // add invisible event trigger
+        this.addCollectable(
+            new bz.Trigger
+            (
+                this,
+                new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.HURT )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Ouch .. just hurt myself here ..' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Damn!' )
+                    ),
+                ]
+            )
+        );
+        this.addCollectable(
+            new bz.Trigger
+            (
+                this,
+                new BABYLON.Vector3( 30.0, 0.0, 40.0 ),
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.GAIN_ENERGY )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Yeah .. gained some energy here ..' )
+                    ),
+                ]
+            )
+        );
+
+        // add painkillers
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.0, 35.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -15.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -20.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 35.0, 0.5, -25.0 ),
+                bz.ItemType.PAINKILLER
+            )
+        );
     }
 }

@@ -684,6 +684,22 @@ export class AECFactory
                 10.0
             )
         );
+
+        // sewerage pumping
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SEWERAGE_PUMPING,
+                    new BABYLON.Vector3( 15.0, 0.0, -20.0 ),
+                    bz.PhysicSet.SHELVES,
+                    0.0
+                ),
+                10.0
+            )
+        );
     }
 
     /** ****************************************************************************************************************
