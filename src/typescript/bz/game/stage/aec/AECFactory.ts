@@ -370,12 +370,30 @@ export class AECFactory
             )
         );
 
+        // office desk 2
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_DESK_2,
+                    position.add( new BABYLON.Vector3( 38.5, 1.6, 16.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    85.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
 
 
 
 
 
 if ( true ) return;
+
+
         // office desk 3
         stage.addWall(
             new bz.Wall
@@ -392,7 +410,7 @@ if ( true ) return;
             )
         );
 
-        // multi mesh chair with compound .. scatters after being shot multiple times!
+        // office chair 1
         stage.addWall(
             new bz.Wall
             (
@@ -404,40 +422,6 @@ if ( true ) return;
                     bz.PhysicSet.OFFICE_CHAIR,
                     0.0,
                     bz.ModelCompoundType.COMPOUND
-                ),
-                5.0
-            )
-        );
-
-        // office chair - multi meshed - single meshes destroyable
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 10.0, 2.1, 30.0 ) ),
-                    bz.PhysicSet.OFFICE_CHAIR,
-                    0.0,
-                    bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED
-                ),
-                5.0
-            )
-        );
-
-        // multi mesh chair without compound .. immediately collapses!
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 15.0, 2.1, 30.0 ) ),
-                    bz.PhysicSet.OFFICE_CHAIR,
-                    0.0,
-                    bz.ModelCompoundType.NONE
                 ),
                 5.0
             )
@@ -491,23 +475,6 @@ if ( true ) return;
                     ),
                 ],
                 bz.InteractionType.ONCE
-            )
-        );
-
-        // office desk 2
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_DESK_2,
-                    position.add( new BABYLON.Vector3( 38.5, 1.6, 16.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    85.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
             )
         );
 
