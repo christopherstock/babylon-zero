@@ -269,32 +269,34 @@ export abstract class StageFactory
 
         textureWalls   :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
         textureFloor   :bz.TextureFile = bz.TextureFile.WALL_CARPET_RASPBERRY,
-        textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1
+        textureCeiling :bz.TextureFile = bz.TextureFile.WALL_CEILING_1,
+
+        sizeX          :number = 20.0,
+        sizeY          :number = ( 2 * bz.SettingAEC.WALL_HEIGHT ),
+        sizeZ          :number = 20.0,
+
+        stairstepSize  :number = 5.0
     )
     : void
     {
         // TODO refactor!
 
-        const SIZE_X :number = 60.0;
-        const STAIRSTEP_SIZE :number = 10.0;
-        const SIZE_Z :number = 30.0;
-
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
-            SIZE_X,
-            ( 2 * bz.SettingAEC.WALL_HEIGHT ),
-            SIZE_Z
+            sizeX,
+            sizeY,
+            sizeZ
         );
         const HALF_HEIGHT_ISWALL    :number = ( STAIRCASE_SIZE.y / 2 );
         const QUARTER_HEIGHT :number = ( STAIRCASE_SIZE.y / 4 );
 
         // calculate stairs angle and stairs size according to dimensions X and Y
-        const LOWER_STAIRS_X1 :number = ( position.x + STAIRSTEP_SIZE );
-        const LOWER_STAIRS_X2 :number = ( position.x + SIZE_X - STAIRSTEP_SIZE );
+        const LOWER_STAIRS_X1 :number = ( position.x + stairstepSize );
+        const LOWER_STAIRS_X2 :number = ( position.x + STAIRCASE_SIZE.x - stairstepSize );
         const LOWER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
         const LOWER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT_ISWALL );
 
-        const UPPER_STAIRS_X1 :number = ( position.x + STAIRSTEP_SIZE );
-        const UPPER_STAIRS_X2 :number = ( position.x + SIZE_X - STAIRSTEP_SIZE );
+        const UPPER_STAIRS_X1 :number = ( position.x + stairstepSize );
+        const UPPER_STAIRS_X2 :number = ( position.x + STAIRCASE_SIZE.x - stairstepSize );
         const UPPER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
         const UPPER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT_ISWALL );
 
@@ -381,11 +383,11 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ), // + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
+                        ( position.x + STAIRCASE_SIZE.x - stairstepSize ), // + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
                         ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingAEC.FLOOR_OFFSET_Y,
                         ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
-                    STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ),
+                    stairstepSize + ( bz.SettingAEC.WALL_DEPTH / 2 ),
                     STAIRCASE_SIZE.z,
                     textureFloor,
                     null,
@@ -408,7 +410,7 @@ export abstract class StageFactory
                         ( position.y + QUARTER_HEIGHT ),
                         ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
-                    STAIRSTEP_SIZE,
+                    stairstepSize,
                     STAIRCASE_SIZE.z,
                     textureFloor,
                     null,
@@ -481,8 +483,8 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            position.x + STAIRSTEP_SIZE,
-            STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ),
+            position.x + stairstepSize,
+            STAIRCASE_SIZE.x - ( 2 * stairstepSize ),
             position.y,
             STAIRCASE_SIZE.y,
             position.z + ( STAIRCASE_SIZE.z / 2 ),
@@ -545,7 +547,7 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ),
+            ( position.x + STAIRCASE_SIZE.x - stairstepSize ),
             ( STAIRCASE_SIZE.z / 2 ),
             position.y,
             HALF_HEIGHT_ISWALL,
@@ -561,10 +563,10 @@ export abstract class StageFactory
             [],
             stage,
             meshFactory,
-            ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ),
+            ( position.x + STAIRCASE_SIZE.x - stairstepSize ),
             ( STAIRCASE_SIZE.z / 2 ) - bz.SettingAEC.WALL_DEPTH,
             ( position.y + HALF_HEIGHT_ISWALL ),
-            QUARTER_HEIGHT,
+            ( bz.SettingAEC.WALL_HEIGHT / 2 ),
             position.z + bz.SettingAEC.WALL_DEPTH,
             -90.0,
             textureWalls

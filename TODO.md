@@ -54,6 +54,7 @@ TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO try gold metal effect etc for IntroVideo logo
 TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
 TODO Load multiple 'dancing girls'?
+TODO Shotgun: Multiple bullets in one shot!
 TODO add rotating MF Logo sprite?
 TODO Enable loading of only required resources for the current scene?
 TODO Add physically correct bullet drop (+sound) out after fire.
