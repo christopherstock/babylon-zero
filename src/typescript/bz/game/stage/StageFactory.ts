@@ -275,6 +275,7 @@ export abstract class StageFactory
     {
         // TODO refactor!
         const SIZE_X :number = 60.0;
+        const STAIRSTEP_SIZE :number = 5.0;
 
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
             SIZE_X,
@@ -284,24 +285,14 @@ export abstract class StageFactory
         const HALF_HEIGHT_ISWALL    :number = ( STAIRCASE_SIZE.y / 2 );
         const QUARTER_HEIGHT :number = ( STAIRCASE_SIZE.y / 4 );
 
-        const STAIRSTEP_SIZE :number = 5.0;
-
-
         // calculate stairs angle and stairs size according to dimensions X and Y
-
-        const STAIRS_SIZE    :number = SIZE_X - 2 * STAIRSTEP_SIZE; // 1.0; // 11.18;
-        const STAIR_ANGLE    :number = 0.0; // 45.0; // 26.6;
-
         const LOWER_STAIRS_X1 :number = ( position.x + STAIRSTEP_SIZE );
-        const LOWER_STAIRS_X2 :number = ( position.x + SIZE_X - 2 * STAIRSTEP_SIZE );
+        const LOWER_STAIRS_X2 :number = ( position.x + SIZE_X - STAIRSTEP_SIZE );
         const LOWER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
         const LOWER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT_ISWALL );
 
-                        // ( position.x + STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
-                        // ( position.y + QUARTER_HEIGHT ),
-
         const UPPER_STAIRS_X1 :number = ( position.x + STAIRSTEP_SIZE );
-        const UPPER_STAIRS_X2 :number = ( position.x + SIZE_X - 2 * STAIRSTEP_SIZE );
+        const UPPER_STAIRS_X2 :number = ( position.x + SIZE_X - STAIRSTEP_SIZE );
         const UPPER_STAIRS_Y1 :number = ( position.y + QUARTER_HEIGHT );
         const UPPER_STAIRS_Y2 :number = ( position.y + HALF_HEIGHT_ISWALL );
 
@@ -388,11 +379,11 @@ export abstract class StageFactory
                 meshFactory.createPlane
                 (
                     new BABYLON.Vector3(
-                        ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
+                        ( position.x + STAIRCASE_SIZE.x - STAIRSTEP_SIZE ), // + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
                         ( position.y + ( STAIRCASE_SIZE.y / 2 ) ) + bz.SettingAEC.FLOOR_OFFSET_Y,
                         ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                     ),
-                    STAIRSTEP_SIZE,
+                    STAIRSTEP_SIZE + ( bz.SettingAEC.WALL_DEPTH / 2 ),
                     STAIRCASE_SIZE.z,
                     textureFloor,
                     null,
