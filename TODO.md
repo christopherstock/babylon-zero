@@ -25,6 +25,7 @@ TODO Door animation interaction on imported officeDesk3?
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Reset Git Repository?
+TODO dark/correctly lightet bullet holes?
 
 ======
 3dsmax
@@ -81,15 +82,14 @@ TODO Sounds for shot, bullet hit and bullet drop.
 =========
 Secondary
 =========
-TODO Create new Locations: garage, wastrground, backstreet, shop site, town site, mart, housing area
 TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Try stored 3dsmax model animations.
 TODO Fix/add head shaking?
 TODO Fix/add jumping?
 TODO try class SubMeshes? (filled automatically from 3dsmax)
-TODO dark bullet holes?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
+TODO Create new Locations: garage, wasteground, backstreet, shop site, town site, mart/mall, housing area
 TODO clear error message 'the user has exited the lock before ..'?
 TODO Fix crouching/ducking? => concerning heightY and shot height ?
 TODO Create alternate lower cylinder for player that toggles on ducking?

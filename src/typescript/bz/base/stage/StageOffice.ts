@@ -58,11 +58,21 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
+        // medium office
+        bz.AECFactory.addMediumOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
+        if ( true ) return;
+
         // back yard
         bz.AECFactory.addBackyard(
             this,
             meshFactory,
-            new BABYLON.Vector3( 700.0, 0.0, 700.0 ),
+            new BABYLON.Vector3( 1700.0, 0.0, 1700.0 ),
             0.0
         );
 
@@ -73,8 +83,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
-
-        if ( true ) return;
 
         // small park
         bz.AECFactory.addSmallPark(
@@ -116,14 +124,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // medium office
-        bz.AECFactory.addMediumOffice(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 700.0, 0.0, 700.0 ),
-            0.0
-        );
-
         // small office
         bz.AECFactory.addSmallOffice(
             this,
@@ -142,9 +142,8 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
-/*
-*/
 
+        // TODO create casino with diamond corners
 /*
         // office desk 3
         this.addWall(
@@ -207,7 +206,6 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( hemisphericLights );
 
-        // TODO create casino with diamond corners
 
         // waste ground
 /*
@@ -281,31 +279,11 @@ if ( true ) return;
         );
 */
 /*
-        // boxes pile in light yard
-        bz.StageFactory.addCratesPile(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 50.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
-        );
-
-        // boxes pile in 2nd office
-        bz.StageFactory.addCratesPile(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0 )
-        );
-
         this.addFurniture( meshFactory );
-
         this.addStuffWalls(  meshFactory, pointLight );
-
+        this.addTreeSprites( meshFactory );
 */
 /*
-        if ( false )
-        {
-            this.addTreeSprites( meshFactory );
-        }
-
         // add some items
         this.addCollectable(
             [
@@ -444,27 +422,6 @@ if ( true ) return;
         // add shadows for point light
         this.addShadowGenerator( pointLight );
 */
-        // add bot - walking towards player
-        if ( false )
-        {
-            this.addBot(
-                [
-                    new bz.Bot(
-                        0,
-                        this,
-                        bz.BotType.TEST_WALKING_DUDE,
-                        new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
-                    ),
-                    new bz.Bot(
-                        0,
-                        this,
-                        bz.BotType.TEST_WALK_TOWARDS_PLAYER,
-                        new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
-                    ),
-                ]
-            );
-        }
-
         // add testwise bots
         this.addTestBots();
     }
@@ -936,6 +893,25 @@ if ( true ) return;
                 bz.BotType.TEST_DANCING_GIRL,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 )
             )
+        );
+*/
+/*
+        // add bot - walking towards player
+        this.addBot(
+            [
+                new bz.Bot(
+                    0,
+                    this,
+                    bz.BotType.TEST_WALKING_DUDE,
+                    new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
+                ),
+                new bz.Bot(
+                    0,
+                    this,
+                    bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                    new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
+                ),
+            ]
         );
 */
     }
