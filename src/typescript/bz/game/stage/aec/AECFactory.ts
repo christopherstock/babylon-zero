@@ -322,7 +322,7 @@ export class AECFactory
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
-        rotY        :number          = 0
+        rotY        :number = 0
     ) : void
     {
         bz.StageFactory.addRoomWalls(
@@ -342,8 +342,8 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 21.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                new bz.DoorData( 32.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
+                new bz.DoorData( 43.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [
@@ -353,6 +353,29 @@ export class AECFactory
             bz.TextureFile.WALL_CEILING_1
         );
 
+        // shelves
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SHELVES_1,
+                    position.add( new BABYLON.Vector3( 29.0, 3.15, 36.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    10.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
+
+
+
+
+
+
+if ( true ) return;
         // office desk 3
         stage.addWall(
             new bz.Wall
@@ -468,23 +491,6 @@ export class AECFactory
                     ),
                 ],
                 bz.InteractionType.ONCE
-            )
-        );
-
-        // shelves
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SHELVES_1,
-                    position.add( new BABYLON.Vector3( 33.5, 3.15, 37.0 ) ),
-                    bz.PhysicSet.SHELVES,
-                    10.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
             )
         );
 

@@ -22,7 +22,7 @@ export class StageOffice extends bz.Stage
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
                 ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
-            new BABYLON.Vector3( 0.0, 45.0 + 180.0, 0.0 ),
+            new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
             new bz.Inventory( 0 )
         );
     }
@@ -42,7 +42,7 @@ export class StageOffice extends bz.Stage
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 10.0, 5.0, 5.0 ),
+            new BABYLON.Vector3( 10.0, 5.0, 10.0 ),
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.75, 0.75, 0.75 ),
             125.0,
@@ -50,6 +50,32 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
+        // medium office
+        bz.AECFactory.addMediumOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
+
+        // hallway
+        bz.AECFactory.addHallway(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 80.0, 0.0, 25.0 ),
+            0.0
+        );
+
+        // TODO addCasino with diamond corners
+
+        // TODO addLightyard
+
+        // TODO addOfficeKitchen?
+
+        // TODO addKickerLounge?
+
+        if ( true ) return;
+/*
         // staircase
         bz.StageFactory.addStaircase(
             this,
@@ -60,9 +86,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_1,
             bz.TextureFile.WALL_COBBLES_1
         );
-
-        if ( true ) return;
-
+*/
         // small office
         bz.AECFactory.addSmallOffice(
             this,
@@ -103,14 +127,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // medium office
-        bz.AECFactory.addMediumOffice(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
-            0.0
-        );
-
         // back yard
         bz.AECFactory.addBackyard(
             this,
@@ -142,22 +158,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
-
-        // hallway
-        bz.AECFactory.addHallway(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 500.0, 0.0, 500.0 ),
-            0.0
-        );
-
-        // TODO addCasino with diamond corners
-
-        // TODO addLightyard
-
-        // TODO addOfficeKitchen?
-
-        // TODO addKickerLounge?
 
         // 2nd point light in 2nd office // stick to chair or to player head
         const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
