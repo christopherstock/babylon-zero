@@ -274,13 +274,15 @@ export abstract class StageFactory
     : void
     {
         // TODO refactor!
+
         const SIZE_X :number = 60.0;
-        const STAIRSTEP_SIZE :number = 5.0;
+        const STAIRSTEP_SIZE :number = 10.0;
+        const SIZE_Z :number = 30.0;
 
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
             SIZE_X,
             ( 2 * bz.SettingAEC.WALL_HEIGHT ),
-            20.0
+            SIZE_Z
         );
         const HALF_HEIGHT_ISWALL    :number = ( STAIRCASE_SIZE.y / 2 );
         const QUARTER_HEIGHT :number = ( STAIRCASE_SIZE.y / 4 );
