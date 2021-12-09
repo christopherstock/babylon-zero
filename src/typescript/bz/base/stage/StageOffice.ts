@@ -187,9 +187,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
 
-if ( true ) return;
-
-        this.addTreeSprites( meshFactory );
+        if ( true ) return;
 
         // sewerage pumping
         this.addWall(
@@ -206,7 +204,7 @@ if ( true ) return;
                 10.0
             )
         );
-/*
+
         // add some items
         this.addCollectable(
             [
@@ -230,8 +228,7 @@ if ( true ) return;
                 ),
             ]
         );
-*/
-/*
+
         this.addCollectable(
             new bz.Item
             (
@@ -322,9 +319,8 @@ if ( true ) return;
                 bz.ItemType.PAINKILLER
             )
         );
-*/
-/*
-        // 2nd point light in 2nd office // stick to chair
+
+        // 2nd point light in 2nd office // stick to chair or to player head
         const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
@@ -333,19 +329,20 @@ if ( true ) return;
             new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
-
         // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
         // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
         this.addLight( pointLights2 );
-*/
-/*
+
         // add fog
-        // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
+        this.getScene().enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
 
         // add shadows for point light
-        this.addShadowGenerator( pointLight );
-*/
-        // add testwise bots
+        this.addShadowGenerator( pointLights2[ 0 ] );
+
+        // add test sprites
+        this.addTestSprites( meshFactory );
+
+        // add test bots
         this.addTestBots();
     }
 
@@ -425,10 +422,10 @@ if ( true ) return;
     *
     *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    private addTreeSprites( meshFactory :bz.MeshFactory ) :void
+    private addTestSprites( meshFactory :bz.MeshFactory ) :void
     {
         // create and animate a sprite
-        const animatedTestSprite:bz.Sprite = new bz.Sprite
+        const animatedFireSprite:bz.Sprite = new bz.Sprite
         (
             this.getScene(),
             bz.SpriteFile.FIRE,
@@ -437,8 +434,8 @@ if ( true ) return;
             20.0,
             bz.SpriteCollidable.NO
         );
-        animatedTestSprite.animate( 0, 24, true );
-        this.addSprite( animatedTestSprite );
+        animatedFireSprite.animate( 0, 24, true );
+        this.addSprite( animatedFireSprite );
 
         this.addSprite(
             [
