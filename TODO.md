@@ -10,6 +10,7 @@ TODO Prune StageOutside!
 TODO Solve stairs all custom sizes
 TODO Enhance multi level staircases.
 TODO update code taste!
+TODO Add camera intro run into player head.
 TODO remove offset in transpallet (rotY chaos)
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
@@ -25,6 +26,7 @@ TODO Door animation interaction on imported officeDesk3?
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Reset Git Repository?
+TODO Outline for items again? // bench1.getModel().addOutline( this.getScene() );
 TODO dark/correctly lightet bullet holes?
 
 ======

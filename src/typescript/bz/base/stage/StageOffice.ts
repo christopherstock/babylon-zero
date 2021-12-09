@@ -5,8 +5,6 @@ import * as bz from '../..';
 ***********************************************************************************************************************/
 export class StageOffice extends bz.Stage
 {
-    private          desk                           :bz.Wall                = null;
-
     /** Testwise camera target toggle. */
     private          camTarget                      :boolean                = false;
 
@@ -52,8 +50,8 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
-        // medium office
-        bz.AECFactory.addMediumOffice(
+        // small park
+        bz.AECFactory.addSmallPark(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -61,6 +59,14 @@ export class StageOffice extends bz.Stage
         );
 
         if ( true ) return;
+
+        // medium office
+        bz.AECFactory.addMediumOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+            0.0
+        );
 
         // back yard
         bz.AECFactory.addBackyard(
@@ -75,14 +81,6 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            0.0
-        );
-
-        // small park
-        bz.AECFactory.addSmallPark(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 400.0, 0.0, 400.0 ),
             0.0
         );
 
@@ -109,6 +107,14 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 500.0, 0.0, 500.0 ),
             0.0
         );
+
+        // TODO addCasino with diamond corners
+
+        // TODO addLightyard
+
+        // TODO addOfficeKitchen?
+
+        // TODO addKickerLounge?
 
         // large office
         bz.AECFactory.addLargeOffice(
@@ -141,7 +147,7 @@ export class StageOffice extends bz.Stage
 /*
 */
 /*
-        // shotgun ( TODO to item! )
+        // shotgun ( TODO create shotgun item! )
         this.addWall(
             new bz.Wall
             (
@@ -182,70 +188,9 @@ export class StageOffice extends bz.Stage
 
 if ( true ) return;
 
-/*
-        // light yard
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 40.0, 0.0, bz.SettingGame.HALLWAY_WIDTH ),
-            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, 40.0 - 2 * bz.SettingGame.HALLWAY_WIDTH ),
-            0.0,
-            null, [],      [], 0,
-            null, [],      [], 0,
-            null, [],      [], 0,
-            null, [ new bz.DoorData( 1.0 ) ], [], 0,
-            bz.TextureFile.WALL_STONES_DARK_GRANITE,
-            null
-        );
-
-        // passways around light square
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 40.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
-            0.0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [], [], 0,
-            null, [],      [], 0,
-            null, [],      [], 0,
-            null, [ new bz.DoorData( 1.0 ) ], [], 0,
-            bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING_1
-        );
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 40.0, 0.0, 40.0 - bz.SettingGame.HALLWAY_WIDTH ),
-            new BABYLON.Vector3( 40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH ),
-            0.0,
-            null,                           [],      [], 0,
-            null,                           [],      [], 0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [],      [], 0,
-            null,                           [ new bz.DoorData( 1.0 ) ], [], 0,
-            bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING_1
-        );
-
-        // 2nd office
-        bz.StageFactory.addRoomWalls(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 80.0, 0.0, 0.0 ),
-            new BABYLON.Vector3( 80.0, bz.SettingGame.WALL_HEIGHT, 40.0 ),
-            0.0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [],       [], 0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [ new bz.DoorData( 10.0 ) ], [], 0,
-            bz.TextureFile.MODEL_WOOD_HORZ, [],       [], 0,
-            null,                           [],       [], 0,
-            bz.TextureFile.WALL_CARPET_2,
-            bz.TextureFile.WALL_CEILING_1
-        );
-*/
-/*
         this.addFurniture( meshFactory );
-        this.addStuffWalls(  meshFactory, pointLight );
-        this.addTreeSprites( meshFactory );
-*/
+        // this.addStuffWalls(  meshFactory, pointLight );
+        // this.addTreeSprites( meshFactory );
 /*
         // add some items
         this.addCollectable(
@@ -467,23 +412,6 @@ if ( true ) return;
     *******************************************************************************************************************/
     private addFurniture( meshFactory:bz.MeshFactory ) : void
     {
-        // bench 1
-        const bench1 :bz.Wall = new bz.Wall
-        (
-            this,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.BENCH_1,
-                new BABYLON.Vector3( 60.0, 1.3, 6.0 ),
-                bz.PhysicSet.SHELVES,
-                bz.ModelCompoundType.NONE,
-                180.0
-            ),
-            8.0
-        );
-        // bench1.getModel().addOutline( this.getScene() );
-        this.addWall( bench1 );
-
         // ground walls
         // this.addGroundWalls( meshFactory );
     }

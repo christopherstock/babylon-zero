@@ -94,31 +94,34 @@ export class AECFactory
     )
     : void
     {
+        const CORNER_SIZE :number = 17.5;
+
         bz.StageFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 100.0, bz.SettingAEC.WALL_HEIGHT, 100.0 ),
+            new BABYLON.Vector3( 100.0, 6.5, 100.0 ),
             rotY,
             null, [], [
-            ], 0,
-            null, [], [
+            ], 0.0,
+            bz.TextureFile.WALL_WOOD_VERT_2, [], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
-            ], 0,
+            ], CORNER_SIZE,
             null, [
-            ], [], 0,
-            null , [
+            ], [], 0.0,
+            bz.TextureFile.WALL_WOOD_VERT_2, [
             ], [
                 // new bz.WindowData( 2.0,  false ),
-            ], 0,
+            ], CORNER_SIZE,
             bz.TextureFile.WALL_GRASS_1,
             null
         );
 
-        for ( let x:number = 0.0; x <= 100.0; x += 50.0 )
+        // 3d trees
+        for ( let x:number = 25.0; x <= 100.0; x += 50.0 )
         {
-            for ( let z:number = 0.0; z <= 100.0; z += 50.0 )
+            for ( let z:number = 25.0; z <= 100.0; z += 50.0 )
             {
                 const tree:bz.Wall = new bz.Wall
                 (
@@ -132,6 +135,39 @@ export class AECFactory
                 stage.addWall( tree );
             }
         }
+
+        // bench 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.BENCH_1,
+                    position.add( new BABYLON.Vector3( 60.0, 1.3, 12.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    180.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                8.0
+            )
+        );
+        // bench 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.BENCH_1,
+                    position.add( new BABYLON.Vector3( 52.5, 1.3, 60.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    90.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                8.0
+            )
+        );
     }
 
     /** ****************************************************************************************************************
