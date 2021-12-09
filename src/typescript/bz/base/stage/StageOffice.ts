@@ -50,6 +50,19 @@ export class StageOffice extends bz.Stage
         );
         this.addLight( pointLights );
 
+        // staircase
+        bz.StageFactory.addStaircase(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( -65.0, 0.0, 0.0 ),
+            0.0,
+            bz.TextureFile.WALL_CONCRETE_NEW,
+            bz.TextureFile.WALL_CARPET_1,
+            bz.TextureFile.WALL_COBBLES_1
+        );
+
+        if ( true ) return;
+
         // small office
         bz.AECFactory.addSmallOffice(
             this,
@@ -57,19 +70,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
-
-        // staircase
-        bz.StageFactory.addStaircase(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 10.0, 0.0, 40.0 + bz.SettingAEC.WALL_DEPTH ),
-            90.0,
-            bz.TextureFile.WALL_CONCRETE_NEW,
-            bz.TextureFile.WALL_CARPET_1,
-            bz.TextureFile.WALL_COBBLES_1
-        );
-
-        if ( true ) return;
 
         // parking lot
         bz.AECFactory.addParkingLot(

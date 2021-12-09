@@ -43,6 +43,7 @@ Fx
 ==
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Spawn painkiller model when a painkiller has been used.
+TODO Add elevator
 TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Try glow effect? https://playground.babylonjs.com/#7QCYPB

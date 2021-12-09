@@ -273,17 +273,19 @@ export abstract class StageFactory
     )
     : void
     {
+        const SIZE_X :number = 60.0;
+
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
-            20.0,
+            SIZE_X,
             ( 2 * bz.SettingAEC.WALL_HEIGHT ),
             20.0
         );
-        const HALF_HEIGHT    :number          = ( STAIRCASE_SIZE.y / 2 );
-        const QUARTER_HEIGHT :number          = ( STAIRCASE_SIZE.y / 4 );
+        const HALF_HEIGHT    :number = ( STAIRCASE_SIZE.y / 2 );
+        const QUARTER_HEIGHT :number = ( STAIRCASE_SIZE.y / 4 );
 
-        const STAIRSTEP_SIZE :number          = 5.0;
-        const STAIRS_SIZE    :number          = 1.18 + ( STAIRCASE_SIZE.x - ( 2 * STAIRSTEP_SIZE ) );
-        const STAIR_ANGLE    :number          = 26.6;
+        const STAIRSTEP_SIZE :number = 5.0;
+        const STAIRS_SIZE    :number = 11.18;
+        const STAIR_ANGLE    :number = 26.6;
 
         // all walls to add to the stage at the end of this method
         const roomWalls :bz.Wall[] = [];
