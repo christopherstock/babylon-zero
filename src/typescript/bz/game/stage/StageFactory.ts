@@ -70,7 +70,7 @@ export abstract class StageFactory
                     position.y,
                     size.y,
                     ( position.z + diamondCornerA + bz.SettingAEC.WALL_DEPTH ),
-                    45.0, // TODO replace with -315.0 for unification
+                    -315.0,
                     textureWallA,
                     bz.TextureFile.WALL_GLASS_1
                 );
@@ -280,8 +280,6 @@ export abstract class StageFactory
     )
     : void
     {
-        // TODO refactor!
-
         const STAIRCASE_SIZE :BABYLON.Vector3 = new BABYLON.Vector3(
             sizeX,
             sizeY,
@@ -579,7 +577,7 @@ export abstract class StageFactory
             textureWalls
         );
 
-        // rotate ALL walls around pivot TODO extract to method!
+        // rotate ALL walls around pivot TODO extract to method! refactor all invocations!
         for ( const roomWall of roomWalls )
         {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
@@ -662,7 +660,6 @@ export abstract class StageFactory
         y                :number,
         sizeY            :number,
         z                :number,
-        // TODO create enum for rot ? LEFT = -90.0 etc !
         rotY             :number,
         textureWall  :bz.TextureFile = bz.TextureFile.WALL_DARK_WOOD_PARQUET,
         textureGlass :bz.TextureFile = bz.TextureFile.WALL_GLASS_1

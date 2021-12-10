@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 /** ********************************************************************************************************************
-*   Specifies all skyboxes that can be used by stages.
+*   All skyboxes that are supplied with files.
 ***********************************************************************************************************************/
 export enum SkyBoxFile
 {

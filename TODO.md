@@ -5,33 +5,35 @@
 ===
 MVP
 ===
-TODO update code taste!
-
 TODO Add diamond shape for ceiling.
-TODO Pause particles when game is paused
 TODO Enhance multi level staircases.
+TODO Pause particles when game is paused
+
 TODO Add rotated versions of all level locations!
 TODO Constraint system for events (keycard holded)!?
-TODO Add camera intro run into player head.
-TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
-TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
-TODO smaller Doors? Adjust room sizes once more!
 TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Door animation interaction on imported officeDesk3?
+TODO Add camera intro run into player head.
+TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
+TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
+TODO smaller Doors? Adjust room sizes once more!
+TODO Shotgun: Multiple bullets in one shot!
+TODO create enum for rot ? LEFT wall = -90.0 etc !
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
-TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Reset Git Repository?
 TODO Outline for items again? // bench1.getModel().addOutline( this.getScene() );
-TODO dark/correctly lightet bullet holes?
+TODO dark/correctly lightet bullet holes? let bullet holes clone mesh material?
+TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 
 ======
 3dsmax
 ======
-TODO remove offset in transpallet (rotY chaos)
 TODO Change to cylindric physical impostor for model 'SEWERAGE_PUMPING'?
+TODO remove offset in transpallet (rotY chaos)
+TODO Spawn painkiller (empty can) model when a painkiller has been used.
 TODO Create one realistic model with all (3 or 4) different textures?
 TODO Create realistic models and lights.
 TODO Fix fence
@@ -40,7 +42,6 @@ TODO Fix fence
 Fx
 ==
 TODO Quick fire animation in bullet hole (for certain materials..)?
-TODO Spawn painkiller model when a painkiller has been used.
 TODO Add elevator
 TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
@@ -52,7 +53,6 @@ TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO try gold metal effect etc for IntroVideo logo
 TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
 TODO Load multiple 'dancing girls'?
-TODO Shotgun: Multiple bullets in one shot!
 TODO add rotating MF Logo sprite?
 TODO Enable loading of only required resources for the current scene?
 TODO Add physically correct bullet drop (+sound) out after fire.
