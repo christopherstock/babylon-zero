@@ -839,7 +839,7 @@ export class MeshFactory
             clonedModel.assignImpostors( this.scene.getNativeSceneBG(), impostors );
         }
 
-        // set compound type to NONE if null
+        // set compound type to NONE if specified as 'null'
         if ( compoundType === null )
         {
             compoundType = bz.ModelCompoundType.NONE;
@@ -864,6 +864,13 @@ export class MeshFactory
                 clonedModel.addCompoundMesh( this.scene, position, true );
                 break;
             }
+
+            case bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK:
+            {
+                // don't set a compound mesh!
+
+                break;
+            }
         }
 
         // scale cloned model
@@ -875,6 +882,7 @@ export class MeshFactory
         switch ( compoundType )
         {
             case bz.ModelCompoundType.NONE:
+            case bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK:
             {
                 // initially rotate position around axis Y
                 clonedModel.rotateAroundAxisY( position.x, position.z, rotY )
@@ -890,7 +898,7 @@ export class MeshFactory
             }
         }
 
-        // apply emissive color to all meshes
+        // apply emissive color to all meshes - TODO improve and merge with model system ??
         for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
         {
             const material : BABYLON.StandardMaterial = (

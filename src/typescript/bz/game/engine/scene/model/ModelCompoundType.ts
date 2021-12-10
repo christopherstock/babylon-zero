@@ -11,4 +11,6 @@ export enum ModelCompoundType
 
     /** A compound where single meshes can be shot off. This mostly causes weird physical behaviour. */
     COMPOUND_SHOT_OFF_ENABLED,
+
+    PHYSICS_JOINT_TYPE_LOCK,
 }

@@ -432,10 +432,27 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 6.0, 2.3, 10.0 ) ),
+                    position.add( new BABYLON.Vector3( 20.0, 2.3, 14.0 ) ),
                     bz.PhysicSet.OFFICE_CHAIR,
                     0.0,
                     bz.ModelCompoundType.COMPOUND
+                ),
+                5.0
+            )
+        );
+
+        // office chair 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    position.add( new BABYLON.Vector3( 8.5, 2.3, 14.0 ) ),
+                    bz.PhysicSet.OFFICE_CHAIR,
+                    0.0,
+                    bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK
                 ),
                 5.0
             )
