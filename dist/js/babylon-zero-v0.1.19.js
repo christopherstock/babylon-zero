@@ -86,6 +86,33 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/babylonjs-loaders/babylonjs.loaders.min.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/babylonjs-loaders/babylonjs.loaders.min.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {!function(e,t){ true?module.exports=t(__webpack_require__(/*! babylonjs */ "babylonjs")):undefined}("undefined"!=typeof self?self:"undefined"!=typeof global?global:this,function(e){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=19)}([function(t,n){t.exports=e},function(e,t,n){"use strict";n.d(t,"a",function(){return a}),n.d(t,"b",function(){return i});var r=n(0),o=n(2),a=function(){function e(){}return e.Get=function(e,t,n){if(!t||null==n||!t[n])throw new Error(e+": Failed to find index ("+n+")");return t[n]},e.Assign=function(e){if(e)for(var t=0;t<e.length;t++)e[t].index=t},e}(),i=function(){function e(e){this._completePromises=new Array,this._forAssetContainer=!1,this._babylonLights=[],this._disposed=!1,this._state=null,this._extensions=new Array,this._defaultBabylonMaterialData={},this._requests=new Array,this._parent=e}return e.RegisterExtension=function(t,n){e.UnregisterExtension(t)&&r.Logger.Warn("Extension with the name '"+t+"' already exists"),e._RegisteredExtensions[t]={factory:n}},e.UnregisterExtension=function(t){return!!e._RegisteredExtensions[t]&&(delete e._RegisteredExtensions[t],!0)},Object.defineProperty(e.prototype,"state",{get:function(){return this._state},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"gltf",{get:function(){return this._gltf},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"bin",{get:function(){return this._bin},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"parent",{get:function(){return this._parent},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"babylonScene",{get:function(){return this._babylonScene},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"rootBabylonMesh",{get:function(){return this._rootBabylonMesh},enumerable:!0,configurable:!0}),e.prototype.dispose=function(){if(!this._disposed){this._disposed=!0;for(var e=0,t=this._requests;e<t.length;e++){t[e].abort()}for(var n in this._requests.length=0,this._completePromises.length=0,this._extensions){var r=this._extensions[n];r.dispose&&r.dispose(),delete this._extensions[n]}delete this._gltf,delete this._babylonScene,delete this._rootBabylonMesh,delete this._progressCallback,this._parent._clear()}},e.prototype.importMeshAsync=function(e,t,n,r,o,a,i){var s=this;return Promise.resolve().then(function(){s._babylonScene=t,s._rootUrl=o,s._fileName=i||"scene",s._progressCallback=a,s._forAssetContainer=n,s._loadData(r);var l=null;if(e){var u={};if(s._gltf.nodes)for(var c=0,f=s._gltf.nodes;c<f.length;c++){var d=f[c];d.name&&(u[d.name]=d.index)}l=(e instanceof Array?e:[e]).map(function(e){var t=u[e];if(void 0===t)throw new Error("Failed to find node '"+e+"'");return t})}return s._loadAsync(l,function(){return{meshes:s._getMeshes(),particleSystems:[],skeletons:s._getSkeletons(),animationGroups:s._getAnimationGroups(),lights:s._babylonLights,transformNodes:s._getTransformNodes()}})})},e.prototype.loadAsync=function(e,t,n,r,o){var a=this;return Promise.resolve().then(function(){return a._babylonScene=e,a._rootUrl=n,a._fileName=o||"scene",a._progressCallback=r,a._loadData(t),a._loadAsync(null,function(){})})},e.prototype._loadAsync=function(e,t){var n=this;return Promise.resolve().then(function(){n._uniqueRootUrl=-1===n._rootUrl.indexOf("file:")&&n._fileName?n._rootUrl:""+n._rootUrl+Date.now()+"/",n._loadExtensions(),n._checkExtensions();var i=o.GLTFLoaderState[o.GLTFLoaderState.LOADING]+" => "+o.GLTFLoaderState[o.GLTFLoaderState.READY],s=o.GLTFLoaderState[o.GLTFLoaderState.LOADING]+" => "+o.GLTFLoaderState[o.GLTFLoaderState.COMPLETE];n._parent._startPerformanceCounter(i),n._parent._startPerformanceCounter(s),n._setState(o.GLTFLoaderState.LOADING),n._extensionsOnLoading();var l=new Array,u=n._babylonScene.blockMaterialDirtyMechanism;if(n._babylonScene.blockMaterialDirtyMechanism=!0,e)l.push(n.loadSceneAsync("/nodes",{nodes:e,index:-1}));else if(null!=n._gltf.scene||n._gltf.scenes&&n._gltf.scenes[0]){var c=a.Get("/scene",n._gltf.scenes,n._gltf.scene||0);l.push(n.loadSceneAsync("/scenes/"+c.index,c))}n._babylonScene.blockMaterialDirtyMechanism=u,n._parent.compileMaterials&&l.push(n._compileMaterialsAsync()),n._parent.compileShadowGenerators&&l.push(n._compileShadowGeneratorsAsync());var f=Promise.all(l).then(function(){return n._rootBabylonMesh&&n._rootBabylonMesh.setEnabled(!0),n._setState(o.GLTFLoaderState.READY),n._extensionsOnReady(),n._startAnimations(),t()});return f.then(function(){n._parent._endPerformanceCounter(i),r.Tools.SetImmediate(function(){n._disposed||Promise.all(n._completePromises).then(function(){n._parent._endPerformanceCounter(s),n._setState(o.GLTFLoaderState.COMPLETE),n._parent.onCompleteObservable.notifyObservers(void 0),n._parent.onCompleteObservable.clear(),n.dispose()},function(e){n._parent.onErrorObservable.notifyObservers(e),n._parent.onErrorObservable.clear(),n.dispose()})})}),f},function(e){throw n._disposed||(n._parent.onErrorObservable.notifyObservers(e),n._parent.onErrorObservable.clear(),n.dispose()),e})},e.prototype._loadData=function(e){if(this._gltf=e.json,this._setupData(),e.bin){var t=this._gltf.buffers;if(t&&t[0]&&!t[0].uri){var n=t[0];(n.byteLength<e.bin.byteLength-3||n.byteLength>e.bin.byteLength)&&r.Logger.Warn("Binary buffer length ("+n.byteLength+") from JSON does not match chunk length ("+e.bin.byteLength+")"),this._bin=e.bin}else r.Logger.Warn("Unexpected BIN chunk")}},e.prototype._setupData=function(){if(a.Assign(this._gltf.accessors),a.Assign(this._gltf.animations),a.Assign(this._gltf.buffers),a.Assign(this._gltf.bufferViews),a.Assign(this._gltf.cameras),a.Assign(this._gltf.images),a.Assign(this._gltf.materials),a.Assign(this._gltf.meshes),a.Assign(this._gltf.nodes),a.Assign(this._gltf.samplers),a.Assign(this._gltf.scenes),a.Assign(this._gltf.skins),a.Assign(this._gltf.textures),this._gltf.nodes){for(var e={},t=0,n=this._gltf.nodes;t<n.length;t++){if((u=n[t]).children)for(var r=0,o=u.children;r<o.length;r++){e[o[r]]=u.index}}for(var i=this._createRootNode(),s=0,l=this._gltf.nodes;s<l.length;s++){var u,c=e[(u=l[s]).index];u.parent=void 0===c?i:this._gltf.nodes[c]}}},e.prototype._loadExtensions=function(){for(var t in e._RegisteredExtensions){var n=e._RegisteredExtensions[t].factory(this);n.name!==t&&r.Logger.Warn("The name of the glTF loader extension instance does not match the registered name: "+n.name+" !== "+t),this._extensions.push(n),this._parent.onExtensionLoadedObservable.notifyObservers(n)}this._extensions.sort(function(e,t){return(e.order||Number.MAX_VALUE)-(t.order||Number.MAX_VALUE)}),this._parent.onExtensionLoadedObservable.clear()},e.prototype._checkExtensions=function(){if(this._gltf.extensionsRequired)for(var e=function(e){if(!t._extensions.some(function(t){return t.name===e&&t.enabled}))throw new Error("Require extension "+e+" is not available")},t=this,n=0,r=this._gltf.extensionsRequired;n<r.length;n++){e(r[n])}},e.prototype._setState=function(e){this._state=e,this.log(o.GLTFLoaderState[this._state])},e.prototype._createRootNode=function(){this._babylonScene._blockEntityCollection=this._forAssetContainer,this._rootBabylonMesh=new r.Mesh("__root__",this._babylonScene),this._babylonScene._blockEntityCollection=!1,this._rootBabylonMesh.setEnabled(!1);var t={_babylonTransformNode:this._rootBabylonMesh,index:-1};switch(this._parent.coordinateSystemMode){case o.GLTFLoaderCoordinateSystemMode.AUTO:this._babylonScene.useRightHandedSystem||(t.rotation=[0,1,0,0],t.scale=[1,1,-1],e._LoadTransform(t,this._rootBabylonMesh));break;case o.GLTFLoaderCoordinateSystemMode.FORCE_RIGHT_HANDED:this._babylonScene.useRightHandedSystem=!0;break;default:throw new Error("Invalid coordinate system mode ("+this._parent.coordinateSystemMode+")")}return this._parent.onMeshLoadedObservable.notifyObservers(this._rootBabylonMesh),t},e.prototype.loadSceneAsync=function(e,t){var n=this,r=this._extensionsLoadSceneAsync(e,t);if(r)return r;var o=new Array;if(this.logOpen(e+" "+(t.name||"")),t.nodes)for(var i=0,s=t.nodes;i<s.length;i++){var l=s[i],u=a.Get(e+"/nodes/"+l,this._gltf.nodes,l);o.push(this.loadNodeAsync("/nodes/"+u.index,u,function(e){e.parent=n._rootBabylonMesh}))}if(this._gltf.nodes)for(var c=0,f=this._gltf.nodes;c<f.length;c++){if((u=f[c])._babylonTransformNode&&u._babylonBones)for(var d=0,h=u._babylonBones;d<h.length;d++){h[d].linkTransformNode(u._babylonTransformNode)}}return o.push(this._loadAnimationsAsync()),this.logClose(),Promise.all(o).then(function(){})},e.prototype._forEachPrimitive=function(e,t){if(e._primitiveBabylonMeshes)for(var n=0,r=e._primitiveBabylonMeshes;n<r.length;n++){t(r[n])}},e.prototype._getMeshes=function(){var e=new Array;e.push(this._rootBabylonMesh);var t=this._gltf.nodes;if(t)for(var n=0,r=t;n<r.length;n++){var o=r[n];this._forEachPrimitive(o,function(t){e.push(t)})}return e},e.prototype._getTransformNodes=function(){var e=new Array,t=this._gltf.nodes;if(t)for(var n=0,r=t;n<r.length;n++){var o=r[n];o._babylonTransformNode&&"TransformNode"===o._babylonTransformNode.getClassName()&&e.push(o._babylonTransformNode)}return e},e.prototype._getSkeletons=function(){var e=new Array,t=this._gltf.skins;if(t)for(var n=0,r=t;n<r.length;n++){var o=r[n];o._data&&e.push(o._data.babylonSkeleton)}return e},e.prototype._getAnimationGroups=function(){var e=new Array,t=this._gltf.animations;if(t)for(var n=0,r=t;n<r.length;n++){var o=r[n];o._babylonAnimationGroup&&e.push(o._babylonAnimationGroup)}return e},e.prototype._startAnimations=function(){switch(this._parent.animationStartMode){case o.GLTFLoaderAnimationStartMode.NONE:break;case o.GLTFLoaderAnimationStartMode.FIRST:0!==(e=this._getAnimationGroups()).length&&e[0].start(!0);break;case o.GLTFLoaderAnimationStartMode.ALL:for(var e,t=0,n=e=this._getAnimationGroups();t<n.length;t++){n[t].start(!0)}break;default:return void r.Logger.Error("Invalid animation start mode ("+this._parent.animationStartMode+")")}},e.prototype.loadNodeAsync=function(t,n,o){var i=this;void 0===o&&(o=function(){});var s=this._extensionsLoadNodeAsync(t,n,o);if(s)return s;if(n._babylonTransformNode)throw new Error(t+": Invalid recursive node hierarchy");var l=new Array;this.logOpen(t+" "+(n.name||""));var u=function(r){if(e.AddPointerMetadata(r,t),e._LoadTransform(n,r),null!=n.camera){var s=a.Get(t+"/camera",i._gltf.cameras,n.camera);l.push(i.loadCameraAsync("/cameras/"+s.index,s,function(e){e.parent=r}))}if(n.children)for(var u=0,c=n.children;u<c.length;u++){var f=c[u],d=a.Get(t+"/children/"+f,i._gltf.nodes,f);l.push(i.loadNodeAsync("/nodes/"+d.index,d,function(e){e.parent=r}))}o(r)};if(null==n.mesh){var c=n.name||"node"+n.index;this._babylonScene._blockEntityCollection=this._forAssetContainer,n._babylonTransformNode=new r.TransformNode(c,this._babylonScene),this._babylonScene._blockEntityCollection=!1,u(n._babylonTransformNode)}else{var f=a.Get(t+"/mesh",this._gltf.meshes,n.mesh);l.push(this._loadMeshAsync("/meshes/"+f.index,n,f,u))}return this.logClose(),Promise.all(l).then(function(){return i._forEachPrimitive(n,function(e){e.refreshBoundingInfo(!0)}),n._babylonTransformNode})},e.prototype._loadMeshAsync=function(e,t,n,o){var i=n.primitives;if(!i||!i.length)throw new Error(e+": Primitives are missing");null==i[0].index&&a.Assign(i);var s=new Array;this.logOpen(e+" "+(n.name||""));var l=t.name||"node"+t.index;if(1===i.length){var u=n.primitives[0];s.push(this._loadMeshPrimitiveAsync(e+"/primitives/"+u.index,l,t,n,u,function(e){t._babylonTransformNode=e,t._primitiveBabylonMeshes=[e]}))}else{t._babylonTransformNode=new r.TransformNode(l,this._babylonScene),t._primitiveBabylonMeshes=[];for(var c=0,f=i;c<f.length;c++){u=f[c];s.push(this._loadMeshPrimitiveAsync(e+"/primitives/"+u.index,l+"_primitive"+u.index,t,n,u,function(e){e.parent=t._babylonTransformNode,t._primitiveBabylonMeshes.push(e)}))}}if(null!=t.skin){var d=a.Get(e+"/skin",this._gltf.skins,t.skin);s.push(this._loadSkinAsync("/skins/"+d.index,t,d))}return o(t._babylonTransformNode),this.logClose(),Promise.all(s).then(function(){return t._babylonTransformNode})},e.prototype._loadMeshPrimitiveAsync=function(t,n,o,i,s,l){var u=this,c=this._extensionsLoadMeshPrimitiveAsync(t,n,o,i,s,l);if(c)return c;this.logOpen(""+t);var f,d,h=this._parent.createInstances&&null==o.skin&&!i.primitives[0].targets;if(h&&s._instanceData)f=s._instanceData.babylonSourceMesh.createInstance(n),d=s._instanceData.promise;else{var p=new Array;this._babylonScene._blockEntityCollection=this._forAssetContainer;var m=new r.Mesh(n,this._babylonScene);this._babylonScene._blockEntityCollection=!1,m.overrideMaterialSideOrientation=this._babylonScene.useRightHandedSystem?r.Material.CounterClockWiseSideOrientation:r.Material.ClockWiseSideOrientation,this._createMorphTargets(t,o,i,s,m),p.push(this._loadVertexDataAsync(t,s,m).then(function(e){return u._loadMorphTargetsAsync(t,s,m,e).then(function(){e.applyToMesh(m)})}));var _=e._GetDrawMode(t,s.mode);if(null==s.material){var y=this._defaultBabylonMaterialData[_];y||(y=this._createDefaultMaterial("__GLTFLoader._default",_),this._parent.onMaterialLoadedObservable.notifyObservers(y),this._defaultBabylonMaterialData[_]=y),m.material=y}else{var b=a.Get(t+"/material",this._gltf.materials,s.material);p.push(this._loadMaterialAsync("/materials/"+b.index,b,m,_,function(e){m.material=e}))}d=Promise.all(p),h&&(s._instanceData={babylonSourceMesh:m,promise:d}),f=m}return e.AddPointerMetadata(f,t),this._parent.onMeshLoadedObservable.notifyObservers(f),l(f),this.logClose(),d.then(function(){return f})},e.prototype._loadVertexDataAsync=function(e,t,n){var o=this,i=this._extensionsLoadVertexDataAsync(e,t,n);if(i)return i;var s=t.attributes;if(!s)throw new Error(e+": Attributes are missing");var l=new Array,u=new r.Geometry(n.name,this._babylonScene);if(null==t.indices)n.isUnIndexed=!0;else{var c=a.Get(e+"/indices",this._gltf.accessors,t.indices);l.push(this._loadIndicesAccessorAsync("/accessors/"+c.index,c).then(function(e){u.setIndices(e)}))}var f=function(t,i,c){if(null!=s[t]){n._delayInfo=n._delayInfo||[],-1===n._delayInfo.indexOf(i)&&n._delayInfo.push(i);var f=a.Get(e+"/attributes/"+t,o._gltf.accessors,s[t]);l.push(o._loadVertexAccessorAsync("/accessors/"+f.index,f,i).then(function(e){u.setVerticesBuffer(e,f.count)})),i==r.VertexBuffer.MatricesIndicesExtraKind&&(n.numBoneInfluencers=8),c&&c(f)}};return f("POSITION",r.VertexBuffer.PositionKind),f("NORMAL",r.VertexBuffer.NormalKind),f("TANGENT",r.VertexBuffer.TangentKind),f("TEXCOORD_0",r.VertexBuffer.UVKind),f("TEXCOORD_1",r.VertexBuffer.UV2Kind),f("JOINTS_0",r.VertexBuffer.MatricesIndicesKind),f("WEIGHTS_0",r.VertexBuffer.MatricesWeightsKind),f("JOINTS_1",r.VertexBuffer.MatricesIndicesExtraKind),f("WEIGHTS_1",r.VertexBuffer.MatricesWeightsExtraKind),f("COLOR_0",r.VertexBuffer.ColorKind,function(e){"VEC4"===e.type&&(n.hasVertexAlpha=!0)}),Promise.all(l).then(function(){return u})},e.prototype._createMorphTargets=function(e,t,n,o,a){if(o.targets){if(null==t._numMorphTargets)t._numMorphTargets=o.targets.length;else if(o.targets.length!==t._numMorphTargets)throw new Error(e+": Primitives do not have the same number of targets");var i=n.extras?n.extras.targetNames:null;a.morphTargetManager=new r.MorphTargetManager(a.getScene());for(var s=0;s<o.targets.length;s++){var l=t.weights?t.weights[s]:n.weights?n.weights[s]:0,u=i?i[s]:"morphTarget"+s;a.morphTargetManager.addTarget(new r.MorphTarget(u,l,a.getScene()))}}},e.prototype._loadMorphTargetsAsync=function(e,t,n,r){if(!t.targets)return Promise.resolve();for(var o=new Array,a=n.morphTargetManager,i=0;i<a.numTargets;i++){var s=a.getTarget(i);o.push(this._loadMorphTargetVertexDataAsync(e+"/targets/"+i,r,t.targets[i],s))}return Promise.all(o).then(function(){})},e.prototype._loadMorphTargetVertexDataAsync=function(e,t,n,o){var i=this,s=new Array,l=function(r,o,l){if(null!=n[r]){var u=t.getVertexBuffer(o);if(u){var c=a.Get(e+"/"+r,i._gltf.accessors,n[r]);s.push(i._loadFloatAccessorAsync("/accessors/"+c.index,c).then(function(e){l(u,e)}))}}};return l("POSITION",r.VertexBuffer.PositionKind,function(e,t){var n=new Float32Array(t.length);e.forEach(t.length,function(e,r){n[r]=t[r]+e}),o.setPositions(n)}),l("NORMAL",r.VertexBuffer.NormalKind,function(e,t){var n=new Float32Array(t.length);e.forEach(n.length,function(e,r){n[r]=t[r]+e}),o.setNormals(n)}),l("TANGENT",r.VertexBuffer.TangentKind,function(e,t){var n=new Float32Array(t.length/3*4),r=0;e.forEach(t.length/3*4,function(e,o){(o+1)%4!=0&&(n[r]=t[r]+e,r++)}),o.setTangents(n)}),Promise.all(s).then(function(){})},e._LoadTransform=function(e,t){if(null==e.skin){var n=r.Vector3.Zero(),o=r.Quaternion.Identity(),a=r.Vector3.One();if(e.matrix)r.Matrix.FromArray(e.matrix).decompose(a,o,n);else e.translation&&(n=r.Vector3.FromArray(e.translation)),e.rotation&&(o=r.Quaternion.FromArray(e.rotation)),e.scale&&(a=r.Vector3.FromArray(e.scale));t.position=n,t.rotationQuaternion=o,t.scaling=a}},e.prototype._loadSkinAsync=function(e,t,n){var o=this,a=this._extensionsLoadSkinAsync(e,t,n);if(a)return a;var i=function(e){o._forEachPrimitive(t,function(t){t.skeleton=e})};if(n._data)return i(n._data.babylonSkeleton),n._data.promise;var s="skeleton"+n.index;this._babylonScene._blockEntityCollection=this._forAssetContainer;var l=new r.Skeleton(n.name||s,s,this._babylonScene);this._babylonScene._blockEntityCollection=!1,l.overrideMesh=this._rootBabylonMesh,this._loadBones(e,n,l),i(l);var u=this._loadSkinInverseBindMatricesDataAsync(e,n).then(function(e){o._updateBoneMatrices(l,e)});return n._data={babylonSkeleton:l,promise:u},u},e.prototype._loadBones=function(e,t,n){for(var r={},o=0,i=t.joints;o<i.length;o++){var s=i[o],l=a.Get(e+"/joints/"+s,this._gltf.nodes,s);this._loadBone(l,t,n,r)}},e.prototype._loadBone=function(e,t,n,o){var a=o[e.index];if(a)return a;var i=null;e.parent&&e.parent._babylonTransformNode!==this._rootBabylonMesh&&(i=this._loadBone(e.parent,t,n,o));var s=t.joints.indexOf(e.index);return a=new r.Bone(e.name||"joint"+e.index,n,i,this._getNodeMatrix(e),null,null,s),o[e.index]=a,e._babylonBones=e._babylonBones||[],e._babylonBones.push(a),a},e.prototype._loadSkinInverseBindMatricesDataAsync=function(e,t){if(null==t.inverseBindMatrices)return Promise.resolve(null);var n=a.Get(e+"/inverseBindMatrices",this._gltf.accessors,t.inverseBindMatrices);return this._loadFloatAccessorAsync("/accessors/"+n.index,n)},e.prototype._updateBoneMatrices=function(e,t){for(var n=0,o=e.bones;n<o.length;n++){var a=o[n],i=r.Matrix.Identity(),s=a._index;t&&-1!==s&&(r.Matrix.FromArrayToRef(t,16*s,i),i.invertToRef(i));var l=a.getParent();l&&i.multiplyToRef(l.getInvertedAbsoluteTransform(),i),a.updateMatrix(i,!1,!1),a._updateDifferenceMatrix(void 0,!1)}},e.prototype._getNodeMatrix=function(e){return e.matrix?r.Matrix.FromArray(e.matrix):r.Matrix.Compose(e.scale?r.Vector3.FromArray(e.scale):r.Vector3.One(),e.rotation?r.Quaternion.FromArray(e.rotation):r.Quaternion.Identity(),e.translation?r.Vector3.FromArray(e.translation):r.Vector3.Zero())},e.prototype.loadCameraAsync=function(t,n,o){void 0===o&&(o=function(){});var a=this._extensionsLoadCameraAsync(t,n,o);if(a)return a;var i=new Array;this.logOpen(t+" "+(n.name||"")),this._babylonScene._blockEntityCollection=this._forAssetContainer;var s=new r.FreeCamera(n.name||"camera"+n.index,r.Vector3.Zero(),this._babylonScene,!1);switch(this._babylonScene._blockEntityCollection=!1,s.rotation=new r.Vector3(0,Math.PI,0),n.type){case"perspective":var l=n.perspective;if(!l)throw new Error(t+": Camera perspective properties are missing");s.fov=l.yfov,s.minZ=l.znear,s.maxZ=l.zfar||Number.MAX_VALUE;break;case"orthographic":if(!n.orthographic)throw new Error(t+": Camera orthographic properties are missing");s.mode=r.Camera.ORTHOGRAPHIC_CAMERA,s.orthoLeft=-n.orthographic.xmag,s.orthoRight=n.orthographic.xmag,s.orthoBottom=-n.orthographic.ymag,s.orthoTop=n.orthographic.ymag,s.minZ=n.orthographic.znear,s.maxZ=n.orthographic.zfar;break;default:throw new Error(t+": Invalid camera type ("+n.type+")")}return e.AddPointerMetadata(s,t),this._parent.onCameraLoadedObservable.notifyObservers(s),o(s),Promise.all(i).then(function(){return s})},e.prototype._loadAnimationsAsync=function(){var e=this._gltf.animations;if(!e)return Promise.resolve();for(var t=new Array,n=0;n<e.length;n++){var r=e[n];t.push(this.loadAnimationAsync("/animations/"+r.index,r))}return Promise.all(t).then(function(){})},e.prototype.loadAnimationAsync=function(e,t){var n=this._extensionsLoadAnimationAsync(e,t);if(n)return n;this._babylonScene._blockEntityCollection=this._forAssetContainer;var o=new r.AnimationGroup(t.name||"animation"+t.index,this._babylonScene);this._babylonScene._blockEntityCollection=!1,t._babylonAnimationGroup=o;var i=new Array;a.Assign(t.channels),a.Assign(t.samplers);for(var s=0,l=t.channels;s<l.length;s++){var u=l[s];i.push(this._loadAnimationChannelAsync(e+"/channels/"+u.index,e,t,u,o))}return Promise.all(i).then(function(){return o.normalize(0),o})},e.prototype._loadAnimationChannelAsync=function(e,t,n,o,i,s){var l=this;if(void 0===s&&(s=null),null==o.target.node)return Promise.resolve();var u=a.Get(e+"/target/node",this._gltf.nodes,o.target.node);if("weights"===o.target.path&&!u._numMorphTargets||"weights"!==o.target.path&&!u._babylonTransformNode)return Promise.resolve();var c=a.Get(e+"/sampler",n.samplers,o.sampler);return this._loadAnimationSamplerAsync(t+"/samplers/"+o.sampler,c).then(function(t){var n,a;switch(o.target.path){case"translation":n="position",a=r.Animation.ANIMATIONTYPE_VECTOR3;break;case"rotation":n="rotationQuaternion",a=r.Animation.ANIMATIONTYPE_QUATERNION;break;case"scale":n="scaling",a=r.Animation.ANIMATIONTYPE_VECTOR3;break;case"weights":n="influence",a=r.Animation.ANIMATIONTYPE_FLOAT;break;default:throw new Error(e+"/target/path: Invalid value ("+o.target.path+")")}var c,f,d=0;switch(n){case"position":c=function(){var e=r.Vector3.FromArray(t.output,d);return d+=3,e};break;case"rotationQuaternion":c=function(){var e=r.Quaternion.FromArray(t.output,d);return d+=4,e};break;case"scaling":c=function(){var e=r.Vector3.FromArray(t.output,d);return d+=3,e};break;case"influence":c=function(){for(var e=new Array(u._numMorphTargets),n=0;n<u._numMorphTargets;n++)e[n]=t.output[d++];return e}}switch(t.interpolation){case"STEP":f=function(e){return{frame:t.input[e],value:c(),interpolation:r.AnimationKeyInterpolation.STEP}};break;case"LINEAR":f=function(e){return{frame:t.input[e],value:c()}};break;case"CUBICSPLINE":f=function(e){return{frame:t.input[e],inTangent:c(),value:c(),outTangent:c()}}}for(var h=new Array(t.input.length),p=0;p<t.input.length;p++)h[p]=f(p);if("influence"===n)for(var m=function(e){var t=i.name+"_channel"+i.targetedAnimations.length,o=new r.Animation(t,n,1,a);o.setKeys(h.map(function(t){return{frame:t.frame,inTangent:t.inTangent?t.inTangent[e]:void 0,value:t.value[e],outTangent:t.outTangent?t.outTangent[e]:void 0}})),l._forEachPrimitive(u,function(t){var n=t.morphTargetManager.getTarget(e),r=o.clone();n.animations.push(r),i.addTargetedAnimation(r,n)})},_=0;_<u._numMorphTargets;_++)m(_);else{var y=i.name+"_channel"+i.targetedAnimations.length,b=new r.Animation(y,n,1,a);b.setKeys(h),null!=s&&null!=s.animations?(s.animations.push(b),i.addTargetedAnimation(b,s)):(u._babylonTransformNode.animations.push(b),i.addTargetedAnimation(b,u._babylonTransformNode))}})},e.prototype._loadAnimationSamplerAsync=function(e,t){if(t._data)return t._data;var n=t.interpolation||"LINEAR";switch(n){case"STEP":case"LINEAR":case"CUBICSPLINE":break;default:throw new Error(e+"/interpolation: Invalid value ("+t.interpolation+")")}var r=a.Get(e+"/input",this._gltf.accessors,t.input),o=a.Get(e+"/output",this._gltf.accessors,t.output);return t._data=Promise.all([this._loadFloatAccessorAsync("/accessors/"+r.index,r),this._loadFloatAccessorAsync("/accessors/"+o.index,o)]).then(function(e){var t=e[0],r=e[1];return{input:t,interpolation:n,output:r}}),t._data},e.prototype._loadBufferAsync=function(e,t,n,r){var o=this._extensionsLoadBufferAsync(e,t,n,r);if(o)return o;if(!t._data)if(t.uri)t._data=this.loadUriAsync(e+"/uri",t,t.uri);else{if(!this._bin)throw new Error(e+": Uri is missing or the binary glTF is missing its binary chunk");t._data=this._bin.readAsync(0,t.byteLength)}return t._data.then(function(t){try{return new Uint8Array(t.buffer,t.byteOffset+n,r)}catch(t){throw new Error(e+": "+t.message)}})},e.prototype.loadBufferViewAsync=function(e,t){var n=this._extensionsLoadBufferViewAsync(e,t);if(n)return n;if(t._data)return t._data;var r=a.Get(e+"/buffer",this._gltf.buffers,t.buffer);return t._data=this._loadBufferAsync("/buffers/"+r.index,r,t.byteOffset||0,t.byteLength),t._data},e.prototype._loadAccessorAsync=function(t,n,o){var i=this;if(n._data)return n._data;var s=e._GetNumComponents(t,n.type),l=s*r.VertexBuffer.GetTypeByteLength(n.componentType),u=s*n.count;if(null==n.bufferView)n._data=Promise.resolve(new o(u));else{var c=a.Get(t+"/bufferView",this._gltf.bufferViews,n.bufferView);n._data=this.loadBufferViewAsync("/bufferViews/"+c.index,c).then(function(a){if(5126!==n.componentType||n.normalized){var i=new o(u);return r.VertexBuffer.ForEach(a,n.byteOffset||0,c.byteStride||l,s,n.componentType,i.length,n.normalized||!1,function(e,t){i[t]=e}),i}return e._GetTypedArray(t,n.componentType,a,n.byteOffset,u)})}if(n.sparse){var f=n.sparse;n._data=n._data.then(function(u){var c=u,d=a.Get(t+"/sparse/indices/bufferView",i._gltf.bufferViews,f.indices.bufferView),h=a.Get(t+"/sparse/values/bufferView",i._gltf.bufferViews,f.values.bufferView);return Promise.all([i.loadBufferViewAsync("/bufferViews/"+d.index,d),i.loadBufferViewAsync("/bufferViews/"+h.index,h)]).then(function(a){var i,u=a[0],d=a[1],h=e._GetTypedArray(t+"/sparse/indices",f.indices.componentType,u,f.indices.byteOffset,f.count),p=s*f.count;if(5126!==n.componentType||n.normalized){var m=e._GetTypedArray(t+"/sparse/values",n.componentType,d,f.values.byteOffset,p);i=new o(p),r.VertexBuffer.ForEach(m,0,l,s,n.componentType,i.length,n.normalized||!1,function(e,t){i[t]=e})}else i=e._GetTypedArray(t+"/sparse/values",n.componentType,d,f.values.byteOffset,p);for(var _=0,y=0;y<h.length;y++)for(var b=h[y]*s,v=0;v<s;v++)c[b++]=i[_++];return c})})}return n._data},e.prototype._loadFloatAccessorAsync=function(e,t){return this._loadAccessorAsync(e,t,Float32Array)},e.prototype._loadIndicesAccessorAsync=function(t,n){if("SCALAR"!==n.type)throw new Error(t+"/type: Invalid value "+n.type);if(5121!==n.componentType&&5123!==n.componentType&&5125!==n.componentType)throw new Error(t+"/componentType: Invalid value "+n.componentType);if(n._data)return n._data;if(n.sparse){var r=e._GetTypedArrayConstructor(t+"/componentType",n.componentType);n._data=this._loadAccessorAsync(t,n,r)}else{var o=a.Get(t+"/bufferView",this._gltf.bufferViews,n.bufferView);n._data=this.loadBufferViewAsync("/bufferViews/"+o.index,o).then(function(r){return e._GetTypedArray(t,n.componentType,r,n.byteOffset,n.count)})}return n._data},e.prototype._loadVertexBufferViewAsync=function(e,t){var n=this;return e._babylonBuffer?e._babylonBuffer:(e._babylonBuffer=this.loadBufferViewAsync("/bufferViews/"+e.index,e).then(function(e){return new r.Buffer(n._babylonScene.getEngine(),e,!1)}),e._babylonBuffer)},e.prototype._loadVertexAccessorAsync=function(t,n,o){var i=this;if(n._babylonVertexBuffer)return n._babylonVertexBuffer;if(n.sparse)n._babylonVertexBuffer=this._loadFloatAccessorAsync("/accessors/"+n.index,n).then(function(e){return new r.VertexBuffer(i._babylonScene.getEngine(),e,o,!1)});else if(n.byteOffset&&n.byteOffset%r.VertexBuffer.GetTypeByteLength(n.componentType)!=0)r.Logger.Warn("Accessor byte offset is not a multiple of component type byte length"),n._babylonVertexBuffer=this._loadFloatAccessorAsync("/accessors/"+n.index,n).then(function(e){return new r.VertexBuffer(i._babylonScene.getEngine(),e,o,!1)});else if(o===r.VertexBuffer.MatricesIndicesKind||o===r.VertexBuffer.MatricesIndicesExtraKind)n._babylonVertexBuffer=this._loadFloatAccessorAsync("/accessors/"+n.index,n).then(function(e){return new r.VertexBuffer(i._babylonScene.getEngine(),e,o,!1)});else{var s=a.Get(t+"/bufferView",this._gltf.bufferViews,n.bufferView);n._babylonVertexBuffer=this._loadVertexBufferViewAsync(s,o).then(function(a){var l=e._GetNumComponents(t,n.type);return new r.VertexBuffer(i._babylonScene.getEngine(),a,o,!1,!1,s.byteStride,!1,n.byteOffset,l,n.componentType,n.normalized,!0)})}return n._babylonVertexBuffer},e.prototype._loadMaterialMetallicRoughnessPropertiesAsync=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");var o=new Array;return t&&(t.baseColorFactor?(n.albedoColor=r.Color3.FromArray(t.baseColorFactor),n.alpha=t.baseColorFactor[3]):n.albedoColor=r.Color3.White(),n.metallic=null==t.metallicFactor?1:t.metallicFactor,n.roughness=null==t.roughnessFactor?1:t.roughnessFactor,t.baseColorTexture&&o.push(this.loadTextureInfoAsync(e+"/baseColorTexture",t.baseColorTexture,function(e){e.name=n.name+" (Base Color)",n.albedoTexture=e})),t.metallicRoughnessTexture&&(o.push(this.loadTextureInfoAsync(e+"/metallicRoughnessTexture",t.metallicRoughnessTexture,function(e){e.name=n.name+" (Metallic Roughness)",n.metallicTexture=e})),n.useMetallnessFromMetallicTextureBlue=!0,n.useRoughnessFromMetallicTextureGreen=!0,n.useRoughnessFromMetallicTextureAlpha=!1)),Promise.all(o).then(function(){})},e.prototype._loadMaterialAsync=function(t,n,r,o,a){void 0===a&&(a=function(){});var i=this._extensionsLoadMaterialAsync(t,n,r,o,a);if(i)return i;n._data=n._data||{};var s=n._data[o];if(!s){this.logOpen(t+" "+(n.name||""));var l=this.createMaterial(t,n,o);s={babylonMaterial:l,babylonMeshes:[],promise:this.loadMaterialPropertiesAsync(t,n,l)},n._data[o]=s,e.AddPointerMetadata(l,t),this._parent.onMaterialLoadedObservable.notifyObservers(l),this.logClose()}return s.babylonMeshes.push(r),r.onDisposeObservable.addOnce(function(){var e=s.babylonMeshes.indexOf(r);-1!==e&&s.babylonMeshes.splice(e,1)}),a(s.babylonMaterial),s.promise.then(function(){return s.babylonMaterial})},e.prototype._createDefaultMaterial=function(e,t){this._babylonScene._blockEntityCollection=this._forAssetContainer;var n=new r.PBRMaterial(e,this._babylonScene);return this._babylonScene._blockEntityCollection=!1,n.fillMode=t,n.enableSpecularAntiAliasing=!0,n.useRadianceOverAlpha=!this._parent.transparencyAsCoverage,n.useSpecularOverAlpha=!this._parent.transparencyAsCoverage,n.transparencyMode=r.PBRMaterial.PBRMATERIAL_OPAQUE,n.metallic=1,n.roughness=1,n},e.prototype.createMaterial=function(e,t,n){var r=this._extensionsCreateMaterial(e,t,n);if(r)return r;var o=t.name||"material"+t.index;return this._createDefaultMaterial(o,n)},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var r=this._extensionsLoadMaterialPropertiesAsync(e,t,n);if(r)return r;var o=new Array;return o.push(this.loadMaterialBasePropertiesAsync(e,t,n)),t.pbrMetallicRoughness&&o.push(this._loadMaterialMetallicRoughnessPropertiesAsync(e+"/pbrMetallicRoughness",t.pbrMetallicRoughness,n)),this.loadMaterialAlphaProperties(e,t,n),Promise.all(o).then(function(){})},e.prototype.loadMaterialBasePropertiesAsync=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");var o=new Array;return n.emissiveColor=t.emissiveFactor?r.Color3.FromArray(t.emissiveFactor):new r.Color3(0,0,0),t.doubleSided&&(n.backFaceCulling=!1,n.twoSidedLighting=!0),t.normalTexture&&(o.push(this.loadTextureInfoAsync(e+"/normalTexture",t.normalTexture,function(e){e.name=n.name+" (Normal)",n.bumpTexture=e})),n.invertNormalMapX=!this._babylonScene.useRightHandedSystem,n.invertNormalMapY=this._babylonScene.useRightHandedSystem,null!=t.normalTexture.scale&&(n.bumpTexture.level=t.normalTexture.scale),n.forceIrradianceInFragment=!0),t.occlusionTexture&&(o.push(this.loadTextureInfoAsync(e+"/occlusionTexture",t.occlusionTexture,function(e){e.name=n.name+" (Occlusion)",n.ambientTexture=e})),n.useAmbientInGrayScale=!0,null!=t.occlusionTexture.strength&&(n.ambientTextureStrength=t.occlusionTexture.strength)),t.emissiveTexture&&o.push(this.loadTextureInfoAsync(e+"/emissiveTexture",t.emissiveTexture,function(e){e.name=n.name+" (Emissive)",n.emissiveTexture=e})),Promise.all(o).then(function(){})},e.prototype.loadMaterialAlphaProperties=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");switch(t.alphaMode||"OPAQUE"){case"OPAQUE":n.transparencyMode=r.PBRMaterial.PBRMATERIAL_OPAQUE;break;case"MASK":n.transparencyMode=r.PBRMaterial.PBRMATERIAL_ALPHATEST,n.alphaCutOff=null==t.alphaCutoff?.5:t.alphaCutoff,n.albedoTexture&&(n.albedoTexture.hasAlpha=!0);break;case"BLEND":n.transparencyMode=r.PBRMaterial.PBRMATERIAL_ALPHABLEND,n.albedoTexture&&(n.albedoTexture.hasAlpha=!0,n.useAlphaFromAlbedoTexture=!0);break;default:throw new Error(e+"/alphaMode: Invalid value ("+t.alphaMode+")")}},e.prototype.loadTextureInfoAsync=function(t,n,r){var o=this;void 0===r&&(r=function(){});var i=this._extensionsLoadTextureInfoAsync(t,n,r);if(i)return i;if(this.logOpen(""+t),n.texCoord>=2)throw new Error(t+"/texCoord: Invalid value ("+n.texCoord+")");var s=a.Get(t+"/index",this._gltf.textures,n.index),l=this._loadTextureAsync("/textures/"+n.index,s,function(a){a.coordinatesIndex=n.texCoord||0,e.AddPointerMetadata(a,t),o._parent.onTextureLoadedObservable.notifyObservers(a),r(a)});return this.logClose(),l},e.prototype._loadTextureAsync=function(t,n,r){void 0===r&&(r=function(){});var o=this._extensionsLoadTextureAsync(t,n,r);if(o)return o;this.logOpen(t+" "+(n.name||""));var i=null==n.sampler?e.DefaultSampler:a.Get(t+"/sampler",this._gltf.samplers,n.sampler),s=a.Get(t+"/source",this._gltf.images,n.source),l=this._createTextureAsync(t,i,s,r);return this.logClose(),l},e.prototype._createTextureAsync=function(e,t,n,o){var a=this;void 0===o&&(o=function(){});var i=this._loadSampler("/samplers/"+t.index,t),s=new Array,l=new r.Deferred;this._babylonScene._blockEntityCollection=this._forAssetContainer;var u=new r.Texture(null,this._babylonScene,i.noMipMaps,!1,i.samplingMode,function(){a._disposed||l.resolve()},function(t,n){a._disposed||l.reject(new Error(e+": "+(n&&n.message?n.message:t||"Failed to load texture")))},void 0,void 0,void 0,n.mimeType);return this._babylonScene._blockEntityCollection=!1,s.push(l.promise),s.push(this.loadImageAsync("/images/"+n.index,n).then(function(e){var t=n.uri||a._fileName+"#image"+n.index,r="data:"+a._uniqueRootUrl+t;u.updateURL(r,e)})),u.wrapU=i.wrapU,u.wrapV=i.wrapV,o(u),Promise.all(s).then(function(){return u})},e.prototype._loadSampler=function(t,n){return n._data||(n._data={noMipMaps:9728===n.minFilter||9729===n.minFilter,samplingMode:e._GetTextureSamplingMode(t,n),wrapU:e._GetTextureWrapMode(t+"/wrapS",n.wrapS),wrapV:e._GetTextureWrapMode(t+"/wrapT",n.wrapT)}),n._data},e.prototype.loadImageAsync=function(e,t){if(!t._data){if(this.logOpen(e+" "+(t.name||"")),t.uri)t._data=this.loadUriAsync(e+"/uri",t,t.uri);else{var n=a.Get(e+"/bufferView",this._gltf.bufferViews,t.bufferView);t._data=this.loadBufferViewAsync("/bufferViews/"+n.index,n)}this.logClose()}return t._data},e.prototype.loadUriAsync=function(t,n,a){var i=this,s=this._extensionsLoadUriAsync(t,n,a);if(s)return s;if(!e._ValidateUri(a))throw new Error(t+": '"+a+"' is invalid");if(r.Tools.IsBase64(a)){var l=new Uint8Array(r.Tools.DecodeBase64(a));return this.log("Decoded "+a.substr(0,64)+"... ("+l.length+" bytes)"),Promise.resolve(l)}return this.log("Loading "+a),this._parent.preprocessUrlAsync(this._rootUrl+a).then(function(e){return new Promise(function(n,s){if(!i._disposed){var l=r.Tools.LoadFile(e,function(e){if(!i._disposed){var t=new Uint8Array(e);i.log("Loaded "+a+" ("+t.length+" bytes)"),n(t)}},function(e){if(!i._disposed&&(l&&(l._lengthComputable=e.lengthComputable,l._loaded=e.loaded,l._total=e.total),i._state===o.GLTFLoaderState.LOADING))try{i._onProgress()}catch(e){s(e)}},i._babylonScene.offlineProvider,!0,function(e,n){i._disposed||s(new r.LoadFileError(t+": Failed to load '"+a+"'"+(e?": "+e.status+" "+e.statusText:""),e))});i._requests.push(l)}})})},e.prototype._onProgress=function(){if(this._progressCallback){for(var e=!0,t=0,n=0,o=0,a=this._requests;o<a.length;o++){var i=a[o];if(void 0===i._lengthComputable||void 0===i._loaded||void 0===i._total)return;e=e&&i._lengthComputable,t+=i._loaded,n+=i._total}this._progressCallback(new r.SceneLoaderProgressEvent(e,t,e?n:0))}},e.AddPointerMetadata=function(e,t){var n=e.metadata=e.metadata||{},r=n.gltf=n.gltf||{};(r.pointers=r.pointers||[]).push(t)},e._GetTextureWrapMode=function(e,t){switch(t=null==t?10497:t){case 33071:return r.Texture.CLAMP_ADDRESSMODE;case 33648:return r.Texture.MIRROR_ADDRESSMODE;case 10497:return r.Texture.WRAP_ADDRESSMODE;default:return r.Logger.Warn(e+": Invalid value ("+t+")"),r.Texture.WRAP_ADDRESSMODE}},e._GetTextureSamplingMode=function(e,t){var n=null==t.magFilter?9729:t.magFilter,o=null==t.minFilter?9987:t.minFilter;if(9729===n)switch(o){case 9728:return r.Texture.LINEAR_NEAREST;case 9729:return r.Texture.LINEAR_LINEAR;case 9984:return r.Texture.LINEAR_NEAREST_MIPNEAREST;case 9985:return r.Texture.LINEAR_LINEAR_MIPNEAREST;case 9986:return r.Texture.LINEAR_NEAREST_MIPLINEAR;case 9987:return r.Texture.LINEAR_LINEAR_MIPLINEAR;default:return r.Logger.Warn(e+"/minFilter: Invalid value ("+o+")"),r.Texture.LINEAR_LINEAR_MIPLINEAR}else switch(9728!==n&&r.Logger.Warn(e+"/magFilter: Invalid value ("+n+")"),o){case 9728:return r.Texture.NEAREST_NEAREST;case 9729:return r.Texture.NEAREST_LINEAR;case 9984:return r.Texture.NEAREST_NEAREST_MIPNEAREST;case 9985:return r.Texture.NEAREST_LINEAR_MIPNEAREST;case 9986:return r.Texture.NEAREST_NEAREST_MIPLINEAR;case 9987:return r.Texture.NEAREST_LINEAR_MIPLINEAR;default:return r.Logger.Warn(e+"/minFilter: Invalid value ("+o+")"),r.Texture.NEAREST_NEAREST_MIPNEAREST}},e._GetTypedArrayConstructor=function(e,t){switch(t){case 5120:return Int8Array;case 5121:return Uint8Array;case 5122:return Int16Array;case 5123:return Uint16Array;case 5125:return Uint32Array;case 5126:return Float32Array;default:throw new Error(e+": Invalid component type "+t)}},e._GetTypedArray=function(t,n,r,o,a){var i=r.buffer;o=r.byteOffset+(o||0);var s=e._GetTypedArrayConstructor(t+"/componentType",n);try{return new s(i,o,a)}catch(e){throw new Error(t+": "+e)}},e._GetNumComponents=function(e,t){switch(t){case"SCALAR":return 1;case"VEC2":return 2;case"VEC3":return 3;case"VEC4":case"MAT2":return 4;case"MAT3":return 9;case"MAT4":return 16}throw new Error(e+": Invalid type ("+t+")")},e._ValidateUri=function(e){return r.Tools.IsBase64(e)||-1===e.indexOf("..")},e._GetDrawMode=function(e,t){switch(null==t&&(t=4),t){case 0:return r.Material.PointListDrawMode;case 1:return r.Material.LineListDrawMode;case 2:return r.Material.LineLoopDrawMode;case 3:return r.Material.LineStripDrawMode;case 4:return r.Material.TriangleFillMode;case 5:return r.Material.TriangleStripDrawMode;case 6:return r.Material.TriangleFanDrawMode}throw new Error(e+": Invalid mesh primitive mode ("+t+")")},e.prototype._compileMaterialsAsync=function(){var e=this;this._parent._startPerformanceCounter("Compile materials");var t=new Array;if(this._gltf.materials)for(var n=0,r=this._gltf.materials;n<r.length;n++){var o=r[n];if(o._data)for(var a in o._data)for(var i=o._data[a],s=0,l=i.babylonMeshes;s<l.length;s++){var u=l[s];u.computeWorldMatrix(!0);var c=i.babylonMaterial;t.push(c.forceCompilationAsync(u)),t.push(c.forceCompilationAsync(u,{useInstances:!0})),this._parent.useClipPlane&&(t.push(c.forceCompilationAsync(u,{clipPlane:!0})),t.push(c.forceCompilationAsync(u,{clipPlane:!0,useInstances:!0})))}}return Promise.all(t).then(function(){e._parent._endPerformanceCounter("Compile materials")})},e.prototype._compileShadowGeneratorsAsync=function(){var e=this;this._parent._startPerformanceCounter("Compile shadow generators");for(var t=new Array,n=0,r=this._babylonScene.lights;n<r.length;n++){var o=r[n].getShadowGenerator();o&&t.push(o.forceCompilationAsync())}return Promise.all(t).then(function(){e._parent._endPerformanceCounter("Compile shadow generators")})},e.prototype._forEachExtensions=function(e){for(var t=0,n=this._extensions;t<n.length;t++){var r=n[t];r.enabled&&e(r)}},e.prototype._applyExtensions=function(e,t,n){for(var r=0,o=this._extensions;r<o.length;r++){var a=o[r];if(a.enabled){var i=a.name+"."+t,s=e;s._activeLoaderExtensionFunctions=s._activeLoaderExtensionFunctions||{};var l=s._activeLoaderExtensionFunctions;if(!l[i]){l[i]=!0;try{var u=n(a);if(u)return u}finally{delete l[i]}}}}return null},e.prototype._extensionsOnLoading=function(){this._forEachExtensions(function(e){return e.onLoading&&e.onLoading()})},e.prototype._extensionsOnReady=function(){this._forEachExtensions(function(e){return e.onReady&&e.onReady()})},e.prototype._extensionsLoadSceneAsync=function(e,t){return this._applyExtensions(t,"loadScene",function(n){return n.loadSceneAsync&&n.loadSceneAsync(e,t)})},e.prototype._extensionsLoadNodeAsync=function(e,t,n){return this._applyExtensions(t,"loadNode",function(r){return r.loadNodeAsync&&r.loadNodeAsync(e,t,n)})},e.prototype._extensionsLoadCameraAsync=function(e,t,n){return this._applyExtensions(t,"loadCamera",function(r){return r.loadCameraAsync&&r.loadCameraAsync(e,t,n)})},e.prototype._extensionsLoadVertexDataAsync=function(e,t,n){return this._applyExtensions(t,"loadVertexData",function(r){return r._loadVertexDataAsync&&r._loadVertexDataAsync(e,t,n)})},e.prototype._extensionsLoadMeshPrimitiveAsync=function(e,t,n,r,o,a){return this._applyExtensions(o,"loadMeshPrimitive",function(i){return i._loadMeshPrimitiveAsync&&i._loadMeshPrimitiveAsync(e,t,n,r,o,a)})},e.prototype._extensionsLoadMaterialAsync=function(e,t,n,r,o){return this._applyExtensions(t,"loadMaterial",function(a){return a._loadMaterialAsync&&a._loadMaterialAsync(e,t,n,r,o)})},e.prototype._extensionsCreateMaterial=function(e,t,n){return this._applyExtensions(t,"createMaterial",function(r){return r.createMaterial&&r.createMaterial(e,t,n)})},e.prototype._extensionsLoadMaterialPropertiesAsync=function(e,t,n){return this._applyExtensions(t,"loadMaterialProperties",function(r){return r.loadMaterialPropertiesAsync&&r.loadMaterialPropertiesAsync(e,t,n)})},e.prototype._extensionsLoadTextureInfoAsync=function(e,t,n){return this._applyExtensions(t,"loadTextureInfo",function(r){return r.loadTextureInfoAsync&&r.loadTextureInfoAsync(e,t,n)})},e.prototype._extensionsLoadTextureAsync=function(e,t,n){return this._applyExtensions(t,"loadTexture",function(r){return r._loadTextureAsync&&r._loadTextureAsync(e,t,n)})},e.prototype._extensionsLoadAnimationAsync=function(e,t){return this._applyExtensions(t,"loadAnimation",function(n){return n.loadAnimationAsync&&n.loadAnimationAsync(e,t)})},e.prototype._extensionsLoadSkinAsync=function(e,t,n){return this._applyExtensions(n,"loadSkin",function(r){return r._loadSkinAsync&&r._loadSkinAsync(e,t,n)})},e.prototype._extensionsLoadUriAsync=function(e,t,n){return this._applyExtensions(t,"loadUri",function(r){return r._loadUriAsync&&r._loadUriAsync(e,t,n)})},e.prototype._extensionsLoadBufferViewAsync=function(e,t){return this._applyExtensions(t,"loadBufferView",function(n){return n.loadBufferViewAsync&&n.loadBufferViewAsync(e,t)})},e.prototype._extensionsLoadBufferAsync=function(e,t,n,r){return this._applyExtensions(t,"loadBuffer",function(o){return o.loadBufferAsync&&o.loadBufferAsync(e,t,n,r)})},e.LoadExtensionAsync=function(e,t,n,r){if(!t.extensions)return null;var o=t.extensions[n];return o?r(e+"/extensions/"+n,o):null},e.LoadExtraAsync=function(e,t,n,r){if(!t.extras)return null;var o=t.extras[n];return o?r(e+"/extras/"+n,o):null},e.prototype.isExtensionUsed=function(e){return!!this._gltf.extensionsUsed&&-1!==this._gltf.extensionsUsed.indexOf(e)},e.prototype.logOpen=function(e){this._parent._logOpen(e)},e.prototype.logClose=function(){this._parent._logClose()},e.prototype.log=function(e){this._parent._log(e)},e.prototype.startPerformanceCounter=function(e){this._parent._startPerformanceCounter(e)},e.prototype.endPerformanceCounter=function(e){this._parent._endPerformanceCounter(e)},e._RegisteredExtensions={},e.DefaultSampler={index:-1},e}();o.GLTFFileLoader._CreateGLTF2Loader=function(e){return new i(e)}},function(e,t,n){"use strict";n.r(t),n.d(t,"GLTFLoaderCoordinateSystemMode",function(){return r}),n.d(t,"GLTFLoaderAnimationStartMode",function(){return o}),n.d(t,"GLTFLoaderState",function(){return a}),n.d(t,"GLTFFileLoader",function(){return l});var r,o,a,i=n(0),s=n(3);!function(e){e[e.AUTO=0]="AUTO",e[e.FORCE_RIGHT_HANDED=1]="FORCE_RIGHT_HANDED"}(r||(r={})),function(e){e[e.NONE=0]="NONE",e[e.FIRST=1]="FIRST",e[e.ALL=2]="ALL"}(o||(o={})),function(e){e[e.LOADING=0]="LOADING",e[e.READY=1]="READY",e[e.COMPLETE=2]="COMPLETE"}(a||(a={}));var l=function(){function e(){this.onParsedObservable=new i.Observable,this.coordinateSystemMode=r.AUTO,this.animationStartMode=o.FIRST,this.compileMaterials=!1,this.useClipPlane=!1,this.compileShadowGenerators=!1,this.transparencyAsCoverage=!1,this.useRangeRequests=!1,this.createInstances=!0,this.preprocessUrlAsync=function(e){return Promise.resolve(e)},this.onMeshLoadedObservable=new i.Observable,this.onTextureLoadedObservable=new i.Observable,this.onMaterialLoadedObservable=new i.Observable,this.onCameraLoadedObservable=new i.Observable,this.onCompleteObservable=new i.Observable,this.onErrorObservable=new i.Observable,this.onDisposeObservable=new i.Observable,this.onExtensionLoadedObservable=new i.Observable,this.validate=!1,this.onValidatedObservable=new i.Observable,this._loader=null,this.name="gltf",this.extensions={".gltf":{isBinary:!1},".glb":{isBinary:!0}},this._logIndentLevel=0,this._loggingEnabled=!1,this._log=this._logDisabled,this._capturePerformanceCounters=!1,this._startPerformanceCounter=this._startPerformanceCounterDisabled,this._endPerformanceCounter=this._endPerformanceCounterDisabled}return Object.defineProperty(e.prototype,"onParsed",{set:function(e){this._onParsedObserver&&this.onParsedObservable.remove(this._onParsedObserver),this._onParsedObserver=this.onParsedObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onMeshLoaded",{set:function(e){this._onMeshLoadedObserver&&this.onMeshLoadedObservable.remove(this._onMeshLoadedObserver),this._onMeshLoadedObserver=this.onMeshLoadedObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onTextureLoaded",{set:function(e){this._onTextureLoadedObserver&&this.onTextureLoadedObservable.remove(this._onTextureLoadedObserver),this._onTextureLoadedObserver=this.onTextureLoadedObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onMaterialLoaded",{set:function(e){this._onMaterialLoadedObserver&&this.onMaterialLoadedObservable.remove(this._onMaterialLoadedObserver),this._onMaterialLoadedObserver=this.onMaterialLoadedObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onCameraLoaded",{set:function(e){this._onCameraLoadedObserver&&this.onCameraLoadedObservable.remove(this._onCameraLoadedObserver),this._onCameraLoadedObserver=this.onCameraLoadedObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onComplete",{set:function(e){this._onCompleteObserver&&this.onCompleteObservable.remove(this._onCompleteObserver),this._onCompleteObserver=this.onCompleteObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onError",{set:function(e){this._onErrorObserver&&this.onErrorObservable.remove(this._onErrorObserver),this._onErrorObserver=this.onErrorObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onDispose",{set:function(e){this._onDisposeObserver&&this.onDisposeObservable.remove(this._onDisposeObserver),this._onDisposeObserver=this.onDisposeObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onExtensionLoaded",{set:function(e){this._onExtensionLoadedObserver&&this.onExtensionLoadedObservable.remove(this._onExtensionLoadedObserver),this._onExtensionLoadedObserver=this.onExtensionLoadedObservable.add(e)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"loggingEnabled",{get:function(){return this._loggingEnabled},set:function(e){this._loggingEnabled!==e&&(this._loggingEnabled=e,this._loggingEnabled?this._log=this._logEnabled:this._log=this._logDisabled)},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"capturePerformanceCounters",{get:function(){return this._capturePerformanceCounters},set:function(e){this._capturePerformanceCounters!==e&&(this._capturePerformanceCounters=e,this._capturePerformanceCounters?(this._startPerformanceCounter=this._startPerformanceCounterEnabled,this._endPerformanceCounter=this._endPerformanceCounterEnabled):(this._startPerformanceCounter=this._startPerformanceCounterDisabled,this._endPerformanceCounter=this._endPerformanceCounterDisabled))},enumerable:!0,configurable:!0}),Object.defineProperty(e.prototype,"onValidated",{set:function(e){this._onValidatedObserver&&this.onValidatedObservable.remove(this._onValidatedObserver),this._onValidatedObserver=this.onValidatedObservable.add(e)},enumerable:!0,configurable:!0}),e.prototype.dispose=function(){this._loader&&(this._loader.dispose(),this._loader=null),this._clear(),this.onDisposeObservable.notifyObservers(void 0),this.onDisposeObservable.clear()},e.prototype._clear=function(){this.preprocessUrlAsync=function(e){return Promise.resolve(e)},this.onMeshLoadedObservable.clear(),this.onTextureLoadedObservable.clear(),this.onMaterialLoadedObservable.clear(),this.onCameraLoadedObservable.clear(),this.onCompleteObservable.clear(),this.onExtensionLoadedObservable.clear()},e.prototype.requestFile=function(e,t,n,r,o,a){var s=this;if(o){if(this.useRangeRequests){this.validate&&i.Logger.Warn("glTF validation is not supported when range requests are enabled");var l=new Array,u={abort:function(){return l.forEach(function(e){return e.abort()})},onCompleteObservable:new i.Observable},c={readAsync:function(n,o){return new Promise(function(a,i){l.push(e._requestFile(t,function(e,t){var n=t.getResponseHeader("Content-Range");n&&(c.byteLength=Number(n.split("/")[1])),a(new Uint8Array(e))},r,!0,!0,function(e){i(e)},function(e){e.setRequestHeader("Range","bytes="+n+"-"+(n+o-1))}))})},byteLength:0};return this._unpackBinaryAsync(new i.DataReader(c)).then(function(e){u.onCompleteObservable.notifyObservers(u),n(e)},a),u}return e._requestFile(t,function(e,t){var r=e;s._unpackBinaryAsync(new i.DataReader({readAsync:function(e,t){return Promise.resolve(new Uint8Array(r,e,t))},byteLength:r.byteLength})).then(function(e){n(e,t)},a)},r,!0,!0,a)}return e._requestFile(t,function(r,o){s._validate(e,r,i.Tools.GetFolderPath(t),i.Tools.GetFilename(t)),n({json:s._parseJson(r)},o)},r,!0,!1,a)},e.prototype.readFile=function(e,t,n,r,o,a){var s=this;return e._readFile(t,function(r){if(s._validate(e,r,"file:",t.name),o){var l=r;s._unpackBinaryAsync(new i.DataReader({readAsync:function(e,t){return Promise.resolve(new Uint8Array(l,e,t))},byteLength:l.byteLength})).then(n,a)}else n({json:s._parseJson(r)})},r,o,a)},e.prototype.importMeshAsync=function(e,t,n,r,o,a){var i=this;return Promise.resolve().then(function(){return i.onParsedObservable.notifyObservers(n),i.onParsedObservable.clear(),i._log("Loading "+(a||"")),i._loader=i._getLoader(n),i._loader.importMeshAsync(e,t,!1,n,r,o,a)})},e.prototype.loadAsync=function(e,t,n,r,o){var a=this;return Promise.resolve().then(function(){return a.onParsedObservable.notifyObservers(t),a.onParsedObservable.clear(),a._log("Loading "+(o||"")),a._loader=a._getLoader(t),a._loader.loadAsync(e,t,n,r,o)})},e.prototype.loadAssetContainerAsync=function(e,t,n,r,o){var a=this;return Promise.resolve().then(function(){a.onParsedObservable.notifyObservers(t),a.onParsedObservable.clear(),a._log("Loading "+(o||"")),a._loader=a._getLoader(t);var s=[];a.onMaterialLoadedObservable.add(function(e){s.push(e)});var l=[];return a.onTextureLoadedObservable.add(function(e){l.push(e)}),a._loader.importMeshAsync(null,e,!0,t,n,r,o).then(function(t){var n=new i.AssetContainer(e);return Array.prototype.push.apply(n.meshes,t.meshes),Array.prototype.push.apply(n.particleSystems,t.particleSystems),Array.prototype.push.apply(n.skeletons,t.skeletons),Array.prototype.push.apply(n.animationGroups,t.animationGroups),Array.prototype.push.apply(n.materials,s),Array.prototype.push.apply(n.textures,l),Array.prototype.push.apply(n.lights,t.lights),Array.prototype.push.apply(n.transformNodes,t.transformNodes),n})})},e.prototype.canDirectLoad=function(e){return-1!==e.indexOf("asset")&&-1!==e.indexOf("version")},e.prototype.directLoad=function(e,t){return this._validate(e,t),{json:this._parseJson(t)}},e.prototype.createPlugin=function(){return new e},Object.defineProperty(e.prototype,"loaderState",{get:function(){return this._loader?this._loader.state:null},enumerable:!0,configurable:!0}),e.prototype.whenCompleteAsync=function(){var e=this;return new Promise(function(t,n){e.onCompleteObservable.addOnce(function(){t()}),e.onErrorObservable.addOnce(function(e){n(e)})})},e.prototype._validate=function(e,t,n,r){var o=this;void 0===n&&(n=""),void 0===r&&(r=""),this.validate&&(this._startPerformanceCounter("Validate JSON"),s.GLTFValidation.ValidateAsync(t,n,r,function(t){return o.preprocessUrlAsync(n+t).then(function(t){return e._loadFileAsync(t,void 0,!0,!0)})}).then(function(e){o._endPerformanceCounter("Validate JSON"),o.onValidatedObservable.notifyObservers(e),o.onValidatedObservable.clear()},function(e){o._endPerformanceCounter("Validate JSON"),i.Tools.Warn("Failed to validate: "+e.message),o.onValidatedObservable.clear()}))},e.prototype._getLoader=function(t){var n=t.json.asset||{};this._log("Asset version: "+n.version),n.minVersion&&this._log("Asset minimum version: "+n.minVersion),n.generator&&this._log("Asset generator: "+n.generator);var r=e._parseVersion(n.version);if(!r)throw new Error("Invalid version: "+n.version);if(void 0!==n.minVersion){var o=e._parseVersion(n.minVersion);if(!o)throw new Error("Invalid minimum version: "+n.minVersion);if(e._compareVersion(o,{major:2,minor:0})>0)throw new Error("Incompatible minimum version: "+n.minVersion)}var a={1:e._CreateGLTF1Loader,2:e._CreateGLTF2Loader}[r.major];if(!a)throw new Error("Unsupported version: "+n.version);return a(this)},e.prototype._parseJson=function(e){this._startPerformanceCounter("Parse JSON"),this._log("JSON length: "+e.length);var t=JSON.parse(e);return this._endPerformanceCounter("Parse JSON"),t},e.prototype._unpackBinaryAsync=function(e){var t=this;return this._startPerformanceCounter("Unpack Binary"),e.loadAsync(20).then(function(){var n=e.readUint32();if(1179937895!==n)throw new Error("Unexpected magic: "+n);var r=e.readUint32();t.loggingEnabled&&t._log("Binary version: "+r);var o,a=e.readUint32();if(0!=e.buffer.byteLength&&a!==e.buffer.byteLength)throw new Error("Length in header does not match actual data length: "+a+" != "+e.buffer.byteLength);switch(r){case 1:o=t._unpackBinaryV1Async(e,a);break;case 2:o=t._unpackBinaryV2Async(e,a);break;default:throw new Error("Unsupported version: "+r)}return t._endPerformanceCounter("Unpack Binary"),o})},e.prototype._unpackBinaryV1Async=function(e,t){var n=e.readUint32(),r=e.readUint32();if(0!==r)throw new Error("Unexpected content format: "+r);var o=t-e.byteOffset,a={json:this._parseJson(e.readString(n)),bin:null};if(0!==o){var i=e.byteOffset;a.bin={readAsync:function(t,n){return e.buffer.readAsync(i+t,n)},byteLength:o}}return Promise.resolve(a)},e.prototype._unpackBinaryV2Async=function(e,t){var n=this,r=1313821514,o=5130562,a=e.readUint32();if(e.readUint32()!==r)throw new Error("First chunk format is not JSON");return e.byteOffset+a===t?e.loadAsync(a).then(function(){return{json:n._parseJson(e.readString(a)),bin:null}}):e.loadAsync(a+8).then(function(){var i={json:n._parseJson(e.readString(a)),bin:null},s=function(){var n=e.readUint32();switch(e.readUint32()){case r:throw new Error("Unexpected JSON chunk");case o:var a=e.byteOffset;i.bin={readAsync:function(t,n){return e.buffer.readAsync(a+t,n)},byteLength:n},e.skipBytes(n);break;default:e.skipBytes(n)}return e.byteOffset!==t?e.loadAsync(8).then(s):Promise.resolve(i)};return s()})},e._parseVersion=function(e){if("1.0"===e||"1.0.1"===e)return{major:1,minor:0};var t=(e+"").match(/^(\d+)\.(\d+)/);return t?{major:parseInt(t[1]),minor:parseInt(t[2])}:null},e._compareVersion=function(e,t){return e.major>t.major?1:e.major<t.major?-1:e.minor>t.minor?1:e.minor<t.minor?-1:0},e.prototype._logOpen=function(e){this._log(e),this._logIndentLevel++},e.prototype._logClose=function(){--this._logIndentLevel},e.prototype._logEnabled=function(t){var n=e._logSpaces.substr(0,2*this._logIndentLevel);i.Logger.Log(""+n+t)},e.prototype._logDisabled=function(e){},e.prototype._startPerformanceCounterEnabled=function(e){i.Tools.StartPerformanceCounter(e)},e.prototype._startPerformanceCounterDisabled=function(e){},e.prototype._endPerformanceCounterEnabled=function(e){i.Tools.EndPerformanceCounter(e)},e.prototype._endPerformanceCounterDisabled=function(e){},e.IncrementalLoading=!0,e.HomogeneousCoordinates=!1,e._logSpaces="                                ",e}();i.SceneLoader&&i.SceneLoader.RegisterPlugin(new l)},function(e,t,n){"use strict";n.r(t),n.d(t,"GLTFValidation",function(){return a});var r=n(0);function o(e,t,n,r){var o={externalResourceFunction:function(e){return r(e).then(function(e){return new Uint8Array(e)})}};return n&&(o.uri="file:"===t?n:t+n),e instanceof ArrayBuffer?GLTFValidator.validateBytes(new Uint8Array(e),o):GLTFValidator.validateString(e,o)}var a=function(){function e(){}return e.ValidateAsync=function(e,t,n,a){var i=this;return"function"==typeof Worker?new Promise(function(s,l){var u=o+"("+function(){var e=[];onmessage=function(t){var n=t.data;switch(n.id){case"init":importScripts(n.url);break;case"validate":o(n.data,n.rootUrl,n.fileName,function(t){return new Promise(function(n,r){var o=e.length;e.push({resolve:n,reject:r}),postMessage({id:"getExternalResource",index:o,uri:t})})}).then(function(e){postMessage({id:"validate.resolve",value:e})},function(e){postMessage({id:"validate.reject",reason:e})});break;case"getExternalResource.resolve":e[n.index].resolve(n.value);break;case"getExternalResource.reject":e[n.index].reject(n.reason)}}}+")()",c=URL.createObjectURL(new Blob([u],{type:"application/javascript"})),f=new Worker(c),d=function(e){f.removeEventListener("error",d),f.removeEventListener("message",h),l(e)},h=function(e){var t=e.data;switch(t.id){case"getExternalResource":a(t.uri).then(function(e){f.postMessage({id:"getExternalResource.resolve",index:t.index,value:e},[e])},function(e){f.postMessage({id:"getExternalResource.reject",index:t.index,reason:e})});break;case"validate.resolve":f.removeEventListener("error",d),f.removeEventListener("message",h),s(t.value);break;case"validate.reject":f.removeEventListener("error",d),f.removeEventListener("message",h),l(t.reason)}};f.addEventListener("error",d),f.addEventListener("message",h),f.postMessage({id:"init",url:r.Tools.GetAbsoluteUrl(i.Configuration.url)}),f.postMessage({id:"validate",data:e,rootUrl:t,fileName:n})}):(this._LoadScriptPromise||(this._LoadScriptPromise=r.Tools.LoadScriptAsync(this.Configuration.url)),this._LoadScriptPromise.then(function(){return o(e,t,n,a)}))},e.Configuration={url:"https://preview.babylonjs.com/gltf_validator.js"},e}()},function(e,t){var n;n=function(){return this}();try{n=n||new Function("return this")()}catch(e){"object"==typeof window&&(n=window)}e.exports=n},function(e,t,n){"use strict";n.r(t);var r=n(0),o=n(1),a="EXT_lights_image_based",i=function(){function e(e){this.name=a,this._loader=e,this.enabled=this._loader.isExtensionUsed(a)}return e.prototype.dispose=function(){delete this._loader,delete this._lights},e.prototype.onLoading=function(){var e=this._loader.gltf.extensions;if(e&&e[this.name]){var t=e[this.name];this._lights=t.lights}},e.prototype.loadSceneAsync=function(e,t){var n=this;return o.b.LoadExtensionAsync(e,t,this.name,function(r,a){var i=new Array;i.push(n._loader.loadSceneAsync(e,t)),n._loader.logOpen(""+r);var s=o.a.Get(r+"/light",n._lights,a.light);return i.push(n._loadLightAsync("#/extensions/"+n.name+"/lights/"+a.light,s).then(function(e){n._loader.babylonScene.environmentTexture=e})),n._loader.logClose(),Promise.all(i).then(function(){})})},e.prototype._loadLightAsync=function(e,t){var n=this;if(!t._loaded){var a=new Array;this._loader.logOpen(""+e);for(var i=new Array(t.specularImages.length),s=function(n){var r=t.specularImages[n];i[n]=new Array(r.length);for(var s=function(t){var s=e+"/specularImages/"+n+"/"+t;l._loader.logOpen(""+s);var u=r[t],c=o.a.Get(s,l._loader.gltf.images,u);a.push(l._loader.loadImageAsync("#/images/"+u,c).then(function(e){i[n][t]=e})),l._loader.logClose()},u=0;u<r.length;u++)s(u)},l=this,u=0;u<t.specularImages.length;u++)s(u);this._loader.logClose(),t._loaded=Promise.all(a).then(function(){var e=new r.RawCubeTexture(n._loader.babylonScene,null,t.specularImageSize);if(t._babylonTexture=e,null!=t.intensity&&(e.level=t.intensity),t.rotation){var o=r.Quaternion.FromArray(t.rotation);n._loader.babylonScene.useRightHandedSystem||(o=r.Quaternion.Inverse(o)),r.Matrix.FromQuaternionToRef(o,e.getReflectionTextureMatrix())}var a=r.SphericalHarmonics.FromArray(t.irradianceCoefficients);a.scaleInPlace(t.intensity),a.convertIrradianceToLambertianRadiance();var s=r.SphericalPolynomial.FromHarmonics(a),l=(i.length-1)/r.Scalar.Log2(t.specularImageSize);return e.updateRGBDAsync(i,s,l)})}return t._loaded.then(function(){return t._babylonTexture})},e}();o.b.RegisterExtension(a,function(e){return new i(e)});var s="KHR_draco_mesh_compression",l=function(){function e(e){this.name=s,this._loader=e,this.enabled=r.DracoCompression.DecoderAvailable&&this._loader.isExtensionUsed(s)}return e.prototype.dispose=function(){delete this.dracoCompression,delete this._loader},e.prototype._loadVertexDataAsync=function(e,t,n){var a=this;return o.b.LoadExtensionAsync(e,t,this.name,function(i,s){if(null!=t.mode){if(5!==t.mode&&4!==t.mode)throw new Error(e+": Unsupported mode "+t.mode);if(5===t.mode)throw new Error(e+": Mode "+t.mode+" is not currently supported")}var l={},u=function(e,t){var r=s.attributes[e];null!=r&&(n._delayInfo=n._delayInfo||[],-1===n._delayInfo.indexOf(t)&&n._delayInfo.push(t),l[t]=r)};u("POSITION",r.VertexBuffer.PositionKind),u("NORMAL",r.VertexBuffer.NormalKind),u("TANGENT",r.VertexBuffer.TangentKind),u("TEXCOORD_0",r.VertexBuffer.UVKind),u("TEXCOORD_1",r.VertexBuffer.UV2Kind),u("JOINTS_0",r.VertexBuffer.MatricesIndicesKind),u("WEIGHTS_0",r.VertexBuffer.MatricesWeightsKind),u("COLOR_0",r.VertexBuffer.ColorKind);var c=o.a.Get(i,a._loader.gltf.bufferViews,s.bufferView);return c._dracoBabylonGeometry||(c._dracoBabylonGeometry=a._loader.loadBufferViewAsync("#/bufferViews/"+c.index,c).then(function(t){return(a.dracoCompression||r.DracoCompression.Default).decodeMeshAsync(t,l).then(function(e){var t=new r.Geometry(n.name,a._loader.babylonScene);return e.applyToGeometry(t),t}).catch(function(t){throw new Error(e+": "+t.message)})})),c._dracoBabylonGeometry})},e}();o.b.RegisterExtension(s,function(e){return new l(e)});var u,c="KHR_lights_punctual";!function(e){e.DIRECTIONAL="directional",e.POINT="point",e.SPOT="spot"}(u||(u={}));var f=function(){function e(e){this.name=c,this._loader=e,this.enabled=this._loader.isExtensionUsed(c)}return e.prototype.dispose=function(){delete this._loader,delete this._lights},e.prototype.onLoading=function(){var e=this._loader.gltf.extensions;if(e&&e[this.name]){var t=e[this.name];this._lights=t.lights}},e.prototype.loadNodeAsync=function(e,t,n){var a=this;return o.b.LoadExtensionAsync(e,t,this.name,function(i,s){return a._loader.loadNodeAsync(e,t,function(e){var t,l=o.a.Get(i,a._lights,s.light),c=l.name||e.name;switch(a._loader.babylonScene._blockEntityCollection=a._loader._forAssetContainer,l.type){case u.DIRECTIONAL:t=new r.DirectionalLight(c,r.Vector3.Backward(),a._loader.babylonScene);break;case u.POINT:t=new r.PointLight(c,r.Vector3.Zero(),a._loader.babylonScene);break;case u.SPOT:var f=new r.SpotLight(c,r.Vector3.Zero(),r.Vector3.Backward(),0,1,a._loader.babylonScene);f.angle=2*(l.spot&&l.spot.outerConeAngle||Math.PI/4),f.innerAngle=2*(l.spot&&l.spot.innerConeAngle||0),t=f;break;default:throw a._loader.babylonScene._blockEntityCollection=!1,new Error(i+": Invalid light type ("+l.type+")")}a._loader.babylonScene._blockEntityCollection=!1,t.falloffType=r.Light.FALLOFF_GLTF,t.diffuse=l.color?r.Color3.FromArray(l.color):r.Color3.White(),t.intensity=null==l.intensity?1:l.intensity,t.range=null==l.range?Number.MAX_VALUE:l.range,t.parent=e,a._loader._babylonLights.push(t),o.b.AddPointerMetadata(t,i),n(e)})})},e}();o.b.RegisterExtension(c,function(e){return new f(e)});var d="KHR_materials_pbrSpecularGlossiness",h=function(){function e(e){this.name=d,this.order=200,this._loader=e,this.enabled=this._loader.isExtensionUsed(d)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var r=this;return o.b.LoadExtensionAsync(e,t,this.name,function(o,a){var i=new Array;return i.push(r._loader.loadMaterialBasePropertiesAsync(e,t,n)),i.push(r._loadSpecularGlossinessPropertiesAsync(o,t,a,n)),r._loader.loadMaterialAlphaProperties(e,t,n),Promise.all(i).then(function(){})})},e.prototype._loadSpecularGlossinessPropertiesAsync=function(e,t,n,o){if(!(o instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");var a=new Array;return o.metallic=null,o.roughness=null,n.diffuseFactor?(o.albedoColor=r.Color3.FromArray(n.diffuseFactor),o.alpha=n.diffuseFactor[3]):o.albedoColor=r.Color3.White(),o.reflectivityColor=n.specularFactor?r.Color3.FromArray(n.specularFactor):r.Color3.White(),o.microSurface=null==n.glossinessFactor?1:n.glossinessFactor,n.diffuseTexture&&a.push(this._loader.loadTextureInfoAsync(e+"/diffuseTexture",n.diffuseTexture,function(e){e.name=o.name+" (Diffuse)",o.albedoTexture=e})),n.specularGlossinessTexture&&(a.push(this._loader.loadTextureInfoAsync(e+"/specularGlossinessTexture",n.specularGlossinessTexture,function(e){e.name=o.name+" (Specular Glossiness)",o.reflectivityTexture=e})),o.reflectivityTexture.hasAlpha=!0,o.useMicroSurfaceFromReflectivityMapAlpha=!0),Promise.all(a).then(function(){})},e}();o.b.RegisterExtension(d,function(e){return new h(e)});var p="KHR_materials_unlit",m=function(){function e(e){this.name=p,this.order=210,this._loader=e,this.enabled=this._loader.isExtensionUsed(p)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var r=this;return o.b.LoadExtensionAsync(e,t,this.name,function(){return r._loadUnlitPropertiesAsync(e,t,n)})},e.prototype._loadUnlitPropertiesAsync=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");var o=new Array;n.unlit=!0;var a=t.pbrMetallicRoughness;return a&&(a.baseColorFactor?(n.albedoColor=r.Color3.FromArray(a.baseColorFactor),n.alpha=a.baseColorFactor[3]):n.albedoColor=r.Color3.White(),a.baseColorTexture&&o.push(this._loader.loadTextureInfoAsync(e+"/baseColorTexture",a.baseColorTexture,function(e){e.name=n.name+" (Base Color)",n.albedoTexture=e}))),t.doubleSided&&(n.backFaceCulling=!1,n.twoSidedLighting=!0),this._loader.loadMaterialAlphaProperties(e,t,n),Promise.all(o).then(function(){})},e}();o.b.RegisterExtension(p,function(e){return new m(e)});var _="KHR_materials_clearcoat",y=function(){function e(e){this.name=_,this.order=190,this._loader=e,this.enabled=this._loader.isExtensionUsed(_)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var r=this;return o.b.LoadExtensionAsync(e,t,this.name,function(o,a){var i=new Array;return i.push(r._loader.loadMaterialPropertiesAsync(e,t,n)),i.push(r._loadClearCoatPropertiesAsync(o,a,n)),Promise.all(i).then(function(){})})},e.prototype._loadClearCoatPropertiesAsync=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");var o=new Array;return n.clearCoat.isEnabled=!0,null!=t.clearcoatFactor?n.clearCoat.intensity=t.clearcoatFactor:n.clearCoat.intensity=0,t.clearcoatTexture&&o.push(this._loader.loadTextureInfoAsync(e+"/clearcoatTexture",t.clearcoatTexture,function(e){e.name=n.name+" (ClearCoat Intensity)",n.clearCoat.texture=e})),null!=t.clearcoatRoughnessFactor?n.clearCoat.roughness=t.clearcoatRoughnessFactor:n.clearCoat.roughness=0,t.clearcoatRoughnessTexture&&o.push(this._loader.loadTextureInfoAsync(e+"/clearcoatRoughnessTexture",t.clearcoatRoughnessTexture,function(e){e.name=n.name+" (ClearCoat Roughness)",n.clearCoat.texture=e})),t.clearcoatNormalTexture&&(o.push(this._loader.loadTextureInfoAsync(e+"/clearcoatNormalTexture",t.clearcoatNormalTexture,function(e){e.name=n.name+" (ClearCoat Normal)",n.clearCoat.bumpTexture=e})),n.invertNormalMapX=!n.getScene().useRightHandedSystem,n.invertNormalMapY=n.getScene().useRightHandedSystem,null!=t.clearcoatNormalTexture.scale&&(n.clearCoat.bumpTexture.level=t.clearcoatNormalTexture.scale)),Promise.all(o).then(function(){})},e}();o.b.RegisterExtension(_,function(e){return new y(e)});var b="KHR_materials_sheen",v=function(){function e(e){this.name=b,this.order=190,this._loader=e,this.enabled=this._loader.isExtensionUsed(b)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var r=this;return o.b.LoadExtensionAsync(e,t,this.name,function(o,a){var i=new Array;return i.push(r._loader.loadMaterialPropertiesAsync(e,t,n)),i.push(r._loadSheenPropertiesAsync(o,a,n)),Promise.all(i).then(function(){})})},e.prototype._loadSheenPropertiesAsync=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");var o=new Array;return n.sheen.isEnabled=!0,null!=t.intensityFactor?n.sheen.intensity=t.intensityFactor:n.sheen.intensity=0,null!=t.colorFactor&&(n.sheen.color=r.Color3.FromArray(t.colorFactor)),t.colorIntensityTexture&&o.push(this._loader.loadTextureInfoAsync(e+"/sheenTexture",t.colorIntensityTexture,function(e){e.name=n.name+" (Sheen Intensity)",n.sheen.texture=e})),Promise.all(o).then(function(){})},e}();o.b.RegisterExtension(b,function(e){return new v(e)});var A="KHR_materials_specular",g=function(){function e(e){this.name=A,this.order=190,this._loader=e,this.enabled=this._loader.isExtensionUsed(A)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var r=this;return o.b.LoadExtensionAsync(e,t,this.name,function(o,a){var i=new Array;return i.push(r._loader.loadMaterialPropertiesAsync(e,t,n)),i.push(r._loadSpecularPropertiesAsync(o,a,n)),Promise.all(i).then(function(){})})},e.prototype._loadSpecularPropertiesAsync=function(e,t,n){if(!(n instanceof r.PBRMaterial))throw new Error(e+": Material type not supported");return void 0!==t.specularFactor&&(n.metallicF0Factor=t.specularFactor),t.specularTexture&&(n.useMetallicF0FactorFromMetallicTexture=!0),Promise.resolve()},e}();o.b.RegisterExtension(A,function(e){return new g(e)});var T="KHR_mesh_quantization",x=function(){function e(e){this.name=T,this.enabled=e.isExtensionUsed(T)}return e.prototype.dispose=function(){},e}();o.b.RegisterExtension(T,function(e){return new x(e)});var E="KHR_texture_basisu",L=function(){function e(e){this.name=E,this._loader=e,this.enabled=e.isExtensionUsed(E)}return e.prototype.dispose=function(){delete this._loader},e.prototype._loadTextureAsync=function(e,t,n){var r=this;return o.b.LoadExtensionAsync(e,t,this.name,function(a,i){var s=null==t.sampler?o.b.DefaultSampler:o.a.Get(e+"/sampler",r._loader.gltf.samplers,t.sampler),l=o.a.Get(a+"/source",r._loader.gltf.images,i.source);return r._loader._createTextureAsync(e,s,l,function(e){e.gammaSpace=!1,n(e)})})},e}();o.b.RegisterExtension(E,function(e){return new L(e)});var O="KHR_texture_transform",M=function(){function e(e){this.name=O,this._loader=e,this.enabled=this._loader.isExtensionUsed(O)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadTextureInfoAsync=function(e,t,n){var a=this;return o.b.LoadExtensionAsync(e,t,this.name,function(o,i){return a._loader.loadTextureInfoAsync(e,t,function(e){if(!(e instanceof r.Texture))throw new Error(o+": Texture type not supported");i.offset&&(e.uOffset=i.offset[0],e.vOffset=i.offset[1]),e.uRotationCenter=0,e.vRotationCenter=0,i.rotation&&(e.wAng=-i.rotation),i.scale&&(e.uScale=i.scale[0],e.vScale=i.scale[1]),null!=i.texCoord&&(e.coordinatesIndex=i.texCoord),n(e)})})},e}();o.b.RegisterExtension(O,function(e){return new M(e)});var S="MSFT_audio_emitter",w=function(){function e(e){this.name=S,this._loader=e,this.enabled=this._loader.isExtensionUsed(S)}return e.prototype.dispose=function(){delete this._loader,delete this._clips,delete this._emitters},e.prototype.onLoading=function(){var e=this._loader.gltf.extensions;if(e&&e[this.name]){var t=e[this.name];this._clips=t.clips,this._emitters=t.emitters,o.a.Assign(this._clips),o.a.Assign(this._emitters)}},e.prototype.loadSceneAsync=function(e,t){var n=this;return o.b.LoadExtensionAsync(e,t,this.name,function(r,a){var i=new Array;i.push(n._loader.loadSceneAsync(e,t));for(var s=0,l=a.emitters;s<l.length;s++){var u=l[s],c=o.a.Get(r+"/emitters",n._emitters,u);if(null!=c.refDistance||null!=c.maxDistance||null!=c.rolloffFactor||null!=c.distanceModel||null!=c.innerAngle||null!=c.outerAngle)throw new Error(r+": Direction or Distance properties are not allowed on emitters attached to a scene");i.push(n._loadEmitterAsync(r+"/emitters/"+c.index,c))}return Promise.all(i).then(function(){})})},e.prototype.loadNodeAsync=function(e,t,n){var a=this;return o.b.LoadExtensionAsync(e,t,this.name,function(e,i){var s=new Array;return a._loader.loadNodeAsync(e,t,function(t){for(var l=function(n){var i=o.a.Get(e+"/emitters",a._emitters,n);s.push(a._loadEmitterAsync(e+"/emitters/"+i.index,i).then(function(){for(var e=0,n=i._babylonSounds;e<n.length;e++){var o=n[e];o.attachToMesh(t),null==i.innerAngle&&null==i.outerAngle||(o.setLocalDirectionToMesh(r.Vector3.Forward()),o.setDirectionalCone(2*r.Tools.ToDegrees(null==i.innerAngle?Math.PI:i.innerAngle),2*r.Tools.ToDegrees(null==i.outerAngle?Math.PI:i.outerAngle),0))}}))},u=0,c=i.emitters;u<c.length;u++){l(c[u])}n(t)}).then(function(e){return Promise.all(s).then(function(){return e})})})},e.prototype.loadAnimationAsync=function(e,t){var n=this;return o.b.LoadExtensionAsync(e,t,this.name,function(r,a){return n._loader.loadAnimationAsync(e,t).then(function(i){var s=new Array;o.a.Assign(a.events);for(var l=0,u=a.events;l<u.length;l++){var c=u[l];s.push(n._loadAnimationEventAsync(r+"/events/"+c.index,e,t,c,i))}return Promise.all(s).then(function(){return i})})})},e.prototype._loadClipAsync=function(e,t){if(t._objectURL)return t._objectURL;var n;if(t.uri)n=this._loader.loadUriAsync(e,t,t.uri);else{var r=o.a.Get(e+"/bufferView",this._loader.gltf.bufferViews,t.bufferView);n=this._loader.loadBufferViewAsync("#/bufferViews/"+r.index,r)}return t._objectURL=n.then(function(e){return URL.createObjectURL(new Blob([e],{type:t.mimeType}))}),t._objectURL},e.prototype._loadEmitterAsync=function(e,t){var n=this;if(t._babylonSounds=t._babylonSounds||[],!t._babylonData){for(var a=new Array,i=t.name||"emitter"+t.index,s={loop:!1,autoplay:!1,volume:null==t.volume?1:t.volume},l=function(e){var l="#/extensions/"+u.name+"/clips",c=o.a.Get(l,u._clips,t.clips[e].clip);a.push(u._loadClipAsync(l+"/"+t.clips[e].clip,c).then(function(o){var a=t._babylonSounds[e]=new r.Sound(i,o,n._loader.babylonScene,null,s);a.refDistance=t.refDistance||1,a.maxDistance=t.maxDistance||256,a.rolloffFactor=t.rolloffFactor||1,a.distanceModel=t.distanceModel||"exponential",a._positionInEmitterSpace=!0}))},u=this,c=0;c<t.clips.length;c++)l(c);var f=Promise.all(a).then(function(){var e=t.clips.map(function(e){return e.weight||1}),n=new r.WeightedSound(t.loop||!1,t._babylonSounds,e);t.innerAngle&&(n.directionalConeInnerAngle=2*r.Tools.ToDegrees(t.innerAngle)),t.outerAngle&&(n.directionalConeOuterAngle=2*r.Tools.ToDegrees(t.outerAngle)),t.volume&&(n.volume=t.volume),t._babylonData.sound=n});t._babylonData={loaded:f}}return t._babylonData.loaded},e.prototype._getEventAction=function(e,t,n,r,o){switch(n){case"play":return function(e){var n=(o||0)+(e-r);t.play(n)};case"stop":return function(e){t.stop()};case"pause":return function(e){t.pause()};default:throw new Error(e+": Unsupported action "+n)}},e.prototype._loadAnimationEventAsync=function(e,t,n,a,i){var s=this;if(0==i.targetedAnimations.length)return Promise.resolve();var l=i.targetedAnimations[0],u=a.emitter,c=o.a.Get("#/extensions/"+this.name+"/emitters",this._emitters,u);return this._loadEmitterAsync(e,c).then(function(){var t=c._babylonData.sound;if(t){var n=new r.AnimationEvent(a.time,s._getEventAction(e,t,a.action,a.time,a.startOffset));l.animation.addEvent(n),i.onAnimationGroupEndObservable.add(function(){t.stop()}),i.onAnimationGroupPauseObservable.add(function(){t.pause()})}})},e}();o.b.RegisterExtension(S,function(e){return new w(e)});var C="MSFT_lod",N=function(){function e(e){this.name=C,this.order=100,this.maxLODsToLoad=10,this.onNodeLODsLoadedObservable=new r.Observable,this.onMaterialLODsLoadedObservable=new r.Observable,this._nodeIndexLOD=null,this._nodeSignalLODs=new Array,this._nodePromiseLODs=new Array,this._materialIndexLOD=null,this._materialSignalLODs=new Array,this._materialPromiseLODs=new Array,this._indexLOD=null,this._bufferLODs=new Array,this._loader=e,this.enabled=this._loader.isExtensionUsed(C)}return e.prototype.dispose=function(){delete this._loader,this._nodeIndexLOD=null,this._nodeSignalLODs.length=0,this._nodePromiseLODs.length=0,this._materialIndexLOD=null,this._materialSignalLODs.length=0,this._materialPromiseLODs.length=0,this._indexLOD=null,this._bufferLODs.length=0,this.onMaterialLODsLoadedObservable.clear(),this.onNodeLODsLoadedObservable.clear()},e.prototype.onReady=function(){for(var e=this,t=function(t){var r=Promise.all(n._nodePromiseLODs[t]).then(function(){0!==t&&e._loader.endPerformanceCounter("Node LOD "+t),e._loader.log("Loaded node LOD "+t),e.onNodeLODsLoadedObservable.notifyObservers(t),t!==e._nodePromiseLODs.length-1&&(e._loader.startPerformanceCounter("Node LOD "+(t+1)),e._nodeSignalLODs[t]&&e._nodeSignalLODs[t].resolve())});n._loader._completePromises.push(r)},n=this,r=0;r<this._nodePromiseLODs.length;r++)t(r);var o=function(t){var n=Promise.all(a._materialPromiseLODs[t]).then(function(){0!==t&&e._loader.endPerformanceCounter("Material LOD "+t),e._loader.log("Loaded material LOD "+t),e.onMaterialLODsLoadedObservable.notifyObservers(t),t!==e._materialPromiseLODs.length-1&&(e._loader.startPerformanceCounter("Material LOD "+(t+1)),e._materialSignalLODs[t]&&e._materialSignalLODs[t].resolve())});a._loader._completePromises.push(n)},a=this;for(r=0;r<this._materialPromiseLODs.length;r++)o(r);for(r=1;r<this._bufferLODs.length;r++)this._loadBufferLOD(r)},e.prototype.loadSceneAsync=function(e,t){var n=this._loader.loadSceneAsync(e,t);return 0!==this._bufferLODs.length&&this._loadBufferLOD(0),n},e.prototype.loadNodeAsync=function(e,t,n){var a=this;return o.b.LoadExtensionAsync(e,t,this.name,function(e,n){var o,i=a._getLODs(e,t,a._loader.gltf.nodes,n.ids);a._loader.logOpen(""+e);for(var s=function(e){var t=i[e];a._indexLOD=e,0!==e&&(a._nodeIndexLOD=e,a._nodeSignalLODs[e]=a._nodeSignalLODs[e]||new r.Deferred);var n=a._loader.loadNodeAsync("#/nodes/"+t.index,t,function(e){e.setEnabled(!1)}).then(function(t){if(0!==e){var n=i[e-1];n._babylonTransformNode&&(a._disposeTransformNode(n._babylonTransformNode),delete n._babylonTransformNode)}return t.setEnabled(!0),t});0===e?o=n:a._nodeIndexLOD=null,a._indexLOD=null,a._nodePromiseLODs[e]=a._nodePromiseLODs[e]||[],a._nodePromiseLODs[e].push(n)},l=0;l<i.length;l++)s(l);return a._loader.logClose(),o})},e.prototype._loadMaterialAsync=function(e,t,n,r,a){var i=this;return this._indexLOD?null:o.b.LoadExtensionAsync(e,t,this.name,function(e,o){var s,l=i._getLODs(e,t,i._loader.gltf.materials,o.ids);i._loader.logOpen(""+e);for(var u=function(e){var t=l[e];i._indexLOD=e,0!==e&&(i._materialIndexLOD=e);var o=i._loader._loadMaterialAsync("#/materials/"+t.index,t,n,r,function(t){0===e&&a(t)}).then(function(t){if(0!==e){a(t);var n=l[e-1]._data;n[r]&&(i._disposeMaterials([n[r].babylonMaterial]),delete n[r])}return t});0===e?s=o:i._materialIndexLOD=null,i._indexLOD=null,i._materialPromiseLODs[e]=i._materialPromiseLODs[e]||[],i._materialPromiseLODs[e].push(o)},c=0;c<l.length;c++)u(c);return i._loader.logClose(),s})},e.prototype._loadUriAsync=function(e,t,n){var o=this;if(null!==this._materialIndexLOD){this._loader.log("deferred");var a=this._materialIndexLOD-1;return this._materialSignalLODs[a]=this._materialSignalLODs[a]||new r.Deferred,this._materialSignalLODs[a].promise.then(function(){return o._loader.loadUriAsync(e,t,n)})}if(null!==this._nodeIndexLOD){this._loader.log("deferred");a=this._nodeIndexLOD-1;return this._nodeSignalLODs[a]=this._nodeSignalLODs[a]||new r.Deferred,this._nodeSignalLODs[this._nodeIndexLOD-1].promise.then(function(){return o._loader.loadUriAsync(e,t,n)})}return null},e.prototype.loadBufferAsync=function(e,t,n,o){if(this._loader.parent.useRangeRequests&&!t.uri){if(!this._loader.bin)throw new Error(e+": Uri is missing or the binary glTF is missing its binary chunk");var a=this._indexLOD||0,i=n,s=i+o-1,l=this._bufferLODs[a];return l?(l.start=Math.min(l.start,i),l.end=Math.max(l.end,s)):(l={start:i,end:s,loaded:new r.Deferred},this._bufferLODs[a]=l),l.loaded.promise.then(function(e){return new Uint8Array(e.buffer,e.byteOffset+n-l.start,o)})}return null},e.prototype._loadBufferLOD=function(e){var t=this._bufferLODs[e];this._loader.bin.readAsync(t.start,t.end-t.start+1).then(function(e){t.loaded.resolve(e)},function(e){t.loaded.reject(e)})},e.prototype._getLODs=function(e,t,n,r){if(this.maxLODsToLoad<=0)throw new Error("maxLODsToLoad must be greater than zero");for(var a=new Array,i=r.length-1;i>=0;i--)if(a.push(o.a.Get(e+"/ids/"+r[i],n,r[i])),a.length===this.maxLODsToLoad)return a;return a.push(t),a},e.prototype._disposeTransformNode=function(e){var t=this,n=new Array,r=e.material;r&&n.push(r);for(var o=0,a=e.getChildMeshes();o<a.length;o++){var i=a[o];i.material&&n.push(i.material)}e.dispose();var s=n.filter(function(e){return t._loader.babylonScene.meshes.every(function(t){return t.material!=e})});this._disposeMaterials(s)},e.prototype._disposeMaterials=function(e){for(var t={},n=0,r=e;n<r.length;n++){for(var o=0,a=(c=r[n]).getActiveTextures();o<a.length;o++){var i=a[o];t[i.uniqueId]=i}c.dispose()}for(var s in t)for(var l=0,u=this._loader.babylonScene.materials;l<u.length;l++){var c;(c=u[l]).hasTexture(t[s])&&delete t[s]}for(var s in t)t[s].dispose()},e}();o.b.RegisterExtension(C,function(e){return new N(e)});var P="MSFT_minecraftMesh",R=function(){function e(e){this.name=P,this._loader=e,this.enabled=this._loader.isExtensionUsed(P)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var a=this;return o.b.LoadExtraAsync(e,t,this.name,function(o,i){if(i){if(!(n instanceof r.PBRMaterial))throw new Error(o+": Material type not supported");var s=a._loader.loadMaterialPropertiesAsync(e,t,n);return n.needAlphaBlending()&&(n.forceDepthWrite=!0,n.separateCullingPass=!0),n.backFaceCulling=n.forceDepthWrite,n.twoSidedLighting=!0,s}return null})},e}();o.b.RegisterExtension(P,function(e){return new R(e)});var I="MSFT_sRGBFactors",F=function(){function e(e){this.name=I,this._loader=e,this.enabled=this._loader.isExtensionUsed(I)}return e.prototype.dispose=function(){delete this._loader},e.prototype.loadMaterialPropertiesAsync=function(e,t,n){var a=this;return o.b.LoadExtraAsync(e,t,this.name,function(o,i){if(i){if(!(n instanceof r.PBRMaterial))throw new Error(o+": Material type not supported");var s=a._loader.loadMaterialPropertiesAsync(e,t,n);return n.albedoTexture||n.albedoColor.toLinearSpaceToRef(n.albedoColor),n.reflectivityTexture||n.reflectivityColor.toLinearSpaceToRef(n.reflectivityColor),s}return null})},e}();o.b.RegisterExtension(I,function(e){return new F(e)});var V="ExtrasAsMetadata",B=function(){function e(e){this.name=V,this.enabled=!0,this._loader=e}return e.prototype._assignExtras=function(e,t){if(t.extras&&Object.keys(t.extras).length>0){var n=e.metadata=e.metadata||{};(n.gltf=n.gltf||{}).extras=t.extras}},e.prototype.dispose=function(){delete this._loader},e.prototype.loadNodeAsync=function(e,t,n){var r=this;return this._loader.loadNodeAsync(e,t,function(e){r._assignExtras(e,t),n(e)})},e.prototype.loadCameraAsync=function(e,t,n){var r=this;return this._loader.loadCameraAsync(e,t,function(e){r._assignExtras(e,t),n(e)})},e.prototype.createMaterial=function(e,t,n){var r=this._loader.createMaterial(e,t,n);return this._assignExtras(r,t),r},e}();o.b.RegisterExtension(V,function(e){return new B(e)}),n.d(t,"EXT_lights_image_based",function(){return i}),n.d(t,"KHR_draco_mesh_compression",function(){return l}),n.d(t,"KHR_lights",function(){return f}),n.d(t,"KHR_materials_pbrSpecularGlossiness",function(){return h}),n.d(t,"KHR_materials_unlit",function(){return m}),n.d(t,"KHR_materials_clearcoat",function(){return y}),n.d(t,"KHR_materials_sheen",function(){return v}),n.d(t,"KHR_materials_specular",function(){return g}),n.d(t,"KHR_mesh_quantization",function(){return x}),n.d(t,"KHR_texture_basisu",function(){return L}),n.d(t,"KHR_texture_transform",function(){return M}),n.d(t,"MSFT_audio_emitter",function(){return w}),n.d(t,"MSFT_lod",function(){return N}),n.d(t,"MSFT_minecraftMesh",function(){return R}),n.d(t,"MSFT_sRGBFactors",function(){return F}),n.d(t,"ExtrasAsMetadata",function(){return B})},function(e,t,n){"use strict";n.r(t);var r=n(1);n.d(t,"ArrayItem",function(){return r.a}),n.d(t,"GLTFLoader",function(){return r.b});var o=n(5);n.d(t,"EXT_lights_image_based",function(){return o.EXT_lights_image_based}),n.d(t,"KHR_draco_mesh_compression",function(){return o.KHR_draco_mesh_compression}),n.d(t,"KHR_lights",function(){return o.KHR_lights}),n.d(t,"KHR_materials_pbrSpecularGlossiness",function(){return o.KHR_materials_pbrSpecularGlossiness}),n.d(t,"KHR_materials_unlit",function(){return o.KHR_materials_unlit}),n.d(t,"KHR_materials_clearcoat",function(){return o.KHR_materials_clearcoat}),n.d(t,"KHR_materials_sheen",function(){return o.KHR_materials_sheen}),n.d(t,"KHR_materials_specular",function(){return o.KHR_materials_specular}),n.d(t,"KHR_mesh_quantization",function(){return o.KHR_mesh_quantization}),n.d(t,"KHR_texture_basisu",function(){return o.KHR_texture_basisu}),n.d(t,"KHR_texture_transform",function(){return o.KHR_texture_transform}),n.d(t,"MSFT_audio_emitter",function(){return o.MSFT_audio_emitter}),n.d(t,"MSFT_lod",function(){return o.MSFT_lod}),n.d(t,"MSFT_minecraftMesh",function(){return o.MSFT_minecraftMesh}),n.d(t,"MSFT_sRGBFactors",function(){return o.MSFT_sRGBFactors}),n.d(t,"ExtrasAsMetadata",function(){return o.ExtrasAsMetadata})},function(e,t,n){"use strict";n.r(t);
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+var r=function(e,t){return(r=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])})(e,t)};function o(e,t){function n(){this.constructor=e}r(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}var a,i,s,l,u,c,f,d;!function(e){e[e.BYTE=5120]="BYTE",e[e.UNSIGNED_BYTE=5121]="UNSIGNED_BYTE",e[e.SHORT=5122]="SHORT",e[e.UNSIGNED_SHORT=5123]="UNSIGNED_SHORT",e[e.FLOAT=5126]="FLOAT"}(a||(a={})),function(e){e[e.FRAGMENT=35632]="FRAGMENT",e[e.VERTEX=35633]="VERTEX"}(i||(i={})),function(e){e[e.BYTE=5120]="BYTE",e[e.UNSIGNED_BYTE=5121]="UNSIGNED_BYTE",e[e.SHORT=5122]="SHORT",e[e.UNSIGNED_SHORT=5123]="UNSIGNED_SHORT",e[e.INT=5124]="INT",e[e.UNSIGNED_INT=5125]="UNSIGNED_INT",e[e.FLOAT=5126]="FLOAT",e[e.FLOAT_VEC2=35664]="FLOAT_VEC2",e[e.FLOAT_VEC3=35665]="FLOAT_VEC3",e[e.FLOAT_VEC4=35666]="FLOAT_VEC4",e[e.INT_VEC2=35667]="INT_VEC2",e[e.INT_VEC3=35668]="INT_VEC3",e[e.INT_VEC4=35669]="INT_VEC4",e[e.BOOL=35670]="BOOL",e[e.BOOL_VEC2=35671]="BOOL_VEC2",e[e.BOOL_VEC3=35672]="BOOL_VEC3",e[e.BOOL_VEC4=35673]="BOOL_VEC4",e[e.FLOAT_MAT2=35674]="FLOAT_MAT2",e[e.FLOAT_MAT3=35675]="FLOAT_MAT3",e[e.FLOAT_MAT4=35676]="FLOAT_MAT4",e[e.SAMPLER_2D=35678]="SAMPLER_2D"}(s||(s={})),function(e){e[e.CLAMP_TO_EDGE=33071]="CLAMP_TO_EDGE",e[e.MIRRORED_REPEAT=33648]="MIRRORED_REPEAT",e[e.REPEAT=10497]="REPEAT"}(l||(l={})),function(e){e[e.NEAREST=9728]="NEAREST",e[e.LINEAR=9728]="LINEAR",e[e.NEAREST_MIPMAP_NEAREST=9984]="NEAREST_MIPMAP_NEAREST",e[e.LINEAR_MIPMAP_NEAREST=9985]="LINEAR_MIPMAP_NEAREST",e[e.NEAREST_MIPMAP_LINEAR=9986]="NEAREST_MIPMAP_LINEAR",e[e.LINEAR_MIPMAP_LINEAR=9987]="LINEAR_MIPMAP_LINEAR"}(u||(u={})),function(e){e[e.ALPHA=6406]="ALPHA",e[e.RGB=6407]="RGB",e[e.RGBA=6408]="RGBA",e[e.LUMINANCE=6409]="LUMINANCE",e[e.LUMINANCE_ALPHA=6410]="LUMINANCE_ALPHA"}(c||(c={})),function(e){e[e.FRONT=1028]="FRONT",e[e.BACK=1029]="BACK",e[e.FRONT_AND_BACK=1032]="FRONT_AND_BACK"}(f||(f={})),function(e){e[e.ZERO=0]="ZERO",e[e.ONE=1]="ONE",e[e.SRC_COLOR=768]="SRC_COLOR",e[e.ONE_MINUS_SRC_COLOR=769]="ONE_MINUS_SRC_COLOR",e[e.DST_COLOR=774]="DST_COLOR",e[e.ONE_MINUS_DST_COLOR=775]="ONE_MINUS_DST_COLOR",e[e.SRC_ALPHA=770]="SRC_ALPHA",e[e.ONE_MINUS_SRC_ALPHA=771]="ONE_MINUS_SRC_ALPHA",e[e.DST_ALPHA=772]="DST_ALPHA",e[e.ONE_MINUS_DST_ALPHA=773]="ONE_MINUS_DST_ALPHA",e[e.CONSTANT_COLOR=32769]="CONSTANT_COLOR",e[e.ONE_MINUS_CONSTANT_COLOR=32770]="ONE_MINUS_CONSTANT_COLOR",e[e.CONSTANT_ALPHA=32771]="CONSTANT_ALPHA",e[e.ONE_MINUS_CONSTANT_ALPHA=32772]="ONE_MINUS_CONSTANT_ALPHA",e[e.SRC_ALPHA_SATURATE=776]="SRC_ALPHA_SATURATE"}(d||(d={}));var h,p=n(0),m=function(){function e(){}return e.SetMatrix=function(e,t,n,r,o){var a=null;if("MODEL"===n.semantic?a=t.getWorldMatrix():"PROJECTION"===n.semantic?a=e.getProjectionMatrix():"VIEW"===n.semantic?a=e.getViewMatrix():"MODELVIEWINVERSETRANSPOSE"===n.semantic?a=p.Matrix.Transpose(t.getWorldMatrix().multiply(e.getViewMatrix()).invert()):"MODELVIEW"===n.semantic?a=t.getWorldMatrix().multiply(e.getViewMatrix()):"MODELVIEWPROJECTION"===n.semantic?a=t.getWorldMatrix().multiply(e.getTransformMatrix()):"MODELINVERSE"===n.semantic?a=t.getWorldMatrix().invert():"VIEWINVERSE"===n.semantic?a=e.getViewMatrix().invert():"PROJECTIONINVERSE"===n.semantic?a=e.getProjectionMatrix().invert():"MODELVIEWINVERSE"===n.semantic?a=t.getWorldMatrix().multiply(e.getViewMatrix()).invert():"MODELVIEWPROJECTIONINVERSE"===n.semantic?a=t.getWorldMatrix().multiply(e.getTransformMatrix()).invert():"MODELINVERSETRANSPOSE"===n.semantic&&(a=p.Matrix.Transpose(t.getWorldMatrix().invert())),a)switch(n.type){case s.FLOAT_MAT2:o.setMatrix2x2(r,p.Matrix.GetAsMatrix2x2(a));break;case s.FLOAT_MAT3:o.setMatrix3x3(r,p.Matrix.GetAsMatrix3x3(a));break;case s.FLOAT_MAT4:o.setMatrix(r,a)}},e.SetUniform=function(e,t,n,r){switch(r){case s.FLOAT:return e.setFloat(t,n),!0;case s.FLOAT_VEC2:return e.setVector2(t,p.Vector2.FromArray(n)),!0;case s.FLOAT_VEC3:return e.setVector3(t,p.Vector3.FromArray(n)),!0;case s.FLOAT_VEC4:return e.setVector4(t,p.Vector4.FromArray(n)),!0;default:return!1}},e.GetWrapMode=function(e){switch(e){case l.CLAMP_TO_EDGE:return p.Texture.CLAMP_ADDRESSMODE;case l.MIRRORED_REPEAT:return p.Texture.MIRROR_ADDRESSMODE;case l.REPEAT:default:return p.Texture.WRAP_ADDRESSMODE}},e.GetByteStrideFromType=function(e){switch(e.type){case"VEC2":return 2;case"VEC3":return 3;case"VEC4":case"MAT2":return 4;case"MAT3":return 9;case"MAT4":return 16;default:return 1}},e.GetTextureFilterMode=function(e){switch(e){case u.LINEAR:case u.LINEAR_MIPMAP_NEAREST:case u.LINEAR_MIPMAP_LINEAR:return p.Texture.TRILINEAR_SAMPLINGMODE;case u.NEAREST:case u.NEAREST_MIPMAP_NEAREST:return p.Texture.NEAREST_SAMPLINGMODE;default:return p.Texture.BILINEAR_SAMPLINGMODE}},e.GetBufferFromBufferView=function(e,t,n,r,o){n=t.byteOffset+n;var i=e.loadedBufferViews[t.buffer];if(n+r>i.byteLength)throw new Error("Buffer access is out of range");var s=i.buffer;switch(n+=i.byteOffset,o){case a.BYTE:return new Int8Array(s,n,r);case a.UNSIGNED_BYTE:return new Uint8Array(s,n,r);case a.SHORT:return new Int16Array(s,n,r);case a.UNSIGNED_SHORT:return new Uint16Array(s,n,r);default:return new Float32Array(s,n,r)}},e.GetBufferFromAccessor=function(t,n){var r=t.bufferViews[n.bufferView],o=n.count*e.GetByteStrideFromType(n);return e.GetBufferFromBufferView(t,r,n.byteOffset,o,n.componentType)},e.DecodeBufferToText=function(e){for(var t="",n=e.byteLength,r=0;r<n;++r)t+=String.fromCharCode(e[r]);return t},e.GetDefaultMaterial=function(t){if(!e._DefaultMaterial){p.Effect.ShadersStore.GLTFDefaultMaterialVertexShader=["precision highp float;","","uniform mat4 worldView;","uniform mat4 projection;","","attribute vec3 position;","","void main(void)","{","    gl_Position = projection * worldView * vec4(position, 1.0);","}"].join("\n"),p.Effect.ShadersStore.GLTFDefaultMaterialPixelShader=["precision highp float;","","uniform vec4 u_emission;","","void main(void)","{","    gl_FragColor = u_emission;","}"].join("\n");var n={attributes:["position"],uniforms:["worldView","projection","u_emission"],samplers:new Array,needAlphaBlending:!1};e._DefaultMaterial=new p.ShaderMaterial("GLTFDefaultMaterial",t,{vertex:"GLTFDefaultMaterial",fragment:"GLTFDefaultMaterial"},n),e._DefaultMaterial.setColor4("u_emission",new p.Color4(.5,.5,.5,1))}return e._DefaultMaterial},e._DefaultMaterial=null,e}(),_=n(2);!function(e){e[e.IDENTIFIER=1]="IDENTIFIER",e[e.UNKNOWN=2]="UNKNOWN",e[e.END_OF_INPUT=3]="END_OF_INPUT"}(h||(h={}));var y=function(){function e(e){this._pos=0,this.currentToken=h.UNKNOWN,this.currentIdentifier="",this.currentString="",this.isLetterOrDigitPattern=/^[a-zA-Z0-9]+$/,this._toParse=e,this._maxPos=e.length}return e.prototype.getNextToken=function(){if(this.isEnd())return h.END_OF_INPUT;if(this.currentString=this.read(),this.currentToken=h.UNKNOWN,"_"===this.currentString||this.isLetterOrDigitPattern.test(this.currentString))for(this.currentToken=h.IDENTIFIER,this.currentIdentifier=this.currentString;!this.isEnd()&&(this.isLetterOrDigitPattern.test(this.currentString=this.peek())||"_"===this.currentString);)this.currentIdentifier+=this.currentString,this.forward();return this.currentToken},e.prototype.peek=function(){return this._toParse[this._pos]},e.prototype.read=function(){return this._toParse[this._pos++]},e.prototype.forward=function(){this._pos++},e.prototype.isEnd=function(){return this._pos>=this._maxPos},e}(),b=["MODEL","VIEW","PROJECTION","MODELVIEW","MODELVIEWPROJECTION","JOINTMATRIX"],v=["world","view","projection","worldView","worldViewProjection","mBones"],A=["translation","rotation","scale"],g=["position","rotationQuaternion","scaling"],T=function(e,t,n){for(var r in e){var o=e[r];n[t][r]=o}},x=function(e){if(e)for(var t=0;t<e.length/2;t++)e[2*t+1]=1-e[2*t+1]},E=function(e){if("NORMAL"===e.semantic)return"normal";if("POSITION"===e.semantic)return"position";if("JOINT"===e.semantic)return"matricesIndices";if("WEIGHT"===e.semantic)return"matricesWeights";if("COLOR"===e.semantic)return"color";if(e.semantic&&-1!==e.semantic.indexOf("TEXCOORD_")){var t=Number(e.semantic.split("_")[1]);return"uv"+(0===t?"":t+1)}return null},L=function(e){var t=null;if(e.translation||e.rotation||e.scale){var n=p.Vector3.FromArray(e.scale||[1,1,1]),r=p.Quaternion.FromArray(e.rotation||[0,0,0,1]),o=p.Vector3.FromArray(e.translation||[0,0,0]);t=p.Matrix.Compose(n,r,o)}else t=p.Matrix.FromArray(e.matrix);return t},O=function(e,t,n,r){for(var o=0;o<r.bones.length;o++)if(r.bones[o].name===n)return r.bones[o];var a=e.nodes;for(var i in a){var s=a[i];if(s.jointName){var l=s.children;for(o=0;o<l.length;o++){var u=e.nodes[l[o]];if(u.jointName&&u.jointName===n){var c=L(s),f=new p.Bone(s.name||"",r,O(e,t,s.jointName,r),c);return f.id=i,f}}}}return null},M=function(e,t){for(var n=0;n<e.length;n++)for(var r=e[n],o=0;o<r.node.children.length;o++){if(r.node.children[o]===t)return r.bone}return null},S=function(e,t){var n=e.nodes,r=n[t];if(r)return{node:r,id:t};for(var o in n)if((r=n[o]).jointName===t)return{node:r,id:o};return null},w=function(e,t){for(var n=0;n<e.jointNames.length;n++)if(e.jointNames[n]===t)return!0;return!1},C=function(e,t,n,r,o){if(r||(r=new p.Skeleton(t.name||"","",e.scene)),!t.babylonSkeleton)return r;var a=[],i=[];!function(e,t,n,r){for(var o in e.nodes){var a=e.nodes[o],i=o;if(a.jointName&&!w(n,a.jointName)){var s=L(a),l=new p.Bone(a.name||"",t,null,s);l.id=i,r.push({bone:l,node:a,id:i})}}for(var u=0;u<r.length;u++)for(var c=r[u],f=c.node.children,d=0;d<f.length;d++){for(var h=null,m=0;m<r.length;m++)if(r[m].id===f[d]){h=r[m];break}h&&(h.bone._parent=c.bone,c.bone.children.push(h.bone))}}(e,r,t,a),r.bones=[];for(var s=0;s<t.jointNames.length;s++){if(A=S(e,t.jointNames[s])){var l=A.node;if(l){o=A.id;var u=e.scene.getBoneByID(o);if(u)r.bones.push(u);else{for(var c=!1,f=null,d=0;d<s;d++){var h=S(e,t.jointNames[d]);if(h){var m=h.node;if(m){var _=m.children;if(_){c=!1;for(var y=0;y<_.length;y++)if(_[y]===o){f=O(e,t,t.jointNames[d],r),c=!0;break}if(c)break}}else p.Tools.Warn("Joint named "+t.jointNames[d]+" does not exist when looking for parent")}}var b=L(l);!f&&a.length>0&&(f=M(a,o))&&-1===i.indexOf(f)&&i.push(f),new p.Bone(l.jointName||"",r,f,b).id=o}}else p.Tools.Warn("Joint named "+t.jointNames[s]+" does not exist")}}var v=r.bones;r.bones=[];for(s=0;s<t.jointNames.length;s++){var A;if(A=S(e,t.jointNames[s]))for(d=0;d<v.length;d++)if(v[d].id===A.id){r.bones.push(v[d]);break}}r.prepare();for(s=0;s<i.length;s++)r.bones.push(i[s]);return r},N=function(e,t,n,r,o){if(o||(e.scene._blockEntityCollection=e.forAssetContainer,o=new p.Mesh(t.name||"",e.scene),e.scene._blockEntityCollection=!1,o.id=r),!t.babylonNode)return o;for(var a,i=[],s=null,l=new Array,u=new Array,c=new Array,f=new Array,d=0;d<n.length;d++){var h=n[d];if(P=e.meshes[h])for(var y=0;y<P.primitives.length;y++){var b=new p.VertexData,v=P.primitives[y];v.mode;var A=v.attributes,g=null,T=null;for(var E in A)if(g=e.accessors[A[E]],T=m.GetBufferFromAccessor(e,g),"NORMAL"===E)b.normals=new Float32Array(T.length),b.normals.set(T);else if("POSITION"===E){if(_.GLTFFileLoader.HomogeneousCoordinates){b.positions=new Float32Array(T.length-T.length/4);for(var L=0;L<T.length;L+=4)b.positions[L]=T[L],b.positions[L+1]=T[L+1],b.positions[L+2]=T[L+2]}else b.positions=new Float32Array(T.length),b.positions.set(T);u.push(b.positions.length)}else if(-1!==E.indexOf("TEXCOORD_")){var O=Number(E.split("_")[1]),M=p.VertexBuffer.UVKind+(0===O?"":O+1),S=new Float32Array(T.length);S.set(T),x(S),b.set(S,M)}else"JOINT"===E?(b.matricesIndices=new Float32Array(T.length),b.matricesIndices.set(T)):"WEIGHT"===E?(b.matricesWeights=new Float32Array(T.length),b.matricesWeights.set(T)):"COLOR"===E&&(b.colors=new Float32Array(T.length),b.colors.set(T));if(g=e.accessors[v.indices])T=m.GetBufferFromAccessor(e,g),b.indices=new Int32Array(T.length),b.indices.set(T),f.push(b.indices.length);else{var w=[];for(L=0;L<b.positions.length/3;L++)w.push(L);b.indices=new Int32Array(w),f.push(b.indices.length)}s?s.merge(b):s=b;var C=e.scene.getMaterialByID(v.material);i.push(null===C?m.GetDefaultMaterial(e.scene):C),l.push(0===l.length?0:l[l.length-1]+u[u.length-2]),c.push(0===c.length?0:c[c.length-1]+f[f.length-2])}}e.scene._blockEntityCollection=e.forAssetContainer,i.length>1?(a=new p.MultiMaterial("multimat"+r,e.scene)).subMaterials=i:a=new p.StandardMaterial("multimat"+r,e.scene),1===i.length&&(a=i[0]),o.material||(o.material=a),new p.Geometry(r,e.scene,s,!1,o),o.computeWorldMatrix(!0),e.scene._blockEntityCollection=!1,o.subMeshes=[];var N=0;for(d=0;d<n.length;d++){var P;h=n[d];if(P=e.meshes[h])for(y=0;y<P.primitives.length;y++)P.primitives[y].mode,p.SubMesh.AddToMesh(N,l[N],u[N],c[N],f[N],o,o,!0),N++}return o},P=function(e,t,n,r){e.position&&(e.position=t),(e.rotationQuaternion||e.rotation)&&(e.rotationQuaternion=n),e.scaling&&(e.scaling=r)},R=function(e,t,n,r){var o=null;if(e.importOnlyMeshes&&(t.skin||t.meshes)&&e.importMeshesNames&&e.importMeshesNames.length>0&&-1===e.importMeshesNames.indexOf(t.name||""))return null;if(t.skin){if(t.meshes){var a=e.skins[t.skin];(i=N(e,t,t.meshes,n,t.babylonNode)).skeleton=e.scene.getLastSkeletonByID(t.skin),null===i.skeleton&&(i.skeleton=C(e,a,0,a.babylonSkeleton,t.skin),a.babylonSkeleton||(a.babylonSkeleton=i.skeleton)),o=i}}else if(t.meshes){var i;o=i=N(e,t,t.mesh?[t.mesh]:t.meshes,n,t.babylonNode)}else if(!t.light||t.babylonNode||e.importOnlyMeshes){if(t.camera&&!t.babylonNode&&!e.importOnlyMeshes){var s=e.cameras[t.camera];if(s){if(e.scene._blockEntityCollection=e.forAssetContainer,"orthographic"===s.type){var l=new p.FreeCamera(t.camera,p.Vector3.Zero(),e.scene,!1);l.name=t.name||"",l.mode=p.Camera.ORTHOGRAPHIC_CAMERA,l.attachControl(e.scene.getEngine().getInputElement()),o=l}else if("perspective"===s.type){var u=s[s.type],c=new p.FreeCamera(t.camera,p.Vector3.Zero(),e.scene,!1);c.name=t.name||"",c.attachControl(e.scene.getEngine().getInputElement()),u.aspectRatio||(u.aspectRatio=e.scene.getEngine().getRenderWidth()/e.scene.getEngine().getRenderHeight()),u.znear&&u.zfar&&(c.maxZ=u.zfar,c.minZ=u.znear),o=c}e.scene._blockEntityCollection=!1}}}else{var f=e.lights[t.light];if(f)if("ambient"===f.type){var d=f[f.type],h=new p.HemisphericLight(t.light,p.Vector3.Zero(),e.scene);h.name=t.name||"",d.color&&(h.diffuse=p.Color3.FromArray(d.color)),o=h}else if("directional"===f.type){var m=f[f.type],_=new p.DirectionalLight(t.light,p.Vector3.Zero(),e.scene);_.name=t.name||"",m.color&&(_.diffuse=p.Color3.FromArray(m.color)),o=_}else if("point"===f.type){var y=f[f.type],b=new p.PointLight(t.light,p.Vector3.Zero(),e.scene);b.name=t.name||"",y.color&&(b.diffuse=p.Color3.FromArray(y.color)),o=b}else if("spot"===f.type){var v=f[f.type],A=new p.SpotLight(t.light,p.Vector3.Zero(),p.Vector3.Zero(),0,0,e.scene);A.name=t.name||"",v.color&&(A.diffuse=p.Color3.FromArray(v.color)),v.fallOfAngle&&(A.angle=v.fallOfAngle),v.fallOffExponent&&(A.exponent=v.fallOffExponent),o=A}}if(!t.jointName){if(t.babylonNode)return t.babylonNode;if(null===o){e.scene._blockEntityCollection=e.forAssetContainer;var g=new p.Mesh(t.name||"",e.scene);e.scene._blockEntityCollection=!1,t.babylonNode=g,o=g}}if(null!==o){if(t.matrix&&o instanceof p.Mesh)!function(e,t,n){if(t.matrix){var r=new p.Vector3(0,0,0),o=new p.Quaternion,a=new p.Vector3(0,0,0);p.Matrix.FromArray(t.matrix).decompose(a,o,r),P(e,r,o,a)}else t.translation&&t.rotation&&t.scale&&P(e,p.Vector3.FromArray(t.translation),p.Quaternion.FromArray(t.rotation),p.Vector3.FromArray(t.scale));e.computeWorldMatrix(!0)}(o,t);else{var T=t.translation||[0,0,0],x=t.rotation||[0,0,0,1],E=t.scale||[1,1,1];P(o,p.Vector3.FromArray(T),p.Quaternion.FromArray(x),p.Vector3.FromArray(E))}o.updateCache(!0),t.babylonNode=o}return o},I=function(e,t,n,r){void 0===r&&(r=!1);var o=e.nodes[t],a=null;if(r=!(e.importOnlyMeshes&&!r&&e.importMeshesNames)||(-1!==e.importMeshesNames.indexOf(o.name||"")||0===e.importMeshesNames.length),!o.jointName&&r&&null!==(a=R(e,o,t))&&(a.id=t,a.parent=n),o.children)for(var i=0;i<o.children.length;i++)I(e,o.children[i],a,r)},F=function(e){var t=e.currentScene;if(t)for(var n=0;n<t.nodes.length;n++)I(e,t.nodes[n],null);else for(var r in e.scenes){t=e.scenes[r];for(n=0;n<t.nodes.length;n++)I(e,t.nodes[n],null)}!function(e){for(var t in e.animations){var n=e.animations[t];if(n.channels&&n.samplers)for(var r=null,o=0;o<n.channels.length;o++){var a=n.channels[o],i=n.samplers[a.sampler];if(i){var s=null,l=null;n.parameters?(s=n.parameters[i.input],l=n.parameters[i.output]):(s=i.input,l=i.output);var u=m.GetBufferFromAccessor(e,e.accessors[s]),c=m.GetBufferFromAccessor(e,e.accessors[l]),f=a.target.id,d=e.scene.getNodeByID(f);if(null===d&&(d=e.scene.getNodeByName(f)),null!==d){var h=d instanceof p.Bone,_=a.target.path,y=A.indexOf(_);-1!==y&&(_=g[y]);var b=p.Animation.ANIMATIONTYPE_MATRIX;h||("rotationQuaternion"===_?(b=p.Animation.ANIMATIONTYPE_QUATERNION,d.rotationQuaternion=new p.Quaternion):b=p.Animation.ANIMATIONTYPE_VECTOR3);var v=null,T=[],x=0,E=!1;h&&r&&r.getKeys().length===u.length&&(v=r,E=!0),E||(e.scene._blockEntityCollection=e.forAssetContainer,v=new p.Animation(t,h?"_matrix":_,1,b,p.Animation.ANIMATIONLOOPMODE_CYCLE),e.scene._blockEntityCollection=!1);for(var L=0;L<u.length;L++){var O=null;if("rotationQuaternion"===_?(O=p.Quaternion.FromArray([c[x],c[x+1],c[x+2],c[x+3]]),x+=4):(O=p.Vector3.FromArray([c[x],c[x+1],c[x+2]]),x+=3),h){var M=d,S=p.Vector3.Zero(),w=new p.Quaternion,C=p.Vector3.Zero(),N=M.getBaseMatrix();E&&r&&(N=r.getKeys()[L].value),N.decompose(C,w,S),"position"===_?S=O:"rotationQuaternion"===_?w=O:C=O,O=p.Matrix.Compose(C,w,S)}E?r&&(r.getKeys()[L].value=O):T.push({frame:u[L],value:O})}!E&&v&&(v.setKeys(T),d.animations.push(v)),r=v,e.scene.stopAnimation(d),e.scene.beginAnimation(d,0,u[u.length-1],!0,1)}else p.Tools.Warn("Creating animation named "+t+". But cannot find node named "+f+" to attach to")}}}}(e);for(n=0;n<e.scene.skeletons.length;n++){var o=e.scene.skeletons[n];e.scene.beginAnimation(o,0,Number.MAX_VALUE,!0,1)}},V=function(e,t,n,r,o,a){return function(i){!function(e,t,n,r,o){var a=r.values||n.parameters,i=n.uniforms;for(var l in o){var u=o[l],c=u.type,f=a[i[l]];if(void 0===f&&(f=u.value),f){var d=function(e){return function(n){u.value&&e&&(t.setTexture(e,n),delete o[e])}};c===s.SAMPLER_2D?k.LoadTextureAsync(e,r.values?f:u.value,d(l),function(){return d(null)}):u.value&&m.SetUniform(t,l,r.values?f:u.value,c)&&delete o[l]}}}(e,t,n,r,o),t.onBind=function(i){!function(e,t,n,r,o,a,i){var l=a.values||o.parameters;for(var u in n){var c=n[u],f=c.type;if(f===s.FLOAT_MAT2||f===s.FLOAT_MAT3||f===s.FLOAT_MAT4)if(!c.semantic||c.source||c.node){if(c.semantic&&(c.source||c.node)){var d=t.scene.getNodeByName(c.source||c.node||"");if(null===d&&(d=t.scene.getNodeByID(c.source||c.node||"")),null===d)continue;m.SetMatrix(t.scene,d,c,u,r.getEffect())}}else m.SetMatrix(t.scene,e,c,u,r.getEffect());else{var h=l[o.uniforms[u]];if(!h)continue;if(f===s.SAMPLER_2D){var p=t.textures[a.values?h:c.value].babylonTexture;if(null==p)continue;r.getEffect().setTexture(u,p)}else m.SetUniform(r.getEffect(),u,h,f)}}i(r)}(i,e,o,t,n,r,a)}}},B=function(e,t,n){for(var r in t.uniforms){var o=t.uniforms[r],a=t.parameters[o];if(e.currentIdentifier===r&&a.semantic&&!a.source&&!a.node){var i=b.indexOf(a.semantic);if(-1!==i)return delete n[r],v[i]}}return e.currentIdentifier},D=function(e){for(var t in e.materials)k.LoadMaterialAsync(e,t,function(e){},function(){})},G=function(){function e(){}return e.CreateRuntime=function(e,t,n){var r={extensions:{},accessors:{},buffers:{},bufferViews:{},meshes:{},lights:{},cameras:{},nodes:{},images:{},textures:{},shaders:{},programs:{},samplers:{},techniques:{},materials:{},animations:{},skins:{},extensionsUsed:[],scenes:{},buffersCount:0,shaderscount:0,scene:t,rootUrl:n,loadedBufferCount:0,loadedBufferViews:{},loadedShaderCount:0,importOnlyMeshes:!1,dummyNodes:[],forAssetContainer:!1};return e.extensions&&T(e.extensions,"extensions",r),e.extensionsUsed&&T(e.extensionsUsed,"extensionsUsed",r),e.buffers&&function(e,t){for(var n in e){var r=e[n];t.buffers[n]=r,t.buffersCount++}}(e.buffers,r),e.bufferViews&&T(e.bufferViews,"bufferViews",r),e.accessors&&T(e.accessors,"accessors",r),e.meshes&&T(e.meshes,"meshes",r),e.lights&&T(e.lights,"lights",r),e.cameras&&T(e.cameras,"cameras",r),e.nodes&&T(e.nodes,"nodes",r),e.images&&T(e.images,"images",r),e.textures&&T(e.textures,"textures",r),e.shaders&&function(e,t){for(var n in e){var r=e[n];t.shaders[n]=r,t.shaderscount++}}(e.shaders,r),e.programs&&T(e.programs,"programs",r),e.samplers&&T(e.samplers,"samplers",r),e.techniques&&T(e.techniques,"techniques",r),e.materials&&T(e.materials,"materials",r),e.animations&&T(e.animations,"animations",r),e.skins&&T(e.skins,"skins",r),e.scenes&&(r.scenes=e.scenes),e.scene&&e.scenes&&(r.currentScene=e.scenes[e.scene]),r},e.LoadBufferAsync=function(e,t,n,r,o){var a=e.buffers[t];p.Tools.IsBase64(a.uri)?setTimeout(function(){return n(new Uint8Array(p.Tools.DecodeBase64(a.uri)))}):p.Tools.LoadFile(e.rootUrl+a.uri,function(e){return n(new Uint8Array(e))},o,void 0,!0,function(e){e&&r(e.status+" "+e.statusText)})},e.LoadTextureBufferAsync=function(e,t,n,r){var o=e.textures[t];if(o&&o.source)if(o.babylonTexture)n(null);else{var a=e.images[o.source];p.Tools.IsBase64(a.uri)?setTimeout(function(){return n(new Uint8Array(p.Tools.DecodeBase64(a.uri)))}):p.Tools.LoadFile(e.rootUrl+a.uri,function(e){return n(new Uint8Array(e))},void 0,void 0,!0,function(e){e&&r(e.status+" "+e.statusText)})}else r("")},e.CreateTextureAsync=function(e,t,n,r,o){var a=e.textures[t];if(a.babylonTexture)r(a.babylonTexture);else{var i=e.samplers[a.sampler],s=i.minFilter===u.NEAREST_MIPMAP_NEAREST||i.minFilter===u.NEAREST_MIPMAP_LINEAR||i.minFilter===u.LINEAR_MIPMAP_NEAREST||i.minFilter===u.LINEAR_MIPMAP_LINEAR,l=p.Texture.BILINEAR_SAMPLINGMODE,c=null==n?new Blob:new Blob([n]),f=URL.createObjectURL(c),d=function(){return URL.revokeObjectURL(f)},h=new p.Texture(f,e.scene,!s,!0,l,d,d);void 0!==i.wrapS&&(h.wrapU=m.GetWrapMode(i.wrapS)),void 0!==i.wrapT&&(h.wrapV=m.GetWrapMode(i.wrapT)),h.name=t,a.babylonTexture=h,r(h)}},e.LoadShaderStringAsync=function(e,t,n,r){var o=e.shaders[t];if(p.Tools.IsBase64(o.uri)){var a=atob(o.uri.split(",")[1]);n&&n(a)}else p.Tools.LoadFile(e.rootUrl+o.uri,n,void 0,void 0,!1,function(e){e&&r&&r(e.status+" "+e.statusText)})},e.LoadMaterialAsync=function(e,t,n,r){var o=e.materials[t];if(o.technique){var a=e.techniques[o.technique];if(!a){e.scene._blockEntityCollection=e.forAssetContainer;var i=new p.StandardMaterial(t,e.scene);return e.scene._blockEntityCollection=!1,i.diffuseColor=new p.Color3(.5,.5,.5),i.sideOrientation=p.Material.CounterClockWiseSideOrientation,void n(i)}var l=e.programs[a.program],u=a.states,c=p.Effect.ShadersStore[l.vertexShader+"VertexShader"],m=p.Effect.ShadersStore[l.fragmentShader+"PixelShader"],_="",A="",g=new y(c),T=new y(m),x={},L=[],O=[],M=[];for(var S in a.uniforms){var w=a.uniforms[S],C=a.parameters[w];if(x[S]=C,!C.semantic||C.node||C.source)C.type===s.SAMPLER_2D?M.push(S):L.push(S);else{var N=b.indexOf(C.semantic);-1!==N?(L.push(v[N]),delete x[S]):L.push(S)}}for(var P in a.attributes){var R=a.attributes[P];if((D=a.parameters[R]).semantic){var I=E(D);I&&O.push(I)}}for(;!g.isEnd()&&g.getNextToken();){if(g.currentToken===h.IDENTIFIER){var F=!1;for(var P in a.attributes){R=a.attributes[P];var D=a.parameters[R];if(g.currentIdentifier===P&&D.semantic){_+=E(D),F=!0;break}}F||(_+=B(g,a,x))}else _+=g.currentString}for(;!T.isEnd()&&T.getNextToken();){T.currentToken===h.IDENTIFIER?A+=B(T,a,x):A+=T.currentString}var G={vertex:l.vertexShader+t,fragment:l.fragmentShader+t},U={attributes:O,uniforms:L,samplers:M,needAlphaBlending:u&&u.enable&&-1!==u.enable.indexOf(3042)};p.Effect.ShadersStore[l.vertexShader+t+"VertexShader"]=_,p.Effect.ShadersStore[l.fragmentShader+t+"PixelShader"]=A;var k=new p.ShaderMaterial(t,e.scene,G,U);if(k.onError=function(e,t,n){return function(r,o){t.dispose(!0),n("Cannot compile program named "+e.name+". Error: "+o+". Default material will be applied")}}(l,k,r),k.onCompiled=V(e,k,a,o,x,n),k.sideOrientation=p.Material.CounterClockWiseSideOrientation,u&&u.functions){var H=u.functions;H.cullFace&&H.cullFace[0]!==f.BACK&&(k.backFaceCulling=!1);var j=H.blendFuncSeparate;j&&(j[0]===d.SRC_ALPHA&&j[1]===d.ONE_MINUS_SRC_ALPHA&&j[2]===d.ONE&&j[3]===d.ONE?k.alphaMode=p.Constants.ALPHA_COMBINE:j[0]===d.ONE&&j[1]===d.ONE&&j[2]===d.ZERO&&j[3]===d.ONE?k.alphaMode=p.Constants.ALPHA_ONEONE:j[0]===d.SRC_ALPHA&&j[1]===d.ONE&&j[2]===d.ZERO&&j[3]===d.ONE?k.alphaMode=p.Constants.ALPHA_ADD:j[0]===d.ZERO&&j[1]===d.ONE_MINUS_SRC_COLOR&&j[2]===d.ONE&&j[3]===d.ONE?k.alphaMode=p.Constants.ALPHA_SUBTRACT:j[0]===d.DST_COLOR&&j[1]===d.ZERO&&j[2]===d.ONE&&j[3]===d.ONE?k.alphaMode=p.Constants.ALPHA_MULTIPLY:j[0]===d.SRC_ALPHA&&j[1]===d.ONE_MINUS_SRC_COLOR&&j[2]===d.ONE&&j[3]===d.ONE&&(k.alphaMode=p.Constants.ALPHA_MAXIMIZED))}}else r&&r("No technique found.")},e}(),U=function(){function e(){this.state=null}return e.RegisterExtension=function(t){e.Extensions[t.name]?p.Tools.Error('Tool with the same name "'+t.name+'" already exists'):e.Extensions[t.name]=t},e.prototype.dispose=function(){},e.prototype._importMeshAsync=function(e,t,n,r,o,a,i,s){var l=this;return t.useRightHandedSystem=!0,k.LoadRuntimeAsync(t,n,r,function(t){t.forAssetContainer=o,t.importOnlyMeshes=!0,""===e?t.importMeshesNames=[]:"string"==typeof e?t.importMeshesNames=[e]:!e||e instanceof Array?(t.importMeshesNames=[],p.Tools.Warn("Argument meshesNames must be of type string or string[]")):t.importMeshesNames=[e],l._createNodes(t);var n=new Array,r=new Array;for(var s in t.nodes){var u=t.nodes[s];u.babylonNode instanceof p.AbstractMesh&&n.push(u.babylonNode)}for(var c in t.skins){var f=t.skins[c];f.babylonSkeleton instanceof p.Skeleton&&r.push(f.babylonSkeleton)}l._loadBuffersAsync(t,function(){l._loadShadersAsync(t,function(){D(t),F(t),!_.GLTFFileLoader.IncrementalLoading&&a&&a(n,r)})},i),_.GLTFFileLoader.IncrementalLoading&&a&&a(n,r)},s),!0},e.prototype.importMeshAsync=function(e,t,n,r,o,a){var i=this;return new Promise(function(s,l){i._importMeshAsync(e,t,r,o,n,function(e,t){s({meshes:e,particleSystems:[],skeletons:t,animationGroups:[],lights:[],transformNodes:[]})},a,function(e){l(new Error(e))})})},e.prototype._loadAsync=function(e,t,n,r,o,a,i){var s=this;e.useRightHandedSystem=!0,k.LoadRuntimeAsync(e,t,n,function(e){k.LoadRuntimeExtensionsAsync(e,function(){s._createNodes(e),s._loadBuffersAsync(e,function(){s._loadShadersAsync(e,function(){D(e),F(e),_.GLTFFileLoader.IncrementalLoading||o()})}),_.GLTFFileLoader.IncrementalLoading&&o()},i)},i)},e.prototype.loadAsync=function(e,t,n,r){var o=this;return new Promise(function(a,i){o._loadAsync(e,t,n,!1,function(){a()},r,function(e){i(new Error(e))})})},e.prototype._loadShadersAsync=function(e,t){var n=!1,r=function(n,r){k.LoadShaderStringAsync(e,n,function(o){o instanceof ArrayBuffer||(e.loadedShaderCount++,o&&(p.Effect.ShadersStore[n+(r.type===i.VERTEX?"VertexShader":"PixelShader")]=o),e.loadedShaderCount===e.shaderscount&&t())},function(){p.Tools.Error("Error when loading shader program named "+n+" located at "+r.uri)})};for(var o in e.shaders){n=!0;var a=e.shaders[o];a?r.bind(this,o,a)():p.Tools.Error("No shader named: "+o)}n||t()},e.prototype._loadBuffersAsync=function(e,t,n){var r=!1,o=function(n,r){k.LoadBufferAsync(e,n,function(o){e.loadedBufferCount++,o&&(o.byteLength!=e.buffers[n].byteLength&&p.Tools.Error("Buffer named "+n+" is length "+o.byteLength+". Expected: "+r.byteLength),e.loadedBufferViews[n]=o),e.loadedBufferCount===e.buffersCount&&t()},function(){p.Tools.Error("Error when loading buffer named "+n+" located at "+r.uri)})};for(var a in e.buffers){r=!0;var i=e.buffers[a];i?o.bind(this,a,i)():p.Tools.Error("No buffer named: "+a)}r||t()},e.prototype._createNodes=function(e){var t=e.currentScene;if(t)for(var n=0;n<t.nodes.length;n++)I(e,t.nodes[n],null);else for(var r in e.scenes){t=e.scenes[r];for(n=0;n<t.nodes.length;n++)I(e,t.nodes[n],null)}},e.Extensions={},e}(),k=function(){function e(e){this._name=e}return Object.defineProperty(e.prototype,"name",{get:function(){return this._name},enumerable:!0,configurable:!0}),e.prototype.loadRuntimeAsync=function(e,t,n,r,o){return!1},e.prototype.loadRuntimeExtensionsAsync=function(e,t,n){return!1},e.prototype.loadBufferAsync=function(e,t,n,r,o){return!1},e.prototype.loadTextureBufferAsync=function(e,t,n,r){return!1},e.prototype.createTextureAsync=function(e,t,n,r,o){return!1},e.prototype.loadShaderStringAsync=function(e,t,n,r){return!1},e.prototype.loadMaterialAsync=function(e,t,n,r){return!1},e.LoadRuntimeAsync=function(t,n,r,o,a){e.ApplyExtensions(function(e){return e.loadRuntimeAsync(t,n,r,o,a)},function(){setTimeout(function(){o&&o(G.CreateRuntime(n.json,t,r))})})},e.LoadRuntimeExtensionsAsync=function(t,n,r){e.ApplyExtensions(function(e){return e.loadRuntimeExtensionsAsync(t,n,r)},function(){setTimeout(function(){n()})})},e.LoadBufferAsync=function(t,n,r,o,a){e.ApplyExtensions(function(e){return e.loadBufferAsync(t,n,r,o,a)},function(){G.LoadBufferAsync(t,n,r,o,a)})},e.LoadTextureAsync=function(t,n,r,o){e.LoadTextureBufferAsync(t,n,function(a){a&&e.CreateTextureAsync(t,n,a,r,o)},o)},e.LoadShaderStringAsync=function(t,n,r,o){e.ApplyExtensions(function(e){return e.loadShaderStringAsync(t,n,r,o)},function(){G.LoadShaderStringAsync(t,n,r,o)})},e.LoadMaterialAsync=function(t,n,r,o){e.ApplyExtensions(function(e){return e.loadMaterialAsync(t,n,r,o)},function(){G.LoadMaterialAsync(t,n,r,o)})},e.LoadTextureBufferAsync=function(t,n,r,o){e.ApplyExtensions(function(e){return e.loadTextureBufferAsync(t,n,r,o)},function(){G.LoadTextureBufferAsync(t,n,r,o)})},e.CreateTextureAsync=function(t,n,r,o,a){e.ApplyExtensions(function(e){return e.createTextureAsync(t,n,r,o,a)},function(){G.CreateTextureAsync(t,n,r,o,a)})},e.ApplyExtensions=function(e,t){for(var n in U.Extensions){if(e(U.Extensions[n]))return}t()},e}();_.GLTFFileLoader._CreateGLTF1Loader=function(){return new U};var H=function(e){function t(){return e.call(this,"KHR_binary_glTF")||this}return o(t,e),t.prototype.loadRuntimeAsync=function(e,t,n,r,o){var a=t.json.extensionsUsed;return!(!a||-1===a.indexOf(this.name)||!t.bin)&&(this._bin=t.bin,r(G.CreateRuntime(t.json,e,n)),!0)},t.prototype.loadBufferAsync=function(e,t,n,r){return-1!==e.extensionsUsed.indexOf(this.name)&&("binary_glTF"===t&&(this._bin.readAsync(0,this._bin.byteLength).then(n,function(e){return r(e.message)}),!0))},t.prototype.loadTextureBufferAsync=function(e,t,n,r){var o=e.textures[t],i=e.images[o.source];if(!(i.extensions&&this.name in i.extensions))return!1;var s=i.extensions[this.name],l=e.bufferViews[s.bufferView];return n(m.GetBufferFromBufferView(e,l,0,l.byteLength,a.UNSIGNED_BYTE)),!0},t.prototype.loadShaderStringAsync=function(e,t,n,r){var o=e.shaders[t];if(!(o.extensions&&this.name in o.extensions))return!1;var i=o.extensions[this.name],s=e.bufferViews[i.bufferView],l=m.GetBufferFromBufferView(e,s,0,s.byteLength,a.UNSIGNED_BYTE);return setTimeout(function(){var e=m.DecodeBufferToText(l);n(e)}),!0},t}(k);U.RegisterExtension(new H);var j=function(e){function t(){return e.call(this,"KHR_materials_common")||this}return o(t,e),t.prototype.loadRuntimeExtensionsAsync=function(e,t,n){if(!e.extensions)return!1;var r=e.extensions[this.name];if(!r)return!1;var o=r.lights;if(o)for(var a in o){var i=o[a];switch(i.type){case"ambient":var s=new p.HemisphericLight(i.name,new p.Vector3(0,1,0),e.scene),l=i.ambient;l&&(s.diffuse=p.Color3.FromArray(l.color||[1,1,1]));break;case"point":var u=new p.PointLight(i.name,new p.Vector3(10,10,10),e.scene),c=i.point;c&&(u.diffuse=p.Color3.FromArray(c.color||[1,1,1]));break;case"directional":var f=new p.DirectionalLight(i.name,new p.Vector3(0,-1,0),e.scene),d=i.directional;d&&(f.diffuse=p.Color3.FromArray(d.color||[1,1,1]));break;case"spot":var h=i.spot;if(h)new p.SpotLight(i.name,new p.Vector3(0,10,0),new p.Vector3(0,-1,0),h.fallOffAngle||Math.PI,h.fallOffExponent||0,e.scene).diffuse=p.Color3.FromArray(h.color||[1,1,1]);break;default:p.Tools.Warn('GLTF Material Common extension: light type "'+i.type+"” not supported")}}return!1},t.prototype.loadMaterialAsync=function(e,t,n,r){var o=e.materials[t];if(!o||!o.extensions)return!1;var a=o.extensions[this.name];if(!a)return!1;var i=new p.StandardMaterial(t,e.scene);return i.sideOrientation=p.Material.CounterClockWiseSideOrientation,"CONSTANT"===a.technique&&(i.disableLighting=!0),i.backFaceCulling=void 0!==a.doubleSided&&!a.doubleSided,i.alpha=void 0===a.values.transparency?1:a.values.transparency,i.specularPower=void 0===a.values.shininess?0:a.values.shininess,"string"==typeof a.values.ambient?this._loadTexture(e,a.values.ambient,i,"ambientTexture",r):i.ambientColor=p.Color3.FromArray(a.values.ambient||[0,0,0]),"string"==typeof a.values.diffuse?this._loadTexture(e,a.values.diffuse,i,"diffuseTexture",r):i.diffuseColor=p.Color3.FromArray(a.values.diffuse||[0,0,0]),"string"==typeof a.values.emission?this._loadTexture(e,a.values.emission,i,"emissiveTexture",r):i.emissiveColor=p.Color3.FromArray(a.values.emission||[0,0,0]),"string"==typeof a.values.specular?this._loadTexture(e,a.values.specular,i,"specularTexture",r):i.specularColor=p.Color3.FromArray(a.values.specular||[0,0,0]),!0},t.prototype._loadTexture=function(e,t,n,r,o){G.LoadTextureBufferAsync(e,t,function(a){G.CreateTextureAsync(e,t,a,function(e){return n[r]=e},o)},o)},t}(k);U.RegisterExtension(new j),n.d(t,"GLTFBinaryExtension",function(){return H}),n.d(t,"GLTFLoaderBase",function(){return G}),n.d(t,"GLTFLoader",function(){return U}),n.d(t,"GLTFLoaderExtension",function(){return k}),n.d(t,"EComponentType",function(){return a}),n.d(t,"EShaderType",function(){return i}),n.d(t,"EParameterType",function(){return s}),n.d(t,"ETextureWrapMode",function(){return l}),n.d(t,"ETextureFilterType",function(){return u}),n.d(t,"ETextureFormat",function(){return c}),n.d(t,"ECullingType",function(){return f}),n.d(t,"EBlendingFunction",function(){return d}),n.d(t,"GLTFUtils",function(){return m}),n.d(t,"GLTFMaterialsCommonExtension",function(){return j})},function(e,t,n){"use strict";n.r(t);var r=n(0),o=function(){function e(){this.materials=[]}return e.prototype.parseMTL=function(t,n,o,a){if(!(n instanceof ArrayBuffer)){for(var i,s=n.split("\n"),l=/\s+/,u=null,c=0;c<s.length;c++){var f=s[c].trim();if(0!==f.length&&"#"!==f.charAt(0)){var d=f.indexOf(" "),h=d>=0?f.substring(0,d):f;h=h.toLowerCase();var p=d>=0?f.substring(d+1).trim():"";"newmtl"===h?(u&&this.materials.push(u),t._blockEntityCollection=a,u=new r.StandardMaterial(p,t),t._blockEntityCollection=!1):"kd"===h&&u?(i=p.split(l,3).map(parseFloat),u.diffuseColor=r.Color3.FromArray(i)):"ka"===h&&u?(i=p.split(l,3).map(parseFloat),u.ambientColor=r.Color3.FromArray(i)):"ks"===h&&u?(i=p.split(l,3).map(parseFloat),u.specularColor=r.Color3.FromArray(i)):"ke"===h&&u?(i=p.split(l,3).map(parseFloat),u.emissiveColor=r.Color3.FromArray(i)):"ns"===h&&u?u.specularPower=parseFloat(p):"d"===h&&u?u.alpha=parseFloat(p):"map_ka"===h&&u?u.ambientTexture=e._getTexture(o,p,t):"map_kd"===h&&u?u.diffuseTexture=e._getTexture(o,p,t):"map_ks"===h&&u?u.specularTexture=e._getTexture(o,p,t):"map_ns"===h||("map_bump"===h&&u?u.bumpTexture=e._getTexture(o,p,t):"map_d"===h&&u&&(u.opacityTexture=e._getTexture(o,p,t)))}}u&&this.materials.push(u)}},e._getTexture=function(t,n,o){if(!n)return null;var a=t;if("file:"===t){var i=n.lastIndexOf("\\");-1===i&&(i=n.lastIndexOf("/")),a+=i>-1?n.substr(i+1):n}else a+=n;return new r.Texture(a,o,!1,e.INVERT_TEXTURE_Y)},e.INVERT_TEXTURE_Y=!0,e}(),a=function(){function e(t){this.name="obj",this.extensions=".obj",this.obj=/^o/,this.group=/^g/,this.mtllib=/^mtllib /,this.usemtl=/^usemtl /,this.smooth=/^s /,this.vertexPattern=/v( +[\d|\.|\+|\-|e|E]+){3,7}/,this.normalPattern=/vn( +[\d|\.|\+|\-|e|E]+)( +[\d|\.|\+|\-|e|E]+)( +[\d|\.|\+|\-|e|E]+)/,this.uvPattern=/vt( +[\d|\.|\+|\-|e|E]+)( +[\d|\.|\+|\-|e|E]+)/,this.facePattern1=/f\s+(([\d]{1,}[\s]?){3,})+/,this.facePattern2=/f\s+((([\d]{1,}\/[\d]{1,}[\s]?){3,})+)/,this.facePattern3=/f\s+((([\d]{1,}\/[\d]{1,}\/[\d]{1,}[\s]?){3,})+)/,this.facePattern4=/f\s+((([\d]{1,}\/\/[\d]{1,}[\s]?){3,})+)/,this.facePattern5=/f\s+(((-[\d]{1,}\/-[\d]{1,}\/-[\d]{1,}[\s]?){3,})+)/,this._forAssetContainer=!1,this._meshLoadOptions=t||e.currentMeshLoadOptions}return Object.defineProperty(e,"INVERT_TEXTURE_Y",{get:function(){return o.INVERT_TEXTURE_Y},set:function(e){o.INVERT_TEXTURE_Y=e},enumerable:!0,configurable:!0}),Object.defineProperty(e,"currentMeshLoadOptions",{get:function(){return{ComputeNormals:e.COMPUTE_NORMALS,ImportVertexColors:e.IMPORT_VERTEX_COLORS,InvertY:e.INVERT_Y,InvertTextureY:e.INVERT_TEXTURE_Y,UVScaling:e.UV_SCALING,MaterialLoadingFailsSilently:e.MATERIAL_LOADING_FAILS_SILENTLY,OptimizeWithUV:e.OPTIMIZE_WITH_UV,SkipMaterials:e.SKIP_MATERIALS}},enumerable:!0,configurable:!0}),e.prototype._loadMTL=function(e,t,n,o){var a=r.Tools.BaseUrl+t+e;r.Tools.LoadFile(a,n,void 0,void 0,!1,function(e,t){o(a,t)})},e.prototype.createPlugin=function(){return new e(e.currentMeshLoadOptions)},e.prototype.canDirectLoad=function(e){return!1},e.prototype.importMeshAsync=function(e,t,n,r,o,a){return this._parseSolid(e,t,n,r).then(function(e){return{meshes:e,particleSystems:[],skeletons:[],animationGroups:[]}})},e.prototype.loadAsync=function(e,t,n,r,o){return this.importMeshAsync(null,e,t,n,r).then(function(){})},e.prototype.loadAssetContainerAsync=function(e,t,n,o,a){var i=this;return this._forAssetContainer=!0,this.importMeshAsync(null,e,t,n).then(function(t){var n=new r.AssetContainer(e);return t.meshes.forEach(function(e){return n.meshes.push(e)}),t.meshes.forEach(function(e){var t=e.material;t&&(-1==n.materials.indexOf(t)&&(n.materials.push(t),t.getActiveTextures().forEach(function(e){-1==n.textures.indexOf(e)&&n.textures.push(e)})))}),i._forAssetContainer=!1,n}).catch(function(e){throw i._forAssetContainer=!1,e})},e.prototype._parseSolid=function(t,n,a,i){for(var s,l=this,u=[],c=[],f=[],d=[],h=[],p=[],m=[],_=[],y=[],b=[],v=[],A=0,g=!1,T=[],x=[],E=[],L=[],O=[],M="",S="",w=new o,C=1,N=!0,P=new r.Color4(.5,.5,.5,1),R=function(e,t,n,r,o,a,i){var s;-1===(s=l._meshLoadOptions.OptimizeWithUV?function(e,t){e[t[0]]||(e[t[0]]={normals:[],idx:[],uv:[]});var n=e[t[0]].normals.indexOf(t[1]);return 1!=n&&t[2]===e[t[0]].uv[n]?e[t[0]].idx[n]:-1}(v,[e,n,t]):function(e,t){e[t[0]]||(e[t[0]]={normals:[],idx:[]});var n=e[t[0]].normals.indexOf(t[1]);return-1===n?-1:e[t[0]].idx[n]}(v,[e,n]))?(p.push(m.length),m.push(r),_.push(o),b.push(a),void 0!==i&&y.push(i),v[e].normals.push(n),v[e].idx.push(A++),l._meshLoadOptions.OptimizeWithUV&&v[e].uv.push(t)):p.push(s)},I=function(){for(var e=0;e<m.length;e++)T.push(m[e].x,m[e].y,m[e].z),E.push(b[e].x,b[e].y,b[e].z),L.push(_[e].x,_[e].y);!0===l._meshLoadOptions.ImportVertexColors&&x.push(y[e].r,y[e].g,y[e].b,y[e].a),m=[],b=[],_=[],y=[],v=[],A=0},F=function(e,t){for(var n=t;n<e.length-1;n++)O.push(e[0],e[n],e[n+1])},V=function(e,t){F(e,t);for(var n=0;n<O.length;n++){var o=parseInt(O[n])-1;R(o,0,0,u[o],r.Vector2.Zero(),r.Vector3.Up(),!0===l._meshLoadOptions.ImportVertexColors?d[o]:void 0)}O=[]},B=function(e,t){F(e,t);for(var n=0;n<O.length;n++){var o=O[n].split("/"),a=parseInt(o[0])-1,i=parseInt(o[1])-1;R(a,i,0,u[a],f[i],r.Vector3.Up(),!0===l._meshLoadOptions.ImportVertexColors?d[a]:void 0)}O=[]},D=function(e,t){F(e,t);for(var n=0;n<O.length;n++){var r=O[n].split("/"),o=parseInt(r[0])-1,a=parseInt(r[1])-1,i=parseInt(r[2])-1;R(o,a,i,u[o],f[a],c[i])}O=[]},G=function(e,t){F(e,t);for(var n=0;n<O.length;n++){var o=O[n].split("//"),a=parseInt(o[0])-1,i=parseInt(o[1])-1;R(a,1,i,u[a],r.Vector2.Zero(),c[i],!0===l._meshLoadOptions.ImportVertexColors?d[a]:void 0)}O=[]},U=function(e,t){F(e,t);for(var n=0;n<O.length;n++){var r=O[n].split("/"),o=u.length+parseInt(r[0]),a=f.length+parseInt(r[1]),i=c.length+parseInt(r[2]);R(o,a,i,u[o],f[a],c[i],!0===l._meshLoadOptions.ImportVertexColors?d[o]:void 0)}O=[]},k=function(){h.length>0&&(s=h[h.length-1],I(),p.reverse(),s.indices=p.slice(),s.positions=T.slice(),s.normals=E.slice(),s.uvs=L.slice(),!0===l._meshLoadOptions.ImportVertexColors&&(s.colors=x.slice()),p=[],T=[],x=[],E=[],L=[])},H=a.split("\n"),j=0;j<H.length;j++){var K,W=H[j].trim().replace(/\s\s/g," ");if(0!==W.length&&"#"!==W.charAt(0))if(this.vertexPattern.test(W))K=W.match(/[^ ]+/g),u.push(new r.Vector3(parseFloat(K[1]),parseFloat(K[2]),parseFloat(K[3]))),!0===this._meshLoadOptions.ImportVertexColors&&(K.length>=7?d.push(new r.Color4(parseFloat(K[4]),parseFloat(K[5]),parseFloat(K[6]),7===K.length||void 0===K[7]?1:parseFloat(K[7]))):d.push(P));else if(null!==(K=this.normalPattern.exec(W)))c.push(new r.Vector3(parseFloat(K[1]),parseFloat(K[2]),parseFloat(K[3])));else if(null!==(K=this.uvPattern.exec(W)))f.push(new r.Vector2(parseFloat(K[1])*e.UV_SCALING.x,parseFloat(K[2])*e.UV_SCALING.y));else if(null!==(K=this.facePattern3.exec(W)))D(K[1].trim().split(" "),1);else if(null!==(K=this.facePattern4.exec(W)))G(K[1].trim().split(" "),1);else if(null!==(K=this.facePattern5.exec(W)))U(K[1].trim().split(" "),1);else if(null!==(K=this.facePattern2.exec(W)))B(K[1].trim().split(" "),1);else if(null!==(K=this.facePattern1.exec(W)))V(K[1].trim().split(" "),1);else if(this.group.test(W)||this.obj.test(W)){var Y={name:W.substring(2).trim(),indices:void 0,positions:void 0,normals:void 0,uvs:void 0,colors:void 0,materialName:""};k(),h.push(Y),g=!0,N=!0,C=1}else if(this.usemtl.test(W)){if(M=W.substring(7).trim(),!N||!g){k();Y={name:"mesh_mm"+C.toString(),indices:void 0,positions:void 0,normals:void 0,uvs:void 0,colors:void 0,materialName:M};C++,h.push(Y),g=!0}g&&N&&(h[h.length-1].materialName=M,N=!1)}else this.mtllib.test(W)?S=W.substring(7).trim():this.smooth.test(W)||console.log("Unhandled expression at line : "+W)}g&&(s=h[h.length-1],p.reverse(),I(),s.indices=p,s.positions=T,s.normals=E,s.uvs=L,!0===this._meshLoadOptions.ImportVertexColors&&(s.colors=x)),g||(p.reverse(),I(),h.push({name:r.Geometry.RandomId(),indices:p,positions:T,colors:x,normals:E,uvs:L,materialName:M}));for(var J=[],q=new Array,Z=0;Z<h.length;Z++){if(t&&h[Z].name)if(t instanceof Array){if(-1===t.indexOf(h[Z].name))continue}else if(h[Z].name!==t)continue;s=h[Z],n._blockEntityCollection=this._forAssetContainer;var Q=new r.Mesh(h[Z].name,n);n._blockEntityCollection=!1,q.push(h[Z].materialName);var X=new r.VertexData;if(X.uvs=s.uvs,X.indices=s.indices,X.positions=s.positions,!0===this._meshLoadOptions.ComputeNormals){var z=new Array;r.VertexData.ComputeNormals(s.positions,s.indices,z),X.normals=z}else X.normals=s.normals;!0===this._meshLoadOptions.ImportVertexColors&&(X.colors=s.colors),X.applyToMesh(Q),this._meshLoadOptions.InvertY&&(Q.scaling.y*=-1),J.push(Q)}var $=[];return""!==S&&!1===this._meshLoadOptions.SkipMaterials&&$.push(new Promise(function(e,t){l._loadMTL(S,i,function(o){try{w.parseMTL(n,o,i,l._forAssetContainer);for(var a=0;a<w.materials.length;a++){for(var s,u=0,c=[];(s=q.indexOf(w.materials[a].name,u))>-1;)c.push(s),u=s+1;if(-1===s&&0===c.length)w.materials[a].dispose();else for(var f=0;f<c.length;f++)J[c[f]].material=w.materials[a]}e()}catch(n){r.Tools.Warn("Error processing MTL file: '"+S+"'"),l._meshLoadOptions.MaterialLoadingFailsSilently?e():t(n)}},function(n,o){r.Tools.Warn("Error downloading MTL file: '"+S+"'"),l._meshLoadOptions.MaterialLoadingFailsSilently?e():t(o)})})),Promise.all($).then(function(){return J})},e.OPTIMIZE_WITH_UV=!0,e.INVERT_Y=!1,e.IMPORT_VERTEX_COLORS=!1,e.COMPUTE_NORMALS=!1,e.UV_SCALING=new r.Vector2(1,1),e.SKIP_MATERIALS=!1,e.MATERIAL_LOADING_FAILS_SILENTLY=!0,e}();r.SceneLoader&&r.SceneLoader.RegisterPlugin(new a),n.d(t,"MTLFileLoader",function(){return o}),n.d(t,"OBJFileLoader",function(){return a})},function(e,t,n){"use strict";n.r(t);var r=n(0),o=function(){function e(){this.solidPattern=/solid (\S*)([\S\s]*)endsolid[ ]*(\S*)/g,this.facetsPattern=/facet([\s\S]*?)endfacet/g,this.normalPattern=/normal[\s]+([\-+]?[0-9]+\.?[0-9]*([eE][\-+]?[0-9]+)?)+[\s]+([\-+]?[0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?)+[\s]+([\-+]?[0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?)+/g,this.vertexPattern=/vertex[\s]+([\-+]?[0-9]+\.?[0-9]*([eE][\-+]?[0-9]+)?)+[\s]+([\-+]?[0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?)+[\s]+([\-+]?[0-9]*\.?[0-9]+([eE][\-+]?[0-9]+)?)+/g,this.name="stl",this.extensions={".stl":{isBinary:!0}}}return e.prototype.importMesh=function(e,t,n,o,a,i,s){var l;if("string"!=typeof n){if(this._isBinary(n)){var u=new r.Mesh("stlmesh",t);return this._parseBinary(u,n),a&&a.push(u),!0}for(var c=new Uint8Array(n),f="",d=0;d<n.byteLength;d++)f+=String.fromCharCode(c[d]);n=f}for(;l=this.solidPattern.exec(n);){var h=l[1];if(h!=l[3])return r.Tools.Error("Error in STL, solid name != endsolid name"),!1;if(e&&h)if(e instanceof Array){if(!e.indexOf(h))continue}else if(h!==e)continue;h=h||"stlmesh";u=new r.Mesh(h,t);this._parseASCII(u,l[2]),a&&a.push(u)}return!0},e.prototype.load=function(e,t,n){return this.importMesh(null,e,t,n,null,null,null)},e.prototype.loadAssetContainer=function(e,t,n,o){var a=new r.AssetContainer(e);return e._blockEntityCollection=!0,this.importMesh(null,e,t,n,a.meshes,null,null),e._blockEntityCollection=!1,a},e.prototype._isBinary=function(e){var t;if(50,84+50*(t=new DataView(e)).getUint32(80,!0)===t.byteLength)return!0;for(var n=t.byteLength,r=0;r<n;r++)if(t.getUint8(r)>127)return!0;return!1},e.prototype._parseBinary=function(e,t){for(var n=new DataView(t),o=n.getUint32(80,!0),a=0,i=new Float32Array(3*o*3),s=new Float32Array(3*o*3),l=new Uint32Array(3*o),u=0,c=0;c<o;c++){for(var f=84+50*c,d=n.getFloat32(f,!0),h=n.getFloat32(f+4,!0),p=n.getFloat32(f+8,!0),m=1;m<=3;m++){var _=f+12*m;i[a]=n.getFloat32(_,!0),i[a+2]=n.getFloat32(_+4,!0),i[a+1]=n.getFloat32(_+8,!0),s[a]=d,s[a+2]=h,s[a+1]=p,a+=3}l[u]=u++,l[u]=u++,l[u]=u++}e.setVerticesData(r.VertexBuffer.PositionKind,i),e.setVerticesData(r.VertexBuffer.NormalKind,s),e.setIndices(l),e.computeWorldMatrix(!0)},e.prototype._parseASCII=function(e,t){for(var n,o=[],a=[],i=[],s=0;n=this.facetsPattern.exec(t);){var l=n[1],u=this.normalPattern.exec(l);if(this.normalPattern.lastIndex=0,u){for(var c,f=[Number(u[1]),Number(u[5]),Number(u[3])];c=this.vertexPattern.exec(l);)o.push(Number(c[1]),Number(c[5]),Number(c[3])),a.push(f[0],f[1],f[2]);i.push(s++,s++,s++),this.vertexPattern.lastIndex=0}}this.facetsPattern.lastIndex=0,e.setVerticesData(r.VertexBuffer.PositionKind,o),e.setVerticesData(r.VertexBuffer.NormalKind,a),e.setIndices(i),e.computeWorldMatrix(!0)},e}();r.SceneLoader&&r.SceneLoader.RegisterPlugin(new o),n.d(t,"STLFileLoader",function(){return o})},function(e,t,n){"use strict";(function(e){var r=n(2),o=n(3);n.d(t,"a",function(){return r.GLTFFileLoader}),n.d(t,"b",function(){return r.GLTFLoaderAnimationStartMode}),n.d(t,"c",function(){return r.GLTFLoaderCoordinateSystemMode}),n.d(t,"d",function(){return r.GLTFLoaderState}),n.d(t,"e",function(){return o.GLTFValidation});var a=void 0!==e?e:"undefined"!=typeof window?window:void 0;if(void 0!==a){for(var i in a.BABYLON=a.BABYLON||{},r)a.BABYLON[i]=r[i];for(var i in o)a.BABYLON[i]=o[i]}}).call(this,n(4))},function(e,t){},function(e,t,n){"use strict";(function(e){var r=n(7);n.d(t,"a",function(){return r});var o=void 0!==e?e:"undefined"!=typeof window?window:void 0;if(void 0!==o)for(var a in o.BABYLON=o.BABYLON||{},o.BABYLON.GLTF1=o.BABYLON.GLTF1||{},r)o.BABYLON.GLTF1[a]=r[a]}).call(this,n(4))},function(e,t,n){"use strict";(function(e){var r=n(5),o=n(11),a=n(6);n.d(t,"a",function(){return a});var i=void 0!==e?e:"undefined"!=typeof window?window:void 0;if(void 0!==i){i.BABYLON=i.BABYLON||{};var s=i.BABYLON;s.GLTF2=s.GLTF2||{},s.GLTF2.Loader=s.GLTF2.Loader||{},s.GLTF2.Loader.Extensions=s.GLTF2.Loader.Extensions||{};var l=[];for(var u in r)s.GLTF2.Loader.Extensions[u]=r[u],l.push(u);for(var u in o)s.GLTF2.Loader[u]=o[u],l.push(u);for(var u in a)l.indexOf(u)>-1||(s.GLTF2[u]=a[u])}}).call(this,n(4))},function(e,t,n){"use strict";n.r(t),function(e){var r=n(8);n.d(t,"MTLFileLoader",function(){return r.MTLFileLoader}),n.d(t,"OBJFileLoader",function(){return r.OBJFileLoader});var o=void 0!==e?e:"undefined"!=typeof window?window:void 0;if(void 0!==o)for(var a in r)o.BABYLON[a]=r[a]}.call(this,n(4))},function(e,t,n){"use strict";n.r(t),function(e){var r=n(9);n.d(t,"STLFileLoader",function(){return r.STLFileLoader});var o=void 0!==e?e:"undefined"!=typeof window?window:void 0;if(void 0!==o)for(var a in r)o.BABYLON[a]=r[a]}.call(this,n(4))},,,,function(e,t,n){"use strict";n.r(t);n(2),n(3),n(7),n(6),n(8),n(9);var r=n(10),o=n(12),a=n(13),i=n(14),s=n(15);n.d(t,"GLTFLoaderCoordinateSystemMode",function(){return r.c}),n.d(t,"GLTFLoaderAnimationStartMode",function(){return r.b}),n.d(t,"GLTFLoaderState",function(){return r.d}),n.d(t,"GLTFFileLoader",function(){return r.a}),n.d(t,"GLTFValidation",function(){return r.e}),n.d(t,"GLTF1",function(){return o.a}),n.d(t,"GLTF2",function(){return a.a}),n.d(t,"MTLFileLoader",function(){return i.MTLFileLoader}),n.d(t,"OBJFileLoader",function(){return i.OBJFileLoader}),n.d(t,"STLFileLoader",function(){return s.STLFileLoader})}])});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/less-loader/dist/cjs.js?!./src/typescript/bz/css/global.less":
 /*!********************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/less-loader/dist/cjs.js??ref--7-2!./src/typescript/bz/css/global.less ***!
@@ -18284,6 +18311,37 @@ module.exports = function (css) {
 
 /***/ }),
 
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
@@ -18401,9 +18459,9 @@ exports.Debug = Debug;
 "use strict";
 
 /* eslint-disable max-len */
-// noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Version = void 0;
+// noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 /** ********************************************************************************************************************
 *   Contains the project history with all current and completed version information.
 ***********************************************************************************************************************/
@@ -18432,7 +18490,7 @@ var Version = /** @class */ (function () {
     *   @return A representation of the current project's version with it's timestamp.
     *******************************************************************************************************************/
     Version.getCurrent = function () {
-        return ('v. ' + Version.CURRENT_VERSION.version + ' ' + Version.CURRENT_VERSION.codename);
+        return ('v. ' + Version.CURRENT.version);
     };
     Version.V_0_0_1 = new Version('0.0.1', 'BABYLON ZERO', '17.04.2018, 09:42:16 GMT+1');
     Version.V_0_0_2 = new Version('0.0.2', 'BABYLON.JS TAKE OFF', '18.05.2018, 07:10:41 GMT+1');
@@ -18456,8 +18514,17 @@ var Version = /** @class */ (function () {
     Version.V_0_1_8 = new Version('0.1.8', 'ITEMS & TEXTURES', '18.11.2021, 13:36:21 GMT+1');
     Version.V_0_1_9 = new Version('0.1.9', 'GUI MESSAGES & UI-EVENTS', '19.11.2021, 15:40:01 GMT+1');
     Version.V_0_1_10 = new Version('0.1.10', 'NEW TEXTURES', '20.11.2021, 15:05:43 GMT+1');
+    Version.V_0_1_11 = new Version('0.1.11', 'DIAMOND ROOMS & SPLIT MESHES', '21.11.2021, 15:42:10 GMT+1');
+    Version.V_0_1_12 = new Version('0.1.12', 'DOORS 360', '22.11.2021, 16:16:02 GMT+1');
+    Version.V_0_1_13 = new Version('0.1.13', 'GENERATED TREES', '23.11.2021, 12:04:17 GMT+1');
+    Version.V_0_1_14 = new Version('0.1.14', '3D GUN', '24.11.2021, 10:14:03 GMT+1');
+    Version.V_0_1_15 = new Version('0.1.15', 'NEW MODELS', '26.11.2021, 09:41:01 GMT+1');
+    Version.V_0_1_16 = new Version('0.1.16', 'BOTS', '28.11.2021, 16:36:34 GMT+1');
+    Version.V_0_1_17 = new Version('0.1.17', 'REFACTORINGS', '30.11.2021, 13:40:01 GMT+1');
+    Version.V_0_1_18 = new Version('0.1.18', 'STAIRS', '07.12.2021, 16:00:00 GMT+1');
+    Version.V_0_1_19 = new Version('0.1.19', 'LOCATIONS', '10.12.2021, 14:43:42 GMT+1');
     /** The project's current version. */
-    Version.CURRENT_VERSION = Version.V_0_1_10;
+    Version.CURRENT = Version.V_0_1_19;
     return Version;
 }());
 exports.Version = Version;
@@ -18493,7 +18560,6 @@ var WebApp = /** @class */ (function () {
         bz.DOMUtil.setFavicon(bz.SettingResource.PATH_IMAGE_FAVICON + bz.SettingEngine.BRANDING_FAVICON);
         // log some output
         bz.Debug.acclaim.log(bz.SettingEngine.BRANDING_TITLE);
-        bz.Debug.acclaim.log(bz.Version.getCurrent());
         bz.Debug.acclaim.log();
         // create and init game
         var game = new bz.Game();
@@ -18524,35 +18590,77 @@ var ModelFile = /** @class */ (function () {
     function ModelFile() {
     }
     ModelFile.BENCH_1 = 'furniture/bench1.babylon';
-    ModelFile.CAR_1 = 'object/car1.babylon';
+    ModelFile.BIG_BIN = 'object/bigBin.babylon';
+    ModelFile.BIKE_SUZUKI = 'object/bikeSuzuki.babylon';
+    ModelFile.CAR_CAMARO = 'object/carCamaro.babylon';
+    ModelFile.CAR_CADILLAC = 'object/carCadillac.babylon';
+    ModelFile.CAR_OPEL_RECORD = 'object/carOpelRecord.babylon';
     ModelFile.CRATE = 'furniture/crate1.babylon';
-    ModelFile.DOUBLE_SPHERE_1 = 'furniture/doubleSphere1.babylon';
+    ModelFile.GARAGE_1 = 'house/garage1.babylon';
+    ModelFile.GOTHIC_CHURCH = 'house/gothicChurch.babylon';
+    ModelFile.HOUSE_1 = 'house/house1.babylon';
     ModelFile.ITEM_SHOTGUN_SHELLS = 'item/shells.babylon';
     ModelFile.MF_LOGO = 'presentation/mfLogo.babylon';
     ModelFile.OFFICE_CHAIR_1_MULTI_MESH = 'furniture/officeChair1.babylon';
     ModelFile.OFFICE_DESK_1 = 'furniture/officeDesk1.babylon';
     ModelFile.OFFICE_DESK_2 = 'furniture/officeDesk2.babylon';
+    ModelFile.WORKBENCH = 'furniture/officeDesk3.babylon';
+    ModelFile.PALLET_CEMENT_1 = 'object/palletCement1.babylon';
+    ModelFile.PALLET_CEMENT_2 = 'object/palletCement2.babylon';
+    ModelFile.PALLET_CEMENT_3 = 'object/palletCement3.babylon';
+    ModelFile.PC_SCREEN_1 = 'furniture/screen1.babylon';
     ModelFile.SODA_MACHINE_2 = 'furniture/sodaMachine2.babylon';
-    ModelFile.SCREEN_1 = 'furniture/screen1.babylon';
+    ModelFile.SEWERAGE_PUMPING = 'house/seweragePumping.babylon';
     ModelFile.SHELVES_1 = 'furniture/shelves1.babylon';
+    ModelFile.SHOTGUN_M1014 = 'wearpon/shotgunM1014.babylon';
     ModelFile.SOFA_1 = 'furniture/sofa1.babylon';
     ModelFile.SPHERE_1 = 'furniture/sphere1.babylon';
+    ModelFile.TEST_DANCING_GIRL = 'bot/testDancingGirl.glb';
+    ModelFile.TEST_WALKING_DUDE = 'bot/testWalkingDude.babylon';
+    ModelFile.TRANSPALLET = 'object/transpallet.babylon';
+    ModelFile.WASTE_CONTAINER = 'object/wasteContainer.babylon';
+    ModelFile.WOODEN_FENCE_1 = 'house/woodenFence1.babylon';
+    ModelFile.WOODEN_FENCE_2 = 'house/woodenFence2.babylon';
+    ModelFile.WOODEN_FENCE_3 = 'house/woodenFence3.babylon';
+    ModelFile.WOODEN_FENCE_4 = 'house/woodenFence4.babylon';
+    ModelFile.WOODEN_FENCE_5 = 'house/woodenFence5.babylon';
     /** All filenames for all meshes. */
     ModelFile.ALL_MESH_FILES = [
         ModelFile.BENCH_1,
-        ModelFile.CAR_1,
+        ModelFile.BIG_BIN,
+        ModelFile.BIKE_SUZUKI,
+        ModelFile.CAR_CAMARO,
+        ModelFile.CAR_CADILLAC,
+        ModelFile.CAR_OPEL_RECORD,
         ModelFile.CRATE,
-        ModelFile.DOUBLE_SPHERE_1,
+        ModelFile.GARAGE_1,
+        ModelFile.GOTHIC_CHURCH,
+        ModelFile.HOUSE_1,
         ModelFile.ITEM_SHOTGUN_SHELLS,
         ModelFile.MF_LOGO,
         ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
         ModelFile.OFFICE_DESK_1,
         ModelFile.OFFICE_DESK_2,
+        ModelFile.WORKBENCH,
+        ModelFile.PALLET_CEMENT_1,
+        ModelFile.PALLET_CEMENT_2,
+        ModelFile.PALLET_CEMENT_3,
         ModelFile.SODA_MACHINE_2,
-        ModelFile.SCREEN_1,
+        ModelFile.PC_SCREEN_1,
+        ModelFile.SEWERAGE_PUMPING,
         ModelFile.SHELVES_1,
+        ModelFile.SHOTGUN_M1014,
         ModelFile.SOFA_1,
         ModelFile.SPHERE_1,
+        ModelFile.TEST_DANCING_GIRL,
+        ModelFile.TEST_WALKING_DUDE,
+        ModelFile.TRANSPALLET,
+        ModelFile.WASTE_CONTAINER,
+        ModelFile.WOODEN_FENCE_1,
+        ModelFile.WOODEN_FENCE_2,
+        ModelFile.WOODEN_FENCE_3,
+        ModelFile.WOODEN_FENCE_4,
+        ModelFile.WOODEN_FENCE_5,
     ];
     return ModelFile;
 }());
@@ -18781,6 +18889,7 @@ var Texture = /** @class */ (function () {
             case bz.TextureType.WALL:
             case bz.TextureType.WALL_AND_MODEL:
                 {
+                    // TODO create more textures! diffuse, ambient, bump, dispersion etc. HERE!
                     // create default texture
                     this.nativeTexture = new BABYLON.Texture(this.file.fileName, scene);
                     break;
@@ -18806,16 +18915,16 @@ var Texture = /** @class */ (function () {
     *
     *   @return The texture's native texture data.
     *******************************************************************************************************************/
-    Texture.getNativeTexture = function (textureFile) {
-        return Texture.getTextureFromFileName(textureFile).nativeTexture;
+    Texture.getNativeTexture = function (texture) {
+        return Texture.getTextureFromFileName(texture).nativeTexture;
     };
     /** ****************************************************************************************************************
     *   Returns a clone of this texture's babylon.JS data.
     *
     *   @return A clone of this texture's native texture data.
     *******************************************************************************************************************/
-    Texture.cloneNativeTexture = function (textureFile) {
-        return Texture.getTextureFromFileName(textureFile).nativeTexture.clone();
+    Texture.cloneNativeTexture = function (texture) {
+        return Texture.getTextureFromFileName(texture).nativeTexture.clone();
     };
     /** ****************************************************************************************************************
     *   Delivers the according bullet hole for the given native mesh.
@@ -18825,8 +18934,38 @@ var Texture = /** @class */ (function () {
     *   @return The according bullet hole texture.
     *******************************************************************************************************************/
     Texture.getBulletHoleTextureForMesh = function (mesh) {
-        var e_1, _a, e_2, _b;
+        var e_1, _a;
         var DEFAULT_BULLET_HOLE_TEXTURE = bz.TextureFile.BULLET_HOLE_CONCRETE;
+        var texture = Texture.getTextureFromMesh(mesh);
+        if (texture.bulletHoleTexture !== null) {
+            try {
+                for (var _b = __values(Texture.ALL_TEXTURES), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var tex = _c.value;
+                    if (tex.file.fileName === texture.bulletHoleTexture.fileName) {
+                        return tex.file;
+                    }
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
+        }
+        return DEFAULT_BULLET_HOLE_TEXTURE;
+    };
+    /** ****************************************************************************************************************
+    *   Delivers the according texture for this mesh.
+    *
+    *   @param mesh The mesh to determine the Texture for.
+    *
+    *   @return The meshe's used texture.
+    *******************************************************************************************************************/
+    Texture.getTextureFromMesh = function (mesh) {
+        var e_2, _a;
+        var DEFAULT_TEXTURE = bz.TextureFile.WALL_BRICKS_DARK_RED;
         // try to pick the texture filename
         if (mesh !== null
             && mesh.material !== null
@@ -18840,38 +18979,22 @@ var Texture = /** @class */ (function () {
             }
             try {
                 // compare with all existent textures
-                for (var _c = __values(Texture.ALL_TEXTURES), _d = _c.next(); !_d.done; _d = _c.next()) {
-                    var texture = _d.value;
+                for (var _b = __values(Texture.ALL_TEXTURES), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var texture = _c.value;
                     if (texture.file.fileName === meshTextureFullFileName) {
-                        if (texture.file.bulletHoleTexture !== null) {
-                            try {
-                                for (var _e = (e_2 = void 0, __values(Texture.ALL_TEXTURES)), _f = _e.next(); !_f.done; _f = _e.next()) {
-                                    var tex = _f.value;
-                                    if (tex.file.fileName === texture.file.bulletHoleTexture.fileName) {
-                                        return tex.file;
-                                    }
-                                }
-                            }
-                            catch (e_2_1) { e_2 = { error: e_2_1 }; }
-                            finally {
-                                try {
-                                    if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
-                                }
-                                finally { if (e_2) throw e_2.error; }
-                            }
-                        }
+                        return texture.file;
                     }
                 }
             }
-            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
             finally {
                 try {
-                    if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
                 }
-                finally { if (e_1) throw e_1.error; }
+                finally { if (e_2) throw e_2.error; }
             }
         }
-        return DEFAULT_BULLET_HOLE_TEXTURE;
+        return DEFAULT_TEXTURE;
     };
     /** ****************************************************************************************************************
     *   Returns the Texture from the specified TextureFile.
@@ -18906,27 +19029,32 @@ var Texture = /** @class */ (function () {
         new Texture(bz.TextureFile.BULLET_HOLE_METAL),
         new Texture(bz.TextureFile.BULLET_HOLE_PLASTIC),
         new Texture(bz.TextureFile.BULLET_HOLE_WOOD),
-        new Texture(bz.TextureFile.WALL_ASPHALT_1),
-        new Texture(bz.TextureFile.WALL_BRICKS_1),
-        new Texture(bz.TextureFile.WALL_BRICKS_2),
-        new Texture(bz.TextureFile.WALL_BRICKS_3),
+        new Texture(bz.TextureFile.WALL_ASPHALT_CRACKED),
+        new Texture(bz.TextureFile.WALL_BARK),
+        new Texture(bz.TextureFile.WALL_BRICKS_ORANGE),
+        new Texture(bz.TextureFile.WALL_BRICKS_MOSSY_STONES),
+        new Texture(bz.TextureFile.WALL_BRICKS_DARK_RED),
         new Texture(bz.TextureFile.WALL_CARPET_1),
         new Texture(bz.TextureFile.WALL_CARPET_2),
         new Texture(bz.TextureFile.WALL_CARPET_3),
+        new Texture(bz.TextureFile.WALL_CARPET_RASPBERRY),
+        new Texture(bz.TextureFile.WALL_CARPET_RASPBERRY_BUMP),
+        new Texture(bz.TextureFile.WALL_CARPET_RASPBERRY_SPEC),
+        new Texture(bz.TextureFile.WALL_CARPET_RASPBERRY_DISPERSION),
         new Texture(bz.TextureFile.WALL_CEILING_1),
         new Texture(bz.TextureFile.WALL_CHECKERS_1),
         new Texture(bz.TextureFile.WALL_CHECKERS_2),
         new Texture(bz.TextureFile.WALL_COBBLES_1),
-        new Texture(bz.TextureFile.WALL_COBBLES_2),
         new Texture(bz.TextureFile.WALL_COBBLES_3),
         new Texture(bz.TextureFile.WALL_COBBLES_4),
         new Texture(bz.TextureFile.WALL_COBBLES_5),
-        new Texture(bz.TextureFile.WALL_COBBLES_6),
-        new Texture(bz.TextureFile.WALL_CONCRETE_2),
-        new Texture(bz.TextureFile.WALL_CONCRETE_3),
+        new Texture(bz.TextureFile.WALL_CONCRETE_DARK),
+        new Texture(bz.TextureFile.WALL_CONCRETE_NEW),
+        new Texture(bz.TextureFile.WALL_DARK_WOOD_PARQUET),
         new Texture(bz.TextureFile.WALL_DIAMOND_PLATE_1),
         new Texture(bz.TextureFile.WALL_DIAMOND_PLATE_2),
-        new Texture(bz.TextureFile.WALL_DOOR_1),
+        new Texture(bz.TextureFile.WALL_DOOR_INDUSTRIAL),
+        new Texture(bz.TextureFile.WALL_DOOR_WOOD_1),
         new Texture(bz.TextureFile.WALL_GLASS_1),
         new Texture(bz.TextureFile.WALL_GRASS_1),
         new Texture(bz.TextureFile.WALL_GRASS_2),
@@ -18934,22 +19062,31 @@ var Texture = /** @class */ (function () {
         new Texture(bz.TextureFile.WALL_LEATHER_1),
         new Texture(bz.TextureFile.WALL_LEATHER_2),
         new Texture(bz.TextureFile.WALL_MARBLE_1),
-        new Texture(bz.TextureFile.WALL_MARBLE_2),
+        new Texture(bz.TextureFile.WALL_MARBLE_TILES),
         new Texture(bz.TextureFile.WALL_MAYFLOWER_CALENDAR),
         new Texture(bz.TextureFile.WALL_MAYFLOWER_LOGO),
+        new Texture(bz.TextureFile.WALL_OLD_ROCKS),
+        new Texture(bz.TextureFile.WALL_OLD_ROCKS_BUMP),
+        new Texture(bz.TextureFile.WALL_OLD_ROCKS_SPEC),
+        new Texture(bz.TextureFile.WALL_OLD_ROCKS_ALBEDO),
+        new Texture(bz.TextureFile.WALL_OLD_ROCKS_DISPERSION),
+        new Texture(bz.TextureFile.WALL_PAVEMENT_GRANITE),
+        new Texture(bz.TextureFile.WALL_PAVEMENT_MILANO),
         new Texture(bz.TextureFile.WALL_SHINGLES_1),
         new Texture(bz.TextureFile.WALL_SKIN_1),
-        new Texture(bz.TextureFile.WALL_STONES_1),
-        new Texture(bz.TextureFile.WALL_STONES_2),
-        new Texture(bz.TextureFile.WALL_STONES_3),
-        new Texture(bz.TextureFile.WALL_STONES_4),
+        new Texture(bz.TextureFile.WALL_STAIRS_1),
+        new Texture(bz.TextureFile.WALL_STONES_DARK_GRANITE),
+        new Texture(bz.TextureFile.WALL_STONES_PAVEMENT),
+        new Texture(bz.TextureFile.WALL_STONES_WHITE_PEBBLES),
+        new Texture(bz.TextureFile.WALL_STONES_YELLOW_TILES),
         new Texture(bz.TextureFile.WALL_TEST),
-        new Texture(bz.TextureFile.WALL_TILES_1),
-        new Texture(bz.TextureFile.WALL_WOOD_1),
-        new Texture(bz.TextureFile.WALL_WOOD_2),
-        new Texture(bz.TextureFile.WALL_WOOD_3),
-        new Texture(bz.TextureFile.WALL_WOOD_4),
-        new Texture(bz.TextureFile.WALL_WOOD_5),
+        new Texture(bz.TextureFile.WALL_TILES_PAINTED_ORNAMENTS),
+        new Texture(bz.TextureFile.WALL_WOOD_GRAIN),
+        new Texture(bz.TextureFile.WALL_WOOD_OLIVE),
+        new Texture(bz.TextureFile.WALL_WOOD_PLANKS),
+        new Texture(bz.TextureFile.WALL_WOOD_VERT_1),
+        new Texture(bz.TextureFile.WALL_WOOD_VERT_2),
+        new Texture(bz.TextureFile.WALL_WOOD_HORZ_2),
         new Texture(bz.TextureFile.MODEL_WOOD_HORZ),
         new Texture(bz.TextureFile.MODEL_WOOD_LIGHT),
         new Texture(bz.TextureFile.MODEL_CHROME),
@@ -19036,10 +19173,12 @@ var TextureFile = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a new Babylon.js texture from this TextureFile.
     *
-    *   @param repeatU The amount for U repeating this texture.
-    *   @param repeatV The amount for V repeating this texture.
+    *   @param repeatU        The amount for U repeating this texture.
+    *   @param repeatV        The amount for V repeating this texture.
+    *   @param mirrorTextureY If the texture shall be mirrored on axis Y.
     *******************************************************************************************************************/
-    TextureFile.prototype.createNewTextureInstance = function (repeatU, repeatV) {
+    TextureFile.prototype.createNewTextureInstance = function (repeatU, repeatV, mirrorTextureY) {
+        if (mirrorTextureY === void 0) { mirrorTextureY = false; }
         // do not clone native video textures! ( babylon.JS will hang otherwise! )
         var newTexture = (this.getIsVideoTexture()
             ? bz.Texture.getNativeTexture(this)
@@ -19050,6 +19189,7 @@ var TextureFile = /** @class */ (function () {
             newTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
         }
         else {
+            // newTexture.wrapU = BABYLON.Texture.MIRROR_ADDRESSMODE;
             newTexture.wrapU = BABYLON.Texture.WRAP_ADDRESSMODE;
             newTexture.wrapV = BABYLON.Texture.WRAP_ADDRESSMODE;
             // working around poor typings for scaling ..
@@ -19059,6 +19199,9 @@ var TextureFile = /** @class */ (function () {
             if (repeatV !== -1) {
                 newTexture.vScale = repeatV;
             }
+        }
+        if (mirrorTextureY) {
+            newTexture.uScale = -newTexture.uScale;
         }
         newTexture.hasAlpha = this.hasAlpha();
         return newTexture;
@@ -19087,69 +19230,142 @@ var TextureFile = /** @class */ (function () {
                 }
         }
     };
-    TextureFile.BULLET_HOLE_CONCRETE = new TextureFile('bulletHole/concrete.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    TextureFile.BULLET_HOLE_GLASS = new TextureFile('bulletHole/glass.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    TextureFile.BULLET_HOLE_IRON = new TextureFile('bulletHole/iron.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    TextureFile.BULLET_HOLE_METAL = new TextureFile('bulletHole/metal.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    TextureFile.BULLET_HOLE_PLASTIC = new TextureFile('bulletHole/plastic.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    TextureFile.BULLET_HOLE_WOOD = new TextureFile('bulletHole/wood.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
-    TextureFile.WALL_ASPHALT_1 = new TextureFile('wall/asphalt1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_BRICKS_1 = new TextureFile('wall/bricks1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_BRICKS_2 = new TextureFile('wall/bricks2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_BRICKS_3 = new TextureFile('wall/bricks3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.Y_ONE_XZ_TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_CARPET_1 = new TextureFile('wall/carpet1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CARPET_2 = new TextureFile('wall/carpet2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CARPET_3 = new TextureFile('wall/carpet3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CEILING_1 = new TextureFile('wall/ceiling1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CHECKERS_1 = new TextureFile('wall/checkers1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CHECKERS_2 = new TextureFile('wall/checkers2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_COBBLES_1 = new TextureFile('wall/cobbles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_COBBLES_2 = new TextureFile('wall/cobbles2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_COBBLES_3 = new TextureFile('wall/cobbles3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_COBBLES_4 = new TextureFile('wall/cobbles4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_COBBLES_5 = new TextureFile('wall/cobbles5.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_COBBLES_6 = new TextureFile('wall/cobbles6.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CONCRETE_2 = new TextureFile('wall/concrete2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_CONCRETE_3 = new TextureFile('wall/concrete3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_DIAMOND_PLATE_1 = new TextureFile('wall/diamondPlate1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_DIAMOND_PLATE_2 = new TextureFile('wall/diamondPlate2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_DOOR_1 = new TextureFile('wall/door1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_GLASS_1 = new TextureFile('wall/glass1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
-    TextureFile.WALL_GRASS_1 = new TextureFile('wall/grass1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_GRASS_2 = new TextureFile('wall/grass2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_GRASS_3 = new TextureFile('wall/grass3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_LEATHER_1 = new TextureFile('wall/leather1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_LEATHER_2 = new TextureFile('wall/leather2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_MARBLE_1 = new TextureFile('wall/marble1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_MARBLE_2 = new TextureFile('wall/marble2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_MAYFLOWER_CALENDAR = new TextureFile('wall/mfCalendar.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_MAYFLOWER_LOGO = new TextureFile('wall/mfLogo.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_SHINGLES_1 = new TextureFile('wall/shingles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_SKIN_1 = new TextureFile('wall/skin1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_STONES_1 = new TextureFile('wall/stones1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_STONES_2 = new TextureFile('wall/stones2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_STONES_3 = new TextureFile('wall/stones3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_STONES_4 = new TextureFile('wall/stones4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE_HALF, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
-    TextureFile.WALL_TEST = new TextureFile('wall/test.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_TILES_1 = new TextureFile('wall/tiles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
-    TextureFile.WALL_WOOD_1 = new TextureFile('wall/wood1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_WOOD_2 = new TextureFile('wall/wood2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_WOOD_3 = new TextureFile('wall/wood3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_WOOD_4 = new TextureFile('wall/wood4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.WALL_WOOD_5 = new TextureFile('wall/wood5.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
-    TextureFile.MODEL_WOOD_HORZ = new TextureFile('furniture/woodHorz.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.MODEL_WOOD_LIGHT = new TextureFile('furniture/woodLight.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.MODEL_CHROME = new TextureFile('furniture/chrome.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.MODEL_CONCRETE = new TextureFile('furniture/concrete.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.MODEL_CRATE_1 = new TextureFile('furniture/crate1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.MODEL_LEATHER_RED = new TextureFile('furniture/leatherRed.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.MODEL_PLASTIC_1 = new TextureFile('furniture/plastic1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_BY_SIZE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
-    TextureFile.VIDEO_TEST = new TextureFile('tv/news1.mp4', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.VIDEO);
-    /** The texture file 'heightmap valley'. This is just a filename - The texture will not be reloaded. No own bz.Texture instance will be created from it! */
-    TextureFile.HEIGHTMAP_VALLEY = new TextureFile('heightMap/valley.png', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_TO_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_CONCRETE = new TextureFile('bulletHole/concrete.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_GLASS = new TextureFile('bulletHole/glass1.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_IRON = new TextureFile('bulletHole/iron.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_METAL = new TextureFile('bulletHole/metal.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_PLASTIC = new TextureFile('bulletHole/plastic.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.BULLET_HOLE_WOOD = new TextureFile('bulletHole/wood.png', bz.TextureHasAlpha.YES, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.WALL_ASPHALT_CRACKED = new TextureFile('wall/asphaltCracked.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_BARK = new TextureFile('wall/bark.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_BRICKS_ORANGE = new TextureFile('wall/bricksOrange.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_BRICKS_MOSSY_STONES = new TextureFile('wall/bricksMossyStones.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_BRICKS_DARK_RED = new TextureFile('wall/bricksDarkRed.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.Y_ONE_XZ_TILED_QUARTER, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_CARPET_1 = new TextureFile('wall/carpet1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
+    TextureFile.WALL_CARPET_2 = new TextureFile('wall/carpet2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
+    TextureFile.WALL_CARPET_3 = new TextureFile('wall/carpet3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
+    // TODO try to automatically load the bump spec etc files here!
+    TextureFile.WALL_CARPET_RASPBERRY = new TextureFile('wall/carpetRaspberry.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CARPET_RASPBERRY_BUMP = new TextureFile('wall/carpetRaspberry_bump.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CARPET_RASPBERRY_SPEC = new TextureFile('wall/carpetRaspberry_spec.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CARPET_RASPBERRY_DISPERSION = new TextureFile('wall/carpetRaspberry_disp.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CEILING_1 = new TextureFile('wall/ceiling1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CHECKERS_1 = new TextureFile('wall/checkers1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CHECKERS_2 = new TextureFile('wall/checkers2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_1 = new TextureFile('wall/cobbles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_3 = new TextureFile('wall/cobbles3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_4 = new TextureFile('wall/cobbles4.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_COBBLES_5 = new TextureFile('wall/cobbles5.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CONCRETE_DARK = new TextureFile('wall/concreteDark.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_CONCRETE_NEW = new TextureFile('wall/concreteNew.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_DARK_WOOD_PARQUET = new TextureFile('wall/darkWoodParquet_2048.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_DIAMOND_PLATE_1 = new TextureFile('wall/diamondPlate1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_DIAMOND_PLATE_2 = new TextureFile('wall/diamondPlate2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_DOOR_INDUSTRIAL = new TextureFile('wall/doorIndustrial.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_DOOR_WOOD_1 = new TextureFile('wall/doorWood1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_GLASS_1 = new TextureFile('wall/glass1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.WALL);
+    TextureFile.WALL_GRASS_1 = new TextureFile('wall/grass1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_GRASS_2 = new TextureFile('wall/grass2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_GRASS_3 = new TextureFile('wall/grass3.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_LEATHER_1 = new TextureFile('wall/leather1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_LEATHER_2 = new TextureFile('wall/leather2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_MARBLE_1 = new TextureFile('wall/marble1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_MARBLE_TILES = new TextureFile('wall/marbleTiles.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_MAYFLOWER_CALENDAR = new TextureFile('wall/mfCalendar.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_MAYFLOWER_LOGO = new TextureFile('wall/mfLogo.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_OLD_ROCKS = new TextureFile('wall/oldRocks_1024.png', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_OLD_ROCKS_BUMP = new TextureFile('wall/oldRocks_1024_bump.png', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_OLD_ROCKS_SPEC = new TextureFile('wall/oldRocks_1024_spec.png', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_OLD_ROCKS_ALBEDO = new TextureFile('wall/oldRocks_1024_albedo.png', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_OLD_ROCKS_DISPERSION = new TextureFile('wall/oldRocks_1024_disp.png', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_PAVEMENT_GRANITE = new TextureFile('wall/pavementGranite.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_PAVEMENT_MILANO = new TextureFile('wall/pavementMilano.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_SHINGLES_1 = new TextureFile('wall/shingles1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_SKIN_1 = new TextureFile('wall/skin1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_STAIRS_1 = new TextureFile('wall/stairs1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_DARK_GRANITE = new TextureFile('wall/stonesDarkGranite.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_PAVEMENT = new TextureFile('wall/stonesPavement.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_WHITE_PEBBLES = new TextureFile('wall/stonesWhitePebbles.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_STONES_YELLOW_TILES = new TextureFile('wall/stonesYellowTiles.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_METAL, bz.TextureType.WALL);
+    TextureFile.WALL_TEST = new TextureFile('wall/test.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_TILES_PAINTED_ORNAMENTS = new TextureFile('wall/tilesPaintedOrnament.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_GRAIN = new TextureFile('wall/woodGrain.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_OLIVE = new TextureFile('wall/woodOlive.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_PLANKS = new TextureFile('wall/woodPlanks.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_VERT_1 = new TextureFile('wall/woodVert1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_VERT_2 = new TextureFile('wall/woodVert2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.WALL_WOOD_HORZ_2 = new TextureFile('wall/woodHorz2.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL);
+    TextureFile.MODEL_WOOD_HORZ = new TextureFile('furniture/woodHorz.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_WOOD_LIGHT = new TextureFile('furniture/woodLight.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_CHROME = new TextureFile('furniture/chrome.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_CONCRETE = new TextureFile('furniture/concrete.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_CONCRETE, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_CRATE_1 = new TextureFile('furniture/crate1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_LEATHER_RED = new TextureFile('furniture/leatherRed.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.MODEL_PLASTIC_1 = new TextureFile('furniture/plastic1.jpg', bz.TextureHasAlpha.NO, bz.TextureUV.TILED, TextureFile.BULLET_HOLE_WOOD, bz.TextureType.WALL_AND_MODEL);
+    TextureFile.VIDEO_TEST = new TextureFile('tv/news1.mp4', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, TextureFile.BULLET_HOLE_GLASS, bz.TextureType.VIDEO);
+    // The heightmap texture files are just filenames - The textures will not be preloaded!
+    TextureFile.HEIGHTMAP_VALLEY = new TextureFile('heightMap/valley.png', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.HEIGHTMAP_DAM = new TextureFile('heightMap/dam.png', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
+    TextureFile.HEIGHTMAP_HILLS = new TextureFile('heightMap/hills.png', bz.TextureHasAlpha.NO, bz.TextureUV.ALL_ONE, null, bz.TextureType.WALL);
     return TextureFile;
 }());
 exports.TextureFile = TextureFile;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/base/setting/SettingAEC.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/base/setting/SettingAEC.ts ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SettingAEC = void 0;
+/** ********************************************************************************************************************
+*   Specifies all settings for Architecture Engineering & Construction.
+***********************************************************************************************************************/
+var SettingAEC = /** @class */ (function () {
+    function SettingAEC() {
+    }
+    /** Unified wall depth for building constructions. */
+    SettingAEC.WALL_DEPTH = 0.2;
+    /** Unified wall height (y) for building constructions. */
+    SettingAEC.WALL_HEIGHT = 10.0;
+    /** Unified door width for building constructions. */
+    SettingAEC.DOOR_WIDTH = 5.0;
+    /** Unified door height for building constructions. */
+    SettingAEC.DOOR_HEIGHT = 8.5;
+    /** Unified door depth for building constructions. */
+    SettingAEC.DOOR_DEPTH = 0.195;
+    /** Unified door frame height for building constructions. */
+    SettingAEC.DOOR_FRAME_HEIGHT = (SettingAEC.WALL_HEIGHT - SettingAEC.DOOR_HEIGHT);
+    /** Unified ceiling height. This height will never be calculated into height calculations! */
+    SettingAEC.CEILING_HEIGHT = 0.1;
+    /** The default offset Y for room ceilings in order to keep distance to vertical wall endings. */
+    SettingAEC.CEILING_OFFSET_Y = 0.01;
+    /** The default offset Y for room floors in order to keep distance to vertical wall endings. */
+    SettingAEC.FLOOR_OFFSET_Y = 0.01;
+    /** Unified default window width for building constructions. */
+    SettingAEC.WINDOW_WIDTH_DEFAULT = 4.5;
+    /** Unified wide window width for building constructions. */
+    SettingAEC.WINDOW_WIDTH_WIDE = 12.0;
+    /** Unified window height for building constructions. */
+    SettingAEC.WINDOW_HEIGHT = 4.5;
+    /** Unified door frame height for building constructions. */
+    SettingAEC.WINDOW_TOP_FRAME_HEIGHT = 1.5;
+    /** Unified window bottom frame height for building constructions. */
+    SettingAEC.WINDOW_BOTTOM_FRAME_HEIGHT = (SettingAEC.WALL_HEIGHT - SettingAEC.WINDOW_HEIGHT - SettingAEC.WINDOW_TOP_FRAME_HEIGHT);
+    /** Unified width for a hallway in building constructions. */
+    SettingAEC.HALLWAY_WIDTH = 10.0;
+    /** Unified pillar width for building constructions. */
+    SettingAEC.PILLAR_WIDTH = 2.0;
+    return SettingAEC;
+}());
+exports.SettingAEC = SettingAEC;
 
 
 /***/ }),
@@ -19164,9 +19380,9 @@ exports.TextureFile = TextureFile;
 "use strict";
 
 /* eslint-disable max-len */
-// noinspection JSUnusedGlobalSymbols
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingColor = void 0;
+// noinspection JSUnusedGlobalSymbols
 var BABYLON = __webpack_require__(/*! babylonjs */ "babylonjs");
 /** ********************************************************************************************************************
 *   Specifies all colors the application makes use of.
@@ -19219,10 +19435,9 @@ exports.SettingColor = SettingColor;
 
 "use strict";
 
-/* eslint-disable max-len */
+// noinspection PointlessBooleanExpressionJS
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingDebug = void 0;
-// noinspection PointlessBooleanExpressionJS
 /** ********************************************************************************************************************
 *   Specifies all debug adjustments for the application.
 ***********************************************************************************************************************/
@@ -19235,6 +19450,7 @@ var SettingDebug = /** @class */ (function () {
     SettingDebug.SHOW_FPS = ( true && SettingDebug.DEBUG_MODE);
     /** Show trigger. */
     SettingDebug.SHOW_TRIGGER = ( true && SettingDebug.DEBUG_MODE);
+    SettingDebug.SHOW_DOOR_TURN_POINTS = ( true && SettingDebug.DEBUG_MODE);
     /** Disables all sounds. */
     SettingDebug.DISABLE_SOUND = true;
     /** Enabled menu debug keys for camera and stage switch. */
@@ -19246,7 +19462,7 @@ var SettingDebug = /** @class */ (function () {
     /** Show the bounding boxes for all meshes. */
     SettingDebug.SHOW_MESH_BOUNDING_BOXES = ( false && false);
     /** Show the babylon.JS scene debug panel. */
-    SettingDebug.SHOW_SCENE_DEBUG_PANEL = ( false && false);
+    SettingDebug.SHOW_SCENE_DEBUG_SCENE_EXPLORER = ( false && false);
     /** Show the shot debug lines. */
     SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS = ( false && false);
     /** Show the shot debug bullet holes. */
@@ -19276,9 +19492,9 @@ exports.SettingDebug = SettingDebug;
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingEngine = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies all settings for the engine.
 ***********************************************************************************************************************/
@@ -19337,13 +19553,11 @@ var SettingEngine = /** @class */ (function () {
     SettingEngine.CURRENT_WEARPON_MAX_ZOOM = 0.5;
     SettingEngine.CURRENT_WEARPON_ZOOM_SPEED = 0.05;
     /** The HTML page title. */
-    SettingEngine.BRANDING_TITLE = 'babylon-zero, (c) 2021 Mayflower GmbH';
+    SettingEngine.BRANDING_TITLE = ('babylon-zero, (c) 2021 Mayflower GmbH, ' + bz.Version.getCurrent());
     /** The HTML page favicon. */
     SettingEngine.BRANDING_FAVICON = 'mayflower.ico';
     /** The loading screen logo. */
     SettingEngine.BRANDING_LOADING_LOGO = 'loadingMf.png';
-    /** The bg color for the GUI. */
-    SettingEngine.PAUSE_GUI_BG_COLOR = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
     return SettingEngine;
 }());
 exports.SettingEngine = SettingEngine;
@@ -19360,7 +19574,6 @@ exports.SettingEngine = SettingEngine;
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingGUI = void 0;
 /** ********************************************************************************************************************
@@ -19405,6 +19618,8 @@ var SettingGUI = /** @class */ (function () {
     SettingGUI.GAME_MESSAGE_IMAGE_WIDTH = SettingGUI.GAME_MESSAGE_BG_HEIGHT;
     /** If navigation through pause menu items is wrapped before first and after last item. */
     SettingGUI.WRAP_PAUSE_MENU_ITEMS = true;
+    /** The bg color for the GUI. */
+    SettingGUI.PAUSE_GUI_BG_COLOR = 'rgba( 0.0, 0.0, 0.0, 0.5 )';
     return SettingGUI;
 }());
 exports.SettingGUI = SettingGUI;
@@ -19421,7 +19636,6 @@ exports.SettingGUI = SettingGUI;
 
 "use strict";
 
-/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingGame = void 0;
 var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
@@ -19433,34 +19647,11 @@ var SettingGame = /** @class */ (function () {
     }
     /** The stage the application starts up with. */
     SettingGame.STAGE_STARTUP = bz.StageId.OFFICE;
-    /** Unified wall depth for building constructions. */
-    SettingGame.WALL_DEPTH = 0.2;
-    /** Unified wall height (y) for building constructions. */
-    SettingGame.WALL_HEIGHT = 10.0;
-    /** Unified door width for building constructions. */
-    SettingGame.DOOR_WIDTH = 5.0;
-    /** Unified door height for building constructions. */
-    SettingGame.DOOR_HEIGHT = 8.5;
-    /** Unified door frame height for building constructions. */
-    SettingGame.DOOR_FRAME_HEIGHT = (SettingGame.WALL_HEIGHT - SettingGame.DOOR_HEIGHT);
-    /** Unified width for a hallway in building constructions. */
-    SettingGame.HALLWAY_WIDTH = 10.0;
-    /** Unified floor and ceiling depth for building constructions. */
-    SettingGame.DEPTH_FLOOR_CEILING = 0.1;
-    /** Unified pillar width for building constructions. */
-    SettingGame.PILLAR_WIDTH = 2.0;
-    /** Unified window width for building constructions. */
-    SettingGame.WINDOW_WIDTH = 4.5;
-    /** Unified window height for building constructions. */
-    SettingGame.WINDOW_HEIGHT = 4.5;
-    /** Unified door frame height for building constructions. */
-    SettingGame.WINDOW_TOP_FRAME_HEIGHT = 1.5;
-    /** Unified window bottom frame height for building constructions. */
-    SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT = (SettingGame.WALL_HEIGHT - SettingGame.WINDOW_HEIGHT - SettingGame.WINDOW_TOP_FRAME_HEIGHT);
-    /** The default offset Y for room floors (in order to prevent flickering with the underlying Y layer. */
-    SettingGame.FLOOR_OFFSET_Y = 0.001;
     SettingGame.CRATE_MIN_ENERGY = 3.0;
     SettingGame.CRATE_MAX_ENERGY = 6.0;
+    SettingGame.WINDOW_MIN_ENERGY = 1.0;
+    SettingGame.WINDOW_MAX_ENERGY = 3.0;
+    SettingGame.DOOR_OPEN_CLOSE_TICKS = 60.0;
     return SettingGame;
 }());
 exports.SettingGame = SettingGame;
@@ -19479,6 +19670,7 @@ exports.SettingGame = SettingGame;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SettingPlayer = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
 *   Specifies all adjustments and balancings for the human player.
 ***********************************************************************************************************************/
@@ -19486,19 +19678,26 @@ var SettingPlayer = /** @class */ (function () {
     function SettingPlayer() {
     }
     /** The player's weight in kg. */
-    SettingPlayer.PLAYER_MASS = 1414.0;
+    SettingPlayer.PLAYER_MASS = 1414;
+    /** If the player should start with a lowered wearpon. */
+    SettingPlayer.START_WITH_LOWERED_WEARPON = true;
     /** The player's physical force horizontal impulse for moving. */
-    SettingPlayer.IMPULSE_MOVE = 25000.0;
+    SettingPlayer.IMPULSE_MOVE = 17.68 * SettingPlayer.PLAYER_MASS;
     /** The player's physical force horizontal impulse for running. */
-    SettingPlayer.IMPULSE_RUN = 50000.0;
+    SettingPlayer.IMPULSE_RUN = 35.36 * SettingPlayer.PLAYER_MASS;
     /** The player's physical force horizontal impulse for straving. */
-    SettingPlayer.IMPULSE_STRAVE = 20000.0;
+    SettingPlayer.IMPULSE_STRAVE = 14.14 * SettingPlayer.PLAYER_MASS;
+    /** The player's physical force ascend impulse for jumping. */
+    SettingPlayer.IMPULSE_JUMP = 7.07 * SettingPlayer.PLAYER_MASS;
     /** The player's physical velocity y that determines falling. */
     SettingPlayer.FALLING_VELOCITY_Y = -1.0;
     /** The player's physical force downscale multiplier for horizontal movements. */
     SettingPlayer.MOVE_VELOCITY_MITIGATION = 0.5;
-    /** The player's physical force downscale multiplier on ascending or descending. */
-    SettingPlayer.FALL_VELOCITY_MITIGATION = 0.5;
+    /** The player's physical force downscale multiplier on ascending. */
+    SettingPlayer.CLIMP_VELOCITY_MITIGATION = 0.6;
+    /** The player's physical force downscale multiplier on descending. */
+    SettingPlayer.FALL_VELOCITY_MITIGATION = (bz.SettingDebug.DEBUG_MODE ? 0.0 : 1.25);
+    SettingPlayer.MAX_FALLING_VELOCITY = -7.5;
     /** The player's turning speed in degrees per tick. */
     SettingPlayer.SPEED_TURN = 2.5;
     /** The player's looking up/down speed in degrees per tick. */
@@ -19509,6 +19708,8 @@ var SettingPlayer = /** @class */ (function () {
     SettingPlayer.SPEED_DUCK_DOWN = 0.4;
     /** The player's speed for standing up in world coordinates per tick. */
     SettingPlayer.SPEED_STAND_UP = 0.25;
+    /** Number of ticks the player takes for lowering and raising his wearpon. */
+    SettingPlayer.TICKS_LOWER_RAISE_WEARPON = 25;
     /** Number of ticks it takes for the player to turn around (180 degrees). */
     SettingPlayer.TICKS_TURN_AROUND = 10;
     /** The player's height on the Y axis. */
@@ -19516,7 +19717,7 @@ var SettingPlayer = /** @class */ (function () {
     /** The player's height on ducking. */
     SettingPlayer.HEIGHT_Y_DUCKING = 2.0;
     /** The player's diameter on the XZ axis. */
-    SettingPlayer.DIAMETER_BODY = 3.0;
+    SettingPlayer.DIAMETER_BODY = 3.5;
     /** The player's head diameter on all axis. */
     SettingPlayer.DIAMETER_HEAD = 1.0;
     /** The player's interaction range. */
@@ -19531,10 +19732,8 @@ var SettingPlayer = /** @class */ (function () {
     SettingPlayer.HEAD_SHAKING_RANGE_Y = 0.1;
     /** Specifies if the player may jump. ( acts as a feature flag ) */
     SettingPlayer.JUMP_ENABLED = false;
-    /** The player's physical force ascend impulse for jumping. */
-    SettingPlayer.JUMP_ASCEND_IMPULSE_Y = 10000.0;
     /** The player's maximum rotation Z (looking up/down) in degrees. */
-    SettingPlayer.MAX_ROT_Z = 60.0;
+    SettingPlayer.MAX_ROT_Z = 80.0;
     /** Enable centering rotation Z (look up/down) centering on walking. */
     SettingPlayer.ENABLE_CENTERING_ROT_Z_ON_WALKING = false;
     /** Multiplier for mapping pointer movements XY to player rotation YZ. */
@@ -19683,7 +19882,7 @@ var StageIntroLogo = /** @class */ (function (_super) {
                 const material:BABYLON.StandardMaterial = this.logo.getMesh( 0 ).material as BABYLON.StandardMaterial;
                 material.specularColor = new BABYLON.Color3( 0.949, 0.713, 0.498 );
         */
-        this.pointLight = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(50.0, 0.0, 0.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(1.0, 1.0, 1.0), 0.0, 2.5);
+        this.pointLight = bz.LightFactory.createPoint([this.getScene().getNativeSceneBG()], new BABYLON.Vector3(50.0, 0.0, 0.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(1.0, 1.0, 1.0), 0.0, 2.5)[0];
         this.addLight(this.pointLight);
     };
     /** ****************************************************************************************************************
@@ -19733,13 +19932,6 @@ var StageOffice = /** @class */ (function (_super) {
     __extends(StageOffice, _super);
     function StageOffice() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        /** A testwise mesh - made from a single 3dsmax Mesh. */
-        _this.chairCompoundDestroyable = null;
-        /** A testwise mesh - made from multiple 3dsmax Meshes with multiple physics?. */
-        _this.chairCompoundSingleShotOff = null;
-        /** A testwise mesh - made from multiple 3dsmax Meshes. */
-        _this.chairMultiMeshesNoCompound = null;
-        _this.desk = null;
         /** Testwise camera target toggle. */
         _this.camTarget = false;
         return _this;
@@ -19748,7 +19940,7 @@ var StageOffice = /** @class */ (function (_super) {
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
     StageOffice.prototype.createDefaultConfig = function () {
-        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 45.0, 0.0), new bz.Inventory(0));
+        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingAEC.FLOOR_OFFSET_Y, (bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 45.0, 0.0), new bz.Inventory(0));
     };
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -19756,91 +19948,69 @@ var StageOffice = /** @class */ (function (_super) {
     StageOffice.prototype.createStageContents = function (meshFactory) {
         // blue skybox
         this.setSkybox(bz.SkyBoxFile.BLUE_SKY, 0.5);
-        // ground walls
-        // this.addGroundWalls( meshFactory );
         // player
         this.setPlayer(new bz.Player(this));
-        // small office
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, -40.0), new BABYLON.Vector3(80.0, bz.SettingGame.WALL_HEIGHT, 160.0), 0.0, null, [], [], bz.TextureFile.WALL_BRICKS_3, [], [], null, [], [], null, [], [], bz.TextureFile.MODEL_CONCRETE, null);
-        // point light in small office
-        var pointLight = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(10.0, 5.0, 5.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
-        this.addLight(pointLight);
-        // waste ground
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0), new BABYLON.Vector3(15.0, 6.0, 15.0), 0.0, bz.TextureFile.WALL_WOOD_2, [2.5], [], bz.TextureFile.WALL_WOOD_2, [], [], bz.TextureFile.WALL_WOOD_2, [], [], bz.TextureFile.WALL_WOOD_2, [], [], bz.TextureFile.WALL_COBBLES_6, null);
-        // parking space
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(-40.0, 0.0, 0.0), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, 40.0), 0.0, null, [], [], null, [], [], null, [], [], null, [], [], bz.TextureFile.WALL_STONES_4, bz.TextureFile.WALL_CEILING_1);
-        // pillar from new concrete
-        this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3(-30, 0, 10.0), bz.TextureFile.WALL_CONCRETE_3, new BABYLON.Vector3(bz.SettingGame.PILLAR_WIDTH, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.PILLAR_WIDTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
-        ])));
-        /*
-                // add rain effect
-                this.setRainEffect(
-                    5.0,
-                    1000,
-                    new BABYLON.Vector3( 1.5, -2.5, 1.5 )
-                );
-        */
+        // point light
+        var pointLights = bz.LightFactory.createPoint([this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG()], new BABYLON.Vector3(10.0, 5.0, 10.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.75, 0.75, 0.75), 125.0, 1.25);
+        this.addLight(pointLights);
+        // medium office
+        bz.AECFactory.addMediumOffice(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), 0.0);
+        // hallway
+        bz.AECFactory.addHallway(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH), 0.0, 58.0, false, true);
+        // TODO addCasino with diamond corners
+        bz.AECFactory.addCasino(this, meshFactory, new BABYLON.Vector3(10.0 + 58.0, 0.0, 40.0 + 0.0 - bz.SettingAEC.HALLWAY_WIDTH), 0.0);
+        // TODO addLightyard
+        // TODO addOfficeKitchen?
+        // TODO addKickerLounge?
         if (true)
             return;
-        // light yard
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, bz.SettingGame.HALLWAY_WIDTH), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, 40.0 - 2 * bz.SettingGame.HALLWAY_WIDTH), 0.0, null, [], [], null, [], [], null, [], [], null, [1.0], [], bz.TextureFile.WALL_STONES_3, null);
-        // passways around light square
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, 0.0), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH), 0.0, bz.TextureFile.MODEL_WOOD_HORZ, [], [], null, [], [], null, [], [], null, [1.0], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING_1);
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(40.0, 0.0, 40.0 - bz.SettingGame.HALLWAY_WIDTH), new BABYLON.Vector3(40.0, bz.SettingGame.WALL_HEIGHT, bz.SettingGame.HALLWAY_WIDTH), 0.0, null, [], [], null, [], [], bz.TextureFile.MODEL_WOOD_HORZ, [], [], null, [1.0], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING_1);
-        // 2nd office
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(80.0, 0.0, 0.0), new BABYLON.Vector3(80.0, bz.SettingGame.WALL_HEIGHT, 40.0), 0.0, bz.TextureFile.MODEL_WOOD_HORZ, [], [], bz.TextureFile.MODEL_WOOD_HORZ, [10.0], [], bz.TextureFile.MODEL_WOOD_HORZ, [], [], null, [], [], bz.TextureFile.WALL_CARPET_2, bz.TextureFile.WALL_CEILING_1);
-        // boxes pile in small office
-        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
-        // boxes pile in light yard
-        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(50.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
-        // boxes pile in 2nd office
-        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(110.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
-        this.addFurniture(meshFactory);
-        this.addStuffWalls(meshFactory, pointLight);
-        this.addTrees(meshFactory);
-        // add 5 items
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(11.5, 3.8, 9.5), bz.ItemType.BULLETS_792MM));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(38.0, 3.8, 14.0), bz.ItemType.SHOTGUN_SHELLS));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(38.0, 3.8, 18.0), bz.ItemType.BULLETS_792MM));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(40.0, 0.5, 25.5), bz.ItemType.SHOTGUN_SHELLS));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(40.0, 0.5, 30.0), bz.ItemType.BULLETS_792MM));
-        // add invisible event trigger
-        this.addCollectable(new bz.Trigger(this, new BABYLON.Vector3(100.0, 1.0, 5.0), [
-            new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.HURT)),
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Ouch .. just hurt myself here ..')),
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Damn!')),
-        ]));
-        this.addCollectable(new bz.Trigger(this, new BABYLON.Vector3(100.0, 1.0, 35.0), [
-            new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.GAIN_ENERGY)),
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Yeah .. gained some energy here ..')),
-        ]));
-        // add painkillers
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -10.0), bz.ItemType.PAINKILLER));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -15.0), bz.ItemType.PAINKILLER));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -20.0), bz.ItemType.PAINKILLER));
-        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -25.0), bz.ItemType.PAINKILLER));
-        // add stage switch door
-        this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3(40.0 + (bz.SettingGame.WALL_DEPTH / 2), // 160.0 +
-            bz.SettingGame.FLOOR_OFFSET_Y, -10.0 + (bz.SettingGame.DOOR_WIDTH / 2) // 10.0 +
-            ), bz.TextureFile.WALL_DOOR_1, new BABYLON.Vector3(bz.SettingGame.DOOR_WIDTH, bz.SettingGame.DOOR_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 90.0, 0.0)),
-        ]), bz.GameObject.UNBREAKABLE, [
-            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OUTSIDE, new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0))),
-        ]));
-        // 2nd point light in 2nd office // stick to chair
-        var pointLight2 = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(115.0, 5.0, 15.0), 
-        // new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-        new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
-        // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
-        this.addLight(pointLight2);
         /*
-                // add fog
-                // this.scene.enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
-        
-                // add shadows for point light
-                this.addShadowGenerator( pointLight );
+                // staircase
+                bz.StageFactory.addStaircase(
+                    this,
+                    meshFactory,
+                    new BABYLON.Vector3( -65.0, 0.0, 0.0 ),
+                    0.0,
+                    bz.TextureFile.WALL_CONCRETE_NEW,
+                    bz.TextureFile.WALL_CARPET_1,
+                    bz.TextureFile.WALL_COBBLES_1
+                );
         */
+        // small office
+        bz.AECFactory.addSmallOffice(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), 0.0);
+        // parking lot
+        bz.AECFactory.addParkingLot(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), 0.0);
+        // add rain effect
+        this.setRainEffect(3.0, 750, new BABYLON.Vector3(0.5, -1.5, 0.5));
+        // large office
+        bz.AECFactory.addLargeOffice(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), 0.0, pointLights);
+        // small park
+        bz.AECFactory.addSmallPark(this, meshFactory, new BABYLON.Vector3(600.0, 0.0, 600.0), 0.0);
+        // back yard
+        bz.AECFactory.addBackyard(this, meshFactory, new BABYLON.Vector3(1700.0, 0.0, 1700.0), 0.0);
+        // warehouse
+        bz.AECFactory.addWarehouse(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), 0.0);
+        // residental street
+        bz.AECFactory.addResidentalStreet(this, meshFactory, new BABYLON.Vector3(100.0, 0.0, 100.0), 0.0);
+        // parking lot
+        bz.AECFactory.addParkingLot(this, meshFactory, new BABYLON.Vector3(300.0, 0.0, 300.0), 0.0);
+        // 2nd point light in 2nd office // stick to chair or to player head
+        var pointLights2 = bz.LightFactory.createPoint([this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG()], 
+        // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
+        new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
+        // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
+        // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
+        this.addLight(pointLights2);
+        // add fog
+        this.getScene().enableFog(bz.SettingColor.COLOR_RGB_GREEN, 0.05); // green steam
+        // add shadows for point light
+        this.addShadowGenerator(pointLights2[0]);
+        // add test sprites
+        this.addTestSprites(meshFactory);
+        // add test items
+        this.addTestItems();
+        // add test bots
+        this.addTestBots();
     };
     /** ****************************************************************************************************************
     *   Handles stage specific keys.
@@ -19856,7 +20026,7 @@ var StageOffice = /** @class */ (function (_super) {
             // this.getGame().getGUI().addGuiEffect( bz.GUIFxType.HURT );
             // cast a testwise explosion
             this.addEventsToPipeline([
-                new bz.Event(bz.EventType.CAST_EXPLOSION, new bz.EventDataCastExplosion(new BABYLON.Vector3(20.5, bz.SettingGame.FLOOR_OFFSET_Y, 20.5), 12.5, 25.0)),
+                new bz.Event(bz.EventType.CAST_EXPLOSION, new bz.EventDataCastExplosion(new BABYLON.Vector3(20.5, bz.SettingAEC.FLOOR_OFFSET_Y, 20.5), 12.5, 25.0)),
             ]);
             // show GUI game messages and gain painkillers when the 2nd game message is shown
             this.addEventsToPipeline([
@@ -19870,85 +20040,107 @@ var StageOffice = /** @class */ (function (_super) {
         }
     };
     /** ****************************************************************************************************************
-    *   Adds all chairs to this stage.
-    *
-    *   @param meshFactory The MeshFactory instance.
-    *******************************************************************************************************************/
-    StageOffice.prototype.addFurniture = function (meshFactory) {
-        // multi mesh chair with compound .. scatters after being shot multiple times!
-        this.chairCompoundDestroyable = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH, new BABYLON.Vector3(5.0, 2.1, 30.0), bz.PhysicSet.OFFICE_CHAIR, bz.ModelCompoundType.COMPOUND), 5.0);
-        // office chair - multi meshed - single meshes destroyable
-        this.chairCompoundSingleShotOff = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH, new BABYLON.Vector3(10.0, 2.1, 30.0), bz.PhysicSet.OFFICE_CHAIR, bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED), 5.0);
-        // multi mesh chair without compound .. immediately collapses!
-        this.chairMultiMeshesNoCompound = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH, new BABYLON.Vector3(15.0, 2.1, 30.0), bz.PhysicSet.OFFICE_CHAIR, bz.ModelCompoundType.NONE), 5.0);
-        this.addWall(this.chairCompoundDestroyable);
-        this.addWall(this.chairCompoundSingleShotOff);
-        this.addWall(this.chairMultiMeshesNoCompound);
-        // office desk 1
-        this.desk = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.OFFICE_DESK_1, new BABYLON.Vector3(10.0, 1.7, 7.0), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, // bz.ModelCompoundType.COMPOUND,
-        90.0), 5.0);
-        this.addWall(this.desk);
-        // screen 1
-        var screen1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SCREEN_1, new BABYLON.Vector3(12.5, 4.5, 5.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, -90.0), 5.0, [
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('All cleared for today.')),
-            new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay(600)),
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('DELAYED: No more work for today.')),
-        ], bz.InteractionType.ONCE);
-        this.addWall(screen1);
-        // shelves
-        var shelves1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SHELVES_1, new BABYLON.Vector3(33.5, 3.15, 37.0), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 10.0), 5.0);
-        this.addWall(shelves1);
-        // office desk 2
-        var officeDesk2 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.OFFICE_DESK_2, new BABYLON.Vector3(38.5, 1.6, 16.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 85.0), 5.0);
-        this.addWall(officeDesk2);
-        // soda machine 2
-        var sodaMachine2 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SODA_MACHINE_2, new BABYLON.Vector3(5.5, 3.15, 37.5), bz.PhysicSet.SODA_MACHINE, bz.ModelCompoundType.NONE, 0.0), 7.0);
-        this.addWall(sodaMachine2);
-        // sofa 1
-        var sofa1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.SOFA_1, new BABYLON.Vector3(25.5, 1.5, 2.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 5.0);
-        this.addWall(sofa1);
-        // car 1
-        var car1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.CAR_1, new BABYLON.Vector3(100.0, 3.0, 20.5), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 12.0);
-        this.addWall(car1);
-        // bench 1
-        var bench1 = new bz.Wall(this, meshFactory.createImportedModel(bz.ModelFile.BENCH_1, new BABYLON.Vector3(60.0, 1.3, 6.0), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 8.0);
-        this.addWall(bench1);
-    };
-    /** ****************************************************************************************************************
-    *   Adds all stuff walls to this stage.
-    *
-    *   @param meshFactory The MeshFactory instance.
-    *******************************************************************************************************************/
-    StageOffice.prototype.addStuffWalls = function (meshFactory, pointLight) {
-        // tv (65 inch)
-        var tv = new bz.Wall(this, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3(17.0, 5.0, 39.5), bz.TextureFile.VIDEO_TEST, new BABYLON.Vector3((15.0 * 0.640), (15.0 * 0.360), 0.25), bz.PhysicSet.SHELVES, 1.0, bz.MeshAnchor.CENTER_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0)),
-        ]), bz.GameObject.UNBREAKABLE, [
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Nothing on the television today')),
-            new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay((2 * 60))),
-            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('DELAYED: I will turn the lights off :)')),
-            new bz.Event(bz.EventType.TOGGLE_LIGHT, new bz.EventDataToggleLight(pointLight)),
-        ], bz.InteractionType.REPEATED);
-        this.addWall(tv);
-        // solid white sphere
-        this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createSphere(new BABYLON.Vector3(10.5, 1.5, 30.0), bz.MeshAnchor.CENTER_XYZ, 3.0, new BABYLON.Vector3(0.0, 0.0, 0.0), bz.TextureFile.MODEL_WOOD_HORZ, null, bz.PhysicSet.WHITE_TEST_SPHERE),
-        ])));
-    };
-    /** ****************************************************************************************************************
     *   Adds some trees to this stage.
     *
     *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    StageOffice.prototype.addTrees = function (meshFactory) {
+    StageOffice.prototype.addTestSprites = function (meshFactory) {
         // create and animate a sprite
-        var animatedTestSprite = new bz.Sprite(this.getScene(), bz.SpriteFile.FIRE, new BABYLON.Vector3(20.0, 0.0, 20.0), 10.0, 20.0, bz.SpriteCollidable.NO);
-        animatedTestSprite.animate(0, 24, true);
-        this.addSprite(animatedTestSprite);
-        this.addSprite(new bz.Sprite(this.getScene(), bz.SpriteFile.PALM, new BABYLON.Vector3(130.0, 0.0, 10.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, bz.MathUtil.getRandomInt(-10.0, 10.0)));
-        this.addSprite(new bz.Sprite(this.getScene(), bz.SpriteFile.TREE, new BABYLON.Vector3(130.0, 0.0, 20.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5));
-        this.addSprite(new bz.Sprite(this.getScene(), bz.SpriteFile.PALM, new BABYLON.Vector3(140.0, 0.0, 20.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, bz.MathUtil.getRandomInt(-10.0, 10.0)));
-        this.addSprite(new bz.Sprite(this.getScene(), bz.SpriteFile.TREE, new BABYLON.Vector3(140.0, 0.0, 10.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5));
+        var animatedFireSprite = new bz.Sprite(this.getScene(), bz.SpriteFile.FIRE, new BABYLON.Vector3(20.0, 0.0, 20.0), 10.0, 20.0, bz.SpriteCollidable.NO);
+        animatedFireSprite.animate(0, 24, true);
+        this.addSprite(animatedFireSprite);
+        this.addSprite([
+            new bz.Sprite(this.getScene(), bz.SpriteFile.PALM, new BABYLON.Vector3(130.0, 0.0, 10.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, bz.MathUtil.getRandomInt(-10.0, 10.0)),
+            new bz.Sprite(this.getScene(), bz.SpriteFile.TREE, new BABYLON.Vector3(130.0, 0.0, 20.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5),
+            new bz.Sprite(this.getScene(), bz.SpriteFile.PALM, new BABYLON.Vector3(140.0, 0.0, 20.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, bz.MathUtil.getRandomInt(-10.0, 10.0)),
+            new bz.Sprite(this.getScene(), bz.SpriteFile.TREE, new BABYLON.Vector3(140.0, 0.0, 10.0), 10.0, 10.0, bz.SpriteCollidable.YES, 0.5),
+        ]);
+    };
+    StageOffice.prototype.addTestBots = function () {
+        // add bot - walking towards axis X
+        this.addBot(new bz.Bot(0, this, bz.BotType.TEST_WALK_X, new BABYLON.Vector3(10.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0)));
+        // add bot 1 - dancing girl on 0,0,0
+        this.addBot(new bz.Bot(0.0, this, bz.BotType.TEST_DANCING_GIRL, new BABYLON.Vector3(0.0, 0.0, 0.0)));
+        // add bot 2 - walking dude A
+        this.addBot(new bz.Bot(0.0, this, bz.BotType.TEST_WALKING_DUDE, new BABYLON.Vector3(20.0, 0.0, 20.0)));
+        // add bot 2 - walking dude B
+        this.addBot(new bz.Bot(0.0, this, bz.BotType.TEST_WALKING_DUDE, new BABYLON.Vector3(10.0, 0.0, 25.0)));
+        // add bot 2 - walking dude C
+        this.addBot(new bz.Bot(0.0, this, bz.BotType.TEST_WALKING_DUDE, new BABYLON.Vector3(32.5, 0.0, 45.0)));
+        // add bot 2 - walking dude D
+        this.addBot(new bz.Bot(0.0, this, bz.BotType.TEST_WALKING_DUDE, new BABYLON.Vector3(40.5, 0.0, 55.0)));
+        /*
+                // add bot 3 - one more dancing girl on 0,0,0
+                this.addBot(
+                    new bz.Bot(
+                        -90.0,
+                        this,
+                        bz.BotType.TEST_DANCING_GIRL,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    )
+                );
+        */
+        /*
+                // add bot - walking towards player
+                this.addBot(
+                    [
+                        new bz.Bot(
+                            0,
+                            this,
+                            bz.BotType.TEST_WALKING_DUDE,
+                            new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
+                        ),
+                        new bz.Bot(
+                            0,
+                            this,
+                            bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                            new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
+                        ),
+                    ]
+                );
+        */
+    };
+    StageOffice.prototype.addTestItems = function () {
+        /*
+                // shotgun ( TODO create shotgun item! )
+                this.addWall(
+                    new bz.Wall
+                    (
+                        this,
+                        meshFactory.createImportedModel
+                        (
+                            bz.ModelFile.SHOTGUN_M1014,
+                            new BABYLON.Vector3( 90.0, 2.1, 10.0 ),
+                            bz.PhysicSet.NONE,
+                            null
+                        ),
+                        5.0
+                    )
+                );
+        */
+        // add some items
+        this.addCollectable([
+            new bz.Item(this, new BABYLON.Vector3(2.5, 0.0, 2.5), bz.ItemType.BULLETS_792MM),
+            new bz.Item(this, new BABYLON.Vector3(5.0, 0.0, 5.0), bz.ItemType.SHOTGUN_SHELLS),
+            new bz.Item(this, new BABYLON.Vector3(2.5, 0.0, 5.0), bz.ItemType.BULLETS_792MM),
+        ]);
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(5.0, 0.0, 7.5), bz.ItemType.SHOTGUN_SHELLS));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(7.5, 0.0, 7.5), bz.ItemType.BULLETS_792MM));
+        // add invisible event trigger
+        this.addCollectable(new bz.Trigger(this, new BABYLON.Vector3(30.0, 0.0, 30.0), [
+            new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.HURT)),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Ouch .. just hurt myself here ..')),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Damn!')),
+        ]));
+        this.addCollectable(new bz.Trigger(this, new BABYLON.Vector3(30.0, 0.0, 40.0), [
+            new bz.Event(bz.EventType.SHOW_GUI_EFFECT, new bz.EventDataShowGuiEffect(bz.GUIFxType.GAIN_ENERGY)),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Yeah .. gained some energy here ..')),
+        ]));
+        // add painkillers
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.0, 35.0), bz.ItemType.PAINKILLER));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -15.0), bz.ItemType.PAINKILLER));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -20.0), bz.ItemType.PAINKILLER));
+        this.addCollectable(new bz.Item(this, new BABYLON.Vector3(35.0, 0.5, -25.0), bz.ItemType.PAINKILLER));
     };
     return StageOffice;
 }(bz.Stage));
@@ -19994,7 +20186,7 @@ var StageOutside = /** @class */ (function (_super) {
     *   Creates the stage config that is applied on initializing this stage.
     *******************************************************************************************************************/
     StageOutside.prototype.createDefaultConfig = function () {
-        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0));
+        return new bz.StageConfig(new BABYLON.Color3(0.1, 0.1, 0.1), bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE, bz.CameraType.FIRST_PERSON, new BABYLON.Vector3((bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingAEC.FLOOR_OFFSET_Y, (bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 60.0, 0.0));
     };
     /** ****************************************************************************************************************
     *   Creates all stage contents.
@@ -20007,21 +20199,18 @@ var StageOutside = /** @class */ (function (_super) {
         // player
         this.setPlayer(new bz.Player(this));
         // parking yard
-        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(40.0, 3.0, 60.0), 0.0, bz.TextureFile.WALL_STONES_3, [], [], null, [], [], bz.TextureFile.WALL_STONES_3, [], [], bz.TextureFile.WALL_MARBLE_1, [60.0 - 5.0 - bz.SettingGame.DOOR_WIDTH + bz.SettingGame.WALL_DEPTH], [], bz.TextureFile.MODEL_CONCRETE, null);
-        // add stage switch door
-        this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createBox(new BABYLON.Vector3((bz.SettingGame.WALL_DEPTH / 2), bz.SettingGame.FLOOR_OFFSET_Y, 5.0 + (bz.SettingGame.DOOR_WIDTH / 2)), bz.TextureFile.WALL_DOOR_1, new BABYLON.Vector3(bz.SettingGame.DOOR_WIDTH, bz.SettingGame.DOOR_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 90.0, 0.0)),
-        ]), bz.GameObject.UNBREAKABLE, [
-            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OFFICE, new BABYLON.Vector3(140.0 + (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingGame.FLOOR_OFFSET_Y, (bz.SettingGame.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 270.0, 0.0))),
-        ]));
-        // boxes pile in small office
-        bz.StageFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingGame.FLOOR_OFFSET_Y, 20.0));
-        // point light in small office
-        var pointLight = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(10.0, 5.0, 5.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
-        this.addLight(pointLight);
-        // point light in 2nd office
-        var pointLight2 = bz.LightFactory.createPoint(this.getScene().getNativeScene(), new BABYLON.Vector3(115.0, 5.0, 15.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
-        this.addLight(pointLight2);
+        var doorEventsSwitchStage = [
+            new bz.Event(bz.EventType.SWITCH_TO_STAGE, new bz.EventDataStageSwitch(bz.StageId.OFFICE, new BABYLON.Vector3(30.0 + (bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2), (bz.SettingPlayer.HEIGHT_Y_STANDING / 2) + bz.SettingAEC.FLOOR_OFFSET_Y, (bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2)), new BABYLON.Vector3(0.0, 270.0, 0.0))),
+        ];
+        bz.StageFactory.addRoomWalls(this, meshFactory, new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(40.0, 3.0, 60.0), 0.0, bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [], 0, null, [], [], 0, bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [], 0, bz.TextureFile.WALL_MARBLE_1, [new bz.DoorData(30.0, doorEventsSwitchStage)], [], 0, bz.TextureFile.MODEL_CONCRETE, null);
+        // boxes pile
+        bz.AECFactory.addCratesPile(this, meshFactory, new BABYLON.Vector3(20.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0));
+        // point light 1
+        var pointLights1 = bz.LightFactory.createPoint([this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG()], new BABYLON.Vector3(10.0, 5.0, 5.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
+        this.addLight(pointLights1);
+        // point light 2
+        var pointLights2 = bz.LightFactory.createPoint([this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG()], new BABYLON.Vector3(115.0, 5.0, 15.0), new BABYLON.Color3(1.0, 1.0, 1.0), new BABYLON.Color3(0.0, 0.0, 0.0));
+        this.addLight(pointLights2);
     };
     /** ****************************************************************************************************************
     *   Handles stage specific keys.
@@ -20033,10 +20222,8 @@ var StageOutside = /** @class */ (function (_super) {
     *   Creates the ground walls for this stage.
     *******************************************************************************************************************/
     StageOutside.prototype.addGroundWalls = function (meshFactory) {
-        // hills ( heightmap ground )
-        this.addWall(new bz.Wall(this, new bz.Model([
-            meshFactory.createHeightMapGround(new BABYLON.Vector3(40.0, 0.0, 40), bz.MeshAnchor.CENTER_XYZ, 400.0, 15.0, bz.TextureFile.HEIGHTMAP_VALLEY, new BABYLON.Vector3(0.0, 90.0, 0.0), bz.PhysicSet.NONE),
-        ])));
+        // valley ( heightmap ground )
+        this.addWall(new bz.Wall(this, new bz.Model(meshFactory.createHeightMapGround(new BABYLON.Vector3(40.0, 0.0, 40), bz.MeshAnchor.CENTER_XYZ, 400.0, 15.0, bz.TextureFile.HEIGHTMAP_VALLEY, new BABYLON.Vector3(0.0, 90.0, 0.0), bz.PhysicSet.NONE))));
     };
     return StageOutside;
 }(bz.Stage));
@@ -20173,7 +20360,7 @@ var Game = /** @class */ (function () {
                 }
         }
         // reset and init GUI
-        this.gui = new bz.GUI(this.scene.getNativeScene());
+        this.gui = new bz.GUI(this.scene.getNativeSceneBG());
         this.gui.init();
         // get config for new stage
         var config = this.stage.createDefaultConfig();
@@ -20189,15 +20376,15 @@ var Game = /** @class */ (function () {
         // init the new stage
         bz.Debug.stage.log(' Init target stage [' + String(targetStage) + ']');
         this.stage.init(config);
-        // release keys and pointer lock
-        this.keySystem.releaseAllKeys();
-        this.mouseSystem.releasePointerLock();
+        // do NOT release keys or pointers here - for a fluid game experience
+        // this.keySystem.releaseAllKeys();
+        // this.mouseSystem.releasePointerLock();
         // disable pause flag
         this.pause = false;
         // assign remembered pause menu index
         this.stage.setPauseMenuIndex(lastPauseMenuItem);
         // specify callback to invoke when the scene is fully loaded
-        this.scene.getNativeScene().executeWhenReady(function () { _this.initSceneCompleted(); });
+        this.scene.getNativeSceneBG().executeWhenReady(function () { _this.initSceneCompleted(); });
     };
     /** ****************************************************************************************************************
     *   Toggles the game pause state.
@@ -20682,10 +20869,12 @@ var CameraSystem = /** @class */ (function () {
     function CameraSystem(game, positionFreeCamera, positionStationaryCamera, positionFollowCamera, targetFreeCamera, targetStationaryCamera, targetFollowCamera, targetFirstPersonCamera) {
         /** The currently active camera type. */
         this.activeCameraType = null;
-        /** The native babylon.JS scene these cameras belong to. */
-        this.scene = null;
         /** The canvas this camera system is connected with. */
         this.canvas = null;
+        /** The native babylon.JS BG scene these cameras belong to. */
+        this.sceneBG = null;
+        /** The native babylon.JS FG scene these cameras belong to. */
+        this.sceneFG = null;
         /** The free controllable babylon.JS (debug) camera. */
         this.freeCamera = null;
         /** The stationary and targeted babylon.JS camera. */
@@ -20696,14 +20885,15 @@ var CameraSystem = /** @class */ (function () {
         this.firstPersonCamera = null;
         /** The babylon.JS axis camera. */
         this.arcRotateCamera = null;
-        this.scene = game.getScene().getNativeScene();
         this.canvas = game.getEngine().getCanvasSystem().getNativeCanvas();
+        this.sceneBG = game.getScene().getNativeSceneBG();
+        this.sceneFG = game.getScene().getNativeSceneFG();
         var cameraFactory = new bz.CameraFactory();
-        this.freeCamera = cameraFactory.createFreeCamera(this.scene, positionFreeCamera, targetFreeCamera);
-        this.stationaryCamera = cameraFactory.createStationaryTargetCamera(this.scene, positionStationaryCamera);
-        this.followCamera = cameraFactory.createFollowCamera(this.scene, positionFollowCamera);
-        this.firstPersonCamera = cameraFactory.createFirstPersonCamera(this.scene, bz.SettingEngine.DEFAULT_FIELD_OF_VIEW);
-        this.arcRotateCamera = cameraFactory.createArcRotateCamera(this.scene, 0.0, 0.0, 200, new BABYLON.Vector3(0.0, 0.0, 0.0), 100.0, 400.0);
+        this.freeCamera = cameraFactory.createFreeCamera(this.sceneBG, positionFreeCamera, targetFreeCamera);
+        this.stationaryCamera = cameraFactory.createStationaryTargetCamera(this.sceneBG, positionStationaryCamera);
+        this.followCamera = cameraFactory.createFollowCamera(this.sceneBG, positionFollowCamera);
+        this.firstPersonCamera = cameraFactory.createFirstPersonCamera(this.sceneBG, bz.SettingEngine.DEFAULT_FIELD_OF_VIEW);
+        this.arcRotateCamera = cameraFactory.createArcRotateCamera(this.sceneBG, 0.0, 0.0, 200, new BABYLON.Vector3(0.0, 0.0, 0.0), 100.0, 400.0);
         // assign camera targets
         if (targetStationaryCamera !== null) {
             this.lockStationaryTargetCameraTo(targetStationaryCamera);
@@ -20721,7 +20911,7 @@ var CameraSystem = /** @class */ (function () {
     *   @return The currently active native camera.
     *******************************************************************************************************************/
     CameraSystem.prototype.getActiveCamera = function () {
-        return this.scene.activeCamera;
+        return this.sceneBG.activeCamera;
     };
     /** ****************************************************************************************************************
     *   Sets the specified camera as the scene's active camera.
@@ -20732,7 +20922,8 @@ var CameraSystem = /** @class */ (function () {
     *******************************************************************************************************************/
     CameraSystem.prototype.setActiveCamera = function (cameraType, player, gui) {
         this.activeCameraType = cameraType;
-        this.scene.activeCamera = this.getCameraFromType(cameraType);
+        this.sceneBG.activeCamera = this.getCameraFromType(cameraType);
+        this.sceneFG.activeCamera = this.getCameraFromType(cameraType);
         switch (cameraType) {
             case bz.CameraType.FREE_CAMERA:
                 {
@@ -20952,8 +21143,8 @@ var CameraSystem = /** @class */ (function () {
             return new BABYLON.FxaaPostProcess('antialias', 2, null, BABYLON.Texture.TRILINEAR_SAMPLINGMODE, engine, !0);
         });
         pipeline.addEffect(effect);
-        this.scene.postProcessRenderPipelineManager.addPipeline(pipeline);
-        this.scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline('standardPipeline', this.stationaryCamera);
+        this.sceneBG.postProcessRenderPipelineManager.addPipeline(pipeline);
+        this.sceneBG.postProcessRenderPipelineManager.attachCamerasToRenderPipeline('standardPipeline', this.stationaryCamera);
     };
     /** ****************************************************************************************************************
     *   Tests some post processing effects on the stationary camera.
@@ -21049,6 +21240,7 @@ var KeyCodes = /** @class */ (function () {
     KeyCodes.KEY_X = 'KeyX';
     KeyCodes.KEY_C = 'KeyC';
     KeyCodes.KEY_P = 'KeyP';
+    KeyCodes.KEY_L = 'KeyL';
     KeyCodes.KEY_ENTER = 'Enter';
     KeyCodes.KEY_ESCAPE = 'Escape';
     KeyCodes.KEY_SPACE = 'Space';
@@ -21220,7 +21412,7 @@ var MouseSystem = /** @class */ (function () {
         /** The game instance. */
         this.game = null;
         /** Indicates that the mouse is currently locked inside the canvas. */
-        this.mouseLocked = false;
+        this.pointerLocked = false;
         /** The last mouse drag X if the pointer is locked. */
         this.lastMovementX = 0;
         /** The last mouse drag Y if the pointer is locked. */
@@ -21245,7 +21437,7 @@ var MouseSystem = /** @class */ (function () {
         this.needsReleaseButtonRight = false;
         this.game = game;
         if (assignDebugPointerDown) {
-            this.game.getScene().getNativeScene().onPointerDown =
+            this.game.getScene().getNativeSceneBG().onPointerDown =
                 (function (evt, pickResult) {
                     _this.game.onDebugPointerDown(evt, pickResult);
                 });
@@ -21377,7 +21569,8 @@ var MouseSystem = /** @class */ (function () {
     *   Unflags the 'locked mouse' state.
     *******************************************************************************************************************/
     MouseSystem.prototype.releasePointerLock = function () {
-        this.mouseLocked = false;
+        bz.Debug.pointer.log('releasePointerLock() being invoked manually!');
+        this.pointerLocked = false;
     };
     /** ****************************************************************************************************************
     *   Being invoked when the canvas is clicked.
@@ -21387,7 +21580,7 @@ var MouseSystem = /** @class */ (function () {
     *******************************************************************************************************************/
     MouseSystem.prototype.onMouseClick = function (me) {
         // check if the pointer is not locked yet
-        if (!this.mouseLocked) {
+        if (!this.pointerLocked) {
             this.requestPointerLock();
         }
     };
@@ -21398,7 +21591,7 @@ var MouseSystem = /** @class */ (function () {
     *******************************************************************************************************************/
     MouseSystem.prototype.onMouseDown = function (me) {
         // only handle this event if the pointer is locked
-        if (this.mouseLocked) {
+        if (this.pointerLocked) {
             switch (me.button) {
                 case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                     {
@@ -21437,7 +21630,7 @@ var MouseSystem = /** @class */ (function () {
     *******************************************************************************************************************/
     MouseSystem.prototype.onMouseUp = function (me) {
         // only handle this event if the pointer is locked
-        if (this.mouseLocked) {
+        if (this.pointerLocked) {
             switch (me.button) {
                 case bz.MouseCodes.MOUSE_BUTTON_LEFT:
                     {
@@ -21468,18 +21661,15 @@ var MouseSystem = /** @class */ (function () {
     *******************************************************************************************************************/
     MouseSystem.prototype.requestPointerLock = function () {
         var _this = this;
+        bz.Debug.pointer.log('requestPointerLock()');
         document.addEventListener('pointerlockchange', function () { _this.onPointerLockChange(); });
         document.addEventListener('mozpointerlockchange', function () { _this.onPointerLockChange(); });
         document.addEventListener('mousemove', function (mouseEvent) {
             _this.onMouseMove(mouseEvent);
         });
         var nativeCanvas = this.game.getEngine().getCanvasSystem().getNativeCanvas();
-        // eslint-disable-next-line @typescript-eslint/unbound-method
         nativeCanvas.requestPointerLock =
-            (
-            // eslint-disable-next-line @typescript-eslint/unbound-method
-            nativeCanvas.requestPointerLock
-                // eslint-disable-next-line @typescript-eslint/unbound-method
+            (nativeCanvas.requestPointerLock
                 || nativeCanvas.mozRequestPointerLock);
         nativeCanvas.requestPointerLock();
     };
@@ -21487,15 +21677,16 @@ var MouseSystem = /** @class */ (function () {
     *   Being invoked when the pointer lock changes.
     *******************************************************************************************************************/
     MouseSystem.prototype.onPointerLockChange = function () {
+        bz.Debug.pointer.log('onPointerLockChange()');
         var nativeCanvas = this.game.getEngine().getCanvasSystem().getNativeCanvas();
         if ((document).pointerLockElement === nativeCanvas
             || document.mozPointerLockElement === nativeCanvas) {
             bz.Debug.pointer.log('Pointer lock status is now LOCKED');
-            this.mouseLocked = true;
+            this.pointerLocked = true;
         }
         else {
             bz.Debug.pointer.log('Pointer lock status is now UNLOCKED');
-            this.mouseLocked = false;
+            this.pointerLocked = false;
         }
     };
     /** ****************************************************************************************************************
@@ -21506,7 +21697,7 @@ var MouseSystem = /** @class */ (function () {
     *******************************************************************************************************************/
     MouseSystem.prototype.onMouseMove = function (me) {
         // only handle this event if the pointer is locked
-        if (this.mouseLocked) {
+        if (this.pointerLocked) {
             bz.Debug.pointer.log('PointerMovement X: ['
                 + String(me.movementX)
                 + '] Y: ['
@@ -21558,7 +21749,7 @@ var MeshAnchor;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(global) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MeshFactory = void 0;
 var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
@@ -21583,32 +21774,34 @@ var MeshFactory = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a box mesh.
     *
-    *   @param position      Where to place this mesh.
-    *   @param anchor        The anchor point of this mesh.
-    *   @param size          The dimensions of this mesh for all axis.
-    *   @param rotation      The initial rotation for all axis.
-    *   @param textureFile       The texture to apply.
-    *   @param color         The solid color to apply.
-    *   @param physic        The physical attributes to apply for this mesh.
-    *   @param materialAlpha The opacity for this mesh.
+    *   @param position       Where to place this mesh.
+    *   @param anchor         The anchor point of this mesh.
+    *   @param size           The dimensions of this mesh for all axis.
+    *   @param rotation       The initial rotation for all axis.
+    *   @param texture    The texture to apply.
+    *   @param color          The solid color to apply.
+    *   @param physic         The physical attributes to apply for this mesh.
+    *   @param materialAlpha  The opacity for this mesh.
+    *   @param mirrorTextureY If the texture shall be mirrored on axis Y.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createBox = function (position, textureFile, size, physic, materialAlpha, anchor, rotation, color) {
+    MeshFactory.prototype.createBox = function (position, texture, size, physic, materialAlpha, anchor, rotation, color, mirrorTextureY) {
         if (physic === void 0) { physic = bz.PhysicSet.NONE; }
         if (materialAlpha === void 0) { materialAlpha = 1.0; }
         if (anchor === void 0) { anchor = bz.MeshAnchor.CENTER_XYZ; }
         if (rotation === void 0) { rotation = new BABYLON.Vector3(0.0, 0.0, 0.0); }
         if (color === void 0) { color = null; }
+        if (mirrorTextureY === void 0) { mirrorTextureY = false; }
         var faceUV = [];
-        if (textureFile !== null) {
-            switch (textureFile.getStrategyUV()) {
-                case bz.TextureUV.ALL_TO_ONE:
+        if (texture !== null) {
+            switch (texture.getStrategyUV()) {
+                case bz.TextureUV.ALL_ONE:
                     {
                         faceUV =
                             [
                                 new BABYLON.Vector4(0.0, 0.0, -1.0, -1.0),
-                                new BABYLON.Vector4(0.0, 0.0, 1.0, 1.0),
+                                new BABYLON.Vector4(0.0, 0.0, (mirrorTextureY ? -1.0 : 1.0), 1.0),
                                 new BABYLON.Vector4(0.0, 0.0, -1.0, -1.0),
                                 new BABYLON.Vector4(0.0, 0.0, 1.0, 1.0),
                                 new BABYLON.Vector4(0.0, 0.0, -1.0, -1.0),
@@ -21616,7 +21809,7 @@ var MeshFactory = /** @class */ (function () {
                             ];
                         break;
                     }
-                case bz.TextureUV.TILED_BY_SIZE:
+                case bz.TextureUV.TILED:
                     {
                         faceUV =
                             [
@@ -21629,7 +21822,7 @@ var MeshFactory = /** @class */ (function () {
                             ];
                         break;
                     }
-                case bz.TextureUV.TILED_BY_SIZE_HALF:
+                case bz.TextureUV.TILED_HALF:
                     {
                         faceUV =
                             [
@@ -21642,7 +21835,7 @@ var MeshFactory = /** @class */ (function () {
                             ];
                         break;
                     }
-                case bz.TextureUV.Y_ONE_XZ_TILED:
+                case bz.TextureUV.Y_ONE_XZ_TILED_QUARTER:
                     {
                         faceUV =
                             [
@@ -21662,9 +21855,9 @@ var MeshFactory = /** @class */ (function () {
             height: size.y,
             depth: size.z,
             faceUV: faceUV,
-        }, this.scene.getNativeScene());
+        }, this.scene.getNativeSceneBG());
         bz.MeshManipulation.setPositionByAnchor(box, position, anchor, size.x, size.y, size.z);
-        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeScene(), textureFile, true, size.x, size.z, color, materialAlpha, this.emissiveColor);
+        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeSceneBG(), texture, true, size.x, size.z, color, materialAlpha, this.emissiveColor, mirrorTextureY);
         return this.decorateMesh(box, rotation, material, physic, BABYLON.PhysicsImpostor.BoxImpostor);
     };
     /** ****************************************************************************************************************
@@ -21674,13 +21867,13 @@ var MeshFactory = /** @class */ (function () {
     *   @param anchor        The anchor point of this mesh.
     *   @param sideSize      The dimension of one side (XZ) of the heightmap.
     *   @param height        The ground height for the heightmap.
-    *   @param textureFile   The texture file to use for this heightmap.
+    *   @param texture       The texture file to use for this heightmap.
     *   @param rotation      The initial rotation for all axis.
     *   @param physic        The physical attributes to apply for this mesh.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createHeightMapGround = function (position, anchor, sideSize, height, textureFile, rotation, physic) {
+    MeshFactory.prototype.createHeightMapGround = function (position, anchor, sideSize, height, texture, rotation, physic) {
         var _this = this;
         var options = {
             width: sideSize,
@@ -21690,13 +21883,13 @@ var MeshFactory = /** @class */ (function () {
             minHeight: 0.0,
             maxHeight: height,
             onReady: function () {
-                var material = _this.scene.getMaterialSystem().createMaterial(_this.scene.getNativeScene(), bz.TextureFile.WALL_GRASS_1, false, sideSize, sideSize, null, 1.0, _this.emissiveColor);
+                var material = _this.scene.getMaterialSystem().createMaterial(_this.scene.getNativeSceneBG(), bz.TextureFile.WALL_GRASS_1, false, sideSize, sideSize, null, 1.0, _this.emissiveColor);
                 ground = _this.decorateMesh(ground, rotation, material, physic, BABYLON.PhysicsImpostor.HeightmapImpostor);
                 // set position after applying physics in order to prevent startup dodges etc.
                 bz.MeshManipulation.setPositionByAnchor(ground, position, anchor, sideSize, height, sideSize);
             },
         };
-        var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap(MeshFactory.createNextMeshId(), textureFile.fileName, options, this.scene.getNativeScene());
+        var ground = BABYLON.MeshBuilder.CreateGroundFromHeightMap(MeshFactory.createNextMeshId(), texture.fileName, options, this.scene.getNativeSceneBG());
         return ground;
     };
     /** ****************************************************************************************************************
@@ -21707,18 +21900,18 @@ var MeshFactory = /** @class */ (function () {
     *   @param diameter        The diameter of the cylinder.
     *   @param height          The height of the cylinder.
     *   @param rotation        The initial rotation for all axis.
-    *   @param textureFile         The texture to apply.
+    *   @param texture         The texture to apply.
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
     *   @param materialAlpha   The opacity for this mesh.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createCylinder = function (position, anchor, diameter, height, rotation, textureFile, color, physic, materialAlpha) {
+    MeshFactory.prototype.createCylinder = function (position, anchor, diameter, height, rotation, texture, color, physic, materialAlpha) {
         var faceUV = [];
-        if (textureFile !== null) {
-            switch (textureFile.getStrategyUV()) {
-                case bz.TextureUV.ALL_TO_ONE:
+        if (texture !== null) {
+            switch (texture.getStrategyUV()) {
+                case bz.TextureUV.ALL_ONE:
                     {
                         faceUV =
                             [
@@ -21728,8 +21921,8 @@ var MeshFactory = /** @class */ (function () {
                             ];
                         break;
                     }
-                case bz.TextureUV.TILED_BY_SIZE:
-                case bz.TextureUV.TILED_BY_SIZE_HALF:
+                case bz.TextureUV.TILED:
+                case bz.TextureUV.TILED_HALF:
                     {
                         faceUV =
                             [
@@ -21745,9 +21938,9 @@ var MeshFactory = /** @class */ (function () {
             diameter: diameter,
             height: height,
             faceUV: faceUV,
-        }, this.scene.getNativeScene());
+        }, this.scene.getNativeSceneBG());
         bz.MeshManipulation.setPositionByAnchor(cylinder, position, anchor, diameter, height, diameter);
-        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeScene(), textureFile, true, diameter, height, color, materialAlpha, this.emissiveColor);
+        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeSceneBG(), texture, true, diameter, height, color, materialAlpha, this.emissiveColor);
         return this.decorateMesh(cylinder, rotation, material, physic, BABYLON.PhysicsImpostor.CylinderImpostor);
     };
     /** ****************************************************************************************************************
@@ -21757,20 +21950,20 @@ var MeshFactory = /** @class */ (function () {
     *   @param anchor   The anchor point of this mesh.
     *   @param diameter      The diameter of the sphere.
     *   @param rotation      The initial rotation for all axis.
-    *   @param textureFile       The texture to apply.
+    *   @param texture       The texture to apply.
     *   @param color         The solid color to apply.
     *   @param physic        The physical attributes to apply for this mesh.
     *   @param materialAlpha The opacity for this mesh.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createSphere = function (position, anchor, diameter, rotation, textureFile, color, physic, materialAlpha) {
+    MeshFactory.prototype.createSphere = function (position, anchor, diameter, rotation, texture, color, physic, materialAlpha) {
         if (materialAlpha === void 0) { materialAlpha = 1.0; }
         var sphere = BABYLON.MeshBuilder.CreateSphere(MeshFactory.createNextMeshId(), {
             diameter: diameter,
-        }, this.scene.getNativeScene());
+        }, this.scene.getNativeSceneBG());
         bz.MeshManipulation.setPositionByAnchor(sphere, position, anchor, diameter, diameter, diameter);
-        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeScene(), textureFile, false, diameter, diameter, color, materialAlpha, this.emissiveColor);
+        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeSceneBG(), texture, false, diameter, diameter, color, materialAlpha, this.emissiveColor);
         return this.decorateMesh(sphere, rotation, material, physic, BABYLON.PhysicsImpostor.SphereImpostor);
     };
     /** ****************************************************************************************************************
@@ -21778,27 +21971,65 @@ var MeshFactory = /** @class */ (function () {
     *   required in order to calculate light effects correctly.
     *
     *   @param position        Where to place this mesh.
-    *   @param anchor          The anchor point of this mesh.
     *   @param width           Width  of the plane.
     *   @param height          Height of the plane.
-    *   @param rotation        The initial rotation for all axis.
-    *   @param textureFile         The texture to apply.
+    *   @param texture         The texture to apply.
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
+    *   @param diamondCornerA  The side size of the diamond corner on wall A.
+    *   @param diamondCornerB  The side size of the diamond corner on wall B.
+    *   @param diamondCornerC  The side size of the diamond corner on wall C.
+    *   @param diamondCornerD  The side size of the diamond corner on wall D.
     *   @param materialAlpha   The opacity for this mesh.
     *   @param sideOrientation The orientation sattribute is required for correct light effects.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createPlane = function (position, anchor, width, height, rotation, textureFile, color, physic, materialAlpha, sideOrientation) {
-        var plane = BABYLON.MeshBuilder.CreatePlane(MeshFactory.createNextMeshId(), {
-            width: width,
-            height: height,
+    MeshFactory.prototype.createPlane = function (position, width, height, texture, color, physic, diamondCornerA, diamondCornerB, diamondCornerC, diamondCornerD, materialAlpha, sideOrientation) {
+        if (diamondCornerA === void 0) { diamondCornerA = 0.0; }
+        if (diamondCornerB === void 0) { diamondCornerB = 0.0; }
+        if (diamondCornerC === void 0) { diamondCornerC = 0.0; }
+        if (diamondCornerD === void 0) { diamondCornerD = 0.0; }
+        if (materialAlpha === void 0) { materialAlpha = 1.0; }
+        if (sideOrientation === void 0) { sideOrientation = 0; }
+        // y axis is ignored here
+        var points = [];
+        if (diamondCornerA > 0) {
+            points.push(new BABYLON.Vector3(position.x, 0.0, position.z + diamondCornerA));
+            points.push(new BABYLON.Vector3(position.x + diamondCornerA, 0.0, position.z));
+        }
+        else {
+            points.push(new BABYLON.Vector3(position.x, 0.0, position.z));
+        }
+        if (diamondCornerB > 0) {
+            points.push(new BABYLON.Vector3(position.x + width - diamondCornerB, 0.0, position.z));
+            points.push(new BABYLON.Vector3(position.x + width, 0.0, position.z + diamondCornerB));
+        }
+        else {
+            points.push(new BABYLON.Vector3(position.x + width, 0.0, position.z));
+        }
+        if (diamondCornerC > 0) {
+            points.push(new BABYLON.Vector3(position.x + width, 0.0, position.z + height - diamondCornerC));
+            points.push(new BABYLON.Vector3(position.x + width - diamondCornerC, 0.0, position.z + height));
+        }
+        else {
+            points.push(new BABYLON.Vector3(position.x + width, 0.0, position.z + height));
+        }
+        if (diamondCornerD > 0) {
+            points.push(new BABYLON.Vector3(position.x + diamondCornerD, 0.0, position.z + height));
+            points.push(new BABYLON.Vector3(position.x, 0.0, position.z + height - diamondCornerD));
+        }
+        else {
+            points.push(new BABYLON.Vector3(position.x, 0.0, position.z + height));
+        }
+        var plane = BABYLON.MeshBuilder.CreatePolygon(MeshFactory.createNextMeshId(), {
+            shape: points,
             sideOrientation: sideOrientation,
-        }, this.scene.getNativeScene());
-        bz.MeshManipulation.setPositionByAnchor(plane, position, anchor, width, height, 0.0);
-        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeScene(), textureFile, false, width, height, color, materialAlpha, this.emissiveColor);
-        return this.decorateMesh(plane, rotation, material, physic, BABYLON.PhysicsImpostor.BoxImpostor);
+        }, this.scene.getNativeSceneBG());
+        // translate y axis
+        bz.MeshManipulation.translatePosition(plane, new BABYLON.Vector3(0.0, position.y, 0.0));
+        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeSceneBG(), texture, false, width, height, color, materialAlpha, this.emissiveColor);
+        return this.decorateMesh(plane, BABYLON.Vector3.Zero(), material, physic, BABYLON.PhysicsImpostor.BoxImpostor);
     };
     /** ****************************************************************************************************************
     *   Creates a line mesh.
@@ -21824,7 +22055,7 @@ var MeshFactory = /** @class */ (function () {
                 color,
             ],
             useVertexAlpha: true,
-        }, this.scene.getNativeScene());
+        }, this.scene.getNativeSceneBG());
         bz.MeshManipulation.setPositionByAnchor(line, BABYLON.Vector3.Zero(), anchor, 0.0, 0.0, 0.0);
         return this.decorateMesh(line, rotation, null, bz.PhysicSet.NONE, BABYLON.PhysicsImpostor.BoxImpostor);
     };
@@ -21837,20 +22068,20 @@ var MeshFactory = /** @class */ (function () {
     *   @param size          The dimensions of this mesh for all axis.
     *   @param rotation      The initial rotation for all axis.
     *   @param indexZ        The z index for this material that prevents overlapping materials.
-    *   @param textureFile       The texture to apply.
+    *   @param texture       The texture to apply.
     *   @param color         The solid color to apply.
     *   @param materialAlpha The opacity for this mesh.
     *
     *   @return The created mesh.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createDecal = function (position, parentMesh, normal, size, rotation, indexZ, textureFile, color, materialAlpha) {
+    MeshFactory.prototype.createDecal = function (position, parentMesh, normal, size, rotation, indexZ, texture, color, materialAlpha) {
         var decal = BABYLON.MeshBuilder.CreateDecal(MeshFactory.createNextMeshId(), parentMesh, {
             position: position,
             normal: normal,
             size: size,
             angle: rotation,
         });
-        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeScene(), textureFile, true, size.x, size.y, color, materialAlpha, this.emissiveColor);
+        var material = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeSceneBG(), texture, true, size.x, size.y, color, materialAlpha, this.emissiveColor);
         material.zOffset = (-1 - indexZ);
         /*
                 // why is the 1st bullet hole always flickering?
@@ -21869,17 +22100,17 @@ var MeshFactory = /** @class */ (function () {
     *******************************************************************************************************************/
     MeshFactory.prototype.createSkyBoxCube = function (skyBox, opacity) {
         if (opacity === void 0) { opacity = 1.0; }
-        var skyboxMaterial = new BABYLON.StandardMaterial(bz.MaterialSystem.createNextMaterialId(), this.scene.getNativeScene());
+        var skyboxMaterial = new BABYLON.StandardMaterial(bz.MaterialSystem.createNextMaterialId(), this.scene.getNativeSceneBG());
         var skyBoxName = skyBox.toString();
         skyboxMaterial.backFaceCulling = false;
-        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture(bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName, this.scene.getNativeScene());
+        skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture(bz.SettingResource.PATH_IMAGE_SKYBOX + skyBoxName + '/' + skyBoxName, this.scene.getNativeSceneBG());
         skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
         skyboxMaterial.diffuseColor = bz.SettingColor.COLOR_RGB_BLACK;
         skyboxMaterial.specularColor = bz.SettingColor.COLOR_RGB_BLACK;
         // skyboxMaterial.emissiveColor = bz.SettingGame.COLOR_BLACK;
         skyboxMaterial.alpha = opacity;
         skyboxMaterial.disableLighting = true;
-        var skybox = BABYLON.MeshBuilder.CreateBox(MeshFactory.createNextMeshId(), { size: 1000.0 }, this.scene.getNativeScene());
+        var skybox = BABYLON.MeshBuilder.CreateBox(MeshFactory.createNextMeshId(), { size: 1000.0 }, this.scene.getNativeSceneBG());
         skybox.infiniteDistance = true;
         skybox.material = skyboxMaterial;
         return skybox;
@@ -21896,11 +22127,11 @@ var MeshFactory = /** @class */ (function () {
     *
     *   @return A clone of the model with the specified filename.
     *******************************************************************************************************************/
-    MeshFactory.prototype.createImportedModel = function (fileName, position, physic, compoundType, rotY) {
+    MeshFactory.prototype.createImportedModel = function (fileName, position, physic, rotY, compoundType) {
         if (position === void 0) { position = new BABYLON.Vector3(0.0, 0.0, 0.0); }
         if (physic === void 0) { physic = null; }
-        if (compoundType === void 0) { compoundType = bz.ModelCompoundType.NONE; }
         if (rotY === void 0) { rotY = 0.0; }
+        if (compoundType === void 0) { compoundType = bz.ModelCompoundType.NONE; }
         var originalModel = this.scene.getModelSystem().getOriginalModel(fileName);
         var clonedModel = originalModel.clone(physic);
         // translate cloned model by position
@@ -21909,14 +22140,22 @@ var MeshFactory = /** @class */ (function () {
         var impostors = [];
         if (physic === null) {
             impostors = originalModel.getImpostors();
+            clonedModel.assignImpostors(this.scene.getNativeSceneBG(), impostors);
+        }
+        else if (physic === bz.PhysicSet.NONE) {
+            // no impostor setup!
         }
         else {
             var physicBody = new bz.PhysicBody(physic);
             for (var i = 0; i < originalModel.getMeshCount(); ++i) {
                 impostors.push(physicBody.createPhysicImpostorBoxParams());
             }
+            clonedModel.assignImpostors(this.scene.getNativeSceneBG(), impostors);
         }
-        clonedModel.assignImpostors(this.scene.getNativeScene(), impostors);
+        // set compound type to NONE if specified as 'null'
+        if (compoundType === null) {
+            compoundType = bz.ModelCompoundType.NONE;
+        }
         // create compound parent if requested
         switch (compoundType) {
             case bz.ModelCompoundType.NONE:
@@ -21933,27 +22172,46 @@ var MeshFactory = /** @class */ (function () {
                     clonedModel.addCompoundMesh(this.scene, position, true);
                     break;
                 }
+            case bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK:
+                {
+                    // don't set a compound mesh!
+                    break;
+                }
+        }
+        // apply physical 'lock' joint if this compound is desired
+        if (compoundType === bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK) {
+            console.log('>> Add Physics Joint LOCK ..');
+            for (var i = 0; i < clonedModel.getMeshCount(); ++i) {
+                if (i > 0) {
+                    var joint1 = new BABYLON.PhysicsJoint(BABYLON.PhysicsJoint.LockJoint, {
+                        connectedPivot: position,
+                    });
+                    clonedModel.getMesh(0).physicsImpostor.addJoint(clonedModel.getMesh(i).physicsImpostor, joint1);
+                }
+            }
         }
         // scale cloned model
         // clonedModel.scaleSize( new BABYLON.Vector3( 1.0, 1.0, 1.0 ) );
         // reset stored quaternion rotation from 3dsmax file
         clonedModel.setAbsoluteRotationXYZ(0.0, 0.0, 0.0);
+        // rotate around center for specific compound type
         switch (compoundType) {
             case bz.ModelCompoundType.NONE:
+            case bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK:
                 {
-                    // initially rotate around axis Y
+                    // initially rotate position around axis Y
                     clonedModel.rotateAroundAxisY(position.x, position.z, rotY);
                     break;
                 }
             case bz.ModelCompoundType.COMPOUND:
             case bz.ModelCompoundType.COMPOUND_SHOT_OFF_ENABLED:
                 {
-                    // initially rotate around axis Y
+                    // initially rotate around by centerpoint
                     clonedModel.rotateAroundAxisY(0, 0, rotY);
                     break;
                 }
         }
-        // apply emissive color to all meshes
+        // apply emissive color to all meshes - TODO improve and merge with model system ??
         for (var i = 0; i < clonedModel.getMeshCount(); ++i) {
             var material = clonedModel.getMesh(i).material;
             if (material !== null) {
@@ -21964,6 +22222,43 @@ var MeshFactory = /** @class */ (function () {
             }
         }
         return clonedModel;
+    };
+    /** ****************************************************************************************************************
+    *   Trees can not be shot nor have a physical behaviour. :(
+    *
+    *   @param position    The position for this tree to show up.
+    *   @param textureBark The texture to use for the tree trunk/bark.
+    *   @param scaling     The scaling for this tree.
+    *
+    *   @return An SPS generated tree model.
+    *******************************************************************************************************************/
+    MeshFactory.prototype.genrateTree = function (position, textureBark, scaling) {
+        if (textureBark === void 0) { textureBark = bz.TextureFile.WALL_BARK; }
+        if (scaling === void 0) { scaling = new BABYLON.Vector3(0.5, 0.5, 0.5); }
+        // leafs
+        var green = new BABYLON.StandardMaterial('leafs' + bz.MaterialSystem.createNextMaterialId(), this.scene.getNativeSceneBG());
+        green.diffuseColor = new BABYLON.Color3(0, 1, 0);
+        // trunk and branches
+        var bark = this.scene.getMaterialSystem().createMaterial(this.scene.getNativeSceneBG(), textureBark, true, 2.0, 2.0, null, 1.0, this.emissiveColor);
+        // tree params
+        var trunkHeight = 20;
+        var trunkTaper = 0.6;
+        var trunkSlices = 5;
+        var boughs = 2; // 1 or 2
+        var forks = 4;
+        var forkAngle = Math.PI / 4;
+        var forkRatio = 2 / (1 + Math.sqrt(5)); // PHI the golden ratio
+        var branchAngle = Math.PI / 3;
+        var bowFreq = 2;
+        var bowHeight = 3.5;
+        var branches = 10;
+        var leavesOnBranch = 5;
+        var leafWhRatio = 0.5;
+        // create mesh
+        var tree = global.createTree(trunkHeight, trunkTaper, trunkSlices, bark, boughs, forks, forkAngle, forkRatio, branches, branchAngle, bowFreq, bowHeight, leavesOnBranch, leafWhRatio, green, this.scene.getNativeSceneBG());
+        tree.position = position;
+        tree.scaling = scaling;
+        return tree;
     };
     /** ****************************************************************************************************************
     *   Adds general mesh properties.
@@ -21981,7 +22276,7 @@ var MeshFactory = /** @class */ (function () {
             bz.MeshManipulation.setAbsoluteRotationXYZ(mesh, rotation.x, rotation.y, rotation.z);
         }
         // buggy physics for primitives since babylon.JS 4.0.
-        new bz.PhysicBody(physic).applyPhysicToMesh(this.scene.getNativeScene(), mesh, physicsImpostorType);
+        new bz.PhysicBody(physic).applyPhysicToMesh(this.scene.getNativeSceneBG(), mesh, physicsImpostorType);
         return mesh;
     };
     /** ****************************************************************************************************************
@@ -21998,6 +22293,7 @@ var MeshFactory = /** @class */ (function () {
 }());
 exports.MeshFactory = MeshFactory;
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -22420,8 +22716,10 @@ var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 ***********************************************************************************************************************/
 var Scene = /** @class */ (function () {
     function Scene() {
-        /** The current babylon.JS scene. */
-        this.babylonScene = null;
+        /** The default babylon.JS scene that shows the 3d world. */
+        this.babylonSceneBG = null;
+        /** The babylon.JS scene in the foreground. */
+        this.babylonSceneFG = null;
         /** The physics plugin being used in the scene. */
         this.physicsPlugin = null;
         /** The material system. */
@@ -22447,14 +22745,16 @@ var Scene = /** @class */ (function () {
         var _this = this;
         this.onLoadingComplete = onLoadingComplete;
         // create babylon.JS scene
-        this.babylonScene = engine.createNewScene();
+        this.babylonSceneBG = engine.createNewScene();
+        this.babylonSceneFG = engine.createNewScene();
         // set default scene clear color
-        this.babylonScene.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
+        this.babylonSceneBG.clearColor = bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE;
+        this.babylonSceneFG.autoClear = false;
         // enable debug collisions for free debug camera
-        this.babylonScene.collisionsEnabled = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
-        // show the babylon.JS debug layer
-        if (bz.SettingDebug.SHOW_SCENE_DEBUG_PANEL) {
-            this.babylonScene.debugLayer.show().then(function () {
+        this.babylonSceneBG.collisionsEnabled = bz.SettingDebug.DEBUG_CAMERA_ENABLE_COLLISIONS;
+        // show the babylon.JS debug scene explorer
+        if (bz.SettingDebug.SHOW_SCENE_DEBUG_SCENE_EXPLORER) {
+            this.babylonSceneBG.debugLayer.show().then(function () {
                 // handle promise fulfillment
             }).catch(function () {
                 // handle promise error
@@ -22465,23 +22765,31 @@ var Scene = /** @class */ (function () {
         // init all materials
         bz.Debug.init.log('Init materials');
         this.materialSystem = new bz.MaterialSystem(bz.Texture.ALL_TEXTURES);
-        this.materialSystem.load(this.babylonScene);
+        this.materialSystem.load(this.babylonSceneBG);
         // init all sprites
         bz.Debug.init.log('Init sprites');
         this.spriteSystem = new bz.SpriteSystem(bz.SpriteFile.ALL_SPRITE_FILES);
-        this.spriteSystem.load(this.babylonScene);
+        this.spriteSystem.load(this.babylonSceneBG);
         // init all sounds
         bz.Debug.init.log('Init sounds');
         this.soundSystem = new bz.SoundSystem(bz.SoundFile.ALL_SOUND_FILES, function () { _this.onSoundsLoaded(); });
-        this.soundSystem.load(this.babylonScene);
+        this.soundSystem.load(this.babylonSceneBG);
     };
     /** ****************************************************************************************************************
-    *   Delivers a reference to the native babylon.JS scene.
+    *   Delivers a reference to the native babylon.JS BG scene.
     *
     *   @return The babylon.JS scene.
     *******************************************************************************************************************/
-    Scene.prototype.getNativeScene = function () {
-        return this.babylonScene;
+    Scene.prototype.getNativeSceneBG = function () {
+        return this.babylonSceneBG;
+    };
+    /** ****************************************************************************************************************
+    *   Delivers a reference to the native babylon.JS FG scene.
+    *
+    *   @return The babylon.JS scene.
+    *******************************************************************************************************************/
+    Scene.prototype.getNativeSceneFG = function () {
+        return this.babylonSceneFG;
     };
     /** ****************************************************************************************************************
     *   Delivers the material system.
@@ -22520,7 +22828,8 @@ var Scene = /** @class */ (function () {
     *   Renders the babylon.JS scene.
     *******************************************************************************************************************/
     Scene.prototype.render = function () {
-        this.babylonScene.render();
+        this.babylonSceneBG.render();
+        this.babylonSceneFG.render();
     };
     /** ****************************************************************************************************************
     *   Toggles the state of the physics engine.
@@ -22553,10 +22862,10 @@ var Scene = /** @class */ (function () {
     *******************************************************************************************************************/
     Scene.prototype.enableFog = function (color, density) {
         // Fog Mode 'LINEAR' is faster!
-        this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
-        this.babylonScene.fogColor = color;
+        this.babylonSceneBG.fogMode = BABYLON.Scene.FOGMODE_EXP2;
+        this.babylonSceneBG.fogColor = color;
         // for exponential mode
-        this.babylonScene.fogDensity = density;
+        this.babylonSceneBG.fogDensity = density;
         /*
                 // for linear mode
                 this.babylonScene.fogStart = 20.0;
@@ -22567,7 +22876,7 @@ var Scene = /** @class */ (function () {
     *   Disables fog for the native scene.
     *******************************************************************************************************************/
     Scene.prototype.disableFog = function () {
-        this.babylonScene.fogMode = BABYLON.Scene.FOGMODE_NONE;
+        this.babylonSceneBG.fogMode = BABYLON.Scene.FOGMODE_NONE;
     };
     /** ****************************************************************************************************************
     *   Constructs the physics engine for the babylon.JS scene.
@@ -22575,10 +22884,10 @@ var Scene = /** @class */ (function () {
     Scene.prototype.createPhysicsEngine = function () {
         // create physics plugin
         this.physicsPlugin = new BABYLON.CannonJSPlugin(true, bz.SettingEngine.PHYSIC_ENGINE_ITERATIONS);
-        // stop physics engine immediately
+        // stop physics engine immediately (prevents unwanted physical reactions)
         this.enablePhysics(false);
-        // enable physics engine and stop it immediately in order to prevent unwanted startup impulses!
-        this.babylonScene.enablePhysics(bz.SettingEngine.PHYSIC_GLOBAL_STAGE_GRAVITY, this.physicsPlugin);
+        // enable physics engine
+        this.babylonSceneBG.enablePhysics(bz.SettingEngine.PHYSIC_GLOBAL_STAGE_GRAVITY, this.physicsPlugin);
     };
     /** ****************************************************************************************************************
     *   Being invoked when all sounds are loaded completely.
@@ -22587,7 +22896,7 @@ var Scene = /** @class */ (function () {
         // init model importer
         bz.Debug.init.log('Init model importer');
         this.modelSystem = new bz.ModelSystem(bz.ModelFile.ALL_MESH_FILES, this.onLoadingComplete);
-        this.modelSystem.load(this.babylonScene);
+        this.modelSystem.load(this.babylonSceneBG, this.babylonSceneFG);
     };
     return Scene;
 }());
@@ -22659,43 +22968,90 @@ var MaterialSystem = /** @class */ (function () {
     *   Creates a material from the given texture or color.
     *
     *   @param scene              The scene where the new material to creat.
-    *   @param textureFile            The desired texture.
+    *   @param texture            The desired texture.
     *   @param ommitTextureTiling Specifies if tiling for the given texture shall be omitted.
     *   @param sizeU              The texture U size for the texture.
     *   @param sizeV              The texture V size for the texture.
     *   @param color              The desired solid color to apply.
     *   @param alpha              The opacity for the applied texture.
     *   @param emissiveColor      The emissive color for this material.
+    *   @param mirrorTextureY     If the texture shall be mirrored on axis Y.
     *******************************************************************************************************************/
-    MaterialSystem.prototype.createMaterial = function (scene, textureFile, ommitTextureTiling, sizeU, sizeV, color, alpha, emissiveColor) {
+    MaterialSystem.prototype.createMaterial = function (scene, texture, ommitTextureTiling, sizeU, sizeV, color, alpha, emissiveColor, mirrorTextureY
+    // TODO add material flags here (dispersion, bump etc.)
+    ) {
+        if (mirrorTextureY === void 0) { mirrorTextureY = false; }
         var material = new BABYLON.StandardMaterial(bz.MaterialSystem.createNextMaterialId(), scene);
-        if (textureFile !== null) {
-            var textureU = -1;
-            var textureV = -1;
+        if (texture !== null) {
+            var textureRepeatU = -1;
+            var textureRepeatV = -1;
             if (!ommitTextureTiling) {
-                switch (textureFile.getStrategyUV()) {
-                    case bz.TextureUV.TILED_BY_SIZE:
+                switch (texture.getStrategyUV()) {
+                    case bz.TextureUV.TILED:
                         {
-                            textureU = (sizeU * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
-                            textureV = (sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
+                            textureRepeatU = (sizeU * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
+                            textureRepeatV = (sizeV * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
                             break;
                         }
-                    case bz.TextureUV.TILED_BY_SIZE_HALF:
+                    case bz.TextureUV.TILED_HALF:
                         {
-                            textureU = (sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
-                            textureV = (sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
+                            textureRepeatU = (sizeU * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
+                            textureRepeatV = (sizeV * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV);
                             break;
                         }
-                    case bz.TextureUV.ALL_TO_ONE:
+                    case bz.TextureUV.ALL_ONE:
                         {
-                            textureU = 1.0;
-                            textureV = 1.0;
+                            textureRepeatU = 1.0;
+                            textureRepeatV = 1.0;
                             break;
                         }
                 }
             }
-            material.diffuseTexture = textureFile.createNewTextureInstance(textureU, textureV);
-            material.backFaceCulling = (textureFile.hasAlpha() || alpha < 1.0);
+            // diffuse texture - basic material texture as viewed under a light
+            material.diffuseTexture = texture.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+            /*
+                        material.ambientTexture  = texture.createNewTextureInstance(
+                            textureRepeatU,
+                            textureRepeatV,
+                            mirrorTextureY
+                        );
+            */
+            if (texture === bz.TextureFile.WALL_OLD_ROCKS) {
+                // bump texture - structure
+                material.bumpTexture = bz.TextureFile.WALL_OLD_ROCKS_BUMP.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // material.invertNormalMapX = true;
+                // material.invertNormalMapY = true;
+                // specular (shininess) - hightlights given by a light
+                material.specularTexture = bz.TextureFile.WALL_OLD_ROCKS_SPEC.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // the color or texture of the material as if self lit;
+                material.emissiveTexture = bz.TextureFile.WALL_OLD_ROCKS_DISPERSION.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // the color or texture of the material lit by the environmental background lighting.
+                material.ambientTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // unused?
+                // material.opacityTexture
+                // (albedo = reflection)
+                // material.reflectionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance(
+                //     textureRepeatU, textureRepeatV, reverseTextureY );
+                // (dispersion = refraction?)
+                // material.refractionTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance(
+                //     textureRepeatU, textureRepeatV, reverseTextureY );
+                // only used for extended light cases?
+                // material.lightmapTexture = bz.TextureFile.WALL_OLD_ROCKS_ALBEDO.createNewTextureInstance(
+                //     textureRepeatU, textureRepeatV, reverseTextureY );
+            }
+            if (texture === bz.TextureFile.WALL_CARPET_RASPBERRY) {
+                // bump texture - structure
+                material.bumpTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_BUMP.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // material.invertNormalMapX = true;
+                // material.invertNormalMapY = true;
+                // specular (shininess) - hightlights given by a light
+                material.specularTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_SPEC.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // the color or texture of the material as if self lit;
+                material.emissiveTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_DISPERSION.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+                // the color or texture of the material lit by the environmental background lighting.
+                material.ambientTexture = bz.TextureFile.WALL_CARPET_RASPBERRY.createNewTextureInstance(textureRepeatU, textureRepeatV, mirrorTextureY);
+            }
+            material.backFaceCulling = (texture.hasAlpha() || alpha < 1.0);
         }
         else if (color !== null) {
             material.diffuseColor = color;
@@ -22791,13 +23147,13 @@ exports.TextureUV = void 0;
 var TextureUV;
 (function (TextureUV) {
     /** One texture dimension for the whole face size. */
-    TextureUV[TextureUV["ALL_TO_ONE"] = 0] = "ALL_TO_ONE";
+    TextureUV[TextureUV["ALL_ONE"] = 0] = "ALL_ONE";
     /** One texture dimension per 1.0 world unit. */
-    TextureUV[TextureUV["TILED_BY_SIZE"] = 1] = "TILED_BY_SIZE";
+    TextureUV[TextureUV["TILED"] = 1] = "TILED";
     /** Two texture dimensions per 1.0 world unit. */
-    TextureUV[TextureUV["TILED_BY_SIZE_HALF"] = 2] = "TILED_BY_SIZE_HALF";
+    TextureUV[TextureUV["TILED_HALF"] = 2] = "TILED_HALF";
     /** One for Y axis and tiled for axis X Z. */
-    TextureUV[TextureUV["Y_ONE_XZ_TILED"] = 3] = "Y_ONE_XZ_TILED";
+    TextureUV[TextureUV["Y_ONE_XZ_TILED_QUARTER"] = 3] = "Y_ONE_XZ_TILED_QUARTER";
 })(TextureUV = exports.TextureUV || (exports.TextureUV = {}));
 
 
@@ -22848,7 +23204,7 @@ var Model = /** @class */ (function () {
         this.enableSingleShotOffs = false;
         /** The physics set for this model if any. */
         this.physicSet = null;
-        this.meshes = meshes;
+        this.meshes = (Array.isArray(meshes) ? meshes : [meshes]);
     }
     /** ****************************************************************************************************************
     *   Returns the mesh with the specified index.
@@ -23142,7 +23498,7 @@ var Model = /** @class */ (function () {
     Model.prototype.addCompoundMesh = function (scene, position, enableSingleShotOffs) {
         var e_12, _a;
         this.enableSingleShotOffs = enableSingleShotOffs;
-        /** Implicit depth for 2D faces ( e.g. planes or polygons ). */
+        /** Implicit depth for 2D faces */
         var COMPOUND_MESH_SIZE = 0.001;
         this.compoundMesh = new bz.MeshFactory(scene, BABYLON.Color3.Red()).createBox(position, bz.TextureFile.WALL_GRASS_1, new BABYLON.Vector3(COMPOUND_MESH_SIZE, COMPOUND_MESH_SIZE, COMPOUND_MESH_SIZE));
         try {
@@ -23160,7 +23516,7 @@ var Model = /** @class */ (function () {
             finally { if (e_12) throw e_12.error; }
         }
         // set physics for compound
-        new bz.PhysicBody(bz.PhysicSet.SYNTHETIC_IMPOSTOR).applyPhysicToMesh(scene.getNativeScene(), this.compoundMesh, BABYLON.PhysicsImpostor.BoxImpostor);
+        new bz.PhysicBody(bz.PhysicSet.SYNTHETIC_IMPOSTOR).applyPhysicToMesh(scene.getNativeSceneBG(), this.compoundMesh, BABYLON.PhysicsImpostor.BoxImpostor);
     };
     /** ****************************************************************************************************************
     *   Removed the parent compound mesh from all meshes. This will cause all meshes to collapse.
@@ -23192,7 +23548,9 @@ var Model = /** @class */ (function () {
             for (var _b = __values(this.meshes), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var mesh = _c.value;
                 // only consider STATIC meshes
-                if (mesh.physicsImpostor.mass === 0) {
+                if (mesh.physicsImpostor !== undefined
+                    && mesh.physicsImpostor !== null
+                    && mesh.physicsImpostor.mass === 0) {
                     // determine and set original physical mass
                     var newMass = 0;
                     if (this.physicSet !== null) {
@@ -23240,7 +23598,7 @@ var Model = /** @class */ (function () {
                 if (texture.url === from) {
                     var newMaterial = mesh.material.clone('ChangedTextureMaterial' + bz.MeshFactory.createNextMeshId());
                     newMaterial.diffuseTexture = null;
-                    newMaterial.diffuseTexture = new BABYLON.Texture(to, scene.getNativeScene());
+                    newMaterial.diffuseTexture = new BABYLON.Texture(to, scene.getNativeSceneBG());
                     mesh.material = null;
                     mesh.material = newMaterial;
                 }
@@ -23447,25 +23805,59 @@ var Model = /** @class */ (function () {
         }
     };
     /** ****************************************************************************************************************
-    *   Returns a cloned collection of this models' meshes.
-    *   All physic impostors are gone on all cloned meshes.
-    *
-    *   @return All cloned meshes from this model.
+    *   Slice one mesh of the model into two new meshes.
+    *   Welcome to a world of (code) magic. :p
     *******************************************************************************************************************/
-    Model.prototype.cloneMeshes = function () {
+    Model.prototype.sliceMesh = function (scene, meshToSlice, slicePoint) {
+        var boxSlicerSize = 100;
+        var boxSlicer = BABYLON.Mesh.CreateBox('boxSlicer', boxSlicerSize, scene);
+        var a = (meshToSlice.rotationQuaternion.x === 0
+            && meshToSlice.rotationQuaternion.y === 0
+            && meshToSlice.rotationQuaternion.z === 0
+            ? 1.0 : -1.0);
+        boxSlicer.position = new BABYLON.Vector3(slicePoint.x + ((0.5 * boxSlicerSize) * a), 0, slicePoint.z + ((0.5 * boxSlicerSize) * a));
+        var meshCSG = BABYLON.CSG.FromMesh(meshToSlice);
+        var slicerCSG = BABYLON.CSG.FromMesh(boxSlicer);
+        var meshSliceSub = meshCSG.subtract(slicerCSG).toMesh(meshToSlice.name + '_sliceLeft');
+        meshSliceSub.material = meshToSlice.material.clone(bz.MaterialSystem.createNextMaterialId());
+        meshSliceSub.physicsImpostor = meshToSlice.physicsImpostor.clone(meshSliceSub);
+        var meshSliceInt = meshCSG.intersect(slicerCSG).toMesh(meshToSlice.name + '_sliceRight');
+        meshSliceInt.material = meshToSlice.material.clone(bz.MaterialSystem.createNextMaterialId());
+        meshSliceInt.physicsImpostor = meshToSlice.physicsImpostor.clone(meshSliceInt);
+        // dispose and clear original mesh
+        meshToSlice.dispose();
+        var index = this.meshes.indexOf(meshToSlice);
+        if (index > -1) {
+            this.meshes.splice(index, 1);
+        }
+        meshToSlice = null;
+        // add the two new sliced meshes to the stack
+        this.meshes.push(meshSliceInt);
+        this.meshes.push(meshSliceSub);
+        // dispose the slicer helper box
+        boxSlicer.dispose();
+        return [
+            meshSliceInt,
+            meshSliceSub,
+        ];
+    };
+    /** ****************************************************************************************************************
+    *   Adds an experimental outline effect to all meshes using BABYLON.HightlightLayer.
+    *   The stencil buffer must be enabled for the BABYLON.Engine instance for this to work.
+    *
+    *   @param scene The babylon.JS scene where the outline effect shall be added to.
+    *
+    *   @return A reference to this model.
+    *
+    *   @deprecated Sadly not working yet, even with stencil buffer enabled.
+    *******************************************************************************************************************/
+    Model.prototype.addOutline = function (scene) {
         var e_21, _a;
-        var clonedMeshes = [];
+        var hl = new BABYLON.HighlightLayer('hl1', scene.getNativeSceneBG());
         try {
             for (var _b = __values(this.meshes), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var mesh = _c.value;
-                // remove physical impostors of all meshes if still present
-                if (mesh.physicsImpostor !== undefined) {
-                    mesh.physicsImpostor.dispose();
-                    mesh.physicsImpostor = null;
-                }
-                // clone this mesh ( without a physics impostor )
-                var clonedMesh = mesh.clone(mesh.name, null);
-                clonedMeshes.push(clonedMesh);
+                hl.addMesh(mesh, BABYLON.Color3.Green());
             }
         }
         catch (e_21_1) { e_21 = { error: e_21_1 }; }
@@ -23474,6 +23866,57 @@ var Model = /** @class */ (function () {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
             finally { if (e_21) throw e_21.error; }
+        }
+        return this;
+    };
+    /** ****************************************************************************************************************
+    *   Returns a cloned collection of this models' meshes.
+    *   All physic impostors are gone on all cloned meshes.
+    *
+    *   @return All cloned meshes from this model.
+    *******************************************************************************************************************/
+    Model.prototype.cloneMeshes = function () {
+        var e_22, _a, e_23, _b;
+        var clonedMeshes = [];
+        try {
+            for (var _c = __values(this.meshes), _d = _c.next(); !_d.done; _d = _c.next()) {
+                var mesh = _d.value;
+                // remove physical impostors of all meshes if still present
+                if (mesh.physicsImpostor !== undefined) {
+                    mesh.physicsImpostor.dispose();
+                    mesh.physicsImpostor = null;
+                }
+                // clone this mesh ( without a physics impostor )
+                var clonedMesh = mesh.clone(mesh.name, null);
+                // clone all skeletons if available
+                if (mesh.skeleton) {
+                    clonedMesh.skeleton = mesh.skeleton.clone(mesh.name + '-skeleton');
+                }
+                if (mesh.subMeshes) {
+                    clonedMesh.subMeshes = [];
+                    try {
+                        for (var _e = (e_23 = void 0, __values(mesh.subMeshes)), _f = _e.next(); !_f.done; _f = _e.next()) {
+                            var subMesh = _f.value;
+                            clonedMesh.subMeshes.push(subMesh.clone(clonedMesh));
+                        }
+                    }
+                    catch (e_23_1) { e_23 = { error: e_23_1 }; }
+                    finally {
+                        try {
+                            if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
+                        }
+                        finally { if (e_23) throw e_23.error; }
+                    }
+                }
+                clonedMeshes.push(clonedMesh);
+            }
+        }
+        catch (e_22_1) { e_22 = { error: e_22_1 }; }
+        finally {
+            try {
+                if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+            }
+            finally { if (e_22) throw e_22.error; }
         }
         return clonedMeshes;
     };
@@ -23541,6 +23984,7 @@ var ModelCompoundType;
     ModelCompoundType[ModelCompoundType["COMPOUND"] = 1] = "COMPOUND";
     /** A compound where single meshes can be shot off. This mostly causes weird physical behaviour. */
     ModelCompoundType[ModelCompoundType["COMPOUND_SHOT_OFF_ENABLED"] = 2] = "COMPOUND_SHOT_OFF_ENABLED";
+    ModelCompoundType[ModelCompoundType["PHYSICS_JOINT_TYPE_LOCK"] = 3] = "PHYSICS_JOINT_TYPE_LOCK";
 })(ModelCompoundType = exports.ModelCompoundType || (exports.ModelCompoundType = {}));
 
 
@@ -23570,6 +24014,7 @@ var __values = (this && this.__values) || function(o) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModelSystem = void 0;
 var bz = __webpack_require__(/*! ../../../.. */ "./src/typescript/bz/index.ts");
+__webpack_require__(/*! babylonjs-loaders */ "./node_modules/babylonjs-loaders/babylonjs.loaders.min.js");
 /** ********************************************************************************************************************
 *   Imports all .babylon model files from 3ds max.
 ***********************************************************************************************************************/
@@ -23595,46 +24040,13 @@ var ModelSystem = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Loads all specified model files into system memory.
     *******************************************************************************************************************/
-    ModelSystem.prototype.load = function (scene) {
+    ModelSystem.prototype.load = function (sceneBG, sceneFG) {
         var e_1, _a;
         var _this = this;
         bz.Debug.init.log(' Import [' + String(this.fileNames.length) + '] model files');
         var _loop_1 = function (fileName) {
-            var fullPath = (bz.SettingResource.PATH_MODEL + fileName);
-            var lastSeparator = fullPath.lastIndexOf('/');
-            var directory = fullPath.substr(0, lastSeparator + 1);
-            var file = fullPath.substr(lastSeparator + 1);
-            BABYLON.SceneLoader.ImportMesh(
-            // first parameter specifies the name of the mesh to import - an empty string will import all meshes
-            '', directory, file, scene, function (importedMeshes) {
-                // bz.Debug.init.log( '  Imported [' + importedMeshes.length + '] meshes' );
-                var e_2, _a;
-                try {
-                    // hide all meshes
-                    for (var importedMeshes_1 = (e_2 = void 0, __values(importedMeshes)), importedMeshes_1_1 = importedMeshes_1.next(); !importedMeshes_1_1.done; importedMeshes_1_1 = importedMeshes_1.next()) {
-                        var importedMesh = importedMeshes_1_1.value;
-                        importedMesh.isVisible = false;
-                        // disable backface culling by default
-                        if (importedMesh.material !== null) {
-                            importedMesh.material.backFaceCulling = false;
-                        }
-                    }
-                }
-                catch (e_2_1) { e_2 = { error: e_2_1 }; }
-                finally {
-                    try {
-                        if (importedMeshes_1_1 && !importedMeshes_1_1.done && (_a = importedMeshes_1.return)) _a.call(importedMeshes_1);
-                    }
-                    finally { if (e_2) throw e_2.error; }
-                }
-                // save in models array
-                _this.models[fileName] = new bz.Model(importedMeshes);
-                _this.models[fileName].extractPhysicsImpostors();
-                // notify load
-                _this.onLoadModel();
-            }, null, function (callbackScene, callbackMessage, callbackException) {
-                bz.Debug.init.err('ERROR on model import [' + file + ']');
-                // simulate load
+            ModelSystem.importModel((fileName.indexOf('wearpon/') !== -1 ? sceneFG : sceneBG), fileName, function (model) {
+                _this.models[fileName] = model;
                 _this.onLoadModel();
             });
         };
@@ -23668,6 +24080,59 @@ var ModelSystem = /** @class */ (function () {
             bz.Debug.init.log('  Model import complete [' + String(this.fileNames.length) + '] files');
             this.onLoadComplete();
         }
+    };
+    /** ****************************************************************************************************************
+    *   Loads one model from disk using the asynchronous BABYLON.SceneLoader.ImportMesh functionality.
+    *
+    *   @param scene    The scene to import the model into.
+    *   @param fileName The filename of the model to load.
+    *   @param onLoaded The callback to invoke when the model is loaded.
+    *******************************************************************************************************************/
+    ModelSystem.importModel = function (scene, fileName, onLoaded) {
+        var fullPath = (bz.SettingResource.PATH_MODEL + fileName);
+        var lastSeparator = fullPath.lastIndexOf('/');
+        var directory = fullPath.substr(0, lastSeparator + 1);
+        var file = fullPath.substr(lastSeparator + 1);
+        BABYLON.SceneLoader.ImportMesh(
+        // first parameter specifies the name of the mesh to import - empty string imports all meshes
+        '', directory, file, scene, function (importedMeshes, particleSystems, skeletons, animationGroups) {
+            var e_2, _a;
+            try {
+                /*
+                                bz.Debug.init.log(
+                                    '  Model file ' + file + ' imported. '
+                                    + 'Mesh count: ' + String( importedMeshes.length )
+                                );
+                */
+                // hide all meshes
+                for (var importedMeshes_1 = __values(importedMeshes), importedMeshes_1_1 = importedMeshes_1.next(); !importedMeshes_1_1.done; importedMeshes_1_1 = importedMeshes_1.next()) {
+                    var importedMesh = importedMeshes_1_1.value;
+                    importedMesh.isVisible = false;
+                    // disable backface culling by default
+                    if (importedMesh.material !== null) {
+                        importedMesh.material.backFaceCulling = false;
+                    }
+                }
+            }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            finally {
+                try {
+                    if (importedMeshes_1_1 && !importedMeshes_1_1.done && (_a = importedMeshes_1.return)) _a.call(importedMeshes_1);
+                }
+                finally { if (e_2) throw e_2.error; }
+            }
+            // save in models array
+            var newModel = new bz.Model(importedMeshes);
+            newModel.extractPhysicsImpostors();
+            // notify load
+            onLoaded(newModel);
+        }, null, function (callbackScene, callbackMessage, callbackException) {
+            bz.Debug.init.err('ERROR on model import [' + file + ']');
+            bz.Debug.init.err(callbackMessage);
+            bz.Debug.init.err(callbackException);
+            // simulate load
+            onLoaded(null);
+        });
     };
     return ModelSystem;
 }());
@@ -24106,7 +24571,7 @@ var BulletHole = /** @class */ (function () {
     *******************************************************************************************************************/
     BulletHole.prototype.createHoleMesh = function (scene) {
         var meshTextureFile = bz.Texture.getBulletHoleTextureForMesh(this.hitPoint.getMesh());
-        this.holeMesh = new bz.MeshFactory(scene, this.emissiveColor).createDecal(this.hitPoint.getPoint().clone(), this.hitPoint.getMesh(), this.hitPoint.getNormal(), new BABYLON.Vector3(0.2, 0.2, bz.SettingEngine.BULLET_HOLE_DEPTH), bz.MathUtil.getRandomInt(0, 359), this.hitPoint.getGameObjectNextBulletHoleIndexZ(), meshTextureFile, null, 1.0);
+        this.holeMesh = new bz.MeshFactory(scene, this.emissiveColor).createDecal(this.hitPoint.getPoint().clone(), this.hitPoint.getMesh(), this.hitPoint.getNormal(), new BABYLON.Vector3(0.5, 0.5, bz.SettingEngine.BULLET_HOLE_DEPTH), bz.MathUtil.getRandomInt(0, 359), this.hitPoint.getGameObjectNextBulletHoleIndexZ(), meshTextureFile, null, 1.0);
         // stick to parent
         this.holeMesh.setParent(this.hitPoint.getMesh());
     };
@@ -24180,8 +24645,6 @@ var HitPoint = /** @class */ (function () {
     function HitPoint(point, mesh, normal, distance, direction, gameObject) {
         /** The exact collision point. */
         this.point = null;
-        /** The affected mesh of the game object. */
-        this.mesh = null;
         /** The normal of the face this hit point impacts. */
         this.normal = null;
         /** The distance from the shot source to this hit point. */
@@ -24190,6 +24653,8 @@ var HitPoint = /** @class */ (function () {
         this.direction = null;
         /** The affected game object. */
         this.gameObject = null;
+        /** The affected mesh of the game object. */
+        this.mesh = null;
         this.point = point;
         this.mesh = mesh;
         this.normal = normal;
@@ -24208,9 +24673,13 @@ var HitPoint = /** @class */ (function () {
     *   @return The bullet hole being caused by this impact.
     *******************************************************************************************************************/
     HitPoint.prototype.causeImpact = function (scene, emissiveColor, damage) {
-        // hurt the game object
-        this.gameObject.hurt(scene.getNativeScene(), damage, this.mesh);
-        // apply physical impulse to mesh
+        // hurt the game object - this may break the mesh in two!
+        this.gameObject.hurt(damage, this.mesh, this);
+        // break and return no BulletHole if the mesh has been destroyed/split
+        if (this.mesh === null) {
+            return null;
+        }
+        // apply a physical impulse to the mesh
         this.applyImpulseToMesh(damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER);
         // return a bullet hole
         return new bz.BulletHole(scene, this, emissiveColor);
@@ -24221,7 +24690,11 @@ var HitPoint = /** @class */ (function () {
     *   @param force The force to apply. Will be multiplied with the direction vertex.
     *******************************************************************************************************************/
     HitPoint.prototype.applyImpulseToMesh = function (force) {
-        if (this.mesh.physicsImpostor !== undefined && this.mesh.physicsImpostor.physicsBody !== null) {
+        // check if the mesh is still present
+        if (this.mesh !== null
+            && this.mesh.physicsImpostor !== undefined
+            && this.mesh.physicsImpostor !== null
+            && this.mesh.physicsImpostor.physicsBody !== null) {
             bz.Debug.fire.log('apply impulse - shot impulse direction: '
                 + '[' + String(this.direction.x) + ']'
                 + '[' + String(this.direction.y) + ']'
@@ -24274,6 +24747,19 @@ var HitPoint = /** @class */ (function () {
     *******************************************************************************************************************/
     HitPoint.prototype.getNormal = function () {
         return this.normal;
+    };
+    /** ****************************************************************************************************************
+    *   Applies an impulse to the specified meshes and clears the assigned mesh afterwards.
+    *
+    *   @param slicedMeshes The two meshes to apply an impulse.
+    *   @param damage       The damage of the original shot to apply.
+    *******************************************************************************************************************/
+    HitPoint.prototype.applyImpulseToSplitSubmeshes = function (slicedMeshes, damage) {
+        this.mesh = slicedMeshes[0];
+        this.applyImpulseToMesh(damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER);
+        this.mesh = slicedMeshes[1];
+        this.applyImpulseToMesh(damage * bz.SettingEngine.DAMAGE_IMPULSE_MULTIPLIER);
+        this.mesh = null;
     };
     /** ****************************************************************************************************************
     *   Picks the nearest hit point of all specified hit points.
@@ -24357,7 +24843,7 @@ var Shot = /** @class */ (function () {
         this.wallBreaking = wallBreaking;
         this.damage = damage;
         // calculate destination point
-        this.destination = bz.MathUtil.rotateVector(source, rotation, range);
+        this.destination = bz.MathUtil.rotateVector3(source, rotation, range);
         // create collision checking ray
         this.ray = BABYLON.Ray.CreateNewFromTo(this.source, this.destination);
         /*
@@ -24511,6 +24997,17 @@ exports.CanvasSystem = CanvasSystem;
 "use strict";
 
 // noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LightFactory = void 0;
 var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
@@ -24523,20 +25020,35 @@ var LightFactory = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a hemispheric light.
     *
-    *   @param scene         The scene that contains this light.
+    *   @param scenes        The scenes that contain this light.
     *   @param direction     The direction for this light.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param groundColor   The color for the ground to apply.
     *   @param intensity     Hemispheric light intensity.
     *******************************************************************************************************************/
-    LightFactory.createHemispheric = function (scene, direction, diffuseColor, specularColor, groundColor, intensity) {
-        var light = new BABYLON.HemisphericLight(LightFactory.createNextLightId(), direction, scene);
-        light.diffuse = diffuseColor;
-        light.specular = specularColor;
-        light.groundColor = groundColor;
-        light.intensity = intensity;
-        return light;
+    LightFactory.createHemispheric = function (scenes, direction, diffuseColor, specularColor, groundColor, intensity) {
+        var e_1, _a;
+        var lights = [];
+        try {
+            for (var scenes_1 = __values(scenes), scenes_1_1 = scenes_1.next(); !scenes_1_1.done; scenes_1_1 = scenes_1.next()) {
+                var scene = scenes_1_1.value;
+                var light = new BABYLON.HemisphericLight(LightFactory.createNextLightId(), direction, scene);
+                light.diffuse = diffuseColor;
+                light.specular = specularColor;
+                light.groundColor = groundColor;
+                light.intensity = intensity;
+                lights.push(light);
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (scenes_1_1 && !scenes_1_1.done && (_a = scenes_1.return)) _a.call(scenes_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return lights;
     };
     /** ****************************************************************************************************************
     *   Creates a directional light.
@@ -24547,6 +25059,8 @@ var LightFactory = /** @class */ (function () {
     *   @param intensity     The intensity of this light.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
+    *
+    *   @deprecated Needs to be extended for multiple scenes.
     *******************************************************************************************************************/
     LightFactory.createDirectional = function (scene, direction, position, intensity, diffuseColor, specularColor) {
         var light = new BABYLON.DirectionalLight(LightFactory.createNextLightId(), direction, scene);
@@ -24567,6 +25081,8 @@ var LightFactory = /** @class */ (function () {
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param range         How far the spot light shall reach.
+    *
+    *   @deprecated Needs to be extended for multiple scenes.
     *******************************************************************************************************************/
     LightFactory.createSpot = function (scene, position, direction, angleDegrees, exponent, diffuseColor, specularColor, range) {
         var light = new BABYLON.SpotLight(LightFactory.createNextLightId(), position, direction, bz.MathUtil.degreesToRad(angleDegrees), exponent, scene);
@@ -24578,22 +25094,37 @@ var LightFactory = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a point light.
     *
-    *   @param scene         The scene that contains this light.
+    *   @param scenes        The scenes that contain this light.
     *   @param position      Where this light is located.
     *   @param diffuseColor  The color this light spreads to all surfaces.
     *   @param specularColor The shining spot color this light spreads to faces.
     *   @param range         How far the point light shall reach.
     *   @param intensity     The intensity of this light.
     *******************************************************************************************************************/
-    LightFactory.createPoint = function (scene, position, diffuseColor, specularColor, range, intensity) {
+    LightFactory.createPoint = function (scenes, position, diffuseColor, specularColor, range, intensity) {
+        var e_2, _a;
         if (range === void 0) { range = 100.0; }
         if (intensity === void 0) { intensity = 2.0; }
-        var light = new BABYLON.PointLight(LightFactory.createNextLightId(), position, scene);
-        light.intensity = intensity;
-        light.diffuse = diffuseColor;
-        light.specular = specularColor;
-        light.range = range;
-        return light;
+        var lights = [];
+        try {
+            for (var scenes_2 = __values(scenes), scenes_2_1 = scenes_2.next(); !scenes_2_1.done; scenes_2_1 = scenes_2.next()) {
+                var scene = scenes_2_1.value;
+                var light = new BABYLON.PointLight(LightFactory.createNextLightId(), position, scene);
+                light.intensity = intensity;
+                light.range = range;
+                light.diffuse = diffuseColor;
+                light.specular = specularColor;
+                lights.push(light);
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (scenes_2_1 && !scenes_2_1.done && (_a = scenes_2.return)) _a.call(scenes_2);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+        return lights;
     };
     /** ****************************************************************************************************************
     *   Creates a 'volumic scattered light' post processing effect onto the specified light.
@@ -24603,6 +25134,8 @@ var LightFactory = /** @class */ (function () {
     *   @param scaling       Scale to apply to the light mesh.
     *   @param boundCamera   The camera to apply this post processing effect to.
     *   @param engine        The parent engine reference.
+    *
+    *   @deprecated Needs to be extended for multiple scenes.
     *******************************************************************************************************************/
     LightFactory.createVolumetricLightScatteringPostProcess = function (scene, position, scaling, boundCamera, engine) {
         var godrays = new BABYLON.VolumetricLightScatteringPostProcess('godrays', 2.0, boundCamera, null, 100, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
@@ -24738,16 +25271,115 @@ exports.Event = Event;
 
 /***/ }),
 
-/***/ "./src/typescript/bz/game/event/EventData.ts":
+/***/ "./src/typescript/bz/game/event/EventType.ts":
 /*!***************************************************!*\
-  !*** ./src/typescript/bz/game/event/EventData.ts ***!
+  !*** ./src/typescript/bz/game/event/EventType.ts ***!
   \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-/* eslint-disable max-classes-per-file */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventType = void 0;
+/** ********************************************************************************************************************
+*   Specifies all types of events that may happen in the game.
+***********************************************************************************************************************/
+var EventType;
+(function (EventType) {
+    EventType[EventType["TIME_DELAY"] = 0] = "TIME_DELAY";
+    EventType[EventType["SWITCH_TO_STAGE"] = 1] = "SWITCH_TO_STAGE";
+    EventType[EventType["SHOW_GUI_TEXT_MESSAGE"] = 2] = "SHOW_GUI_TEXT_MESSAGE";
+    EventType[EventType["SHOW_GUI_GAME_MESSAGE"] = 3] = "SHOW_GUI_GAME_MESSAGE";
+    EventType[EventType["SHOW_GUI_EFFECT"] = 4] = "SHOW_GUI_EFFECT";
+    EventType[EventType["CAST_EXPLOSION"] = 5] = "CAST_EXPLOSION";
+    EventType[EventType["GAIN_PAINKILLERS"] = 6] = "GAIN_PAINKILLERS";
+    EventType[EventType["TOGGLE_LIGHT"] = 7] = "TOGGLE_LIGHT";
+})(EventType = exports.EventType || (exports.EventType = {}));
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/event/Interaction.ts":
+/*!*****************************************************!*\
+  !*** ./src/typescript/bz/game/event/Interaction.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Interaction = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Represents one interaction.
+***********************************************************************************************************************/
+var Interaction = /** @class */ (function (_super) {
+    __extends(Interaction, _super);
+    /** ****************************************************************************************************************
+    *   Creates a new Interaction.
+    *
+    *   @param source       The shot source point.
+    *   @param rotation     The rotation of the shot source.
+    *   @param range        The maximum range of this shot.
+    *******************************************************************************************************************/
+    function Interaction(source, rotation, range) {
+        return _super.call(this, source, rotation, range, false, 0) || this;
+    }
+    return Interaction;
+}(bz.Shot));
+exports.Interaction = Interaction;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/event/InteractionType.ts":
+/*!*********************************************************!*\
+  !*** ./src/typescript/bz/game/event/InteractionType.ts ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// noinspection JSUnusedGlobalSymbols
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.InteractionType = void 0;
+/** ********************************************************************************************************************
+*   All types of interaction for a wall interaction.
+***********************************************************************************************************************/
+var InteractionType;
+(function (InteractionType) {
+    InteractionType[InteractionType["ONCE"] = 0] = "ONCE";
+    InteractionType[InteractionType["REPEATED"] = 1] = "REPEATED";
+})(InteractionType = exports.InteractionType || (exports.InteractionType = {}));
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/event/data/EventData.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/event/data/EventData.ts ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -24772,6 +25404,7 @@ var EventData = /** @class */ (function () {
     return EventData;
 }());
 exports.EventData = EventData;
+// TODO extract to single classes/files
 /** ********************************************************************************************************************
 *   The event data for the event type { @see EventType.SWITCH_TO_STAGE }.
 ***********************************************************************************************************************/
@@ -24920,116 +25553,16 @@ var EventDataToggleLight = /** @class */ (function (_super) {
     /** ****************************************************************************************************************
     *   Creates the data for the event 'Toggle light'.
     *
-    *   @param light The light to toggle.
+    *   @param lights The light to toggle.
     *******************************************************************************************************************/
-    function EventDataToggleLight(light) {
+    function EventDataToggleLight(lights) {
         var _this = _super.call(this) || this;
-        _this.light = light;
+        _this.lights = lights;
         return _this;
     }
     return EventDataToggleLight;
 }(EventData));
 exports.EventDataToggleLight = EventDataToggleLight;
-
-
-/***/ }),
-
-/***/ "./src/typescript/bz/game/event/EventType.ts":
-/*!***************************************************!*\
-  !*** ./src/typescript/bz/game/event/EventType.ts ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventType = void 0;
-/** ********************************************************************************************************************
-*   Specifies all types of events that may happen in the game.
-***********************************************************************************************************************/
-var EventType;
-(function (EventType) {
-    EventType[EventType["TIME_DELAY"] = 0] = "TIME_DELAY";
-    EventType[EventType["SWITCH_TO_STAGE"] = 1] = "SWITCH_TO_STAGE";
-    EventType[EventType["SHOW_GUI_TEXT_MESSAGE"] = 2] = "SHOW_GUI_TEXT_MESSAGE";
-    EventType[EventType["SHOW_GUI_GAME_MESSAGE"] = 3] = "SHOW_GUI_GAME_MESSAGE";
-    EventType[EventType["SHOW_GUI_EFFECT"] = 4] = "SHOW_GUI_EFFECT";
-    EventType[EventType["CAST_EXPLOSION"] = 5] = "CAST_EXPLOSION";
-    EventType[EventType["GAIN_PAINKILLERS"] = 6] = "GAIN_PAINKILLERS";
-    EventType[EventType["TOGGLE_LIGHT"] = 7] = "TOGGLE_LIGHT";
-})(EventType = exports.EventType || (exports.EventType = {}));
-
-
-/***/ }),
-
-/***/ "./src/typescript/bz/game/event/Interaction.ts":
-/*!*****************************************************!*\
-  !*** ./src/typescript/bz/game/event/Interaction.ts ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Interaction = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
-/** ********************************************************************************************************************
-*   Represents one interaction.
-***********************************************************************************************************************/
-var Interaction = /** @class */ (function (_super) {
-    __extends(Interaction, _super);
-    /** ****************************************************************************************************************
-    *   Creates a new Interaction.
-    *
-    *   @param source       The shot source point.
-    *   @param rotation     The rotation of the shot source.
-    *   @param range        The maximum range of this shot.
-    *******************************************************************************************************************/
-    function Interaction(source, rotation, range) {
-        return _super.call(this, source, rotation, range, false, 0) || this;
-    }
-    return Interaction;
-}(bz.Shot));
-exports.Interaction = Interaction;
-
-
-/***/ }),
-
-/***/ "./src/typescript/bz/game/event/InteractionType.ts":
-/*!*********************************************************!*\
-  !*** ./src/typescript/bz/game/event/InteractionType.ts ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// noinspection JSUnusedGlobalSymbols
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.InteractionType = void 0;
-/** ********************************************************************************************************************
-*   All types of interaction for a wall interaction.
-***********************************************************************************************************************/
-var InteractionType;
-(function (InteractionType) {
-    InteractionType[InteractionType["ONCE"] = 0] = "ONCE";
-    InteractionType[InteractionType["REPEATED"] = 1] = "REPEATED";
-})(InteractionType = exports.InteractionType || (exports.InteractionType = {}));
 
 
 /***/ }),
@@ -25077,8 +25610,6 @@ var GUI = /** @class */ (function () {
         this.fxManager = null;
         /** The pause GUI. */
         this.pauseGui = null;
-        /** The wearpon image. */
-        this.wearponImage = null;
         /** The corsshair. */
         this.crosshair = null;
         // create all native foreground GUI
@@ -25105,8 +25636,6 @@ var GUI = /** @class */ (function () {
     *   Initializes the Heads Up Display for a game stage.
     *******************************************************************************************************************/
     GUI.prototype.init = function () {
-        this.wearponImage = bz.GUIFactory.createImage('wearpon/autoShotgun.png', -bz.SettingGUI.BORDER_X, 0, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_BOTTOM, null);
-        this.guiPlayer.addControl(this.wearponImage);
         this.crosshair = bz.GUIFactory.createImage('crosshair/default.png', 0, 0, BABYLON_GUI.Control.HORIZONTAL_ALIGNMENT_CENTER, BABYLON_GUI.Control.VERTICAL_ALIGNMENT_CENTER, null);
         this.guiPlayer.addControl(this.crosshair);
     };
@@ -25117,7 +25646,6 @@ var GUI = /** @class */ (function () {
     *******************************************************************************************************************/
     GUI.prototype.setFirstPlayerViewComponentsVisibility = function (visible) {
         // change visibility for wearpon and crosshair
-        this.wearponImage.isVisible = visible;
         this.crosshair.isVisible = visible;
     };
     /** ****************************************************************************************************************
@@ -25197,17 +25725,6 @@ var GUI = /** @class */ (function () {
     *******************************************************************************************************************/
     GUI.prototype.setPauseMenuIndex = function (index) {
         this.pauseGui.setPauseMenuIndex(index);
-    };
-    /** ****************************************************************************************************************
-    *   Zooms the GUI wearpon image by the specified ratio.
-    *
-    *   @param zoomRatio The current zoom factor - from 0.0 (no zoom) to 1.0 (max zoom).
-    *******************************************************************************************************************/
-    GUI.prototype.zoomWearponImage = function (zoomRatio) {
-        this.wearponImage.scaleX = (1.0 + zoomRatio);
-        this.wearponImage.scaleY = (1.0 + zoomRatio);
-        this.wearponImage.left = (-bz.SettingGUI.BORDER_X + (zoomRatio * (this.wearponImage.widthInPixels / 2)));
-        this.wearponImage.top = (-0.0 + (zoomRatio * (this.wearponImage.heightInPixels / 2)));
     };
     /** ****************************************************************************************************************
     *   Updates the Frames Per Second counter.
@@ -25411,7 +25928,7 @@ var GUIPause = /** @class */ (function () {
         /** The GUI menu. */
         this.menu = null;
         // paws bg
-        this.bg = bz.GUIFactory.createRectangle(0, 0, 0, 0, bz.SettingColor.COLOR_CSS_TRANSPARENT, bz.SettingEngine.PAUSE_GUI_BG_COLOR);
+        this.bg = bz.GUIFactory.createRectangle(0, 0, 0, 0, bz.SettingColor.COLOR_CSS_TRANSPARENT, bz.SettingGUI.PAUSE_GUI_BG_COLOR);
         this.bg.width = '100%';
         this.bg.height = '100%';
         guiFg.addControl(this.bg);
@@ -26412,15 +26929,197 @@ var Bot = /** @class */ (function (_super) {
     /** ****************************************************************************************************************
     *   Creates a new bot instance.
     *
-    *   @param stage The stage this bot belongs to.
-    *   @param model The model that represents this bot.
+    *   @param test            Used for testing purposes.
+    *   @param stage           The stage this bot belongs to.
+    *   @param type            The type of bot. Specifies the behaviour.
+    *   @param startupPosition The initial position of this Bot.
     *******************************************************************************************************************/
-    function Bot(stage, model) {
-        return _super.call(this, stage, model) || this;
+    function Bot(test, stage, type, startupPosition) {
+        var _this = _super.call(this, stage, Bot.createModel(stage.getScene().getNativeSceneBG(), type, new bz.MeshFactory(stage.getScene(), new BABYLON.Color3(0.0, 0.0, 0.0)
+        // bz.SettingColor.COLOR_RGB_WHITE
+        // stage.getConfig().ambientColor
+        ), startupPosition)) || this;
+        _this.type = null;
+        _this.position = null;
+        _this.test = 0.0;
+        _this.walking = false;
+        _this.type = type;
+        _this.position = startupPosition;
+        _this.test = test;
+        return _this;
     }
+    /** ****************************************************************************************************************
+    *   Renders one tick of the game loop for this game object.
+    *******************************************************************************************************************/
+    Bot.prototype.render = function () {
+        _super.prototype.render.call(this);
+        var playerPosition = this.stage.getPlayer().getPosition();
+        switch (this.type) {
+            case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
+                {
+                    var BOT_SPEED_MOVE = 0.1;
+                    var MAX_DISTANCE_TO_PLAYER = 5.0;
+                    // face player
+                    var angleBetweenBotAndPlayer = bz.MathUtil.angleBetweenPointsXZ(this.position, playerPosition);
+                    this.model.setAbsoluteRotationXYZ(0.0, -angleBetweenBotAndPlayer, 0.0);
+                    // get distance to player
+                    var distanceToPlayer = this.getFloorDistanceTo(playerPosition);
+                    if (distanceToPlayer >= MAX_DISTANCE_TO_PLAYER) {
+                        // walk towards player
+                        this.moveIntoDirection(angleBetweenBotAndPlayer, BOT_SPEED_MOVE);
+                    }
+                    break;
+                }
+            case bz.BotType.TEST_WALK_X:
+                {
+                    var delta = new BABYLON.Vector3(0.0, 0.0, 0.01);
+                    this.position.addInPlace(delta);
+                    this.model.translatePosition(delta);
+                    break;
+                }
+            case bz.BotType.TEST_WALKING_DUDE:
+                {
+                    var BOT_SPEED_MOVE = 0.1;
+                    var MAX_DISTANCE_TO_PLAYER = 5.0;
+                    var ANIMATE_WALKING_DUDE = true;
+                    // face player
+                    var angleBetweenBotAndPlayer = bz.MathUtil.angleBetweenPointsXZ(this.position, playerPosition);
+                    // get distance to player
+                    var distanceToPlayer = this.getFloorDistanceTo(playerPosition);
+                    if (distanceToPlayer >= MAX_DISTANCE_TO_PLAYER) {
+                        // walk towards player
+                        this.moveIntoDirection(angleBetweenBotAndPlayer, BOT_SPEED_MOVE);
+                        if (!this.walking) {
+                            if (ANIMATE_WALKING_DUDE) {
+                                this.stage.getScene().getNativeSceneBG().beginAnimation(this.model.getMesh(1).skeleton, 0, 100, true, 1.0);
+                                this.stage.getScene().getNativeSceneBG().beginAnimation(this.model.getMesh(2).skeleton, 0, 100, true, 1.0);
+                                this.stage.getScene().getNativeSceneBG().beginAnimation(this.model.getMesh(3).skeleton, 0, 100, true, 1.0);
+                                this.stage.getScene().getNativeSceneBG().beginAnimation(this.model.getMesh(4).skeleton, 0, 100, true, 1.0);
+                                this.stage.getScene().getNativeSceneBG().beginAnimation(this.model.getMesh(5).skeleton, 0, 100, true, 1.0);
+                            }
+                            this.walking = true;
+                        }
+                        this.model.setAbsoluteRotationXYZ(0.0, (-angleBetweenBotAndPlayer + 270.0), 0.0);
+                    }
+                    else {
+                        if (this.walking) {
+                            if (ANIMATE_WALKING_DUDE) {
+                                this.stage.getScene().getNativeSceneBG().stopAnimation(this.model.getMesh(1).skeleton);
+                                this.stage.getScene().getNativeSceneBG().stopAnimation(this.model.getMesh(2).skeleton);
+                                this.stage.getScene().getNativeSceneBG().stopAnimation(this.model.getMesh(3).skeleton);
+                                this.stage.getScene().getNativeSceneBG().stopAnimation(this.model.getMesh(4).skeleton);
+                                this.stage.getScene().getNativeSceneBG().stopAnimation(this.model.getMesh(5).skeleton);
+                                this.model.getMesh(1).skeleton.returnToRest();
+                                this.model.getMesh(2).skeleton.returnToRest();
+                                this.model.getMesh(3).skeleton.returnToRest();
+                                this.model.getMesh(4).skeleton.returnToRest();
+                                this.model.getMesh(5).skeleton.returnToRest();
+                            }
+                            this.walking = false;
+                            this.model.setAbsoluteRotationXYZ(0.0, (-angleBetweenBotAndPlayer + 90.0), 0.0);
+                        }
+                    }
+                    break;
+                }
+            case bz.BotType.TEST_DANCING_GIRL:
+                {
+                    // do nothing!
+                    // this.model.setAbsoluteRotationXYZ( 90.0, this.test, 0.0 );
+                    // no effect
+                    // this.model.translatePosition( new BABYLON.Vector3( -50 * 100.0, 50 * 100.0, 0 ) );
+                    break;
+                }
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Calculate the floor distance from this bot to the given vector.
+    *
+    *   @param point The vector to meassure floor distance to.
+    *
+    *   @return The floor distance (XZ-Points) between this bot's position and the specified point.
+    *******************************************************************************************************************/
+    Bot.prototype.getFloorDistanceTo = function (point) {
+        return BABYLON.Vector2.Distance(new BABYLON.Vector2(this.position.x, this.position.z), new BABYLON.Vector2(point.x, point.z));
+    };
+    /** ****************************************************************************************************************
+    *   Moves this bot into the specified direction and with the specified speed.
+    *
+    *   @param angle The direction to move to.
+    *   @param speed The distance to move.
+    *******************************************************************************************************************/
+    Bot.prototype.moveIntoDirection = function (angle, speed) {
+        var delta = new BABYLON.Vector3(speed * bz.MathUtil.cosDegrees(angle), 0.0, speed * bz.MathUtil.sinDegrees(angle));
+        this.position.addInPlace(delta);
+        this.model.translatePosition(delta);
+    };
+    /** ****************************************************************************************************************
+    *   Creates the model for this bot.
+    *
+    *   @param scene           The scene to load the model into.
+    *   @param botType         The type of the bot to create the model for.
+    *   @param meshFactory     A mesh factory instance.
+    *   @param startupPosition The initial position of the bot.
+    *
+    *   @return The model that represents this bot.
+    *******************************************************************************************************************/
+    Bot.createModel = function (scene, botType, meshFactory, startupPosition) {
+        switch (botType) {
+            case bz.BotType.TEST_WALK_X:
+            case bz.BotType.TEST_WALK_TOWARDS_PLAYER:
+                {
+                    return meshFactory.createImportedModel(bz.ModelFile.CRATE, startupPosition);
+                }
+            case bz.BotType.TEST_WALKING_DUDE:
+                {
+                    var walkingDude = meshFactory.createImportedModel(bz.ModelFile.TEST_WALKING_DUDE, startupPosition);
+                    walkingDude.scaleSize(new BABYLON.Vector3(0.1, 0.1, 0.1));
+                    return walkingDude;
+                }
+            case bz.BotType.TEST_DANCING_GIRL:
+                {
+                    var dancingGirl = meshFactory.createImportedModel(bz.ModelFile.TEST_DANCING_GIRL, startupPosition);
+                    dancingGirl.scaleSize(new BABYLON.Vector3(100.0, 100.0, 100.0));
+                    // @see https://playground.babylonjs.com/#AHQEIB#17
+                    /*
+                                    // get and play Samba animation Group
+                                    let sambaAnim :BABYLON.AnimationGroup = scene.getAnimationGroupByName( 'Samba' );
+                                    console.log( '> Samba Anim: ', sambaAnim );
+                                    sambaAnim.start( true, 1.0, sambaAnim.from, sambaAnim.to );
+                                    // scene.beginAnimation( dancingGirl.getMesh( 0 ).skeleton, 0, 10, true, 1.0 );
+                    */
+                    return dancingGirl;
+                }
+        }
+        return null;
+    };
     return Bot;
 }(bz.GameObject));
 exports.Bot = Bot;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/object/BotType.ts":
+/*!**************************************************!*\
+  !*** ./src/typescript/bz/game/object/BotType.ts ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BotType = void 0;
+/** ********************************************************************************************************************
+*   All different type of bot behaviours.
+***********************************************************************************************************************/
+var BotType;
+(function (BotType) {
+    BotType[BotType["TEST_WALK_X"] = 0] = "TEST_WALK_X";
+    BotType[BotType["TEST_WALK_TOWARDS_PLAYER"] = 1] = "TEST_WALK_TOWARDS_PLAYER";
+    BotType[BotType["TEST_DANCING_GIRL"] = 2] = "TEST_DANCING_GIRL";
+    BotType[BotType["TEST_WALKING_DUDE"] = 3] = "TEST_WALKING_DUDE";
+})(BotType = exports.BotType || (exports.BotType = {}));
 
 
 /***/ }),
@@ -26519,6 +27218,327 @@ exports.Collectable = Collectable;
 
 /***/ }),
 
+/***/ "./src/typescript/bz/game/object/Door.ts":
+/*!***********************************************!*\
+  !*** ./src/typescript/bz/game/object/Door.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Door = exports.DoorState = exports.DoorAnimation = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+var DoorAnimation;
+(function (DoorAnimation) {
+    DoorAnimation[DoorAnimation["NONE"] = 0] = "NONE";
+    DoorAnimation[DoorAnimation["SLIDE_DEFAULT"] = 1] = "SLIDE_DEFAULT";
+    DoorAnimation[DoorAnimation["SLIDE_REVERSED"] = 2] = "SLIDE_REVERSED";
+    DoorAnimation[DoorAnimation["SWING_A_CLOCKWISE"] = 3] = "SWING_A_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_INSIDE_CLOCKWISE"] = 4] = "SWING_INSIDE_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_INSIDE_COUNTER_CLOCKWISE"] = 5] = "SWING_INSIDE_COUNTER_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_OUTSIDE_CLOCKWISE"] = 6] = "SWING_OUTSIDE_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_OUTSIDE_COUNTER_CLOCKWISE"] = 7] = "SWING_OUTSIDE_COUNTER_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_B_CLOCKWISE"] = 8] = "SWING_B_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_A_COUNTER_CLOCKWISE"] = 9] = "SWING_A_COUNTER_CLOCKWISE";
+    DoorAnimation[DoorAnimation["SWING_B_COUNTER_CLOCKWISE"] = 10] = "SWING_B_COUNTER_CLOCKWISE";
+})(DoorAnimation = exports.DoorAnimation || (exports.DoorAnimation = {}));
+var DoorState;
+(function (DoorState) {
+    DoorState[DoorState["CLOSED"] = 0] = "CLOSED";
+    DoorState[DoorState["OPEN"] = 1] = "OPEN";
+    DoorState[DoorState["OPENING"] = 2] = "OPENING";
+    DoorState[DoorState["CLOSING"] = 3] = "CLOSING";
+})(DoorState = exports.DoorState || (exports.DoorState = {}));
+/** ********************************************************************************************************************
+*   Represents a Door with different interaction presets.
+***********************************************************************************************************************/
+var Door = /** @class */ (function (_super) {
+    __extends(Door, _super);
+    /** ****************************************************************************************************************
+    *   Creates a new door instance.
+    *
+    *   @param stage          The stage this wall belongs to.
+    *   @param position       Where to place the door.
+    *   @param doorRotY       Door rotation Y for animation appliance. Will not be applied!
+    *   @param animation      The door animation to perform when an interaction with this door is triggered.
+    *   @param events         All events to trigger when a user interaction is performed.
+    *   @param doorTurnPoint  The CENTER_XZ_LOWEST_Y point of the door.
+    *   @param texture        The texture to use for this door.
+    *   @param mirrorTextureY If the texture shall be mirrored on axis Y.
+    *******************************************************************************************************************/
+    function Door(stage, position, doorRotY, animation, events, doorTurnPoint, texture, mirrorTextureY) {
+        if (doorRotY === void 0) { doorRotY = 0.0; }
+        if (animation === void 0) { animation = bz.DoorAnimation.NONE; }
+        if (events === void 0) { events = []; }
+        if (doorTurnPoint === void 0) { doorTurnPoint = position; }
+        if (texture === void 0) { texture = bz.TextureFile.WALL_DOOR_INDUSTRIAL; }
+        if (mirrorTextureY === void 0) { mirrorTextureY = false; }
+        var _this = _super.call(this, stage, new bz.Model(new bz.MeshFactory(stage.getScene(), stage.getConfig().ambientColor).createBox(position, texture, new BABYLON.Vector3(bz.SettingAEC.DOOR_WIDTH, bz.SettingAEC.DOOR_HEIGHT, bz.SettingAEC.DOOR_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XZ_LOWEST_Y, new BABYLON.Vector3(0.0, 0.0, 0.0), null, mirrorTextureY)), bz.GameObject.UNBREAKABLE, true, false, events, bz.InteractionType.REPEATED) || this;
+        _this.animation = null;
+        _this.doorRotY = null;
+        _this.doorTurnPoint = null;
+        _this.state = DoorState.CLOSED;
+        _this.animationTicks = 0;
+        _this.debugSphereMesh = null;
+        _this.linkedDoor = null;
+        _this.animation = animation;
+        _this.doorRotY = doorRotY;
+        _this.doorTurnPoint = doorTurnPoint;
+        // manipulate door turn point for certain animation types
+        _this.manipulateTurnPointForSwingAnimations();
+        _this.addDebugDoorTurnPoint();
+        return _this;
+    }
+    /** ****************************************************************************************************************
+    *   Performs an player interaction request with this game object.
+    *
+    *   @param stage The stage where the interaction takes place.
+    *******************************************************************************************************************/
+    Door.prototype.performInteraction = function (stage) {
+        // launch all events if any
+        _super.prototype.performInteraction.call(this, stage);
+        // break if this door is not animated
+        if (this.animation === bz.DoorAnimation.NONE) {
+            return;
+        }
+        // start door animation according to state
+        switch (this.state) {
+            case DoorState.CLOSED:
+                {
+                    // start open slide door animation
+                    this.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                    this.state = DoorState.OPENING;
+                    if (this.linkedDoor !== null) {
+                        this.linkedDoor.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                        this.linkedDoor.state = DoorState.OPENING;
+                    }
+                    break;
+                }
+            case DoorState.OPEN:
+                {
+                    // start close slide door animation
+                    this.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                    this.state = DoorState.CLOSING;
+                    if (this.linkedDoor !== null) {
+                        this.linkedDoor.animationTicks = bz.SettingGame.DOOR_OPEN_CLOSE_TICKS;
+                        this.linkedDoor.state = DoorState.CLOSING;
+                    }
+                    break;
+                }
+            case DoorState.OPENING:
+            case DoorState.CLOSING:
+                {
+                    break;
+                }
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Renders one tick of the game loop for this door.
+    *******************************************************************************************************************/
+    Door.prototype.render = function () {
+        // animate swing or slide door animation
+        switch (this.state) {
+            case DoorState.OPENING:
+                {
+                    var tickDelta = (bz.SettingAEC.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS);
+                    var rotDelta = (90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS);
+                    switch (this.animation) {
+                        case bz.DoorAnimation.SLIDE_DEFAULT:
+                            {
+                                var deltaX = tickDelta * bz.MathUtil.cosDegrees(this.doorRotY);
+                                var deltaZ = (-1.0 * tickDelta * bz.MathUtil.sinDegrees(this.doorRotY));
+                                this.model.translatePosition(new BABYLON.Vector3(deltaX, 0.0, deltaZ));
+                                break;
+                            }
+                        case bz.DoorAnimation.SLIDE_REVERSED:
+                            {
+                                var deltaX = (-1.0 * tickDelta * bz.MathUtil.cosDegrees(this.doorRotY));
+                                var deltaZ = tickDelta * bz.MathUtil.sinDegrees(this.doorRotY);
+                                this.model.translatePosition(new BABYLON.Vector3(deltaX, 0.0, deltaZ));
+                                break;
+                            }
+                        case bz.DoorAnimation.SWING_A_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_B_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
+                            {
+                                this.model.rotateAroundAxisY(this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta);
+                                break;
+                            }
+                        case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
+                            {
+                                this.model.rotateAroundAxisY(this.doorTurnPoint.x, this.doorTurnPoint.z, -rotDelta);
+                                break;
+                            }
+                    }
+                    if (--this.animationTicks <= 0) {
+                        this.state = bz.DoorState.OPEN;
+                    }
+                    break;
+                }
+            case DoorState.CLOSING:
+                {
+                    var tickDelta = (bz.SettingAEC.DOOR_WIDTH / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS);
+                    var rotDelta = (90.0 / bz.SettingGame.DOOR_OPEN_CLOSE_TICKS);
+                    switch (this.animation) {
+                        case bz.DoorAnimation.SLIDE_DEFAULT:
+                            {
+                                var deltaX = (-1.0 * tickDelta * bz.MathUtil.cosDegrees(this.doorRotY));
+                                var deltaZ = tickDelta * bz.MathUtil.sinDegrees(this.doorRotY);
+                                this.model.translatePosition(new BABYLON.Vector3(deltaX, 0.0, deltaZ));
+                                break;
+                            }
+                        case bz.DoorAnimation.SLIDE_REVERSED:
+                            {
+                                var deltaX = tickDelta * bz.MathUtil.cosDegrees(this.doorRotY);
+                                var deltaZ = -1.0 * tickDelta * bz.MathUtil.sinDegrees(this.doorRotY);
+                                this.model.translatePosition(new BABYLON.Vector3(deltaX, 0.0, deltaZ));
+                                break;
+                            }
+                        case bz.DoorAnimation.SWING_A_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_B_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
+                            {
+                                this.model.rotateAroundAxisY(this.doorTurnPoint.x, this.doorTurnPoint.z, -rotDelta);
+                                break;
+                            }
+                        case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
+                        case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
+                            {
+                                this.model.rotateAroundAxisY(this.doorTurnPoint.x, this.doorTurnPoint.z, rotDelta);
+                                break;
+                            }
+                    }
+                    if (--this.animationTicks <= 0) {
+                        this.state = bz.DoorState.CLOSED;
+                    }
+                    break;
+                }
+            case DoorState.OPEN:
+            case DoorState.CLOSED:
+                {
+                    // no animation takes place
+                    break;
+                }
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Disposes all meshes of this bullet hole.
+    *******************************************************************************************************************/
+    Door.prototype.dispose = function () {
+        _super.prototype.dispose.call(this);
+        if (this.debugSphereMesh !== null) {
+            this.debugSphereMesh.dispose();
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Sets up a link to a second door that will be opened and closed synchronouslsy.
+    *
+    *   @param linkedDoor The linked door to set.
+    *******************************************************************************************************************/
+    Door.prototype.setLinkedDoor = function (linkedDoor) {
+        this.linkedDoor = linkedDoor;
+    };
+    /** ****************************************************************************************************************
+    *   Rotates the door's turn point on the Y axis around the specified XZ point.
+    *
+    *   @param x    Rotation pivot X.
+    *   @param z    Rotation pivot Z.
+    *   @param rotY Rotation to perform, in degrees.
+    *******************************************************************************************************************/
+    Door.prototype.rotateDoorTurnPointAroundAxisY = function (x, z, rotY) {
+        var rotationPivot = new BABYLON.Vector2(x, z);
+        var doorTurnPoint2d = new BABYLON.Vector2(this.doorTurnPoint.x, this.doorTurnPoint.z);
+        var rotatedDoorTurnPoint2d = bz.MathUtil.rotateVector2(rotationPivot, -rotY, doorTurnPoint2d);
+        this.doorTurnPoint = new BABYLON.Vector3(rotatedDoorTurnPoint2d.x, this.doorTurnPoint.y, rotatedDoorTurnPoint2d.y
+        /*
+                    this.doorTurnPoint.x, // x + ( this.doorTurnPoint.x - x ) * bz.MathUtil.cosDegrees( rotY ),
+                    this.doorTurnPoint.y, // this.doorTurnPoint.y,
+                    this.doorTurnPoint.z  // , z + ( this.doorTurnPoint.z - z ) * bz.MathUtil.sinDegrees( rotY ) // correct!
+        */
+        );
+        // update stored rotation Y !
+        this.doorRotY += rotY;
+        // update sphere position ?
+        if (bz.SettingDebug.SHOW_DOOR_TURN_POINTS) {
+            this.debugSphereMesh.position = this.doorTurnPoint;
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Translates the door's turn point according to the specified door animation behaviour.
+    *******************************************************************************************************************/
+    Door.prototype.manipulateTurnPointForSwingAnimations = function () {
+        switch (this.animation) {
+            case bz.DoorAnimation.SWING_A_CLOCKWISE:
+            case bz.DoorAnimation.SWING_A_COUNTER_CLOCKWISE:
+                {
+                    // door turns on left edge
+                    this.doorTurnPoint.x -= bz.MathUtil.cosDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    this.doorTurnPoint.z += bz.MathUtil.sinDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    break;
+                }
+            case bz.DoorAnimation.SWING_B_CLOCKWISE:
+            case bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE:
+                {
+                    // door turns on right edge
+                    this.doorTurnPoint.x += bz.MathUtil.cosDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    this.doorTurnPoint.z -= bz.MathUtil.sinDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    break;
+                }
+            case bz.DoorAnimation.SWING_INSIDE_CLOCKWISE:
+            case bz.DoorAnimation.SWING_INSIDE_COUNTER_CLOCKWISE:
+                {
+                    // door turns on center behind door
+                    this.doorTurnPoint.x += bz.MathUtil.sinDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    this.doorTurnPoint.z += bz.MathUtil.cosDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    break;
+                }
+            case bz.DoorAnimation.SWING_OUTSIDE_CLOCKWISE:
+            case bz.DoorAnimation.SWING_OUTSIDE_COUNTER_CLOCKWISE:
+                {
+                    // door turns on center before door
+                    this.doorTurnPoint.x -= bz.MathUtil.sinDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    this.doorTurnPoint.z -= bz.MathUtil.cosDegrees(this.doorRotY) * (bz.SettingAEC.DOOR_WIDTH / 2);
+                    break;
+                }
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Adds a debug sphere mesh to the scene that illustrates the door's turn point.
+    *******************************************************************************************************************/
+    Door.prototype.addDebugDoorTurnPoint = function () {
+        if (bz.SettingDebug.SHOW_DOOR_TURN_POINTS) {
+            this.debugSphereMesh = new bz.MeshFactory(this.stage.getScene(), bz.SettingColor.COLOR_RGB_YELLOW).createSphere(this.doorTurnPoint, bz.MeshAnchor.CENTER_XYZ, 0.50, new BABYLON.Vector3(0.0, 0.0, 0.0), null, bz.SettingColor.COLOR_RGB_YELLOW, bz.PhysicSet.NONE, 1.0);
+        }
+    };
+    return Door;
+}(bz.Wall));
+exports.Door = Door;
+
+
+/***/ }),
+
 /***/ "./src/typescript/bz/game/object/GameObject.ts":
 /*!*****************************************************!*\
   !*** ./src/typescript/bz/game/object/GameObject.ts ***!
@@ -26549,18 +27569,24 @@ var GameObject = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a new game object.
     *
-    *   @param stage  The stage this game object belongs to.
-    *   @param model  The model for this game object.
-    *   @param energy The initial energy of this game object.
+    *   @param stage                    The stage this game object belongs to.
+    *   @param model                    The model for this game object.
+    *   @param energy                   The initial energy of this game object.
+    *   @param darkenMeshesOnEnergyLoss If mesh darking shall be applied when this game object loses energy.
+    *   @param splitHitMeshOnEnergyLoss If the hit mesh shall be split into two meshes when energy drops to 0.
     *******************************************************************************************************************/
-    function GameObject(stage, model, energy) {
+    function GameObject(stage, model, energy, darkenMeshesOnEnergyLoss, splitHitMeshOnEnergyLoss) {
         if (energy === void 0) { energy = GameObject.UNBREAKABLE; }
+        if (darkenMeshesOnEnergyLoss === void 0) { darkenMeshesOnEnergyLoss = true; }
+        if (splitHitMeshOnEnergyLoss === void 0) { splitHitMeshOnEnergyLoss = false; }
         /** The stage this game object belongs to. */
         this.stage = null;
         /** All meshes this game object consists of. */
         this.model = null;
         /** The initial energy of this game object. */
         this.initialEnergy = 0;
+        this.darkenMeshesOnEnergyLoss = false;
+        this.splitHitMeshOnEnergyLoss = false;
         /** The current energy of this wall. */
         this.currentEnergy = 0;
         /** Flags if this wall is broken. */
@@ -26571,6 +27597,8 @@ var GameObject = /** @class */ (function () {
         this.model = model;
         this.initialEnergy = energy;
         this.currentEnergy = energy;
+        this.darkenMeshesOnEnergyLoss = darkenMeshesOnEnergyLoss;
+        this.splitHitMeshOnEnergyLoss = splitHitMeshOnEnergyLoss;
     }
     /** ****************************************************************************************************************
     *   Returns the next z-index for the next bullet hole to append onto this mesh.
@@ -26641,12 +27669,12 @@ var GameObject = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Being invoked when this game object is hurt by a shot or any other impact source.
     *
-    *   @param scene  The native babylon.JS scene.
-    *   @param damage The damage to apply onto this game object.
-    *   @param mesh   The mesh that received the damage.
-    *                 May be <code>null</code> if the game object received global damage.
+    *   @param damage   The damage to apply onto this game object.
+    *   @param mesh     The mesh that received the damage.
+    *                   May be <code>null</code> if the game object received global damage.
+    *   @param hitPoint The hit point that causes this hurt.
     *******************************************************************************************************************/
-    GameObject.prototype.hurt = function (scene, damage, mesh) {
+    GameObject.prototype.hurt = function (damage, mesh, hitPoint) {
         // exit if unbreakable
         if (this.currentEnergy === GameObject.UNBREAKABLE) {
             bz.Debug.fire.log('Object is unbreakable.');
@@ -26662,6 +27690,7 @@ var GameObject = /** @class */ (function () {
             bz.Debug.fire.log('No damage to apply onto this object.');
             return;
         }
+        var scene = this.stage.getScene().getNativeSceneBG();
         // lower energy and clip to 0
         this.currentEnergy -= damage;
         if (this.currentEnergy <= 0) {
@@ -26672,9 +27701,11 @@ var GameObject = /** @class */ (function () {
             + '] damage - new energy is ['
             + String(this.currentEnergy) + ']');
         // set darkening alpha value for this mesh
-        var darkenAlpha = (bz.SettingEngine.MAX_MESH_DARKENING_RATIO
-            - (bz.SettingEngine.MAX_MESH_DARKENING_RATIO * (this.currentEnergy / this.initialEnergy)));
-        this.model.setMeshDarkening(scene, darkenAlpha);
+        if (this.darkenMeshesOnEnergyLoss) {
+            var darkenAlpha = (bz.SettingEngine.MAX_MESH_DARKENING_RATIO
+                - (bz.SettingEngine.MAX_MESH_DARKENING_RATIO * (this.currentEnergy / this.initialEnergy)));
+            this.model.setMeshDarkening(scene, darkenAlpha);
+        }
         // shot off this mesh from the compound - if enabled by the model
         this.model.shotOffCompound(scene, mesh);
         // check if the object is destoyed now
@@ -26686,6 +27717,20 @@ var GameObject = /** @class */ (function () {
             this.model.removeCompoundMesh(scene);
             // change static models to gravity by setting mass
             this.model.removeStaticState();
+            // slice the mesh if desired
+            if (this.splitHitMeshOnEnergyLoss) {
+                // check if this hit mesh is available and not already splitted by a different HitPoint of this shot
+                if (mesh !== null
+                    && !mesh.isDisposed()
+                    && mesh instanceof BABYLON.Mesh) {
+                    // remove existing bullet holes
+                    this.stage.disposeBulletHolesForGameObject(this);
+                    // slice the mesh in two
+                    var slicedMeshes = this.model.sliceMesh(scene, mesh, hitPoint.getPoint());
+                    // apply hit impulses to both submeshes ..
+                    hitPoint.applyImpulseToSplitSubmeshes(slicedMeshes, damage);
+                }
+            }
         }
     };
     /** An energy amount that represents that this game object is unbreakable. */
@@ -26923,43 +27968,37 @@ var Player = /** @class */ (function (_super) {
             // Player.PLAYER_RIGHT_HAND_ID
             new bz.MeshFactory(scene, emissiveColor).createBox(position.clone().addInPlace(new BABYLON.Vector3(1.25, 1.25, 0.0)), bz.TextureFile.WALL_SKIN_1, new BABYLON.Vector3(0.25, 0.25, 0.25)),
         ])) || this;
-        /** The current height of the player. Changes on ducking. */
-        _this.heightY = 0.0;
-        /** Flags if rotZ view centering should occur this tick. */
+        /** Flags if the player wants to center rotZ. */
         _this.centerRotZ = false;
+        /** Flags if the player wants to fire. */
+        _this.fire = false;
+        /** Flags if the player wants to duck. */
+        _this.duck = false;
+        /** Flags if the player wants to interact. */
+        _this.interact = false;
+        /** Flags if the player wants to zoom. */
+        _this.zoom = false;
         /** The current angle for the sinus calculation of the head shaking. */
         _this.headShakingAngle = 0.0;
-        /** Flags if fire should be performed this tick. */
-        _this.fire = false;
-        /** Flags if the player currently wants to duck. */
-        _this.duck = false;
-        /** Flags if the player currently wants to interact. */
-        _this.interact = false;
-        /** Flags if the player currently wants to zoom. */
-        _this.zoom = false;
         /** The current field of view of the player. Changes on zooming. */
         _this.fieldOfView = 0.0;
+        /** Tick counter for turn around animation. */
         _this.turnAroundTicks = 0;
-        /** Current rotation. */
-        _this.rotation = null;
-        /** Current rotation delta. */
-        _this.rotationDelta = null;
-        /** Current move delta. */
-        _this.moveDelta = null;
-        /** All player physic settings. */
-        _this.playerPhysics = null;
         /** The inventory this player is carrying. */
         _this.inventory = null;
-        // new player physics instance
-        _this.playerPhysics = new bz.PlayerPhysic(_this.model);
+        /** All handling for the player physic. */
+        _this.playerPhysic = null;
+        /** All handling for the player wearpon. */
+        _this.playerWearpon = null;
+        // new player physics and wearpons instance
+        _this.playerPhysic = new bz.PlayerPhysic(_this.model);
+        _this.playerWearpon = new bz.PlayerWearpon(stage, _this.playerPhysic.head);
         // new player inventory
         _this.inventory = inventory;
         // assign initial rotation, rotation delta and move delta
-        _this.rotation = rotation;
-        _this.rotationDelta = BABYLON.Vector3.Zero();
-        _this.moveDelta = BABYLON.Vector3.Zero();
-        // set initial height
-        _this.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
+        _this.playerPhysic.rotation = rotation;
+        _this.playerPhysic.rotationDelta = BABYLON.Vector3.Zero();
+        _this.playerPhysic.moveDelta = BABYLON.Vector3.Zero();
         _this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
         // apply initial rotation
         _this.rotatePlayerXYZ();
@@ -26968,6 +28007,13 @@ var Player = /** @class */ (function (_super) {
         return _this;
     }
     /** ****************************************************************************************************************
+    *   Disposes all meshes of the player.
+    *******************************************************************************************************************/
+    Player.prototype.dispose = function () {
+        _super.prototype.dispose.call(this);
+        this.playerWearpon.dispose();
+    };
+    /** ****************************************************************************************************************
     *   Renders one tick of the player's game loop.
     *******************************************************************************************************************/
     Player.prototype.render = function () {
@@ -26975,7 +28021,7 @@ var Player = /** @class */ (function (_super) {
         this.handleUserInput();
         // alter position
         this.movePlayer();
-        this.manipulateVelocities();
+        this.playerPhysic.manipulateVelocities();
         // alter view
         this.checkTurnAround();
         this.rotatePlayerXYZ();
@@ -26987,6 +28033,8 @@ var Player = /** @class */ (function (_super) {
         this.checkFire();
         // check stage interaction
         this.checkInteraction();
+        // set shotgun rotation
+        this.playerWearpon.render();
     };
     /** ****************************************************************************************************************
     *   Returns the player's target mesh for the first person camera.
@@ -26995,7 +28043,7 @@ var Player = /** @class */ (function (_super) {
     *           This is the right mesh to set the first person camera into.
     *******************************************************************************************************************/
     Player.prototype.getFirstPersonCameraTargetMesh = function () {
-        return this.playerPhysics.head;
+        return this.playerPhysic.head;
     };
     /** ****************************************************************************************************************
     *   Returns the player's target mesh for the third person camera.
@@ -27004,7 +28052,7 @@ var Player = /** @class */ (function (_super) {
     *           This is the right mesh to set as a target for the third person camera.
     *******************************************************************************************************************/
     Player.prototype.getThirdPersonCameraTargetMesh = function () {
-        return this.playerPhysics.body;
+        return this.playerPhysic.body;
     };
     /** ****************************************************************************************************************
     *   Delivers the current position of the player body.
@@ -27012,7 +28060,7 @@ var Player = /** @class */ (function (_super) {
     *   @return Current player body position.
     *******************************************************************************************************************/
     Player.prototype.getPosition = function () {
-        return this.playerPhysics.body.position;
+        return this.playerPhysic.body.position;
     };
     /** ****************************************************************************************************************
     *   Delivers the current inventory of the player.
@@ -27040,8 +28088,8 @@ var Player = /** @class */ (function (_super) {
             else {
                 speedForward = bz.SettingPlayer.IMPULSE_MOVE;
             }
-            this.moveDelta.x += speedForward * bz.MathUtil.sinDegrees(this.rotation.y);
-            this.moveDelta.z += speedForward * bz.MathUtil.cosDegrees(this.rotation.y);
+            this.playerPhysic.moveDelta.x += speedForward * bz.MathUtil.sinDegrees(this.playerPhysic.rotation.y);
+            this.playerPhysic.moveDelta.z += speedForward * bz.MathUtil.cosDegrees(this.playerPhysic.rotation.y);
             // shake head if enabled
             if (bz.SettingPlayer.HEAD_SHAKING_ENABLED) {
                 this.alterHeadShakeAngle(speedForward);
@@ -27050,8 +28098,8 @@ var Player = /** @class */ (function (_super) {
         if (keySystem.isPressed(bz.KeyCodes.KEY_S)
         // ||  keySystem.isPressed( bz.KeyCodes.KEY_DOWN )
         ) {
-            this.moveDelta.x -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.sinDegrees(this.rotation.y);
-            this.moveDelta.z -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.cosDegrees(this.rotation.y);
+            this.playerPhysic.moveDelta.x -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.sinDegrees(this.playerPhysic.rotation.y);
+            this.playerPhysic.moveDelta.z -= bz.SettingPlayer.IMPULSE_MOVE * bz.MathUtil.cosDegrees(this.playerPhysic.rotation.y);
             // shake head if enabled
             if (bz.SettingPlayer.HEAD_SHAKING_ENABLED) {
                 this.alterHeadShakeAngle(-bz.SettingPlayer.IMPULSE_MOVE);
@@ -27061,38 +28109,38 @@ var Player = /** @class */ (function (_super) {
         if (keySystem.isPressed(bz.KeyCodes.KEY_A)
         // || keySystem.isPressed( bz.KeyCodes.KEY_LEFT )
         ) {
-            this.moveDelta.x -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees(this.rotation.y);
-            this.moveDelta.z += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees(this.rotation.y);
+            this.playerPhysic.moveDelta.x -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees(this.playerPhysic.rotation.y);
+            this.playerPhysic.moveDelta.z += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees(this.playerPhysic.rotation.y);
         }
         if (keySystem.isPressed(bz.KeyCodes.KEY_D)
         // || keySystem.isPressed( bz.KeyCodes.KEY_RIGHT )
         ) {
-            this.moveDelta.x += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees(this.rotation.y);
-            this.moveDelta.z -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees(this.rotation.y);
+            this.playerPhysic.moveDelta.x += bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.cosDegrees(this.playerPhysic.rotation.y);
+            this.playerPhysic.moveDelta.z -= bz.SettingPlayer.IMPULSE_STRAVE * bz.MathUtil.sinDegrees(this.playerPhysic.rotation.y);
         }
         // turn Y
         if (keySystem.isPressed(bz.KeyCodes.KEY_Q)) {
-            this.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN;
+            this.playerPhysic.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN;
         }
         if (keySystem.isPressed(bz.KeyCodes.KEY_E)) {
-            this.rotationDelta.y = bz.SettingPlayer.SPEED_TURN;
+            this.playerPhysic.rotationDelta.y = bz.SettingPlayer.SPEED_TURN;
         }
         var lastPointerMovementX = mouseSystem.getAndResetLastMouseMovementX();
         if (lastPointerMovementX !== 0) {
             // noinspection JSSuspiciousNameCombination
-            this.rotationDelta.y += (lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER);
+            this.playerPhysic.rotationDelta.y += (lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER);
         }
         // look up / down
         if (keySystem.isPressed(bz.KeyCodes.KEY_T)) {
-            this.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
+            this.playerPhysic.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
         }
         if (keySystem.isPressed(bz.KeyCodes.KEY_G)) {
-            this.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
+            this.playerPhysic.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
         }
         var lastPointerMovementY = mouseSystem.getAndResetLastMouseMovementY();
         if (lastPointerMovementY !== 0) {
             // noinspection JSSuspiciousNameCombination
-            this.rotationDelta.z += (lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER);
+            this.playerPhysic.rotationDelta.z += (lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER);
         }
         // fire
         if (keySystem.isPressed(bz.KeyCodes.KEY_CTRL_LEFT)) {
@@ -27133,84 +28181,125 @@ var Player = /** @class */ (function (_super) {
             keySystem.setNeedsRelease(bz.KeyCodes.KEY_BACKSPACE);
             this.consumePainkiller();
         }
+        // consume painkiller
+        if (keySystem.isPressed(bz.KeyCodes.KEY_L)) {
+            keySystem.setNeedsRelease(bz.KeyCodes.KEY_L);
+            this.playerWearpon.toggleWearponRaise();
+        }
     };
     /** ****************************************************************************************************************
     *   Moves all player's meshes by the current move deltas.
     *******************************************************************************************************************/
     Player.prototype.movePlayer = function () {
         // check if moving occurred
-        if (this.moveDelta.x !== 0.0
-            || this.moveDelta.y !== 0.0
-            || this.moveDelta.z !== 0.0) {
+        if (this.playerPhysic.moveDelta.x !== 0.0
+            || this.playerPhysic.moveDelta.y !== 0.0
+            || this.playerPhysic.moveDelta.z !== 0.0) {
             // direct movement is completely inoperative! :(
             var DIRECT_MOVEMENT = false;
             if (DIRECT_MOVEMENT) {
                 // apply direct move delta
-                this.playerPhysics.body.moveWithCollisions(new BABYLON.Vector3(this.moveDelta.x, this.moveDelta.y, this.moveDelta.z));
+                this.playerPhysic.body.moveWithCollisions(new BABYLON.Vector3(this.playerPhysic.moveDelta.x, this.playerPhysic.moveDelta.y, this.playerPhysic.moveDelta.z));
             }
             else {
                 // apply physical impulse
-                if (this.playerPhysics.body.physicsImpostor !== undefined) {
+                if (this.playerPhysic.body.physicsImpostor !== undefined) {
                     // this.body.physicsImpostor.setDeltaPosition ??
-                    this.playerPhysics.body.physicsImpostor.applyImpulse(new BABYLON.Vector3(this.moveDelta.x, this.moveDelta.y, this.moveDelta.z), this.playerPhysics.body.position);
+                    this.playerPhysic.body.physicsImpostor.applyImpulse(new BABYLON.Vector3(this.playerPhysic.moveDelta.x, this.playerPhysic.moveDelta.y, this.playerPhysic.moveDelta.z), this.playerPhysic.body.position);
                 }
             }
             // force rotZ centering on horizontal movements if enabled
             if (bz.SettingPlayer.ENABLE_CENTERING_ROT_Z_ON_WALKING) {
-                if (this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0) {
+                if (this.playerPhysic.moveDelta.x !== 0.0 || this.playerPhysic.moveDelta.z !== 0.0) {
                     this.centerRotZ = true;
                 }
             }
             // reset move deltas
-            this.moveDelta.x = 0.0;
-            this.moveDelta.y = 0.0;
-            this.moveDelta.z = 0.0;
+            this.playerPhysic.moveDelta = new BABYLON.Vector3(0.0, 0.0, 0.0);
         }
         else {
             this.centerRotZ = false;
         }
     };
     /** ****************************************************************************************************************
-    *   Overrides the player's linear and angular velocities for improved player controls and user experience.
-    *******************************************************************************************************************/
-    Player.prototype.manipulateVelocities = function () {
-        if (this.playerPhysics.body.physicsImpostor !== undefined) {
-            // suppress linear velocities for X and Z axis
-            var velocity = this.playerPhysics.body.physicsImpostor.getLinearVelocity();
-            this.playerPhysics.body.physicsImpostor.setLinearVelocity(new BABYLON.Vector3((velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION), 
-            // check player ascending
-            (velocity.y >= 1.0
-                ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
-                : velocity.y <= -1.0
-                    ? velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION
-                    : velocity.y), (velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION)));
-            // completely suppress angular velocities
-            this.playerPhysics.body.physicsImpostor.setAngularVelocity(BABYLON.Vector3.Zero());
-        }
-    };
-    /** ****************************************************************************************************************
     *   Applies the current rotations for all axis to the according player body parts.
     *******************************************************************************************************************/
     Player.prototype.rotatePlayerXYZ = function () {
-        if (this.rotationDelta.y !== 0.0) {
-            this.rotation.y = bz.MathUtil.normalizeAngleDegrees(this.rotation.y + this.rotationDelta.y);
-            this.rotationDelta.y = 0.0;
+        if (this.playerPhysic.rotationDelta.y !== 0.0) {
+            if (this.zoom) {
+                this.playerWearpon.targetShotgunRotY = 0;
+            }
+            else {
+                if (this.playerPhysic.rotationDelta.y < 0.0) {
+                    this.playerWearpon.targetShotgunRotY += bz.PlayerWearpon.SHOTGUN_NOISE_Y * -this.playerPhysic.rotationDelta.y;
+                    if (this.playerWearpon.targetShotgunRotY > bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y) {
+                        this.playerWearpon.targetShotgunRotY = bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y;
+                    }
+                }
+                else {
+                    this.playerWearpon.targetShotgunRotY -= bz.PlayerWearpon.SHOTGUN_NOISE_Y * this.playerPhysic.rotationDelta.y;
+                    if (this.playerWearpon.targetShotgunRotY < -bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y) {
+                        this.playerWearpon.targetShotgunRotY = -bz.PlayerWearpon.MAX_SHOTGUN_ROT_Y;
+                    }
+                }
+            }
+            this.playerPhysic.rotation.y = bz.MathUtil.normalizeAngleDegrees(this.playerPhysic.rotation.y + this.playerPhysic.rotationDelta.y);
+            this.playerPhysic.rotationDelta.y = 0.0;
         }
-        if (this.rotationDelta.z !== 0.0) {
-            this.rotation.z += this.rotationDelta.z;
-            if (this.rotation.z > bz.SettingPlayer.MAX_ROT_Z) {
-                this.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
+        else {
+            this.playerWearpon.targetShotgunRotY = 0.0;
+        }
+        if (this.playerPhysic.rotationDelta.z !== 0.0) {
+            if (this.playerPhysic.rotationDelta.z < 0.0) {
+                if (this.playerPhysic.rotation.z === -bz.SettingPlayer.MAX_ROT_Z) {
+                    this.playerWearpon.targetShotgunRotX = 0;
+                }
+                else {
+                    this.playerPhysic.rotation.z += this.playerPhysic.rotationDelta.z;
+                    if (this.zoom) {
+                        this.playerWearpon.targetShotgunRotX = 0.0;
+                    }
+                    else {
+                        this.playerWearpon.targetShotgunRotX -= bz.PlayerWearpon.SHOTGUN_NOISE_X * this.playerPhysic.rotationDelta.z;
+                        if (this.playerWearpon.targetShotgunRotX < -bz.PlayerWearpon.MAX_SHOTGUN_ROT_X) {
+                            this.playerWearpon.targetShotgunRotX = -bz.PlayerWearpon.MAX_SHOTGUN_ROT_X;
+                        }
+                    }
+                    if (this.playerPhysic.rotation.z < -bz.SettingPlayer.MAX_ROT_Z) {
+                        this.playerPhysic.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
+                    }
+                }
             }
-            else if (this.rotation.z < -bz.SettingPlayer.MAX_ROT_Z) {
-                this.rotation.z = -bz.SettingPlayer.MAX_ROT_Z;
+            else if (this.playerPhysic.rotationDelta.z > 0.0) {
+                if (this.playerPhysic.rotation.z === bz.SettingPlayer.MAX_ROT_Z) {
+                    this.playerWearpon.targetShotgunRotX = 0;
+                }
+                else {
+                    this.playerPhysic.rotation.z += this.playerPhysic.rotationDelta.z;
+                    if (this.zoom) {
+                        this.playerWearpon.targetShotgunRotX = 0;
+                    }
+                    else {
+                        this.playerWearpon.targetShotgunRotX += (bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.playerPhysic.rotationDelta.z);
+                        if (this.playerWearpon.targetShotgunRotX > bz.PlayerWearpon.MAX_SHOTGUN_ROT_X) {
+                            this.playerWearpon.targetShotgunRotX = bz.PlayerWearpon.MAX_SHOTGUN_ROT_X;
+                        }
+                    }
+                    if (this.playerPhysic.rotation.z > bz.SettingPlayer.MAX_ROT_Z) {
+                        this.playerPhysic.rotation.z = bz.SettingPlayer.MAX_ROT_Z;
+                    }
+                }
             }
-            this.rotationDelta.z = 0.0;
+            this.playerPhysic.rotationDelta.z = 0.0;
+        }
+        else {
+            this.playerWearpon.targetShotgunRotX = 0.0;
         }
         // rotate body
-        bz.MeshManipulation.setAbsoluteRotationXYZ(this.playerPhysics.body, 0.0, // this.rotation.z,
-        this.rotation.y, 0.0);
+        bz.MeshManipulation.setAbsoluteRotationXYZ(this.playerPhysic.body, 0.0, // this.rotation.z,
+        this.playerPhysic.rotation.y, 0.0);
         // rotate head
-        bz.MeshManipulation.setAbsoluteRotationXYZ(this.playerPhysics.head, this.rotation.z, 0.0, 0.0);
+        bz.MeshManipulation.setAbsoluteRotationXYZ(this.playerPhysic.head, this.playerPhysic.rotation.z, 0.0, 0.0);
     };
     /** ****************************************************************************************************************
     *   Toggles player ducking.
@@ -27231,31 +28320,31 @@ var Player = /** @class */ (function (_super) {
                 }
         */
         // deny jumping if currently falling
-        if (this.playerPhysics.isFalling()) {
+        if (this.playerPhysic.isFalling()) {
             bz.Debug.player.log('Player jump denied caused by falling');
             return;
         }
         bz.Debug.player.log('Player jumps');
-        this.moveDelta.y = bz.SettingPlayer.JUMP_ASCEND_IMPULSE_Y;
+        this.playerPhysic.moveDelta.y = bz.SettingPlayer.IMPULSE_JUMP;
     };
     /** ****************************************************************************************************************
     *   Checks if a height change is required and possibly changes it.
     *******************************************************************************************************************/
     Player.prototype.checkHeightChange = function () {
         if (this.duck) {
-            if (this.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKING) {
-                this.heightY -= bz.SettingPlayer.SPEED_DUCK_DOWN;
-                if (this.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKING) {
-                    this.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKING;
+            if (this.playerPhysic.heightY > bz.SettingPlayer.HEIGHT_Y_DUCKING) {
+                this.playerPhysic.heightY -= bz.SettingPlayer.SPEED_DUCK_DOWN;
+                if (this.playerPhysic.heightY < bz.SettingPlayer.HEIGHT_Y_DUCKING) {
+                    this.playerPhysic.heightY = bz.SettingPlayer.HEIGHT_Y_DUCKING;
                 }
                 this.positionPlayerLimbs();
             }
         }
         else {
-            if (this.heightY < bz.SettingPlayer.HEIGHT_Y_STANDING) {
-                this.heightY += bz.SettingPlayer.SPEED_STAND_UP;
-                if (this.heightY > bz.SettingPlayer.HEIGHT_Y_STANDING) {
-                    this.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
+            if (this.playerPhysic.heightY < bz.SettingPlayer.HEIGHT_Y_STANDING) {
+                this.playerPhysic.heightY += bz.SettingPlayer.SPEED_STAND_UP;
+                if (this.playerPhysic.heightY > bz.SettingPlayer.HEIGHT_Y_STANDING) {
+                    this.playerPhysic.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
                 }
                 this.positionPlayerLimbs();
             }
@@ -27287,8 +28376,6 @@ var Player = /** @class */ (function (_super) {
         }
         if (fovChanged) {
             cameraSystem.setFirstPersonCameraFieldOfView(this.fieldOfView);
-            this.stage.getGame().getGUI().zoomWearponImage(1.0 - ((this.fieldOfView / bz.SettingEngine.CURRENT_WEARPON_MAX_ZOOM)
-                - bz.SettingEngine.DEFAULT_FIELD_OF_VIEW));
         }
     };
     /** ****************************************************************************************************************
@@ -27297,7 +28384,7 @@ var Player = /** @class */ (function (_super) {
     Player.prototype.checkTurnAround = function () {
         if (this.turnAroundTicks > 0) {
             --this.turnAroundTicks;
-            this.rotationDelta.y = bz.MathUtil.normalizeAngleDegrees((this.rotationDelta.y + (180.0 / bz.SettingPlayer.TICKS_TURN_AROUND)));
+            this.playerPhysic.rotationDelta.y = bz.MathUtil.normalizeAngleDegrees((this.playerPhysic.rotationDelta.y + (180.0 / bz.SettingPlayer.TICKS_TURN_AROUND)));
         }
     };
     /** ****************************************************************************************************************
@@ -27305,16 +28392,16 @@ var Player = /** @class */ (function (_super) {
     *******************************************************************************************************************/
     Player.prototype.checkCenteringRotZ = function () {
         if (this.centerRotZ) {
-            if (this.rotation.z > 0.0) {
-                this.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
-                if (this.rotation.z <= 0.0) {
-                    this.rotation.z = 0.0;
+            if (this.playerPhysic.rotation.z > 0.0) {
+                this.playerPhysic.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
+                if (this.playerPhysic.rotation.z <= 0.0) {
+                    this.playerPhysic.rotation.z = 0.0;
                 }
             }
-            else if (this.rotation.z < 0.0) {
-                this.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
-                if (this.rotation.z >= 0.0) {
-                    this.rotation.z = 0.0;
+            else if (this.playerPhysic.rotation.z < 0.0) {
+                this.playerPhysic.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
+                if (this.playerPhysic.rotation.z >= 0.0) {
+                    this.playerPhysic.rotation.z = 0.0;
                 }
             }
         }
@@ -27358,8 +28445,8 @@ var Player = /** @class */ (function (_super) {
     Player.prototype.createShot = function () {
         var divergenceY = 0.05 * (bz.MathUtil.getRandomInt(-20, 20));
         var divergenceZ = 0.05 * (bz.MathUtil.getRandomInt(-20, 20));
-        var source = this.playerPhysics.head.absolutePosition;
-        var rotation = new BABYLON.Vector3(this.rotation.z + divergenceZ, this.rotation.y + divergenceY, 0.0);
+        var source = this.playerPhysic.head.absolutePosition;
+        var rotation = new BABYLON.Vector3(this.playerPhysic.rotation.z + divergenceZ, this.playerPhysic.rotation.y + divergenceY, 0.0);
         var range = 50.0;
         var DAMAGE = 1.0;
         return new bz.Shot(source, rotation, range, false, DAMAGE);
@@ -27370,8 +28457,8 @@ var Player = /** @class */ (function (_super) {
     *   @return The interaction that is currently caused by the player.
     *******************************************************************************************************************/
     Player.prototype.createInteraction = function () {
-        var source = this.playerPhysics.head.absolutePosition;
-        var rotation = new BABYLON.Vector3(this.rotation.z, this.rotation.y, 0.0);
+        var source = this.playerPhysic.head.absolutePosition;
+        var rotation = new BABYLON.Vector3(this.playerPhysic.rotation.z, this.playerPhysic.rotation.y, 0.0);
         return new bz.Interaction(source, rotation, bz.SettingPlayer.RANGE_INTERACTION);
     };
     /** ****************************************************************************************************************
@@ -27379,14 +28466,14 @@ var Player = /** @class */ (function (_super) {
     *******************************************************************************************************************/
     Player.prototype.positionPlayerLimbs = function () {
         // get half player height
-        var halfPlayerHeight = (this.heightY / 2);
+        var halfPlayerHeight = (this.playerPhysic.heightY / 2);
         // get current modifier Y
         var headShakingModifierY = (bz.MathUtil.sinDegrees(this.headShakingAngle)
             * bz.SettingPlayer.HEAD_SHAKING_RANGE_Y);
         // bz.Debug.player.log( ' Head Shaking modifierY is [' + headShakingModifierY + ']' );
-        this.playerPhysics.head.position = new BABYLON.Vector3(0.0, (halfPlayerHeight - (bz.SettingPlayer.DIAMETER_HEAD / 2)) - headShakingModifierY, 0.0);
-        this.playerPhysics.leftHand.position = new BABYLON.Vector3(-1.0, halfPlayerHeight - (bz.SettingPlayer.HEIGHT_Y_STANDING / 2), 0.0);
-        this.playerPhysics.rightHand.position = new BABYLON.Vector3(1.0, halfPlayerHeight - (bz.SettingPlayer.HEIGHT_Y_STANDING / 2), 0.0);
+        this.playerPhysic.head.position = new BABYLON.Vector3(0.0, (halfPlayerHeight - (bz.SettingPlayer.DIAMETER_HEAD / 2)) - headShakingModifierY, 0.0);
+        this.playerPhysic.leftHand.position = new BABYLON.Vector3(-1.0, halfPlayerHeight - (bz.SettingPlayer.HEIGHT_Y_STANDING / 2), 0.0);
+        this.playerPhysic.rightHand.position = new BABYLON.Vector3(1.0, halfPlayerHeight - (bz.SettingPlayer.HEIGHT_Y_STANDING / 2), 0.0);
     };
     /** ****************************************************************************************************************
     *   Alters the angle that simulates the head shaking on walking forwards and backwards.
@@ -27467,6 +28554,16 @@ var PlayerPhysic = /** @class */ (function () {
         this.leftHand = null;
         /** The referenced right hand mesh. */
         this.rightHand = null;
+        /** The referenced 3D wearpon mesh. */
+        this.shotgun = null;
+        /** The current height of the player. Changes on ducking. */
+        this.heightY = 0.0;
+        /** Current rotation. */
+        this.rotation = null;
+        /** Current rotation delta. */
+        this.rotationDelta = null;
+        /** Current move delta. */
+        this.moveDelta = null;
         // reference the body and all limbs
         this.body = model.getMesh(PlayerPhysic.PLAYER_BODY_ID);
         this.head = model.getMesh(PlayerPhysic.PLAYER_HEAD_ID);
@@ -27476,6 +28573,8 @@ var PlayerPhysic = /** @class */ (function () {
         this.head.setParent(this.body);
         this.leftHand.setParent(this.body);
         this.rightHand.setParent(this.body);
+        // set initial height
+        this.heightY = bz.SettingPlayer.HEIGHT_Y_STANDING;
     }
     /** ****************************************************************************************************************
     *   Determines if the player is currently falling.
@@ -27485,6 +28584,37 @@ var PlayerPhysic = /** @class */ (function () {
     PlayerPhysic.prototype.isFalling = function () {
         return (this.body.physicsImpostor !== undefined
             && this.body.physicsImpostor.getLinearVelocity().y <= bz.SettingPlayer.FALLING_VELOCITY_Y);
+    };
+    /** ****************************************************************************************************************
+    *   Overrides the player's linear and angular velocities for improved player controls and user experience.
+    *******************************************************************************************************************/
+    PlayerPhysic.prototype.manipulateVelocities = function () {
+        if (this.body.physicsImpostor !== undefined) {
+            // suppress linear velocities for X and Z axis
+            var velocity = this.body.physicsImpostor.getLinearVelocity();
+            // check ascending/descending
+            if (velocity.y >= 1.0) {
+                // player is ascending - mitigate ascending velocity!
+                velocity.y = velocity.y * bz.SettingPlayer.CLIMP_VELOCITY_MITIGATION;
+            }
+            else if (velocity.y <= -1.0) {
+                // player is falling - increase falling velocity!
+                velocity.y = velocity.y * bz.SettingPlayer.FALL_VELOCITY_MITIGATION;
+                // clamp falling velocity
+                if (velocity.y < bz.SettingPlayer.MAX_FALLING_VELOCITY) {
+                    velocity.y = bz.SettingPlayer.MAX_FALLING_VELOCITY;
+                }
+            }
+            this.body.physicsImpostor.setLinearVelocity(new BABYLON.Vector3(
+            // mitigate axis X movements
+            (velocity.x * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION), 
+            // check player ascending/descending
+            velocity.y, 
+            // mitigate axis Z movements
+            (velocity.z * bz.SettingPlayer.MOVE_VELOCITY_MITIGATION)));
+            // completely suppress angular velocities
+            this.body.physicsImpostor.setAngularVelocity(BABYLON.Vector3.Zero());
+        }
     };
     /** The id of the player's body mesh inside the mesh array. */
     PlayerPhysic.PLAYER_BODY_ID = 0;
@@ -27497,6 +28627,151 @@ var PlayerPhysic = /** @class */ (function () {
     return PlayerPhysic;
 }());
 exports.PlayerPhysic = PlayerPhysic;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/object/PlayerWearpon.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/object/PlayerWearpon.ts ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PlayerWearpon = void 0;
+var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Handles the 3D wearpon for the player.
+***********************************************************************************************************************/
+var PlayerWearpon = /** @class */ (function () {
+    /** ****************************************************************************************************************
+    *   Create a new PlayerWearpon instance for 3D wearpon handling.
+    *
+    *   @param stage      The stage to create the 3D wearpon into.
+    *   @param playerHead The mesh of the player's head where the 3D wearpon will be attached to.
+    *******************************************************************************************************************/
+    function PlayerWearpon(stage, playerHead) {
+        this.lowerWearpon = false;
+        this.lowerWearponAnim = 0;
+        this.targetShotgunRotX = 0;
+        this.targetShotgunRotY = 0;
+        this.shotgun = null;
+        this.shotgunRotX = 0;
+        this.shotgunRotY = 0;
+        this.lowerWearpon = bz.SettingPlayer.START_WITH_LOWERED_WEARPON;
+        // add a shotgun to the right player hand
+        this.shotgun = (new bz.Wall(stage, new bz.MeshFactory(stage.getScene(), stage.getConfig().ambientColor).createImportedModel(bz.ModelFile.SHOTGUN_M1014, new BABYLON.Vector3(1.2, -0.75 - (this.lowerWearpon
+            ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.LOWER_SIZE_Y
+            : 0.0), 1.5), bz.PhysicSet.NONE, null)));
+        for (var i = 0; i < this.shotgun.getModel().getMeshCount(); ++i) {
+            var mesh = this.shotgun.getModel().getMesh(i);
+            mesh.parent = playerHead;
+            // mesh.showBoundingBox = true;
+            // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
+            // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
+            // mesh.getBoundingInfo().boundingSphere.scale( 10.0 );
+        }
+        // raise the wearpon if initially lowered
+        if (this.lowerWearpon) {
+            this.toggleWearponRaise();
+        }
+    }
+    /** ****************************************************************************************************************
+    *   Disposes all meshes of the player wearpon.
+    *******************************************************************************************************************/
+    PlayerWearpon.prototype.dispose = function () {
+        if (this.shotgun !== null) {
+            this.shotgun.dispose();
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Renders one tick of the player's displayed wearpon.
+    *******************************************************************************************************************/
+    PlayerWearpon.prototype.render = function () {
+        this.updateLowerRaiseAnimation();
+        this.updateShotgunRotation();
+    };
+    /** ****************************************************************************************************************
+    *   Toggles the wearpon.
+    *******************************************************************************************************************/
+    PlayerWearpon.prototype.toggleWearponRaise = function () {
+        if (this.lowerWearponAnim === 0) {
+            this.lowerWearpon = !this.lowerWearpon;
+            this.lowerWearponAnim = bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON;
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Rotates the wearpon according to the current wearpon target rotation.
+    *******************************************************************************************************************/
+    PlayerWearpon.prototype.updateShotgunRotation = function () {
+        if (this.targetShotgunRotX > this.shotgunRotX) {
+            this.shotgunRotX += (this.lowerWearponAnim > 0
+                ? PlayerWearpon.LOWER_ROT_SPEED_X
+                : (this.targetShotgunRotX === 0
+                    ? PlayerWearpon.SHOTGUN_CENTER_SPEED
+                    : PlayerWearpon.SHOTGUN_ROT_SPEED_X));
+            if (this.shotgunRotX > this.targetShotgunRotX) {
+                this.shotgunRotX = this.targetShotgunRotX;
+            }
+        }
+        else if (this.targetShotgunRotX < this.shotgunRotX) {
+            this.shotgunRotX -= (this.lowerWearponAnim > 0
+                ? PlayerWearpon.RAISE_ROT_SPEED_X
+                : (this.targetShotgunRotX === 0
+                    ? PlayerWearpon.SHOTGUN_CENTER_SPEED
+                    : PlayerWearpon.SHOTGUN_ROT_SPEED_X));
+            if (this.shotgunRotX < this.targetShotgunRotX) {
+                this.shotgunRotX = this.targetShotgunRotX;
+            }
+        }
+        if (this.targetShotgunRotY > this.shotgunRotY) {
+            this.shotgunRotY += (this.targetShotgunRotY === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_Y);
+            if (this.shotgunRotY > this.targetShotgunRotY) {
+                this.shotgunRotY = this.targetShotgunRotY;
+            }
+        }
+        else if (this.targetShotgunRotY < this.shotgunRotY) {
+            this.shotgunRotY -= (this.targetShotgunRotY === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_Y);
+            if (this.shotgunRotY < this.targetShotgunRotY) {
+                this.shotgunRotY = this.targetShotgunRotY;
+            }
+        }
+        this.shotgun.getModel().setAbsoluteRotationXYZ(Math.fround(this.shotgunRotX), Math.fround(this.shotgunRotY), 0.0);
+    };
+    /** ****************************************************************************************************************
+    *   Renders one tick for the 'lower' and 'raise' animation of the player wearpon.
+    *******************************************************************************************************************/
+    PlayerWearpon.prototype.updateLowerRaiseAnimation = function () {
+        if (this.lowerWearponAnim > 0) {
+            this.shotgun.getModel().translatePosition(new BABYLON.Vector3(0.0, (this.lowerWearpon ? -PlayerWearpon.LOWER_SIZE_Y : PlayerWearpon.LOWER_SIZE_Y), 0.0));
+            this.targetShotgunRotX = (this.lowerWearpon ? 45.0 : 45.0);
+            // upright from this magic tick on ..
+            if (!this.lowerWearpon && this.lowerWearponAnim < 17) {
+                this.targetShotgunRotX = 0;
+            }
+            --this.lowerWearponAnim;
+            if (this.lowerWearponAnim === 0) {
+                this.shotgunRotX = 0.0;
+                this.targetShotgunRotX = 0.0;
+            }
+        }
+    };
+    PlayerWearpon.SHOTGUN_NOISE_X = 0.05;
+    PlayerWearpon.SHOTGUN_NOISE_Y = 0.05;
+    PlayerWearpon.MAX_SHOTGUN_ROT_X = 12.5;
+    PlayerWearpon.MAX_SHOTGUN_ROT_Y = 10.0;
+    PlayerWearpon.SHOTGUN_ROT_SPEED_X = 0.20;
+    PlayerWearpon.SHOTGUN_ROT_SPEED_Y = 0.20;
+    PlayerWearpon.SHOTGUN_CENTER_SPEED = 1.00;
+    PlayerWearpon.LOWER_SIZE_Y = 0.07;
+    PlayerWearpon.LOWER_ROT_SPEED_X = 3.0;
+    PlayerWearpon.RAISE_ROT_SPEED_X = 1.5;
+    return PlayerWearpon;
+}());
+exports.PlayerWearpon = PlayerWearpon;
 
 
 /***/ }),
@@ -27540,7 +28815,7 @@ var Trigger = /** @class */ (function (_super) {
     *******************************************************************************************************************/
     function Trigger(stage, position, eventsOnPicked) {
         var _this = _super.call(this, stage, position, eventsOnPicked, new bz.Model()) || this;
-        /** The debug normal line of the hit face. */
+        /** The debug sphere that shows the position of the trigger. */
         _this.debugSphereMesh = null;
         /** The initial and static position of this item. */
         _this.triggerPosition = null;
@@ -27586,7 +28861,7 @@ var Trigger = /** @class */ (function (_super) {
     Trigger.prototype.createDebugHoleSphere = function (scene, position) {
         // create debug bullet hole
         var meshFactory = new bz.MeshFactory(scene, bz.SettingColor.COLOR_RGB_GREEN);
-        this.debugSphereMesh = meshFactory.createSphere(position, bz.MeshAnchor.CENTER_XYZ, 0.10, new BABYLON.Vector3(0.0, 0.0, 0.0), null, bz.SettingColor.COLOR_RGB_GREEN, bz.PhysicSet.NONE, 1.0);
+        this.debugSphereMesh = meshFactory.createSphere(position, bz.MeshAnchor.CENTER_XYZ, 0.50, new BABYLON.Vector3(0.0, 0.0, 0.0), null, bz.SettingColor.COLOR_RGB_GREEN, bz.PhysicSet.NONE, 1.0);
     };
     return Trigger;
 }(bz.Collectable));
@@ -27628,30 +28903,55 @@ var Wall = /** @class */ (function (_super) {
     /** ****************************************************************************************************************
     *   Creates a new wall instance.
     *
-    *   @param stage             The stage this wall belongs to.
-    *   @param model             The model that represents this wall.
-    *   @param energy            The initial energy of this wall.
-    *   @param interactionEvents Possible interactions with this wall.
-    *   @param interactionType   Type of wall interaction.
+    *   @param stage                    The stage this wall belongs to.
+    *   @param model                    The model that represents this wall.
+    *   @param energy                   The initial energy of this wall.
+    *   @param darkenMeshesOnEnergyLoss If mesh darking shall be applied when this game object loses energy.
+    *   @param splitHitMeshOnEnergyLoss If the hit mesh shall be split into two meshes when energy drops to 0.
+    *   @param interactionEvents        Possible interactions with this wall.
+    *   @param interactionType          Type of wall interaction.
     *******************************************************************************************************************/
-    function Wall(stage, model, energy, interactionEvents, interactionType) {
+    function Wall(stage, model, energy, darkenMeshesOnEnergyLoss, splitHitMeshOnEnergyLoss, interactionEvents, interactionType) {
         if (energy === void 0) { energy = bz.GameObject.UNBREAKABLE; }
+        if (darkenMeshesOnEnergyLoss === void 0) { darkenMeshesOnEnergyLoss = true; }
+        if (splitHitMeshOnEnergyLoss === void 0) { splitHitMeshOnEnergyLoss = false; }
         if (interactionEvents === void 0) { interactionEvents = null; }
-        if (interactionType === void 0) { interactionType = null; }
-        var _this = _super.call(this, stage, model, energy) || this;
+        if (interactionType === void 0) { interactionType = bz.InteractionType.ONCE; }
+        var _this = _super.call(this, stage, model, energy, darkenMeshesOnEnergyLoss, splitHitMeshOnEnergyLoss) || this;
         _this.interactionType = null;
         _this.interactionEvents = null;
-        _this.alreadyInteractedwith = false;
+        _this.alreadyInteractedWith = false;
         _this.interactionEvents = interactionEvents;
         _this.interactionType = interactionType;
         return _this;
     }
     /** ****************************************************************************************************************
-    *   Renders one tick of the game loop for this game object.
+    *   Renders one tick of the game loop for this wall.
     *******************************************************************************************************************/
     Wall.prototype.render = function () {
         // lower velocities for sphere impostered meshes
         this.getModel().mitigateSphereVelocities();
+    };
+    /** ****************************************************************************************************************
+    *   Performs an player interaction request with this game object.
+    *
+    *   @param stage The stage where the interaction takes place.
+    *******************************************************************************************************************/
+    Wall.prototype.performInteraction = function (stage) {
+        if (this.interactionEvents !== null
+            && !(this.interactionType === bz.InteractionType.ONCE
+                && this.alreadyInteractedWith)) {
+            this.alreadyInteractedWith = true;
+            stage.addEventsToPipeline(this.interactionEvents);
+        }
+    };
+    /** ****************************************************************************************************************
+    *   Checks if this Wall has specified interaction events.
+    *
+    *   @return <code>true</code> if this wall has interaction events specified. Otherwise <code>false</code>.
+    *******************************************************************************************************************/
+    Wall.prototype.hasInteractionEvents = function () {
+        return (this.interactionEvents !== null);
     };
     return Wall;
 }(bz.GameObject));
@@ -27695,8 +28995,6 @@ var Stage = /** @class */ (function () {
     function Stage(game) {
         /** The game instance. */
         this.game = null;
-        /** The scene instance of the game instance. */
-        this.scene = null;
         /** A collection of all walls in this stage. */
         this.walls = [];
         /** A collection of all items in this stage. */
@@ -27713,6 +29011,8 @@ var Stage = /** @class */ (function () {
         this.bulletHoles = [];
         /** A collection of all debug meshes in this stage. */
         this.debugMeshes = [];
+        /** The particle helper fx 'rain' for this stage. */
+        this.particleEffects = [];
         /** The stage config. */
         this.config = null;
         /** The camera system that manages all scene cameras. */
@@ -27725,10 +29025,7 @@ var Stage = /** @class */ (function () {
         this.uiThreadPipeline = [];
         /** Handles all occuring pipeline events in a monitored way at the end of the render()-cycle.  */
         this.eventPipelines = [];
-        /** The particle helper fx 'rain' for this stage. */
-        this.rainEffect = null;
         this.game = game;
-        this.scene = game.getScene();
     }
     /** ****************************************************************************************************************
     *   Inits the stage.
@@ -27737,10 +29034,10 @@ var Stage = /** @class */ (function () {
         // create stage config
         this.config = config;
         // assign scene colors from config
-        this.scene.getNativeScene().ambientColor = this.config.ambientColor;
-        this.scene.getNativeScene().clearColor = this.config.sceneBgColor;
+        this.getScene().getNativeSceneBG().ambientColor = this.config.ambientColor;
+        this.getScene().getNativeSceneBG().clearColor = this.config.sceneBgColor;
         // create all stage contents
-        var meshFactory = new bz.MeshFactory(this.scene, this.config.ambientColor);
+        var meshFactory = new bz.MeshFactory(this.getScene(), this.config.ambientColor);
         this.createStageContents(meshFactory);
         // player startup position and rotation must be set via config object!
         /*
@@ -27765,7 +29062,7 @@ var Stage = /** @class */ (function () {
     *   Renders all stage concernings for one tick of the game loop.
     *******************************************************************************************************************/
     Stage.prototype.render = function () {
-        var e_1, _a, e_2, _b;
+        var e_1, _a, e_2, _b, e_3, _c;
         // handle stage specific keys
         this.handleStageKeys();
         // render player
@@ -27774,31 +29071,45 @@ var Stage = /** @class */ (function () {
         }
         try {
             // render walls
-            for (var _c = __values(this.walls), _d = _c.next(); !_d.done; _d = _c.next()) {
-                var wall = _d.value;
+            for (var _d = __values(this.walls), _e = _d.next(); !_e.done; _e = _d.next()) {
+                var wall = _e.value;
                 wall.render();
             }
         }
         catch (e_1_1) { e_1 = { error: e_1_1 }; }
         finally {
             try {
-                if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
             }
             finally { if (e_1) throw e_1.error; }
         }
         try {
             // render items
-            for (var _e = __values(this.collectables), _f = _e.next(); !_f.done; _f = _e.next()) {
-                var item = _f.value;
+            for (var _f = __values(this.collectables), _g = _f.next(); !_g.done; _g = _f.next()) {
+                var item = _g.value;
                 item.render();
             }
         }
         catch (e_2_1) { e_2 = { error: e_2_1 }; }
         finally {
             try {
-                if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
+                if (_g && !_g.done && (_b = _f.return)) _b.call(_f);
             }
             finally { if (e_2) throw e_2.error; }
+        }
+        try {
+            // render bots
+            for (var _h = __values(this.bots), _j = _h.next(); !_j.done; _j = _h.next()) {
+                var bot = _j.value;
+                bot.render();
+            }
+        }
+        catch (e_3_1) { e_3 = { error: e_3_1 }; }
+        finally {
+            try {
+                if (_j && !_j.done && (_c = _h.return)) _c.call(_h);
+            }
+            finally { if (e_3) throw e_3.error; }
         }
         // handle event system
         this.handleEventPipeline();
@@ -27807,80 +29118,80 @@ var Stage = /** @class */ (function () {
     *   Disposes all babylon.JS resources of this stage.
     *******************************************************************************************************************/
     Stage.prototype.dispose = function () {
-        var e_3, _a, e_4, _b, e_5, _c, e_6, _d, e_7, _e, e_8, _f, e_9, _g, e_10, _h;
+        var e_4, _a, e_5, _b, e_6, _c, e_7, _d, e_8, _e, e_9, _f, e_10, _g, e_11, _h, e_12, _j;
         // dispose player
         if (this.player !== null) {
             this.player.dispose();
         }
         try {
             // dispose all walls
-            for (var _j = __values(this.walls), _k = _j.next(); !_k.done; _k = _j.next()) {
-                var wall = _k.value;
+            for (var _k = __values(this.walls), _l = _k.next(); !_l.done; _l = _k.next()) {
+                var wall = _l.value;
                 wall.dispose();
-            }
-        }
-        catch (e_3_1) { e_3 = { error: e_3_1 }; }
-        finally {
-            try {
-                if (_k && !_k.done && (_a = _j.return)) _a.call(_j);
-            }
-            finally { if (e_3) throw e_3.error; }
-        }
-        try {
-            // dispose all items
-            for (var _l = __values(this.collectables), _m = _l.next(); !_m.done; _m = _l.next()) {
-                var item = _m.value;
-                item.dispose();
             }
         }
         catch (e_4_1) { e_4 = { error: e_4_1 }; }
         finally {
             try {
-                if (_m && !_m.done && (_b = _l.return)) _b.call(_l);
+                if (_l && !_l.done && (_a = _k.return)) _a.call(_k);
             }
             finally { if (e_4) throw e_4.error; }
         }
         try {
-            // dispose all bots
-            for (var _o = __values(this.bots), _p = _o.next(); !_p.done; _p = _o.next()) {
-                var bot = _p.value;
-                bot.dispose();
+            // dispose all items
+            for (var _m = __values(this.collectables), _o = _m.next(); !_o.done; _o = _m.next()) {
+                var item = _o.value;
+                item.dispose();
             }
         }
         catch (e_5_1) { e_5 = { error: e_5_1 }; }
         finally {
             try {
-                if (_p && !_p.done && (_c = _o.return)) _c.call(_o);
+                if (_o && !_o.done && (_b = _m.return)) _b.call(_m);
             }
             finally { if (e_5) throw e_5.error; }
         }
         try {
-            // dispose all bullet holes
-            for (var _q = __values(this.bulletHoles), _r = _q.next(); !_r.done; _r = _q.next()) {
-                var bulletHole = _r.value;
-                bulletHole.dispose();
+            // dispose all bots
+            for (var _p = __values(this.bots), _q = _p.next(); !_q.done; _q = _p.next()) {
+                var bot = _q.value;
+                bot.dispose();
             }
         }
         catch (e_6_1) { e_6 = { error: e_6_1 }; }
         finally {
             try {
-                if (_r && !_r.done && (_d = _q.return)) _d.call(_q);
+                if (_q && !_q.done && (_c = _p.return)) _c.call(_p);
             }
             finally { if (e_6) throw e_6.error; }
         }
         try {
-            // dispose all debug meshes
-            for (var _s = __values(this.debugMeshes), _t = _s.next(); !_t.done; _t = _s.next()) {
-                var debugLine = _t.value;
-                debugLine.dispose();
+            // dispose all bullet holes
+            for (var _r = __values(this.bulletHoles), _s = _r.next(); !_s.done; _s = _r.next()) {
+                var bulletHole = _s.value;
+                bulletHole.dispose();
             }
         }
         catch (e_7_1) { e_7 = { error: e_7_1 }; }
         finally {
             try {
-                if (_t && !_t.done && (_e = _s.return)) _e.call(_s);
+                if (_s && !_s.done && (_d = _r.return)) _d.call(_r);
             }
             finally { if (e_7) throw e_7.error; }
+        }
+        try {
+            // dispose all debug meshes
+            for (var _t = __values(this.debugMeshes), _u = _t.next(); !_u.done; _u = _t.next()) {
+                var debugLine = _u.value;
+                debugLine.dispose();
+            }
+        }
+        catch (e_8_1) { e_8 = { error: e_8_1 }; }
+        finally {
+            try {
+                if (_u && !_u.done && (_e = _t.return)) _e.call(_t);
+            }
+            finally { if (e_8) throw e_8.error; }
         }
         // dispose skybox
         if (this.skybox !== null) {
@@ -27888,51 +29199,61 @@ var Stage = /** @class */ (function () {
         }
         try {
             // dispose sprites
-            for (var _u = __values(this.sprites), _v = _u.next(); !_v.done; _v = _u.next()) {
-                var sprite = _v.value;
+            for (var _v = __values(this.sprites), _w = _v.next(); !_w.done; _w = _v.next()) {
+                var sprite = _w.value;
                 sprite.dispose();
-            }
-        }
-        catch (e_8_1) { e_8 = { error: e_8_1 }; }
-        finally {
-            try {
-                if (_v && !_v.done && (_f = _u.return)) _f.call(_u);
-            }
-            finally { if (e_8) throw e_8.error; }
-        }
-        try {
-            // dispose lights
-            for (var _w = __values(this.lights), _x = _w.next(); !_x.done; _x = _w.next()) {
-                var light = _x.value;
-                light.dispose();
             }
         }
         catch (e_9_1) { e_9 = { error: e_9_1 }; }
         finally {
             try {
-                if (_x && !_x.done && (_g = _w.return)) _g.call(_w);
+                if (_w && !_w.done && (_f = _v.return)) _f.call(_v);
             }
             finally { if (e_9) throw e_9.error; }
         }
         try {
-            // dispose shadow generators
-            for (var _y = __values(this.shadowGenerators), _z = _y.next(); !_z.done; _z = _y.next()) {
-                var shadowGenerator = _z.value;
-                shadowGenerator.dispose();
+            // dispose lights
+            for (var _x = __values(this.lights), _y = _x.next(); !_y.done; _y = _x.next()) {
+                var light = _y.value;
+                light.dispose();
             }
         }
         catch (e_10_1) { e_10 = { error: e_10_1 }; }
         finally {
             try {
-                if (_z && !_z.done && (_h = _y.return)) _h.call(_y);
+                if (_y && !_y.done && (_g = _x.return)) _g.call(_x);
             }
             finally { if (e_10) throw e_10.error; }
         }
+        try {
+            // dispose shadow generators
+            for (var _z = __values(this.shadowGenerators), _0 = _z.next(); !_0.done; _0 = _z.next()) {
+                var shadowGenerator = _0.value;
+                shadowGenerator.dispose();
+            }
+        }
+        catch (e_11_1) { e_11 = { error: e_11_1 }; }
+        finally {
+            try {
+                if (_0 && !_0.done && (_h = _z.return)) _h.call(_z);
+            }
+            finally { if (e_11) throw e_11.error; }
+        }
         // dispose camera system
         this.cameraSystem.dispose();
-        // dispose rain effect
-        if (this.rainEffect !== null) {
-            this.rainEffect.dispose();
+        try {
+            // dispose rain effect
+            for (var _1 = __values(this.particleEffects), _2 = _1.next(); !_2.done; _2 = _1.next()) {
+                var particleEffect = _2.value;
+                particleEffect.dispose();
+            }
+        }
+        catch (e_12_1) { e_12 = { error: e_12_1 }; }
+        finally {
+            try {
+                if (_2 && !_2.done && (_j = _1.return)) _j.call(_1);
+            }
+            finally { if (e_12) throw e_12.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -27941,7 +29262,7 @@ var Stage = /** @class */ (function () {
     *   @param gameObject The game object to remove all bullet holes for.
     *******************************************************************************************************************/
     Stage.prototype.disposeBulletHolesForGameObject = function (gameObject) {
-        var e_11, _a;
+        var e_13, _a;
         try {
             // browse all bullet holes
             for (var _b = __values(this.bulletHoles), _c = _b.next(); !_c.done; _c = _b.next()) {
@@ -27951,12 +29272,12 @@ var Stage = /** @class */ (function () {
                 }
             }
         }
-        catch (e_11_1) { e_11 = { error: e_11_1 }; }
+        catch (e_13_1) { e_13 = { error: e_13_1 }; }
         finally {
             try {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            finally { if (e_11) throw e_11.error; }
+            finally { if (e_13) throw e_13.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -27971,10 +29292,10 @@ var Stage = /** @class */ (function () {
     *   @param shot The shot to apply onto the stage.
     *******************************************************************************************************************/
     Stage.prototype.applyShot = function (shot) {
-        var e_12, _a;
+        var e_14, _a;
         // add debug line
         if (bz.SettingDebug.SHOW_SHOT_LINES_AND_COLLISIONS) {
-            this.debugMeshes.push(shot.createDebugLine(this.scene));
+            this.debugMeshes.push(shot.createDebugLine(this.getScene()));
         }
         // determine all hit points without hurting the game objects
         var hitPoints = this.determineAllHitPoints(shot, false);
@@ -27985,16 +29306,28 @@ var Stage = /** @class */ (function () {
             // impact all hit points
             for (var impactHitPoints_1 = __values(impactHitPoints), impactHitPoints_1_1 = impactHitPoints_1.next(); !impactHitPoints_1_1.done; impactHitPoints_1_1 = impactHitPoints_1.next()) {
                 var impactHitPoint = impactHitPoints_1_1.value;
-                var bulletHole = impactHitPoint.causeImpact(this.scene, this.config.ambientColor, shot.getDamage());
-                this.addBulletHole(bulletHole);
+                // add particle fx
+                var meshTextureFile = bz.Texture.getTextureFromMesh(impactHitPoint.getMesh());
+                /*
+                            const bulletHoleTextureFile:bz.TextureFile = bz.Texture.getBulletHoleTextureForMesh(
+                                impactHitPoint.getMesh()
+                            );
+                 */
+                this.addWallRubble(impactHitPoint.getPoint(), impactHitPoint.getNormal(), meshTextureFile);
+                // hurt the wall
+                var bulletHole = impactHitPoint.causeImpact(this.getScene(), this.config.ambientColor, shot.getDamage());
+                // append bullet hole (if the wall still exists)
+                if (bulletHole !== null) {
+                    this.addBulletHole(bulletHole);
+                }
             }
         }
-        catch (e_12_1) { e_12 = { error: e_12_1 }; }
+        catch (e_14_1) { e_14 = { error: e_14_1 }; }
         finally {
             try {
                 if (impactHitPoints_1_1 && !impactHitPoints_1_1.done && (_a = impactHitPoints_1.return)) _a.call(impactHitPoints_1);
             }
-            finally { if (e_12) throw e_12.error; }
+            finally { if (e_14) throw e_14.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -28003,7 +29336,7 @@ var Stage = /** @class */ (function () {
     *   @param interaction The interaction to apply onto the stage.
     *******************************************************************************************************************/
     Stage.prototype.applyInteraction = function (interaction) {
-        var e_13, _a;
+        var e_15, _a;
         // get all hit points for this interaction (won't hurt the game objects)
         var hitPoints = this.determineAllHitPoints(interaction, true);
         bz.Debug.player.log(' Gathered [' + String(hitPoints.length) + '] interaction hit points');
@@ -28011,25 +29344,22 @@ var Stage = /** @class */ (function () {
         var impactHitPoints = Stage.determineImpactHitPoints(hitPoints, interaction);
         bz.Debug.player.log(' Gathered [' + String(impactHitPoints.length) + '] nearest hitpoint');
         try {
-            // impact all hit points
+            // browse all hit points
             for (var impactHitPoints_2 = __values(impactHitPoints), impactHitPoints_2_1 = impactHitPoints_2.next(); !impactHitPoints_2_1.done; impactHitPoints_2_1 = impactHitPoints_2.next()) {
                 var impactHitPoint = impactHitPoints_2_1.value;
+                // get the hit game object
                 var hitGameObject = impactHitPoint.getGameObject();
-                if (hitGameObject instanceof bz.Wall
-                    && hitGameObject.interactionEvents !== null
-                    && !(hitGameObject.interactionType === bz.InteractionType.ONCE
-                        && hitGameObject.alreadyInteractedwith)) {
-                    hitGameObject.alreadyInteractedwith = true;
-                    this.addEventsToPipeline(hitGameObject.interactionEvents);
+                if (hitGameObject instanceof bz.Wall) {
+                    hitGameObject.performInteraction(this);
                 }
             }
         }
-        catch (e_13_1) { e_13 = { error: e_13_1 }; }
+        catch (e_15_1) { e_15 = { error: e_15_1 }; }
         finally {
             try {
                 if (impactHitPoints_2_1 && !impactHitPoints_2_1.done && (_a = impactHitPoints_2.return)) _a.call(impactHitPoints_2);
             }
-            finally { if (e_13) throw e_13.error; }
+            finally { if (e_15) throw e_15.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -28038,7 +29368,7 @@ var Stage = /** @class */ (function () {
     *   @param events The events to add into a new event pipeline of this stage.
     *******************************************************************************************************************/
     Stage.prototype.addEventsToPipeline = function (events) {
-        var e_14, _a;
+        var e_16, _a;
         // reset event data
         var newEvents = [];
         var addToUiPipeline = false;
@@ -28062,12 +29392,12 @@ var Stage = /** @class */ (function () {
                 }
             }
         }
-        catch (e_14_1) { e_14 = { error: e_14_1 }; }
+        catch (e_16_1) { e_16 = { error: e_16_1 }; }
         finally {
             try {
                 if (events_1_1 && !events_1_1.done && (_a = events_1.return)) _a.call(events_1);
             }
-            finally { if (e_14) throw e_14.error; }
+            finally { if (e_16) throw e_16.error; }
         }
         if (addToUiPipeline) {
             this.uiThreadPipeline = this.uiThreadPipeline.concat(newEvents);
@@ -28098,19 +29428,19 @@ var Stage = /** @class */ (function () {
     *   @param pause The pause state to assign.
     *******************************************************************************************************************/
     Stage.prototype.setSpritePause = function (pause) {
-        var e_15, _a;
+        var e_17, _a;
         try {
             for (var _b = __values(this.sprites), _c = _b.next(); !_c.done; _c = _b.next()) {
                 var sprite = _c.value;
                 sprite.setPause(pause);
             }
         }
-        catch (e_15_1) { e_15 = { error: e_15_1 }; }
+        catch (e_17_1) { e_17 = { error: e_17_1 }; }
         finally {
             try {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            finally { if (e_15) throw e_15.error; }
+            finally { if (e_17) throw e_17.error; }
         }
     };
     /** ****************************************************************************************************************
@@ -28138,20 +29468,12 @@ var Stage = /** @class */ (function () {
         return this.cameraSystem;
     };
     /** ****************************************************************************************************************
-    *   Adds a wall to the stage.
-    *
-    *   @param wall The wall to add to this stage.
-    *******************************************************************************************************************/
-    Stage.prototype.addWall = function (wall) {
-        this.walls.push(wall);
-    };
-    /** ****************************************************************************************************************
     *   Returns the according scene.
     *
     *   @return The scene this stage belongs to.
     *******************************************************************************************************************/
     Stage.prototype.getScene = function () {
-        return this.scene;
+        return this.game.getScene();
     };
     /** ****************************************************************************************************************
     *   Returns the according config.
@@ -28162,90 +29484,132 @@ var Stage = /** @class */ (function () {
         return this.config;
     };
     /** ****************************************************************************************************************
-    *   Sets the player for this stage.
+    *   Adds walls to the stage.
     *
-    *   @param player The player to set to this stage.
+    *   @param walls The walls to add to this stage.
     *******************************************************************************************************************/
-    Stage.prototype.setPlayer = function (player) {
-        this.player = player;
-    };
-    /** ****************************************************************************************************************
-    *   Adds a skybox to the stage.
-    *******************************************************************************************************************/
-    Stage.prototype.setSkybox = function (file, alpha) {
-        this.skybox = new bz.MeshFactory(this.scene, this.config.ambientColor).createSkyBoxCube(file, alpha);
-    };
-    /** ****************************************************************************************************************
-    *   Adds a rain effect to the stage.
-    *******************************************************************************************************************/
-    Stage.prototype.setRainEffect = function (size, quantity, gravity) {
-        var _this = this;
-        if (size === void 0) { size = 0.3; }
-        if (quantity === void 0) { quantity = 600; }
-        if (gravity === void 0) { gravity = new BABYLON.Vector3(0.0, 0.0, 0.0); }
-        BABYLON.ParticleHelper.CreateAsync('rain', this.scene.getNativeScene(), false).then(function (set) {
-            var e_16, _a;
-            _this.rainEffect = set;
+    Stage.prototype.addWall = function (walls) {
+        var e_18, _a;
+        if (!Array.isArray(walls)) {
+            walls = [walls];
+        }
+        try {
+            for (var walls_1 = __values(walls), walls_1_1 = walls_1.next(); !walls_1_1.done; walls_1_1 = walls_1.next()) {
+                var wall = walls_1_1.value;
+                this.walls.push(wall);
+            }
+        }
+        catch (e_18_1) { e_18 = { error: e_18_1 }; }
+        finally {
             try {
-                for (var _b = __values(_this.rainEffect.systems), _c = _b.next(); !_c.done; _c = _b.next()) {
-                    var system = _c.value;
-                    system.maxScaleX = size;
-                    system.maxScaleY = size;
-                    system.emitRate = quantity;
-                    system.gravity = gravity;
-                }
+                if (walls_1_1 && !walls_1_1.done && (_a = walls_1.return)) _a.call(walls_1);
             }
-            catch (e_16_1) { e_16 = { error: e_16_1 }; }
-            finally {
-                try {
-                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                }
-                finally { if (e_16) throw e_16.error; }
-            }
-            _this.rainEffect.start();
-        }).catch(function () {
-            // no need to handle this error
-        });
+            finally { if (e_18) throw e_18.error; }
+        }
     };
     /** ****************************************************************************************************************
     *   Adds a sprite to the stage.
     *
-    *   @param sprite The sprite to add to this stage.
+    *   @param sprites The sprites to add to this stage.
     *******************************************************************************************************************/
-    Stage.prototype.addSprite = function (sprite) {
-        this.sprites.push(sprite);
+    Stage.prototype.addSprite = function (sprites) {
+        var e_19, _a;
+        if (!Array.isArray(sprites)) {
+            sprites = [sprites];
+        }
+        try {
+            for (var sprites_1 = __values(sprites), sprites_1_1 = sprites_1.next(); !sprites_1_1.done; sprites_1_1 = sprites_1.next()) {
+                var sprite = sprites_1_1.value;
+                this.sprites.push(sprite);
+            }
+        }
+        catch (e_19_1) { e_19 = { error: e_19_1 }; }
+        finally {
+            try {
+                if (sprites_1_1 && !sprites_1_1.done && (_a = sprites_1.return)) _a.call(sprites_1);
+            }
+            finally { if (e_19) throw e_19.error; }
+        }
     };
     /** ****************************************************************************************************************
-    *   Adds a collectable to the stage.
+    *   Adds collectables to the stage.
     *
-    *   @param collectable The collectable to add to this stage.
+    *   @param collectables The collectables to add to this stage.
     *******************************************************************************************************************/
-    Stage.prototype.addCollectable = function (collectable) {
-        this.collectables.push(collectable);
+    Stage.prototype.addCollectable = function (collectables) {
+        var e_20, _a;
+        if (!Array.isArray(collectables)) {
+            collectables = [collectables];
+        }
+        try {
+            for (var collectables_1 = __values(collectables), collectables_1_1 = collectables_1.next(); !collectables_1_1.done; collectables_1_1 = collectables_1.next()) {
+                var collectable = collectables_1_1.value;
+                this.collectables.push(collectable);
+            }
+        }
+        catch (e_20_1) { e_20 = { error: e_20_1 }; }
+        finally {
+            try {
+                if (collectables_1_1 && !collectables_1_1.done && (_a = collectables_1.return)) _a.call(collectables_1);
+            }
+            finally { if (e_20) throw e_20.error; }
+        }
     };
     /** ****************************************************************************************************************
     *   Adds a light to the stage.
     *
-    *   @param light The light to add to this stage.
+    *   @param lights The lights to add to this stage.
     *******************************************************************************************************************/
-    Stage.prototype.addLight = function (light) {
-        this.lights.push(light);
+    Stage.prototype.addLight = function (lights) {
+        var e_21, _a;
+        if (!Array.isArray(lights)) {
+            lights = [lights];
+        }
+        try {
+            for (var lights_1 = __values(lights), lights_1_1 = lights_1.next(); !lights_1_1.done; lights_1_1 = lights_1.next()) {
+                var light = lights_1_1.value;
+                this.lights.push(light);
+            }
+        }
+        catch (e_21_1) { e_21 = { error: e_21_1 }; }
+        finally {
+            try {
+                if (lights_1_1 && !lights_1_1.done && (_a = lights_1.return)) _a.call(lights_1);
+            }
+            finally { if (e_21) throw e_21.error; }
+        }
     };
     // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Adds a bot to the stage.
     *
-    *   @param bot The bot to add to this stage.
+    *   @param bots The bots to add to this stage.
     *******************************************************************************************************************/
-    Stage.prototype.addBot = function (bot) {
-        this.bots.push(bot);
+    Stage.prototype.addBot = function (bots) {
+        var e_22, _a;
+        if (!Array.isArray(bots)) {
+            bots = [bots];
+        }
+        try {
+            for (var bots_1 = __values(bots), bots_1_1 = bots_1.next(); !bots_1_1.done; bots_1_1 = bots_1.next()) {
+                var bot = bots_1_1.value;
+                this.bots.push(bot);
+            }
+        }
+        catch (e_22_1) { e_22 = { error: e_22_1 }; }
+        finally {
+            try {
+                if (bots_1_1 && !bots_1_1.done && (_a = bots_1.return)) _a.call(bots_1);
+            }
+            finally { if (e_22) throw e_22.error; }
+        }
     };
     // noinspection JSUnusedGlobalSymbols
     /** ****************************************************************************************************************
     *   Adds a shadow generator for the specified shadow light.
     *******************************************************************************************************************/
     Stage.prototype.addShadowGenerator = function (light) {
-        var e_17, _a;
+        var e_23, _a;
         if (!bz.SettingEngine.ENABLE_SHADOWS) {
             return;
         }
@@ -28260,15 +29624,115 @@ var Stage = /** @class */ (function () {
                 wall.getModel().applyShadowGenerator(shadowGenerator);
             }
         }
-        catch (e_17_1) { e_17 = { error: e_17_1 }; }
+        catch (e_23_1) { e_23 = { error: e_23_1 }; }
         finally {
             try {
                 if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            finally { if (e_17) throw e_17.error; }
+            finally { if (e_23) throw e_23.error; }
         }
         // also working for single models, testwise
         // this.chairCompoundDestroyable.getModel().applyShadowGenerator( shadowGenerator );
+    };
+    /** ****************************************************************************************************************
+    *   Sets the player for this stage.
+    *
+    *   @param player The player to set to this stage.
+    *******************************************************************************************************************/
+    Stage.prototype.setPlayer = function (player) {
+        this.player = player;
+    };
+    /** ****************************************************************************************************************
+    *   Adds a skybox to the stage.
+    *******************************************************************************************************************/
+    Stage.prototype.setSkybox = function (file, alpha) {
+        this.skybox = new bz.MeshFactory(this.getScene(), this.config.ambientColor).createSkyBoxCube(file, alpha);
+    };
+    /** ****************************************************************************************************************
+    *   Adds a parficle effect for wall rubble on the specified point and normal.
+    *******************************************************************************************************************/
+    Stage.prototype.addWallRubble = function (point, normal, tex) {
+        var RUBBLE_COUNT = bz.MathUtil.getRandomInt(3, 6);
+        var particleSystem = new BABYLON.ParticleSystem('wall_rubble', 100, this.getScene().getNativeSceneBG());
+        particleSystem.particleTexture = tex.createNewTextureInstance(10.0, 10.0);
+        /*
+                particleSystem.particleTexture.hasAlpha = true;
+                particleSystem.particleTexture.uScale = 5.0;
+                particleSystem.particleTexture.vScale = 5.0;
+                // particleSystem.particleTexture.wrapU  = 0.0001;
+                // particleSystem.particleTexture.wrapV  = 0.0001;
+        */
+        // 0.01 * bz.MathUtil.getRandomInt( 1, 5 )
+        // particleSystem.color1 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
+        // particleSystem.color2 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
+        // particleSystem.colorDead = new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 );
+        particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
+        particleSystem.emitter = point;
+        particleSystem.emitRate = RUBBLE_COUNT;
+        particleSystem.targetStopDuration = 1.0;
+        particleSystem.updateSpeed = 0.01;
+        particleSystem.minEmitPower = 0.20;
+        particleSystem.maxEmitPower = 2.00;
+        particleSystem.minAngularSpeed = 0;
+        particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad(360.0);
+        particleSystem.minLifeTime = 5.0;
+        particleSystem.maxLifeTime = 12.5;
+        particleSystem.minInitialRotation = 0;
+        particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad(360.0);
+        particleSystem.addAngularSpeedGradient(0, 1.5);
+        particleSystem.addColorGradient(0.0, new BABYLON.Color4(1.0, 1.0, 1.0, 1.0));
+        particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.0, 0.0, 0.0, 1.0));
+        // particleSystem.addVelocityGradient( 0, 0.75 );
+        particleSystem.addVelocityGradient(1, 2.5);
+        particleSystem.addDragGradient(0, 0.1);
+        // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
+        particleSystem.startDelay = 0.0;
+        particleSystem.disposeOnStop = true;
+        particleSystem.minSize = 0.05;
+        particleSystem.maxSize = 0.25;
+        // direction
+        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale(0.30);
+        // TODO get shot angle from BulletHole and mirror it!
+        particleSystem.direction1 = normal.clone().scale(0.10);
+        particleSystem.direction2 = normal.clone().scale(1.00);
+        // emit box size
+        // particleSystem.minEmitBox = new BABYLON.Vector3( -0.1, -0.1, -0.1 ); // Bottom Left Front
+        // particleSystem.maxEmitBox = new BABYLON.Vector3( 0.1, 0.1, 0.1 ); // Top Right Back
+        particleSystem.minEmitBox = BABYLON.Vector3.Zero();
+        particleSystem.maxEmitBox = BABYLON.Vector3.Zero();
+        particleSystem.start();
+    };
+    /** ****************************************************************************************************************
+    *   Adds a rain effect to the stage.
+    *******************************************************************************************************************/
+    Stage.prototype.setRainEffect = function (size, quantity, gravity) {
+        var _this = this;
+        if (size === void 0) { size = 0.3; }
+        if (quantity === void 0) { quantity = 600; }
+        if (gravity === void 0) { gravity = new BABYLON.Vector3(0.0, 0.0, 0.0); }
+        BABYLON.ParticleHelper.CreateAsync('rain', this.getScene().getNativeSceneBG(), false).then(function (particleSystem) {
+            var e_24, _a;
+            try {
+                for (var _b = __values(particleSystem.systems), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var system = _c.value;
+                    system.maxScaleX = size;
+                    system.maxScaleY = size;
+                    system.emitRate = quantity;
+                    system.gravity = gravity;
+                }
+            }
+            catch (e_24_1) { e_24 = { error: e_24_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_24) throw e_24.error; }
+            }
+            particleSystem.start();
+            _this.particleEffects.push(particleSystem);
+        }).catch(function () {
+            // no need to handle this error
+        });
     };
     /** ****************************************************************************************************************
     *   Creates the camera system that manages all cameras that appear in this stage.
@@ -28284,7 +29748,7 @@ var Stage = /** @class */ (function () {
     *   @return A collection of all meshes that build the coordinal axis lines.
     *******************************************************************************************************************/
     Stage.prototype.addCoordinalAxis = function () {
-        var meshFactory = new bz.MeshFactory(this.scene, this.config.ambientColor);
+        var meshFactory = new bz.MeshFactory(this.getScene(), this.config.ambientColor);
         this.debugMeshes.push(
         // axis x
         meshFactory.createLine(new BABYLON.Vector3(0.0, 0.0, 0.0), new BABYLON.Vector3(bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0, 0.0), bz.SettingColor.COLOR_RGBA_RED_OPAQUE), 
@@ -28303,43 +29767,63 @@ var Stage = /** @class */ (function () {
     *   @return All hit points this shot collides to.
     *******************************************************************************************************************/
     Stage.prototype.determineAllHitPoints = function (shot, interactionWallsOnly) {
-        var e_18, _a, e_19, _b;
+        var e_25, _a, e_26, _b, e_27, _c;
         if (interactionWallsOnly === void 0) { interactionWallsOnly = false; }
         // collect all hitPoints
         var hitPoints = [];
         // check collision with walls
         bz.Debug.fire.log(' Check shot collision with [' + String(this.walls.length) + '] walls');
         try {
-            for (var _c = __values(this.walls), _d = _c.next(); !_d.done; _d = _c.next()) {
-                var wall = _d.value;
-                if (interactionWallsOnly && wall.interactionEvents === null) {
+            for (var _d = __values(this.walls), _e = _d.next(); !_e.done; _e = _d.next()) {
+                var wall = _e.value;
+                if (interactionWallsOnly && !wall.hasInteractionEvents()) {
                     continue;
                 }
-                hitPoints = hitPoints.concat(wall.determineHitPoints(shot));
+                var wallHitPoints = wall.determineHitPoints(shot);
+                hitPoints = hitPoints.concat(wallHitPoints);
             }
         }
-        catch (e_18_1) { e_18 = { error: e_18_1 }; }
+        catch (e_25_1) { e_25 = { error: e_25_1 }; }
         finally {
             try {
-                if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
             }
-            finally { if (e_18) throw e_18.error; }
+            finally { if (e_25) throw e_25.error; }
         }
         // check collision with items
         if (bz.SettingEngine.ITEMS_CAN_BE_SHOT && !interactionWallsOnly) {
             bz.Debug.fire.log(' Check shot collision with [' + String(this.collectables.length) + '] items');
             try {
-                for (var _e = __values(this.collectables), _f = _e.next(); !_f.done; _f = _e.next()) {
-                    var item = _f.value;
-                    hitPoints = hitPoints.concat(item.determineHitPoints(shot));
+                for (var _f = __values(this.collectables), _g = _f.next(); !_g.done; _g = _f.next()) {
+                    var item = _g.value;
+                    var itemHitPoints = item.determineHitPoints(shot);
+                    hitPoints = hitPoints.concat(itemHitPoints);
                 }
             }
-            catch (e_19_1) { e_19 = { error: e_19_1 }; }
+            catch (e_26_1) { e_26 = { error: e_26_1 }; }
             finally {
                 try {
-                    if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
+                    if (_g && !_g.done && (_b = _f.return)) _b.call(_f);
                 }
-                finally { if (e_19) throw e_19.error; }
+                finally { if (e_26) throw e_26.error; }
+            }
+        }
+        // check collision with bots
+        if (!interactionWallsOnly) {
+            bz.Debug.fire.log(' Check shot collision with [' + String(this.bots.length) + '] bots');
+            try {
+                for (var _h = __values(this.bots), _j = _h.next(); !_j.done; _j = _h.next()) {
+                    var bot = _j.value;
+                    var botHitPoints = bot.determineHitPoints(shot);
+                    hitPoints = hitPoints.concat(botHitPoints);
+                }
+            }
+            catch (e_27_1) { e_27 = { error: e_27_1 }; }
+            finally {
+                try {
+                    if (_j && !_j.done && (_c = _h.return)) _c.call(_h);
+                }
+                finally { if (e_27) throw e_27.error; }
             }
         }
         return hitPoints;
@@ -28367,6 +29851,7 @@ var Stage = /** @class */ (function () {
     *           The lather only applies to the event { @see bz.EventType.TIME_DELAY }.
     *******************************************************************************************************************/
     Stage.prototype.launchEvent = function (event) {
+        var e_28, _a;
         switch (event.type) {
             case bz.EventType.TIME_DELAY:
                 {
@@ -28406,7 +29891,7 @@ var Stage = /** @class */ (function () {
                 {
                     bz.Debug.event.log('Cast an explosion ..');
                     var data = event.data;
-                    var physicsHelper = new BABYLON.PhysicsHelper(this.game.getScene().getNativeScene());
+                    var physicsHelper = new BABYLON.PhysicsHelper(this.game.getScene().getNativeSceneBG());
                     physicsHelper.applyRadialExplosionImpulse(data.center, {
                         radius: data.radius,
                         strength: data.strength,
@@ -28433,10 +29918,23 @@ var Stage = /** @class */ (function () {
             case bz.EventType.TOGGLE_LIGHT:
                 {
                     var data = event.data;
-                    // toggle native enabled state
-                    var newState = (!data.light.isEnabled());
-                    data.light.setEnabled(newState);
-                    bz.Debug.event.log('Toggle light to enabled: ' + String(newState) + '.');
+                    try {
+                        // browse all lights
+                        for (var _b = __values(data.lights), _c = _b.next(); !_c.done; _c = _b.next()) {
+                            var light = _c.value;
+                            // toggle native enabled state
+                            var newState = (!light.isEnabled());
+                            light.setEnabled(newState);
+                            bz.Debug.event.log('Toggle light to enabled: ' + String(newState) + '.');
+                        }
+                    }
+                    catch (e_28_1) { e_28 = { error: e_28_1 }; }
+                    finally {
+                        try {
+                            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                        }
+                        finally { if (e_28) throw e_28.error; }
+                    }
                     return true;
                 }
         }
@@ -28445,7 +29943,7 @@ var Stage = /** @class */ (function () {
     *   Handles the event system by rendering all event pipelines.
     *******************************************************************************************************************/
     Stage.prototype.handleEventPipeline = function () {
-        var e_20, _a, e_21, _b, e_22, _c;
+        var e_29, _a, e_30, _b, e_31, _c;
         // check if event pipelines exist
         if (this.eventPipelines.length > 0) {
             bz.Debug.event.log('Handle ' + String(this.eventPipelines.length) + ' event pipelines');
@@ -28458,7 +29956,7 @@ var Stage = /** @class */ (function () {
                     var newEventPipeline = [];
                     var pipelineBlocked = false;
                     try {
-                        for (var eventPipeline_1 = (e_21 = void 0, __values(eventPipeline)), eventPipeline_1_1 = eventPipeline_1.next(); !eventPipeline_1_1.done; eventPipeline_1_1 = eventPipeline_1.next()) {
+                        for (var eventPipeline_1 = (e_30 = void 0, __values(eventPipeline)), eventPipeline_1_1 = eventPipeline_1.next(); !eventPipeline_1_1.done; eventPipeline_1_1 = eventPipeline_1.next()) {
                             var event_2 = eventPipeline_1_1.value;
                             if (pipelineBlocked) {
                                 newEventPipeline.push(event_2);
@@ -28473,24 +29971,24 @@ var Stage = /** @class */ (function () {
                             }
                         }
                     }
-                    catch (e_21_1) { e_21 = { error: e_21_1 }; }
+                    catch (e_30_1) { e_30 = { error: e_30_1 }; }
                     finally {
                         try {
                             if (eventPipeline_1_1 && !eventPipeline_1_1.done && (_b = eventPipeline_1.return)) _b.call(eventPipeline_1);
                         }
-                        finally { if (e_21) throw e_21.error; }
+                        finally { if (e_30) throw e_30.error; }
                     }
                     if (newEventPipeline.length > 0) {
                         newEventPipelines.push(newEventPipeline);
                     }
                 }
             }
-            catch (e_20_1) { e_20 = { error: e_20_1 }; }
+            catch (e_29_1) { e_29 = { error: e_29_1 }; }
             finally {
                 try {
                     if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
                 }
-                finally { if (e_20) throw e_20.error; }
+                finally { if (e_29) throw e_29.error; }
             }
             if (newEventPipelines.length === 0) {
                 bz.Debug.event.log(' All events in all event pipelines have been processed!');
@@ -28517,12 +30015,12 @@ var Stage = /** @class */ (function () {
                     }
                 }
             }
-            catch (e_22_1) { e_22 = { error: e_22_1 }; }
+            catch (e_31_1) { e_31 = { error: e_31_1 }; }
             finally {
                 try {
                     if (_g && !_g.done && (_c = _f.return)) _c.call(_f);
                 }
-                finally { if (e_22) throw e_22.error; }
+                finally { if (e_31) throw e_31.error; }
             }
             this.uiThreadPipeline = newEventPipeline;
         }
@@ -28572,17 +30070,17 @@ var StageConfig = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates a stage config.
     *
-    *   @param ambientColor     The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
-    *   @param sceneBgColor     The background color of the babylon.JS scene.
-    *   @param initialCamera    The initial camera for this stage.
-    *   @param startupPosition  The player startup position.
-    *   @param startupRotation  The player startup rotation.
-    *   @param startupInventory The player startup inventory.
+    *   @param ambientColor   The ambient color of the babylon.JS scene that is set as EMISSIVE color for all faces.
+    *   @param sceneBgColor   The background color of the babylon.JS scene.
+    *   @param initialCamera  The initial camera for this stage.
+    *   @param startPosition  The player startup position.
+    *   @param startRotation  The player startup rotation.
+    *   @param startInventory The player startup inventory.
     *******************************************************************************************************************/
-    function StageConfig(ambientColor, sceneBgColor, initialCamera, startupPosition, startupRotation, startupInventory) {
-        if (startupPosition === void 0) { startupPosition = new BABYLON.Vector3(0.0, 0.0, 0.0); }
-        if (startupRotation === void 0) { startupRotation = new BABYLON.Vector3(0.0, 0.0, 0.0); }
-        if (startupInventory === void 0) { startupInventory = new bz.Inventory(); }
+    function StageConfig(ambientColor, sceneBgColor, initialCamera, startPosition, startRotation, startInventory) {
+        if (startPosition === void 0) { startPosition = new BABYLON.Vector3(0.0, 0.0, 0.0); }
+        if (startRotation === void 0) { startRotation = new BABYLON.Vector3(0.0, 0.0, 0.0); }
+        if (startInventory === void 0) { startInventory = new bz.Inventory(); }
         /** Specifies the ambient color of the babylon.JS scene and is set as the emissive color of all faces. */
         this.ambientColor = null;
         /** The scene background color is the clear color for the scene. */
@@ -28597,9 +30095,9 @@ var StageConfig = /** @class */ (function () {
         this.ambientColor = ambientColor;
         this.sceneBgColor = sceneBgColor;
         this.initialCamera = initialCamera;
-        this.startupPosition = startupPosition;
-        this.startupRotation = startupRotation;
-        this.startupInventory = startupInventory;
+        this.startupPosition = startPosition;
+        this.startupRotation = startRotation;
+        this.startupInventory = startInventory;
     }
     return StageConfig;
 }());
@@ -28640,56 +30138,84 @@ var StageFactory = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates one room.
     *******************************************************************************************************************/
-    StageFactory.addRoomWalls = function (stage, meshFactory, position, size, rotZ, textureFileWallA, doorsWallA, windowsWallA, textureFileWallB, doorsWallB, windowsWallB, textureFileWallC, doorsWallC, windowsWallC, textureFileWallD, doorsWallD, windowsWallD, textureFileFloor, textureFileCeiling) {
+    StageFactory.addRoomWalls = function (stage, meshFactory, position, size, rotY, textureWallA, doorsWallA, windowsWallA, diamondCornerA, textureWallB, doorsWallB, windowsWallB, diamondCornerB, textureWallC, doorsWallC, windowsWallC, diamondCornerC, textureWallD, doorsWallD, windowsWallD, diamondCornerD, textureFloor, textureCeiling) {
         var e_1, _a;
-        if (textureFileWallA === void 0) { textureFileWallA = null; }
+        if (textureWallA === void 0) { textureWallA = null; }
         if (doorsWallA === void 0) { doorsWallA = []; }
         if (windowsWallA === void 0) { windowsWallA = []; }
-        if (textureFileWallB === void 0) { textureFileWallB = null; }
+        if (diamondCornerA === void 0) { diamondCornerA = 0; }
+        if (textureWallB === void 0) { textureWallB = null; }
         if (doorsWallB === void 0) { doorsWallB = []; }
         if (windowsWallB === void 0) { windowsWallB = []; }
-        if (textureFileWallC === void 0) { textureFileWallC = null; }
+        if (diamondCornerB === void 0) { diamondCornerB = 0; }
+        if (textureWallC === void 0) { textureWallC = null; }
         if (doorsWallC === void 0) { doorsWallC = []; }
         if (windowsWallC === void 0) { windowsWallC = []; }
-        if (textureFileWallD === void 0) { textureFileWallD = null; }
+        if (diamondCornerC === void 0) { diamondCornerC = 0; }
+        if (textureWallD === void 0) { textureWallD = null; }
         if (doorsWallD === void 0) { doorsWallD = []; }
         if (windowsWallD === void 0) { windowsWallD = []; }
-        if (textureFileFloor === void 0) { textureFileFloor = null; }
-        if (textureFileCeiling === void 0) { textureFileCeiling = null; }
+        if (diamondCornerD === void 0) { diamondCornerD = 0; }
+        if (textureFloor === void 0) { textureFloor = null; }
+        if (textureCeiling === void 0) { textureCeiling = null; }
         // all walls to add to the stage at the end of this method
         var roomWalls = [];
-        if (textureFileWallA !== null) {
-            StageFactory.createWall(roomWalls, doorsWallA, windowsWallA, stage, meshFactory, position.x, size.x, position.y, size.y, position.z, 0.0, textureFileWallA, bz.TextureFile.WALL_GLASS_1);
+        if (textureWallA !== null) {
+            var diamondModX = diamondCornerA + (diamondCornerA > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            var diamondModSizeX = -diamondCornerA - (diamondCornerA > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            StageFactory.createWall(roomWalls, doorsWallA, windowsWallA, stage, meshFactory, position.x + diamondModX, size.x + diamondModSizeX - diamondCornerB, position.y, size.y, position.z, 0.0, textureWallA, bz.TextureFile.WALL_GLASS_1);
+            if (diamondCornerA > 0) {
+                var sizeCornerA = Math.sqrt(2 * Math.pow(diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2));
+                StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x, sizeCornerA, position.y, size.y, (position.z + diamondCornerA + bz.SettingAEC.WALL_DEPTH), 45.0, // TODO replace with -315.0 for unification
+                textureWallA, bz.TextureFile.WALL_GLASS_1);
+            }
         }
-        if (textureFileWallB !== null) {
-            StageFactory.createWall(roomWalls, doorsWallB, windowsWallB, stage, meshFactory, position.x + size.x + bz.SettingGame.WALL_DEPTH, size.z, position.y, size.y, position.z, -90.0, textureFileWallB, bz.TextureFile.WALL_GLASS_1);
+        if (textureWallB !== null) {
+            var diamondModX = diamondCornerB + (diamondCornerB > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            var diamondModSizeX = -diamondCornerB - (diamondCornerB > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            StageFactory.createWall(roomWalls, doorsWallB, windowsWallB, stage, meshFactory, position.x + size.x + bz.SettingAEC.WALL_DEPTH, size.z + diamondModSizeX - diamondCornerC, position.y, size.y, position.z + diamondModX, -90.0, textureWallB, bz.TextureFile.WALL_GLASS_1);
+            if (diamondCornerB > 0) {
+                var sizeCornerB = Math.sqrt(2 * Math.pow(diamondCornerB + bz.SettingAEC.WALL_DEPTH, 2));
+                StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + size.x - diamondCornerB, sizeCornerB, position.y, size.y, position.z, // ( position.z + diamondCornerB + 2 * bz.SettingAEC.WALL_DEPTH ),
+                -45.0, textureWallB, bz.TextureFile.WALL_GLASS_1);
+            }
         }
-        if (textureFileWallC !== null) {
-            StageFactory.createWall(roomWalls, doorsWallC, windowsWallC, stage, meshFactory, position.x + size.x + bz.SettingGame.WALL_DEPTH, size.x, position.y, size.y, position.z + size.z + bz.SettingGame.WALL_DEPTH, -180.0, textureFileWallC, bz.TextureFile.WALL_GLASS_1);
+        if (textureWallC !== null) {
+            var diamondModX = -diamondCornerC - (diamondCornerC > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            var diamondModSizeX = -diamondCornerC - (diamondCornerC > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            StageFactory.createWall(roomWalls, doorsWallC, windowsWallC, stage, meshFactory, position.x + size.x + bz.SettingAEC.WALL_DEPTH + diamondModX, size.x + diamondModSizeX - diamondCornerD, position.y, size.y, position.z + size.z + bz.SettingAEC.WALL_DEPTH, -180.0, textureWallC, bz.TextureFile.WALL_GLASS_1);
+            if (diamondCornerC > 0) {
+                var sizeCornerC = Math.sqrt(2 * Math.pow(diamondCornerC + bz.SettingAEC.WALL_DEPTH, 2));
+                StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + size.x + bz.SettingAEC.WALL_DEPTH, sizeCornerC, position.y, size.y, position.z + size.z - diamondCornerC, -135.0, textureWallC, bz.TextureFile.WALL_GLASS_1);
+            }
         }
-        if (textureFileWallD !== null) {
-            StageFactory.createWall(roomWalls, doorsWallD, windowsWallD, stage, meshFactory, position.x, size.z, position.y, size.y, position.z + size.z + bz.SettingGame.WALL_DEPTH, -270.0, textureFileWallD, bz.TextureFile.WALL_GLASS_1);
+        if (textureWallD !== null) {
+            var diamondModX = -diamondCornerD - (diamondCornerD > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            var diamondModSizeX = -diamondCornerD - (diamondCornerD > 0 ? bz.SettingAEC.WALL_DEPTH : 0);
+            StageFactory.createWall(roomWalls, doorsWallD, windowsWallD, stage, meshFactory, position.x, (size.z - diamondCornerA + diamondModSizeX), position.y, size.y, position.z + size.z + bz.SettingAEC.WALL_DEPTH + diamondModX, -270.0, textureWallD, bz.TextureFile.WALL_GLASS_1);
+            if (diamondCornerD > 0) {
+                var sizeCornerD = Math.sqrt(2 * Math.pow(diamondCornerD + bz.SettingAEC.WALL_DEPTH, 2));
+                StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + diamondCornerD + bz.SettingAEC.WALL_DEPTH, sizeCornerD, position.y, size.y, position.z + size.z + bz.SettingAEC.WALL_DEPTH, -225.0, textureWallD, bz.TextureFile.WALL_GLASS_1);
+            }
         }
         // ceiling
-        if (textureFileCeiling !== null) {
-            var ceiling = new bz.Wall(stage, new bz.Model([
-                meshFactory.createBox(new BABYLON.Vector3((position.x + bz.SettingGame.WALL_DEPTH / 2), (position.y + size.y - bz.SettingGame.DEPTH_FLOOR_CEILING), (position.z + bz.SettingGame.WALL_DEPTH / 2)), textureFileCeiling, new BABYLON.Vector3(size.x, bz.SettingGame.DEPTH_FLOOR_CEILING, size.z), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0)),
-            ]));
+        if (textureCeiling !== null) {
+            var ceiling = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3((position.x + bz.SettingAEC.WALL_DEPTH / 2), (position.y + size.y - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y), (position.z + bz.SettingAEC.WALL_DEPTH / 2)), textureCeiling, new BABYLON.Vector3(size.x, bz.SettingAEC.CEILING_HEIGHT, size.z), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0))));
             roomWalls.push(ceiling);
         }
         // floor
-        if (textureFileFloor !== null) {
-            var floor = new bz.Wall(stage, new bz.Model([
-                meshFactory.createPlane(new BABYLON.Vector3((position.x + (size.x + bz.SettingGame.WALL_DEPTH) / 2), (position.y + bz.SettingGame.FLOOR_OFFSET_Y), (position.z + (size.z + bz.SettingGame.WALL_DEPTH) / 2)), bz.MeshAnchor.CENTER_XYZ, size.x, size.z, new BABYLON.Vector3(90.0, 0.0, 0.0), textureFileFloor, null, bz.PhysicSet.STATIC, 1.0, 0),
-            ]));
+        if (textureFloor !== null) {
+            var floor = new bz.Wall(stage, new bz.Model(meshFactory.createPlane(new BABYLON.Vector3((position.x + (bz.SettingAEC.WALL_DEPTH / 2)), position.y + bz.SettingAEC.FLOOR_OFFSET_Y, (position.z + (bz.SettingAEC.WALL_DEPTH / 2))), size.x, size.z, textureFloor, null, bz.PhysicSet.STATIC, diamondCornerA, diamondCornerB, diamondCornerC, diamondCornerD)));
             roomWalls.push(floor);
         }
         try {
-            // rotate ALL walls around pivot and add all walls to stage
+            // rotate ALL walls around pivot
             for (var roomWalls_1 = __values(roomWalls), roomWalls_1_1 = roomWalls_1.next(); !roomWalls_1_1.done; roomWalls_1_1 = roomWalls_1.next()) {
                 var roomWall = roomWalls_1_1.value;
-                roomWall.getModel().rotateAroundAxisY(position.x, position.z, rotZ);
-                stage.addWall(roomWall);
+                roomWall.getModel().rotateAroundAxisY(position.x, position.z, rotY);
+                if (roomWall instanceof bz.Door) {
+                    roomWall.rotateDoorTurnPointAroundAxisY(position.x, position.z, rotY);
+                }
             }
         }
         catch (e_1_1) { e_1 = { error: e_1_1 }; }
@@ -28699,60 +30225,138 @@ var StageFactory = /** @class */ (function () {
             }
             finally { if (e_1) throw e_1.error; }
         }
+        // add all room walls to stage
+        stage.addWall(roomWalls);
     };
     /** ****************************************************************************************************************
-    *   Adds a pile of boxes to this stage.
-    *
-    *   @param stage       The stage to apply the pile of boxes to.
-    *   @param meshFactory The MeshFactory instance.
-    *   @param pos         center bottom position of the boxes pile to set.
+    *   Creates one staircase.
     *******************************************************************************************************************/
-    StageFactory.addCratesPile = function (stage, meshFactory, pos) {
-        // add 5 wooden crates
-        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x, pos.y, pos.z)));
-        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z + 2.5)));
-        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z)));
-        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y + 2.5, pos.z + 2.5)));
-        stage.addWall(bz.WallFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y + 5.0, pos.z + 2.5)));
-    };
-    /** ****************************************************************************************************************
-    *   Calculates all free positions of the wall in between windows and doors.
-    *******************************************************************************************************************/
-    StageFactory.calculateFreeWalls = function (start, size, windows, doors) {
-        var e_2, _a, e_3, _b, e_4, _c;
-        // collect all busy walls
-        var busyWalls = [];
+    StageFactory.addStaircase = function (stage, meshFactory, position, rotY, textureWalls, textureFloor, textureCeiling, sizeX, sizeY, sizeZ, stairstepFrontSize, stairstepRearSize) {
+        // TODO refactor!
+        var e_2, _a;
+        if (textureWalls === void 0) { textureWalls = bz.TextureFile.WALL_DARK_WOOD_PARQUET; }
+        if (textureFloor === void 0) { textureFloor = bz.TextureFile.WALL_CARPET_RASPBERRY; }
+        if (textureCeiling === void 0) { textureCeiling = bz.TextureFile.WALL_CEILING_1; }
+        if (sizeX === void 0) { sizeX = 20.0; }
+        if (sizeY === void 0) { sizeY = (2 * bz.SettingAEC.WALL_HEIGHT); }
+        if (sizeZ === void 0) { sizeZ = 20.0; }
+        if (stairstepFrontSize === void 0) { stairstepFrontSize = 5.0; }
+        if (stairstepRearSize === void 0) { stairstepRearSize = 5.0; }
+        var STAIRCASE_SIZE = new BABYLON.Vector3(sizeX, sizeY, sizeZ);
+        var HALF_HEIGHT_ISWALL = (STAIRCASE_SIZE.y / 2);
+        var QUARTER_HEIGHT = (STAIRCASE_SIZE.y / 4);
+        // calculate stairs angle and stairs size according to dimensions X and Y
+        var LOWER_STAIRS_X1 = (position.x + stairstepRearSize);
+        var LOWER_STAIRS_X2 = (position.x + STAIRCASE_SIZE.x - stairstepFrontSize);
+        var LOWER_STAIRS_Y1 = (position.y + QUARTER_HEIGHT);
+        var LOWER_STAIRS_Y2 = (position.y + HALF_HEIGHT_ISWALL);
+        var UPPER_STAIRS_X1 = (position.x + stairstepRearSize);
+        var UPPER_STAIRS_X2 = (position.x + STAIRCASE_SIZE.x - stairstepFrontSize);
+        var UPPER_STAIRS_Y1 = (position.y + QUARTER_HEIGHT);
+        var UPPER_STAIRS_Y2 = (position.y + HALF_HEIGHT_ISWALL);
+        var LOWER_STAIRS_ANGLE = -bz.MathUtil.angleBetweenPointsXZ(new BABYLON.Vector3(LOWER_STAIRS_X1, 0.0, LOWER_STAIRS_Y1), new BABYLON.Vector3(LOWER_STAIRS_X2, 0.0, LOWER_STAIRS_Y2));
+        var LOWER_STAIRS_LENGTH = BABYLON.Vector3.Distance(new BABYLON.Vector3(LOWER_STAIRS_X1, LOWER_STAIRS_Y1, 0.0), new BABYLON.Vector3(LOWER_STAIRS_X2, LOWER_STAIRS_Y2, 0.0));
+        var UPPER_STAIRS_ANGLE = bz.MathUtil.angleBetweenPointsXZ(new BABYLON.Vector3(UPPER_STAIRS_X1, 0.0, UPPER_STAIRS_Y1), new BABYLON.Vector3(UPPER_STAIRS_X2, 0.0, UPPER_STAIRS_Y2));
+        var UPPER_STAIRS_LENGTH = BABYLON.Vector3.Distance(new BABYLON.Vector3(UPPER_STAIRS_X1, UPPER_STAIRS_Y1, 0.0), new BABYLON.Vector3(UPPER_STAIRS_X2, UPPER_STAIRS_Y2, 0.0));
+        // all walls to add to the stage at the end of this method
+        var roomWalls = [];
+        // ceiling
+        if (textureCeiling !== null) {
+            var ceiling = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3((position.x + bz.SettingAEC.WALL_DEPTH / 2), (position.y + STAIRCASE_SIZE.y - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y), (position.z + bz.SettingAEC.WALL_DEPTH / 2)), textureCeiling, new BABYLON.Vector3(STAIRCASE_SIZE.x, bz.SettingAEC.CEILING_HEIGHT, STAIRCASE_SIZE.z), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ)));
+            roomWalls.push(ceiling);
+        }
+        // lower floor
+        var lowerFloor = new bz.Wall(stage, new bz.Model(meshFactory.createPlane(new BABYLON.Vector3((position.x + (bz.SettingAEC.WALL_DEPTH / 2)), position.y + bz.SettingAEC.FLOOR_OFFSET_Y, (position.z + (bz.SettingAEC.WALL_DEPTH / 2))), STAIRCASE_SIZE.x, STAIRCASE_SIZE.z, textureFloor, null, bz.PhysicSet.STATIC)));
+        roomWalls.push(lowerFloor);
+        // upper floor
+        if (stairstepFrontSize > 0.0) {
+            var upperFloor = new bz.Wall(stage, new bz.Model(meshFactory.createPlane(new BABYLON.Vector3((position.x + STAIRCASE_SIZE.x - stairstepFrontSize), (position.y + (STAIRCASE_SIZE.y / 2)) + bz.SettingAEC.FLOOR_OFFSET_Y, (position.z + (bz.SettingAEC.WALL_DEPTH / 2))), stairstepFrontSize + (bz.SettingAEC.WALL_DEPTH / 2), STAIRCASE_SIZE.z, textureFloor, null, bz.PhysicSet.STATIC)));
+            roomWalls.push(upperFloor);
+        }
+        // mid floor
+        var midFloor = new bz.Wall(stage, new bz.Model(meshFactory.createPlane(new BABYLON.Vector3((position.x + (bz.SettingAEC.WALL_DEPTH / 2)), (position.y + QUARTER_HEIGHT), (position.z + (bz.SettingAEC.WALL_DEPTH / 2))), stairstepRearSize, STAIRCASE_SIZE.z, textureFloor, null, bz.PhysicSet.STATIC)));
+        roomWalls.push(midFloor);
+        // lower stairs
+        var lowerStairs = new bz.Wall(stage, new bz.Model(meshFactory.createPlane(new BABYLON.Vector3(LOWER_STAIRS_X1, LOWER_STAIRS_Y1, (position.z + (bz.SettingAEC.WALL_DEPTH / 2))), LOWER_STAIRS_LENGTH, (STAIRCASE_SIZE.z / 2), bz.TextureFile.WALL_STAIRS_1, null, bz.PhysicSet.STATIC)));
+        lowerStairs.getModel().rotateAroundAxisZ((LOWER_STAIRS_X1), (LOWER_STAIRS_Y1), LOWER_STAIRS_ANGLE);
+        roomWalls.push(lowerStairs);
+        // upper stairs
+        var upperStairs = new bz.Wall(stage, new bz.Model(meshFactory.createPlane(new BABYLON.Vector3(UPPER_STAIRS_X1, UPPER_STAIRS_Y1, (position.z + (bz.SettingAEC.WALL_DEPTH / 2) + (STAIRCASE_SIZE.z / 2))), UPPER_STAIRS_LENGTH, (STAIRCASE_SIZE.z / 2), bz.TextureFile.WALL_STAIRS_1, null, bz.PhysicSet.STATIC)));
+        upperStairs.getModel().rotateAroundAxisZ(UPPER_STAIRS_X1, UPPER_STAIRS_Y1, UPPER_STAIRS_ANGLE);
+        roomWalls.push(upperStairs);
+        // center divider wall
+        StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + stairstepRearSize, STAIRCASE_SIZE.x - stairstepFrontSize - stairstepRearSize, position.y, STAIRCASE_SIZE.y, position.z + (STAIRCASE_SIZE.z / 2), 0.0, textureWalls);
+        // left wall
+        StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + STAIRCASE_SIZE.x, // + bz.SettingAEC.WALL_DEPTH, // / 2 ),
+        STAIRCASE_SIZE.x, position.y, STAIRCASE_SIZE.y, position.z + bz.SettingAEC.WALL_DEPTH, -180.0, textureWalls);
+        // rear wall
+        StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + bz.SettingAEC.WALL_DEPTH, STAIRCASE_SIZE.z, position.y, STAIRCASE_SIZE.y, position.z + bz.SettingAEC.WALL_DEPTH, -90.0, textureWalls);
+        // right wall
+        StageFactory.createWall(roomWalls, [], [], stage, meshFactory, position.x + bz.SettingAEC.WALL_DEPTH, // + STAIRCASE_SIZE.x, // + bz.SettingAEC.WALL_DEPTH, // / 2 ),
+        STAIRCASE_SIZE.x - bz.SettingAEC.WALL_DEPTH, position.y, STAIRCASE_SIZE.y, position.z + STAIRCASE_SIZE.z, // + STAIRCASE_SIZE.z + bz.SettingAEC.WALL_DEPTH,
+        0.0, textureWalls);
+        // lower front wall (blocks lower stairs)
+        StageFactory.createWall(roomWalls, [], [], stage, meshFactory, (position.x + STAIRCASE_SIZE.x - stairstepFrontSize), (STAIRCASE_SIZE.z / 2), position.y, HALF_HEIGHT_ISWALL, position.z + bz.SettingAEC.WALL_DEPTH + (STAIRCASE_SIZE.z / 2), -90.0, textureWalls);
+        // upper front wall (blocks falling into stairs)
+        StageFactory.createWall(roomWalls, [], [], stage, meshFactory, (position.x + STAIRCASE_SIZE.x - stairstepFrontSize), (STAIRCASE_SIZE.z / 2) - bz.SettingAEC.WALL_DEPTH, (position.y + HALF_HEIGHT_ISWALL), (bz.SettingAEC.WALL_HEIGHT / 2), position.z + bz.SettingAEC.WALL_DEPTH, -90.0, textureWalls);
         try {
-            for (var windows_1 = __values(windows), windows_1_1 = windows_1.next(); !windows_1_1.done; windows_1_1 = windows_1.next()) {
-                var window_1 = windows_1_1.value;
-                if (start + window_1 >= start + size) {
-                    continue;
+            // rotate ALL walls around pivot TODO extract to method!
+            for (var roomWalls_2 = __values(roomWalls), roomWalls_2_1 = roomWalls_2.next(); !roomWalls_2_1.done; roomWalls_2_1 = roomWalls_2.next()) {
+                var roomWall = roomWalls_2_1.value;
+                roomWall.getModel().rotateAroundAxisY(position.x, position.z, rotY);
+                if (roomWall instanceof bz.Door) {
+                    roomWall.rotateDoorTurnPointAroundAxisY(position.x, position.z, rotY);
                 }
-                busyWalls.push(new BABYLON.Vector2(start + window_1, start + window_1 + bz.SettingGame.WINDOW_WIDTH));
             }
         }
         catch (e_2_1) { e_2 = { error: e_2_1 }; }
         finally {
             try {
-                if (windows_1_1 && !windows_1_1.done && (_a = windows_1.return)) _a.call(windows_1);
+                if (roomWalls_2_1 && !roomWalls_2_1.done && (_a = roomWalls_2.return)) _a.call(roomWalls_2);
             }
             finally { if (e_2) throw e_2.error; }
         }
+        // add all room walls to stage
+        stage.addWall(roomWalls);
+    };
+    /** ****************************************************************************************************************
+    *   Calculates all free positions of the wall in between windows and doors.
+    *******************************************************************************************************************/
+    StageFactory.calculateBlankWalls = function (start, size, windowsData, doorsData) {
+        var e_3, _a, e_4, _b, e_5, _c;
+        // collect all busy walls
+        var busyWalls = [];
         try {
-            for (var doors_1 = __values(doors), doors_1_1 = doors_1.next(); !doors_1_1.done; doors_1_1 = doors_1.next()) {
-                var door = doors_1_1.value;
-                if (start + door >= start + size) {
+            for (var windowsData_1 = __values(windowsData), windowsData_1_1 = windowsData_1.next(); !windowsData_1_1.done; windowsData_1_1 = windowsData_1.next()) {
+                var windowData = windowsData_1_1.value;
+                if (start + windowData.position >= start + size) {
                     continue;
                 }
-                busyWalls.push(new BABYLON.Vector2(start + door, start + door + bz.SettingGame.DOOR_WIDTH));
+                busyWalls.push(new BABYLON.Vector2(start + windowData.position, start + windowData.position + windowData.width));
             }
         }
         catch (e_3_1) { e_3 = { error: e_3_1 }; }
         finally {
             try {
-                if (doors_1_1 && !doors_1_1.done && (_b = doors_1.return)) _b.call(doors_1);
+                if (windowsData_1_1 && !windowsData_1_1.done && (_a = windowsData_1.return)) _a.call(windowsData_1);
             }
             finally { if (e_3) throw e_3.error; }
+        }
+        try {
+            for (var doorsData_1 = __values(doorsData), doorsData_1_1 = doorsData_1.next(); !doorsData_1_1.done; doorsData_1_1 = doorsData_1.next()) {
+                var doorData = doorsData_1_1.value;
+                if (start + doorData.position >= start + size) {
+                    continue;
+                }
+                busyWalls.push(new BABYLON.Vector2(start + doorData.position, start + doorData.position + bz.SettingAEC.DOOR_WIDTH));
+            }
+        }
+        catch (e_4_1) { e_4 = { error: e_4_1 }; }
+        finally {
+            try {
+                if (doorsData_1_1 && !doorsData_1_1.done && (_b = doorsData_1.return)) _b.call(doorsData_1);
+            }
+            finally { if (e_4) throw e_4.error; }
         }
         // sort busy walls by 1st value (X)
         busyWalls = busyWalls.sort(function (a, b) {
@@ -28767,12 +30371,12 @@ var StageFactory = /** @class */ (function () {
                 freeWalls.push(busyWall.y);
             }
         }
-        catch (e_4_1) { e_4 = { error: e_4_1 }; }
+        catch (e_5_1) { e_5 = { error: e_5_1 }; }
         finally {
             try {
                 if (busyWalls_1_1 && !busyWalls_1_1.done && (_c = busyWalls_1.return)) _c.call(busyWalls_1);
             }
-            finally { if (e_4) throw e_4.error; }
+            finally { if (e_5) throw e_5.error; }
         }
         freeWalls.push(start + size);
         return freeWalls;
@@ -28780,69 +30384,114 @@ var StageFactory = /** @class */ (function () {
     /** ****************************************************************************************************************
     *   Creates one straight wall for a room.
     *******************************************************************************************************************/
-    StageFactory.createWall = function (roomWalls, doorsPos, windowsPos, stage, meshFactory, x, sizeX, y, sizeY, z, rotY, textureFileWall, textureFileGlass) {
-        var e_5, _a, e_6, _b, e_7, _c, e_8, _d;
+    StageFactory.createWall = function (roomWalls, doorsData, windowsData, stage, meshFactory, x, sizeX, y, sizeY, z, 
+    // TODO create enum for rot ? LEFT = -90.0 etc !
+    rotY, textureWall, textureGlass) {
+        var e_6, _a, e_7, _b, e_8, _c, e_9, _d;
+        if (textureWall === void 0) { textureWall = bz.TextureFile.WALL_DARK_WOOD_PARQUET; }
+        if (textureGlass === void 0) { textureGlass = bz.TextureFile.WALL_GLASS_1; }
         var walls = [];
+        // door frames
+        var createdDoors = [];
         try {
-            // door frames
-            for (var doorsPos_1 = __values(doorsPos), doorsPos_1_1 = doorsPos_1.next(); !doorsPos_1_1.done; doorsPos_1_1 = doorsPos_1.next()) {
-                var doorPos = doorsPos_1_1.value;
-                if (doorPos >= sizeX) {
+            for (var doorsData_2 = __values(doorsData), doorsData_2_1 = doorsData_2.next(); !doorsData_2_1.done; doorsData_2_1 = doorsData_2.next()) {
+                var doorData = doorsData_2_1.value;
+                if (doorData.position >= sizeX) {
                     continue;
                 }
-                if (sizeY < bz.SettingGame.DOOR_HEIGHT + bz.SettingGame.DOOR_FRAME_HEIGHT) {
-                    continue;
+                if (sizeY < bz.SettingAEC.DOOR_HEIGHT + bz.SettingAEC.DOOR_FRAME_HEIGHT) {
+                    // skip door frame drawing
                 }
-                var doorFrame = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + doorPos, y + sizeY - bz.SettingGame.DOOR_FRAME_HEIGHT, z), textureFileWall, new BABYLON.Vector3(bz.SettingGame.DOOR_WIDTH, bz.SettingGame.DOOR_FRAME_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
-                ]));
-                walls.push(doorFrame);
-            }
-        }
-        catch (e_5_1) { e_5 = { error: e_5_1 }; }
-        finally {
-            try {
-                if (doorsPos_1_1 && !doorsPos_1_1.done && (_a = doorsPos_1.return)) _a.call(doorsPos_1);
-            }
-            finally { if (e_5) throw e_5.error; }
-        }
-        try {
-            // window frames
-            for (var windowsPos_1 = __values(windowsPos), windowsPos_1_1 = windowsPos_1.next(); !windowsPos_1_1.done; windowsPos_1_1 = windowsPos_1.next()) {
-                var windowPos = windowsPos_1_1.value;
-                if (windowPos >= sizeX) {
-                    continue;
+                else {
+                    // door frame
+                    var doorFrame = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3(x + doorData.position, y + sizeY - bz.SettingAEC.DOOR_FRAME_HEIGHT, z), textureWall, new BABYLON.Vector3(bz.SettingAEC.DOOR_WIDTH, bz.SettingAEC.DOOR_FRAME_HEIGHT, bz.SettingAEC.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ)));
+                    walls.push(doorFrame);
                 }
-                // top window frame
-                var topWindowFrame = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT, z), textureFileWall, new BABYLON.Vector3(bz.SettingGame.WINDOW_WIDTH, bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
-                ]));
-                walls.push(topWindowFrame);
-                // window glass
-                var windowGlass = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y + sizeY - bz.SettingGame.WINDOW_TOP_FRAME_HEIGHT - bz.SettingGame.WINDOW_HEIGHT, z), textureFileGlass, new BABYLON.Vector3(bz.SettingGame.WINDOW_WIDTH, bz.SettingGame.WINDOW_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 0.25, bz.MeshAnchor.LOWEST_XYZ),
-                ]));
-                walls.push(windowGlass);
-                // bottom window frame
-                var bottomWindowFrame = new bz.Wall(stage, new bz.Model([
-                    meshFactory.createBox(new BABYLON.Vector3(x + windowPos, y, z), textureFileWall, new BABYLON.Vector3(bz.SettingGame.WINDOW_WIDTH, bz.SettingGame.WINDOW_BOTTOM_FRAME_HEIGHT, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
-                ]));
-                walls.push(bottomWindowFrame);
+                // door
+                if (!doorData.noBody) {
+                    var doorPosition2D = new BABYLON.Vector2(x + (doorData.position + bz.SettingAEC.DOOR_WIDTH / 2), z + (bz.SettingAEC.WALL_DEPTH / 2));
+                    var doorPosition = new BABYLON.Vector3(doorPosition2D.x, y, doorPosition2D.y);
+                    var turnPoint2D = new BABYLON.Vector2(x, z);
+                    var doorTurnPoint2D = bz.MathUtil.rotateVector2(turnPoint2D, -rotY, doorPosition2D);
+                    var doorTurnPoint = new BABYLON.Vector3(doorTurnPoint2D.x, y, doorTurnPoint2D.y);
+                    var door = new bz.Door(stage, doorPosition, rotY, doorData.animation, doorData.events, doorTurnPoint, doorData.texture, doorData.reverseTextureX);
+                    walls.push(door);
+                    createdDoors.push(door);
+                }
             }
         }
         catch (e_6_1) { e_6 = { error: e_6_1 }; }
         finally {
             try {
-                if (windowsPos_1_1 && !windowsPos_1_1.done && (_b = windowsPos_1.return)) _b.call(windowsPos_1);
+                if (doorsData_2_1 && !doorsData_2_1.done && (_a = doorsData_2.return)) _a.call(doorsData_2);
             }
             finally { if (e_6) throw e_6.error; }
         }
-        // walls
-        var freeWalls = StageFactory.calculateFreeWalls(x, sizeX, windowsPos, doorsPos);
-        for (var i = 0; i < freeWalls.length; i += 2) {
-            var wall = new bz.Wall(stage, new bz.Model([
-                meshFactory.createBox(new BABYLON.Vector3(freeWalls[i], y, z), textureFileWall, new BABYLON.Vector3((freeWalls[i + 1] - freeWalls[i]), sizeY, bz.SettingGame.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
-            ]));
+        // link doors if specified
+        for (var i = 0; i < doorsData.length; ++i) {
+            if (doorsData[i].linkedDoorIndex !== -1) {
+                createdDoors[i].setLinkedDoor(createdDoors[doorsData[i].linkedDoorIndex]);
+                createdDoors[doorsData[i].linkedDoorIndex].setLinkedDoor(createdDoors[i]);
+            }
+        }
+        try {
+            // window frames
+            for (var windowsData_2 = __values(windowsData), windowsData_2_1 = windowsData_2.next(); !windowsData_2_1.done; windowsData_2_1 = windowsData_2.next()) {
+                var windowData = windowsData_2_1.value;
+                if (windowData.position >= sizeX) {
+                    continue;
+                }
+                // calculate window dimensions
+                var windowHeight = bz.SettingAEC.WINDOW_HEIGHT;
+                var windowTopFrameHeight = bz.SettingAEC.WINDOW_TOP_FRAME_HEIGHT;
+                var windowBottomFrameHeight = bz.SettingAEC.WINDOW_BOTTOM_FRAME_HEIGHT;
+                if (windowData.fullHeight) {
+                    windowHeight = sizeY;
+                    windowTopFrameHeight = 0.0;
+                    windowBottomFrameHeight = 0.0;
+                }
+                if (sizeY < windowHeight + windowTopFrameHeight) {
+                    continue;
+                }
+                // top window frame
+                if (windowTopFrameHeight > 0.0) {
+                    var topWindowFrame = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3(x + windowData.position, y + sizeY - windowTopFrameHeight, z), textureWall, new BABYLON.Vector3(windowData.width, windowTopFrameHeight, bz.SettingAEC.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ)));
+                    walls.push(topWindowFrame);
+                }
+                // window glass
+                var windowGlass = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3(x + windowData.position, y + sizeY - windowTopFrameHeight - windowHeight, z), textureGlass, new BABYLON.Vector3(windowData.width, windowHeight, bz.SettingAEC.WALL_DEPTH), bz.PhysicSet.STATIC, 0.25, bz.MeshAnchor.LOWEST_XYZ)), windowData.nonBreakable
+                    ? bz.GameObject.UNBREAKABLE
+                    : bz.MathUtil.getRandomInt(bz.SettingGame.WINDOW_MIN_ENERGY, bz.SettingGame.WINDOW_MAX_ENERGY), false, true);
+                walls.push(windowGlass);
+                // bottom window frame
+                if (sizeY < (windowHeight
+                    + windowTopFrameHeight
+                    + windowBottomFrameHeight)) {
+                    continue;
+                }
+                if (windowBottomFrameHeight > 0.0) {
+                    var bottomWindowFrame = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3(x + windowData.position, y, z), textureWall, new BABYLON.Vector3(windowData.width, windowBottomFrameHeight, bz.SettingAEC.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ)));
+                    walls.push(bottomWindowFrame);
+                }
+            }
+        }
+        catch (e_7_1) { e_7 = { error: e_7_1 }; }
+        finally {
+            try {
+                if (windowsData_2_1 && !windowsData_2_1.done && (_b = windowsData_2.return)) _b.call(windowsData_2);
+            }
+            finally { if (e_7) throw e_7.error; }
+        }
+        // blank walls ( all walls beside doors and windows )
+        var blankWalls = StageFactory.calculateBlankWalls(x, sizeX, windowsData, doorsData);
+        for (var i = 0; i < blankWalls.length; i += 2) {
+            var from = blankWalls[i];
+            var to = blankWalls[i + 1];
+            var width = (to - from);
+            if (width === 0.0) {
+                continue;
+            }
+            var wall = new bz.Wall(stage, new bz.Model(meshFactory.createBox(new BABYLON.Vector3(from, y, z), textureWall, new BABYLON.Vector3(width, sizeY, bz.SettingAEC.WALL_DEPTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ)));
             walls.push(wall);
         }
         try {
@@ -28852,12 +30501,12 @@ var StageFactory = /** @class */ (function () {
                 wall.getModel().rotateAroundAxisY(x, z, rotY);
             }
         }
-        catch (e_7_1) { e_7 = { error: e_7_1 }; }
+        catch (e_8_1) { e_8 = { error: e_8_1 }; }
         finally {
             try {
                 if (walls_1_1 && !walls_1_1.done && (_c = walls_1.return)) _c.call(walls_1);
             }
-            finally { if (e_7) throw e_7.error; }
+            finally { if (e_8) throw e_8.error; }
         }
         try {
             // add all to walls array
@@ -28866,12 +30515,12 @@ var StageFactory = /** @class */ (function () {
                 roomWalls.push(wall);
             }
         }
-        catch (e_8_1) { e_8 = { error: e_8_1 }; }
+        catch (e_9_1) { e_9 = { error: e_9_1 }; }
         finally {
             try {
                 if (walls_2_1 && !walls_2_1.done && (_d = walls_2.return)) _d.call(walls_2);
             }
-            finally { if (e_8) throw e_8.error; }
+            finally { if (e_9) throw e_9.error; }
         }
     };
     return StageFactory;
@@ -28908,24 +30557,390 @@ var StageId;
 
 /***/ }),
 
-/***/ "./src/typescript/bz/game/stage/WallFactory.ts":
-/*!*****************************************************!*\
-  !*** ./src/typescript/bz/game/stage/WallFactory.ts ***!
-  \*****************************************************/
+/***/ "./src/typescript/bz/game/stage/aec/AECFactory.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/stage/aec/AECFactory.ts ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WallFactory = void 0;
-var bz = __webpack_require__(/*! ../.. */ "./src/typescript/bz/index.ts");
+exports.AECFactory = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
 /** ********************************************************************************************************************
-*   Offers creation methods for walls and models construction.
+*   Configuration set for a Door game object.
+*
+*   TODO add rotations for all rooms/objects :p
+*        new Wall().getModel().rotateAroundAxisY
 ***********************************************************************************************************************/
-var WallFactory = /** @class */ (function () {
-    function WallFactory() {
+var AECFactory = /** @class */ (function () {
+    function AECFactory() {
     }
+    /** ****************************************************************************************************************
+    *   Adds a 'residental street' location to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addResidentalStreet = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(80.0, 7.5, 40.0), rotY, bz.TextureFile.WALL_WOOD_VERT_1, [], [], 0, bz.TextureFile.WALL_WOOD_VERT_2, [], [], 0, null, [], [], 0, null, [], [], 0, bz.TextureFile.WALL_PAVEMENT_MILANO, null);
+        // gothic church
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.GOTHIC_CHURCH, position.add(new BABYLON.Vector3(50.0, 0.0, 100.0)), bz.PhysicSet.STATIC, bz.ModelCompoundType.NONE, 180.0)));
+        // house 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.HOUSE_1, position.add(new BABYLON.Vector3(45.0, 0.0, 35.0)), bz.PhysicSet.STATIC, 90.0, 135.0)));
+        // 3d tree 1
+        var tree1 = new bz.Wall(stage, new bz.Model(meshFactory.genrateTree(position.add(new BABYLON.Vector3(10.0, 0.0, 30.0)))));
+        stage.addWall(tree1);
+    };
+    /** ****************************************************************************************************************
+    *   Adds a 'small park' location to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addSmallPark = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        var CORNER_SIZE = 17.5;
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(100.0, 6.5, 100.0), rotY, null, [], [], 0.0, bz.TextureFile.WALL_WOOD_VERT_2, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], CORNER_SIZE, null, [], [], 0.0, bz.TextureFile.WALL_WOOD_VERT_2, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], CORNER_SIZE, bz.TextureFile.WALL_GRASS_1, null);
+        // 3d trees
+        for (var x = 25.0; x <= 100.0; x += 50.0) {
+            for (var z = 25.0; z <= 100.0; z += 50.0) {
+                var tree = new bz.Wall(stage, new bz.Model(meshFactory.genrateTree(position.add(new BABYLON.Vector3(x, 0.0, z)))));
+                stage.addWall(tree);
+            }
+        }
+        // bench 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.BENCH_1, position.add(new BABYLON.Vector3(60.0, 1.3, 12.5)), bz.PhysicSet.SHELVES, 180.0, bz.ModelCompoundType.NONE), 8.0));
+        // bench 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.BENCH_1, position.add(new BABYLON.Vector3(52.5, 1.3, 60.5)), bz.PhysicSet.SHELVES, 90.0, bz.ModelCompoundType.NONE), 8.0));
+    };
+    /** ****************************************************************************************************************
+    *   Adds a hallway to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addHallway = function (stage, meshFactory, position, rotY, length, leftWall, rightWall) {
+        if (rotY === void 0) { rotY = 0.0; }
+        if (length === void 0) { length = 80.0; }
+        if (leftWall === void 0) { leftWall = true; }
+        if (rightWall === void 0) { rightWall = true; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(length, bz.SettingAEC.WALL_HEIGHT, bz.SettingAEC.HALLWAY_WIDTH), rotY, (leftWall ? bz.TextureFile.WALL_DARK_WOOD_PARQUET : null), [], [
+        // new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        ], 0, null, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 0, (rightWall ? bz.TextureFile.WALL_DARK_WOOD_PARQUET : null), [], [
+            new bz.WindowData(2.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+        ], 0, null, [], [], 0, bz.TextureFile.WALL_CARPET_RASPBERRY, bz.TextureFile.WALL_CEILING_1);
+    };
+    /** ****************************************************************************************************************
+    *   Adds a large office to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addLargeOffice = function (stage, meshFactory, position, rotY, pointLights) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(80.0, bz.SettingAEC.WALL_HEIGHT, 40.0), rotY, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+            new bz.WindowData(2.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+        ], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            new bz.DoorData(5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+            new bz.DoorData(65.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true),
+        ], [], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 0, bz.TextureFile.WALL_CARPET_RASPBERRY, bz.TextureFile.WALL_CEILING_1);
+        // tv (65 inch)
+        var tv = new bz.Wall(stage, new bz.Model(meshFactory.createBox(position.add(new BABYLON.Vector3(24.0, 5.0, 39.5)), bz.TextureFile.VIDEO_TEST, new BABYLON.Vector3((15.0 * 0.640), (15.0 * 0.360), 0.25), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.CENTER_XYZ, new BABYLON.Vector3(0.0, 0.0, 0.0))), bz.GameObject.UNBREAKABLE, false, false, [
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('Nothing on the television today')),
+            new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay((2 * 60))),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('DELAYED: I will turn the lights off :)')),
+            new bz.Event(bz.EventType.TOGGLE_LIGHT, new bz.EventDataToggleLight(pointLights)),
+        ], bz.InteractionType.REPEATED);
+        stage.addWall(tv);
+        // solid sphere
+        stage.addWall(new bz.Wall(stage, new bz.Model(meshFactory.createSphere(position.add(new BABYLON.Vector3(10.5, 1.5, 30.0)), bz.MeshAnchor.CENTER_XYZ, 3.0, new BABYLON.Vector3(0.0, 0.0, 0.0), bz.TextureFile.MODEL_WOOD_HORZ, null, bz.PhysicSet.WHITE_TEST_SPHERE))));
+    };
+    /** ****************************************************************************************************************
+    *   Adds a medium office to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addMediumOffice = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(58.0, bz.SettingAEC.WALL_HEIGHT, 40.0), rotY, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+            new bz.WindowData(2.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+        ], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            new bz.DoorData(10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+            new bz.DoorData(43.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true),
+        ], [], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 0, bz.TextureFile.WALL_CARPET_RASPBERRY, bz.TextureFile.WALL_CEILING_1);
+        // office desk 2
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.OFFICE_DESK_2, position.add(new BABYLON.Vector3(21.0, 1.6, 37.5)), bz.PhysicSet.SHELVES, 0.0, bz.ModelCompoundType.NONE), 5.0));
+        // shelves
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.SHELVES_1, position.add(new BABYLON.Vector3(33.5, 3.15, 37.5)), bz.PhysicSet.SHELVES, 2.0, bz.ModelCompoundType.NONE), 5.0));
+        // computer desk
+        AECFactory.addComputerDesk(stage, meshFactory, new BABYLON.Vector3(12.0, 1.7, 7.0), 90.0);
+        AECFactory.addComputerDesk(stage, meshFactory, new BABYLON.Vector3(46.0, 1.7, 7.0), -90.0);
+        // sofa 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.SOFA_1, position.add(new BABYLON.Vector3(25.5, 2.0, 2.5)), bz.PhysicSet.SHELVES, 180.0, bz.ModelCompoundType.NONE), 5.0));
+        // office chair 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH, position.add(new BABYLON.Vector3(3.5, 2.3, 14.0)), bz.PhysicSet.OFFICE_CHAIR, 45.0, bz.ModelCompoundType.COMPOUND), 5.0));
+        // office chair 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH, position.add(new BABYLON.Vector3(46.0, 2.3, 7.5)), bz.PhysicSet.OFFICE_CHAIR, 225.0, bz.ModelCompoundType.COMPOUND), 5.0));
+    };
+    AECFactory.addCasino = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        // add casino room (half diamond shaped?)
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(58.0, bz.SettingAEC.WALL_HEIGHT, 58.0), rotY, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        /*
+                        new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                        new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                        new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                        new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        */
+        ], 10, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            new bz.DoorData(26.5, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true),
+        ], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 10, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [], 10, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            new bz.DoorData(26.5, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 10, bz.TextureFile.WALL_CARPET_RASPBERRY, bz.TextureFile.WALL_CEILING_1);
+        // soda machine 2
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.SODA_MACHINE_2, position.add(new BABYLON.Vector3(5.5, 3.15, 37.5)), bz.PhysicSet.SODA_MACHINE, 0.0, bz.ModelCompoundType.NONE), 7.0));
+    };
+    /** ****************************************************************************************************************
+    *   Adds a small office to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addSmallOffice = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(30.0, bz.SettingAEC.WALL_HEIGHT, 20.0), rotY, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+            new bz.WindowData(2.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+            new bz.WindowData(16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE),
+        ], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            new bz.DoorData(5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [], 0, bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 0, bz.TextureFile.WALL_CARPET_RASPBERRY, bz.TextureFile.WALL_CEILING_1);
+    };
+    /** ****************************************************************************************************************
+    *   Adds a 'parking lot' location to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addParkingLot = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(40.0, 3.0, 60.0), rotY, bz.TextureFile.WALL_STONES_DARK_GRANITE, [
+            new bz.DoorData(5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [
+        //                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        //                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        ], 0, bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 0, bz.TextureFile.WALL_STONES_DARK_GRANITE, [
+            new bz.DoorData(10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [], 0, bz.TextureFile.WALL_STONES_DARK_GRANITE, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 0, bz.TextureFile.MODEL_CONCRETE, null);
+        // car camaro
+        var carCamaro = new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CAR_CAMARO, position.add(new BABYLON.Vector3(10.0, 0.0, 30.0)), bz.PhysicSet.SHELVES, bz.ModelCompoundType.NONE, 180.0), 12.0);
+        stage.addWall(carCamaro);
+        // car cadillac
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CAR_CADILLAC, position.add(new BABYLON.Vector3(50.0, 0.0, 30.0)), bz.PhysicSet.SHELVES, null), 10.0));
+        // bike suzuki
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.BIKE_SUZUKI, position.add(new BABYLON.Vector3(70.0, 0.0, 30.0)), bz.PhysicSet.SHELVES, null), 10.0));
+        // office desk 3
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.WORKBENCH, position.add(new BABYLON.Vector3(60.0, 0.0, 35.0)), bz.PhysicSet.SHELVES, 30.0), 10.0));
+        // garage 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.GARAGE_1, position.add(new BABYLON.Vector3(100.0, 0.0, 100.0)), bz.PhysicSet.SHELVES, null, 180.0), 10.0));
+        // sewerage pumping
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.SEWERAGE_PUMPING, new BABYLON.Vector3(15.0, 0.0, -20.0), bz.PhysicSet.SHELVES, 0.0), 10.0));
+    };
+    /** ****************************************************************************************************************
+    *   Adds a 'backyard' location to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addBackyard = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(40.0, 3.0, 60.0), rotY, bz.TextureFile.WALL_STONES_DARK_GRANITE, [
+            new bz.DoorData(5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [], 0, null, [], [], 0, bz.TextureFile.WALL_STONES_DARK_GRANITE, [
+            new bz.DoorData(10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [], 0, null, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 0, bz.TextureFile.WALL_ASPHALT_CRACKED, null);
+        // wooden fence
+        bz.AECFactory.createFence(stage, meshFactory, position.add(new BABYLON.Vector3(0.0, 0.0, 0.0)), [1, 2, 3, 4, 5], 0.0);
+        // 3d tree 1
+        var tree1 = new bz.Wall(stage, new bz.Model(meshFactory.genrateTree(position.add(new BABYLON.Vector3(-10.0, 0.0, 15.0)))));
+        stage.addWall(tree1);
+        // 3d tree 2
+        var tree2 = new bz.Wall(stage, new bz.Model(meshFactory.genrateTree(position.add(new BABYLON.Vector3(-10.0, 0.0, 30.0)))));
+        stage.addWall(tree2);
+        // trash container blue
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.WASTE_CONTAINER, position.add(new BABYLON.Vector3(20.0, 0.0, 15.0)), bz.PhysicSet.SHELVES, null), 10.0));
+        // trash container green
+        var trashContainer = new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.WASTE_CONTAINER, position.add(new BABYLON.Vector3(35.0, 0.0, 15.0)), bz.PhysicSet.SHELVES, null), 10.0);
+        trashContainer.getModel().changeTexture(stage.getScene(), bz.SettingResource.PATH_MODEL + 'object/wasteContainer_blue.jpg', bz.SettingResource.PATH_MODEL + 'object/wasteContainer_green.jpg');
+        stage.addWall(trashContainer);
+        // big bin
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.BIG_BIN, position.add(new BABYLON.Vector3(45.0, 0.0, 10.0)), bz.PhysicSet.SHELVES, 0.0), 10.0));
+        // car opel record
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CAR_OPEL_RECORD, position.add(new BABYLON.Vector3(30.0, 0.0, 30.0)), bz.PhysicSet.SHELVES, 30.0), 10.0));
+    };
+    /** ****************************************************************************************************************
+    *   Adds a 'warehouse' location to the stage.
+    *******************************************************************************************************************/
+    AECFactory.addWarehouse = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0; }
+        bz.StageFactory.addRoomWalls(stage, meshFactory, position, new BABYLON.Vector3(60.0, bz.SettingAEC.WALL_HEIGHT, 60.0), rotY, bz.TextureFile.WALL_CONCRETE_NEW, [
+            new bz.DoorData(5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [
+        //                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        //                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        // new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+        ], 0, bz.TextureFile.WALL_CONCRETE_NEW, [], [
+        // new bz.WindowData( 6.5,  true, true ),
+        // new bz.WindowData( 11.0, true, true ),
+        ], 0, bz.TextureFile.WALL_CONCRETE_NEW, [
+            new bz.DoorData(10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false),
+        ], [], 0, bz.TextureFile.WALL_CONCRETE_NEW, [], [
+        // new bz.WindowData( 2.0,  false ),
+        ], 0, bz.TextureFile.WALL_DIAMOND_PLATE_1, bz.TextureFile.WALL_CEILING_1);
+        // pallet cement 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.PALLET_CEMENT_1, position.add(new BABYLON.Vector3(15.0, 0.0, 10.0)), bz.PhysicSet.SHELVES, 0.0), 10.0));
+        // pallet cement 2
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.PALLET_CEMENT_2, position.add(new BABYLON.Vector3(25.0, 0.0, 10.0)), bz.PhysicSet.SHELVES, 0.0), 10.0));
+        // pallet cement 3
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.PALLET_CEMENT_3, position.add(new BABYLON.Vector3(10.0, 0.0, 25.0)), bz.PhysicSet.SHELVES, 0.0), 10.0));
+        // transpallet
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.TRANSPALLET, position.add(new BABYLON.Vector3(-5.0, 0.0, -5.0)), bz.PhysicSet.SHELVES, 45.0), 10.0));
+        // boxes pile
+        bz.AECFactory.addCratesPile(stage, meshFactory, position.add(new BABYLON.Vector3(5.0, 0.0, 25.0)));
+        // pillar from new concrete
+        bz.AECFactory.addPillar(stage, meshFactory, position.add(new BABYLON.Vector3(15.0, 0.0, 20.0)));
+        // pillar from new concrete
+        bz.AECFactory.addPillar(stage, meshFactory, position.add(new BABYLON.Vector3(25.0, 0.0, 20.0)));
+        // pillar from new concrete
+        bz.AECFactory.addPillar(stage, meshFactory, position.add(new BABYLON.Vector3(15.0, 0.0, 30.0)));
+        // pillar from new concrete
+        bz.AECFactory.addPillar(stage, meshFactory, position.add(new BABYLON.Vector3(25.0, 0.0, 30.0)));
+    };
+    /** ****************************************************************************************************************
+    *   Creates a fence.
+    *
+    *   @param stage       Stage to create the fence in.
+    *   @param meshFactory The meshFactory for model creation.
+    *   @param position    The initial position of the fence.
+    *   @param ids         The ids of the fence pieces.
+    *   @param rotY        Rotation on axis Y for the fence.
+    *
+    *   @return The created wooden crate.
+    *******************************************************************************************************************/
+    AECFactory.createFence = function (stage, meshFactory, position, ids, rotY) {
+        var e_1, _a, e_2, _b;
+        var fenceWalls = [];
+        var FENCE_WIOTH = 8.5;
+        var anchor = position.clone();
+        var z = position.z;
+        try {
+            for (var ids_1 = __values(ids), ids_1_1 = ids_1.next(); !ids_1_1.done; ids_1_1 = ids_1.next()) {
+                var id = ids_1_1.value;
+                var fileName = null;
+                switch (id) {
+                    case 1:
+                        fileName = bz.ModelFile.WOODEN_FENCE_1;
+                        break;
+                    case 2:
+                        fileName = bz.ModelFile.WOODEN_FENCE_2;
+                        break;
+                    case 3:
+                        fileName = bz.ModelFile.WOODEN_FENCE_3;
+                        break;
+                    case 4:
+                        fileName = bz.ModelFile.WOODEN_FENCE_4;
+                        break;
+                    case 5:
+                    default:
+                        {
+                            fileName = bz.ModelFile.WOODEN_FENCE_5;
+                            break;
+                        }
+                }
+                fenceWalls.push(new bz.Wall(stage, meshFactory.createImportedModel(fileName, new BABYLON.Vector3(anchor.x, anchor.y, z + (FENCE_WIOTH / 2)), bz.PhysicSet.SHELVES, 0.0)));
+                z += FENCE_WIOTH;
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (ids_1_1 && !ids_1_1.done && (_a = ids_1.return)) _a.call(ids_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        try {
+            // rotate all fence walls around pivot
+            for (var fenceWalls_1 = __values(fenceWalls), fenceWalls_1_1 = fenceWalls_1.next(); !fenceWalls_1_1.done; fenceWalls_1_1 = fenceWalls_1.next()) {
+                var fenceWall = fenceWalls_1_1.value;
+                fenceWall.getModel().rotateAroundAxisY(position.x, position.z, rotY);
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (fenceWalls_1_1 && !fenceWalls_1_1.done && (_b = fenceWalls_1.return)) _b.call(fenceWalls_1);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+        // add fence walls to stage
+        stage.addWall(fenceWalls);
+    };
+    /** ****************************************************************************************************************
+    *   Adds a pile of boxes to this stage.
+    *
+    *   @param stage       The stage to apply the pile of boxes to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param pos         center bottom position of the boxes pile to set.
+    *******************************************************************************************************************/
+    AECFactory.addCratesPile = function (stage, meshFactory, pos) {
+        // add 5 wooden crates
+        stage.addWall(bz.AECFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x, pos.y, pos.z)));
+        stage.addWall(bz.AECFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z + 2.5)));
+        stage.addWall(bz.AECFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y, pos.z)));
+        stage.addWall(bz.AECFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y + 2.5, pos.z + 2.5)));
+        stage.addWall(bz.AECFactory.createWoodenCrate(stage, meshFactory, new BABYLON.Vector3(pos.x + 2.5, pos.y + 5.0, pos.z + 2.5)));
+    };
     /** ****************************************************************************************************************
     *   Creates one wooden crate.
     *
@@ -28935,12 +30950,127 @@ var WallFactory = /** @class */ (function () {
     *
     *   @return The created wooden crate.
     *******************************************************************************************************************/
-    WallFactory.createWoodenCrate = function (stage, meshFactory, position) {
+    AECFactory.createWoodenCrate = function (stage, meshFactory, position) {
         return new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.CRATE, position, bz.PhysicSet.CRATE_WOOD), bz.MathUtil.getRandomInt(bz.SettingGame.CRATE_MIN_ENERGY, bz.SettingGame.CRATE_MAX_ENERGY));
     };
-    return WallFactory;
+    AECFactory.addPillar = function (stage, meshFactory, position) {
+        stage.addWall(new bz.Wall(stage, new bz.Model([
+            meshFactory.createBox(position, bz.TextureFile.WALL_CONCRETE_NEW, new BABYLON.Vector3(bz.SettingAEC.PILLAR_WIDTH, bz.SettingAEC.WALL_HEIGHT, bz.SettingAEC.PILLAR_WIDTH), bz.PhysicSet.STATIC, 1.0, bz.MeshAnchor.LOWEST_XYZ),
+        ])));
+    };
+    // TODO to FurnitureFactory !
+    AECFactory.addComputerDesk = function (stage, meshFactory, position, rotY) {
+        if (rotY === void 0) { rotY = 0.0; }
+        // office desk 1
+        stage.addWall(new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.OFFICE_DESK_1, position, bz.PhysicSet.SHELVES, rotY, bz.ModelCompoundType.NONE // bz.ModelCompoundType.COMPOUND,
+        ), 5.0));
+        // pc screen 1
+        var screen = new bz.Wall(stage, meshFactory.createImportedModel(bz.ModelFile.PC_SCREEN_1, position.add(new BABYLON.Vector3(2.5, 2.8, 2.5)), bz.PhysicSet.SHELVES, 180.0, bz.ModelCompoundType.NONE), 5.0, true, false, [
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('All cleared for today.')),
+            new bz.Event(bz.EventType.TIME_DELAY, new bz.EventDataTimeDelay(600)),
+            new bz.Event(bz.EventType.SHOW_GUI_TEXT_MESSAGE, new bz.EventDataShowGuiTextMessage('DELAYED: No more work for today.')),
+        ], bz.InteractionType.ONCE);
+        screen.getModel().rotateAroundAxisY(position.x, position.z, rotY);
+        stage.addWall(screen);
+    };
+    return AECFactory;
 }());
-exports.WallFactory = WallFactory;
+exports.AECFactory = AECFactory;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/stage/aec/DoorData.ts":
+/*!******************************************************!*\
+  !*** ./src/typescript/bz/game/stage/aec/DoorData.ts ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DoorData = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Configuration set for a Door game object.
+***********************************************************************************************************************/
+var DoorData = /** @class */ (function () {
+    /** ****************************************************************************************************************
+    *   Creates one door config.
+    *******************************************************************************************************************/
+    function DoorData(position, events, animation, noBody, texture, linkedDoorIndex, reverseTextureX) {
+        if (events === void 0) { events = []; }
+        if (animation === void 0) { animation = bz.DoorAnimation.NONE; }
+        if (noBody === void 0) { noBody = false; }
+        if (texture === void 0) { texture = bz.TextureFile.WALL_DOOR_INDUSTRIAL; }
+        if (linkedDoorIndex === void 0) { linkedDoorIndex = -1; }
+        if (reverseTextureX === void 0) { reverseTextureX = false; }
+        this.position = 0;
+        this.events = [];
+        this.animation = null;
+        this.noBody = false;
+        this.texture = null;
+        this.linkedDoorIndex = -1;
+        this.reverseTextureX = false;
+        this.position = position;
+        this.events = events;
+        this.animation = animation;
+        this.noBody = noBody;
+        this.texture = texture;
+        this.linkedDoorIndex = linkedDoorIndex;
+        this.reverseTextureX = reverseTextureX;
+    }
+    return DoorData;
+}());
+exports.DoorData = DoorData;
+
+
+/***/ }),
+
+/***/ "./src/typescript/bz/game/stage/aec/WindowData.ts":
+/*!********************************************************!*\
+  !*** ./src/typescript/bz/game/stage/aec/WindowData.ts ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WindowData = void 0;
+var bz = __webpack_require__(/*! ../../.. */ "./src/typescript/bz/index.ts");
+/** ********************************************************************************************************************
+*   Configuration set for a Window game object.
+*
+*   TODO move to package 'aec'.
+***********************************************************************************************************************/
+var WindowData = /** @class */ (function () {
+    /** ****************************************************************************************************************
+    *   Creates the data that describes one window.
+    *
+    *   @param position     The position of this window inside the wall.
+    *   @param fullHeight   If <code>true</code>, the top and bottom window frames will not be drawn
+    *                       and the window's height is extended to the wall height.
+    *   @param nonBreakable If the glass is bullet proof and won't break.
+    *   @param width        The width of this window.
+    *******************************************************************************************************************/
+    function WindowData(position, fullHeight, nonBreakable, width) {
+        if (fullHeight === void 0) { fullHeight = false; }
+        if (nonBreakable === void 0) { nonBreakable = false; }
+        if (width === void 0) { width = bz.SettingAEC.WINDOW_WIDTH_DEFAULT; }
+        this.position = 0.0;
+        this.fullHeight = false;
+        this.nonBreakable = false;
+        this.width = 0.0;
+        this.position = position;
+        this.fullHeight = fullHeight;
+        this.nonBreakable = nonBreakable;
+        this.width = width;
+    }
+    return WindowData;
+}());
+exports.WindowData = WindowData;
 
 
 /***/ }),
@@ -28973,7 +31103,10 @@ __exportStar(__webpack_require__(/*! ./game/engine/camera/CameraType */ "./src/t
 __exportStar(__webpack_require__(/*! ./game/stage/StageConfig */ "./src/typescript/bz/game/stage/StageConfig.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/stage/StageFactory */ "./src/typescript/bz/game/stage/StageFactory.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/stage/StageId */ "./src/typescript/bz/game/stage/StageId.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/stage/WallFactory */ "./src/typescript/bz/game/stage/WallFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/aec/AECFactory */ "./src/typescript/bz/game/stage/aec/AECFactory.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/aec/DoorData */ "./src/typescript/bz/game/stage/aec/DoorData.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/stage/aec/WindowData */ "./src/typescript/bz/game/stage/aec/WindowData.ts"), exports);
+__exportStar(__webpack_require__(/*! ./base/setting/SettingAEC */ "./src/typescript/bz/base/setting/SettingAEC.ts"), exports);
 __exportStar(__webpack_require__(/*! ./base/setting/SettingColor */ "./src/typescript/bz/base/setting/SettingColor.ts"), exports);
 __exportStar(__webpack_require__(/*! ./base/setting/SettingDebug */ "./src/typescript/bz/base/setting/SettingDebug.ts"), exports);
 __exportStar(__webpack_require__(/*! ./base/setting/SettingEngine */ "./src/typescript/bz/base/setting/SettingEngine.ts"), exports);
@@ -29029,20 +31162,23 @@ __exportStar(__webpack_require__(/*! ./base/data/PhysicSet */ "./src/typescript/
 __exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicImpostorParams */ "./src/typescript/bz/game/engine/physic/PhysicImpostorParams.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/engine/physic/PhysicBody */ "./src/typescript/bz/game/engine/physic/PhysicBody.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/event/EventType */ "./src/typescript/bz/game/event/EventType.ts"), exports);
-__exportStar(__webpack_require__(/*! ./game/event/EventData */ "./src/typescript/bz/game/event/EventData.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/event/data/EventData */ "./src/typescript/bz/game/event/data/EventData.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/event/Interaction */ "./src/typescript/bz/game/event/Interaction.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/event/InteractionType */ "./src/typescript/bz/game/event/InteractionType.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/event/Event */ "./src/typescript/bz/game/event/Event.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/inventory/Inventory */ "./src/typescript/bz/game/inventory/Inventory.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/GameObject */ "./src/typescript/bz/game/object/GameObject.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/BotType */ "./src/typescript/bz/game/object/BotType.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/Bot */ "./src/typescript/bz/game/object/Bot.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/Collectable */ "./src/typescript/bz/game/object/Collectable.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/Trigger */ "./src/typescript/bz/game/object/Trigger.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/Item */ "./src/typescript/bz/game/object/Item.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/ItemType */ "./src/typescript/bz/game/object/ItemType.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/Wall */ "./src/typescript/bz/game/object/Wall.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/Door */ "./src/typescript/bz/game/object/Door.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/Player */ "./src/typescript/bz/game/object/Player.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/object/PlayerPhysic */ "./src/typescript/bz/game/object/PlayerPhysic.ts"), exports);
+__exportStar(__webpack_require__(/*! ./game/object/PlayerWearpon */ "./src/typescript/bz/game/object/PlayerWearpon.ts"), exports);
 __exportStar(__webpack_require__(/*! ./game/stage/Stage */ "./src/typescript/bz/game/stage/Stage.ts"), exports);
 __exportStar(__webpack_require__(/*! ./base/data/ModelFile */ "./src/typescript/bz/base/data/ModelFile.ts"), exports);
 __exportStar(__webpack_require__(/*! ./base/data/SkyBoxFile */ "./src/typescript/bz/base/data/SkyBoxFile.ts"), exports);
@@ -29198,11 +31334,79 @@ var MathUtil = /** @class */ (function () {
     *
     *   @return The rotated distant point.
     *******************************************************************************************************************/
-    MathUtil.rotateVector = function (source, rotation, distance) {
+    MathUtil.rotateVector3 = function (source, rotation, distance) {
         var distantVector = new BABYLON.Vector3(0.0, 0.0, distance);
         var rotationMatrix = BABYLON.Matrix.RotationYawPitchRoll(MathUtil.degreesToRad(rotation.y), MathUtil.degreesToRad(rotation.x), MathUtil.degreesToRad(rotation.z));
         var rotatedDistantVector = BABYLON.Vector3.TransformCoordinates(distantVector, rotationMatrix);
         return source.add(rotatedDistantVector);
+    };
+    /** ****************************************************************************************************************
+    *   Rotates a 2D point around a different 2D point by the specified angle.
+    *
+    *   @param pivot       The pivot of the rotation
+    *   @param angleDegree Angle to rotate by, in degrees.
+    *   @param point       The point to rotate.
+    *
+    *   @return The rotated 2D point.
+    *******************************************************************************************************************/
+    MathUtil.rotateVector2 = function (pivot, angleDegree, point) {
+        var sin = MathUtil.sinDegrees(angleDegree);
+        var cos = MathUtil.cosDegrees(angleDegree);
+        // translate point back to origin:
+        point.x -= pivot.x;
+        point.y -= pivot.y;
+        // rotate point
+        var xnew = point.x * cos - point.y * sin;
+        var ynew = point.x * sin + point.y * cos;
+        // translate point back
+        return new BABYLON.Vector2(xnew + pivot.x, ynew + pivot.y);
+    };
+    /** ****************************************************************************************************************
+    *   Delivers the angle between 0 and 360 degrees between the two specified points in 2D space.
+    *   The axis X and Z are used for the 2D points. Axis Y is ignored.
+    *
+    *   @param from Source point.
+    *   @param to   Destination point.
+    *
+    *   @return The angle between the source and destination point. From 0 to 360.
+    *
+    *   TODO refactor! extract main method x1,y1,x2,y2
+    *******************************************************************************************************************/
+    MathUtil.angleBetweenPointsXZ = function (from, to) {
+        var distX = to.x - from.x;
+        var distY = to.z - from.z;
+        var angle;
+        if (distX === 0.0) {
+            if (distY === 0.0) {
+                angle = 0.0;
+            }
+            else if (distY > 0.0) {
+                angle = Math.PI / 2.0;
+            }
+            else {
+                angle = (Math.PI * 3.0) / 2.0;
+            }
+        }
+        else if (distY === 0.0) {
+            if (distX > 0.0) {
+                angle = 0.0;
+            }
+            else {
+                angle = Math.PI;
+            }
+        }
+        else {
+            if (distX < 0.0) {
+                angle = Math.atan(distY / distX) + Math.PI;
+            }
+            else if (distY < 0.0) {
+                angle = Math.atan(distY / distX) + (2 * Math.PI);
+            }
+            else {
+                angle = Math.atan(distY / distX);
+            }
+        }
+        return MathUtil.radToDegrees(angle);
     };
     return MathUtil;
 }());
@@ -29256,9 +31460,6 @@ exports.StringUtil = StringUtil;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var WebApp_1 = __webpack_require__(/*! ./bz/base/WebApp */ "./src/typescript/bz/base/WebApp.ts");
-// ( global as any ).BABYLON = require( 'babylonjs' );
-// ( global as any ).CANNON  = require( 'cannon' );
-// ( global as any ).earcut  = require( 'earcut' );
 /** ********************************************************************************************************************
 *   Being invoked when the website is loaded completely.
 ***********************************************************************************************************************/
@@ -29299,4 +31500,4 @@ module.exports = BABYLON.GUI;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=babylon-zero-v0.1.10.js.map
+//# sourceMappingURL=babylon-zero-v0.1.19.js.map
