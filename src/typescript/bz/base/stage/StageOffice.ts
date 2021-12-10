@@ -62,8 +62,11 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addHallway(
             this,
             meshFactory,
-            new BABYLON.Vector3( 80.0, 0.0, 25.0 ),
-            0.0
+            new BABYLON.Vector3( 0.0, 0.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH ),
+            0.0,
+            58.0,
+            false,
+            true
         );
 
         // TODO addCasino with diamond corners

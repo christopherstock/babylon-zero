@@ -177,7 +177,10 @@ export class AECFactory
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
-        rotY        :number          = 0
+        rotY        :number  = 0.0,
+        length      :number  = 80.0,
+        leftWall    :boolean = true,
+        rightWall   :boolean = true
     )
     : void
     {
@@ -185,24 +188,24 @@ export class AECFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 80.0, bz.SettingAEC.WALL_HEIGHT, bz.SettingAEC.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( length, bz.SettingAEC.WALL_HEIGHT, bz.SettingAEC.HALLWAY_WIDTH ),
             rotY,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
-                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+            ( leftWall ? bz.TextureFile.WALL_DARK_WOOD_PARQUET : null ), [], [
+                // new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                // new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             null, [], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
-            bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+            ( rightWall ? bz.TextureFile.WALL_DARK_WOOD_PARQUET : null ), [
             ], [
                 new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
                 new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 52.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
-                new bz.WindowData( 66.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
+                new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
             ], 0,
             null, [
             ], [
