@@ -5,10 +5,11 @@
 ===
 MVP
 ===
-TODO Try physics joint type 'lock' instead of a compound mesh! 
 TODO update code taste!
+
 TODO Pause particles when game is paused
 TODO Enhance multi level staircases.
+TODO Add rotated versions of all level locations!
 TODO Constraint system for events (keycard holded)!?
 TODO Add camera intro run into player head.
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)

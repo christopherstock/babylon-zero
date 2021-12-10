@@ -70,6 +70,12 @@ export class StageOffice extends bz.Stage
         );
 
         // TODO addCasino with diamond corners
+        bz.AECFactory.addCasino(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( -100.0, 0.0, -50.0 - bz.SettingAEC.HALLWAY_WIDTH ),
+            0.0
+        );
 
         // TODO addLightyard
 
