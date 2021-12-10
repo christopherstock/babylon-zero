@@ -69,11 +69,11 @@ export class StageOffice extends bz.Stage
             true
         );
 
-        // TODO addCasino with diamond corners
+        // casino
         bz.AECFactory.addCasino(
             this,
             meshFactory,
-            new BABYLON.Vector3( 10.0 + 58.0, 0.0, 40.0 + 0.0 - bz.SettingAEC.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 10.0 + 58.0, 0.0, 40.0 - bz.SettingAEC.HALLWAY_WIDTH ),
             0.0
         );
 
@@ -83,8 +83,11 @@ export class StageOffice extends bz.Stage
 
         // TODO addKickerLounge?
 
-        if ( true ) return;
-/*
+        if ( true )
+        {
+            return;
+        }
+
         // staircase
         bz.StageFactory.addStaircase(
             this,
@@ -95,7 +98,7 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_1,
             bz.TextureFile.WALL_COBBLES_1
         );
-*/
+
         // small office
         bz.AECFactory.addSmallOffice(
             this,
@@ -338,6 +341,9 @@ export class StageOffice extends bz.Stage
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds some test bots to this stage.
+    *******************************************************************************************************************/
     private addTestBots() : void
     {
         // add bot - walking towards axis X
@@ -429,6 +435,9 @@ export class StageOffice extends bz.Stage
 */
     }
 
+    /** ****************************************************************************************************************
+    *   Adds some test items to this stage.
+    *******************************************************************************************************************/
     private addTestItems() : void
     {
 /*

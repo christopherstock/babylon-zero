@@ -334,7 +334,10 @@ export abstract class StageFactory
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingAEC.WALL_DEPTH / 2 ),
-                            ( position.y + STAIRCASE_SIZE.y - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y ),
+                            (
+                                position.y + STAIRCASE_SIZE.y
+                                - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y
+                            ),
                             ( position.z + bz.SettingAEC.WALL_DEPTH / 2 )
                         ),
                         textureCeiling,

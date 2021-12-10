@@ -668,7 +668,6 @@ export abstract class Stage
 
         // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
-
         particleSystem.startDelay = 0.0;
         particleSystem.disposeOnStop = true;
 

@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 import * as bz from '../../..';
 
 /** ********************************************************************************************************************
@@ -6,8 +8,6 @@ import * as bz from '../../..';
 export abstract class EventData
 {
 }
-
-// TODO extract to single classes/files
 
 /** ********************************************************************************************************************
 *   The event data for the event type { @see EventType.SWITCH_TO_STAGE }.

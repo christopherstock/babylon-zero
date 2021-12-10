@@ -243,8 +243,14 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                new bz.DoorData( 65.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData(
+                    5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
+                ),
+                new bz.DoorData(
+                    65.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, true
+                ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [
@@ -462,6 +468,14 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a 'casino' location to this stage.
+    *
+    *   @param stage       The stage to add the location to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param position    The position to place this location.
+    *   @param rotY        The initial Y rotation of the location.
+    *******************************************************************************************************************/
     public static addCasino(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -486,7 +500,10 @@ export class AECFactory
 */
             ], 10,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 26.5, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData(
+                    26.5, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, true
+                ),
             ], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
@@ -496,7 +513,10 @@ export class AECFactory
             [],
             10,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 26.5, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
+                new bz.DoorData(
+                    26.5, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
+                ),
             ], [
                 // new bz.WindowData( 2.0,  false ),
             ],
@@ -550,7 +570,15 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
+                new bz.DoorData(
+                    5.0,
+                    [],
+                    bz.DoorAnimation.SWING_A_CLOCKWISE,
+                    true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1,
+                    -1,
+                    false
+                ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [
@@ -578,8 +606,15 @@ export class AECFactory
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             rotY,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
-            new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-
+                new bz.DoorData(
+                    5.0,
+                    [],
+                    bz.DoorAnimation.SWING_A_CLOCKWISE,
+                    true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1,
+                    -1,
+                    false
+                ),
             ], [
 //                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
 //                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
@@ -591,9 +626,10 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-//                new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                // new bz.DoorData( 32.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData(
+                    10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
+                ),
             ], [], 0,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
             ], [
@@ -718,15 +754,15 @@ export class AECFactory
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             rotY,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
-            new bz.DoorData(
-                5.0,
-                [],
-                bz.DoorAnimation.SWING_A_CLOCKWISE,
-                true,
-                bz.TextureFile.WALL_DOOR_WOOD_1,
-                -1,
-                false
-            ),
+                new bz.DoorData(
+                    5.0,
+                    [],
+                    bz.DoorAnimation.SWING_A_CLOCKWISE,
+                    true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1,
+                    -1,
+                    false
+                ),
             ], [
             ], 0,
             null, [], [
@@ -869,8 +905,10 @@ export class AECFactory
             new BABYLON.Vector3( 60.0, bz.SettingAEC.WALL_HEIGHT, 60.0 ),
             rotY,
             bz.TextureFile.WALL_CONCRETE_NEW, [
-            new bz.DoorData( 5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-
+                new bz.DoorData(
+                    5.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
+                ),
             ], [
 //                new bz.WindowData( 2.0,  false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
 //                new bz.WindowData( 16.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
@@ -882,7 +920,10 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_CONCRETE_NEW, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
+                new bz.DoorData(
+                    10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
+                ),
             ], [], 0,
             bz.TextureFile.WALL_CONCRETE_NEW, [
             ], [
@@ -1059,7 +1100,6 @@ export class AECFactory
         stage.addWall( fenceWalls );
     }
 
-
     /** ****************************************************************************************************************
     *   Adds a pile of boxes to this stage.
     *
@@ -1106,7 +1146,6 @@ export class AECFactory
         );
     }
 
-
     /** ****************************************************************************************************************
     *   Creates one wooden crate.
     *
@@ -1136,6 +1175,13 @@ export class AECFactory
         )
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a pillar from new concrete to the stage.
+    *
+    *   @param stage       The stage to add the pillar to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param position    Where to place the pillar.
+    *******************************************************************************************************************/
     private static addPillar(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -1171,6 +1217,14 @@ export class AECFactory
 
     // TODO to FurnitureFactory !
 
+    /** ****************************************************************************************************************
+    *   Adds a computer desk to the stage.
+    *
+    *   @param stage       The stage to add the object to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param position    The position to place the desk.
+    *   @param rotY        The rotation Y of the desk.
+    *******************************************************************************************************************/
     private static addComputerDesk(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,

@@ -3,7 +3,7 @@
 ***********************************************************************************************************************/
 export abstract class SettingGUI
 {
-    public static readonly FONT_FAMILY                          :string         = '\'Open Sans\', Helvetica, Arial, sans-serif';
+    public static readonly FONT_FAMILY                          :string         = '\'Open Sans\', Arial, sans-serif';
      /** The weight of the Open Sans font. 300 = light, 400 = regular. */
     public static readonly FONT_WEIGHT                          :string         = '300';
      /** The default font size for GUI texts. */

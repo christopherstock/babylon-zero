@@ -876,8 +876,6 @@ export class MeshFactory
         // apply physical 'lock' joint if this compound is desired
         if ( compoundType === bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK )
         {
-            console.log( '>> Add Physics Joint LOCK ..' );
-
             for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
             {
                 if ( i > 0 )

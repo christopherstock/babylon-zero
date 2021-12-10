@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import * as bz  from '../..';
 
 /** ********************************************************************************************************************
@@ -45,9 +47,9 @@ export abstract class SettingEngine
 
     public static readonly MAX_MESH_DARKENING_RATIO                 :number             = 0.8;
 
-    /** The physics engine iteration count per render cycle. */
-    public static readonly PHYSIC_ENGINE_ITERATIONS                 :number             = 5;       // 5000 = no shaking but horribly slow!
-    /** The diameter of the collison epsilon used for all collision detections. */
+    /** The physics engine iteration count per render cycle. 5000 = no shaking but horribly slow! */
+    public static readonly PHYSIC_ENGINE_ITERATIONS                 :number             = 5;
+    /** The diameter of the collison epsilon used for all (camera?) collision detections. */
     public static readonly PHYSIC_COLLISION_EPSILON_SIZE            :number             = 500.0;    // no effect?
     /** The calculating time step amount for one tick of the physical engine. */
     public static readonly PHYSIC_TIME_STEP_DEFAULT                 :number             = ( 1 / 60 );
