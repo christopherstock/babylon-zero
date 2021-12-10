@@ -342,8 +342,24 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData( 10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
-                new bz.DoorData( 43.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
+                new bz.DoorData(
+                    10.0,
+                    [],
+                    bz.DoorAnimation.SWING_A_CLOCKWISE,
+                    true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1,
+                    -1,
+                    false
+                ),
+                new bz.DoorData(
+                    43.0,
+                    [],
+                    bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE,
+                    true,
+                    bz.TextureFile.WALL_DOOR_WOOD_1,
+                    -1,
+                    true
+                ),
             ], [], 0,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ], [
@@ -351,23 +367,6 @@ export class AECFactory
             ], 0,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
-        );
-
-        // shelves
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SHELVES_1,
-                    position.add( new BABYLON.Vector3( 29.0, 3.15, 36.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    10.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
-            )
         );
 
         // office desk 2
@@ -378,21 +377,53 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.OFFICE_DESK_2,
-                    position.add( new BABYLON.Vector3( 38.5, 1.6, 16.5 ) ),
+                    position.add( new BABYLON.Vector3( 21.0, 1.6, 37.5 ) ),
                     bz.PhysicSet.SHELVES,
-                    85.0,
+                    0.0,
                     bz.ModelCompoundType.NONE
                 ),
                 5.0
             )
         );
 
+        // shelves
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SHELVES_1,
+                    position.add( new BABYLON.Vector3( 33.5, 3.15, 37.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    2.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
 
+        // computer desk
+        AECFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 10.0, 1.7, 7.0 ) );
 
+        // sofa 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SOFA_1,
+                    position.add( new BABYLON.Vector3( 25.5, 2.0, 2.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    180.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
 
-
-if ( true ) return;
-
+        if ( true ) return;
 
         // office desk 3
         stage.addWall(
@@ -427,58 +458,7 @@ if ( true ) return;
             )
         );
 
-        // office desk 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_DESK_1,
-                    position.add( new BABYLON.Vector3( 10.0, 1.7, 7.0 ) ),
-                    bz.PhysicSet.SHELVES,
-                    90.0,
-                    bz.ModelCompoundType.NONE // bz.ModelCompoundType.COMPOUND,
-                ),
-                5.0
-            )
-        );
-
-        // screen 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SCREEN_1,
-                    position.add( new BABYLON.Vector3( 12.5, 4.5, 5.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    -90.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0,
-                true,
-                false,
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
-                    ),
-                    new bz.Event(
-                        bz.EventType.TIME_DELAY,
-                        new bz.EventDataTimeDelay( 600 )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
-                    ),
-                ],
-                bz.InteractionType.ONCE
-            )
-        );
-
-        // soda machine 2
+        // soda machine 2 TODO to casino
         stage.addWall(
             new bz.Wall
             (
@@ -492,23 +472,6 @@ if ( true ) return;
                     bz.ModelCompoundType.NONE
                 ),
                 7.0
-            )
-        );
-
-        // sofa 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SOFA_1,
-                    position.add( new BABYLON.Vector3( 25.5, 2.0, 2.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    180.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
             )
         );
     }
@@ -1139,6 +1102,60 @@ if ( true ) return;
                         ),
                     ]
                 )
+            )
+        );
+    }
+
+    private static addComputerDesk( stage:bz.Stage, meshFactory:bz.MeshFactory, position:BABYLON.Vector3 ) : void
+    {
+        // office desk 1 TODO to method + pc screen 1 !
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_DESK_1,
+                    position,
+                    bz.PhysicSet.SHELVES,
+                    90.0,
+                    bz.ModelCompoundType.NONE // bz.ModelCompoundType.COMPOUND,
+                ),
+                5.0
+            )
+        );
+
+        // pc screen 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.PC_SCREEN_1,
+                    position.add( new BABYLON.Vector3( 2.5, 2.8, -1.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    -90.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0,
+                true,
+                false,
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.TIME_DELAY,
+                        new bz.EventDataTimeDelay( 600 )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
+                    ),
+                ],
+                bz.InteractionType.ONCE
             )
         );
     }
