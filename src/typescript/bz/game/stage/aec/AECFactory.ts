@@ -424,6 +424,24 @@ export class AECFactory
             )
         );
 
+        // office chair 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
+                    position.add( new BABYLON.Vector3( 6.0, 2.3, 10.0 ) ),
+                    bz.PhysicSet.OFFICE_CHAIR,
+                    0.0,
+                    bz.ModelCompoundType.COMPOUND
+                ),
+                5.0
+            )
+        );
+
+
         if ( true ) return;
 
         // office desk 3
@@ -439,23 +457,6 @@ export class AECFactory
                     30.0
                 ),
                 10.0
-            )
-        );
-
-        // office chair 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 5.0, 2.1, 30.0 ) ),
-                    bz.PhysicSet.OFFICE_CHAIR,
-                    0.0,
-                    bz.ModelCompoundType.COMPOUND
-                ),
-                5.0
             )
         );
 

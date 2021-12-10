@@ -5,6 +5,7 @@
 ===
 MVP
 ===
+TODO Try physics joint type 'lock' instead of a compound mesh! 
 TODO update code taste!
 TODO Pause particles when game is paused
 TODO Enhance multi level staircases.
