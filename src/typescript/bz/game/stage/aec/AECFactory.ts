@@ -432,9 +432,9 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 20.0, 2.3, 14.0 ) ),
+                    position.add( new BABYLON.Vector3( 3.5, 2.3, 14.0 ) ),
                     bz.PhysicSet.OFFICE_CHAIR,
-                    0.0,
+                    45.0,
                     bz.ModelCompoundType.COMPOUND
                 ),
                 5.0
@@ -449,34 +449,36 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 8.5, 2.3, 14.0 ) ),
+                    position.add( new BABYLON.Vector3( 46.0, 2.3, 7.5 ) ),
                     bz.PhysicSet.OFFICE_CHAIR,
-                    0.0,
-                    bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK
+                    225.0,
+                    bz.ModelCompoundType.COMPOUND
                 ),
                 5.0
             )
         );
 
+
+
+
+
+
         if ( true ) return;
 
-        // office desk 3
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.WORKBENCH,
-                    position.add( new BABYLON.Vector3( 10.0, 0.0, 25.0 ) ),
-                    bz.PhysicSet.SHELVES,
-                    30.0
-                ),
-                10.0
-            )
-        );
 
-        // soda machine 2 TODO to casino
+
+    }
+
+    public static addCasino(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number = 0
+    ) : void
+    {
+        // add casino room (half diamond shaped?)
+
+        // soda machine 2
         stage.addWall(
             new bz.Wall
             (
@@ -617,6 +619,22 @@ export class AECFactory
                     position.add( new BABYLON.Vector3( 70.0, 0.0, 30.0 ) ),
                     bz.PhysicSet.SHELVES,
                     null
+                ),
+                10.0
+            )
+        );
+
+        // office desk 3
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.WORKBENCH,
+                    position.add( new BABYLON.Vector3( 60.0, 0.0, 35.0 ) ),
+                    bz.PhysicSet.SHELVES,
+                    30.0
                 ),
                 10.0
             )
