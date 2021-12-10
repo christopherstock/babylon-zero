@@ -458,7 +458,6 @@ export class AECFactory
             )
         );
 
-
         if ( true ) return;
 
         // office desk 3

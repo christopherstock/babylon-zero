@@ -873,12 +873,39 @@ export class MeshFactory
             }
         }
 
+        // apply physical 'lock' joint if this compound is desired
+        if ( compoundType === bz.ModelCompoundType.PHYSICS_JOINT_TYPE_LOCK )
+        {
+            console.log( '>> Add Physics Joint LOCK ..' );
+
+            for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
+            {
+                if ( i > 0 )
+                {
+                    const joint1 :BABYLON.PhysicsJoint = new BABYLON.PhysicsJoint(
+                        BABYLON.PhysicsJoint.LockJoint,
+                        {
+                            connectedPivot: position,
+                            // mainAxis: new BABYLON.Vector3(0,40,0.3),
+                            // connectedAxis: new BABYLON.Vector3(120,50,0)
+                        }
+                    );
+
+                    clonedModel.getMesh( 0 ).physicsImpostor.addJoint(
+                        clonedModel.getMesh( i ).physicsImpostor,
+                        joint1
+                    );
+                }
+            }
+        }
+
         // scale cloned model
         // clonedModel.scaleSize( new BABYLON.Vector3( 1.0, 1.0, 1.0 ) );
 
         // reset stored quaternion rotation from 3dsmax file
         clonedModel.setAbsoluteRotationXYZ( 0.0, 0.0, 0.0 );
 
+        // rotate around center for specific compound type
         switch ( compoundType )
         {
             case bz.ModelCompoundType.NONE:
