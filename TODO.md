@@ -7,6 +7,7 @@ MVP
 ===
 TODO update code taste!
 
+TODO Add diamond shape for ceiling.
 TODO Pause particles when game is paused
 TODO Enhance multi level staircases.
 TODO Add rotated versions of all level locations!

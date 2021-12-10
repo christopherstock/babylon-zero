@@ -460,16 +460,6 @@ export class AECFactory
                 5.0
             )
         );
-
-
-
-
-
-
-        if ( true ) return;
-
-
-
     }
 
     public static addCasino(
@@ -477,14 +467,15 @@ export class AECFactory
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
         rotY        :number = 0
-    ) : void
+    )
+    : void
     {
         // add casino room (half diamond shaped?)
         bz.StageFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 58.0, bz.SettingAEC.WALL_HEIGHT, 40.0 ),
+            new BABYLON.Vector3( 58.0, bz.SettingAEC.WALL_HEIGHT, 58.0 ),
             rotY,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [], [
 /*
@@ -493,38 +484,23 @@ export class AECFactory
                 new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
                 new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
 */
-            ], 0,
+            ], 10,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData(
-                    0.0,
-                    [],
-                    bz.DoorAnimation.SWING_A_CLOCKWISE,
-                    true,
-                    bz.TextureFile.WALL_DOOR_WOOD_1,
-                    -1,
-                    false
-                ),
+                new bz.DoorData( 26.5, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true ),
             ], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
-            ], 0,
+            ], 10,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-/*
-                new bz.DoorData(
-                    43.0,
-                    [],
-                    bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE,
-                    true,
-                    bz.TextureFile.WALL_DOOR_WOOD_1,
-                    -1,
-                    true
-                ),
-*/
-            ], [], 0,
+            ],
+            [],
+            10,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+                new bz.DoorData( 26.5, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, false ),
             ], [
                 // new bz.WindowData( 2.0,  false ),
-            ], 0,
+            ],
+            10,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
