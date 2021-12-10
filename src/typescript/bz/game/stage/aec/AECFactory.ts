@@ -404,7 +404,8 @@ export class AECFactory
         );
 
         // computer desk
-        AECFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 10.0, 1.7, 7.0 ) );
+        AECFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 12.0, 1.7, 7.0 ), 90.0  );
+        AECFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 46.0, 1.7, 7.0 ), -90.0 );
 
         // sofa 1
         stage.addWall(
@@ -1106,9 +1107,17 @@ export class AECFactory
         );
     }
 
-    private static addComputerDesk( stage:bz.Stage, meshFactory:bz.MeshFactory, position:BABYLON.Vector3 ) : void
+    // TODO to FurnitureFactory !
+
+    private static addComputerDesk(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number = 0.0
+    )
+    : void
     {
-        // office desk 1 TODO to method + pc screen 1 !
+        // office desk 1
         stage.addWall(
             new bz.Wall
             (
@@ -1118,7 +1127,7 @@ export class AECFactory
                     bz.ModelFile.OFFICE_DESK_1,
                     position,
                     bz.PhysicSet.SHELVES,
-                    90.0,
+                    rotY,
                     bz.ModelCompoundType.NONE // bz.ModelCompoundType.COMPOUND,
                 ),
                 5.0
@@ -1126,37 +1135,37 @@ export class AECFactory
         );
 
         // pc screen 1
-        stage.addWall(
-            new bz.Wall
+        const screen :bz.Wall = new bz.Wall
+        (
+            stage,
+            meshFactory.createImportedModel
             (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.PC_SCREEN_1,
-                    position.add( new BABYLON.Vector3( 2.5, 2.8, -1.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    -90.0,
-                    bz.ModelCompoundType.NONE
+                bz.ModelFile.PC_SCREEN_1,
+                position.add( new BABYLON.Vector3( 2.5, 2.8, 2.5 ) ),
+                bz.PhysicSet.SHELVES,
+                180.0,
+                bz.ModelCompoundType.NONE
+            ),
+            5.0,
+            true,
+            false,
+            [
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
                 ),
-                5.0,
-                true,
-                false,
-                [
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
-                    ),
-                    new bz.Event(
-                        bz.EventType.TIME_DELAY,
-                        new bz.EventDataTimeDelay( 600 )
-                    ),
-                    new bz.Event(
-                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                        new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
-                    ),
-                ],
-                bz.InteractionType.ONCE
-            )
+                new bz.Event(
+                    bz.EventType.TIME_DELAY,
+                    new bz.EventDataTimeDelay( 600 )
+                ),
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
+                ),
+            ],
+            bz.InteractionType.ONCE
         );
+        screen.getModel().rotateAroundAxisY( position.x, position.z, rotY );
+        stage.addWall( screen );
     }
 }
