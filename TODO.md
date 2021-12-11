@@ -5,8 +5,6 @@
 ===
 MVP
 ===
-TODO Pause particles when game is paused
-
 TODO Add diamond shape for ceiling. => ceiling to plane?
 
 TODO Add potato floor

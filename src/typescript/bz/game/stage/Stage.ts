@@ -426,6 +426,19 @@ export abstract class Stage
             {
                 particleSystem.updateSpeed = ( pause ? 0.0 : bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED );
             }
+            // pause rain
+            else if (
+                particleSystem instanceof BABYLON.ParticleSystemSet
+            )
+            {
+                for ( const system of particleSystem.systems )
+                {
+                    if ( system.name === 'rain_effect' )
+                    {
+                        system.updateSpeed = ( pause ? 0.0 : bz.SettingEngine.RAIN_UPDATE_SPEED );
+                    }
+                }
+            }
         }
     }
 
@@ -704,7 +717,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Adds a rain effect to the stage.
     *******************************************************************************************************************/
-    protected setRainEffect(
+    protected addRainEffect(
         size     :number = 0.3,
         quantity :number = 600,
         gravity  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
@@ -720,6 +733,8 @@ export abstract class Stage
             {
                 for ( const system of particleSystem.systems )
                 {
+                    system.name = 'rain_effect';
+
                     system.maxScaleX = size;
                     system.maxScaleY = size;
                     system.emitRate  = quantity;

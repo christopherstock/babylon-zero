@@ -83,6 +83,13 @@ export class StageOffice extends bz.Stage
 
         // TODO addKickerLounge?
 
+        // add rain effect
+        this.addRainEffect(
+            3.0,
+            750,
+            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
+        );
+
         if ( true )
         {
             return;
@@ -113,13 +120,6 @@ export class StageOffice extends bz.Stage
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
-        );
-
-        // add rain effect
-        this.setRainEffect(
-            3.0,
-            750,
-            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
 
         // large office
