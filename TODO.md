@@ -5,8 +5,9 @@
 ===
 MVP
 ===
-TODO Add diamond shape for ceiling. => ceiling to plane?
+TODO Add diamond shape for ceiling. => ceiling to plane? finally remove FLOOR_OFFSET_Y ??
 
+TODO Fix diamond walls on rooms creation.
 TODO Add potato floor
 TODO Add rotated versions of all level locations!
 TODO Constraint system for events (keycard holded)!?
@@ -20,7 +21,6 @@ TODO Create discreet Material System (for glossiness, emissive by light etc. - b
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
 TODO smaller Doors? Adjust room sizes once more!
 TODO Shotgun: Multiple bullets in one shot!
-TODO create enum for rot ? LEFT wall = -90.0 etc !
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Reset Git Repository?
 TODO Outline for items again? // bench1.getModel().addOutline( this.getScene() );
@@ -96,6 +96,7 @@ TODO Try morphing one mesh/model into another (crate to broken crate / chair to 
 TODO Create new Locations: garage, wasteground, backstreet, shop site, town site, mart/mall, housing area
 TODO clear error message 'the user has exited the lock before ..'?
 TODO Fix crouching/ducking? => concerning heightY and shot height ?
+TODO create enum for rot ? LEFT wall = -90.0 etc ?
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!
 TODO Implement cool physics pause (scene cam / adrenaline?) feature.

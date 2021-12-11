@@ -190,25 +190,30 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    meshFactory.createBox
+                    meshFactory.createPlane
                     (
                         new BABYLON.Vector3(
-                            ( position.x + bz.SettingAEC.WALL_DEPTH / 2 ),
-                            ( position.y + size.y - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y ),
-                            ( position.z + bz.SettingAEC.WALL_DEPTH / 2 )
+                            ( position.x + ( bz.SettingAEC.WALL_DEPTH / 2 ) ),
+                            ( position.y + size.y - bz.SettingAEC.CEILING_OFFSET_Y ),
+                            ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) )
                         ),
+                        size.x,
+                        size.z,
                         textureCeiling,
-                        new BABYLON.Vector3(
-                            size.x,
-                            bz.SettingAEC.CEILING_HEIGHT,
-                            size.z
-                        ),
+                        null,
                         bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                        BABYLON.Vector3.Zero(),
+                        diamondCornerA,
+                        diamondCornerB,
+                        diamondCornerC,
+                        diamondCornerD
                     )
                 )
+            );
+            ceiling.getModel().rotateAroundAxisX(
+                ( position.y + size.y - bz.SettingAEC.CEILING_OFFSET_Y ),
+                ( position.z + ( bz.SettingAEC.WALL_DEPTH / 2 ) ) + ( size.z / 2 ),
+                180.0
             );
             roomWalls.push( ceiling );
         }
@@ -233,6 +238,7 @@ export abstract class StageFactory
                         textureFloor,
                         null,
                         bz.PhysicSet.STATIC,
+                        BABYLON.Vector3.Zero(),
                         diamondCornerA,
                         diamondCornerB,
                         diamondCornerC,
@@ -243,7 +249,7 @@ export abstract class StageFactory
             roomWalls.push( floor );
         }
 
-        // rotate ALL walls around pivot
+        // rotate ALL walls around pivot TODO to static method!
         for ( const roomWall of roomWalls )
         {
             roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
@@ -328,27 +334,28 @@ export abstract class StageFactory
                 stage,
                 new bz.Model
                 (
-                    meshFactory.createBox
+                    meshFactory.createPlane
                     (
                         new BABYLON.Vector3(
                             ( position.x + bz.SettingAEC.WALL_DEPTH / 2 ),
                             (
-                                position.y + STAIRCASE_SIZE.y
-                                - bz.SettingAEC.CEILING_HEIGHT - bz.SettingAEC.CEILING_OFFSET_Y
+                                position.y + STAIRCASE_SIZE.y - bz.SettingAEC.CEILING_OFFSET_Y
                             ),
                             ( position.z + bz.SettingAEC.WALL_DEPTH / 2 )
                         ),
+                        STAIRCASE_SIZE.x,
+                        STAIRCASE_SIZE.z,
                         textureCeiling,
-                        new BABYLON.Vector3(
-                            STAIRCASE_SIZE.x,
-                            bz.SettingAEC.CEILING_HEIGHT,
-                            STAIRCASE_SIZE.z
-                        ),
+                        null,
                         bz.PhysicSet.STATIC,
-                        1.0,
-                        bz.MeshAnchor.LOWEST_XYZ
+                        BABYLON.Vector3.Zero()
                     )
                 )
+            );
+            ceiling.getModel().rotateAroundAxisX(
+                position.y + STAIRCASE_SIZE.y - bz.SettingAEC.CEILING_OFFSET_Y,
+                ( position.z + bz.SettingAEC.WALL_DEPTH / 2 ) + ( STAIRCASE_SIZE.z / 2 ),
+                180.0
             );
             roomWalls.push( ceiling );
         }

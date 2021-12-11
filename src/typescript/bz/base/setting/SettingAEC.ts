@@ -18,8 +18,6 @@ export abstract class SettingAEC
     public static readonly DOOR_DEPTH                               :number             = 0.195;
     /** Unified door frame height for building constructions. */
     public static readonly DOOR_FRAME_HEIGHT                        :number             = ( SettingAEC.WALL_HEIGHT - SettingAEC.DOOR_HEIGHT );
-    /** Unified ceiling height. This height will never be calculated into height calculations! */
-    public static readonly CEILING_HEIGHT                           :number             = 0.1;
     /** The default offset Y for room ceilings in order to keep distance to vertical wall endings. */
     public static readonly CEILING_OFFSET_Y                         :number             = 0.01;
     /** The default offset Y for room floors in order to keep distance to vertical wall endings. */

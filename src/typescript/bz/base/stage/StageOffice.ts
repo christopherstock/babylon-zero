@@ -83,18 +83,6 @@ export class StageOffice extends bz.Stage
 
         // TODO addKickerLounge?
 
-        // add rain effect
-        this.addRainEffect(
-            3.0,
-            750,
-            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
-        );
-
-        if ( true )
-        {
-            return;
-        }
-
         // staircase
         bz.StageFactory.addStaircase(
             this,
@@ -104,6 +92,18 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CONCRETE_NEW,
             bz.TextureFile.WALL_CARPET_1,
             bz.TextureFile.WALL_COBBLES_1
+        );
+
+        if ( true )
+        {
+            return;
+        }
+
+        // add rain effect
+        this.addRainEffect(
+            3.0,
+            750,
+            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
         );
 
         // small office

@@ -528,6 +528,7 @@ export class MeshFactory
         texture         :bz.TextureFile,
         color           :BABYLON.Color3,
         physic          :bz.PhysicSet,
+        rotation        :BABYLON.Vector3 = BABYLON.Vector3.Zero(),
         diamondCornerA  :number = 0.0,
         diamondCornerB  :number = 0.0,
         diamondCornerC  :number = 0.0,
@@ -608,7 +609,7 @@ export class MeshFactory
         return this.decorateMesh
         (
             plane,
-            BABYLON.Vector3.Zero(),
+            rotation,
             material,
             physic,
             BABYLON.PhysicsImpostor.BoxImpostor
