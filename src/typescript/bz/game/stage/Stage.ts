@@ -25,7 +25,7 @@ export abstract class Stage
     /** A collection of all debug meshes in this stage. */
     private readonly debugMeshes        :BABYLON.Mesh[]                 = [];
     /** The particle helper fx 'rain' for this stage. */
-    private readonly particleEffects    :BABYLON.ParticleSystemSet[]    = [];
+    private readonly particleEffects    :(BABYLON.ParticleSystemSet|BABYLON.ParticleSystem)[]    = [];
 
     /** The stage config. */
     private          config             :bz.StageConfig                 = null;
@@ -406,15 +406,26 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Alters the pause state for all sprites.
+    *   Alters the pause state for all relevant game objects.
     *
     *   @param pause The pause state to assign.
     *******************************************************************************************************************/
-    public setSpritePause( pause:boolean ) : void
+    public setPause( pause:boolean ) : void
     {
         for ( const sprite of this.sprites )
         {
             sprite.setPause( pause );
+        }
+        for ( const particleSystem of this.particleEffects )
+        {
+            // pause wall rubble
+            if (
+                particleSystem instanceof BABYLON.ParticleSystem
+                && particleSystem.name === 'wall_rubble'
+            )
+            {
+                particleSystem.updateSpeed = ( pause ? 0.0 : bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED );
+            }
         }
     }
 
@@ -631,7 +642,6 @@ export abstract class Stage
         // particleSystem.particleTexture.wrapU  = 0.0001;
         // particleSystem.particleTexture.wrapV  = 0.0001;
 */
-
         // 0.01 * bz.MathUtil.getRandomInt( 1, 5 )
 
         // particleSystem.color1 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
@@ -644,7 +654,7 @@ export abstract class Stage
 
         particleSystem.emitRate = RUBBLE_COUNT;
         particleSystem.targetStopDuration = 1.0;
-        particleSystem.updateSpeed = 0.01;
+        particleSystem.updateSpeed = bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED;
 
         particleSystem.minEmitPower = 0.20;
         particleSystem.maxEmitPower = 2.00;
@@ -687,6 +697,8 @@ export abstract class Stage
         particleSystem.maxEmitBox = BABYLON.Vector3.Zero();
 
         particleSystem.start();
+
+        this.particleEffects.push( particleSystem );
     }
 
     /** ****************************************************************************************************************

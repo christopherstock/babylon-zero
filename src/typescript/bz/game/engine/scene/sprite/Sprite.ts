@@ -120,7 +120,7 @@ export class Sprite
     *******************************************************************************************************************/
     public setPause( pause:boolean ) : void
     {
-        // only affects if animated
+        // only if this sprite is animated
         if ( this.isAnimated )
         {
             if ( pause )

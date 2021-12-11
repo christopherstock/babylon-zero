@@ -5,10 +5,11 @@
 ===
 MVP
 ===
-TODO Add diamond shape for ceiling.
-TODO Enhance multi level staircases.
 TODO Pause particles when game is paused
 
+TODO Add diamond shape for ceiling. => ceiling to plane?
+
+TODO Add potato floor
 TODO Add rotated versions of all level locations!
 TODO Constraint system for events (keycard holded)!?
 TODO Add explosion effects via sprites.
@@ -91,6 +92,7 @@ TODO Draw outline for pickable items? HightlightLayer playground: https://doc.ba
 TODO Try stored 3dsmax model animations.
 TODO Fix/add head shaking?
 TODO Fix/add jumping?
+TODO Enhance multi level staircases.
 TODO try class SubMeshes? (filled automatically from 3dsmax)
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO Create new Locations: garage, wasteground, backstreet, shop site, town site, mart/mall, housing area

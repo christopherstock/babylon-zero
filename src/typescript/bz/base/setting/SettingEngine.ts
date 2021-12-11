@@ -70,6 +70,8 @@ export abstract class SettingEngine
     public static readonly CURRENT_WEARPON_MAX_ZOOM                 :number             = 0.5;
     public static readonly CURRENT_WEARPON_ZOOM_SPEED               :number             = 0.05;
 
+    public static readonly WALL_RUBBLE_UPDATE_SPEED                 :number             = 0.01;
+
     /** The HTML page title. */
     public static readonly BRANDING_TITLE                           :string             = ( 'babylon-zero, (c) 2021 Mayflower GmbH, ' + bz.Version.getCurrent() );
     /** The HTML page favicon. */

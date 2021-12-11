@@ -160,8 +160,8 @@ export class Game
         // propagate pause state to gui
         this.gui.setPauseGuiVisibility( this.pause );
 
-        // propagate pause state to all stage sprites
-        this.stage.setSpritePause( this.pause );
+        // propagate pause state to all stage objects
+        this.stage.setPause( this.pause );
     }
 
     /** ****************************************************************************************************************
