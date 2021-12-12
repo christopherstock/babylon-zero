@@ -211,6 +211,20 @@ export class MaterialSystem
                     textureRepeatV,
                     mirrorTextureY
                 );
+
+                // try ..?
+
+                material.roughness = 10;
+                material.specularPower = 5;
+                // material.useReflectionFresnelFromSpecular = true;
+/*
+                var mat = new BABYLON.StandardMaterial("toto", scene);
+                mat.specularTexture = new BABYLON.Texture("textures/specularglossymap.png", scene);
+                mat.specularPower = 64;
+                mat.useGlossinessFromSpecularMapAlpha = true;
+                mat.diffuseColor = BABYLON.Color3.Black();
+                mat.roughness = 8;
+*/
 /*
                 // the color or texture of the material as if self lit;
                 material.text = bz.TextureFile.WALL_POTATO_ROUGHNESS.createNewTextureInstance(

@@ -73,7 +73,7 @@ export class StageOffice extends bz.Stage
         bz.AECFactory.addCasino(
             this,
             meshFactory,
-            new BABYLON.Vector3( 10.0 + 58.0, 0.0, 40.0 - bz.SettingAEC.HALLWAY_WIDTH ),
+            new BABYLON.Vector3( 58.0, 0.0, 36.0 - bz.SettingAEC.HALLWAY_WIDTH ),
             0.0
         );
 

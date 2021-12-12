@@ -501,29 +501,31 @@ export class AECFactory
                 new bz.WindowData( 30.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
                 new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
 */
-            ], 10,
+            ],
+            4,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
                 new bz.DoorData(
-                    26.5, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true,
+                    23.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true,
                     bz.TextureFile.WALL_DOOR_WOOD_1, -1, true
                 ),
             ], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
-            ], 10,
+            ],
+            8,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ],
             [],
-            10,
+            12,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
                 new bz.DoorData(
-                    26.5, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
+                    23.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
                     bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
                 ),
             ], [
                 // new bz.WindowData( 2.0,  false ),
             ],
-            10,
+            16,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
