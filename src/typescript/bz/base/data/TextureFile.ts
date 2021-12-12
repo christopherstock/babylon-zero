@@ -57,11 +57,18 @@ export class TextureFile
     public static readonly WALL_OLD_ROCKS               :TextureFile            = new TextureFile( 'wall/oldRocks_1024.png',        bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_OLD_ROCKS_BUMP          :TextureFile            = new TextureFile( 'wall/oldRocks_1024_bump.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_OLD_ROCKS_SPEC          :TextureFile            = new TextureFile( 'wall/oldRocks_1024_spec.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
-    public static readonly WALL_OLD_ROCKS_ALBEDO        :TextureFile            = new TextureFile( 'wall/oldRocks_1024_albedo.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+    public static readonly WALL_OLD_ROCKS_ALBEDO        :TextureFile            = new TextureFile( 'wall/oldRocks_1024_albedo.png', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_OLD_ROCKS_DISPERSION    :TextureFile            = new TextureFile( 'wall/oldRocks_1024_disp.png',   bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
 
     public static readonly WALL_PAVEMENT_GRANITE        :TextureFile            = new TextureFile( 'wall/pavementGranite.jpg',      bz.TextureHasAlpha.NO,  bz.TextureUV.TILED_HALF, TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_PAVEMENT_MILANO         :TextureFile            = new TextureFile( 'wall/pavementMilano.jpg',       bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
+
+    public static readonly WALL_POTATO                  :TextureFile            = new TextureFile( 'wall/potato.png',               bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
+    public static readonly WALL_POTATO_BUMP             :TextureFile            = new TextureFile( 'wall/potato_bump.png',          bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
+
+    public static readonly WALL_POTATO_HEIGHT           :TextureFile            = new TextureFile( 'wall/potato_height.png',        bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
+    public static readonly WALL_POTATO_ROUGHNESS        :TextureFile            = new TextureFile( 'wall/potato_roughness.png',     bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
+
     public static readonly WALL_SHINGLES_1              :TextureFile            = new TextureFile( 'wall/shingles1.jpg',            bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_SKIN_1                  :TextureFile            = new TextureFile( 'wall/skin1.jpg',                bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,      TextureFile.BULLET_HOLE_WOOD,     bz.TextureType.WALL );
     public static readonly WALL_STAIRS_1                :TextureFile            = new TextureFile( 'wall/stairs1.jpg',              bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_ONE,    TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );

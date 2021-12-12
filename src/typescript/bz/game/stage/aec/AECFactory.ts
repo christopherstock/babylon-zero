@@ -374,7 +374,10 @@ export class AECFactory
             ], [
                 // new bz.WindowData( 2.0,  false ),
             ], 0,
-            bz.TextureFile.WALL_CARPET_RASPBERRY,
+            // bz.TextureFile.WALL_CARPET_RASPBERRY,
+
+            bz.TextureFile.WALL_POTATO,
+
             bz.TextureFile.WALL_CEILING_1
         );
 

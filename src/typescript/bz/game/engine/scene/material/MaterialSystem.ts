@@ -196,6 +196,38 @@ export class MaterialSystem
                 );
             }
 
+            if ( texture === bz.TextureFile.WALL_POTATO )
+            {
+                // bump texture - structure
+                material.bumpTexture = bz.TextureFile.WALL_POTATO_BUMP.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+/*
+                // specular (shininess) - hightlights given by a light
+                material.specularTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_SPEC.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+
+                // the color or texture of the material as if self lit;
+                material.emissiveTexture = bz.TextureFile.WALL_CARPET_RASPBERRY_DISPERSION.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+
+                // the color or texture of the material lit by the environmental background lighting.
+                material.ambientTexture  = bz.TextureFile.WALL_CARPET_RASPBERRY.createNewTextureInstance(
+                    textureRepeatU,
+                    textureRepeatV,
+                    mirrorTextureY
+                );
+*/
+            }
+
             material.backFaceCulling = ( texture.hasAlpha() || alpha < 1.0 );
         }
         else if ( color !== null )
