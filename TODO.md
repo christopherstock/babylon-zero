@@ -5,8 +5,6 @@
 ===
 MVP
 ===
-TODO Add potato floor
-
 TODO Fix diamond ceikings (mirrored diamond corners?)
 TODO Fix diamond walls on rooms wall creation.
 TODO Add rotated versions of all level locations!
@@ -14,6 +12,8 @@ TODO Constraint system for events (keycard holded)!?
 
 TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
+
+TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance
 
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)

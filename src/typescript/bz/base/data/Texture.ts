@@ -62,7 +62,7 @@ export class Texture
         new Texture( bz.TextureFile.WALL_PAVEMENT_MILANO ),
 
         new Texture( bz.TextureFile.WALL_POTATO ),
-        new Texture( bz.TextureFile.WALL_POTATO_HEIGHT ),
+        new Texture( bz.TextureFile.WALL_POTATO_SPEC ),
         new Texture( bz.TextureFile.WALL_POTATO_BUMP ),
         new Texture( bz.TextureFile.WALL_POTATO_ROUGHNESS ),
 
