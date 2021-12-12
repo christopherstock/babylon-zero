@@ -5,25 +5,29 @@
 ===
 MVP
 ===
-TODO Fix diamond ceikings (mirrored diamond corners?)
+TODO Fix diamond ceilings (mirrored diamond corners?)
 TODO Fix diamond walls on rooms wall creation.
 TODO Add rotated versions of all level locations!
+
 TODO Constraint system for events (keycard holded)!?
 
 TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
 
+TODO Pause playing video texture when game is paused.
+TODO Add Explosion effect when objects break: fire sprites and global explosion?
+
+TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance
+TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 
-TODO Add camera intro run into player head.
-TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
+TODO Add camera intro running into player head.
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
 TODO smaller Doors? Adjust room sizes once more!
 TODO Shotgun: Multiple bullets in one shot!
-TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Reset Git Repository?
 TODO Outline for items again? // bench1.getModel().addOutline( this.getScene() );
 TODO dark/correctly lightet bullet holes? let bullet holes clone mesh material?
@@ -46,12 +50,11 @@ Fx
 ==
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Add elevator
-TODO Pause playing video texture when game is paused.
-TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Try glow effect? https://playground.babylonjs.com/#7QCYPB
 TODO Physical Bodies for Bots?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
 TODO try exploding mayflower logo (from 3dsmax promo?)
+TODO Try particle systems 'smoke' and 'fire'?
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
 TODO try gold metal effect etc for IntroVideo logo
 TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
@@ -77,7 +80,7 @@ TODO Create wearpons with projectiles (exploding or non-exploding)..
 ====
 Bots
 ====
-TODO Bots attack player and cast a shoot onto the level.
+TODO Bots attack player and cast a shoot onto the level. (minimal gameplay)
 
 ======
 Sounds
@@ -112,9 +115,8 @@ TODO Try to keep ORIGINAL physic imposter parameters (from 3dsmax?) AFTER the co
 ============
 New features
 ============
-TODO introduce Stage Animation system? as Animations (camera) do not stop on pausing the game.
+TODO introduce Stage Animation system? Fix pause for native game (e.g. camera) Animations?
 TODO Try soft bodies.
-TODO Try particle systems (smoke, fire, helper etc)
 TODO Try babylon 101 scenes.
 TODO Try 'worker thread collisions'? seems obsolete.
 TODO Try reflecting mirrored textures! https://babylonjsguide.github.io/advanced/Reflect
