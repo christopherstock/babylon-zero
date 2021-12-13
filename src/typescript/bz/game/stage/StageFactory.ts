@@ -62,7 +62,7 @@ export abstract class StageFactory
 
             if ( diamondCornerA > 0 )
             {
-                const sizeCornerA :number = ( Math.sqrt( 2 * Math.pow( ( diamondCornerA + bz.SettingAEC.WALL_DEPTH ), 2 ) ) );
+                const sizeCornerA :number = ( Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x,
@@ -96,7 +96,7 @@ export abstract class StageFactory
 
             if ( diamondCornerB > 0 )
             {
-                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( ( diamondCornerB + bz.SettingAEC.WALL_DEPTH ), 2 ) );
+                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -131,7 +131,7 @@ export abstract class StageFactory
 
             if ( diamondCornerC > 0 )
             {
-                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( ( diamondCornerC + bz.SettingAEC.WALL_DEPTH ), 2 ) );
+                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,

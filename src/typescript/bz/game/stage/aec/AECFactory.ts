@@ -512,6 +512,11 @@ export class AECFactory
             ],
             DIAMOND_CORNER_SIZE,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+                new bz.DoorData(
+                    ( 4.0 + bz.SettingAEC.WALL_DEPTH ), [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE,
+                    true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true,
+                    ( bz.SettingAEC.HALLWAY_WIDTH + 4.0 ), true
+                ),
             ], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
@@ -527,18 +532,11 @@ export class AECFactory
                     true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true,
                     ( bz.SettingAEC.HALLWAY_WIDTH + 4.0 ), true
                 ),
-/*
-                new bz.DoorData(
-                    23.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
-                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
-                ),
-*/
             ], [
                 // new bz.WindowData( 2.0,  false ),
             ],
             DIAMOND_CORNER_SIZE,
-            // bz.TextureFile.WALL_CARPET_RASPBERRY,
-            bz.TextureFile.WALL_TEST,
+            bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
         );
 
