@@ -5,7 +5,7 @@
 ===
 MVP
 ===
-TODO Add muzzle flash to gun on firing. (via sprite!)
+TODO Add muzzle flash to gun on firing.
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
 TODO Add rotated versions of all level locations

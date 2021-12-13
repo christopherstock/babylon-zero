@@ -95,6 +95,8 @@ export abstract class MathUtil
     *   @param distance The distance from the source point.
     *
     *   @return The rotated distant point.
+    *
+    *   TODO only suitable for distant point Z! Adjust naming!
     *******************************************************************************************************************/
     public static rotateVector3
     (
