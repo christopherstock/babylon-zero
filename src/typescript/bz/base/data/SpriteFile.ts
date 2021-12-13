@@ -3,7 +3,7 @@
 ***********************************************************************************************************************/
 export class SpriteFile
 {
-    public static readonly EXPLOSION        :SpriteFile   = new SpriteFile( 'explosion.png', 20,  256, 248 );
+    public static readonly EXPLOSION        :SpriteFile   = new SpriteFile( 'explosion.png', 14,  256, 248 );
     public static readonly FIRE             :SpriteFile   = new SpriteFile( 'fire.png',      100, 128  );
     public static readonly PALM             :SpriteFile   = new SpriteFile( 'palm.png',      0,   1024 );
     public static readonly TREE             :SpriteFile   = new SpriteFile( 'tree.png',      0,   357  );

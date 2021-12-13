@@ -5,14 +5,10 @@
 ===
 MVP
 ===
-TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
-TODO Add Explosion effect when objects break: fire sprites and global explosion?
-
-TODO Add rotated versions of all level locations
-
+TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
-
+TODO Add rotated versions of all level locations
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')

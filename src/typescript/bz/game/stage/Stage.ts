@@ -1013,7 +1013,7 @@ export abstract class Stage
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
 
-                // add explosion sprite TODO to FXFactory ! TODO quadruple!
+                // add explosion sprite TODO to FXFactory ! TODO quadruple! with different animationDelays?
                 const animatedExplosionSprite:bz.Sprite = new bz.Sprite
                 (
                     this.getScene(),
