@@ -1013,18 +1013,18 @@ export abstract class Stage
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
 
-                // add explosion sprite TODO to FXFactory !
-                const animatedFireSprite:bz.Sprite = new bz.Sprite
+                // add explosion sprite TODO to FXFactory ! TODO quadruple!
+                const animatedExplosionSprite:bz.Sprite = new bz.Sprite
                 (
                     this.getScene(),
-                    bz.SpriteFile.FIRE,
+                    bz.SpriteFile.EXPLOSION,
                     new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-                    15.0,
-                    30.0,
+                    10.0,
+                    10.0,
                     bz.SpriteCollidable.NO
                 );
-                animatedFireSprite.animate( 0, 24, false, true );
-                this.addSprite( animatedFireSprite );
+                animatedExplosionSprite.animate( 0, 47, false, true );
+                this.addSprite( animatedExplosionSprite );
 
                 // cast physical explosion impulse
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(

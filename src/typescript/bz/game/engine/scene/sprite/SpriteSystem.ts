@@ -40,9 +40,14 @@ export class SpriteSystem
                 'spriteManager' + String( i ),
                 bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
                 bz.SettingEngine.MAX_SPRITE_INSTANCES,
-                spriteFile.frameSize,
+                spriteFile.frameWidth,
                 scene
             );
+
+            if ( spriteFile.frameHeight !== spriteFile.frameWidth )
+            {
+                this.spriteManagers[ spriteFile.fileName ].cellHeight = spriteFile.frameHeight;
+            }
         }
     }
 

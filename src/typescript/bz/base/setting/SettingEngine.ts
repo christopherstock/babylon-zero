@@ -39,9 +39,6 @@ export abstract class SettingEngine
     /** The multiplier from the hit damage to the physical impact force to apply. */
     public static readonly DAMAGE_IMPULSE_MULTIPLIER                :number             = 25;
 
-    /** The delay between each sprite animation frame change in ms. */
-    public static readonly SPRITE_FRAME_DELAY                       :number             = 100;
-
     /** Default ratio from texture mapping to face size. */
     public static readonly TEXTURE_DEFAULT_MAPPING_UV               :number             = 0.5;
 
