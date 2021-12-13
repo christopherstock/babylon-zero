@@ -783,13 +783,16 @@ export class Player extends bz.GameObject
             // let flashPosition :BABYLON.Vector3 = this.playerWearpon.shotgun.getModel().getMesh( 0 ).absolutePosition;
 
             // get player position
-            let flashPosition :BABYLON.Vector3 = this.getPosition();
+            let playerPosition :BABYLON.Vector3 = this.getPosition();
             // distance 5.0 on X and Z axis
-            flashPosition = new BABYLON.Vector3(
-                flashPosition.x + bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y ) * 5.0,
-                flashPosition.y,
-                flashPosition.z + bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y ) * 5.0
+            let flashPosition :BABYLON.Vector3 = new BABYLON.Vector3(
+                playerPosition.x + bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y ) * 5.0,
+                playerPosition.y,
+                playerPosition.z + bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y ) * 5.0
             );
+
+            // rotate point around axis X
+            // bz.MathUtil.rotateVector3()
 /*
             const rotatedPosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
                 flashPosition,
