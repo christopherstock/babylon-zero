@@ -15,7 +15,7 @@ export abstract class Stage
     /** A collection of all bots in this stage. */
     private readonly bots               :bz.Bot[]                       = [];
     /** A collection of all sprites that appear in this stage. */
-    private readonly sprites            :bz.Sprite[]                    = [];
+    private          sprites            :bz.Sprite[]                    = [];
     /** A collection of all lights that appear in this stage. */
     private readonly lights             :BABYLON.Light[]                = [];
     /** A collection of all shadowGenerators that appear in this stage. */
@@ -134,6 +134,15 @@ export abstract class Stage
         for ( const bot of this.bots )
         {
             bot.render();
+        }
+
+        // prune disposed sprites
+        for ( let i:number = ( this.sprites.length - 1 ); i >= 0; --i )
+        {
+            if ( this.sprites[ i ].isDisposed )
+            {
+                this.sprites.splice( i, 1 );
+            }
         }
 
         // handle event system
@@ -1003,6 +1012,21 @@ export abstract class Stage
                 bz.Debug.event.log( 'Cast an explosion ..' );
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
+
+                // add explosion sprite TODO to FXFactory !
+                const animatedFireSprite:bz.Sprite = new bz.Sprite
+                (
+                    this.getScene(),
+                    bz.SpriteFile.FIRE,
+                    new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+                    15.0,
+                    30.0,
+                    bz.SpriteCollidable.NO
+                );
+                animatedFireSprite.animate( 0, 24, false, true );
+                this.addSprite( animatedFireSprite );
+
+                // cast physical explosion impulse
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(
                     this.game.getScene().getNativeSceneBG()
                 );

@@ -6,7 +6,7 @@ import * as bz from '../../../..';
 export class Sprite
 {
     /** The wrapped native babylon.JS sprite instance. */
-    private readonly sprite                         :BABYLON.Sprite             = null;
+    public readonly sprite                         :BABYLON.Sprite             = null;
     /** The possible collider - A cylinder body for this sprite. */
     private readonly collider                       :BABYLON.AbstractMesh       = null;
 
@@ -18,9 +18,13 @@ export class Sprite
     private          animationFrameTo               :number                     = 0;
     /** Saves current animation's looping property. */
     private          animationFrameLooped           :boolean                    = false;
+    private          animationDisposeOnAnimationEnd :boolean                    = false;
 
     /** Saves the last visible sprite animation frame index. */
     private          lastSpriteAnimationIndex       :number                     = -1;
+
+    /** Saves if this sprite is disposed. */
+    public          isDisposed                     :boolean                    = false;
 
     /** ****************************************************************************************************************
     *   Creates a new wrapped sprite object from the specified sprite file.
@@ -88,17 +92,19 @@ export class Sprite
     /** ****************************************************************************************************************
     *   Animates the frames in the wrapped sprite.
     *
-    *   @param from Start frame id.
-    *   @param to   End frame id.
-    *   @param loop If the animation shall be looped
+    *   @param from                  Start frame id.
+    *   @param to                    End frame id.
+    *   @param loop                  If the animation shall be looped.
+    *   @param disposeOnAnimationEnd If the native sprite shall be disposed then the animation ends.
     *******************************************************************************************************************/
-    public animate( from:number, to:number, loop:boolean ) : void
+    public animate( from:number, to:number, loop:boolean, disposeOnAnimationEnd:boolean = false ) : void
     {
-        this.isAnimated           = true;
+        this.isAnimated                     = true;
 
-        this.animationFrameFrom   = from;
-        this.animationFrameTo     = to;
-        this.animationFrameLooped = loop;
+        this.animationFrameFrom             = from;
+        this.animationFrameTo               = to;
+        this.animationFrameLooped           = loop;
+        this.animationDisposeOnAnimationEnd = disposeOnAnimationEnd;
 
         this.sprite.playAnimation
         (
@@ -109,6 +115,13 @@ export class Sprite
             () =>
             {
                 this.isAnimated = false;
+
+                if ( disposeOnAnimationEnd )
+                {
+                    this.isDisposed = true;
+
+                    this.sprite.dispose();
+                }
             }
         )
     }
@@ -138,7 +151,8 @@ export class Sprite
                 (
                     this.animationFrameFrom,
                     this.animationFrameTo,
-                    this.animationFrameLooped
+                    this.animationFrameLooped,
+                    this.animationDisposeOnAnimationEnd
                 );
 
                 // assign last sprite animation index

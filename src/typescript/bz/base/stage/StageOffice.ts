@@ -46,6 +46,13 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // add boxes pile
+        bz.AECFactory.addCratesPile(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 20.5, bz.SettingAEC.FLOOR_OFFSET_Y, 20.5 )
+        );
+
         // hallway
         bz.AECFactory.addHallway(
             this,

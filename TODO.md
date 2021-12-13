@@ -8,12 +8,13 @@ MVP
 TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
-TODO Add rotated versions of all level locations!
-TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
-TODO Add 'grid material' to material system? https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/gridMat
+
+TODO Add rotated versions of all level locations
+
+TODO wall rubble fx: immediate appearance
+
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
-TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Add camera intro running into player head.
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
@@ -23,6 +24,13 @@ TODO dark/correctly lightet bullet holes? let bullet holes clone mesh material?
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Reset Git Repository?
+
+===============
+Material System
+===============
+TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
+TODO Add 'grid material' to material system? https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/gridMat
+TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance (nativeTexture => diffuseTexture)
 
 ======
 3dsmax
