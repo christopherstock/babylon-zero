@@ -94,9 +94,9 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( false && diamondCornerB > 0 )
+            if ( diamondCornerB > 0 )
             {
-                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingAEC.WALL_DEPTH, 2 ) );
+                const sizeCornerB :number = Math.sqrt( 2 * Math.pow( ( diamondCornerB + bz.SettingAEC.WALL_DEPTH ), 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -129,9 +129,9 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( false && diamondCornerC > 0 )
+            if ( diamondCornerC > 0 )
             {
-                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingAEC.WALL_DEPTH, 2 ) );
+                const sizeCornerC :number = Math.sqrt( 2 * Math.pow( ( diamondCornerC + bz.SettingAEC.WALL_DEPTH ), 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -164,9 +164,9 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( false && diamondCornerD > 0 )
+            if ( diamondCornerD > 0 )
             {
-                const sizeCornerD :number = Math.sqrt( 2 * Math.pow( diamondCornerD + bz.SettingAEC.WALL_DEPTH, 2 ) );
+                const sizeCornerD :number = Math.sqrt( 2 * Math.pow( ( diamondCornerD + bz.SettingAEC.WALL_DEPTH ), 2 ) );
 
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,

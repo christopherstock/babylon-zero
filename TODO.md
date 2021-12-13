@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Fix diamond walls positionings (gaps!)
 TODO Add rotated versions of all level locations!
 TODO Constraint system for events (keycard holded)!?
 TODO Add explosion effects via sprites.
