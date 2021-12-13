@@ -782,17 +782,22 @@ export class Player extends bz.GameObject
             // add muzzle flash to the wearpon TODO to FXFactory
             // let flashPosition :BABYLON.Vector3 = this.playerWearpon.shotgun.getModel().getMesh( 0 ).absolutePosition;
 
-            const flashOffset :BABYLON.Vector3 = new BABYLON.Vector3(
-                1.2,
-                -0.75,
-                1.5
+            // get player position
+            let flashPosition :BABYLON.Vector3 = this.getPosition();
+            // distance 5.0 on X and Z axis
+            flashPosition = new BABYLON.Vector3(
+                flashPosition.x + bz.MathUtil.sinDegrees( this.playerPhysic.rotation.y ) * 5.0,
+                flashPosition.y,
+                flashPosition.z + bz.MathUtil.cosDegrees( this.playerPhysic.rotation.y ) * 5.0
             );
-            const rotatedOffset :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
-                flashOffset,
+/*
+            const rotatedPosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
+                flashPosition,
                 this.playerPhysic.rotation,
                 5.0
             );
-            const flashPosition :BABYLON.Vector3 = rotatedOffset.add( this.getPosition() );
+            // const flashPosition :BABYLON.Vector3 = rotatedOffset.add( this.getPosition() );
+*/
             const muzzleFlash:bz.Sprite = new bz.Sprite
             (
                 this.stage.getScene(),

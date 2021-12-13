@@ -13,10 +13,10 @@ TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable 
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Add camera intro running into player head.
-TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
+TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
 TODO Shotgun: Multiple bullets per shot!
 TODO try outline for items again? // bench1.getModel().addOutline( this.getScene() );, 'glow fx' GlowLayer?
-TODO dark/correctly lightet bullet holes? let bullet holes clone mesh material?
+TODO dark/correctly lightet bullet holes? let bullet holes clone (emissive) mesh material?
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Reset Git Repository?
