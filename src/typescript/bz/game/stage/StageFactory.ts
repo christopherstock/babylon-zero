@@ -60,9 +60,9 @@ export abstract class StageFactory
                 bz.TextureFile.WALL_GLASS_1
             );
 
-            if ( false && diamondCornerA > 0 )
+            if ( diamondCornerA > 0 )
             {
-                const sizeCornerA :number = Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) );
+                const sizeCornerA :number = ( Math.sqrt( 2 * Math.pow( ( diamondCornerA + bz.SettingAEC.WALL_DEPTH ), 2 ) ) );
                 StageFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x,
