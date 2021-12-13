@@ -222,9 +222,9 @@ export class AECFactory
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3,
-        rotY        :number          = 0,
-        pointLights :BABYLON.Light[]
-    ) : void
+        rotY        :number = 0
+    )
+    : void
     {
         bz.StageFactory.addRoomWalls(
             stage,
@@ -293,10 +293,12 @@ export class AECFactory
                     bz.EventType.SHOW_GUI_TEXT_MESSAGE,
                     new bz.EventDataShowGuiTextMessage( 'DELAYED: I will turn the lights off :)' )
                 ),
+/*
                 new bz.Event(
                     bz.EventType.TOGGLE_LIGHT,
                     new bz.EventDataToggleLight( pointLights )
                 ),
+*/
             ],
             bz.InteractionType.REPEATED
         );
@@ -378,6 +380,13 @@ export class AECFactory
             bz.TextureFile.WALL_CEILING_1
         );
 
+        // point light
+        bz.AECFactory.addPointLight(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 10.0, 5.0, 10.0 ) )
+        );
+
         // office desk 2
         stage.addWall(
             new bz.Wall
@@ -433,7 +442,7 @@ export class AECFactory
             )
         );
 
-        // office chair 1
+        // office chair 1 TODO to FurnatureFactory!
         stage.addWall(
             new bz.Wall
             (
@@ -484,6 +493,8 @@ export class AECFactory
     )
     : void
     {
+        const DIAMOND_CORNER_SIZE :number = 10.0;
+
         // add casino room (half diamond shaped?)
         bz.StageFactory.addRoomWalls(
             stage,
@@ -499,32 +510,42 @@ export class AECFactory
                 new bz.WindowData( 44.0, false, false, bz.SettingAEC.WINDOW_WIDTH_WIDE ),
 */
             ],
-            4,
+            DIAMOND_CORNER_SIZE,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
-                new bz.DoorData(
-                    23.0, [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE, true,
-                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, true
-                ),
             ], [
                 // new bz.WindowData( 6.5,  true, true ),
                 // new bz.WindowData( 11.0, true, true ),
             ],
-            8,
+            DIAMOND_CORNER_SIZE,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
             ],
             [],
-            12,
+            DIAMOND_CORNER_SIZE,
             bz.TextureFile.WALL_DARK_WOOD_PARQUET, [
+                new bz.DoorData(
+                    ( 24.0 - bz.SettingAEC.WALL_DEPTH ), [], bz.DoorAnimation.SWING_B_COUNTER_CLOCKWISE,
+                    true, bz.TextureFile.WALL_DOOR_WOOD_1, -1, true,
+                    ( bz.SettingAEC.HALLWAY_WIDTH + 4.0 ), true
+                ),
+/*
                 new bz.DoorData(
                     23.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
                     bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
                 ),
+*/
             ], [
                 // new bz.WindowData( 2.0,  false ),
             ],
-            16,
+            DIAMOND_CORNER_SIZE,
             bz.TextureFile.WALL_CARPET_RASPBERRY,
             bz.TextureFile.WALL_CEILING_1
+        );
+
+        // point light
+        bz.AECFactory.addPointLight(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 29.0, 5.0, 29.0 ) )
         );
 
         // soda machine 2
@@ -541,6 +562,23 @@ export class AECFactory
                     bz.ModelCompoundType.NONE
                 ),
                 7.0
+            )
+        );
+
+        // sofa 1
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SOFA_1,
+                    position.add( new BABYLON.Vector3( 25.5, 2.0, 20.5 ) ),
+                    bz.PhysicSet.SHELVES,
+                    180.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
             )
         );
     }
@@ -1217,7 +1255,26 @@ export class AECFactory
         );
     }
 
-    // TODO to FurnitureFactory !
+    public static addPointLight(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3
+    )
+    :void
+    {
+        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        (
+            [ stage.getScene().getNativeSceneBG(), stage.getScene().getNativeSceneFG() ],
+            position,
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
+            125.0,
+            1.25
+        );
+        stage.addLight( pointLights );
+    }
+
+    // TODO to FurnitureFactory ?
 
     /** ****************************************************************************************************************
     *   Adds a computer desk to the stage.

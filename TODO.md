@@ -32,6 +32,7 @@ TODO Shelves: Fix bounding box?
 TODO Change to cylindric physical impostor for model 'SEWERAGE_PUMPING'?
 TODO remove offset in transpallet (rotY chaos)
 TODO Spawn painkiller (empty can) model when a painkiller has been used.
+TODO Add stele/poster object for posters/signs.
 TODO Create one realistic model with all (3 or 4) different textures?
 TODO Create realistic models and lights.
 TODO Fix fence

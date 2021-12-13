@@ -551,7 +551,7 @@ export abstract class Stage
     *
     *   @param lights The lights to add to this stage.
     *******************************************************************************************************************/
-    protected addLight( lights:(BABYLON.Light[]|BABYLON.Light) ) : void
+    public addLight( lights:(BABYLON.Light[]|BABYLON.Light) ) : void
     {
         if ( !Array.isArray( lights ) )
         {

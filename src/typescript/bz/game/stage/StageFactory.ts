@@ -629,7 +629,10 @@ export abstract class StageFactory
                 continue;
             }
             busyWalls.push(
-                new BABYLON.Vector2( start + doorData.position, start + doorData.position + bz.SettingAEC.DOOR_WIDTH )
+                new BABYLON.Vector2(
+                    start + doorData.position,
+                    start + doorData.position + doorData.width
+                )
             );
         }
 
@@ -675,7 +678,7 @@ export abstract class StageFactory
     {
         const walls :bz.Wall[] = [];
 
-        // door frames
+        // browse door data
         const createdDoors :bz.Door[] = [];
         for ( const doorData of doorsData )
         {
@@ -684,7 +687,10 @@ export abstract class StageFactory
                 continue;
             }
 
-            if ( sizeY < bz.SettingAEC.DOOR_HEIGHT + bz.SettingAEC.DOOR_FRAME_HEIGHT )
+            if (
+                doorData.noDoorFrame
+                || ( sizeY < bz.SettingAEC.DOOR_HEIGHT + bz.SettingAEC.DOOR_FRAME_HEIGHT )
+            )
             {
                 // skip door frame drawing
             }
@@ -705,7 +711,7 @@ export abstract class StageFactory
                             ),
                             textureWall,
                             new BABYLON.Vector3(
-                                bz.SettingAEC.DOOR_WIDTH,
+                                doorData.width,
                                 bz.SettingAEC.DOOR_FRAME_HEIGHT,
                                 bz.SettingAEC.WALL_DEPTH
                             ),

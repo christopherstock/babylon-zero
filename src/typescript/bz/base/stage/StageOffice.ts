@@ -18,9 +18,9 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                60.0, // ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
-                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                38.0 // ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
             new bz.Inventory( 0 )
@@ -37,18 +37,6 @@ export class StageOffice extends bz.Stage
 
         // player
         this.setPlayer( new bz.Player( this ) );
-
-        // point light
-        const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
-        (
-            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 10.0, 5.0, 10.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
-            125.0,
-            1.25
-        );
-        this.addLight( pointLights );
 
         // medium office
         bz.AECFactory.addMediumOffice(
@@ -127,8 +115,7 @@ export class StageOffice extends bz.Stage
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            0.0,
-            pointLights
+            0.0
         );
 
         // small park
