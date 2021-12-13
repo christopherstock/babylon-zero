@@ -5,6 +5,7 @@
 ===
 MVP
 ===
+TODO Fix diamond walls positionings (gaps!)
 TODO Add rotated versions of all level locations!
 TODO Constraint system for events (keycard holded)!?
 TODO Add explosion effects via sprites.
@@ -12,23 +13,25 @@ TODO Add muzzle flash to gun on firing. (via sprite!)
 TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
+TODO Add 'grid material' to material system? https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/gridMat
 TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Add camera intro running into player head.
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
-TODO smaller Doors? Adjust room sizes once more!
-TODO Shotgun: Multiple bullets in one shot!
-TODO Reset Git Repository?
-TODO Outline for items again? // bench1.getModel().addOutline( this.getScene() );
+TODO Shotgun: Multiple bullets per shot!
+TODO try outline for items again? // bench1.getModel().addOutline( this.getScene() );, 'glow fx' GlowLayer?
 TODO dark/correctly lightet bullet holes? let bullet holes clone mesh material?
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
+TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
+TODO Reset Git Repository?
 
 ======
 3dsmax
 ======
 TODO Shelves: Fix bounding box?
+TODO Try stored 3dsmax model animations. (open door in desk?)
 TODO Change to cylindric physical impostor for model 'SEWERAGE_PUMPING'?
 TODO remove offset in transpallet (rotY chaos)
 TODO Spawn painkiller (empty can) model when a painkiller has been used.
@@ -60,6 +63,7 @@ TODO Performance: Try all hi-res textures? 512 or 1024 or 2048 ? ?
 ========
 Wearpons
 ========
+TODO Refactor: PlayerPhysic and PlayerWearpon all private.
 TODO different bullets, different wearpons, different gadgets to inventories
 TODO Enable wearpon system with different wearpons and attributes: magazine size, shoot angles, range, bullet-hole-size, zoom, muzzle-flash ..
 TODO Add slower panning on aiming/zooming with wearpon. (sniper rifle etc.)
@@ -67,6 +71,7 @@ TODO Enable wearpon items (wearpons and ammo) to be picked up - Create wearpon c
 TODO Show wearpon's ammo in magazine and total (in GUI).
 TODO Enable wearpon magazines and reloading!
 TODO Flashlite on player - depending on wearpon.
+TODO Create grenades
 TODO Create explosive wearpons etc.
 TODO Create wearpons with projectiles (exploding or non-exploding)..
 
@@ -85,9 +90,6 @@ TODO Sounds for shot, bullet hit and bullet drop.
 =========
 Secondary
 =========
-TODO Refactor: PlayerPhysic and PlayerWearpon all private.
-TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
-TODO Try stored 3dsmax model animations.
 TODO Fix/add head shaking?
 TODO Fix/add jumping?
 TODO Enhance multi level staircases.

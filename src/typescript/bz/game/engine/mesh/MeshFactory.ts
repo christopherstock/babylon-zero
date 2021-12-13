@@ -161,6 +161,50 @@ export class MeshFactory
                     break;
                 }
 
+                case bz.TextureUV.TILED_DOUBLE:
+                {
+                    // TODO resolution to method!
+                    faceUV =
+                    [
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            -size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            -size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            -size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            -size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            -size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            -size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                        new BABYLON.Vector4(
+                            0.0,
+                            0.0,
+                            size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                            size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+                        ),
+                    ];
+                    break;
+                }
+
                 case bz.TextureUV.Y_ONE_XZ_TILED_QUARTER:
                 {
                     faceUV =
@@ -377,6 +421,7 @@ export class MeshFactory
 
                 case bz.TextureUV.TILED:
                 case bz.TextureUV.TILED_HALF:
+                case bz.TextureUV.TILED_DOUBLE:
                 {
                     faceUV =
                     [

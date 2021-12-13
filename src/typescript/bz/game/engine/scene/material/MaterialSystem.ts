@@ -96,6 +96,13 @@ export class MaterialSystem
                         break;
                     }
 
+                    case bz.TextureUV.TILED_DOUBLE:
+                    {
+                        textureRepeatU = ( sizeU * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        textureRepeatV = ( sizeV * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV );
+                        break;
+                    }
+
                     case bz.TextureUV.ALL_ONE:
                     {
                         textureRepeatU = 1.0;

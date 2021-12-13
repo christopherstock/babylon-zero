@@ -6,6 +6,9 @@ export enum TextureUV
     /** One texture dimension for the whole face size. */
     ALL_ONE,
 
+    /** Half texture dimension per 1.0 world unit. */
+    TILED_DOUBLE,
+
     /** One texture dimension per 1.0 world unit. */
     TILED,
 

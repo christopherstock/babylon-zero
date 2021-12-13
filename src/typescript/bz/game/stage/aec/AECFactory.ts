@@ -537,7 +537,8 @@ export class AECFactory
                 // new bz.WindowData( 2.0,  false ),
             ],
             DIAMOND_CORNER_SIZE,
-            bz.TextureFile.WALL_CARPET_RASPBERRY,
+            // bz.TextureFile.WALL_CARPET_RASPBERRY,
+            bz.TextureFile.WALL_TEST,
             bz.TextureFile.WALL_CEILING_1
         );
 
