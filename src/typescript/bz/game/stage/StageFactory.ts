@@ -203,10 +203,10 @@ export abstract class StageFactory
                         null,
                         bz.PhysicSet.STATIC,
                         BABYLON.Vector3.Zero(),
-                        diamondCornerA,
-                        diamondCornerB,
+                        diamondCornerD,
                         diamondCornerC,
-                        diamondCornerD
+                        diamondCornerB,
+                        diamondCornerA
                     )
                 )
             );

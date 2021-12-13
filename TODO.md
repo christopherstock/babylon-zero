@@ -5,25 +5,17 @@
 ===
 MVP
 ===
-TODO Fix diamond ceilings (mirrored diamond corners?)
-TODO Fix diamond walls on rooms wall creation.
 TODO Add rotated versions of all level locations!
-
 TODO Constraint system for events (keycard holded)!?
-
 TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
-
 TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
-
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
-
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-
 TODO Add camera intro running into player head.
 TODO Detect performance loss on firing (ommit physical impulses for static meshes?) 
 TODO smaller Doors? Adjust room sizes once more!
