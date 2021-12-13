@@ -890,6 +890,19 @@ export abstract class Stage
     *******************************************************************************************************************/
     private launchEvent( event:bz.Event ) : boolean
     {
+        // check if this event has a constraint
+        if ( event.constraint !== null )
+        {
+            const constraintFullfilled :boolean = event.constraint();
+            if ( !constraintFullfilled )
+            {
+                bz.Debug.event.log( 'The constraints for this event are not met!' );
+
+                return true;
+            }
+        }
+
+        // perform event according to event type
         switch ( event.type )
         {
             case bz.EventType.TIME_DELAY:

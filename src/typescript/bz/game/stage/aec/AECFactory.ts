@@ -569,14 +569,22 @@ export class AECFactory
                         new bz.EventDataShowGuiTextMessage(
                             'I need a painkiller to get a coke',
                             true
-                        )
+                        ),
+                        () : boolean =>
+                        {
+                            return ( stage.getPlayer().getInventory().numberOfPainkillers === 0 );
+                        }
                     ),
                     new bz.Event(
                         bz.EventType.SHOW_GUI_TEXT_MESSAGE,
                         new bz.EventDataShowGuiTextMessage(
                             'I have a painkiller - now I can get a coke',
                             true
-                        )
+                        ),
+                        () : boolean =>
+                        {
+                            return ( stage.getPlayer().getInventory().numberOfPainkillers > 0 );
+                        }
                     ),
                 ],
                 bz.InteractionType.REPEATED
