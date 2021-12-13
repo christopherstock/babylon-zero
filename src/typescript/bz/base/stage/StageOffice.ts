@@ -65,6 +65,11 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        if ( true )
+        {
+            return;
+        }
+
         // TODO addLightyard
 
         // TODO addOfficeKitchen?
@@ -81,11 +86,6 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_CARPET_1,
             bz.TextureFile.WALL_COBBLES_1
         );
-
-        if ( true )
-        {
-            return;
-        }
 
         // add rain effect
         this.addRainEffect(

@@ -560,7 +560,26 @@ export class AECFactory
                     0.0,
                     bz.ModelCompoundType.NONE
                 ),
-                7.0
+                7.0,
+                true,
+                false,
+                [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage(
+                            'I need a painkiller to get a coke',
+                            true
+                        )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage(
+                            'I have a painkiller - now I can get a coke',
+                            true
+                        )
+                    ),
+                ],
+                bz.InteractionType.REPEATED
             )
         );
 
