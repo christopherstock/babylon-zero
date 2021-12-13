@@ -1023,8 +1023,21 @@ export abstract class Stage
                     10.0,
                     bz.SpriteCollidable.NO
                 );
-                animatedExplosionSprite.animate( 0, 47, false, true );
+                animatedExplosionSprite.animate( 0, 47, false, true ); // TODO anim frames to SpriteFile !
                 this.addSprite( animatedExplosionSprite );
+
+                // test
+                const test:bz.Sprite = new bz.Sprite
+                (
+                    this.getScene(),
+                    bz.SpriteFile.MUZZLE_FLASH_1,
+                    new BABYLON.Vector3( 21.0, 0.0, 21.0 ),
+                    10.0,
+                    10.0,
+                    bz.SpriteCollidable.NO
+                );
+                test.animate( 0, 0, false, true );
+                this.addSprite( test );
 
                 // cast physical explosion impulse
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(

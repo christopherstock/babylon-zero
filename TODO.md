@@ -47,6 +47,10 @@ Fx
 ==
 TODO Quick fire animation in bullet hole (for certain materials..)?
 TODO Add elevator
+TODO Try ragdolls http://www.visualiser.fr/rag/default.htm
+     https://www.babylonjs-playground.com/#VADCKV#6
+     https://www.babylonjs-playground.com/#VADCKV#12
+     https://github.com/matthewharwood/babylonJS-examples/blob/master/bower_components/cannon.js/demos/ragdoll.html
 TODO Try glow effect? https://playground.babylonjs.com/#7QCYPB
 TODO Physical Bodies for Bots?
 TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & paused physics and camera movements/animations
