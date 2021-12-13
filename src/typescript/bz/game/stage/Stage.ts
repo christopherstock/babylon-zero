@@ -389,6 +389,8 @@ export abstract class Stage
     *   Delivers the current selected index of the pause menu.
     *
     *   @return The current active pause menu index.
+    *
+    *   TODO feels wrong inside this class!
     *******************************************************************************************************************/
     public getPauseMenuIndex() : number
     {
@@ -399,6 +401,8 @@ export abstract class Stage
     *   Sets the active index for the pause menu.
     *
     *   @param index The index of the pause menu item to set.
+    *
+    *   TODO feels wrong inside this class!
     *******************************************************************************************************************/
     public setPauseMenuIndex( index:number ) : void
     {
@@ -412,10 +416,13 @@ export abstract class Stage
     *******************************************************************************************************************/
     public setPause( pause:boolean ) : void
     {
+        // sprites
         for ( const sprite of this.sprites )
         {
             sprite.setPause( pause );
         }
+
+        // particle effects
         for ( const particleSystem of this.particleEffects )
         {
             // pause wall rubble
@@ -437,6 +444,36 @@ export abstract class Stage
                     {
                         system.updateSpeed = ( pause ? 0.0 : bz.SettingEngine.RAIN_UPDATE_SPEED );
                     }
+                }
+            }
+        }
+
+        // video textures
+        for ( const texture of bz.Texture.ALL_TEXTURES )
+        {
+            if ( texture.getFile().textureType === bz.TextureType.VIDEO )
+            {
+                const videoTexture :BABYLON.VideoTexture = (
+                    bz.Texture.getNativeTexture( texture.getFile() ) as BABYLON.VideoTexture
+                );
+
+                if ( pause )
+                {
+                    videoTexture.video.pause()
+                }
+                else
+                {
+                    videoTexture.video.play().then(
+                        () :void =>
+                        {
+                            // handle promise fulfillment
+                        }
+                    ).catch(
+                        () :void =>
+                        {
+                            // catch promise error
+                        }
+                    );
                 }
             }
         }

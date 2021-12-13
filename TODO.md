@@ -5,11 +5,8 @@
 ===
 MVP
 ===
-TODO Constraint system for events (keycard holded)!?
-
 TODO Add explosion effects via sprites.
 TODO Add muzzle flash to gun on firing. (via sprite!)
-TODO Pause playing video texture when game is paused.
 TODO Add Explosion effect when objects break: fire sprites and global explosion?
 TODO Add rotated versions of all level locations!
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)

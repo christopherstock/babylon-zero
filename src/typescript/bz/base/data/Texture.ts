@@ -109,6 +109,16 @@ export class Texture
     }
 
     /** ****************************************************************************************************************
+    *   Returns the texture file this texture is based on.
+    *
+    *   @return The texture file this texture was created from.
+    *******************************************************************************************************************/
+    public getFile() : bz.TextureFile
+    {
+        return this.file;
+    }
+
+    /** ****************************************************************************************************************
     *   Loads the texture image.
     *
     *   @param scene The babylon.JS scene to append all textures to.

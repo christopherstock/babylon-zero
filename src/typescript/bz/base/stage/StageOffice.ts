@@ -65,6 +65,14 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // large office
+        bz.AECFactory.addLargeOffice(
+            this,
+            meshFactory,
+            new BABYLON.Vector3( 120.0, 0.0, 66.0 ),
+            0.0
+        );
+
         if ( true )
         {
             return;
@@ -104,14 +112,6 @@ export class StageOffice extends bz.Stage
 
         // parking lot
         bz.AECFactory.addParkingLot(
-            this,
-            meshFactory,
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            0.0
-        );
-
-        // large office
-        bz.AECFactory.addLargeOffice(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
