@@ -561,7 +561,7 @@ export abstract class Stage
     *
     *   @param sprites The sprites to add to this stage.
     *******************************************************************************************************************/
-    protected addSprite( sprites:(bz.Sprite[]|bz.Sprite) ) : void
+    public addSprite( sprites:(bz.Sprite[]|bz.Sprite) ) : void
     {
         if ( !Array.isArray( sprites ) )
         {
@@ -1013,7 +1013,7 @@ export abstract class Stage
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
 
-                // add explosion sprite TODO to FXFactory ! TODO quadruple! with different animationDelays?
+                // add explosion sprite TODO to FXFactory ! TODO quadruple! with different animationDelays? different sizes and positions!
                 const animatedExplosionSprite:bz.Sprite = new bz.Sprite
                 (
                     this.getScene(),
@@ -1025,19 +1025,6 @@ export abstract class Stage
                 );
                 animatedExplosionSprite.animate( 0, 47, false, true ); // TODO anim frames to SpriteFile !
                 this.addSprite( animatedExplosionSprite );
-
-                // test
-                const test:bz.Sprite = new bz.Sprite
-                (
-                    this.getScene(),
-                    bz.SpriteFile.MUZZLE_FLASH_1,
-                    new BABYLON.Vector3( 21.0, 0.0, 21.0 ),
-                    10.0,
-                    10.0,
-                    bz.SpriteCollidable.NO
-                );
-                test.animate( 0, 0, false, true );
-                this.addSprite( test );
 
                 // cast physical explosion impulse
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(

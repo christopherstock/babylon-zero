@@ -22,7 +22,7 @@ export class PlayerWearpon
     public                 targetShotgunRotX    :number  = 0;
     public                 targetShotgunRotY    :number  = 0;
 
-    private       readonly shotgun              :bz.Wall = null;
+    public        readonly shotgun              :bz.Wall = null;
     private                shotgunRotX          :number  = 0;
     private                shotgunRotY          :number  = 0;
 

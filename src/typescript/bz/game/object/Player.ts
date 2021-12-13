@@ -779,6 +779,32 @@ export class Player extends bz.GameObject
             bz.Debug.fire.log();
             bz.Debug.fire.log( 'Player fires' );
 
+            // add muzzle flash to the wearpon TODO to FXFactory
+            // let flashPosition :BABYLON.Vector3 = this.playerWearpon.shotgun.getModel().getMesh( 0 ).absolutePosition;
+
+            const flashOffset :BABYLON.Vector3 = new BABYLON.Vector3(
+                1.2,
+                -0.75,
+                1.5
+            );
+            const rotatedOffset :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
+                flashOffset,
+                this.playerPhysic.rotation,
+                5.0
+            );
+            const flashPosition :BABYLON.Vector3 = rotatedOffset.add( this.getPosition() );
+            const muzzleFlash:bz.Sprite = new bz.Sprite
+            (
+                this.stage.getScene(),
+                bz.SpriteFile.MUZZLE_FLASH_1,
+                flashPosition,
+                2.5,
+                2.5,
+                bz.SpriteCollidable.NO
+            );
+            muzzleFlash.animate( 0, 0, false, true );
+            this.stage.addSprite( muzzleFlash );
+
             // create shot and apply it onto the stage
             const shot:bz.Shot = this.createShot();
             this.stage.applyShot( shot );
