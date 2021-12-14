@@ -9,6 +9,7 @@ TODO Add muzzle flash to gun on firing.
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
 TODO Add rotated versions of all level locations
+TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')

@@ -2,9 +2,6 @@ import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Configuration set for a Door game object.
-*
-*   TODO add rotations for all rooms/objects :p
-*        new Wall().getModel().rotateAroundAxisY
 ***********************************************************************************************************************/
 export class AECFactory
 {
@@ -152,6 +149,7 @@ export class AECFactory
                 8.0
             )
         );
+
         // bench 1
         stage.addWall(
             new bz.Wall
@@ -404,7 +402,7 @@ export class AECFactory
             )
         );
 
-        // shelves
+        // shelves TODO furniture
         stage.addWall(
             new bz.Wall
             (
@@ -422,58 +420,22 @@ export class AECFactory
         );
 
         // computer desk
-        AECFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 12.0, 1.7, 7.0 ), 90.0  );
-        AECFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 46.0, 1.7, 7.0 ), -90.0 );
+        bz.FurnitureFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 12.0, 1.7, 7.0 ), 90.0  );
+        bz.FurnitureFactory.addComputerDesk( stage, meshFactory, new BABYLON.Vector3( 46.0, 1.7, 7.0 ), -90.0 );
 
         // sofa 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SOFA_1,
-                    position.add( new BABYLON.Vector3( 25.5, 2.0, 2.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    180.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
-            )
-        );
-
-        // office chair 1 TODO to FurnatureFactory!
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 3.5, 2.3, 14.0 ) ),
-                    bz.PhysicSet.OFFICE_CHAIR,
-                    45.0,
-                    bz.ModelCompoundType.COMPOUND
-                ),
-                5.0
-            )
+        bz.FurnitureFactory.addSofa1(
+            stage, meshFactory, position.add( new BABYLON.Vector3( 25.5, 2.0, 2.5 ) ), 180.0
         );
 
         // office chair 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_CHAIR_1_MULTI_MESH,
-                    position.add( new BABYLON.Vector3( 46.0, 2.3, 7.5 ) ),
-                    bz.PhysicSet.OFFICE_CHAIR,
-                    225.0,
-                    bz.ModelCompoundType.COMPOUND
-                ),
-                5.0
-            )
+        bz.FurnitureFactory.addOfficeChair1(
+            stage, meshFactory, position.add( new BABYLON.Vector3( 3.5, 2.3, 14.0 ) ), 45.0
+        );
+
+        // office chair 1
+        bz.FurnitureFactory.addOfficeChair1(
+            stage, meshFactory, position.add( new BABYLON.Vector3( 46.0, 2.3, 7.5 ) ), 225.0
         );
     }
 
@@ -592,20 +554,8 @@ export class AECFactory
         );
 
         // sofa 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SOFA_1,
-                    position.add( new BABYLON.Vector3( 25.5, 2.0, 20.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    180.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
-            )
+        bz.FurnitureFactory.addSofa1(
+            stage, meshFactory, position.add( new BABYLON.Vector3( 25.5, 2.0, 20.5 ) ), 180.0
         );
     }
 
@@ -1298,75 +1248,5 @@ export class AECFactory
             1.25
         );
         stage.addLight( pointLights );
-    }
-
-    // TODO to FurnitureFactory ?
-
-    /** ****************************************************************************************************************
-    *   Adds a computer desk to the stage.
-    *
-    *   @param stage       The stage to add the object to.
-    *   @param meshFactory The MeshFactory instance.
-    *   @param position    The position to place the desk.
-    *   @param rotY        The rotation Y of the desk.
-    *******************************************************************************************************************/
-    private static addComputerDesk(
-        stage       :bz.Stage,
-        meshFactory :bz.MeshFactory,
-        position    :BABYLON.Vector3,
-        rotY        :number = 0.0
-    )
-    : void
-    {
-        // office desk 1
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.OFFICE_DESK_1,
-                    position,
-                    bz.PhysicSet.SHELVES,
-                    rotY,
-                    bz.ModelCompoundType.NONE // bz.ModelCompoundType.COMPOUND,
-                ),
-                5.0
-            )
-        );
-
-        // pc screen 1
-        const screen :bz.Wall = new bz.Wall
-        (
-            stage,
-            meshFactory.createImportedModel
-            (
-                bz.ModelFile.PC_SCREEN_1,
-                position.add( new BABYLON.Vector3( 2.5, 2.8, 2.5 ) ),
-                bz.PhysicSet.SHELVES,
-                180.0,
-                bz.ModelCompoundType.NONE
-            ),
-            5.0,
-            true,
-            false,
-            [
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'All cleared for today.' )
-                ),
-                new bz.Event(
-                    bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( 600 )
-                ),
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'DELAYED: No more work for today.' )
-                ),
-            ],
-            bz.InteractionType.ONCE
-        );
-        screen.getModel().rotateAroundAxisY( position.x, position.z, rotY );
-        stage.addWall( screen );
     }
 }
