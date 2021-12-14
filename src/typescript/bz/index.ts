@@ -6,12 +6,15 @@ export * from './game/engine/camera/CameraSystem';
 export * from './game/engine/camera/CameraType';
 
 export * from './game/stage/StageConfig';
-export * from './game/stage/StageFactory';
 export * from './game/stage/StageId';
 
 export * from './game/stage/aec/AECFactory';
 export * from './game/stage/aec/DoorData';
+export * from './game/stage/aec/FurnitureFactory';
+export * from './game/stage/aec/RoomFactory';
 export * from './game/stage/aec/WindowData';
+
+export * from './game/stage/fx/FXFactory';
 
 export * from './base/setting/SettingAEC';
 export * from './base/setting/SettingColor';

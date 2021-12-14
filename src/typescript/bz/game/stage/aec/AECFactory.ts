@@ -19,7 +19,7 @@ export class AECFactory
     )
     : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -96,7 +96,7 @@ export class AECFactory
     {
         const CORNER_SIZE :number = 17.5;
 
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -184,7 +184,7 @@ export class AECFactory
     )
     : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -226,7 +226,7 @@ export class AECFactory
     )
     : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -336,7 +336,7 @@ export class AECFactory
         rotY        :number = 0
     ) : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -496,7 +496,7 @@ export class AECFactory
         const DIAMOND_CORNER_SIZE :number = 10.0;
 
         // add casino room (half diamond shaped?)
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -619,7 +619,7 @@ export class AECFactory
         rotY        :number          = 0
     ) : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -665,7 +665,7 @@ export class AECFactory
         rotY        :number          = 0
     ) : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -813,7 +813,7 @@ export class AECFactory
         rotY        :number          = 0
     ) : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,
@@ -964,7 +964,7 @@ export class AECFactory
         rotY        :number          = 0
     ) : void
     {
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             stage,
             meshFactory,
             position,

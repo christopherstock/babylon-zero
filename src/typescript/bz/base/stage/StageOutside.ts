@@ -52,7 +52,7 @@ export class StageOutside extends bz.Stage
                 )
             ),
         ];
-        bz.StageFactory.addRoomWalls(
+        bz.RoomFactory.addRoomWalls(
             this,
             meshFactory,
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),

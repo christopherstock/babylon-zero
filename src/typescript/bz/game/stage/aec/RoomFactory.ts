@@ -1,9 +1,9 @@
-import * as bz from '../..';
+import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Offers creation methods for stage construction.
 ***********************************************************************************************************************/
-export abstract class StageFactory
+export abstract class RoomFactory
 {
     /** ****************************************************************************************************************
     *   Creates one room.
@@ -48,7 +48,7 @@ export abstract class StageFactory
             const diamondModX :number = diamondCornerA + ( diamondCornerA > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerA - ( diamondCornerA > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
-            StageFactory.createWall(
+            RoomFactory.createWall(
                 roomWalls, doorsWallA, windowsWallA, stage, meshFactory,
                 position.x + diamondModX,
                 size.x  + diamondModSizeX - diamondCornerB,
@@ -63,7 +63,7 @@ export abstract class StageFactory
             if ( diamondCornerA > 0 )
             {
                 const sizeCornerA :number = ( Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) ) );
-                StageFactory.createWall(
+                RoomFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x,
                     sizeCornerA,
@@ -82,7 +82,7 @@ export abstract class StageFactory
             const diamondModX :number = diamondCornerB + ( diamondCornerB > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerB - ( diamondCornerB > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
-            StageFactory.createWall(
+            RoomFactory.createWall(
                 roomWalls, doorsWallB, windowsWallB, stage, meshFactory,
                 position.x + size.x + bz.SettingAEC.WALL_DEPTH,
                 size.z + diamondModSizeX - diamondCornerC,
@@ -98,7 +98,7 @@ export abstract class StageFactory
             {
                 const sizeCornerB :number = Math.sqrt( 2 * Math.pow( diamondCornerB + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
-                StageFactory.createWall(
+                RoomFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x + size.x - diamondCornerB,
                     sizeCornerB,
@@ -117,7 +117,7 @@ export abstract class StageFactory
             const diamondModX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerC - ( diamondCornerC > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
-            StageFactory.createWall(
+            RoomFactory.createWall(
                 roomWalls, doorsWallC, windowsWallC, stage, meshFactory,
                 position.x + size.x + bz.SettingAEC.WALL_DEPTH + diamondModX,
                 size.x + diamondModSizeX - diamondCornerD,
@@ -133,7 +133,7 @@ export abstract class StageFactory
             {
                 const sizeCornerC :number = Math.sqrt( 2 * Math.pow( diamondCornerC + bz.SettingAEC.WALL_DEPTH, 2 ) );
 
-                StageFactory.createWall(
+                RoomFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x + size.x + bz.SettingAEC.WALL_DEPTH,
                     sizeCornerC,
@@ -152,7 +152,7 @@ export abstract class StageFactory
             const diamondModX     :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
             const diamondModSizeX :number = - diamondCornerD - ( diamondCornerD > 0 ? bz.SettingAEC.WALL_DEPTH : 0 );
 
-            StageFactory.createWall(
+            RoomFactory.createWall(
                 roomWalls, doorsWallD, windowsWallD, stage, meshFactory,
                 position.x,
                 ( size.z - diamondCornerA + diamondModSizeX ),
@@ -168,7 +168,7 @@ export abstract class StageFactory
             {
                 const sizeCornerD :number = Math.sqrt( 2 * Math.pow( ( diamondCornerD + bz.SettingAEC.WALL_DEPTH ), 2 ) );
 
-                StageFactory.createWall(
+                RoomFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x + diamondCornerD + bz.SettingAEC.WALL_DEPTH,
                     sizeCornerD,
@@ -489,7 +489,7 @@ export abstract class StageFactory
         roomWalls.push( upperStairs );
 
         // center divider wall
-        StageFactory.createWall(
+        RoomFactory.createWall(
             roomWalls,
             [],
             [],
@@ -505,7 +505,7 @@ export abstract class StageFactory
         );
 
         // left wall
-        StageFactory.createWall(
+        RoomFactory.createWall(
             roomWalls,
             [],
             [],
@@ -521,7 +521,7 @@ export abstract class StageFactory
         );
 
         // rear wall
-        StageFactory.createWall(
+        RoomFactory.createWall(
             roomWalls,
             [],
             [],
@@ -537,7 +537,7 @@ export abstract class StageFactory
         );
 
         // right wall
-        StageFactory.createWall(
+        RoomFactory.createWall(
             roomWalls,
             [],
             [],
@@ -553,7 +553,7 @@ export abstract class StageFactory
         );
 
         // lower front wall (blocks lower stairs)
-        StageFactory.createWall(
+        RoomFactory.createWall(
             roomWalls,
             [],
             [],
@@ -569,7 +569,7 @@ export abstract class StageFactory
         );
 
         // upper front wall (blocks falling into stairs)
-        StageFactory.createWall(
+        RoomFactory.createWall(
             roomWalls,
             [],
             [],
@@ -895,7 +895,7 @@ export abstract class StageFactory
         }
 
         // blank walls ( all walls beside doors and windows )
-        const blankWalls :number[] = StageFactory.calculateBlankWalls( x, sizeX, windowsData, doorsData );
+        const blankWalls :number[] = RoomFactory.calculateBlankWalls( x, sizeX, windowsData, doorsData );
         for ( let i:number = 0; i < blankWalls.length; i += 2 )
         {
             const from  :number = blankWalls[ i ];

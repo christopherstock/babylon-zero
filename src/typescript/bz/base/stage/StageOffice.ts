@@ -81,7 +81,7 @@ export class StageOffice extends bz.Stage
         );
 
         // staircase
-        bz.StageFactory.addStaircase(
+        bz.RoomFactory.addStaircase(
             this,
             meshFactory,
             new BABYLON.Vector3( -65.0, 0.0, 0.0 ),
