@@ -13,6 +13,7 @@ TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable 
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Add camera intro running into player head.
+TODO Fix the mistery of moving static walls? ('diamond walls')
 TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
 TODO Shotgun: Multiple bullets per shot!
 TODO try outline for items again? // bench1.getModel().addOutline( this.getScene() );, 'glow fx' GlowLayer?
@@ -27,6 +28,9 @@ Material System
 TODO Create discreet Material System (for glossiness, emissive by light etc. - bundle TextureFiles + Materials!) Enable switchable glossiness to floors (marbel in light etc)
 TODO Add 'grid material' to material system? https://doc.babylonjs.com/toolsAndResources/assetLibraries/materialsLibrary/gridMat
 TODO Textures: Ambient, Bump, Specular ! supply these three in 1st instance (nativeTexture => diffuseTexture)
+TODO create more textures! (bz.Texture.nativeTexture => ambientTexture, diffuse, ambient, bump, dispersion etc.)
+TODO try to automatically load the bump etc. spec files if present!
+TODO add material flags in bz.MaterialSystem.createMaterial. (dispersion?, bump?, emissive etc.)
 
 ======
 3dsmax

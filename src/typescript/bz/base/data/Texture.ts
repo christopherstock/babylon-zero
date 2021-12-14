@@ -130,8 +130,6 @@ export class Texture
             case bz.TextureType.WALL:
             case bz.TextureType.WALL_AND_MODEL:
             {
-                // TODO create more textures! diffuse, ambient, bump, dispersion etc. HERE!
-
                 // create default texture
                 this.nativeTexture = new BABYLON.Texture(
                     this.file.fileName,

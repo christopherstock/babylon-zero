@@ -23,7 +23,6 @@ export class TextureFile
     public static readonly WALL_CARPET_2                :TextureFile            = new TextureFile( 'wall/carpet2.jpg',              bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,        TextureFile.BULLET_HOLE_GLASS,    bz.TextureType.WALL );
     public static readonly WALL_CARPET_3                :TextureFile            = new TextureFile( 'wall/carpet3.jpg',              bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,        TextureFile.BULLET_HOLE_GLASS,    bz.TextureType.WALL );
 
-    // TODO try to automatically load the bump spec etc files here!
     public static readonly WALL_CARPET_RASPBERRY            :TextureFile            = new TextureFile( 'wall/carpetRaspberry.jpg',      bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,    TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_CARPET_RASPBERRY_BUMP       :TextureFile            = new TextureFile( 'wall/carpetRaspberry_bump.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,    TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );
     public static readonly WALL_CARPET_RASPBERRY_SPEC       :TextureFile            = new TextureFile( 'wall/carpetRaspberry_spec.jpg', bz.TextureHasAlpha.NO,  bz.TextureUV.TILED,    TextureFile.BULLET_HOLE_METAL,    bz.TextureType.WALL );

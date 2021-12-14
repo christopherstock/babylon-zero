@@ -92,21 +92,19 @@ export abstract class MathUtil
     *
     *   @param source   The source vector.
     *   @param rotation The desired rotation of the distant point.
-    *   @param distance The distance from the source point.
+    *   @param distanceZ The distance from the source point.
     *
     *   @return The rotated distant point.
-    *
-    *   TODO only suitable for distant point Z! Adjust naming!
     *******************************************************************************************************************/
-    public static rotateVector3
+    public static rotateVector3DistanceZ
     (
-        source   :BABYLON.Vector3,
-        rotation :BABYLON.Vector3,
-        distance :number
+        source    :BABYLON.Vector3,
+        rotation  :BABYLON.Vector3,
+        distanceZ :number
     )
     : BABYLON.Vector3
     {
-        const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, distance );
+        const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, distanceZ );
         const rotationMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
         (
             MathUtil.degreesToRad( rotation.y ),
@@ -160,13 +158,27 @@ export abstract class MathUtil
     *   @param to   Destination point.
     *
     *   @return The angle between the source and destination point. From 0 to 360.
-    *
-    *   TODO refactor! extract main method x1,y1,x2,y2
     *******************************************************************************************************************/
     public static angleBetweenPointsXZ( from:BABYLON.Vector3, to:BABYLON.Vector3 ) : number
     {
-        const distX :number = to.x - from.x;
-        const distY :number = to.z - from.z;
+        return MathUtil.angleBetweenPoints2D( from.x, from.z, to.x, to.z )
+    }
+
+    /** ****************************************************************************************************************
+    *   Delivers the angle between 0 and 360 degrees between the two specified points in 2D space.
+    *   The axis X and Z are used for the 2D points. Axis Y is ignored.
+    *
+    *   @param x1 Source point X.
+    *   @param y1 Source point Y.
+    *   @param x2 Destination point X.
+    *   @param y2 Destination point Y.
+    *
+    *   @return The angle between the source and destination point. From 0 to 360.
+    *******************************************************************************************************************/
+    public static angleBetweenPoints2D( x1:number, y1:number, x2:number, y2:number ) : number
+    {
+        const distX :number = x2 - x1;
+        const distY :number = y2 - y1;
         let   angle :number;
 
         if ( distX === 0.0 )

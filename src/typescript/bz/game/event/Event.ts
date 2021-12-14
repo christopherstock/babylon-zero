@@ -3,7 +3,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Represents one game event that may happen in the game.
 *
-*   TODO make a direct connection with EventData ?
+*   TODO make a direct inheritance with EventData ?
 ***********************************************************************************************************************/
 export class Event
 {
