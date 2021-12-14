@@ -77,7 +77,7 @@ export class Game
             this.engine.setRenderLoopExecution( false, () => { this.render(); } );
 
             // remember last pause menu index
-            lastPauseMenuItem = this.stage.getPauseMenuIndex();
+            lastPauseMenuItem = this.gui.getPauseMenuIndex();
 
             // dispose existent stage
             bz.Debug.stage.log( 'Dispose current stage' );
@@ -138,7 +138,7 @@ export class Game
         this.pause = false;
 
         // assign remembered pause menu index
-        this.stage.setPauseMenuIndex( lastPauseMenuItem );
+        this.gui.setPauseMenuIndex( lastPauseMenuItem );
 
         // specify callback to invoke when the scene is fully loaded
         this.scene.getNativeSceneBG().executeWhenReady( () => { this.initSceneCompleted(); } );

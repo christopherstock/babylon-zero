@@ -130,4 +130,37 @@ export class FurnitureFactory
         screen.getModel().rotateAroundAxisY( position.x, position.z, rotY );
         stage.addWall( screen );
     }
+
+    /** ****************************************************************************************************************
+    *   Adds a 'shelves 1' model to the stage.
+    *
+    *   @param stage       The stage to add the object to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param position    The position to place the object.
+    *   @param rotY        The rotation Y of the object.
+    *******************************************************************************************************************/
+    public static addShelves1(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number = 0.0
+    )
+    : void
+    {
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SHELVES_1,
+                    position,
+                    bz.PhysicSet.SHELVES,
+                    rotY,
+                    bz.ModelCompoundType.NONE
+                ),
+                5.0
+            )
+        );
+    }
 }

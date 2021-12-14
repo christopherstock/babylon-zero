@@ -395,30 +395,6 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Delivers the current selected index of the pause menu.
-    *
-    *   @return The current active pause menu index.
-    *
-    *   TODO feels wrong inside this class!
-    *******************************************************************************************************************/
-    public getPauseMenuIndex() : number
-    {
-        return this.game.getGUI().getPauseMenuIndex();
-    }
-
-    /** ****************************************************************************************************************
-    *   Sets the active index for the pause menu.
-    *
-    *   @param index The index of the pause menu item to set.
-    *
-    *   TODO feels wrong inside this class!
-    *******************************************************************************************************************/
-    public setPauseMenuIndex( index:number ) : void
-    {
-        this.game.getGUI().setPauseMenuIndex( index );
-    }
-
-    /** ****************************************************************************************************************
     *   Alters the pause state for all relevant game objects.
     *
     *   @param pause The pause state to assign.
@@ -745,7 +721,7 @@ export abstract class Stage
 
         // direction
         particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.30 );
-        // TODO get shot angle from BulletHole and mirror it!
+        // TODO get shot angle from BulletHole and mirror it on the wall!
         particleSystem.direction1 = normal.clone().scale( 0.10 );
         particleSystem.direction2 = normal.clone().scale( 1.00 );
 
@@ -1013,18 +989,12 @@ export abstract class Stage
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
 
-                // add explosion sprite TODO to FXFactory ! TODO quadruple! with different animationDelays? different sizes and positions!
-                const animatedExplosionSprite:bz.Sprite = new bz.Sprite
-                (
-                    this.getScene(),
-                    bz.SpriteFile.EXPLOSION,
+                // add explosion sprite TODO quadruple! with different animationDelays? different sizes and positions!
+                bz.FXFactory.addExplosion(
+                    this,
                     new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-                    10.0,
-                    10.0,
-                    bz.SpriteCollidable.NO
+                    10.0
                 );
-                animatedExplosionSprite.animate( 0, 47, false, true ); // TODO anim frames to SpriteFile !
-                this.addSprite( animatedExplosionSprite );
 
                 // cast physical explosion impulse
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(

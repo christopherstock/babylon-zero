@@ -6,6 +6,7 @@
 MVP
 ===
 TODO Add muzzle flash to gun on firing.
+TODO Add muzzle flash to foreground scene!
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
 TODO Add rotated versions of all level locations
@@ -14,6 +15,7 @@ TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable 
 TODO create player die effect (tilt cylinder and head etc.)
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Add camera intro running into player head.
+TODO Fix transparent window walls through opaque walls?
 TODO Fix the mistery of moving static walls? ('diamond walls')
 TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
 TODO Shotgun: Multiple bullets per shot!

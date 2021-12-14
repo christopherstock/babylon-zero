@@ -402,21 +402,12 @@ export class AECFactory
             )
         );
 
-        // shelves TODO furniture
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SHELVES_1,
-                    position.add( new BABYLON.Vector3( 33.5, 3.15, 37.5 ) ),
-                    bz.PhysicSet.SHELVES,
-                    2.0,
-                    bz.ModelCompoundType.NONE
-                ),
-                5.0
-            )
+        // shelves
+        bz.FurnitureFactory.addShelves1(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 33.5, 3.15, 37.5 ) ),
+            2.0
         );
 
         // computer desk

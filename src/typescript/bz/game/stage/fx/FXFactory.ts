@@ -5,6 +5,27 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class FXFactory
 {
+    public static addExplosion(
+        stage,
+        position,
+        size
+    )
+    : void
+    {
+        const animatedExplosionSprite:bz.Sprite = new bz.Sprite
+        (
+            stage.getScene(),
+            bz.SpriteFile.EXPLOSION,
+            position,
+            size,
+            size,
+            bz.SpriteCollidable.NO
+        );
+        // TODO add anim frames to class SpriteFile !
+        animatedExplosionSprite.animate( 0, 47, false, true );
+        stage.addSprite( animatedExplosionSprite );
+    }
+
     public static addMuzzleFlash(
         playerPosition,
         playerRotation,
