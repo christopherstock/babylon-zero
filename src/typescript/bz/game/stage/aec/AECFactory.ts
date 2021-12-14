@@ -1189,7 +1189,7 @@ export class AECFactory
     *   @param meshFactory The MeshFactory instance.
     *   @param position    Where to place the pillar.
     *******************************************************************************************************************/
-    private static addPillar(
+    public static addPillar(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
         position    :BABYLON.Vector3
@@ -1222,6 +1222,13 @@ export class AECFactory
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds a point light to the stage.
+    *
+    *   @param stage       The stage to add the light to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param position    Where to place the light.
+    *******************************************************************************************************************/
     public static addPointLight(
         stage       :bz.Stage,
         meshFactory :bz.MeshFactory,
@@ -1239,5 +1246,47 @@ export class AECFactory
             1.25
         );
         stage.addLight( pointLights );
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a 'lightyard' location to the stage.
+    *******************************************************************************************************************/
+    public static addLightyard(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number          = 0
+    )
+    : void
+    {
+        // create lightyard
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a 'office kitchen' location to the stage.
+    *******************************************************************************************************************/
+    public static addOfficeKitchen(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number          = 0
+    )
+    : void
+    {
+        // create office kitchen
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a 'kicker lounge' location to the stage.
+    *******************************************************************************************************************/
+    public static addKickerLounge(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number          = 0
+    )
+    : void
+    {
+        // create kicker lounge
     }
 }

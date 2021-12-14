@@ -556,6 +556,7 @@ export class MeshFactory
     *   @param texture         The texture to apply.
     *   @param color           The solid color to apply.
     *   @param physic          The physical attributes to apply for this mesh.
+    *   @param rotation        The initial rotation of the plane.
     *   @param diamondCornerA  The side size of the diamond corner on wall A.
     *   @param diamondCornerB  The side size of the diamond corner on wall B.
     *   @param diamondCornerC  The side size of the diamond corner on wall C.

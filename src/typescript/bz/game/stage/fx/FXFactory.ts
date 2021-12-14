@@ -5,10 +5,17 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class FXFactory
 {
+    /** ****************************************************************************************************************
+    *   Adds an one-time 'explosion' sprite to the stage.
+    *
+    *   @param stage    The stage to add the sprite to.
+    *   @param position Where the explosion animation shall take place.
+    *   @param size     Size of the explosion sprite.
+    *******************************************************************************************************************/
     public static addExplosion(
-        stage,
-        position,
-        size
+        stage    :bz.Stage,
+        position :BABYLON.Vector3,
+        size     :number
     )
     : void
     {
@@ -26,10 +33,17 @@ export class FXFactory
         stage.addSprite( animatedExplosionSprite );
     }
 
+    /** ****************************************************************************************************************
+    *   Adds an one-time 'muzzle flash' sprite to the stage.
+    *
+    *   @param playerPosition The current position of the player.
+    *   @param playerRotation The current rotation of the player.
+    *   @param stage          The stage to add the muzzle flash to.
+    *******************************************************************************************************************/
     public static addMuzzleFlash(
-        playerPosition,
-        playerRotation,
-        stage
+        playerPosition :BABYLON.Vector3,
+        playerRotation :BABYLON.Vector3,
+        stage          :bz.Stage
     )
     : void
     {

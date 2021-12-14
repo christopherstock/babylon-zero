@@ -91,16 +91,25 @@ export class StageOffice extends bz.Stage
             bz.TextureFile.WALL_COBBLES_1
         );
 
+        // lightyard
+        bz.AECFactory.addLightyard(
+            this, meshFactory, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+        );
+
+        // office kitchen
+        bz.AECFactory.addOfficeKitchen(
+            this, meshFactory, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+        );
+
+        // kicker lounge
+        bz.AECFactory.addKickerLounge(
+            this, meshFactory, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+        );
+
         if ( true )
         {
             return;
         }
-
-        // TODO addLightyard
-
-        // TODO addOfficeKitchen?
-
-        // TODO addKickerLounge?
 
         // add rain effect
         this.addRainEffect(
