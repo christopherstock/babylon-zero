@@ -588,6 +588,13 @@ export abstract class RoomFactory
         stage.addWall( roomWalls );
     }
 
+    /** ****************************************************************************************************************
+    *   Rotates the specified walls around the Y axis on the XZ pivot point.
+    *
+    *   @param roomWalls The walls to rotate.
+    *   @param pivot     The pivot to rotate around. Only X and Z coordinates are considered.
+    *   @param rotY      Rotation to perform on axis Y. In degrees.
+    *******************************************************************************************************************/
     public static rotateAllWallsAroundAxisY( roomWalls:bz.Wall[], pivot:BABYLON.Vector3, rotY:number ) : void
     {
         for ( const roomWall of roomWalls )

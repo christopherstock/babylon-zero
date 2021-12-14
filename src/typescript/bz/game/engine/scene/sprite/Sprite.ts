@@ -6,26 +6,26 @@ import * as bz from '../../../..';
 export class Sprite
 {
     /** The wrapped native babylon.JS sprite instance. */
-    public readonly  sprite                         :BABYLON.Sprite             = null;
+    public readonly  sprite                         :BABYLON.Sprite         = null;
     /** The possible collider - A cylinder body for this sprite. */
-    private readonly collider                       :BABYLON.AbstractMesh       = null;
+    private readonly collider                       :BABYLON.AbstractMesh   = null;
 
     /** Saves if this sprite is animated. */
-    private          isAnimated                     :boolean                    = false;
+    private          isAnimated                     :boolean                = false;
     /** Saves current animation's start frame. */
-    private          animationFrameFrom             :number                     = 0;
+    private          animationFrameFrom             :number                 = 0;
     /** Saves current animation's end frame. */
-    private          animationFrameTo               :number                     = 0;
+    private          animationFrameTo               :number                 = 0;
     /** Saves current animation's looping property. */
-    private          animationFrameLooped           :boolean                    = false;
-    private          animationDisposeOnAnimationEnd :boolean                    = false;
-    private readonly animationDelay                 :number                     = 0;
+    private          animationFrameLooped           :boolean                = false;
+    private          animationDisposeOnAnimationEnd :boolean                = false;
+    private readonly animationDelay                 :number                 = 0;
 
     /** Saves the last visible sprite animation frame index. */
-    private          lastSpriteAnimationIndex       :number                     = -1;
+    private          lastSpriteAnimationIndex       :number                 = -1;
 
     /** Saves if this sprite is disposed. */
-    public          isDisposed                     :boolean                    = false;
+    private          isDisposed                     :boolean                = false;
 
     /** ****************************************************************************************************************
     *   Creates a new wrapped sprite object from the specified sprite file.
@@ -208,6 +208,11 @@ export class Sprite
         }
     }
 
+    /** ****************************************************************************************************************
+    *   Prunes all disposed sprites from the specified array of sprites.
+    *
+    *   @param sprites The array to prune disposed sprite elements from.
+    *******************************************************************************************************************/
     public static pruneDisposedSprites( sprites:bz.Sprite[] ) : void
     {
         for ( let i:number = ( sprites.length - 1 ); i >= 0; --i )

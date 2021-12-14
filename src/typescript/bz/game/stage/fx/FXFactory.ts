@@ -50,7 +50,7 @@ export class FXFactory
         // let flashPosition :BABYLON.Vector3 = this.playerWearpon.shotgun.getModel().getMesh( 0 ).absolutePosition;
 
         // distance 5.0 on X and Z axis
-        let flashOffset :BABYLON.Vector3 = new BABYLON.Vector3(
+        const flashOffset :BABYLON.Vector3 = new BABYLON.Vector3(
             0.0,
             2.5,
             3.5
