@@ -779,51 +779,12 @@ export class Player extends bz.GameObject
             bz.Debug.fire.log();
             bz.Debug.fire.log( 'Player fires' );
 
-            // add muzzle flash to the wearpon TODO to FXFactory
-            // let flashPosition :BABYLON.Vector3 = this.playerWearpon.shotgun.getModel().getMesh( 0 ).absolutePosition;
-
-            // get player position
-            let playerPosition :BABYLON.Vector3 = this.getPosition();
-            // distance 5.0 on X and Z axis
-            let flashOffset :BABYLON.Vector3 = new BABYLON.Vector3(
-                0.0,
-                2.5,
-                3.5
-            );
-
-            // rotate point around axis X TODO to lib method (bz.MathUtil) OR to method 'rotate around player ?'
-            const rotationMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
-            (
-                bz.MathUtil.degreesToRad( this.playerPhysic.rotation.y ),
-                bz.MathUtil.degreesToRad( this.playerPhysic.rotation.z ),
-                bz.MathUtil.degreesToRad( 0.0 )
-            );
-
-            const rotatedDistantVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
-            (
-                flashOffset,
-                rotationMatrix
-            );
-            const muzzlePosition :BABYLON.Vector3 = playerPosition.add( rotatedDistantVector );
-/*
-            const rotatedPosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
-                flashPosition,
+            // add muzzle flash to the wearpon
+            bz.FXFactory.addMuzzleFlash(
+                this.getPosition(),
                 this.playerPhysic.rotation,
-                5.0
+                this.stage
             );
-            // const flashPosition :BABYLON.Vector3 = rotatedOffset.add( this.getPosition() );
-*/
-            const muzzleFlash:bz.Sprite = new bz.Sprite
-            (
-                this.stage.getScene(),
-                bz.SpriteFile.MUZZLE_FLASH_1,
-                muzzlePosition,
-                2.5,
-                2.5,
-                bz.SpriteCollidable.NO
-            );
-            muzzleFlash.animate( 0, 0, false, true );
-            this.stage.addSprite( muzzleFlash );
 
             // create shot and apply it onto the stage
             const shot:bz.Shot = this.createShot();
