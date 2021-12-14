@@ -97,8 +97,6 @@ export class TextureFile
     // The heightmap texture files are just filenames - The textures will not be preloaded!
 
     public static readonly HEIGHTMAP_VALLEY             :TextureFile            = new TextureFile( 'heightMap/valley.png',          bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_ONE,      null,                             bz.TextureType.WALL );
-    public static readonly HEIGHTMAP_DAM                :TextureFile            = new TextureFile( 'heightMap/dam.png',             bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_ONE,      null,                             bz.TextureType.WALL );
-    public static readonly HEIGHTMAP_HILLS              :TextureFile            = new TextureFile( 'heightMap/hills.png',           bz.TextureHasAlpha.NO,  bz.TextureUV.ALL_ONE,      null,                             bz.TextureType.WALL );
 
     /** The filename of this texture's image. */
     public        readonly fileName                     :string                 = null;

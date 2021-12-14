@@ -545,24 +545,6 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds collectables to the stage.
-    *
-    *   @param collectables The collectables to add to this stage.
-    *******************************************************************************************************************/
-    protected addCollectable( collectables:(bz.Collectable[]|bz.Collectable) ) : void
-    {
-        if ( !Array.isArray( collectables ) )
-        {
-            collectables = [ collectables ];
-        }
-
-        for ( const collectable of collectables )
-        {
-            this.collectables.push( collectable );
-        }
-    }
-
-    /** ****************************************************************************************************************
     *   Adds a light to the stage.
     *
     *   @param lights The lights to add to this stage.
@@ -580,7 +562,23 @@ export abstract class Stage
         }
     }
 
-    // noinspection JSUnusedGlobalSymbols
+    /** ****************************************************************************************************************
+    *   Adds collectables to the stage.
+    *
+    *   @param collectables The collectables to add to this stage.
+    *******************************************************************************************************************/
+    protected addCollectable( collectables:(bz.Collectable[]|bz.Collectable) ) : void
+    {
+        if ( !Array.isArray( collectables ) )
+        {
+            collectables = [ collectables ];
+        }
+
+        for ( const collectable of collectables )
+        {
+            this.collectables.push( collectable );
+        }
+    }
 
     /** ****************************************************************************************************************
     *   Adds a bot to the stage.

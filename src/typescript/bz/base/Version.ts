@@ -29,7 +29,7 @@ export class Version
     private static readonly V_0_1_8  :Version = new Version( '0.1.8',  'ITEMS & TEXTURES',             '18.11.2021, 13:36:21 GMT+1' );
     private static readonly V_0_1_9  :Version = new Version( '0.1.9',  'GUI MESSAGES & UI-EVENTS',     '19.11.2021, 15:40:01 GMT+1' );
     private static readonly V_0_1_10 :Version = new Version( '0.1.10', 'NEW TEXTURES',                 '20.11.2021, 15:05:43 GMT+1' );
-    private static readonly V_0_1_11 :Version = new Version( '0.1.11', 'DIAMOND ROOMS & SPLIT MESHES', '21.11.2021, 15:42:10 GMT+1' );
+    private static readonly V_0_1_11 :Version = new Version( '0.1.11', 'DIAMOND ROOMS & SPLIT MESH',   '21.11.2021, 15:42:10 GMT+1' );
     private static readonly V_0_1_12 :Version = new Version( '0.1.12', 'DOORS 360',                    '22.11.2021, 16:16:02 GMT+1' );
     private static readonly V_0_1_13 :Version = new Version( '0.1.13', 'GENERATED TREES',              '23.11.2021, 12:04:17 GMT+1' );
     private static readonly V_0_1_14 :Version = new Version( '0.1.14', '3D GUN',                       '24.11.2021, 10:14:03 GMT+1' );
@@ -38,9 +38,10 @@ export class Version
     private static readonly V_0_1_17 :Version = new Version( '0.1.17', 'REFACTORINGS',                 '30.11.2021, 13:40:01 GMT+1' );
     private static readonly V_0_1_18 :Version = new Version( '0.1.18', 'STAIRS',                       '07.12.2021, 16:00:00 GMT+1' );
     private static readonly V_0_1_19 :Version = new Version( '0.1.19', 'LOCATIONS',                    '10.12.2021, 14:43:42 GMT+1' );
+    private static readonly V_0_1_20 :Version = new Version( '0.1.20', 'EXPLOSION & MUZZLE FLASH',     '14.12.2021, 09:33:07 GMT+1' );
 
     /** The project's current version. */
-    private static readonly CURRENT  :Version = Version.V_0_1_19;
+    private static readonly CURRENT  :Version = Version.V_0_1_20;
 
     /** This version's specifier. */
     private        readonly version             :string             = null;
