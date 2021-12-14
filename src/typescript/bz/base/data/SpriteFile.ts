@@ -26,14 +26,22 @@ export class SpriteFile
     public readonly frameWidth     :number = 0;
     public readonly frameHeight    :number = 0;
 
+    // noinspection JSSuspiciousNameCombination
+
     /** ****************************************************************************************************************
     *   Creates a sprite configuration.
     *
-    *   @param fileName    The filename of the image to load for this material.
+    *   @param fileName       The filename of the image to load for this material.
+    *   @param animationDelay Frame delay between two animation ticks.
     *   @param frameWidth  The width  of a (square) frame in pixels.
     *   @param frameHeight The height of the frame. Only to be specified if one frame is not square.
     *******************************************************************************************************************/
-    private constructor( fileName:string, animationDelay:number = 0, frameWidth:number, frameHeight:number = frameWidth )
+    private constructor(
+        fileName       :string,
+        animationDelay :number,
+        frameWidth     :number,
+        frameHeight    :number = frameWidth
+    )
     {
         this.fileName       = fileName;
         this.animationDelay = animationDelay;

@@ -19,7 +19,7 @@ export class Sprite
     /** Saves current animation's looping property. */
     private          animationFrameLooped           :boolean                    = false;
     private          animationDisposeOnAnimationEnd :boolean                    = false;
-    private          animationDelay                 :number                     = 0;
+    private readonly animationDelay                 :number                     = 0;
 
     /** Saves the last visible sprite animation frame index. */
     private          lastSpriteAnimationIndex       :number                     = -1;
@@ -204,6 +204,17 @@ export class Sprite
                 this.sprite.position.z += ( this.sprite.width  / 2 );
                 this.sprite.position.y += ( this.sprite.height / 2 );
                 break;
+            }
+        }
+    }
+
+    public static pruneDisposedSprites( sprites:bz.Sprite[] ) : void
+    {
+        for ( let i:number = ( sprites.length - 1 ); i >= 0; --i )
+        {
+            if ( sprites[ i ].isDisposed )
+            {
+                sprites.splice( i, 1 );
             }
         }
     }

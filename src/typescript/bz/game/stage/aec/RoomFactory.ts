@@ -62,7 +62,10 @@ export abstract class RoomFactory
 
             if ( diamondCornerA > 0 )
             {
-                const sizeCornerA :number = ( Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) ) );
+                const sizeCornerA :number = (
+                    // TODO to MathUtil
+                    Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) )
+                );
                 RoomFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
                     position.x,
@@ -166,7 +169,9 @@ export abstract class RoomFactory
 
             if ( diamondCornerD > 0 )
             {
-                const sizeCornerD :number = Math.sqrt( 2 * Math.pow( ( diamondCornerD + bz.SettingAEC.WALL_DEPTH ), 2 ) );
+                const sizeCornerD :number = Math.sqrt(
+                    2 * Math.pow( ( diamondCornerD + bz.SettingAEC.WALL_DEPTH ), 2 )
+                );
 
                 RoomFactory.createWall(
                     roomWalls, [], [], stage, meshFactory,
@@ -583,6 +588,19 @@ export abstract class RoomFactory
         stage.addWall( roomWalls );
     }
 
+    public static rotateAllWallsAroundAxisY( roomWalls:bz.Wall[], pivot:BABYLON.Vector3, rotY:number ) : void
+    {
+        for ( const roomWall of roomWalls )
+        {
+            roomWall.getModel().rotateAroundAxisY( pivot.x, pivot.z, rotY );
+
+            if ( roomWall instanceof bz.Door )
+            {
+                roomWall.rotateDoorTurnPointAroundAxisY( pivot.x, pivot.z, rotY );
+            }
+        }
+    }
+
     /** ****************************************************************************************************************
     *   Calculates all free positions of the wall in between windows and doors.
     *******************************************************************************************************************/
@@ -924,19 +942,6 @@ export abstract class RoomFactory
         for ( const wall of walls )
         {
             roomWalls.push( wall );
-        }
-    }
-
-    public static rotateAllWallsAroundAxisY( roomWalls:bz.Wall[], pivot:BABYLON.Vector3, rotY:number ) : void
-    {
-        for ( const roomWall of roomWalls )
-        {
-            roomWall.getModel().rotateAroundAxisY( pivot.x, pivot.z, rotY );
-
-            if ( roomWall instanceof bz.Door )
-            {
-                roomWall.rotateDoorTurnPointAroundAxisY( pivot.x, pivot.z, rotY );
-            }
         }
     }
 }

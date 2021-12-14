@@ -15,7 +15,7 @@ export abstract class Stage
     /** A collection of all bots in this stage. */
     private readonly bots               :bz.Bot[]                       = [];
     /** A collection of all sprites that appear in this stage. */
-    private          sprites            :bz.Sprite[]                    = [];
+    private readonly sprites            :bz.Sprite[]                    = [];
     /** A collection of all lights that appear in this stage. */
     private readonly lights             :BABYLON.Light[]                = [];
     /** A collection of all shadowGenerators that appear in this stage. */
@@ -137,13 +137,7 @@ export abstract class Stage
         }
 
         // prune disposed sprites
-        for ( let i:number = ( this.sprites.length - 1 ); i >= 0; --i )
-        {
-            if ( this.sprites[ i ].isDisposed )
-            {
-                this.sprites.splice( i, 1 );
-            }
-        }
+        bz.Sprite.pruneDisposedSprites( this.sprites );
 
         // handle event system
         this.handleEventPipeline();
