@@ -302,7 +302,7 @@ export class AECFactory
         );
         stage.addWall( tv );
 
-        // solid sphere
+        // solid sphere ( gymnastic ball etc? TODO to furnitureFactory! )
         stage.addWall(
             new bz.Wall
             (

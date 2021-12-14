@@ -46,7 +46,7 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // add boxes pile
+        // add crates pile
         bz.AECFactory.addCratesPile(
             this,
             meshFactory,

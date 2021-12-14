@@ -249,16 +249,8 @@ export abstract class RoomFactory
             roomWalls.push( floor );
         }
 
-        // rotate ALL walls around pivot TODO to static method!
-        for ( const roomWall of roomWalls )
-        {
-            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
-
-            if ( roomWall instanceof bz.Door )
-            {
-                roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
-            }
-        }
+        // rotate all room walls around pivot
+        RoomFactory.rotateAllWallsAroundAxisY( roomWalls, position, rotY );
 
         // add all room walls to stage
         stage.addWall( roomWalls );
@@ -584,16 +576,8 @@ export abstract class RoomFactory
             textureWalls
         );
 
-        // rotate ALL walls around pivot TODO extract to method! refactor all invocations!
-        for ( const roomWall of roomWalls )
-        {
-            roomWall.getModel().rotateAroundAxisY( position.x, position.z, rotY );
-
-            if ( roomWall instanceof bz.Door )
-            {
-                roomWall.rotateDoorTurnPointAroundAxisY( position.x, position.z, rotY );
-            }
-        }
+        // rotate all room walls around pivot
+        RoomFactory.rotateAllWallsAroundAxisY( roomWalls, position, rotY );
 
         // add all room walls to stage
         stage.addWall( roomWalls );
@@ -940,6 +924,19 @@ export abstract class RoomFactory
         for ( const wall of walls )
         {
             roomWalls.push( wall );
+        }
+    }
+
+    public static rotateAllWallsAroundAxisY( roomWalls:bz.Wall[], pivot:BABYLON.Vector3, rotY:number ) : void
+    {
+        for ( const roomWall of roomWalls )
+        {
+            roomWall.getModel().rotateAroundAxisY( pivot.x, pivot.z, rotY );
+
+            if ( roomWall instanceof bz.Door )
+            {
+                roomWall.rotateDoorTurnPointAroundAxisY( pivot.x, pivot.z, rotY );
+            }
         }
     }
 }
