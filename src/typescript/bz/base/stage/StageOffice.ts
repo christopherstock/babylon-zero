@@ -443,23 +443,6 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     private addTestItems() : void
     {
-/*
-        // shotgun ( TODO create shotgun item! )
-        this.addWall(
-            new bz.Wall
-            (
-                this,
-                meshFactory.createImportedModel
-                (
-                    bz.ModelFile.SHOTGUN_M1014,
-                    new BABYLON.Vector3( 90.0, 2.1, 10.0 ),
-                    bz.PhysicSet.NONE,
-                    null
-                ),
-                5.0
-            )
-        );
-*/
         // add some items
         this.addCollectable(
             [
@@ -482,6 +465,15 @@ export class StageOffice extends bz.Stage
                     bz.ItemType.BULLETS_792MM
                 ),
             ]
+        );
+
+        this.addCollectable(
+            new bz.Item
+            (
+                this,
+                new BABYLON.Vector3( 10.0, 7.5, 12.5 ),
+                bz.ItemType.SHOTGUN
+            )
         );
 
         this.addCollectable(

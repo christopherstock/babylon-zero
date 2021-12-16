@@ -5,8 +5,9 @@
 ===
 MVP
 ===
+TODO Stage.createMeshFactory() ?
+TODO Add muzzle flash to FOREGROUND scene!
 TODO Add muzzle flash to gun on firing.
-TODO Add muzzle flash to foreground scene!
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
 TODO Add rotated versions of all level locations
@@ -38,6 +39,7 @@ TODO add material flags in bz.MaterialSystem.createMaterial. (dispersion?, bump?
 ======
 3dsmax
 ======
+TODO Fix shotgun model! (all to one mesh!, scale/reset!)
 TODO Shelves: Fix bounding box?
 TODO Try stored 3dsmax model animations. (open door in desk?)
 TODO Change to cylindric physical impostor for model 'SEWERAGE_PUMPING'?

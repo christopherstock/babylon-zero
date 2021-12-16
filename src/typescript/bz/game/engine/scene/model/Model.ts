@@ -139,12 +139,14 @@ export class Model
     *
     *   @param ratio The scale ratio to apply to all three axes.
     *******************************************************************************************************************/
-    public scaleSize( ratio:BABYLON.Vector3 ) : void
+    public scaleSize( ratio:BABYLON.Vector3 ) : bz.Model
     {
         for ( const mesh of this.meshes )
         {
             bz.MeshManipulation.scaleSize( mesh, ratio )
         }
+
+        return this;
     }
 
     /** ****************************************************************************************************************

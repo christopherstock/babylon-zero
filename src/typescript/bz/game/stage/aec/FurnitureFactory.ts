@@ -163,4 +163,41 @@ export class FurnitureFactory
             )
         );
     }
+
+    /** ****************************************************************************************************************
+    *   Adds a 'sphere 1' model to the stage.
+    *
+    *   @param stage       The stage to add the object to.
+    *   @param meshFactory The MeshFactory instance.
+    *   @param position    The position to place the object.
+    *   @param rotY        The rotation Y of the object.
+    *******************************************************************************************************************/
+    public static addWoodenSphere1(
+        stage       :bz.Stage,
+        meshFactory :bz.MeshFactory,
+        position    :BABYLON.Vector3,
+        rotY        :number = 0.0
+    )
+    : void
+    {
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                new bz.Model
+                (
+                    meshFactory.createSphere
+                    (
+                        position,
+                        bz.MeshAnchor.CENTER_XYZ,
+                        3.0,
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
+                        bz.TextureFile.MODEL_WOOD_HORZ,
+                        null,
+                        bz.PhysicSet.WHITE_TEST_SPHERE
+                    )
+                )
+            )
+        );
+    }
 }

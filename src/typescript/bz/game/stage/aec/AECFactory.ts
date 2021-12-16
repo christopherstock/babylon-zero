@@ -302,25 +302,11 @@ export class AECFactory
         );
         stage.addWall( tv );
 
-        // solid sphere ( gymnastic ball etc? TODO to furnitureFactory! )
-        stage.addWall(
-            new bz.Wall
-            (
-                stage,
-                new bz.Model
-                (
-                    meshFactory.createSphere
-                    (
-                        position.add( new BABYLON.Vector3( 10.5, 1.5, 30.0 ) ),
-                        bz.MeshAnchor.CENTER_XYZ,
-                        3.0,
-                        new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-                        bz.TextureFile.MODEL_WOOD_HORZ,
-                        null,
-                        bz.PhysicSet.WHITE_TEST_SPHERE
-                    )
-                )
-            )
+        // solid sphere
+        bz.FurnitureFactory.addWoodenSphere1(
+            stage,
+            meshFactory,
+            position.add( new BABYLON.Vector3( 10.5, 1.5, 30.0 ) )
         );
     }
 

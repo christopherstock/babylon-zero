@@ -3,6 +3,9 @@
 ***********************************************************************************************************************/
 export enum ItemType
 {
+    /** Wearpon 'shotgun'. */
+    SHOTGUN,
+
     /** Shotgun shells ammo. */
     SHOTGUN_SHELLS,
 

@@ -111,6 +111,20 @@ export class Item extends bz.Collectable
                 ];
             }
 
+            case bz.ItemType.SHOTGUN:
+            {
+                return [
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                        new bz.EventDataShowGuiTextMessage( 'Picked up a Benelli M1016 Shotgun' )
+                    ),
+                    new bz.Event(
+                        bz.EventType.SHOW_GUI_EFFECT,
+                        new bz.EventDataShowGuiEffect( bz.GUIFxType.PICK_UP_ITEM )
+                    ),
+                ];
+            }
+
             case bz.ItemType.PAINKILLER:
             {
                 return [
@@ -173,6 +187,22 @@ export class Item extends bz.Collectable
                         bz.SettingResource.PATH_MODEL + 'item/shells.jpg',
                         bz.SettingResource.PATH_MODEL + 'item/bullets792mm.jpg'
                     );
+            }
+
+            case bz.ItemType.SHOTGUN:
+            {
+                return new bz.MeshFactory(
+                    stage.getScene(),
+                    stage.getConfig().ambientColor
+                )
+                    .createImportedModel(
+                        bz.ModelFile.SHOTGUN_M1014,
+                        BABYLON.Vector3.Zero(),
+                        bz.PhysicSet.ITEM,
+                        0.0,
+                        bz.ModelCompoundType.NONE,
+                        stage.getScene().getNativeSceneBG()
+                    ).scaleSize( new BABYLON.Vector3( 0.5, 0.5, 0.5 ) );
             }
 
             case bz.ItemType.PAINKILLER:

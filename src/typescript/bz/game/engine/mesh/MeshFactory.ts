@@ -843,8 +843,8 @@ export class MeshFactory
     *   @param position     The position for this mesh to show up.
     *   @param physic       Specifies the physicsl behaviour of this imported model.
     *                       <code>null</code> to use the native physical attributes from the imported model.
-    *   @param compoundType Specifies the mesh compound type for this imported model.
     *   @param rotY         Initial rotation around axis Y.
+    *   @param compoundType Specifies the mesh compound type for this imported model.
     *
     *   @return A clone of the model with the specified filename.
     *******************************************************************************************************************/
@@ -854,7 +854,8 @@ export class MeshFactory
         position     :BABYLON.Vector3      = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
         physic       :bz.PhysicSet         = null,
         rotY         :number               = 0.0,
-        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE
+        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE,
+        targetScene  :BABYLON.Scene        = null
     )
     : bz.Model
     {
@@ -973,6 +974,16 @@ export class MeshFactory
         // apply emissive color to all meshes - TODO improve and merge with model system ??
         for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
         {
+/*
+            if ( targetScene !== null )
+            {
+                const mesh:BABYLON.Mesh = clonedModel.getMesh( i ) as BABYLON.Mesh;
+                mesh._scene.removeMesh( mesh );
+                targetScene.addMesh( mesh );
+
+                console.log( '>> clone to bg scene' );
+            }
+*/
             const material : BABYLON.StandardMaterial = (
                 clonedModel.getMesh( i ) as BABYLON.Mesh
             ).material as BABYLON.StandardMaterial;
