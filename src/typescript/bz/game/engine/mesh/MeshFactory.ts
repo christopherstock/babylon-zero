@@ -77,132 +77,19 @@ export class MeshFactory
 
                 case bz.TextureUV.TILED:
                 {
-                    faceUV =
-                    [
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.x  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.y * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.y  * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.z * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.x * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                    ];
+                    faceUV = bz.MeshFactory.createBoxUV( size, 1.0 );
                     break;
                 }
 
                 case bz.TextureUV.TILED_HALF:
                 {
-                    // TODO to creator method with param!
-                    faceUV =
-                    [
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.y * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.z * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.x * 0.5 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                    ];
+                    faceUV = bz.MeshFactory.createBoxUV( size, 0.5 );
                     break;
                 }
 
                 case bz.TextureUV.TILED_DOUBLE:
                 {
-                    // TODO resolution to method!
-                    faceUV =
-                    [
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
-
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.y * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            -size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            -size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                        new BABYLON.Vector4(
-                            0.0,
-                            0.0,
-                            size.z * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
-                            size.x * 2.0 * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
-                        ),
-                    ];
+                    faceUV = bz.MeshFactory.createBoxUV( size, 2.0 );
                     break;
                 }
 
@@ -1109,5 +996,46 @@ export class MeshFactory
     public static createNextMeshId() : string
     {
         return 'mesh' + String( MeshFactory.nextMeshId++ );
+    }
+
+    private static createBoxUV( size:BABYLON.Vector3, scaleFactor:number ) : BABYLON.Vector4[]
+    {
+        return [
+            new BABYLON.Vector4(
+                0.0,
+                0.0,
+                -size.x * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                -size.y * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+            new BABYLON.Vector4(
+                0.0,
+                0.0,
+                size.x * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                size.y * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV ),
+
+            new BABYLON.Vector4(
+                0.0,
+                0.0,
+                -size.y * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                -size.z * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+            ),
+            new BABYLON.Vector4(
+                0.0,
+                0.0,
+                size.y * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                size.z * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+            ),
+            new BABYLON.Vector4(
+                0.0,
+                0.0,
+                -size.z * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                -size.x * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+            ),
+            new BABYLON.Vector4(
+                0.0,
+                0.0,
+                size.z * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV,
+                size.x * scaleFactor * bz.SettingEngine.TEXTURE_DEFAULT_MAPPING_UV
+            ),
+        ];
     }
 }
