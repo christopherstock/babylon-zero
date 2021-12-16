@@ -161,10 +161,7 @@ export class Item extends bz.Collectable
         {
             case bz.ItemType.SHOTGUN_SHELLS:
             {
-                return new bz.MeshFactory(
-                    stage.getScene(),
-                    stage.getConfig().ambientColor
-                ).createImportedModel(
+                return stage.createMeshFactory().createImportedModel(
                     bz.ModelFile.ITEM_SHOTGUN_SHELLS,
                     BABYLON.Vector3.Zero(),
                     bz.PhysicSet.ITEM
@@ -173,10 +170,7 @@ export class Item extends bz.Collectable
 
             case bz.ItemType.BULLETS_792MM:
             {
-                return new bz.MeshFactory(
-                    stage.getScene(),
-                    stage.getConfig().ambientColor
-                )
+                return stage.createMeshFactory()
                     .createImportedModel(
                         bz.ModelFile.ITEM_SHOTGUN_SHELLS,
                         BABYLON.Vector3.Zero(),
@@ -191,10 +185,7 @@ export class Item extends bz.Collectable
 
             case bz.ItemType.SHOTGUN:
             {
-                return new bz.MeshFactory(
-                    stage.getScene(),
-                    stage.getConfig().ambientColor
-                )
+                return stage.createMeshFactory()
                     .createImportedModel(
                         bz.ModelFile.SHOTGUN_M1014,
                         BABYLON.Vector3.Zero(),
@@ -207,10 +198,7 @@ export class Item extends bz.Collectable
 
             case bz.ItemType.PAINKILLER:
             {
-                return new bz.MeshFactory(
-                    stage.getScene(),
-                    stage.getConfig().ambientColor
-                )
+                return stage.createMeshFactory()
                     .createImportedModel(
                         bz.ModelFile.ITEM_SHOTGUN_SHELLS,
                         BABYLON.Vector3.Zero(),

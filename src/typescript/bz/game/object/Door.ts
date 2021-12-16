@@ -63,7 +63,7 @@ export class Door extends bz.Wall
             stage,
             new bz.Model
             (
-                new bz.MeshFactory( stage.getScene(), stage.getConfig().ambientColor ).createBox
+                stage.createMeshFactory().createBox
                 (
                     position,
                     texture,

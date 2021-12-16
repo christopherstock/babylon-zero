@@ -105,6 +105,7 @@ TODO Sounds for shot, bullet hit and bullet drop.
 Secondary
 =========
 TODO Fix/add head shaking?
+TODO 1:n connection for type+data? in class 'Event'? ( X Events for 1 constraint?)
 TODO Fix/add jumping?
 TODO Enhance multi level staircases.
 TODO try class SubMeshes? (filled automatically from 3dsmax)

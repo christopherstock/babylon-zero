@@ -34,35 +34,23 @@ export class Player extends bz.GameObject
     /** ****************************************************************************************************************
     *   Creates a new player instance.
     *
-    *   @param stage         The stage this player belongs to.
-    *   @param scene         The scene reference.
-    *   @param position      The initial position.
-    *   @param rotation      The initial rotation.
-    *   @param inventory     The initial inventory.
-    *   @param emissiveColor The emissive color of all mesh faces.
+    *   @param stage The stage this player belongs to.
     *******************************************************************************************************************/
-    public constructor
-    (
-        stage         :bz.Stage,
-        scene         :bz.Scene        = stage.getScene(),
-        position      :BABYLON.Vector3 = stage.getConfig().startupPosition,
-        rotation      :BABYLON.Vector3 = stage.getConfig().startupRotation,
-        inventory     :bz.Inventory    = stage.getConfig().startupInventory,
-        emissiveColor :BABYLON.Color3  = stage.getConfig().ambientColor
-    )
+    public constructor( stage:bz.Stage )
     {
         super
         (
             stage,
 
+            // TODO to method!
             new bz.Model
             (
                 [
 
                     // Player.PLAYER_BODY_ID
-                    new bz.MeshFactory( scene, emissiveColor ).createCylinder
+                    stage.createMeshFactory().createCylinder
                     (
-                        position.clone().addInPlace(
+                        stage.getConfig().startupPosition.clone().addInPlace(
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 )
                         ),
                         bz.MeshAnchor.CENTER_XYZ,
@@ -76,9 +64,9 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_HEAD_ID
-                    new bz.MeshFactory( scene, emissiveColor ).createSphere
+                    stage.createMeshFactory().createSphere
                     (
-                        position.clone().addInPlace(
+                        stage.getConfig().startupPosition.clone().addInPlace(
                             new BABYLON.Vector3(
                                 0.0,
                                 (
@@ -97,17 +85,17 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_LEFT_HAND_ID
-                    new bz.MeshFactory( scene, emissiveColor ).createBox
+                    stage.createMeshFactory().createBox
                     (
-                        position.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
+                        stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
                         bz.TextureFile.WALL_SKIN_1,
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                     ),
 
                     // Player.PLAYER_RIGHT_HAND_ID
-                    new bz.MeshFactory( scene, emissiveColor ).createBox
+                    stage.createMeshFactory().createBox
                     (
-                        position.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
+                        stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
                         bz.TextureFile.WALL_SKIN_1,
                         new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                     ),
@@ -120,10 +108,10 @@ export class Player extends bz.GameObject
         this.playerWearpon = new bz.PlayerWearpon( stage, this.playerPhysic.head );
 
         // new player inventory
-        this.inventory = inventory;
+        this.inventory = stage.getConfig().startupInventory;
 
         // assign initial rotation, rotation delta and move delta
-        this.playerPhysic.rotation      = rotation;
+        this.playerPhysic.rotation      = stage.getConfig().startupRotation;
         this.playerPhysic.rotationDelta = BABYLON.Vector3.Zero();
         this.playerPhysic.moveDelta     = BABYLON.Vector3.Zero();
 

@@ -79,7 +79,7 @@ export abstract class Stage
         this.getScene().getNativeSceneBG().clearColor   = this.config.sceneBgColor;
 
         // create all stage contents
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.getScene(), this.config.ambientColor );
+        const meshFactory :bz.MeshFactory = this.createMeshFactory();
         this.createStageContents( meshFactory );
 
         // player startup position and rotation must be set via config object!
@@ -563,6 +563,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Creates a MeshFactory with the default scene and ambient color of this stage.
+    *
+    *   @return A MeshFactory instance, custzomized for creating meshes for this stage.
+    *******************************************************************************************************************/
+    public createMeshFactory() : bz.MeshFactory
+    {
+        return new bz.MeshFactory( this.getScene(), this.getConfig().ambientColor );
+    }
+
+    /** ****************************************************************************************************************
     *   Adds collectables to the stage.
     *
     *   @param collectables The collectables to add to this stage.
@@ -640,7 +650,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
-        this.skybox = new bz.MeshFactory( this.getScene(), this.config.ambientColor ).createSkyBoxCube( file, alpha );
+        this.skybox = this.createMeshFactory().createSkyBoxCube( file, alpha );
     }
 
     /** ****************************************************************************************************************
@@ -795,7 +805,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     private addCoordinalAxis() : void
     {
-        const meshFactory :bz.MeshFactory = new bz.MeshFactory( this.getScene(), this.config.ambientColor );
+        const meshFactory :bz.MeshFactory = this.createMeshFactory();
 
         this.debugMeshes.push
         (

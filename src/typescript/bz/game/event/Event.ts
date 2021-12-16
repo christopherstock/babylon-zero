@@ -4,7 +4,6 @@ import * as bz from '../..';
 *   Represents one game event that may happen in the game.
 *
 *   TODO make abstract and add a direct inheritance with EventData?
-*   TODO 1:n connection for type+data?
 ***********************************************************************************************************************/
 export class Event
 {

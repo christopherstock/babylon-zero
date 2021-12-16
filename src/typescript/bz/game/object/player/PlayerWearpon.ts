@@ -49,9 +49,7 @@ export class PlayerWearpon
             new bz.Wall
             (
                 stage,
-                new bz.MeshFactory(
-                    stage.getScene(),
-                    stage.getConfig().ambientColor ).createImportedModel
+                stage.createMeshFactory().createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
                     new BABYLON.Vector3(

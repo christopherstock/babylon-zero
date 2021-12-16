@@ -998,6 +998,14 @@ export class MeshFactory
         return 'mesh' + String( MeshFactory.nextMeshId++ );
     }
 
+    /** ****************************************************************************************************************
+    *   Deliver all UV tile mapping values for a box mesh.
+    *
+    *   @param size        Size of the box.
+    *   @param scaleFactor The scaling factor for the tile mapping to apply.
+    *
+    *   @return The UV tile mapping values.
+    *******************************************************************************************************************/
     private static createBoxUV( size:BABYLON.Vector3, scaleFactor:number ) : BABYLON.Vector4[]
     {
         return [

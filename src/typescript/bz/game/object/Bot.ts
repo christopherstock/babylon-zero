@@ -25,12 +25,7 @@ export class Bot extends bz.GameObject
             Bot.createModel(
                 stage.getScene().getNativeSceneBG(),
                 type,
-                new bz.MeshFactory(
-                    stage.getScene(),
-                    new BABYLON.Color3( 0.0, 0.0, 0.0 )
-                    // bz.SettingColor.COLOR_RGB_WHITE
-                    // stage.getConfig().ambientColor
-                ),
+                stage.createMeshFactory(),
                 startupPosition
             )
         );
