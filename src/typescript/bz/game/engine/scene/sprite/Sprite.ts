@@ -95,6 +95,8 @@ export class Sprite
     /** ****************************************************************************************************************
     *   Animates the frames in the wrapped sprite.
     *
+    *   TODO rempove params! handle values internal!
+    *
     *   @param from                  Start frame id.
     *   @param to                    End frame id.
     *   @param loop                  If the animation shall be looped.

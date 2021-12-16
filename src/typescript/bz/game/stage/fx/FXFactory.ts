@@ -28,8 +28,8 @@ export class FXFactory
             size,
             bz.SpriteCollidable.NO
         );
-        // TODO add anim frames to class SpriteFile !
-        animatedExplosionSprite.animate( 0, 47, false, true );
+        // TODO refactor this animation start!
+        animatedExplosionSprite.animate( bz.SpriteFile.EXPLOSION.animFrameFirst, bz.SpriteFile.EXPLOSION.animFrameLast, false, true );
         stage.addSprite( animatedExplosionSprite );
     }
 

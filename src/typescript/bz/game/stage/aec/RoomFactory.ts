@@ -63,7 +63,6 @@ export abstract class RoomFactory
             if ( diamondCornerA > 0 )
             {
                 const sizeCornerA :number = (
-                    // TODO to MathUtil
                     Math.sqrt( 2 * Math.pow( diamondCornerA + bz.SettingAEC.WALL_DEPTH, 2 ) )
                 );
                 RoomFactory.createWall(
