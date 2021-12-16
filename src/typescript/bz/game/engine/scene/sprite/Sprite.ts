@@ -102,7 +102,7 @@ export class Sprite
     *   @param loop                  If the animation shall be looped.
     *   @param disposeOnAnimationEnd If the native sprite shall be disposed then the animation ends.
     *******************************************************************************************************************/
-    public animate( from:number, to:number, loop:boolean, disposeOnAnimationEnd:boolean = false ) : void
+    public animate( from:number, to:number, loop:boolean, disposeOnAnimationEnd:boolean = false, delayModifier:number = 0 ) : void
     {
         this.isAnimated                     = true;
 
@@ -116,7 +116,7 @@ export class Sprite
             from,
             to,
             loop,
-            this.animationDelay,
+            this.animationDelay + delayModifier,
             () =>
             {
                 this.isAnimated = false;

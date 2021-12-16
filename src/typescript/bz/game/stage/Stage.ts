@@ -981,12 +981,23 @@ export abstract class Stage
 
                 const data :bz.EventDataCastExplosion = ( event.data as bz.EventDataCastExplosion );
 
-                // add explosion sprite TODO quadruple! with different animationDelays? different sizes and positions!
-                bz.FXFactory.addExplosion(
-                    this,
-                    new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-                    10.0
-                );
+                // add explosion sprite
+                for ( let i:number = 0; i < bz.MathUtil.getRandomInt( 4, 8 ); ++i )
+                {
+                    bz.FXFactory.addExplosion(
+                        this,
+                        new BABYLON.Vector3( 20.0, 0.0, 20.0 )
+                            .add(
+                                new BABYLON.Vector3(
+                                    bz.MathUtil.getRandomInt( 10, 40 ) * 0.10,
+                                    bz.MathUtil.getRandomInt( 10, 40 ) * 0.10,
+                                    bz.MathUtil.getRandomInt( 10, 40 ) * 0.10
+                                )
+                            ),
+                        bz.MathUtil.getRandomInt( 80, 120 ) * 0.10,
+                        bz.MathUtil.getRandomInt( -5, 25 )
+                    );
+                }
 
                 // cast physical explosion impulse
                 const physicsHelper :BABYLON.PhysicsHelper  = new BABYLON.PhysicsHelper(

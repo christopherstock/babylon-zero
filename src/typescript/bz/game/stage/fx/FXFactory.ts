@@ -15,7 +15,8 @@ export class FXFactory
     public static addExplosion(
         stage    :bz.Stage,
         position :BABYLON.Vector3,
-        size     :number
+        size     :number,
+        delayModifier :number = 0
     )
     : void
     {
@@ -29,7 +30,13 @@ export class FXFactory
             bz.SpriteCollidable.NO
         );
         // TODO refactor this animation start!
-        animatedExplosionSprite.animate( bz.SpriteFile.EXPLOSION.animFrameFirst, bz.SpriteFile.EXPLOSION.animFrameLast, false, true );
+        animatedExplosionSprite.animate(
+            bz.SpriteFile.EXPLOSION.animFrameFirst,
+            bz.SpriteFile.EXPLOSION.animFrameLast,
+            false,
+            true,
+            delayModifier
+        );
         stage.addSprite( animatedExplosionSprite );
     }
 
