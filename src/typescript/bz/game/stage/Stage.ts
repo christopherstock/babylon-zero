@@ -995,7 +995,7 @@ export abstract class Stage
                                 )
                             ),
                         bz.MathUtil.getRandomInt( 80, 120 ) * 0.10,
-                        bz.MathUtil.getRandomInt( -5, 25 )
+                        bz.MathUtil.getRandomInt( 0, 50 )
                     );
                 }
 

@@ -41,7 +41,7 @@ export abstract class SettingEngine
 
     /** Default ratio from texture mapping to face size. */
     public static readonly TEXTURE_DEFAULT_MAPPING_UV               :number             = 0.5;
-
+    /** Maximum darkening opacity ratio for indicating damaged/broken meshes. */
     public static readonly MAX_MESH_DARKENING_RATIO                 :number             = 0.8;
 
     /** The physics engine iteration count per render cycle. 5000 = no shaking but horribly slow! */

@@ -8,14 +8,15 @@ export class FXFactory
     /** ****************************************************************************************************************
     *   Adds an one-time 'explosion' sprite to the stage.
     *
-    *   @param stage    The stage to add the sprite to.
-    *   @param position Where the explosion animation shall take place.
-    *   @param size     Size of the explosion sprite.
+    *   @param stage         The stage to add the sprite to.
+    *   @param position      Where the explosion animation shall take place.
+    *   @param size          Size of the explosion sprite.
+    *   @param delayModifier Modifier to add/sibstract from default animation delay value.
     *******************************************************************************************************************/
     public static addExplosion(
-        stage    :bz.Stage,
-        position :BABYLON.Vector3,
-        size     :number,
+        stage         :bz.Stage,
+        position      :BABYLON.Vector3,
+        size          :number,
         delayModifier :number = 0
     )
     : void

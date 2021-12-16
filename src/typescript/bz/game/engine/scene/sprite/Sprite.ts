@@ -101,8 +101,16 @@ export class Sprite
     *   @param to                    End frame id.
     *   @param loop                  If the animation shall be looped.
     *   @param disposeOnAnimationEnd If the native sprite shall be disposed then the animation ends.
+    *   @param delayModifier         Modifier to add/sibstract from default animation delay value.
     *******************************************************************************************************************/
-    public animate( from:number, to:number, loop:boolean, disposeOnAnimationEnd:boolean = false, delayModifier:number = 0 ) : void
+    public animate(
+        from                  :number,
+        to                    :number,
+        loop                  :boolean,
+        disposeOnAnimationEnd :boolean = false,
+        delayModifier         :number  = 0
+    )
+    : void
     {
         this.isAnimated                     = true;
 

@@ -35,8 +35,10 @@ export class SpriteFile
     *
     *   @param fileName       The filename of the image to load for this material.
     *   @param animationDelay Frame delay between two animation ticks.
-    *   @param frameWidth  The width  of a (square) frame in pixels.
-    *   @param frameHeight The height of the frame. Only to be specified if one frame is not square.
+    *   @param frameWidth     The width  of a (square) frame in pixels.
+    *   @param frameHeight    The height of the frame. Only to be specified if one frame is not square.
+    *   @param animFrameFirst Fist animation frame index.
+    *   @param animFrameLast  Last animation frame index.
     *******************************************************************************************************************/
     private constructor(
         fileName       :string,

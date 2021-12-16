@@ -120,6 +120,7 @@ export class MeshFactory
 
                 case bz.TextureUV.TILED_HALF:
                 {
+                    // TODO to creator method with param!
                     faceUV =
                     [
                         new BABYLON.Vector4(
