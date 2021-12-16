@@ -1,4 +1,4 @@
-import * as bz from '../..';
+import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Handles all physical aspects of the player.
@@ -68,6 +68,73 @@ export class PlayerPhysic
             this.body.physicsImpostor !== undefined
             &&  this.body.physicsImpostor.getLinearVelocity().y <= bz.SettingPlayer.FALLING_VELOCITY_Y
         );
+    }
+
+    /** ****************************************************************************************************************
+    *   Moves all player's meshes by the current move deltas.
+    *******************************************************************************************************************/
+    public movePlayer( player:bz.Player ) : void
+    {
+        // check if moving occurred
+        if
+        (
+            this.moveDelta.x !== 0.0
+            || this.moveDelta.y !== 0.0
+            || this.moveDelta.z !== 0.0
+        )
+        {
+            // direct movement is completely inoperative! :(
+            const DIRECT_MOVEMENT :boolean = false;
+
+            if ( DIRECT_MOVEMENT )
+            {
+                // apply direct move delta
+                this.body.moveWithCollisions
+                (
+                    new BABYLON.Vector3
+                    (
+                        this.moveDelta.x,
+                        this.moveDelta.y,
+                        this.moveDelta.z
+                    )
+                );
+            }
+            else
+            {
+                // apply physical impulse
+                if ( this.body.physicsImpostor !== undefined )
+                {
+                    // this.body.physicsImpostor.setDeltaPosition ??
+
+                    this.body.physicsImpostor.applyImpulse
+                    (
+                        new BABYLON.Vector3
+                        (
+                            this.moveDelta.x,
+                            this.moveDelta.y,
+                            this.moveDelta.z
+                        ),
+                        this.body.position
+                    );
+                }
+            }
+
+            // force rotZ centering on horizontal movements if enabled
+            if ( bz.SettingPlayer.CENTER_ROT_Z_ON_WALKING )
+            {
+                if ( this.moveDelta.x !== 0.0 || this.moveDelta.z !== 0.0 )
+                {
+                    player.centerRotZ = true;
+                }
+            }
+
+            // reset move deltas
+            this.moveDelta = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+        }
+        else
+        {
+            player.centerRotZ = false;
+        }
     }
 
     /** ****************************************************************************************************************

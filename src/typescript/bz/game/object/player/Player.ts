@@ -1,4 +1,4 @@
-import * as bz from '../..';
+import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Represents a human player being controlled by the user.
@@ -6,7 +6,7 @@ import * as bz from '../..';
 export class Player extends bz.GameObject
 {
     /** Flags if the player wants to center rotZ. */
-    private          centerRotZ         :boolean            = false;
+    public          centerRotZ         :boolean            = false;
     /** Flags if the player wants to fire. */
     private          fire               :boolean            = false;
     /** Flags if the player wants to duck. */
@@ -155,7 +155,7 @@ export class Player extends bz.GameObject
         this.handleUserInput();
 
         // alter position
-        this.movePlayer();
+        this.playerPhysic.movePlayer( this );
         this.playerPhysic.manipulateVelocities();
 
         // alter view
@@ -405,73 +405,6 @@ export class Player extends bz.GameObject
             keySystem.setNeedsRelease( bz.KeyCodes.KEY_L );
 
             this.playerWearpon.toggleWearponRaise();
-        }
-    }
-
-    /** ****************************************************************************************************************
-    *   Moves all player's meshes by the current move deltas.
-    *******************************************************************************************************************/
-    private movePlayer() : void
-    {
-        // check if moving occurred
-        if
-        (
-            this.playerPhysic.moveDelta.x !== 0.0
-            || this.playerPhysic.moveDelta.y !== 0.0
-            || this.playerPhysic.moveDelta.z !== 0.0
-        )
-        {
-            // direct movement is completely inoperative! :(
-            const DIRECT_MOVEMENT :boolean = false;
-
-            if ( DIRECT_MOVEMENT )
-            {
-                // apply direct move delta
-                this.playerPhysic.body.moveWithCollisions
-                (
-                    new BABYLON.Vector3
-                    (
-                        this.playerPhysic.moveDelta.x,
-                        this.playerPhysic.moveDelta.y,
-                        this.playerPhysic.moveDelta.z
-                    )
-                );
-            }
-            else
-            {
-                // apply physical impulse
-                if ( this.playerPhysic.body.physicsImpostor !== undefined )
-                {
-                    // this.body.physicsImpostor.setDeltaPosition ??
-
-                    this.playerPhysic.body.physicsImpostor.applyImpulse
-                    (
-                        new BABYLON.Vector3
-                        (
-                            this.playerPhysic.moveDelta.x,
-                            this.playerPhysic.moveDelta.y,
-                            this.playerPhysic.moveDelta.z
-                        ),
-                        this.playerPhysic.body.position
-                    );
-                }
-            }
-
-            // force rotZ centering on horizontal movements if enabled
-            if ( bz.SettingPlayer.CENTER_ROT_Z_ON_WALKING )
-            {
-                if ( this.playerPhysic.moveDelta.x !== 0.0 || this.playerPhysic.moveDelta.z !== 0.0 )
-                {
-                    this.centerRotZ = true;
-                }
-            }
-
-            // reset move deltas
-            this.playerPhysic.moveDelta = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
-        }
-        else
-        {
-            this.centerRotZ = false;
         }
     }
 

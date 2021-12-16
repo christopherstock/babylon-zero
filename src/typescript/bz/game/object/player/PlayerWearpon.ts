@@ -1,10 +1,11 @@
-import * as bz from '../..';
+import * as bz from '../../..';
 
 /** ********************************************************************************************************************
 *   Handles the 3D wearpon for the player.
 ***********************************************************************************************************************/
 export class PlayerWearpon
 {
+    // TODO to SettingPlayer or SettingShotgun??
     public static readonly SHOTGUN_NOISE_X      :number  = 0.05;
     public static readonly SHOTGUN_NOISE_Y      :number  = 0.05;
     public static readonly MAX_SHOTGUN_ROT_X    :number  = 12.5;
@@ -16,15 +17,16 @@ export class PlayerWearpon
     public static readonly LOWER_ROT_SPEED_X    :number  = 3.0;
     public static readonly RAISE_ROT_SPEED_X    :number  = 1.5;
 
-    public                 lowerWearpon         :boolean = false;
-    public                 lowerWearponAnim     :number  = 0;
-
     public                 targetShotgunRotX    :number  = 0;
     public                 targetShotgunRotY    :number  = 0;
 
-    public        readonly shotgun              :bz.Wall = null;
+    private                lowerWearpon         :boolean = false;
+    private                lowerWearponAnim     :number  = 0;
+
     private                shotgunRotX          :number  = 0;
     private                shotgunRotY          :number  = 0;
+
+    private       readonly shotgun              :bz.Wall = null;
 
     /** ****************************************************************************************************************
     *   Create a new PlayerWearpon instance for 3D wearpon handling.

@@ -6,7 +6,7 @@ import * as bz from '../../..';
 export class PhysicBody
 {
     /** The physical object behaviour of this physics body. */
-    private readonly set :bz.PhysicSet            = null;
+    private readonly set :bz.PhysicSet = null;
 
     /** ****************************************************************************************************************
     *   Creates a new physical body.

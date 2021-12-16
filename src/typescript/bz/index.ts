@@ -106,9 +106,9 @@ export * from './game/object/ItemType';
 export * from './game/object/Wall';
 export * from './game/object/Door';
 
-export * from './game/object/Player';
-export * from './game/object/PlayerPhysic';
-export * from './game/object/PlayerWearpon';
+export * from './game/object/player/Player';
+export * from './game/object/player/PlayerPhysic';
+export * from './game/object/player/PlayerWearpon';
 
 export * from './game/stage/Stage';
 
