@@ -99,7 +99,7 @@ export class PlayerWearpon
     /** ****************************************************************************************************************
     *   Renders one tick of the player's displayed wearpon.
     *******************************************************************************************************************/
-    public render() : void
+    public updatePositionAndRotation() : void
     {
         this.updateLowerRaiseAnimation();
         this.updateShotgunRotation();

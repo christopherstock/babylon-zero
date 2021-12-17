@@ -45,16 +45,11 @@ export class Player extends bz.GameObject
         );
 
         // new player physics and wearpons instance
-        this.playerPhysic = new bz.PlayerPhysic( this.model );
+        this.playerPhysic  = new bz.PlayerPhysic( this.model, stage.getConfig().startupRotation );
         this.playerWearpon = new bz.PlayerWearpon( stage, this.playerPhysic.head );
 
         // new player inventory
         this.inventory = stage.getConfig().startupInventory;
-
-        // assign initial rotation, rotation delta and move delta
-        this.playerPhysic.rotation      = stage.getConfig().startupRotation;
-        this.playerPhysic.rotationDelta = BABYLON.Vector3.Zero();
-        this.playerPhysic.moveDelta     = BABYLON.Vector3.Zero();
 
         this.fieldOfView = bz.SettingEngine.DEFAULT_FIELD_OF_VIEW;
 
@@ -80,30 +75,20 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     public render() : void
     {
-        // check user input
         this.handleUserInput();
 
-        // alter position
         this.playerPhysic.movePlayer( this );
         this.playerPhysic.manipulateVelocities();
 
-        // alter view
         this.checkTurnAround();
         this.rotatePlayerXYZ();
         this.checkCenteringRotZ();
         this.checkFieldOfViewChange();
-
-        // alter height
         this.checkHeightChange();
+        this.checkFireAction();
+        this.checkStageInteraction();
 
-        // check fire action
-        this.checkFire();
-
-        // check stage interaction
-        this.checkInteraction();
-
-        // set shotgun rotation
-        this.playerWearpon.render();
+        this.playerWearpon.updatePositionAndRotation();
     }
 
     /** ****************************************************************************************************************
@@ -606,31 +591,14 @@ export class Player extends bz.GameObject
     {
         if ( this.centerRotZ )
         {
-            if ( this.playerPhysic.rotation.z > 0.0 )
-            {
-                this.playerPhysic.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
-
-                if ( this.playerPhysic.rotation.z <= 0.0 )
-                {
-                    this.playerPhysic.rotation.z = 0.0;
-                }
-            }
-            else if ( this.playerPhysic.rotation.z < 0.0 )
-            {
-                this.playerPhysic.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
-
-                if ( this.playerPhysic.rotation.z >= 0.0 )
-                {
-                    this.playerPhysic.rotation.z = 0.0;
-                }
-            }
+            this.playerPhysic.centerRotZ();
         }
     }
 
     /** ****************************************************************************************************************
     *   Checks if the player is firing.
     *******************************************************************************************************************/
-    private checkFire() : void
+    private checkFireAction() : void
     {
         // check if firing is requested
         if ( this.fire )
@@ -657,7 +625,7 @@ export class Player extends bz.GameObject
     /** ****************************************************************************************************************
     *   Checks if the player is interacting with the scene.
     *******************************************************************************************************************/
-    private checkInteraction() : void
+    private checkStageInteraction() : void
     {
         // check if interact is requested
         if ( this.interact )

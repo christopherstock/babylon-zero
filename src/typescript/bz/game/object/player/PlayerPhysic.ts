@@ -40,7 +40,7 @@ export class PlayerPhysic
     *
     *   @param model The player model.
     *******************************************************************************************************************/
-    public constructor( model:bz.Model )
+    public constructor( model:bz.Model, startupRotation )
     {
         // reference the body and all limbs
         this.body      = model.getMesh( PlayerPhysic.PLAYER_BODY_ID       );
@@ -55,6 +55,11 @@ export class PlayerPhysic
 
         // set initial height
         this.heightY     = bz.SettingPlayer.HEIGHT_Y_STANDING;
+
+        // assign initial rotation, rotation delta and move delta
+        this.rotation      = startupRotation;
+        this.rotationDelta = BABYLON.Vector3.Zero();
+        this.moveDelta     = BABYLON.Vector3.Zero();
     }
 
     /** ****************************************************************************************************************
@@ -185,6 +190,31 @@ export class PlayerPhysic
             (
                 BABYLON.Vector3.Zero()
             );
+        }
+    }
+
+    /** ****************************************************************************************************************
+    *   Centers the player's Z rotation for one tick.
+    *******************************************************************************************************************/
+    public centerRotZ() : void
+    {
+        if ( this.rotation.z > 0.0 )
+        {
+            this.rotation.z -= bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
+
+            if ( this.rotation.z <= 0.0 )
+            {
+                this.rotation.z = 0.0;
+            }
+        }
+        else if ( this.rotation.z < 0.0 )
+        {
+            this.rotation.z += bz.SettingPlayer.SPEED_CENTER_LOOK_UP_DOWN;
+
+            if ( this.rotation.z >= 0.0 )
+            {
+                this.rotation.z = 0.0;
+            }
         }
     }
 }

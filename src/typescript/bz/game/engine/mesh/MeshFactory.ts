@@ -858,7 +858,7 @@ export class MeshFactory
             }
         }
 
-        // apply emissive color to all meshes - TODO improve and merge with model system ??
+        // apply emissive color to all meshes - can this be improved or merged with the material system ??
         for ( let i :number = 0; i < clonedModel.getMeshCount(); ++i )
         {
 /*
