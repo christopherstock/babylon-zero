@@ -9,6 +9,7 @@ TODO get shot angle from BulletHole and mirror it on the wall!
 TODO Add muzzle flash to GUN on firing.
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
+TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
 TODO Add rotated versions of all level locations
 TODO Flag for muzzleFlashes to load in FG scene!
 TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?

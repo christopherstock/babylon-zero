@@ -273,7 +273,7 @@ export abstract class Stage
  */
             this.addWallRubble(
                 impactHitPoint.getPoint(),
-                impactHitPoint.getNormal(),
+                impactHitPoint.getMirroredShotAngle(),
                 meshTextureFile
             );
 
@@ -650,9 +650,9 @@ export abstract class Stage
     *   Adds a parficle effect for wall rubble on the specified point and normal.
     *******************************************************************************************************************/
     protected addWallRubble(
-        point  :BABYLON.Vector3,
-        normal :BABYLON.Vector3,
-        tex    :bz.TextureFile
+        point     :BABYLON.Vector3,
+        direction :BABYLON.Vector3,
+        tex       :bz.TextureFile
     )
     : void
     {
@@ -718,8 +718,8 @@ export abstract class Stage
         particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.30 );
 
         // TODO get shot angle from BulletHole and mirror it on the wall!
-        particleSystem.direction1 = normal.clone().scale( 0.10 );
-        particleSystem.direction2 = normal.clone().scale( 1.00 );
+        particleSystem.direction1 = direction.clone().scale( ( true ? 1.0 : 0.1 ) );
+        particleSystem.direction2 = direction.clone().scale( 1.0 );
 
         // emit box size
         // particleSystem.minEmitBox = new BABYLON.Vector3( -0.1, -0.1, -0.1 ); // Bottom Left Front

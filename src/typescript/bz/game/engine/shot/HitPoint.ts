@@ -9,6 +9,7 @@ export class HitPoint
     private readonly point      :BABYLON.Vector3        = null;
     /** The normal of the face this hit point impacts. */
     private readonly normal     :BABYLON.Vector3        = null;
+    private readonly mirroredShotAngle :BABYLON.Vector3 = null;
     /** The distance from the shot source to this hit point. */
     private readonly distance   :number                 = null;
     /** The direction of the shot that caused this hit point. */
@@ -33,6 +34,7 @@ export class HitPoint
         point      :BABYLON.Vector3,
         mesh       :BABYLON.AbstractMesh,
         normal     :BABYLON.Vector3,
+        mirroredShotAngle :BABYLON.Vector3,
         distance   :number,
         direction  :BABYLON.Vector3,
         gameObject :bz.GameObject
@@ -41,6 +43,7 @@ export class HitPoint
         this.point      = point;
         this.mesh       = mesh;
         this.normal     = normal;
+        this.mirroredShotAngle     = mirroredShotAngle;
         this.distance   = distance;
         this.direction  = direction;
         this.gameObject = gameObject;
@@ -165,6 +168,16 @@ export class HitPoint
     public getNormal() : BABYLON.Vector3
     {
         return this.normal;
+    }
+
+    /** ****************************************************************************************************************
+    *   Returns the mirrored shot angle for this hit point.
+    *
+    *   @return The mirrored shot angle.
+    *******************************************************************************************************************/
+    public getMirroredShotAngle() : BABYLON.Vector3
+    {
+        return this.mirroredShotAngle;
     }
 
     /** ****************************************************************************************************************
