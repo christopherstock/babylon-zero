@@ -6,7 +6,7 @@ import * as bz from '../../../..';
 export class Sprite
 {
     /** The wrapped native babylon.JS sprite instance. */
-    public readonly  sprite                         :BABYLON.Sprite         = null;
+    private readonly sprite                         :BABYLON.Sprite         = null;
     /** The possible collider - A cylinder body for this sprite. */
     private readonly collider                       :BABYLON.Mesh           = null;
 
@@ -22,7 +22,6 @@ export class Sprite
     private          animationFrameLooped           :boolean                = false;
     private          animationDisposeOnAnimationEnd :boolean                = false;
     private          animationDelayModifier         :number                 = 0;
-    private readonly animationDelay                 :number                 = 0;
 
     /** Saves the last visible sprite animation frame index. */
     private          lastSpriteAnimationIndex       :number                 = -1;
@@ -69,8 +68,6 @@ export class Sprite
         this.sprite.position = position.clone();
         this.sprite.width    = width;
         this.sprite.height   = height;
-
-        this.animationDelay  = spriteFile.animationDelay;
 
         this.sprite.angle    = bz.MathUtil.degreesToRad( rotationDegree );
 
@@ -128,7 +125,7 @@ export class Sprite
             from,
             to,
             loop,
-            this.animationDelay + delayModifier,
+            this.spriteFile.animationDelay + delayModifier,
             () =>
             {
                 this.isAnimated = false;
