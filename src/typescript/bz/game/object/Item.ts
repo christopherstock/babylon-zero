@@ -191,8 +191,7 @@ export class Item extends bz.Collectable
                         BABYLON.Vector3.Zero(),
                         bz.PhysicSet.ITEM,
                         0.0,
-                        bz.ModelCompoundType.NONE,
-                        stage.getScene().getNativeSceneBG()
+                        bz.ModelCompoundType.NONE
                     ).scaleSize( new BABYLON.Vector3( 0.5, 0.5, 0.5 ) );
             }
 

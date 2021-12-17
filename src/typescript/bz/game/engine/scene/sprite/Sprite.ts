@@ -8,7 +8,7 @@ export class Sprite
     /** The wrapped native babylon.JS sprite instance. */
     public readonly  sprite                         :BABYLON.Sprite         = null;
     /** The possible collider - A cylinder body for this sprite. */
-    private readonly collider                       :BABYLON.AbstractMesh   = null;
+    private readonly collider                       :BABYLON.Mesh           = null;
 
     /** Saves if this sprite is animated. */
     private          isAnimated                     :boolean                = false;
@@ -95,7 +95,8 @@ export class Sprite
     /** ****************************************************************************************************************
     *   Animates the frames in the wrapped sprite.
     *
-    *   TODO rempove params! handle values internal! refactor STARTING and resuming of animations!
+    *   TODO remove params! handle values internal! refactor STARTING and
+    *        resuming of animations! make this method private!
     *
     *   @param from                  Start frame id.
     *   @param to                    End frame id.

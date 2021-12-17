@@ -18,9 +18,9 @@ export class StageOffice extends bz.Stage
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
-                60.0*0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                 ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
-                38.0*0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
             ),
             new BABYLON.Vector3( 0.0, 45.0, 0.0 ),
             new bz.Inventory( 0 )
@@ -109,7 +109,8 @@ export class StageOffice extends bz.Stage
             this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
         );
 
-        if ( true )
+        // debug/dev early exit
+        if ( this )
         {
             return;
         }

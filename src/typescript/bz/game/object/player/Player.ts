@@ -836,6 +836,13 @@ export class Player extends bz.GameObject
         );
     }
 
+    /** ****************************************************************************************************************
+    *   Creates the player model that consists of 4 meshes.
+    *
+    *   @param stage The stage to add the player model in.
+    *
+    *   @return The player model.
+    *******************************************************************************************************************/
     private static createPlayerModel( stage:bz.Stage ) : bz.Model
     {
         return new bz.Model

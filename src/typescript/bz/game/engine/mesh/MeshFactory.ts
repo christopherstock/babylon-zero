@@ -742,8 +742,7 @@ export class MeshFactory
         position     :BABYLON.Vector3      = new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
         physic       :bz.PhysicSet         = null,
         rotY         :number               = 0.0,
-        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE,
-        targetScene  :BABYLON.Scene        = null
+        compoundType :bz.ModelCompoundType = bz.ModelCompoundType.NONE
     )
     : bz.Model
     {
