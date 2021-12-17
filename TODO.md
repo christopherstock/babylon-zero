@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO get shot angle from BulletHole and mirror it on the wall!
 TODO Add muzzle flash to GUN on firing.
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
