@@ -119,11 +119,6 @@ export abstract class GameObject
             {
                 const shotDirection        :BABYLON.Vector3 = shot.getRay().direction;
                 const impactMeshNormal     :BABYLON.Vector3 = pickingInfo.getNormal( true )
-                const reverseShotDirection :BABYLON.Vector3 = shotDirection.clone().negate();
-                const directionDelta       :BABYLON.Vector3 = impactMeshNormal.subtract( reverseShotDirection );
-                const mirroredShotAngle    :BABYLON.Vector3 = reverseShotDirection
-                    .add( directionDelta )
-                    .add( directionDelta );
 
                 hitPoints.push
                 (
@@ -132,7 +127,6 @@ export abstract class GameObject
                         pickingInfo.pickedPoint,
                         pickingInfo.pickedMesh,
                         impactMeshNormal,
-                        mirroredShotAngle,
                         pickingInfo.distance,
                         shotDirection,
                         this

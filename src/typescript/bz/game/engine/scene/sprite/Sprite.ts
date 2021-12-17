@@ -10,6 +10,8 @@ export class Sprite
     /** The possible collider - A cylinder body for this sprite. */
     private readonly collider                       :BABYLON.Mesh           = null;
 
+    private readonly spriteFile                     :bz.SpriteFile          = null;
+
     /** Saves if this sprite is animated. */
     private          isAnimated                     :boolean                = false;
     /** Saves current animation's start frame. */
@@ -19,6 +21,7 @@ export class Sprite
     /** Saves current animation's looping property. */
     private          animationFrameLooped           :boolean                = false;
     private          animationDisposeOnAnimationEnd :boolean                = false;
+    private          animationDelayModifier         :number                 = 0;
     private readonly animationDelay                 :number                 = 0;
 
     /** Saves the last visible sprite animation frame index. */
@@ -55,6 +58,8 @@ export class Sprite
         rotationDegree      :number              = 0.0
     )
     {
+        this.spriteFile = spriteFile;
+
         // create native sprite
         this.sprite = new BABYLON.Sprite
         (
@@ -95,21 +100,18 @@ export class Sprite
     /** ****************************************************************************************************************
     *   Animates the frames in the wrapped sprite.
     *
-    *   TODO remove params! handle values internal! refactor STARTING and
-    *        resuming of animations! make this method private!
-    *
-    *   @param from                  Start frame id.
-    *   @param to                    End frame id.
+    *   @param delayModifier         Modifier to add/sibstract from default animation delay value.
     *   @param loop                  If the animation shall be looped.
     *   @param disposeOnAnimationEnd If the native sprite shall be disposed then the animation ends.
-    *   @param delayModifier         Modifier to add/sibstract from default animation delay value.
+    *   @param from                  Start frame id.
+    *   @param to                    End frame id.
     *******************************************************************************************************************/
     public animate(
-        from                  :number,
-        to                    :number,
-        loop                  :boolean,
-        disposeOnAnimationEnd :boolean = false,
-        delayModifier         :number  = 0
+        delayModifier         :number  = 0,
+        loop                  :boolean = false,
+        disposeOnAnimationEnd :boolean = true,
+        from                  :number  = this.spriteFile.animFrameFirst,
+        to                    :number  = this.spriteFile.animFrameLast
     )
     : void
     {
@@ -119,6 +121,7 @@ export class Sprite
         this.animationFrameTo               = to;
         this.animationFrameLooped           = loop;
         this.animationDisposeOnAnimationEnd = disposeOnAnimationEnd;
+        this.animationDelayModifier         = delayModifier;
 
         this.sprite.playAnimation
         (
@@ -161,12 +164,12 @@ export class Sprite
             else
             {
                 // resume animation
-                this.animate
-                (
-                    this.animationFrameFrom,
-                    this.animationFrameTo,
+                this.animate(
+                    this.animationDelayModifier,
                     this.animationFrameLooped,
-                    this.animationDisposeOnAnimationEnd
+                    this.animationDisposeOnAnimationEnd,
+                    this.animationFrameFrom,
+                    this.animationFrameTo
                 );
 
                 // assign last sprite animation index

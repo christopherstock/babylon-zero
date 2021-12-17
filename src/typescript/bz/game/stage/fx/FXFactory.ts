@@ -30,13 +30,8 @@ export class FXFactory
             size,
             bz.SpriteCollidable.NO
         );
-        animatedExplosionSprite.animate(
-            bz.SpriteFile.EXPLOSION.animFrameFirst,
-            bz.SpriteFile.EXPLOSION.animFrameLast,
-            false,
-            true,
-            delayModifier
-        );
+        animatedExplosionSprite.animate( delayModifier );
+
         stage.addSprite( animatedExplosionSprite );
     }
 
@@ -76,12 +71,7 @@ export class FXFactory
             2.5,
             bz.SpriteCollidable.NO
         );
-        muzzleFlash.animate(
-            bz.SpriteFile.MUZZLE_FLASH_1.animFrameFirst,
-            bz.SpriteFile.MUZZLE_FLASH_1.animFrameLast,
-            false,
-            true
-        );
+        muzzleFlash.animate();
         stage.addSprite( muzzleFlash );
     }
 }

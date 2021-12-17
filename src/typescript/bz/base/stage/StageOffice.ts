@@ -109,8 +109,11 @@ export class StageOffice extends bz.Stage
             this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
         );
 
+        // add test sprites
+        this.addTestSprites();
+
         // debug/dev early exit
-        if ( this )
+        if ( true )
         {
             return;
         }
@@ -196,9 +199,6 @@ export class StageOffice extends bz.Stage
 
         // add shadows for point light
         this.addShadowGenerator( pointLights2[ 0 ] );
-
-        // add test sprites
-        this.addTestSprites();
 
         // add test bots
         this.addTestBots();
@@ -290,11 +290,7 @@ export class StageOffice extends bz.Stage
             20.0,
             bz.SpriteCollidable.NO
         );
-        animatedFireSprite.animate(
-            bz.SpriteFile.FIRE.animFrameFirst,
-            bz.SpriteFile.FIRE.animFrameLast,
-            true
-        );
+        animatedFireSprite.animate( 0, true, false );
         this.addSprite( animatedFireSprite );
 
         this.addSprite(

@@ -6,48 +6,53 @@ import * as bz from '../../..';
 export class HitPoint
 {
     /** The exact collision point. */
-    private readonly point      :BABYLON.Vector3        = null;
+    private readonly point                :BABYLON.Vector3        = null;
     /** The normal of the face this hit point impacts. */
-    private readonly normal     :BABYLON.Vector3        = null;
-    private readonly mirroredShotAngle :BABYLON.Vector3 = null;
+    private readonly impactMeshNormal     :BABYLON.Vector3        = null;
+    private readonly mirroredShotAngle    :BABYLON.Vector3 = null;
     /** The distance from the shot source to this hit point. */
-    private readonly distance   :number                 = null;
-    /** The direction of the shot that caused this hit point. */
-    private readonly direction  :BABYLON.Vector3        = null;
+    private readonly distance             :number                 = null;
+    /** The direction of the shot that caused this hit point (points from shot source to collision point). */
+    private readonly shotDirection        :BABYLON.Vector3        = null;
+    /** The reversed direction of the shot that caused this hit point (points back to the shot source). */
+    private readonly reverseShotDirection :BABYLON.Vector3        = null;
     /** The affected game object. */
-    private readonly gameObject :bz.GameObject          = null;
+    private readonly gameObject           :bz.GameObject          = null;
     /** The affected mesh of the game object. */
-    private          mesh       :BABYLON.AbstractMesh   = null;
+    private          mesh                 :BABYLON.AbstractMesh   = null;
 
     /** ****************************************************************************************************************
     *   Creates a new hit point that carries collision information.
     *
-    *   @param point             The exact point of collision.
-    *   @param mesh              The exact mesh of the game object that has been hit.
-    *   @param normal            The normal of the face the hit point impacts.
-    *   @param mirroredShotAngle The direction for the wall rubble to turn to.
-    *   @param distance          The distance from the shot source to this hit point.
-    *   @param direction         The direction of the shot that caused this hit point.
-    *   @param gameObject        The game object that is affected by this hit point.
+    *   @param point      The exact point of collision.
+    *   @param mesh       The exact mesh of the game object that has been hit.
+    *   @param normal     The normal of the face the hit point impacts.
+    *   @param distance   The distance from the shot source to this hit point.
+    *   @param direction  The direction of the shot that caused this hit point.
+    *   @param gameObject The game object that is affected by this hit point.
     *******************************************************************************************************************/
     public constructor
     (
-        point             :BABYLON.Vector3,
-        mesh              :BABYLON.AbstractMesh,
-        normal            :BABYLON.Vector3,
-        mirroredShotAngle :BABYLON.Vector3,
-        distance          :number,
-        direction         :BABYLON.Vector3,
-        gameObject        :bz.GameObject
+        point      :BABYLON.Vector3,
+        mesh       :BABYLON.AbstractMesh,
+        normal     :BABYLON.Vector3,
+        distance   :number,
+        direction  :BABYLON.Vector3,
+        gameObject :bz.GameObject
     )
     {
-        this.point      = point;
-        this.mesh       = mesh;
-        this.normal     = normal;
-        this.mirroredShotAngle     = mirroredShotAngle;
-        this.distance   = distance;
-        this.direction  = direction;
-        this.gameObject = gameObject;
+        this.point            = point;
+        this.mesh             = mesh;
+        this.impactMeshNormal = normal;
+        this.distance         = distance;
+        this.shotDirection    = direction;
+        this.gameObject       = gameObject;
+
+        this.reverseShotDirection = this.shotDirection.clone().negate();
+        const directionDelta :BABYLON.Vector3 = this.impactMeshNormal.subtract( this.reverseShotDirection );
+        this.mirroredShotAngle = this.reverseShotDirection
+            .add( directionDelta )
+            .add( directionDelta );
     }
 
     /** ****************************************************************************************************************
@@ -101,9 +106,9 @@ export class HitPoint
             bz.Debug.fire.log
             (
                 'apply impulse - shot impulse direction: '
-                + '[' + String( this.direction.x ) + ']'
-                + '[' + String( this.direction.y ) + ']'
-                + '[' + String( this.direction.z ) + ']'
+                + '[' + String( this.shotDirection.x ) + ']'
+                + '[' + String( this.shotDirection.y ) + ']'
+                + '[' + String( this.shotDirection.z ) + ']'
             );
 
             bz.Debug.fire.log
@@ -113,7 +118,7 @@ export class HitPoint
             );
 
             // this operation sadly lacks some performance - understandable
-            this.mesh.applyImpulse( this.direction.scale( force ), this.point );
+            this.mesh.applyImpulse( this.shotDirection.scale( force ), this.point );
         }
         else
         {
@@ -168,7 +173,7 @@ export class HitPoint
     *******************************************************************************************************************/
     public getNormal() : BABYLON.Vector3
     {
-        return this.normal;
+        return this.impactMeshNormal;
     }
 
     /** ****************************************************************************************************************
