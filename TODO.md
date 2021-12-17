@@ -5,9 +5,7 @@
 ===
 MVP
 ===
-TODO Stage.createMeshFactory() ?
-TODO Add muzzle flash to gun on firing.
-
+TODO Add muzzle flash to GUN on firing.
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
 TODO Add rotated versions of all level locations
@@ -23,6 +21,7 @@ TODO Detect/Improve performance loss on firing (ommit physical impulses for stat
 TODO Shotgun: Multiple bullets per shot!
 TODO try outline for items again? // bench1.getModel().addOutline( this.getScene() );, 'glow fx' GlowLayer?
 TODO dark/correctly lightet bullet holes? let bullet holes clone (emissive) mesh material?
+TODO make class Event abstract and add subclasses (EventData/EventType?)
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Reset Git Repository?

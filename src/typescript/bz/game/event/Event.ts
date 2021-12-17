@@ -2,8 +2,6 @@ import * as bz from '../..';
 
 /** ********************************************************************************************************************
 *   Represents one game event that may happen in the game.
-*
-*   TODO make abstract and add a direct inheritance with EventData?
 ***********************************************************************************************************************/
 export class Event
 {

@@ -41,66 +41,7 @@ export class Player extends bz.GameObject
         super
         (
             stage,
-
-            // TODO to static method!
-            new bz.Model
-            (
-                [
-
-                    // Player.PLAYER_BODY_ID
-                    stage.getMeshFactory().createCylinder
-                    (
-                        stage.getConfig().startupPosition.clone().addInPlace(
-                            new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                        ),
-                        bz.MeshAnchor.CENTER_XYZ,
-                        bz.SettingPlayer.DIAMETER_BODY,
-                        bz.SettingPlayer.HEIGHT_Y_STANDING,
-                        BABYLON.Vector3.Zero(),
-                        bz.TextureFile.WALL_GLASS_1,
-                        null,
-                        bz.PhysicSet.PLAYER_HUMAN,
-                        0.5
-                    ),
-
-                    // Player.PLAYER_HEAD_ID
-                    stage.getMeshFactory().createSphere
-                    (
-                        stage.getConfig().startupPosition.clone().addInPlace(
-                            new BABYLON.Vector3(
-                                0.0,
-                                (
-                                    ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 )
-                                    - ( bz.SettingPlayer.DIAMETER_HEAD / 2 )
-                                ),
-                                0.0
-                            )
-                        ),
-                        bz.MeshAnchor.CENTER_XYZ,
-                        bz.SettingPlayer.DIAMETER_HEAD,
-                        BABYLON.Vector3.Zero(),
-                        bz.TextureFile.WALL_SKIN_1,
-                        null,
-                        bz.PhysicSet.NONE
-                    ),
-
-                    // Player.PLAYER_LEFT_HAND_ID
-                    stage.getMeshFactory().createBox
-                    (
-                        stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
-                        bz.TextureFile.WALL_SKIN_1,
-                        new BABYLON.Vector3( 0.25, 0.25, 0.25 )
-                    ),
-
-                    // Player.PLAYER_RIGHT_HAND_ID
-                    stage.getMeshFactory().createBox
-                    (
-                        stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
-                        bz.TextureFile.WALL_SKIN_1,
-                        new BABYLON.Vector3( 0.25, 0.25, 0.25 )
-                    ),
-                ]
-            )
+            Player.createPlayerModel( stage )
         );
 
         // new player physics and wearpons instance
@@ -890,6 +831,68 @@ export class Player extends bz.GameObject
                 new bz.Event(
                     bz.EventType.SHOW_GUI_TEXT_MESSAGE,
                     new bz.EventDataShowGuiTextMessage( message )
+                ),
+            ]
+        );
+    }
+
+    private static createPlayerModel( stage:bz.Stage ) : bz.Model
+    {
+        return new bz.Model
+        (
+            [
+
+                // Player.PLAYER_BODY_ID
+                stage.getMeshFactory().createCylinder
+                (
+                    stage.getConfig().startupPosition.clone().addInPlace(
+                        new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                    ),
+                    bz.MeshAnchor.CENTER_XYZ,
+                    bz.SettingPlayer.DIAMETER_BODY,
+                    bz.SettingPlayer.HEIGHT_Y_STANDING,
+                    BABYLON.Vector3.Zero(),
+                    bz.TextureFile.WALL_GLASS_1,
+                    null,
+                    bz.PhysicSet.PLAYER_HUMAN,
+                    0.5
+                ),
+
+                // Player.PLAYER_HEAD_ID
+                stage.getMeshFactory().createSphere
+                (
+                    stage.getConfig().startupPosition.clone().addInPlace(
+                        new BABYLON.Vector3(
+                            0.0,
+                            (
+                                ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 )
+                                - ( bz.SettingPlayer.DIAMETER_HEAD / 2 )
+                            ),
+                            0.0
+                        )
+                    ),
+                    bz.MeshAnchor.CENTER_XYZ,
+                    bz.SettingPlayer.DIAMETER_HEAD,
+                    BABYLON.Vector3.Zero(),
+                    bz.TextureFile.WALL_SKIN_1,
+                    null,
+                    bz.PhysicSet.NONE
+                ),
+
+                // Player.PLAYER_LEFT_HAND_ID
+                stage.getMeshFactory().createBox
+                (
+                    stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
+                    bz.TextureFile.WALL_SKIN_1,
+                    new BABYLON.Vector3( 0.25, 0.25, 0.25 )
+                ),
+
+                // Player.PLAYER_RIGHT_HAND_ID
+                stage.getMeshFactory().createBox
+                (
+                    stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
+                    bz.TextureFile.WALL_SKIN_1,
+                    new BABYLON.Vector3( 0.25, 0.25, 0.25 )
                 ),
             ]
         );
