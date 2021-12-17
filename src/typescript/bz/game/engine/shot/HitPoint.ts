@@ -22,22 +22,23 @@ export class HitPoint
     /** ****************************************************************************************************************
     *   Creates a new hit point that carries collision information.
     *
-    *   @param point      The exact point of collision.
-    *   @param mesh       The exact mesh of the game object that has been hit.
-    *   @param normal     The normal of the face the hit point impacts.
-    *   @param distance   The distance from the shot source to this hit point.
-    *   @param direction  The direction of the shot that caused this hit point.
-    *   @param gameObject The game object that is affected by this hit point.
+    *   @param point             The exact point of collision.
+    *   @param mesh              The exact mesh of the game object that has been hit.
+    *   @param normal            The normal of the face the hit point impacts.
+    *   @param mirroredShotAngle The direction for the wall rubble to turn to.
+    *   @param distance          The distance from the shot source to this hit point.
+    *   @param direction         The direction of the shot that caused this hit point.
+    *   @param gameObject        The game object that is affected by this hit point.
     *******************************************************************************************************************/
     public constructor
     (
-        point      :BABYLON.Vector3,
-        mesh       :BABYLON.AbstractMesh,
-        normal     :BABYLON.Vector3,
+        point             :BABYLON.Vector3,
+        mesh              :BABYLON.AbstractMesh,
+        normal            :BABYLON.Vector3,
         mirroredShotAngle :BABYLON.Vector3,
-        distance   :number,
-        direction  :BABYLON.Vector3,
-        gameObject :bz.GameObject
+        distance          :number,
+        direction         :BABYLON.Vector3,
+        gameObject        :bz.GameObject
     )
     {
         this.point      = point;

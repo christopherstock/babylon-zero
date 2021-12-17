@@ -717,8 +717,8 @@ export abstract class Stage
         // direction
         particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.30 );
 
-        // TODO get shot angle from BulletHole and mirror it on the wall!
-        particleSystem.direction1 = direction.clone().scale( ( true ? 1.0 : 0.1 ) );
+        // scale possible direction range from 0.1 to 1.0
+        particleSystem.direction1 = direction.clone().scale( 0.1 );
         particleSystem.direction2 = direction.clone().scale( 1.0 );
 
         // emit box size

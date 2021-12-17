@@ -105,14 +105,4 @@ export class Shot
     {
         return this.damage;
     }
-
-    /** ****************************************************************************************************************
-    *   Returns the source rotation that caused this shot.
-    *
-    *   @return The rotation of the shot source.
-    *******************************************************************************************************************/
-    public getSourceRotation() : BABYLON.Vector3
-    {
-        return this.rotation;
-    }
 }
