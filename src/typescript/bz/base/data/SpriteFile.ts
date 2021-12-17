@@ -5,7 +5,7 @@ export class SpriteFile
 {
     public static readonly EXPLOSION        :SpriteFile   = new SpriteFile( 'fx/explosion.png',  14,  256, 248, 0, 47 );
     public static readonly FIRE             :SpriteFile   = new SpriteFile( 'fx/fire.png',       100, 128, 128, 0, 24 );
-    public static readonly MUZZLE_FLASH_1   :SpriteFile   = new SpriteFile( 'muzzleFlash/1.png', 100, 512  );
+    public static readonly MUZZLE_FLASH_1   :SpriteFile   = new SpriteFile( 'muzzleFlash/1.png', 100, 512, 512, 0, 0  );
     public static readonly PALM             :SpriteFile   = new SpriteFile( 'stage/palm.png',    0,   1024 );
     public static readonly TREE             :SpriteFile   = new SpriteFile( 'stage/tree.png',    0,   357  );
 

@@ -30,7 +30,6 @@ export class FXFactory
             size,
             bz.SpriteCollidable.NO
         );
-        // TODO refactor this animation start!
         animatedExplosionSprite.animate(
             bz.SpriteFile.EXPLOSION.animFrameFirst,
             bz.SpriteFile.EXPLOSION.animFrameLast,
@@ -71,12 +70,11 @@ export class FXFactory
             bz.MathUtil.degreesToRad( playerRotation.z ),
             bz.MathUtil.degreesToRad( 0.0 )
         );
-
-        const rotatedDistantVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
-        (
+        const rotatedDistantVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates(
             flashOffset,
             rotationMatrix
         );
+
         const muzzlePosition :BABYLON.Vector3 = playerPosition.add( rotatedDistantVector );
 /*
         const rotatedPosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
@@ -95,7 +93,12 @@ export class FXFactory
             2.5,
             bz.SpriteCollidable.NO
         );
-        muzzleFlash.animate( 0, 0, false, true );
+        muzzleFlash.animate(
+            bz.SpriteFile.MUZZLE_FLASH_1.animFrameFirst,
+            bz.SpriteFile.MUZZLE_FLASH_1.animFrameLast,
+            false,
+            true
+        );
         stage.addSprite( muzzleFlash );
     }
 }

@@ -289,7 +289,11 @@ export class StageOffice extends bz.Stage
             20.0,
             bz.SpriteCollidable.NO
         );
-        animatedFireSprite.animate( bz.SpriteFile.FIRE.animFrameFirst, bz.SpriteFile.FIRE.animFrameLast, true );
+        animatedFireSprite.animate(
+            bz.SpriteFile.FIRE.animFrameFirst,
+            bz.SpriteFile.FIRE.animFrameLast,
+            true
+        );
         this.addSprite( animatedFireSprite );
 
         this.addSprite(

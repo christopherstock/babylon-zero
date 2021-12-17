@@ -91,34 +91,28 @@ export abstract class MathUtil
     *   Gets the distant point from the given source vector, rotated by the specified rotation.
     *
     *   @param source   The source vector.
+    *   @param delta    The delta from the source point to the distant point.
     *   @param rotation The desired rotation of the distant point.
-    *   @param distanceZ The distance from the source point.
     *
     *   @return The rotated distant point.
     *******************************************************************************************************************/
-    public static rotateVector3DistanceZ
+    public static rotateVector3
     (
-        source    :BABYLON.Vector3,
-        rotation  :BABYLON.Vector3,
-        distanceZ :number
+        source   :BABYLON.Vector3,
+        delta    :BABYLON.Vector3,
+        rotation :BABYLON.Vector3
     )
     : BABYLON.Vector3
     {
-        const distantVector  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, distanceZ );
-        const rotationMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
+        const rotMatrix :BABYLON.Matrix  = BABYLON.Matrix.RotationYawPitchRoll
         (
             MathUtil.degreesToRad( rotation.y ),
             MathUtil.degreesToRad( rotation.x ),
             MathUtil.degreesToRad( rotation.z )
         );
+        const rotatedDelta:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates( delta, rotMatrix );
 
-        const rotatedDistantVector:BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates
-        (
-            distantVector,
-            rotationMatrix
-        );
-
-        return source.add( rotatedDistantVector );
+        return source.add( rotatedDelta );
     }
 
     /** ****************************************************************************************************************

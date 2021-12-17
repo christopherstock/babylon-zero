@@ -46,11 +46,11 @@ export class Shot
         this.damage       = damage;
 
         // calculate destination point
-        this.destination = bz.MathUtil.rotateVector3DistanceZ
+        this.destination = bz.MathUtil.rotateVector3
         (
             source,
-            rotation,
-            range
+            new BABYLON.Vector3( 0.0, 0.0, range ),
+            rotation
         );
 
         // create collision checking ray
