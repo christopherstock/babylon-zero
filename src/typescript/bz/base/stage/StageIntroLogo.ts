@@ -92,12 +92,12 @@ export class StageIntroLogo extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected createStageContents( meshFactory:bz.MeshFactory ) : void
+    protected createStageContents() : void
     {
         // mayflower logo
         this.logo = new bz.Wall(
             this,
-            meshFactory.createImportedModel
+            this.getMeshFactory().createImportedModel
             (
                 bz.ModelFile.MF_LOGO,
                 new BABYLON.Vector3( 0.0, 0.0, 0.0 ),

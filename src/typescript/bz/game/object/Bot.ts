@@ -25,7 +25,7 @@ export class Bot extends bz.GameObject
             Bot.createModel(
                 stage.getScene().getNativeSceneBG(),
                 type,
-                stage.createMeshFactory(),
+                stage.getMeshFactory(),
                 startupPosition
             )
         );

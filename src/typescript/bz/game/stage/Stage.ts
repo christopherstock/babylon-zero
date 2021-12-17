@@ -29,6 +29,8 @@ export abstract class Stage
 
     /** The stage config. */
     private          config             :bz.StageConfig                 = null;
+    /** A MeshFactory instance, custzomized for this stage -- for creating meshes for this stage. */
+    private          meshFactory        :bz.MeshFactory                 = null;
     /** The camera system that manages all scene cameras. */
     private          cameraSystem       :bz.CameraSystem                = null;
     /** The player instance. */
@@ -59,7 +61,7 @@ export abstract class Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected abstract createStageContents( meshFactory:bz.MeshFactory ) : void;
+    protected abstract createStageContents() : void;
 
     /** ****************************************************************************************************************
     *   Handles stage specific keys.
@@ -78,21 +80,12 @@ export abstract class Stage
         this.getScene().getNativeSceneBG().ambientColor = this.config.ambientColor;
         this.getScene().getNativeSceneBG().clearColor   = this.config.sceneBgColor;
 
-        // create all stage contents
-        const meshFactory :bz.MeshFactory = this.createMeshFactory();
-        this.createStageContents( meshFactory );
+        // create a MeshFactory for the stage
+        this.meshFactory = new bz.MeshFactory( this.getScene(), this.getConfig().ambientColor );
 
-        // player startup position and rotation must be set via config object!
-/*
-        if ( this.config.startupPosition !== null )
-        {
-            this.player.setPosition( this.config.startupPosition );
-        }
-        if ( this.config.startupRotation !== null )
-        {
-            this.player.setRotation( this.config.startupRotation );
-        }
-*/
+        // create all stage contents
+        this.createStageContents();
+
         // create cameras and set initial cam
         this.cameraSystem = this.createCameraSystem();
         this.setActiveCamera( this.config.initialCamera );
@@ -509,6 +502,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Returns the MeshFactory for this stage.
+    *
+    *   @return The MeshFactory for this stage.
+    *******************************************************************************************************************/
+    public getMeshFactory() : bz.MeshFactory
+    {
+        return this.meshFactory;
+    }
+
+    /** ****************************************************************************************************************
     *   Adds walls to the stage.
     *
     *   @param walls The walls to add to this stage.
@@ -560,16 +563,6 @@ export abstract class Stage
         {
             this.lights.push( light );
         }
-    }
-
-    /** ****************************************************************************************************************
-    *   Creates a MeshFactory with the default scene and ambient color of this stage.
-    *
-    *   @return A MeshFactory instance, custzomized for creating meshes for this stage.
-    *******************************************************************************************************************/
-    public createMeshFactory() : bz.MeshFactory
-    {
-        return new bz.MeshFactory( this.getScene(), this.getConfig().ambientColor );
     }
 
     /** ****************************************************************************************************************
@@ -650,7 +643,7 @@ export abstract class Stage
     *******************************************************************************************************************/
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
-        this.skybox = this.createMeshFactory().createSkyBoxCube( file, alpha );
+        this.skybox = this.meshFactory.createSkyBoxCube( file, alpha );
     }
 
     /** ****************************************************************************************************************
@@ -805,12 +798,10 @@ export abstract class Stage
     *******************************************************************************************************************/
     private addCoordinalAxis() : void
     {
-        const meshFactory :bz.MeshFactory = this.createMeshFactory();
-
         this.debugMeshes.push
         (
             // axis x
-            meshFactory.createLine
+            this.meshFactory.createLine
             (
                 new BABYLON.Vector3( 0.0,  0.0, 0.0 ),
                 new BABYLON.Vector3( bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0, 0.0 ),
@@ -818,7 +809,7 @@ export abstract class Stage
             ),
 
             // axis y
-            meshFactory.createLine
+            this.meshFactory.createLine
             (
                 new BABYLON.Vector3( 0.0, 0.0,  0.0 ),
                 new BABYLON.Vector3( 0.0, bz.SettingDebug.COORDINATE_AXIS_LENGTH, 0.0 ),
@@ -826,7 +817,7 @@ export abstract class Stage
             ),
 
             // axis z
-            meshFactory.createLine
+            this.meshFactory.createLine
             (
                 new BABYLON.Vector3( 0.0, 0.0, 0.0  ),
                 new BABYLON.Vector3( 0.0, 0.0, bz.SettingDebug.COORDINATE_AXIS_LENGTH ),

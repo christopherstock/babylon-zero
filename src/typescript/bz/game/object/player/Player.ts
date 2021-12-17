@@ -42,13 +42,13 @@ export class Player extends bz.GameObject
         (
             stage,
 
-            // TODO to method!
+            // TODO to static method!
             new bz.Model
             (
                 [
 
                     // Player.PLAYER_BODY_ID
-                    stage.createMeshFactory().createCylinder
+                    stage.getMeshFactory().createCylinder
                     (
                         stage.getConfig().startupPosition.clone().addInPlace(
                             new BABYLON.Vector3( 0.0, 0.0, 0.0 )
@@ -64,7 +64,7 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_HEAD_ID
-                    stage.createMeshFactory().createSphere
+                    stage.getMeshFactory().createSphere
                     (
                         stage.getConfig().startupPosition.clone().addInPlace(
                             new BABYLON.Vector3(
@@ -85,7 +85,7 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_LEFT_HAND_ID
-                    stage.createMeshFactory().createBox
+                    stage.getMeshFactory().createBox
                     (
                         stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( -1.25, 1.25, 0.0 ) ),
                         bz.TextureFile.WALL_SKIN_1,
@@ -93,7 +93,7 @@ export class Player extends bz.GameObject
                     ),
 
                     // Player.PLAYER_RIGHT_HAND_ID
-                    stage.createMeshFactory().createBox
+                    stage.getMeshFactory().createBox
                     (
                         stage.getConfig().startupPosition.clone().addInPlace( new BABYLON.Vector3( 1.25, 1.25, 0.0 ) ),
                         bz.TextureFile.WALL_SKIN_1,

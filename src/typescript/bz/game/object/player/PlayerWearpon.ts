@@ -49,7 +49,7 @@ export class PlayerWearpon
             new bz.Wall
             (
                 stage,
-                stage.createMeshFactory().createImportedModel
+                stage.getMeshFactory().createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
                     new BABYLON.Vector3(

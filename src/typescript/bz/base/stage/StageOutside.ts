@@ -26,13 +26,13 @@ export class StageOutside extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected createStageContents( meshFactory:bz.MeshFactory ) : void
+    protected createStageContents() : void
     {
         // blue skybox
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
 
         // ground walls
-        this.addGroundWalls( meshFactory );
+        this.addGroundWalls();
 
         // player
         this.setPlayer( new bz.Player( this ) );
@@ -54,7 +54,7 @@ export class StageOutside extends bz.Stage
         ];
         bz.RoomFactory.addRoomWalls(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
             0.0,
@@ -69,7 +69,7 @@ export class StageOutside extends bz.Stage
         // boxes pile
         bz.AECFactory.addCratesPile(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 20.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0 )
         );
 
@@ -105,7 +105,7 @@ export class StageOutside extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates the ground walls for this stage.
     *******************************************************************************************************************/
-    private addGroundWalls( meshFactory:bz.MeshFactory ) : void
+    private addGroundWalls() : void
     {
         // valley ( heightmap ground )
         this.addWall(
@@ -114,7 +114,7 @@ export class StageOutside extends bz.Stage
                 this,
                 new bz.Model
                 (
-                    meshFactory.createHeightMapGround
+                    this.getMeshFactory().createHeightMapGround
                     (
                         new BABYLON.Vector3( 40.0, 0.0, 40 ),
                         bz.MeshAnchor.CENTER_XYZ,

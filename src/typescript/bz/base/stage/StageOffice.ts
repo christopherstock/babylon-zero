@@ -30,7 +30,7 @@ export class StageOffice extends bz.Stage
     /** ****************************************************************************************************************
     *   Creates all stage contents.
     *******************************************************************************************************************/
-    protected createStageContents( meshFactory:bz.MeshFactory ) : void
+    protected createStageContents() : void
     {
         // blue skybox
         this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.5 );
@@ -41,7 +41,7 @@ export class StageOffice extends bz.Stage
         // medium office
         bz.AECFactory.addMediumOffice(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
@@ -52,14 +52,14 @@ export class StageOffice extends bz.Stage
         // add crates pile
         bz.AECFactory.addCratesPile(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 20.5, bz.SettingAEC.FLOOR_OFFSET_Y, 20.5 )
         );
 
         // hallway
         bz.AECFactory.addHallway(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH ),
             0.0,
             58.0,
@@ -70,7 +70,7 @@ export class StageOffice extends bz.Stage
         // casino
         bz.AECFactory.addCasino(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 58.0, 0.0, 36.0 - bz.SettingAEC.HALLWAY_WIDTH ),
             0.0
         );
@@ -78,7 +78,7 @@ export class StageOffice extends bz.Stage
         // large office
         bz.AECFactory.addLargeOffice(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 120.0, 0.0, 66.0 ),
             0.0
         );
@@ -86,7 +86,7 @@ export class StageOffice extends bz.Stage
         // staircase
         bz.RoomFactory.addStaircase(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( -65.0, 0.0, 0.0 ),
             0.0,
             bz.TextureFile.WALL_CONCRETE_NEW,
@@ -96,17 +96,17 @@ export class StageOffice extends bz.Stage
 
         // lightyard
         bz.AECFactory.addLightyard(
-            this, meshFactory, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+            this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
         );
 
         // office kitchen
         bz.AECFactory.addOfficeKitchen(
-            this, meshFactory, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+            this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
         );
 
         // kicker lounge
         bz.AECFactory.addKickerLounge(
-            this, meshFactory, new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+            this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
         );
 
         if ( true )
@@ -124,7 +124,7 @@ export class StageOffice extends bz.Stage
         // small office
         bz.AECFactory.addSmallOffice(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
@@ -132,7 +132,7 @@ export class StageOffice extends bz.Stage
         // parking lot
         bz.AECFactory.addParkingLot(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
@@ -140,7 +140,7 @@ export class StageOffice extends bz.Stage
         // small park
         bz.AECFactory.addSmallPark(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
             0.0
         );
@@ -148,7 +148,7 @@ export class StageOffice extends bz.Stage
         // back yard
         bz.AECFactory.addBackyard(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 1700.0, 0.0, 1700.0 ),
             0.0
         );
@@ -156,7 +156,7 @@ export class StageOffice extends bz.Stage
         // warehouse
         bz.AECFactory.addWarehouse(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
@@ -164,7 +164,7 @@ export class StageOffice extends bz.Stage
         // residental street
         bz.AECFactory.addResidentalStreet(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
             0.0
         );
@@ -172,7 +172,7 @@ export class StageOffice extends bz.Stage
         // parking lot
         bz.AECFactory.addParkingLot(
             this,
-            meshFactory,
+            this.getMeshFactory(),
             new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
@@ -197,7 +197,7 @@ export class StageOffice extends bz.Stage
         this.addShadowGenerator( pointLights2[ 0 ] );
 
         // add test sprites
-        this.addTestSprites( meshFactory );
+        this.addTestSprites();
 
         // add test bots
         this.addTestBots();
@@ -276,10 +276,8 @@ export class StageOffice extends bz.Stage
 
     /** ****************************************************************************************************************
     *   Adds some trees to this stage.
-    *
-    *   @param meshFactory The MeshFactory instance.
     *******************************************************************************************************************/
-    private addTestSprites( meshFactory :bz.MeshFactory ) :void
+    private addTestSprites() :void
     {
         // create and animate a sprite
         const animatedFireSprite:bz.Sprite = new bz.Sprite

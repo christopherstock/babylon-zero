@@ -161,7 +161,7 @@ export class Item extends bz.Collectable
         {
             case bz.ItemType.SHOTGUN_SHELLS:
             {
-                return stage.createMeshFactory().createImportedModel(
+                return stage.getMeshFactory().createImportedModel(
                     bz.ModelFile.ITEM_SHOTGUN_SHELLS,
                     BABYLON.Vector3.Zero(),
                     bz.PhysicSet.ITEM
@@ -170,7 +170,7 @@ export class Item extends bz.Collectable
 
             case bz.ItemType.BULLETS_792MM:
             {
-                return stage.createMeshFactory()
+                return stage.getMeshFactory()
                     .createImportedModel(
                         bz.ModelFile.ITEM_SHOTGUN_SHELLS,
                         BABYLON.Vector3.Zero(),
@@ -185,7 +185,7 @@ export class Item extends bz.Collectable
 
             case bz.ItemType.SHOTGUN:
             {
-                return stage.createMeshFactory()
+                return stage.getMeshFactory()
                     .createImportedModel(
                         bz.ModelFile.SHOTGUN_M1014,
                         BABYLON.Vector3.Zero(),
@@ -198,7 +198,7 @@ export class Item extends bz.Collectable
 
             case bz.ItemType.PAINKILLER:
             {
-                return stage.createMeshFactory()
+                return stage.getMeshFactory()
                     .createImportedModel(
                         bz.ModelFile.ITEM_SHOTGUN_SHELLS,
                         BABYLON.Vector3.Zero(),
