@@ -27,9 +27,9 @@ export class SpriteSystem
     /** ****************************************************************************************************************
     *   Creates one sprite manager for each sprite file.
     *
-    *   @param scene The babylon.JS scene to append all textures to.
+    *   @param scene The game scene to append all sprite managers to.
     *******************************************************************************************************************/
-    public load( scene:BABYLON.Scene ) : void
+    public load( scene:bz.Scene ) : void
     {
         for ( let i:number = 0; i < this.filesToLoad.length; ++i )
         {
@@ -41,7 +41,11 @@ export class SpriteSystem
                 bz.SettingResource.PATH_IMAGE_SPRITE + spriteFile.fileName,
                 bz.SettingEngine.MAX_SPRITE_INSTANCES,
                 spriteFile.frameWidth,
-                scene
+                (
+                    spriteFile.fileName.indexOf( 'muzzleFlash/' ) !== -1
+                        ? scene.getNativeSceneFG()
+                        : scene.getNativeSceneBG()
+                )
             );
 
             if ( spriteFile.frameHeight !== spriteFile.frameWidth )

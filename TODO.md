@@ -5,12 +5,12 @@
 ===
 MVP
 ===
-TODO Stage.createMeshFactory() ?
-TODO Add muzzle flash to FOREGROUND scene!
+TODO Stage.createMeshFactory() ? - prune game + scene from stage?
 TODO Add muzzle flash to gun on firing.
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO wall rubble fx: immediate appearance
 TODO Add rotated versions of all level locations
+TODO Flag for muzzleFlashes to load in FG scene!
 TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO create player die effect (tilt cylinder and head etc.)

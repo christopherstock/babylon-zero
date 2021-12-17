@@ -77,7 +77,7 @@ export class Scene
         // init all sprites
         bz.Debug.init.log( 'Init sprites' );
         this.spriteSystem = new bz.SpriteSystem( bz.SpriteFile.ALL_SPRITE_FILES );
-        this.spriteSystem.load( this.babylonSceneBG );
+        this.spriteSystem.load( this );
 
         // init all sounds
         bz.Debug.init.log( 'Init sounds' );
