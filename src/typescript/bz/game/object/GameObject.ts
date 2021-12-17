@@ -117,18 +117,19 @@ export abstract class GameObject
 
             for ( const pickingInfo of pickingInfos )
             {
-                const impactPoint       :BABYLON.Vector3 = pickingInfo.pickedPoint;
                 const shotDirection     :BABYLON.Vector3 = shot.getRay().direction;
                 const impactMeshNormal  :BABYLON.Vector3 = pickingInfo.getNormal( true )
 
-                // const mirroredShotAngle :BABYLON.Vector3 = shotDirection.clone();
+                // const diff :BABYLON.Vector3 = impactMeshNormal.subtract( shotDirection );
+                // const mirroredShotAngle :BABYLON.Vector3 = shotDirection.clone().add( diff ).add( diff );
+
                 const mirroredShotAngle :BABYLON.Vector3 = impactMeshNormal.clone();
 
                 hitPoints.push
                 (
                     new bz.HitPoint
                     (
-                        impactPoint,
+                        pickingInfo.pickedPoint,
                         pickingInfo.pickedMesh,
                         impactMeshNormal,
                         mirroredShotAngle,
