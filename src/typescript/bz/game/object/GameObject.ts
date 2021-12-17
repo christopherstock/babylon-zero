@@ -117,19 +117,12 @@ export abstract class GameObject
 
             for ( const pickingInfo of pickingInfos )
             {
-                // TODO save 'shotDirection' in class Shot?
-                const impactPoint        :BABYLON.Vector3 = pickingInfo.pickedPoint;
-                const directionDelta     :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 1.0 );
-                const shotSourceRotation :BABYLON.Vector3 = shot.getSourceRotation();
-                const shotDirection      :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
-                    impactPoint,
-                    directionDelta,
-                    shotSourceRotation
-                ).subtract( impactPoint );
+                const impactPoint       :BABYLON.Vector3 = pickingInfo.pickedPoint;
+                const shotDirection     :BABYLON.Vector3 = shot.getRay().direction;
+                const impactMeshNormal  :BABYLON.Vector3 = pickingInfo.getNormal( true )
 
-                // TODO mirror shotDirection around
-
-                const impactMeshNormal :BABYLON.Vector3 = pickingInfo.getNormal( true )
+                // const mirroredShotAngle :BABYLON.Vector3 = shotDirection.clone();
+                const mirroredShotAngle :BABYLON.Vector3 = impactMeshNormal.clone();
 
                 hitPoints.push
                 (
@@ -138,9 +131,9 @@ export abstract class GameObject
                         impactPoint,
                         pickingInfo.pickedMesh,
                         impactMeshNormal,
-                        shotDirection,
+                        mirroredShotAngle,
                         pickingInfo.distance,
-                        shot.getRay().direction,
+                        shotDirection,
                         this
                     )
                 );
