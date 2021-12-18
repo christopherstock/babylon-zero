@@ -16,23 +16,23 @@ export class PlayerWearpon
     public static readonly SHOTGUN_LOWER_ROT_SPEED_X :number = 3.0;
     public static readonly SHOTGUN_RAISE_ROT_SPEED_X :number = 1.5;
 
-    /** Shotgun wearpon rotation X destination to reach. */
-    public                 targetShotgunRotX         :number  = 0;
+    /** Shotgun wearpon rotation X destination to reach. TODO to Vector2 ? */
+    public targetShotgunRotX :number  = 0;
     /** Shotgun wearpon rotation Y destination to reach. */
-    public                 targetShotgunRotY         :number  = 0;
+    public targetShotgunRotY :number  = 0;
 
-    /** Current Shotgun wearpon rotation X. */
-    private                shotgunRotX               :number  = 0;
+    /** Current Shotgun wearpon rotation X. TODO to Vector2 ? */
+    private shotgunRotX      :number  = 0;
     /** Current Shotgun wearpon rotation Y. */
-    private                shotgunRotY               :number  = 0;
+    private shotgunRotY      :number  = 0;
 
     /** If the wearpon shall currently be lowered. */
-    private                lowerWearpon              :boolean = false;
+    private lowerWearpon     :boolean = false;
     /** Current animation tick for wearpon lowering/raising animation. */
-    private                lowerWearponAnim          :number  = 0;
+    private lowerWearponAnim :number  = 0;
 
     /** The 3D model of the shotgun. */
-    private       readonly shotgun                   :bz.Wall = null;
+    private readonly shotgun :bz.Wall = null;
 
     /** ****************************************************************************************************************
     *   Create a new PlayerWearpon instance for 3D wearpon handling.

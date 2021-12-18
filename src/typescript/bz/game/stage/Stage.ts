@@ -648,6 +648,8 @@ export abstract class Stage
 
     /** ****************************************************************************************************************
     *   Adds a parficle effect for wall rubble on the specified point and normal.
+    *
+    *   TODO to FXFactory ?
     *******************************************************************************************************************/
     protected addWallRubble(
         point     :BABYLON.Vector3,
@@ -656,6 +658,8 @@ export abstract class Stage
     )
     : void
     {
+        // see https://doc.babylonjs.com/divingDeeper/particles/particle_system/tuning_gradients
+
         const RUBBLE_COUNT:number = bz.MathUtil.getRandomInt( 3, 6 );
 
         const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
@@ -702,13 +706,13 @@ export abstract class Stage
         particleSystem.addColorGradient( 0.0, new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 ) );
         particleSystem.addColorGradient( 0.75, new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 ) );
 
-        // particleSystem.addVelocityGradient( 0, 0.75 );
-        particleSystem.addVelocityGradient( 1, 2.5 );
-        particleSystem.addDragGradient( 0, 0.1 );
+        particleSystem.addVelocityGradient( 0, 0.5 ); // start
 
+        // particleSystem.addVelocityGradient( 1, 2.5 );
+        // particleSystem.addDragGradient( 0, 0.1 );
         // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
-        particleSystem.startDelay = 0.0;
+        particleSystem.startDelay    = 0.0;
         particleSystem.disposeOnStop = true;
 
         particleSystem.minSize = 0.05;
@@ -734,6 +738,8 @@ export abstract class Stage
 
     /** ****************************************************************************************************************
     *   Adds a rain effect to the stage.
+    *
+    *   TODO to FXFactory ?
     *******************************************************************************************************************/
     protected addRainEffect(
         size     :number = 0.3,

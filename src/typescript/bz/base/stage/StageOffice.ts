@@ -113,12 +113,12 @@ export class StageOffice extends bz.Stage
         this.addTestSprites();
 
         // debug/dev early exit
-        if ( true )
+        if ( this )
         {
             return;
         }
 
-        // add rain effect
+        // add rain effect TODO to FXFactory
         this.addRainEffect(
             3.0,
             750,
@@ -280,6 +280,8 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     private addTestSprites() :void
     {
+        // TODO to FXFactory
+
         // create and animate a sprite
         const animatedFireSprite:bz.Sprite = new bz.Sprite
         (
@@ -292,6 +294,8 @@ export class StageOffice extends bz.Stage
         );
         animatedFireSprite.animate( 0, true, false );
         this.addSprite( animatedFireSprite );
+
+        // 4 example tree sprites
 
         this.addSprite(
             [
@@ -466,14 +470,17 @@ export class StageOffice extends bz.Stage
             ]
         );
 
-        this.addCollectable(
-            new bz.Item
-            (
-                this,
-                new BABYLON.Vector3( 10.0, 7.5, 12.5 ),
-                bz.ItemType.SHOTGUN
-            )
-        );
+        if ( !this )
+        {
+            this.addCollectable(
+                new bz.Item
+                (
+                    this,
+                    new BABYLON.Vector3( 10.0, 7.5, 12.5 ),
+                    bz.ItemType.SHOTGUN
+                )
+            );
+        }
 
         this.addCollectable(
             new bz.Item

@@ -6,41 +6,42 @@ import * as bz from '../../..';
 export class PlayerPhysic
 {
     /** The id of the player's body mesh inside the mesh array. */
-    private static readonly PLAYER_BODY_ID               :number                             = 0;
+    private static readonly PLAYER_BODY_ID       :number = 0;
     /** The id of the player's head mesh inside the mesh array. */
-    private static readonly PLAYER_HEAD_ID               :number                             = 1;
+    private static readonly PLAYER_HEAD_ID       :number = 1;
     /** The id of the player's left hand mesh inside the mesh array. */
-    private static readonly PLAYER_LEFT_HAND_ID          :number                             = 2;
+    private static readonly PLAYER_LEFT_HAND_ID  :number = 2;
     /** The id of the player's left hand mesh inside the mesh array. */
-    private static readonly PLAYER_RIGHT_HAND_ID         :number                             = 3;
+    private static readonly PLAYER_RIGHT_HAND_ID :number = 3;
 
     /** The referenced body mesh. */
-    public        readonly body                         :BABYLON.AbstractMesh               = null;
+    public readonly body          :BABYLON.AbstractMesh = null;
     /** The referenced head mesh. */
-    public        readonly head                         :BABYLON.AbstractMesh               = null;
+    public readonly head          :BABYLON.AbstractMesh = null;
     /** The referenced left hand mesh. */
-    public        readonly leftHand                     :BABYLON.AbstractMesh               = null;
+    public readonly leftHand      :BABYLON.AbstractMesh = null;
     /** The referenced right hand mesh. */
-    public        readonly rightHand                    :BABYLON.AbstractMesh               = null;
+    public readonly rightHand     :BABYLON.AbstractMesh = null;
     /** The referenced 3D wearpon mesh. */
-    public        readonly shotgun                      :BABYLON.AbstractMesh               = null;
-
-    /** The current height of the player. Changes on ducking. */
-    public                 heightY                      :number                             = 0.0;
+    public readonly shotgun       :BABYLON.AbstractMesh = null;
 
     /** Current rotation. */
-    public                 rotation                     :BABYLON.Vector3                    = null;
+    public          rotation      :BABYLON.Vector3      = null;
     /** Current rotation delta. */
-    public                 rotationDelta                :BABYLON.Vector3                    = null;
+    public          rotationDelta :BABYLON.Vector3      = null;
     /** Current move delta. */
-    public                 moveDelta                    :BABYLON.Vector3                    = null;
+    public          moveDelta     :BABYLON.Vector3      = null;
+
+    /** The current height of the player. Changes on ducking. */
+    public          heightY       :number               = 0.0;
 
     /** ****************************************************************************************************************
     *   Create a new physical body handling for the player.
     *
-    *   @param model The player model.
+    *   @param model           The player model.
+    *   @param startupRotation The initial rotation for the player.
     *******************************************************************************************************************/
-    public constructor( model:bz.Model, startupRotation )
+    public constructor( model:bz.Model, startupRotation:BABYLON.Vector3 )
     {
         // reference the body and all limbs
         this.body      = model.getMesh( PlayerPhysic.PLAYER_BODY_ID       );
