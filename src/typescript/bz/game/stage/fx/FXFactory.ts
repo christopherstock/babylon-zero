@@ -49,16 +49,19 @@ export class FXFactory
     )
     : void
     {
+        const muzzleFlashRotation :number = 60.0;
+        const muzzleFlashWidth    :number = 1.75;
+        const muzzleFlashHeight   :number = 1.75;
         // distance from player position to muzzle flash
-        const flashOffset :BABYLON.Vector3 = new BABYLON.Vector3(
-            0.0,
-            2.5,
-            3.5
+        const muzzleFlashOffset   :BABYLON.Vector3 = new BABYLON.Vector3(
+            0.2, // 0.65,
+            0.2, // 1.25,
+            0.2 // 3.35
         );
 
         const muzzlePosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
             playerPosition,
-            flashOffset,
+            muzzleFlashOffset,
             new BABYLON.Vector3( playerRotation.z, playerRotation.y, 0.0 )
         );
 
@@ -67,9 +70,12 @@ export class FXFactory
             stage.getScene(),
             bz.SpriteFile.MUZZLE_FLASH_1,
             muzzlePosition,
-            2.5,
-            2.5,
-            bz.SpriteCollidable.NO
+            muzzleFlashWidth,
+            muzzleFlashHeight,
+            bz.SpriteCollidable.NO,
+            1.0,
+            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+            muzzleFlashRotation
         );
         muzzleFlash.animate();
         stage.addSprite( muzzleFlash );

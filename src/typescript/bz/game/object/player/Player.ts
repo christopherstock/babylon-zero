@@ -611,7 +611,7 @@ export class Player extends bz.GameObject
 
             // add muzzle flash to the wearpon
             bz.FXFactory.addMuzzleFlash(
-                this.getPosition(),
+                this.getPosition().add( this.playerPhysic.head.position ),
                 this.playerPhysic.rotation,
                 this.stage
             );

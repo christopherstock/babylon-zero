@@ -7,10 +7,12 @@ MVP
 ===
 TODO wall rubble fx: immediate appearance
 TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
+TODO animation fade in fade out fire one time animation
 TODO Add muzzle flash to GUN on firing.
 TODO Slow panning/turning/rotating etc. on zoomed!
 TODO Flag for muzzleFlashes to load in FG scene!
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
+TODO explosion rubble fx
 TODO Add rotated versions of all level locations
 TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
 TODO create player die effect (tilt cylinder and head etc.)
