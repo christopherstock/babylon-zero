@@ -9,6 +9,7 @@ TODO wall rubble fx: immediate appearance
 TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
 TODO animation fade in fade out fire one time animation
 TODO Add muzzle flash to GUN on firing.
+TODO suppress STRG+W! (Win10)
 TODO Slow panning/turning/rotating etc. on zoomed!
 TODO Flag for muzzleFlashes to load in FG scene!
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?

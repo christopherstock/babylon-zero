@@ -29,6 +29,8 @@ export class KeySystem
     *******************************************************************************************************************/
     public onKeyDown( event:Event ) : void
     {
+        // event.preventDefault();
+
         const keyCode:string = ( event as KeyboardEvent ).code;
 
         if ( !this.keysNeedRelease[ keyCode ] )
@@ -46,6 +48,8 @@ export class KeySystem
     *******************************************************************************************************************/
     public onKeyUp( event:Event ) : void
     {
+        // event.preventDefault();
+
         const keyCode:string = ( event as KeyboardEvent ).code;
 
         this.keysPressed[     keyCode ] = false;

@@ -32,7 +32,7 @@ export class PlayerWearpon
     private lowerWearponAnim :number  = 0;
 
     /** The 3D model of the shotgun. */
-    private readonly shotgun :bz.Wall = null;
+    public readonly shotgun :bz.Wall = null;
 
     /** ****************************************************************************************************************
     *   Create a new PlayerWearpon instance for 3D wearpon handling.
