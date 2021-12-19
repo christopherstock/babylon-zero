@@ -11,6 +11,7 @@ TODO animation fade in fade out fire one time animation
 TODO Add muzzle flash to GUN on firing.
 TODO suppress STRG+W! (Win10)
 TODO Slow panning/turning/rotating etc. on zoomed!
+TODO Stick muzzle flashes to wearpon (when moving). Keep mesh as reference muzzle flash point in wearpon!
 TODO Flag for muzzleFlashes to load in FG scene!
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO explosion rubble fx

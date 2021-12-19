@@ -50,14 +50,14 @@ export class FXFactory
     : void
     {
         // TODO to 'SettingsShotgun'
-        const muzzleFlashRotation :number = 0.0;
+        const muzzleFlashRotation :number = 60.0;
         const muzzleFlashWidth    :number = 1.75;
         const muzzleFlashHeight   :number = 1.75;
         // distance from player position to muzzle flash
         const muzzleFlashOffset   :BABYLON.Vector3 = new BABYLON.Vector3(
-            0.50, // 0.65,
-            0.25, // 1.25,
-            2.5 // 3.00 // 3.35
+            0.65,
+            -0.20,
+            3.20
         );
 
         const muzzlePosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
@@ -75,7 +75,7 @@ export class FXFactory
             muzzleFlashHeight,
             bz.SpriteCollidable.NO,
             1.0,
-            bz.MeshAnchor.CENTER_XZ_LOWEST_Y,
+            bz.MeshAnchor.CENTER_XYZ,
             muzzleFlashRotation
         );
         muzzleFlash.animate();

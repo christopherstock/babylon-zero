@@ -611,8 +611,8 @@ export class Player extends bz.GameObject
 
             // add muzzle flash to the wearpon
             bz.FXFactory.addMuzzleFlash(
-                // this.playerPhysic.head.getAbsolutePivotPoint(),
-                this.playerWearpon.shotgun.getModel().getMesh( 0 ).getAbsolutePivotPoint(),
+                this.playerPhysic.head.getAbsolutePivotPoint(),
+                // this.playerWearpon.shotgun.getModel().getMesh( 0 ).getAbsolutePivotPoint(),
                 this.playerPhysic.rotation,
                 this.stage
             );
