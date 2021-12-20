@@ -613,7 +613,6 @@ export class Player extends bz.GameObject
             bz.FXFactory.addMuzzleFlash(
                 this.stage,
                 this.playerPhysic.head.getAbsolutePivotPoint(),
-                // this.playerWearpon.shotgun.getModel().getMesh( 0 ).getAbsolutePivotPoint(),
                 this.playerPhysic.rotation
             );
 

@@ -39,7 +39,7 @@ export class FXFactory
     *   Adds an one-time 'muzzle flash' sprite to the stage.
     *
     *   @param stage    The stage to add the muzzle flash to.
-    *   @param pivot    The current position of the player head - acts as pivot.
+    *   @param pivot    The absolute pivot point of the player head - acts as pivot.
     *   @param rotation The current rotation of the player.
     *******************************************************************************************************************/
     public static addMuzzleFlash(
@@ -49,14 +49,12 @@ export class FXFactory
     )
     : void
     {
-        // TODO to 'SettingsShotgun'
-        const muzzleFlashRotation :number = 60.0;
-        const muzzleFlashWidth    :number = 1.75;
-        const muzzleFlashHeight   :number = 1.75;
-        // distance from player position to muzzle flash
-        const muzzleFlashOffset   :BABYLON.Vector3 = new BABYLON.Vector3( 0.65, -0.20, 3.20 );
+        const muzzleFlashRotation :number          = bz.SettingWearpon.SHOTGUN_MUZZLE_FLASH_ROTATION;
+        const muzzleFlashWidth    :number          = bz.SettingWearpon.SHOTGUN_MUZZLE_FLASH_WIDTH;
+        const muzzleFlashHeight   :number          = bz.SettingWearpon.SHOTGUN_MUZZLE_FLASH_HEIGHT;
+        const muzzleFlashOffset   :BABYLON.Vector3 = bz.SettingWearpon.SHOTGUN_MUZZLE_FLASH_OFFSET;
 
-        const muzzlePosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
+        const muzzlePosition      :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
             pivot,
             muzzleFlashOffset,
             new BABYLON.Vector3( rotation.z, rotation.y, 0.0 )
