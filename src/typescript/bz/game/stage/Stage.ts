@@ -271,7 +271,8 @@ export abstract class Stage
                 impactHitPoint.getMesh()
             );
  */
-            this.addWallRubble(
+            bz.FXFactory.addWallRubble(
+                this,
                 impactHitPoint.getPoint(),
                 impactHitPoint.getMirroredShotAngle(),
                 meshTextureFile
@@ -566,6 +567,16 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
+    *   Adds a particle effect to this stage.
+    *
+    *   @param particleSystem The particle system effect to add to this stage.
+    *******************************************************************************************************************/
+    public addParticleEffect( particleSystem:(BABYLON.ParticleSystemSet|BABYLON.ParticleSystem) ) : void
+    {
+        this.particleEffects.push( particleSystem )
+    }
+
+    /** ****************************************************************************************************************
     *   Adds collectables to the stage.
     *
     *   @param collectables The collectables to add to this stage.
@@ -644,96 +655,6 @@ export abstract class Stage
     protected setSkybox( file:bz.SkyBoxFile, alpha:number ) : void
     {
         this.skybox = this.meshFactory.createSkyBoxCube( file, alpha );
-    }
-
-    /** ****************************************************************************************************************
-    *   Adds a parficle effect for wall rubble on the specified point and normal.
-    *
-    *   TODO to FXFactory ?
-    *******************************************************************************************************************/
-    protected addWallRubble(
-        point     :BABYLON.Vector3,
-        direction :BABYLON.Vector3,
-        tex       :bz.TextureFile
-    )
-    : void
-    {
-        // see https://doc.babylonjs.com/divingDeeper/particles/particle_system/tuning_gradients
-
-        const RUBBLE_COUNT:number = bz.MathUtil.getRandomInt( 3, 6 );
-
-        const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
-            'wall_rubble',
-            100,
-            this.getScene().getNativeSceneBG()
-        );
-
-        particleSystem.particleTexture = tex.createNewTextureInstance( 10.0, 10.0 );
-/*
-        particleSystem.particleTexture.hasAlpha = true;
-        particleSystem.particleTexture.uScale = 5.0;
-        particleSystem.particleTexture.vScale = 5.0;
-        // particleSystem.particleTexture.wrapU  = 0.0001;
-        // particleSystem.particleTexture.wrapV  = 0.0001;
-*/
-        // 0.01 * bz.MathUtil.getRandomInt( 1, 5 )
-
-        // particleSystem.color1 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
-        // particleSystem.color2 = new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 );
-        // particleSystem.colorDead = new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 );
-
-        particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
-
-        particleSystem.emitter = point;
-
-        particleSystem.emitRate = RUBBLE_COUNT;
-        particleSystem.targetStopDuration = 1.0;
-        particleSystem.updateSpeed = bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED;
-
-        particleSystem.minEmitPower = 0.20;
-        particleSystem.maxEmitPower = 2.00;
-
-        particleSystem.minAngularSpeed = 0;
-        particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad( 360.0 );
-
-        particleSystem.minLifeTime = 5.0;
-        particleSystem.maxLifeTime = 12.5;
-
-        particleSystem.minInitialRotation = 0;
-        particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad( 360.0 );
-
-        particleSystem.addAngularSpeedGradient( 0, 1.5 );
-        particleSystem.addColorGradient( 0.0, new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 ) );
-        particleSystem.addColorGradient( 0.75, new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 ) );
-
-        particleSystem.addVelocityGradient( 0, 0.5 ); // start
-
-        // particleSystem.addVelocityGradient( 1, 2.5 );
-        // particleSystem.addDragGradient( 0, 0.1 );
-        // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
-
-        particleSystem.startDelay    = 0.0;
-        particleSystem.disposeOnStop = true;
-
-        particleSystem.minSize = 0.05;
-        particleSystem.maxSize = 0.25;
-
-        // direction
-        particleSystem.gravity = this.getScene().getNativeSceneBG().gravity.clone().scale( 0.30 );
-
-        // scale possible direction range from 0.1 to 1.0
-        particleSystem.direction1 = direction.clone().scale( 0.1 );
-        particleSystem.direction2 = direction.clone().scale( 1.0 );
-
-        // emit box size
-        // particleSystem.minEmitBox = new BABYLON.Vector3( -0.1, -0.1, -0.1 ); // Bottom Left Front
-        // particleSystem.maxEmitBox = new BABYLON.Vector3( 0.1, 0.1, 0.1 ); // Top Right Back
-        particleSystem.minEmitBox = BABYLON.Vector3.Zero();
-        particleSystem.maxEmitBox = BABYLON.Vector3.Zero();
-
-        particleSystem.start();
-
-        this.particleEffects.push( particleSystem );
     }
 
     /** ****************************************************************************************************************
