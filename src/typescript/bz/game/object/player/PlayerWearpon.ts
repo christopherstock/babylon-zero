@@ -39,15 +39,14 @@ export class PlayerWearpon
                 stage.getMeshFactory().createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
-                    // TODO to 'SettingsShotgun'
                     new BABYLON.Vector3(
-                        1.2,
-                        -0.75 - (
+                        bz.SettingWearpon.SHOTGUN_MESH_STARTUP_POSITION.x,
+                        bz.SettingWearpon.SHOTGUN_MESH_STARTUP_POSITION.y - (
                             this.lowerWearpon
                                 ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
                                 : 0.0
                         ),
-                        1.5
+                        bz.SettingWearpon.SHOTGUN_MESH_STARTUP_POSITION.z
                     ),
                     bz.PhysicSet.NONE,
                     null
@@ -59,11 +58,6 @@ export class PlayerWearpon
             const mesh :BABYLON.AbstractMesh = this.shotgun.getModel().getMesh( i );
 
             mesh.parent = playerHead;
-
-            // mesh.showBoundingBox = true;
-            // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
-            // mesh.getBoundingInfo().boundingBox.scale( 10.0 );
-            // mesh.getBoundingInfo().boundingSphere.scale( 10.0 );
         }
 
         // raise the wearpon if initially lowered
@@ -189,15 +183,12 @@ export class PlayerWearpon
                 )
             );
 
-            // TODO to 'SettingsShotgun'
-            this.targetShotgunRotation.x = ( this.lowerWearpon ? 45.0 : 45.0 );
-
-            // TODO to 'SettingsShotgun'
+            this.targetShotgunRotation.x = bz.SettingWearpon.SHOTGUN_TARGET_ROT_X_ON_LOWERING;
 
             // upright from this magic tick on ..
-            if ( !this.lowerWearpon && this.lowerWearponAnim < 17 )
+            if ( !this.lowerWearpon && this.lowerWearponAnim < bz.SettingWearpon.SHOTGUN_MAGIC_RAISING_UPRIGHT_TICK )
             {
-                this.targetShotgunRotation.x = 0;
+                this.targetShotgunRotation.x = 0.0;
             }
 
             --this.lowerWearponAnim;
