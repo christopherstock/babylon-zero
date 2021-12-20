@@ -38,14 +38,14 @@ export class FXFactory
     /** ****************************************************************************************************************
     *   Adds an one-time 'muzzle flash' sprite to the stage.
     *
+    *   @param stage    The stage to add the muzzle flash to.
     *   @param pivot    The current position of the player head - acts as pivot.
     *   @param rotation The current rotation of the player.
-    *   @param stage    The stage to add the muzzle flash to.
     *******************************************************************************************************************/
     public static addMuzzleFlash(
+        stage    :bz.Stage,
         pivot    :BABYLON.Vector3,
-        rotation :BABYLON.Vector3,
-        stage    :bz.Stage
+        rotation :BABYLON.Vector3
     )
     : void
     {
@@ -174,5 +174,49 @@ export class FXFactory
         particleSystem.start();
 
         stage.addParticleEffect( particleSystem );
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds a rain effect to the stage.
+    *
+    *   @param stage    Stage to add the rain effect to.
+    *   @param size     Size of the rain particles.
+    *   @param quantity Number of raindrops to generate.
+    *   @param gravity  Gravity for the raindrops to apply.
+    *******************************************************************************************************************/
+    public static addRainEffect(
+        stage    :bz.Stage,
+        size     :number = 0.3,
+        quantity :number = 600,
+        gravity  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+    )
+    : void
+    {
+        BABYLON.ParticleHelper.CreateAsync(
+            'rain',
+            stage.getScene().getNativeSceneBG(),
+            false
+        ).then(
+            ( particleSystem:BABYLON.ParticleSystemSet ) =>
+            {
+                for ( const system of particleSystem.systems )
+                {
+                    system.name = 'rain_effect';
+
+                    system.maxScaleX = size;
+                    system.maxScaleY = size;
+                    system.emitRate  = quantity;
+                    system.gravity   = gravity;
+                }
+                particleSystem.start();
+
+                stage.addParticleEffect( particleSystem );
+            }
+        ).catch(
+            () =>
+            {
+                // no need to handle this error
+            }
+        )
     }
 }

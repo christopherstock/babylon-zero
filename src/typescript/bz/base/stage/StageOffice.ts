@@ -118,8 +118,9 @@ export class StageOffice extends bz.Stage
             return;
         }
 
-        // add rain effect TODO to FXFactory
-        this.addRainEffect(
+        // add rain effect
+        bz.FXFactory.addRainEffect(
+            this,
             3.0,
             750,
             new BABYLON.Vector3( 0.5, -1.5, 0.5 )

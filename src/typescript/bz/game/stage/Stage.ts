@@ -658,46 +658,6 @@ export abstract class Stage
     }
 
     /** ****************************************************************************************************************
-    *   Adds a rain effect to the stage.
-    *
-    *   TODO to FXFactory ?
-    *******************************************************************************************************************/
-    protected addRainEffect(
-        size     :number = 0.3,
-        quantity :number = 600,
-        gravity  :BABYLON.Vector3 = new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-    )
-    : void
-    {
-        BABYLON.ParticleHelper.CreateAsync(
-            'rain',
-            this.getScene().getNativeSceneBG(),
-            false
-        ).then(
-            ( particleSystem:BABYLON.ParticleSystemSet ) =>
-            {
-                for ( const system of particleSystem.systems )
-                {
-                    system.name = 'rain_effect';
-
-                    system.maxScaleX = size;
-                    system.maxScaleY = size;
-                    system.emitRate  = quantity;
-                    system.gravity   = gravity;
-                }
-                particleSystem.start();
-
-                this.particleEffects.push( particleSystem );
-            }
-        ).catch(
-            () =>
-            {
-                // no need to handle this error
-            }
-        )
-    }
-
-    /** ****************************************************************************************************************
     *   Creates the camera system that manages all cameras that appear in this stage.
     *
     *   @return The camera system for this stage.
