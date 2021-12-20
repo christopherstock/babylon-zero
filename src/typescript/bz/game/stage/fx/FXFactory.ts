@@ -219,4 +219,26 @@ export class FXFactory
             }
         )
     }
+
+    /** ****************************************************************************************************************
+    *   Adds a permanent fire effect to the stage.
+    *
+    *   @param stage Stage to add the fire effect to.
+    *******************************************************************************************************************/
+    public static addFirePermanent( stage :bz.Stage ) : void
+    {
+        // create and animate a sprite
+        const animatedFireSprite:bz.Sprite = new bz.Sprite
+        (
+            stage.getScene(),
+            bz.SpriteFile.FIRE,
+            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            10.0,
+            20.0,
+            bz.SpriteCollidable.NO
+        );
+        animatedFireSprite.animate( 0, true, false );
+
+        stage.addSprite( animatedFireSprite );
+    }
 }

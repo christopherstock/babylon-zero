@@ -281,23 +281,10 @@ export class StageOffice extends bz.Stage
     *******************************************************************************************************************/
     private addTestSprites() :void
     {
-        // TODO to FXFactory
-
-        // create and animate a sprite
-        const animatedFireSprite:bz.Sprite = new bz.Sprite
-        (
-            this.getScene(),
-            bz.SpriteFile.FIRE,
-            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
-            10.0,
-            20.0,
-            bz.SpriteCollidable.NO
-        );
-        animatedFireSprite.animate( 0, true, false );
-        this.addSprite( animatedFireSprite );
+        // permanent fire effect
+        bz.FXFactory.addFirePermanent( this );
 
         // 4 example tree sprites
-
         this.addSprite(
             [
                 new bz.Sprite
