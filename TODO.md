@@ -6,33 +6,41 @@
 MVP
 ===
 TODO Slow panning/turning/rotating etc. on zoomed!
-TODO Flag for muzzleFlashes to load in FG scene!
-TODO Add rotated versions of all level locations
-TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
-TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
+TODO Shotgun: Multiple bullets per shot!
 
+TODO Fix transparent window walls through opaque walls?
 TODO wall rubble fx: immediate appearance
 TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
-TODO Add 'shotgun' collectable/item.
-TODO Fix transparent window walls through opaque walls?
 TODO animation fade in fade out for FIRE one time animation
-TODO Add/KEEP muzzle flash to GUN on firing.
-TODO Stick muzzle flashes to wearpon (when moving). Keep mesh as reference muzzle flash point in wearpon!
+
+TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
+TODO Add rotated versions of all level locations
+TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
+TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
+TODO Add 'shotgun' collectable/item. (2nd wearpon model in fg?)
+TODO apply max shotgun rotation X on player turnaround. 
+
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO explosion rubble fx
-TODO create player die effect (tilt cylinder and head etc.)
-TODO max shotgun rotation X on player turnaround. 
-TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
-TODO Add camera intro running into player head.
-TODO Shotgun: Multiple bullets per shot!
-TODO Fix the mistery of moving static walls? ('diamond walls')
-TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
-TODO try outline for items again? // bench1.getModel().addOutline( this.getScene() );, 'glow fx' GlowLayer?
+
 TODO dark/correctly lighted bullet holes? let bullet holes clone (emissive) mesh material?
+TODO create player die effect (tilt cylinder and head etc.)
+
+TODO Add/KEEP muzzle flash to GUN on firing.
+TODO Stick muzzle flashes to wearpon (when moving). Keep mesh as reference muzzle flash point in wearpon!
+
+TODO Fix the mistery of moving static walls? ('diamond walls')
+TODO try outline for items again? // bench1.getModel().addOutline( this.getScene() );, 'glow fx' GlowLayer?
 TODO make class Event abstract and add subclasses (EventData/EventType?)
 TODO Improve stairs texture / or improve stair creation to meshed stair steps?
 TODO Draw outline for pickable items? HightlightLayer playground: https://doc.babylonjs.com/divingDeeper/mesh/highlightLayer
 TODO Reset Git Repository?
+
+=================
+Code Improvements
+=================
+TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
+TODO Flag for muzzleFlash sprites to load in FG scene!
 
 ==
 Fx
@@ -49,6 +57,7 @@ TODO Improve IntroVideo ("Intro Logo") with exploding item flying into camera & 
 TODO try exploding mayflower logo (from 3dsmax promo?)
 TODO Try particle systems 'smoke' and 'fire'?
 TODO Enable switchable Player carried light/lamp. (KEY_F to toggle flashlight)
+TODO Add camera intro running into player head.
 TODO try gold metal effect etc for IntroVideo logo
 TODO try cloning via scene importer? instead of method cloneModel() !? try async/await
 TODO Load multiple 'dancing girls'?
