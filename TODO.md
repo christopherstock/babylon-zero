@@ -21,6 +21,7 @@ TODO Stick muzzle flashes to wearpon (when moving). Keep mesh as reference muzzl
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO explosion rubble fx
 TODO create player die effect (tilt cylinder and head etc.)
+TODO max shotgun rotation X on player turnaround. 
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Add camera intro running into player head.
 TODO Shotgun: Multiple bullets per shot!

@@ -24,6 +24,7 @@ export * from './base/setting/SettingGame';
 export * from './base/setting/SettingGUI';
 export * from './base/setting/SettingPlayer';
 export * from './base/setting/SettingResource';
+export * from './base/setting/SettingWearpon';
 
 export * from './game/engine/Engine';
 export * from './game/Game';

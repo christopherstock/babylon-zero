@@ -54,11 +54,7 @@ export class FXFactory
         const muzzleFlashWidth    :number = 1.75;
         const muzzleFlashHeight   :number = 1.75;
         // distance from player position to muzzle flash
-        const muzzleFlashOffset   :BABYLON.Vector3 = new BABYLON.Vector3(
-            0.65,
-            -0.20,
-            3.20
-        );
+        const muzzleFlashOffset   :BABYLON.Vector3 = new BABYLON.Vector3( 0.65, -0.20, 3.20 );
 
         const muzzlePosition :BABYLON.Vector3 = bz.MathUtil.rotateVector3(
             pivot,

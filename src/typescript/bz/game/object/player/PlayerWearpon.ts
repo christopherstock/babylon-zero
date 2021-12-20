@@ -5,18 +5,6 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class PlayerWearpon
 {
-    // TODO to 'SettingsShotgun'
-    public static readonly SHOTGUN_NOISE_X           :number = 0.05;
-    public static readonly SHOTGUN_NOISE_Y           :number = 0.05;
-    public static readonly SHOTGUN_MAX_ROT_X         :number = 12.5;
-    public static readonly SHOTGUN_MAX_ROT_Y         :number = 10.0;
-    public static readonly SHOTGUN_ROT_SPEED_X       :number = 0.20;
-    public static readonly SHOTGUN_ROT_SPEED_Y       :number = 0.20;
-    public static readonly SHOTGUN_CENTER_SPEED      :number = 1.00;
-    public static readonly SHOTGUN_LOWER_SIZE_Y      :number = 0.07;
-    public static readonly SHOTGUN_LOWER_ROT_SPEED_X :number = 3.0;
-    public static readonly SHOTGUN_RAISE_ROT_SPEED_X :number = 1.5;
-
     /** Shotgun wearpon rotation destination to reach. */
     public targetShotgunRotation :BABYLON.Vector3 = null;
     /** Current Shotgun wearpon rotation. */
@@ -56,7 +44,7 @@ export class PlayerWearpon
                         1.2,
                         -0.75 - (
                             this.lowerWearpon
-                                ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * PlayerWearpon.SHOTGUN_LOWER_SIZE_Y
+                                ? bz.SettingPlayer.TICKS_LOWER_RAISE_WEARPON * bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
                                 : 0.0
                         ),
                         1.5
@@ -126,11 +114,11 @@ export class PlayerWearpon
         {
             this.shotgunRotation.x += (
                 this.lowerWearponAnim > 0
-                    ? PlayerWearpon.SHOTGUN_LOWER_ROT_SPEED_X
+                    ? bz.SettingWearpon.SHOTGUN_LOWER_ROT_SPEED_X
                     : (
                         this.targetShotgunRotation.x === 0
-                            ? PlayerWearpon.SHOTGUN_CENTER_SPEED
-                            : PlayerWearpon.SHOTGUN_ROT_SPEED_X
+                            ? bz.SettingWearpon.SHOTGUN_CENTER_SPEED
+                            : bz.SettingWearpon.SHOTGUN_ROT_SPEED_X
                     )
             );
             if ( this.shotgunRotation.x > this.targetShotgunRotation.x )
@@ -142,11 +130,11 @@ export class PlayerWearpon
         {
             this.shotgunRotation.x -= (
                 this.lowerWearponAnim > 0
-                    ? PlayerWearpon.SHOTGUN_RAISE_ROT_SPEED_X
+                    ? bz.SettingWearpon.SHOTGUN_RAISE_ROT_SPEED_X
                     : (
                         this.targetShotgunRotation.x === 0
-                            ? PlayerWearpon.SHOTGUN_CENTER_SPEED
-                            : PlayerWearpon.SHOTGUN_ROT_SPEED_X
+                            ? bz.SettingWearpon.SHOTGUN_CENTER_SPEED
+                            : bz.SettingWearpon.SHOTGUN_ROT_SPEED_X
                     )
             );
             if ( this.shotgunRotation.x < this.targetShotgunRotation.x )
@@ -158,8 +146,8 @@ export class PlayerWearpon
         {
             this.shotgunRotation.y += (
                 this.targetShotgunRotation.y === 0 ?
-                    PlayerWearpon.SHOTGUN_CENTER_SPEED
-                    : PlayerWearpon.SHOTGUN_ROT_SPEED_Y
+                    bz.SettingWearpon.SHOTGUN_CENTER_SPEED
+                    : bz.SettingWearpon.SHOTGUN_ROT_SPEED_Y
             );
             if ( this.shotgunRotation.y > this.targetShotgunRotation.y )
             {
@@ -170,8 +158,8 @@ export class PlayerWearpon
         {
             this.shotgunRotation.y -= (
                 this.targetShotgunRotation.y === 0 ?
-                    PlayerWearpon.SHOTGUN_CENTER_SPEED
-                    : PlayerWearpon.SHOTGUN_ROT_SPEED_Y
+                    bz.SettingWearpon.SHOTGUN_CENTER_SPEED
+                    : bz.SettingWearpon.SHOTGUN_ROT_SPEED_Y
             );
             if ( this.shotgunRotation.y < this.targetShotgunRotation.y )
             {
@@ -196,7 +184,7 @@ export class PlayerWearpon
             this.shotgun.getModel().translatePosition(
                 new BABYLON.Vector3(
                     0.0,
-                    ( this.lowerWearpon ? -PlayerWearpon.SHOTGUN_LOWER_SIZE_Y : PlayerWearpon.SHOTGUN_LOWER_SIZE_Y ),
+                    ( this.lowerWearpon ? -bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y : bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y ),
                     0.0
                 )
             );
