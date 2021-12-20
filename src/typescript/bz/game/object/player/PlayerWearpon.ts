@@ -16,15 +16,10 @@ export class PlayerWearpon
     public static readonly SHOTGUN_LOWER_ROT_SPEED_X :number = 3.0;
     public static readonly SHOTGUN_RAISE_ROT_SPEED_X :number = 1.5;
 
-    /** Shotgun wearpon rotation X destination to reach. TODO to Vector2 ? */
-    public targetShotgunRotX :number  = 0;
-    /** Shotgun wearpon rotation Y destination to reach. */
-    public targetShotgunRotY :number  = 0;
-
-    /** Current Shotgun wearpon rotation X. TODO to Vector2 ? */
-    private shotgunRotX      :number  = 0;
-    /** Current Shotgun wearpon rotation Y. */
-    private shotgunRotY      :number  = 0;
+    /** Shotgun wearpon rotation destination to reach. */
+    public targetShotgunRotation :BABYLON.Vector3 = null;
+    /** Current Shotgun wearpon rotation. */
+    public shotgunRotation       :BABYLON.Vector3 = null;
 
     /** If the wearpon shall currently be lowered. */
     private lowerWearpon     :boolean = false;
@@ -32,7 +27,7 @@ export class PlayerWearpon
     private lowerWearponAnim :number  = 0;
 
     /** The 3D model of the shotgun. */
-    public readonly shotgun :bz.Wall = null;
+    private readonly shotgun :bz.Wall = null;
 
     /** ****************************************************************************************************************
     *   Create a new PlayerWearpon instance for 3D wearpon handling.
@@ -43,6 +38,9 @@ export class PlayerWearpon
     public constructor( stage:bz.Stage, playerHead:BABYLON.AbstractMesh )
     {
         this.lowerWearpon = bz.SettingPlayer.START_WITH_LOWERED_WEARPON;
+
+        this.targetShotgunRotation = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
+        this.shotgunRotation       = new BABYLON.Vector3( 0.0, 0.0, 0.0 );
 
         // add a shotgun to the right player hand
         this.shotgun = (
@@ -122,62 +120,66 @@ export class PlayerWearpon
     *******************************************************************************************************************/
     private updateShotgunRotation() : void
     {
-        if ( this.targetShotgunRotX > this.shotgunRotX )
+        if ( this.targetShotgunRotation.x > this.shotgunRotation.x )
         {
-            this.shotgunRotX += (
+            this.shotgunRotation.x += (
                 this.lowerWearponAnim > 0
                     ? PlayerWearpon.SHOTGUN_LOWER_ROT_SPEED_X
                     : (
-                        this.targetShotgunRotX === 0
+                        this.targetShotgunRotation.x === 0
                             ? PlayerWearpon.SHOTGUN_CENTER_SPEED
                             : PlayerWearpon.SHOTGUN_ROT_SPEED_X
                     )
             );
-            if ( this.shotgunRotX > this.targetShotgunRotX )
+            if ( this.shotgunRotation.x > this.targetShotgunRotation.x )
             {
-                this.shotgunRotX = this.targetShotgunRotX;
+                this.shotgunRotation.x = this.targetShotgunRotation.x;
             }
         }
-        else if ( this.targetShotgunRotX < this.shotgunRotX )
+        else if ( this.targetShotgunRotation.x < this.shotgunRotation.x )
         {
-            this.shotgunRotX -= (
+            this.shotgunRotation.x -= (
                 this.lowerWearponAnim > 0
                     ? PlayerWearpon.SHOTGUN_RAISE_ROT_SPEED_X
                     : (
-                        this.targetShotgunRotX === 0
+                        this.targetShotgunRotation.x === 0
                             ? PlayerWearpon.SHOTGUN_CENTER_SPEED
                             : PlayerWearpon.SHOTGUN_ROT_SPEED_X
                     )
             );
-            if ( this.shotgunRotX < this.targetShotgunRotX )
+            if ( this.shotgunRotation.x < this.targetShotgunRotation.x )
             {
-                this.shotgunRotX = this.targetShotgunRotX;
+                this.shotgunRotation.x = this.targetShotgunRotation.x;
             }
         }
-        if ( this.targetShotgunRotY > this.shotgunRotY )
+        if ( this.targetShotgunRotation.y > this.shotgunRotation.y )
         {
-            this.shotgunRotY += (
-                this.targetShotgunRotY === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_Y
+            this.shotgunRotation.y += (
+                this.targetShotgunRotation.y === 0 ?
+                    PlayerWearpon.SHOTGUN_CENTER_SPEED
+                    : PlayerWearpon.SHOTGUN_ROT_SPEED_Y
             );
-            if ( this.shotgunRotY > this.targetShotgunRotY )
+            if ( this.shotgunRotation.y > this.targetShotgunRotation.y )
             {
-                this.shotgunRotY = this.targetShotgunRotY;
+                this.shotgunRotation.y = this.targetShotgunRotation.y;
             }
         }
-        else if ( this.targetShotgunRotY < this.shotgunRotY )
+        else if ( this.targetShotgunRotation.y < this.shotgunRotation.y )
         {
-            this.shotgunRotY -= (
-                this.targetShotgunRotY === 0 ? PlayerWearpon.SHOTGUN_CENTER_SPEED : PlayerWearpon.SHOTGUN_ROT_SPEED_Y
+            this.shotgunRotation.y -= (
+                this.targetShotgunRotation.y === 0 ?
+                    PlayerWearpon.SHOTGUN_CENTER_SPEED
+                    : PlayerWearpon.SHOTGUN_ROT_SPEED_Y
             );
-            if ( this.shotgunRotY < this.targetShotgunRotY )
+            if ( this.shotgunRotation.y < this.targetShotgunRotation.y )
             {
-                this.shotgunRotY = this.targetShotgunRotY;
+                this.shotgunRotation.y = this.targetShotgunRotation.y;
             }
         }
 
         this.shotgun.getModel().setAbsoluteRotationXYZ(
-            Math.fround( this.shotgunRotX ),
-            Math.fround( this.shotgunRotY ),
+            Math.fround( this.shotgunRotation.x ),
+            Math.fround( this.shotgunRotation.y ),
             0.0
         );
     }
@@ -197,20 +199,20 @@ export class PlayerWearpon
                 )
             );
 
-            this.targetShotgunRotX = ( this.lowerWearpon ? 45.0 : 45.0 );
+            this.targetShotgunRotation.x = ( this.lowerWearpon ? 45.0 : 45.0 );
 
             // upright from this magic tick on ..
             if ( !this.lowerWearpon && this.lowerWearponAnim < 17 )
             {
-                this.targetShotgunRotX = 0;
+                this.targetShotgunRotation.x = 0;
             }
 
             --this.lowerWearponAnim;
 
             if ( this.lowerWearponAnim === 0 )
             {
-                this.shotgunRotX = 0.0;
-                this.targetShotgunRotX = 0.0;
+                this.shotgunRotation.x = 0.0;
+                this.targetShotgunRotation.x = 0.0;
             }
         }
     }

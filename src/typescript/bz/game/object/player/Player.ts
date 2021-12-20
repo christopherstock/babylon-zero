@@ -331,28 +331,28 @@ export class Player extends bz.GameObject
         {
             if ( this.zoom )
             {
-                this.playerWearpon.targetShotgunRotY = 0;
+                this.playerWearpon.targetShotgunRotation.y = 0;
             }
             else
             {
                 if ( this.playerPhysic.rotationDelta.y < 0.0 )
                 {
-                    this.playerWearpon.targetShotgunRotY += (
+                    this.playerWearpon.targetShotgunRotation.y += (
                         bz.PlayerWearpon.SHOTGUN_NOISE_Y * -this.playerPhysic.rotationDelta.y
                     );
-                    if ( this.playerWearpon.targetShotgunRotY > bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y )
+                    if ( this.playerWearpon.targetShotgunRotation.y > bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y )
                     {
-                        this.playerWearpon.targetShotgunRotY = bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y;
+                        this.playerWearpon.targetShotgunRotation.y = bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y;
                     }
                 }
                 else
                 {
-                    this.playerWearpon.targetShotgunRotY -= (
+                    this.playerWearpon.targetShotgunRotation.y -= (
                         bz.PlayerWearpon.SHOTGUN_NOISE_Y * this.playerPhysic.rotationDelta.y
                     );
-                    if ( this.playerWearpon.targetShotgunRotY < -bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y )
+                    if ( this.playerWearpon.targetShotgunRotation.y < -bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y )
                     {
-                        this.playerWearpon.targetShotgunRotY = -bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y;
+                        this.playerWearpon.targetShotgunRotation.y = -bz.PlayerWearpon.SHOTGUN_MAX_ROT_Y;
                     }
                 }
             }
@@ -364,7 +364,7 @@ export class Player extends bz.GameObject
         }
         else
         {
-            this.playerWearpon.targetShotgunRotY = 0.0;
+            this.playerWearpon.targetShotgunRotation.y = 0.0;
         }
 
         if ( this.playerPhysic.rotationDelta.z !== 0.0 )
@@ -373,7 +373,7 @@ export class Player extends bz.GameObject
             {
                 if ( this.playerPhysic.rotation.z === -bz.SettingPlayer.MAX_ROT_Z )
                 {
-                    this.playerWearpon.targetShotgunRotX = 0;
+                    this.playerWearpon.targetShotgunRotation.x = 0;
                 }
                 else
                 {
@@ -381,16 +381,16 @@ export class Player extends bz.GameObject
 
                     if ( this.zoom )
                     {
-                        this.playerWearpon.targetShotgunRotX = 0.0;
+                        this.playerWearpon.targetShotgunRotation.x = 0.0;
                     }
                     else
                     {
-                        this.playerWearpon.targetShotgunRotX -= (
+                        this.playerWearpon.targetShotgunRotation.x -= (
                             bz.PlayerWearpon.SHOTGUN_NOISE_X * this.playerPhysic.rotationDelta.z
                         );
-                        if ( this.playerWearpon.targetShotgunRotX < -bz.PlayerWearpon.SHOTGUN_MAX_ROT_X )
+                        if ( this.playerWearpon.targetShotgunRotation.x < -bz.PlayerWearpon.SHOTGUN_MAX_ROT_X )
                         {
-                            this.playerWearpon.targetShotgunRotX = -bz.PlayerWearpon.SHOTGUN_MAX_ROT_X;
+                            this.playerWearpon.targetShotgunRotation.x = -bz.PlayerWearpon.SHOTGUN_MAX_ROT_X;
                         }
                     }
 
@@ -404,7 +404,7 @@ export class Player extends bz.GameObject
             {
                 if ( this.playerPhysic.rotation.z === bz.SettingPlayer.MAX_ROT_Z )
                 {
-                    this.playerWearpon.targetShotgunRotX = 0;
+                    this.playerWearpon.targetShotgunRotation.x = 0;
                 }
                 else
                 {
@@ -412,16 +412,16 @@ export class Player extends bz.GameObject
 
                     if ( this.zoom )
                     {
-                        this.playerWearpon.targetShotgunRotX = 0;
+                        this.playerWearpon.targetShotgunRotation.x = 0;
                     }
                     else
                     {
-                        this.playerWearpon.targetShotgunRotX += (
+                        this.playerWearpon.targetShotgunRotation.x += (
                             bz.PlayerWearpon.SHOTGUN_NOISE_X * -this.playerPhysic.rotationDelta.z
                         );
-                        if ( this.playerWearpon.targetShotgunRotX > bz.PlayerWearpon.SHOTGUN_MAX_ROT_X )
+                        if ( this.playerWearpon.targetShotgunRotation.x > bz.PlayerWearpon.SHOTGUN_MAX_ROT_X )
                         {
-                            this.playerWearpon.targetShotgunRotX = bz.PlayerWearpon.SHOTGUN_MAX_ROT_X;
+                            this.playerWearpon.targetShotgunRotation.x = bz.PlayerWearpon.SHOTGUN_MAX_ROT_X;
                         }
                     }
 
@@ -436,7 +436,7 @@ export class Player extends bz.GameObject
         }
         else
         {
-            this.playerWearpon.targetShotgunRotX = 0.0;
+            this.playerWearpon.targetShotgunRotation.x = 0.0;
         }
 
         // rotate body
