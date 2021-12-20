@@ -37,25 +37,7 @@ export class Engine
         // set collision epsilon .. this effects collision detection
         BABYLON.Engine.CollisionsEpsilon = bz.SettingEngine.PHYSIC_COLLISION_EPSILON_SIZE;
 
-        // TODO cluster to method
-
-        // add resize event listener
-        bz.Debug.init.log( 'Init window resize handler' );
-        window.addEventListener( 'resize', () => { this.onWindowResize(); } );
-
-        // set the window blur handler
-        bz.Debug.init.log( 'Init window blur handler' );
-        window.addEventListener( 'blur', () => { this.onWindowBlur( game ); } );
-/*
-        // deny window tab close TODO refactor!
-        window.addEventListener('beforeunload', ( e: BeforeUnloadEvent ) =>
-        {
-            e.stopPropagation();
-            e.preventDefault();
-
-            return false;
-        }, true );
-*/
+        this.setWindowListeners( game );
     }
 
     /** ****************************************************************************************************************
@@ -130,6 +112,30 @@ export class Engine
     public getCanvasSystem() : bz.CanvasSystem
     {
         return this.canvasSystem;
+    }
+
+    /** ****************************************************************************************************************
+    *   Sets all window change listeners for the engine.
+    *******************************************************************************************************************/
+    private setWindowListeners( game:bz.Game ) : void
+    {
+        // add resize event listener
+        bz.Debug.init.log( 'Init window resize handler' );
+        window.addEventListener( 'resize', () => { this.onWindowResize(); } );
+
+        // set the window blur handler
+        bz.Debug.init.log( 'Init window blur handler' );
+        window.addEventListener( 'blur', () => { this.onWindowBlur( game ); } );
+/*
+        // deny window tab close - inoperative
+        window.addEventListener('beforeunload', ( e: BeforeUnloadEvent ) =>
+        {
+            e.stopPropagation();
+            e.preventDefault();
+
+            return false;
+        }, true );
+*/
     }
 
     /** ****************************************************************************************************************

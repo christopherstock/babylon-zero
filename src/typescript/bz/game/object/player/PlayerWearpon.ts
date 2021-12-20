@@ -5,6 +5,7 @@ import * as bz from '../../..';
 ***********************************************************************************************************************/
 export class PlayerWearpon
 {
+    // TODO to 'SettingsShotgun'
     public static readonly SHOTGUN_NOISE_X           :number = 0.05;
     public static readonly SHOTGUN_NOISE_Y           :number = 0.05;
     public static readonly SHOTGUN_MAX_ROT_X         :number = 12.5;
@@ -50,6 +51,7 @@ export class PlayerWearpon
                 stage.getMeshFactory().createImportedModel
                 (
                     bz.ModelFile.SHOTGUN_M1014,
+                    // TODO to 'SettingsShotgun'
                     new BABYLON.Vector3(
                         1.2,
                         -0.75 - (
@@ -199,7 +201,10 @@ export class PlayerWearpon
                 )
             );
 
+            // TODO to 'SettingsShotgun'
             this.targetShotgunRotation.x = ( this.lowerWearpon ? 45.0 : 45.0 );
+
+            // TODO to 'SettingsShotgun'
 
             // upright from this magic tick on ..
             if ( !this.lowerWearpon && this.lowerWearponAnim < 17 )
