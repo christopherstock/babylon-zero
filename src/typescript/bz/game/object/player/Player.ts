@@ -304,6 +304,10 @@ export class Player extends bz.GameObject
         {
             keySystem.setNeedsRelease( bz.KeyCodes.KEY_X );
             this.turnAroundTicks = bz.SettingPlayer.TICKS_TURN_AROUND;
+
+            // apply max shotgun rotation Y
+            this.playerWearpon.shotgunRotation.y = -bz.SettingWearpon.SHOTGUN_MAX_ROT_Y;
+            this.playerWearpon.targetShotgunRotation.y = -bz.SettingWearpon.SHOTGUN_MAX_ROT_Y;
         }
 
         // consume painkiller

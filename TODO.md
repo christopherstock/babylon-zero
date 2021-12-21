@@ -6,7 +6,6 @@
 MVP
 ===
 TODO Shotgun: Multiple bullets per shot!
-TODO apply max shotgun rotation X on player turnaround. 
 
 TODO Fix transparent window walls through opaque walls?
 TODO wall rubble fx: immediate appearance
