@@ -5,14 +5,16 @@
 ===
 MVP
 ===
-TODO wall rubble fx: immediate appearance
 TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
+
+TODO wall rubble fx: immediate appearance
+
 TODO animation fade in fade out for FIRE one time animation
 
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
 TODO Add rotated versions of all level locations
+     add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
 TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
-TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
 TODO Add 'shotgun' collectable/item. (2nd wearpon model in fg?)
 
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
@@ -118,6 +120,7 @@ TODO Sounds for shot, bullet hit and bullet drop.
 Secondary
 =========
 TODO Fix/add head shaking?
+TODO Add particle fx 'fountain'.
 TODO 1:n connection for type+data? in class 'Event'? ( X Events for 1 constraint?)
 TODO Fix/add jumping?
 TODO Enhance multi level staircases.
@@ -128,6 +131,7 @@ TODO clear error message 'the user has exited the lock before ..'?
 TODO Fix crouching/ducking? => concerning heightY and shot height ?
 TODO create enum for rot ? LEFT wall = -90.0 etc ?
 TODO Fix transparent window walls through opaque walls?
+     https://viscircle.de/einsteigerguide-transparenz-und-das-rendern-von-meshes-mit-babylonjs/
 TODO suppress STRG+W! (Win10)
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!

@@ -93,7 +93,6 @@ export class FXFactory
     : void
     {
         // see https://doc.babylonjs.com/divingDeeper/particles/particle_system/tuning_gradients
-
         const RUBBLE_COUNT:number = bz.MathUtil.getRandomInt( 3, 6 );
 
         const particleSystem :BABYLON.ParticleSystem = new BABYLON.ParticleSystem(
@@ -120,12 +119,13 @@ export class FXFactory
 
         particleSystem.emitter = point;
 
-        particleSystem.emitRate = RUBBLE_COUNT;
-        particleSystem.targetStopDuration = 1.0;
-        particleSystem.updateSpeed = bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED;
 
-        particleSystem.minEmitPower = 0.20;
-        particleSystem.maxEmitPower = 2.00;
+        particleSystem.emitRate = RUBBLE_COUNT;
+        particleSystem.updateSpeed = bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED;
+        particleSystem.targetStopDuration = 1.0;
+
+        particleSystem.minEmitPower = 0.25;
+        particleSystem.maxEmitPower = 2.25;
 
         particleSystem.minAngularSpeed = 0;
         particleSystem.maxAngularSpeed = bz.MathUtil.degreesToRad( 360.0 );
@@ -136,13 +136,17 @@ export class FXFactory
         particleSystem.minInitialRotation = 0;
         particleSystem.maxInitialRotation = bz.MathUtil.degreesToRad( 360.0 );
 
-        particleSystem.addAngularSpeedGradient( 0, 1.5 );
+        // particleSystem.addVelocityGradient( 0.25, 0.1 ); // quarter
+
+        // particleSystem.addVelocityGradient(0, 10.0);
+        // particleSystem.addVelocityGradient(0.25, 0.01);
+        // particleSystem.addVelocityGradient(1.0, 0.01);
+
+        particleSystem.addAngularSpeedGradient( 0, 0.1 * bz.MathUtil.getRandomInt( -50, 50 ) );
+
         particleSystem.addColorGradient( 0.0, new BABYLON.Color4( 1.0, 1.0, 1.0, 1.0 ) );
         particleSystem.addColorGradient( 0.75, new BABYLON.Color4( 0.0, 0.0, 0.0, 1.0 ) );
 
-        particleSystem.addVelocityGradient( 0, 0.5 ); // start
-
-        // particleSystem.addVelocityGradient( 1, 2.5 );
         // particleSystem.addDragGradient( 0, 0.1 );
         // particleSystem.addAlphaRemapGradient(1.0, 0.5, 1.0);
 
