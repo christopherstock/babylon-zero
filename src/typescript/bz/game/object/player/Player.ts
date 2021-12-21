@@ -217,39 +217,46 @@ export class Player extends bz.GameObject
             );
         }
 
-        // turn Y
+        // zoom - calculate zoom rotation mitigation
+        this.zoom = (
+            keySystem.isPressed( bz.KeyCodes.KEY_Y )
+            || mouseSystem.isMouseButtonDown( bz.MouseCodes.MOUSE_BUTTON_RIGHT )
+        );
+        const zoomModifier :number = ( this.zoom ? bz.SettingPlayer.ZOOM_ROTATION_MITIGATION : 1.0 );
+
+        // rotate Y
         if ( keySystem.isPressed( bz.KeyCodes.KEY_Q ) )
         {
-            this.playerPhysic.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN;
+            this.playerPhysic.rotationDelta.y = -bz.SettingPlayer.SPEED_TURN * zoomModifier;
         }
         if ( keySystem.isPressed( bz.KeyCodes.KEY_E ) )
         {
-            this.playerPhysic.rotationDelta.y = bz.SettingPlayer.SPEED_TURN;
+            this.playerPhysic.rotationDelta.y = bz.SettingPlayer.SPEED_TURN * zoomModifier;
         }
         const lastPointerMovementX :number = mouseSystem.getAndResetLastMouseMovementX();
         if ( lastPointerMovementX !== 0 )
         {
             // noinspection JSSuspiciousNameCombination
             this.playerPhysic.rotationDelta.y += (
-                lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER
+                lastPointerMovementX * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER * zoomModifier
             );
         }
 
         // look up / down
         if ( keySystem.isPressed( bz.KeyCodes.KEY_T ) )
         {
-            this.playerPhysic.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
+            this.playerPhysic.rotationDelta.z = -bz.SettingPlayer.SPEED_LOOK_UP_DOWN * zoomModifier;
         }
         if ( keySystem.isPressed( bz.KeyCodes.KEY_G ) )
         {
-            this.playerPhysic.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN;
+            this.playerPhysic.rotationDelta.z = bz.SettingPlayer.SPEED_LOOK_UP_DOWN * zoomModifier;
         }
         const lastPointerMovementY :number = mouseSystem.getAndResetLastMouseMovementY();
         if ( lastPointerMovementY !== 0 )
         {
             // noinspection JSSuspiciousNameCombination
             this.playerPhysic.rotationDelta.z += (
-                lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER
+                lastPointerMovementY * bz.SettingPlayer.POINTER_MOVEMENT_MULTIPLIER * zoomModifier
             );
         }
 
@@ -291,12 +298,6 @@ export class Player extends bz.GameObject
 
             this.interact = true;
         }
-
-        // zoom
-        this.zoom = (
-            keySystem.isPressed( bz.KeyCodes.KEY_Y )
-            || mouseSystem.isMouseButtonDown( bz.MouseCodes.MOUSE_BUTTON_RIGHT )
-        );
 
         // turn around
         if ( keySystem.isPressed( bz.KeyCodes.KEY_X ) )

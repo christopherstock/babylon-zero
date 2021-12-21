@@ -5,8 +5,8 @@
 ===
 MVP
 ===
-TODO Slow panning/turning/rotating etc. on zoomed!
 TODO Shotgun: Multiple bullets per shot!
+TODO apply max shotgun rotation X on player turnaround. 
 
 TODO Fix transparent window walls through opaque walls?
 TODO wall rubble fx: immediate appearance
@@ -18,7 +18,6 @@ TODO Add rotated versions of all level locations
 TODO Detect/Improve performance loss on firing (ommit physical impulses for static meshes?) 
 TODO add rotations for all rooms/objects :p new Wall().getModel().rotateAroundAxisY ?
 TODO Add 'shotgun' collectable/item. (2nd wearpon model in fg?)
-TODO apply max shotgun rotation X on player turnaround. 
 
 TODO Add Explosion effect when objects break - explosion for certain objects?: fire sprites and global explosion?
 TODO explosion rubble fx

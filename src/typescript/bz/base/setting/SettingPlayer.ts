@@ -80,4 +80,6 @@ export abstract class SettingPlayer
 
     /** Multiplier for mapping pointer movements XY to player rotation YZ. */
     public static readonly POINTER_MOVEMENT_MULTIPLIER      :number     = 0.7;
+
+    public static readonly ZOOM_ROTATION_MITIGATION         :number     = 0.25;
 }
