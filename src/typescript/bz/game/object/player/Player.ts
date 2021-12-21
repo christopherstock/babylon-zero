@@ -621,9 +621,12 @@ export class Player extends bz.GameObject
                 this.playerPhysic.rotation
             );
 
-            // create shot and apply it onto the stage
-            const shot:bz.Shot = this.createShot();
-            this.stage.applyShot( shot );
+            // create shot(s) and apply it onto the stage
+            for ( let i:number = 0; i < bz.SettingWearpon.SHOTGUN_BULLETS_PER_SHOT; ++i )
+            {
+                const shot:bz.Shot = this.createShot();
+                this.stage.applyShot( shot );
+            }
         }
     }
 
@@ -655,8 +658,22 @@ export class Player extends bz.GameObject
     *******************************************************************************************************************/
     private createShot() : bz.Shot
     {
-        const divergenceY :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
-        const divergenceZ :number = 0.05 * ( bz.MathUtil.getRandomInt( -20, 20 ) );
+        const divergenceY :number = (
+            bz.SettingWearpon.SHOTGUN_DIVERGENCE_Y_MULTIPLIER
+            * (
+                bz.MathUtil.getRandomInt(
+                    -bz.SettingWearpon.SHOTGUN_DIVERGENCE_Y, bz.SettingWearpon.SHOTGUN_DIVERGENCE_Y
+                )
+            )
+        );
+        const divergenceZ :number = (
+            bz.SettingWearpon.SHOTGUN_DIVERGENCE_Z_MULTIPLIER
+            * (
+                bz.MathUtil.getRandomInt(
+                    -bz.SettingWearpon.SHOTGUN_DIVERGENCE_Z, bz.SettingWearpon.SHOTGUN_DIVERGENCE_Z
+                )
+            )
+        );
 
         const source      :BABYLON.Vector3 = this.playerPhysic.head.absolutePosition;
         const rotation    :BABYLON.Vector3 = new BABYLON.Vector3

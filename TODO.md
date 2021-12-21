@@ -5,8 +5,6 @@
 ===
 MVP
 ===
-TODO Shotgun: Multiple bullets per shot!
-
 TODO Fix transparent window walls through opaque walls?
 TODO wall rubble fx: immediate appearance
 TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
@@ -39,6 +37,7 @@ Code Improvements
 =================
 TODO Improve ModelSystem.load: introduce ModelType or enable class instances of ModelFile? (=> remove indexOf'wearpon/')
 TODO Flag for muzzleFlash sprites to load in FG scene!
+TODO PlayerPhysic & PlayerWearpon all private!
 
 ==
 Fx

@@ -25,4 +25,11 @@ export abstract class SettingWearpon
     /** Distance from player position (head) to muzzle flash. */
     public static readonly SHOTGUN_MUZZLE_FLASH_OFFSET   :BABYLON.Vector3 = new BABYLON.Vector3( 0.65, -0.20, 3.20 );
     public static readonly SHOTGUN_MESH_STARTUP_POSITION :BABYLON.Vector3 = new BABYLON.Vector3( 1.2, -0.75, 1.5 );
+
+    public static readonly SHOTGUN_BULLETS_PER_SHOT :number = 5;
+
+    public static readonly SHOTGUN_DIVERGENCE_Y :number = 25.0;
+    public static readonly SHOTGUN_DIVERGENCE_Z :number = 25.0;
+    public static readonly SHOTGUN_DIVERGENCE_Y_MULTIPLIER :number = 0.05;
+    public static readonly SHOTGUN_DIVERGENCE_Z_MULTIPLIER :number = 0.05;
 }
