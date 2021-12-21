@@ -5,7 +5,6 @@
 ===
 MVP
 ===
-TODO Fix transparent window walls through opaque walls?
 TODO wall rubble fx: immediate appearance
 TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
 TODO animation fade in fade out for FIRE one time animation
@@ -128,6 +127,7 @@ TODO Create new Locations: garage, wasteground, backstreet, shop site, town site
 TODO clear error message 'the user has exited the lock before ..'?
 TODO Fix crouching/ducking? => concerning heightY and shot height ?
 TODO create enum for rot ? LEFT wall = -90.0 etc ?
+TODO Fix transparent window walls through opaque walls?
 TODO suppress STRG+W! (Win10)
 TODO Create alternate lower cylinder for player that toggles on ducking?
 TODO Deny jumping if player has no contact to the ground!

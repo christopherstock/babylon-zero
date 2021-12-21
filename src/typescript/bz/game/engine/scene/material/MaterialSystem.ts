@@ -247,7 +247,16 @@ export class MaterialSystem
                 );
 */
             }
+
             material.backFaceCulling = ( texture.hasAlpha() || alpha < 1.0 );
+            // material.backFaceCulling = texture.hasAlpha();
+
+            if ( false && alpha < 1.0 )
+            {
+                material.diffuseTexture.hasAlpha = true;
+            }
+
+            // material.backFaceCulling = false;
         }
         else if ( color !== null )
         {

@@ -140,8 +140,14 @@ export class CameraSystem
     : void
     {
         this.activeCameraType     = cameraType;
-        this.sceneBG.activeCamera   = this.getCameraFromType( cameraType );
-        this.sceneFG.activeCamera = this.getCameraFromType( cameraType );
+
+        const cameraToApply :BABYLON.Camera = this.getCameraFromType( cameraType );
+
+        this.sceneBG.activeCamera = cameraToApply;
+        this.sceneFG.activeCamera = cameraToApply;
+
+        // try to enable depth rendering for drawing alpha walls correctly
+        if ( false ) this.sceneBG.enableDepthRenderer( cameraToApply );
 
         switch ( cameraType )
         {
