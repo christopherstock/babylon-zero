@@ -102,12 +102,13 @@ export class FXFactory
         );
 
         particleSystem.particleTexture = tex.createNewTextureInstance( 10.0, 10.0 );
+
+//        particleSystem.particleTexture.hasAlpha = true;
 /*
-        particleSystem.particleTexture.hasAlpha = true;
-        particleSystem.particleTexture.uScale = 5.0;
-        particleSystem.particleTexture.vScale = 5.0;
-        // particleSystem.particleTexture.wrapU  = 0.0001;
-        // particleSystem.particleTexture.wrapV  = 0.0001;
+        particleSystem.particleTexture.wrapU  = BABYLON.Texture.WRAP_ADDRESSMODE;
+        particleSystem.particleTexture.wrapV  = BABYLON.Texture.WRAP_ADDRESSMODE;
+        particleSystem.particleTexture.uScale = 0.01;
+        particleSystem.particleTexture.vScale = 0.01;
 */
         // 0.01 * bz.MathUtil.getRandomInt( 1, 5 )
 

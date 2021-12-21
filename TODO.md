@@ -5,10 +5,6 @@
 ===
 MVP
 ===
-TODO color wall rubble according to color from pickingInfo.getTextureCoordinates() ??
-
-TODO wall rubble fx: immediate appearance
-
 TODO animation fade in fade out for FIRE one time animation
 
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)
@@ -125,6 +121,8 @@ TODO 1:n connection for type+data? in class 'Event'? ( X Events for 1 constraint
 TODO Fix/add jumping?
 TODO Enhance multi level staircases.
 TODO try class SubMeshes? (filled automatically from 3dsmax)
+TODO color wall rubble according to color from pickingInfo.getTextureCoordinates()
+TODO wall rubble fx: immediate appearance and drawing over decals?
 TODO Try morphing one mesh/model into another (crate to broken crate / chair to broken chair).
 TODO Create new Locations: garage, wasteground, backstreet, shop site, town site, mart/mall, housing area
 TODO clear error message 'the user has exited the lock before ..'?

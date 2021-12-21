@@ -270,7 +270,7 @@ export abstract class Stage
             const bulletHoleTextureFile:bz.TextureFile = bz.Texture.getBulletHoleTextureForMesh(
                 impactHitPoint.getMesh()
             );
- */
+*/
             bz.FXFactory.addWallRubble(
                 this,
                 impactHitPoint.getPoint(),

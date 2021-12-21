@@ -120,6 +120,9 @@ export abstract class GameObject
                 const shotDirection        :BABYLON.Vector3 = shot.getRay().direction;
                 const impactMeshNormal     :BABYLON.Vector3 = pickingInfo.getNormal( true )
 
+                // const texCoordinates:BABYLON.Vector2 = pickingInfo.getTextureCoordinates();
+                // console.log( '>> texCoordinates: ', texCoordinates );
+
                 hitPoints.push
                 (
                     new bz.HitPoint
