@@ -46,6 +46,12 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // debug/dev early exit
+        if ( this )
+        {
+            return;
+        }
+
         // add test items
         this.addTestItems();
 
