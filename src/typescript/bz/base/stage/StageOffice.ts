@@ -81,7 +81,7 @@ export class StageOffice extends bz.Stage
             this.getMeshFactory(),
             new BABYLON.Vector3( 2 * 58.0, 0.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH ),
             0.0,
-            58.0,
+            100.0,
             false,
             true
         );
@@ -94,37 +94,40 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // staircase
+        bz.RoomFactory.addStaircase(
+            this,
+            this.getMeshFactory(),
+            new BABYLON.Vector3( 240.0, 0.0, 40.0 ),
+            180.0,
+            bz.TextureFile.WALL_CONCRETE_NEW,
+            bz.TextureFile.WALL_CARPET_1,
+            bz.TextureFile.WALL_COBBLES_1
+        );
+
         // debug/dev early exit
         if ( true )
         {
             return;
         }
 
-        // staircase
-        bz.RoomFactory.addStaircase(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( -65.0, 0.0, 0.0 ),
-            0.0,
-            bz.TextureFile.WALL_CONCRETE_NEW,
-            bz.TextureFile.WALL_CARPET_1,
-            bz.TextureFile.WALL_COBBLES_1
-        );
+        if ( false )
+        {
+            // lightyard
+            bz.AECFactory.addLightyard(
+                this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+            );
 
-        // lightyard
-        bz.AECFactory.addLightyard(
-            this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
-        );
+            // office kitchen
+            bz.AECFactory.addOfficeKitchen(
+                this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+            );
 
-        // office kitchen
-        bz.AECFactory.addOfficeKitchen(
-            this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
-        );
-
-        // kicker lounge
-        bz.AECFactory.addKickerLounge(
-            this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
-        );
+            // kicker lounge
+            bz.AECFactory.addKickerLounge(
+                this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
+            );
+        }
 
         // add test sprites
         this.addTestSprites();
