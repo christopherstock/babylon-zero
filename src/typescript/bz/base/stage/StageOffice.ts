@@ -82,8 +82,16 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 2 * 58.0, 0.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH ),
             0.0,
             58.0,
-            true,
+            false,
             true
+        );
+
+        // large office
+        bz.AECFactory.addLargeOffice(
+            this,
+            this.getMeshFactory(),
+            new BABYLON.Vector3( 120.0, 0.0, 0.0 ),
+            0.0
         );
 
         // debug/dev early exit
@@ -91,15 +99,6 @@ export class StageOffice extends bz.Stage
         {
             return;
         }
-
-        // large office
-        bz.AECFactory.addLargeOffice(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 120.0, 0.0, 66.0 ),
-            0.0
-        );
-
 
         // staircase
         bz.RoomFactory.addStaircase(
