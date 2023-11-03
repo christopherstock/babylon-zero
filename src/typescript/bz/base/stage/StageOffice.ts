@@ -56,13 +56,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 20.5, bz.SettingAEC.FLOOR_OFFSET_Y, 20.5 )
         );
 
-        // debug/dev early exit
-        if ( true )
-        {
-            return;
-        }
-
-
         // hallway
         bz.AECFactory.addHallway(
             this,
@@ -82,6 +75,23 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // hallway
+        bz.AECFactory.addHallway(
+            this,
+            this.getMeshFactory(),
+            new BABYLON.Vector3( 2 * 58.0, 0.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH ),
+            0.0,
+            58.0,
+            true,
+            true
+        );
+
+        // debug/dev early exit
+        if ( true )
+        {
+            return;
+        }
+
         // large office
         bz.AECFactory.addLargeOffice(
             this,
@@ -89,6 +99,7 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 120.0, 0.0, 66.0 ),
             0.0
         );
+
 
         // staircase
         bz.RoomFactory.addStaircase(
