@@ -46,12 +46,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // debug/dev early exit
-        if ( this )
-        {
-            return;
-        }
-
         // add test items
         this.addTestItems();
 
@@ -61,6 +55,13 @@ export class StageOffice extends bz.Stage
             this.getMeshFactory(),
             new BABYLON.Vector3( 20.5, bz.SettingAEC.FLOOR_OFFSET_Y, 20.5 )
         );
+
+        // debug/dev early exit
+        if ( true )
+        {
+            return;
+        }
+
 
         // hallway
         bz.AECFactory.addHallway(
@@ -119,18 +120,21 @@ export class StageOffice extends bz.Stage
         this.addTestSprites();
 
         // debug/dev early exit
-        if ( this )
+        if ( true )
         {
             return;
         }
 
         // add rain effect
-        bz.FXFactory.addRainEffect(
-            this,
-            3.0,
-            750,
-            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
-        );
+        if ( false )
+        {
+            bz.FXFactory.addRainEffect(
+                this,
+                3.0,
+                750,
+                new BABYLON.Vector3( 0.5, -1.5, 0.5 )
+            );
+        }
 
         // small office
         bz.AECFactory.addSmallOffice(
