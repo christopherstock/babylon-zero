@@ -98,11 +98,35 @@ export class StageOffice extends bz.Stage
         bz.RoomFactory.addStaircase(
             this,
             this.getMeshFactory(),
-            new BABYLON.Vector3( 240.0, 0.0, 40.0 ),
+            new BABYLON.Vector3( 236.25, 0.0, 50.0 ),
             180.0,
             bz.TextureFile.WALL_CONCRETE_NEW,
             bz.TextureFile.WALL_CARPET_1,
             bz.TextureFile.WALL_COBBLES_1
+        );
+
+        // 2nd point light before staircase // stick to chair or to player head
+        const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        (
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
+            // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
+            new BABYLON.Vector3( 218.0, 5.0, 40.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 )
+        );
+        // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
+        // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
+        this.addLight( pointLights2 );
+
+        // hallway 1st floor
+        bz.AECFactory.addHallway(
+            this,
+            this.getMeshFactory(),
+            new BABYLON.Vector3( 2 * 58.0, 10.0, 50.0 - bz.SettingAEC.HALLWAY_WIDTH - 10.0 ),
+            0.0,
+            100.0,
+            true,
+            true
         );
 
         // debug/dev early exit
@@ -204,19 +228,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
-
-        // 2nd point light in 2nd office // stick to chair or to player head
-        const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
-        (
-            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
-            new BABYLON.Color3( 0.0, 0.0, 0.0 )
-        );
-        // pointLight2.parent = this.chairCompoundDestroyable.getModel().getMesh( 0 );
-        // pointLight2.parent = this.getPlayer().getModel().getMesh( 1 );
-        this.addLight( pointLights2 );
 
         // add fog
         this.getScene().enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
