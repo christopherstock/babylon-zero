@@ -123,6 +123,12 @@ export class Game
                 this.stage = new bz.StageBackYard( this );
                 break;
             }
+
+            case bz.StageId.WAREHOUSE:
+            {
+                this.stage = new bz.StageWarehouse( this );
+                break;
+            }
         }
 
         // reset and init GUI

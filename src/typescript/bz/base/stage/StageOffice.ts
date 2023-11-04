@@ -234,37 +234,11 @@ export class StageOffice extends bz.Stage
             ], [], 0
         );
 
-        if ( false )
-        {
-            // lightyard
-            bz.AECFactory.addLightyard(
-                this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
-            );
-
-            // office kitchen
-            bz.AECFactory.addOfficeKitchen(
-                this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
-            );
-
-            // kicker lounge
-            bz.AECFactory.addKickerLounge(
-                this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
-            );
-        }
-
         // debug/dev early exit
         if ( true )
         {
             return;
         }
-
-        // warehouse
-        bz.AECFactory.addWarehouse(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            0.0
-        );
 
         // residental street
         bz.AECFactory.addResidentalStreet(

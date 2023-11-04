@@ -1015,25 +1015,25 @@ export class AECFactory
         bz.AECFactory.addPillar(
             stage,
             meshFactory,
-            position.add( new BABYLON.Vector3( 15.0, 0.0, 20.0 ) )
+            position.add( new BABYLON.Vector3( 20.0, 0.0, 20.0 ) )
         );
         // pillar from new concrete
         bz.AECFactory.addPillar(
             stage,
             meshFactory,
-            position.add( new BABYLON.Vector3( 25.0, 0.0, 20.0 ) )
+            position.add( new BABYLON.Vector3( 40.0, 0.0, 20.0 ) )
         );
         // pillar from new concrete
         bz.AECFactory.addPillar(
             stage,
             meshFactory,
-            position.add( new BABYLON.Vector3( 15.0, 0.0, 30.0 ) )
+            position.add( new BABYLON.Vector3( 20.0, 0.0, 40.0 ) )
         );
         // pillar from new concrete
         bz.AECFactory.addPillar(
             stage,
             meshFactory,
-            position.add( new BABYLON.Vector3( 25.0, 0.0, 30.0 ) )
+            position.add( new BABYLON.Vector3( 40.0, 0.0, 40.0 ) )
         );
     }
 

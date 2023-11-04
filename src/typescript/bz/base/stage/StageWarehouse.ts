@@ -3,7 +3,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Specifies the 'StageOutside' stage.
 ***********************************************************************************************************************/
-export class StageBackYard extends bz.Stage
+export class StageWarehouse extends bz.Stage
 {
     /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
@@ -11,7 +11,7 @@ export class StageBackYard extends bz.Stage
     public createDefaultConfig() : bz.StageConfig
     {
         return new bz.StageConfig(
-            new BABYLON.Color3( 0.25, 0.25, 0.25 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
@@ -29,7 +29,7 @@ export class StageBackYard extends bz.Stage
     protected createStageContents() : void
     {
         // blue skybox
-        this.setSkybox( bz.SkyBoxFile.BLUE_SKY, 0.25 );
+        this.setSkybox( bz.SkyBoxFile.STORM, 0.25 );
 
         // player
         this.setPlayer( new bz.Player( this ) );
@@ -39,7 +39,7 @@ export class StageBackYard extends bz.Stage
             new bz.Event(
                 bz.EventType.SWITCH_TO_STAGE,
                 new bz.EventDataStageSwitch(
-                    bz.StageId.WAREHOUSE,
+                    bz.StageId.BACKYARD,
                     new BABYLON.Vector3(
                         0.0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                         ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
@@ -52,7 +52,7 @@ export class StageBackYard extends bz.Stage
         bz.RoomFactory.addRoomWalls(
             this,
             this.getMeshFactory(),
-            new BABYLON.Vector3( 40.0 - 15.0 + 20.0, 0.0, 60.0 ),
+            new BABYLON.Vector3( 45.0, 0.0, 60.0 ),
             new BABYLON.Vector3( 5.0, 10.0, 5.0 ),
             90.0,
             null, null, null, null,
@@ -73,16 +73,13 @@ export class StageBackYard extends bz.Stage
             ], [], 0
         );
 
-        // back yard
-        bz.AECFactory.addBackyard(
+        // warehouse
+        bz.AECFactory.addWarehouse(
             this,
             this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
             0.0
         );
-
-        // add grey fog
-        this.getScene().enableFog( bz.SettingColor.COLOR_RGB_GREY_HALF, 0.01 );
 
         // 1st point light
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
