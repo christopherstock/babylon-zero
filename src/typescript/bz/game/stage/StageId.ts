@@ -11,4 +11,6 @@ export enum StageId
     OUTSIDE,
     /** The 'parking lot' stage. */
     PARKING_LOT,
+    /** The 'park' stage. */
+    PARK,
 }

@@ -258,19 +258,6 @@ export class StageOffice extends bz.Stage
             return;
         }
 
-        // add rain effect
-        if ( false )
-        {
-        }
-
-        // small park
-        bz.AECFactory.addSmallPark(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 600.0, 0.0, 600.0 ),
-            0.0
-        );
-
         // back yard
         bz.AECFactory.addBackyard(
             this,
@@ -302,9 +289,6 @@ export class StageOffice extends bz.Stage
             new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
             0.0
         );
-
-        // add fog
-        this.getScene().enableFog( bz.SettingColor.COLOR_RGB_GREEN, 0.05 ); // green steam
 
         // add shadows for point light
         this.addShadowGenerator( pointLights2[ 0 ] );

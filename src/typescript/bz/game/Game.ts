@@ -88,6 +88,12 @@ export class Game
         // assign the new stage
         switch ( targetStage )
         {
+            case bz.StageId.INTRO_LOGO:
+            {
+                this.stage = new bz.StageIntroLogo( this );
+                break;
+            }
+
             case bz.StageId.OFFICE:
             {
                 this.stage = new bz.StageOffice( this );
@@ -100,15 +106,15 @@ export class Game
                 break;
             }
 
-            case bz.StageId.INTRO_LOGO:
-            {
-                this.stage = new bz.StageIntroLogo( this );
-                break;
-            }
-            
             case bz.StageId.PARKING_LOT:
             {
                 this.stage = new bz.StageParkingLot( this );
+                break;
+            }
+
+            case bz.StageId.PARK:
+            {
+                this.stage = new bz.StagePark( this );
                 break;
             }
         }
