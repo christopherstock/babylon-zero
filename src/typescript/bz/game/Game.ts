@@ -105,6 +105,12 @@ export class Game
                 this.stage = new bz.StageIntroLogo( this );
                 break;
             }
+            
+            case bz.StageId.PARKING_LOT:
+            {
+                this.stage = new bz.StageParkingLot( this );
+                break;
+            }
         }
 
         // reset and init GUI

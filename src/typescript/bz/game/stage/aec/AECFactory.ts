@@ -598,14 +598,14 @@ export class AECFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
+            new BABYLON.Vector3( 200.0, 3.0, 200.0 ),
             rotY,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
                 new bz.DoorData(
                     5.0,
                     [],
                     bz.DoorAnimation.SWING_A_CLOCKWISE,
-                    true,
+                    false,
                     bz.TextureFile.WALL_DOOR_WOOD_1,
                     -1,
                     false

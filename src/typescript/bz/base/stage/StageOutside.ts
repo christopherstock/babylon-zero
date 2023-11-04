@@ -42,7 +42,7 @@ export class StageOutside extends bz.Stage
             new bz.Event(
                 bz.EventType.SWITCH_TO_STAGE,
                 new bz.EventDataStageSwitch(
-                    bz.StageId.OFFICE,
+                    bz.StageId.PARKING_LOT,
                     new BABYLON.Vector3(
                         30.0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                         ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
