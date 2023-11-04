@@ -52,7 +52,7 @@ export class StagePark extends bz.Stage
         bz.RoomFactory.addRoomWalls(
             this,
             this.getMeshFactory(),
-            new BABYLON.Vector3( 100.0, 0.0, 2.5 ),
+            new BABYLON.Vector3( 85.0, 0.0, 100.0 ),
             new BABYLON.Vector3( 5.0, 10.0, 5.0 ),
             90.0,
             null, null, null, null,

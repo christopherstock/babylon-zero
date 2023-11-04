@@ -282,14 +282,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // parking lot
-        bz.AECFactory.addParkingLot(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 300.0, 0.0, 300.0 ),
-            0.0
-        );
-
         // add shadows for point light
         this.addShadowGenerator( pointLights2[ 0 ] );
 
