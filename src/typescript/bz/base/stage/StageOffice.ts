@@ -181,8 +181,58 @@ export class StageOffice extends bz.Stage
             90.0
         );
 
+        // 3rd point light for small office 1st floor
+        const pointLights3 :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        (
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
+            // new BABYLON.Vector3( 115.0, 5.0, 15.0 ),
+            new BABYLON.Vector3( 112.5 - 12.5, 15.0, 57.5 - 7.5 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 )
+        );
+        this.addLight( pointLights3 );
+
         // add test sprites
         this.addTestSprites();
+
+        // stage switching door
+        const doorEventsSwitchStage:bz.Event[] = [
+            new bz.Event(
+                bz.EventType.SWITCH_TO_STAGE,
+                new bz.EventDataStageSwitch(
+                    bz.StageId.OUTSIDE,
+                    new BABYLON.Vector3(
+                        30.0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                        ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
+                        ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
+                    ),
+                    new BABYLON.Vector3( 0.0, 270.0, 0.0 )
+                )
+            ),
+        ];
+        bz.RoomFactory.addRoomWalls(
+            this,
+            this.getMeshFactory(),
+            new BABYLON.Vector3( 100.0, 10.0, 55.5 ),
+            new BABYLON.Vector3( 5.0, 10.0, 5.0 ),
+            90.0,
+            null, null, null, null,
+            null, null, null, null,
+            null, null, null, null,
+            bz.TextureFile.WALL_MARBLE_1, [
+                new bz.DoorData(
+                    0.0,
+                    doorEventsSwitchStage,
+                    bz.DoorAnimation.NONE,
+                    false,
+                    bz.TextureFile.WALL_DOOR_INDUSTRIAL,
+                    -1,
+                    false,
+                    bz.SettingAEC.DOOR_WIDTH,
+                    true
+                ),
+            ], [], 0
+        );
 
         if ( false )
         {

@@ -37,7 +37,7 @@ export class StageOutside extends bz.Stage
         // player
         this.setPlayer( new bz.Player( this ) );
 
-        // parking yard
+        // stage switching door
         const doorEventsSwitchStage:bz.Event[] = [
             new bz.Event(
                 bz.EventType.SWITCH_TO_STAGE,
