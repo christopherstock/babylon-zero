@@ -231,7 +231,7 @@ export class FXFactory
         (
             stage.getScene(),
             bz.SpriteFile.FIRE,
-            new BABYLON.Vector3( 20.0, 0.0, 20.0 ),
+            new BABYLON.Vector3( 44.0, 0.0, 10.0 ),
             10.0,
             20.0,
             bz.SpriteCollidable.NO

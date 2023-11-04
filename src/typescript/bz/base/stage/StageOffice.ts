@@ -129,6 +129,9 @@ export class StageOffice extends bz.Stage
             true
         );
 
+        // add test sprites
+        this.addTestSprites();
+
         // debug/dev early exit
         if ( true )
         {
@@ -152,9 +155,6 @@ export class StageOffice extends bz.Stage
                 this, this.getMeshFactory(), new BABYLON.Vector3( 0.0, 0.0, 0.0 ), 0.0
             );
         }
-
-        // add test sprites
-        this.addTestSprites();
 
         // debug/dev early exit
         if ( true )
@@ -317,7 +317,7 @@ export class StageOffice extends bz.Stage
     {
         // permanent fire effect
         bz.FXFactory.addFirePermanent( this );
-
+/*
         // 4 example tree sprites
         this.addSprite(
             [
@@ -367,6 +367,7 @@ export class StageOffice extends bz.Stage
                 ),
             ]
         );
+*/
     }
 
     /** ****************************************************************************************************************
@@ -474,20 +475,20 @@ export class StageOffice extends bz.Stage
                 new bz.Item
                 (
                     this,
-                    new BABYLON.Vector3( 2.5, 0.0, 2.5 ),
+                    new BABYLON.Vector3( 13.0, 0.5, 15.0 ),
                     bz.ItemType.BULLETS_792MM
                 ),
                 new bz.Item
                 (
                     this,
-                    new BABYLON.Vector3( 5.0, 0.0, 5.0 ),
+                    new BABYLON.Vector3( 13.0, 0.5, 20.0 ),
                     bz.ItemType.SHOTGUN_SHELLS
                 ),
                 new bz.Item
                 (
                     this,
-                    new BABYLON.Vector3( 2.5, 0.0, 5.0 ),
-                    bz.ItemType.BULLETS_792MM
+                    new BABYLON.Vector3( 13.0, 0.5, 25.0 ),
+                    bz.ItemType.PAINKILLER
                 ),
             ]
         );
@@ -503,7 +504,7 @@ export class StageOffice extends bz.Stage
                 )
             );
         }
-
+/*
         this.addCollectable(
             new bz.Item
             (
@@ -516,17 +517,17 @@ export class StageOffice extends bz.Stage
             new bz.Item
             (
                 this,
-                new BABYLON.Vector3( 7.5, 0.0, 7.5 ),
+                new BABYLON.Vector3( 12.5, 0.0, 7.5 ),
                 bz.ItemType.BULLETS_792MM
             )
         );
-
+*/
         // add invisible event trigger
         this.addCollectable(
             new bz.Trigger
             (
                 this,
-                new BABYLON.Vector3( 30.0, 0.0, 30.0 ),
+                new BABYLON.Vector3( 30.0, 0.0, 15.0 ),
                 [
                     new bz.Event(
                         bz.EventType.SHOW_GUI_EFFECT,
@@ -547,7 +548,7 @@ export class StageOffice extends bz.Stage
             new bz.Trigger
             (
                 this,
-                new BABYLON.Vector3( 30.0, 0.0, 40.0 ),
+                new BABYLON.Vector3( 30.0, 0.0, 25.0 ),
                 [
                     new bz.Event(
                         bz.EventType.SHOW_GUI_EFFECT,
@@ -560,7 +561,7 @@ export class StageOffice extends bz.Stage
                 ]
             )
         );
-
+/*
         // add painkillers
         this.addCollectable(
             new bz.Item
@@ -594,5 +595,6 @@ export class StageOffice extends bz.Stage
                 bz.ItemType.PAINKILLER
             )
         );
+*/
     }
 }
