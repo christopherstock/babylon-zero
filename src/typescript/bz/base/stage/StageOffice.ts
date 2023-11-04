@@ -173,11 +173,11 @@ export class StageOffice extends bz.Stage
             true
         );
 
-        // small office
+        // small office 1st floor
         bz.AECFactory.addSmallOffice(
             this,
             this.getMeshFactory(),
-            new BABYLON.Vector3( 116.0 + 30.0, 10.0, 50.0 - 3.0 ),
+            new BABYLON.Vector3( 96.0, 10.0, 56.0 ),
             90.0
         );
 
