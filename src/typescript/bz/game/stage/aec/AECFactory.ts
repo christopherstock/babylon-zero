@@ -260,50 +260,6 @@ export class AECFactory
             bz.TextureFile.WALL_CEILING_1
         );
 
-        // tv (65 inch)
-        const tv:bz.Wall = new bz.Wall
-        (
-            stage,
-            new bz.Model
-            (
-                meshFactory.createBox
-                (
-                    position.add( new BABYLON.Vector3( 24.0, 5.0, 39.5 ) ),
-                    bz.TextureFile.VIDEO_TEST,
-                    new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
-                    bz.PhysicSet.STATIC,
-                    1.0,
-                    bz.MeshAnchor.CENTER_XYZ,
-                    new BABYLON.Vector3( 0.0, 0.0, 0.0 )
-                )
-            ),
-            bz.GameObject.UNBREAKABLE,
-            false,
-            false,
-            [
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'Nothing on the television today' )
-                ),
-                new bz.Event(
-                    bz.EventType.TIME_DELAY,
-                    new bz.EventDataTimeDelay( ( 2 * 60 ) )
-                ),
-                new bz.Event(
-                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
-                    new bz.EventDataShowGuiTextMessage( 'DELAYED: I will turn the lights off :)' )
-                ),
-/*
-                new bz.Event(
-                    bz.EventType.TOGGLE_LIGHT,
-                    new bz.EventDataToggleLight( pointLights )
-                ),
-*/
-            ],
-            bz.InteractionType.REPEATED
-        );
-        stage.addWall( tv );
-
         // solid sphere
         bz.FurnitureFactory.addWoodenSphere1(
             stage,
@@ -531,10 +487,54 @@ export class AECFactory
                 bz.InteractionType.REPEATED
             )
         );
-
+/*
         // sofa 1
         bz.FurnitureFactory.addSofa1(
             stage, meshFactory, position.add( new BABYLON.Vector3( 25.5, 2.0, 20.5 ) ), 180.0
+        );
+*/
+        // soda machine 2
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SODA_MACHINE_2,
+                    position.add( new BABYLON.Vector3( 15.5, 3.15, 37.5 ) ),
+                    bz.PhysicSet.SODA_MACHINE,
+                    0.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                7.0,
+                true,
+                false,
+                [
+                ],
+                bz.InteractionType.REPEATED
+            )
+        );
+
+        // soda machine 2
+        stage.addWall(
+            new bz.Wall
+            (
+                stage,
+                meshFactory.createImportedModel
+                (
+                    bz.ModelFile.SODA_MACHINE_2,
+                    position.add( new BABYLON.Vector3( 25.5, 3.15, 37.5 ) ),
+                    bz.PhysicSet.SODA_MACHINE,
+                    0.0,
+                    bz.ModelCompoundType.NONE
+                ),
+                7.0,
+                true,
+                false,
+                [
+                ],
+                bz.InteractionType.REPEATED
+            )
         );
     }
 

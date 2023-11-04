@@ -178,7 +178,11 @@ export class PlayerWearpon
             this.shotgun.getModel().translatePosition(
                 new BABYLON.Vector3(
                     0.0,
-                    ( this.lowerWearpon ? -bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y : bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y ),
+                    (
+                        this.lowerWearpon
+                        ? -bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
+                        : bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
+                    ),
                     0.0
                 )
             );

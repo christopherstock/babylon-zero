@@ -46,6 +46,50 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
+        // tv (65 inch)
+        const tv:bz.Wall = new bz.Wall
+        (
+            this,
+            new bz.Model
+            (
+                this.getMeshFactory().createBox
+                (
+                    new BABYLON.Vector3( 21.25, 6.5, 39.5 ),
+                    bz.TextureFile.VIDEO_TEST,
+                    new BABYLON.Vector3( ( 15.0 * 0.640 ), ( 15.0 * 0.360 ), 0.25 ),
+                    bz.PhysicSet.STATIC,
+                    1.0,
+                    bz.MeshAnchor.CENTER_XYZ,
+                    new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+                )
+            ),
+            bz.GameObject.UNBREAKABLE,
+            false,
+            false,
+            [
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'Nothing on the television today' )
+                ),
+                new bz.Event(
+                    bz.EventType.TIME_DELAY,
+                    new bz.EventDataTimeDelay( ( 2 * 60 ) )
+                ),
+                new bz.Event(
+                    bz.EventType.SHOW_GUI_TEXT_MESSAGE,
+                    new bz.EventDataShowGuiTextMessage( 'DELAYED: Maybe later' )
+                ),
+/*
+                new bz.Event(
+                    bz.EventType.TOGGLE_LIGHT,
+                    new bz.EventDataToggleLight( pointLights )
+                ),
+*/
+            ],
+            bz.InteractionType.REPEATED
+        );
+        this.addWall( tv );
+
         // add test items
         this.addTestItems();
 
@@ -129,14 +173,16 @@ export class StageOffice extends bz.Stage
             true
         );
 
+        // small office
+        bz.AECFactory.addSmallOffice(
+            this,
+            this.getMeshFactory(),
+            new BABYLON.Vector3( 116.0 + 30.0, 10.0, 50.0 - 3.0 ),
+            90.0
+        );
+
         // add test sprites
         this.addTestSprites();
-
-        // debug/dev early exit
-        if ( true )
-        {
-            return;
-        }
 
         if ( false )
         {
@@ -172,14 +218,6 @@ export class StageOffice extends bz.Stage
                 new BABYLON.Vector3( 0.5, -1.5, 0.5 )
             );
         }
-
-        // small office
-        bz.AECFactory.addSmallOffice(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
-            0.0
-        );
 
         // parking lot
         bz.AECFactory.addParkingLot(

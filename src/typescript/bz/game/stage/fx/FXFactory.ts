@@ -120,7 +120,6 @@ export class FXFactory
 
         particleSystem.emitter = point;
 
-
         particleSystem.emitRate = RUBBLE_COUNT;
         particleSystem.updateSpeed = bz.SettingEngine.WALL_RUBBLE_UPDATE_SPEED;
         particleSystem.targetStopDuration = 1.0;

@@ -147,7 +147,10 @@ export class CameraSystem
         this.sceneFG.activeCamera = cameraToApply;
 
         // try to enable depth rendering for drawing alpha walls correctly
-        if ( false ) this.sceneBG.enableDepthRenderer( cameraToApply );
+        if ( false )
+        {
+            this.sceneBG.enableDepthRenderer( cameraToApply );
+        }
 
         switch ( cameraType )
         {
