@@ -621,10 +621,6 @@ export class AECFactory
                 // new bz.WindowData( 11.0, true, true ),
             ], 0,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
-                new bz.DoorData(
-                    10.0, [], bz.DoorAnimation.SWING_A_CLOCKWISE, true,
-                    bz.TextureFile.WALL_DOOR_WOOD_1, -1, false
-                ),
             ], [], 0,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
             ], [
@@ -649,6 +645,22 @@ export class AECFactory
             12.0
         );
         stage.addWall( carCamaro );
+
+        // car opel record
+        const carOpelRecord :bz.Wall = new bz.Wall
+        (
+            stage,
+            meshFactory.createImportedModel
+            (
+                bz.ModelFile.CAR_OPEL_RECORD,
+                position.add( new BABYLON.Vector3(40.0, 0.0, 60.0 ) ),
+                bz.PhysicSet.SHELVES,
+                bz.ModelCompoundType.NONE,
+                180.0
+            ),
+            12.0
+        );
+        stage.addWall( carOpelRecord );
 
         // car cadillac
         stage.addWall(

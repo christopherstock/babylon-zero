@@ -16,7 +16,7 @@
         "test:jest": "jest --ci",
         "eslint:scan": "eslint --max-warnings 0 \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
         "eslint:report": "eslint --max-warnings 0 --format junit -o public/linter-results.xml \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-        "typedoc:generate": "typedoc --out public/tsdoc --listInvalidSymbolLinks --name \"babylon-zero, (c) 2021 Mayflower GmbH\" src/typescript"
+        "typedoc:generate": "typedoc --out public/tsdoc --listInvalidSymbolLinks --name \"babylon-zero, (c) 2024 Mayflower GmbH\" src/typescript"
     },
     "devDependencies": {
         "@types/enzyme": "3.10.3",

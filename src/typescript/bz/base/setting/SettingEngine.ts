@@ -71,7 +71,7 @@ export abstract class SettingEngine
     public static readonly RAIN_UPDATE_SPEED                        :number             = 0.0333;
 
     /** The HTML page title. */
-    public static readonly BRANDING_TITLE                           :string             = ( 'babylon-zero, (c) 2021 Mayflower GmbH, ' + bz.Version.getCurrent() );
+    public static readonly BRANDING_TITLE                           :string             = ( 'babylon-zero, (c) 2024 Mayflower GmbH, ' + bz.Version.getCurrent() );
     /** The HTML page favicon. */
     public static readonly BRANDING_FAVICON                         :string             = 'mayflower.ico';
     /** The loading screen logo. */
