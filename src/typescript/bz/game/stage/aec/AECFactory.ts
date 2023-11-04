@@ -758,7 +758,7 @@ export class AECFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 40.0, 3.0, 60.0 ),
+            new BABYLON.Vector3( 60.0, 3.0, 60.0 ),
             rotY,
             bz.TextureFile.WALL_STONES_DARK_GRANITE, [
                 new bz.DoorData(

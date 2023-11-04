@@ -120,6 +120,7 @@ export * from './base/data/SpriteFile';
 export * from './base/data/TextureFile';
 export * from './base/data/Texture';
 
+export * from './base/stage/StageBackYard';
 export * from './base/stage/StageIntroLogo';
 export * from './base/stage/StageOffice';
 export * from './base/stage/StageOutside';

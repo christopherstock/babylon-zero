@@ -6,7 +6,7 @@ import * as bz from '../..';
 export abstract class SettingGame
 {
     /** The stage the application starts up with. */
-    public static readonly STAGE_STARTUP                            :bz.StageId         = bz.StageId.PARK;
+    public static readonly STAGE_STARTUP                            :bz.StageId         = bz.StageId.BACKYARD;
 
     public static readonly CRATE_MIN_ENERGY                         :number             = 3.0;
     public static readonly CRATE_MAX_ENERGY                         :number             = 6.0;

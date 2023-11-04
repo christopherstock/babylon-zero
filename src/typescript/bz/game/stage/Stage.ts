@@ -209,6 +209,9 @@ export abstract class Stage
         {
             particleEffect.dispose();
         }
+
+        // dispose fog effect
+        this.getScene().disableFog();
     }
 
     /** ****************************************************************************************************************

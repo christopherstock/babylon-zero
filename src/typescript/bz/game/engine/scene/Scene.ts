@@ -199,16 +199,16 @@ export class Scene
     public enableFog( color:BABYLON.Color3, density:number ) : void
     {
         // Fog Mode 'LINEAR' is faster!
-        this.babylonSceneBG.fogMode    = BABYLON.Scene.FOGMODE_EXP2;
+        // this.babylonSceneBG.fogMode    = BABYLON.Scene.FOGMODE_EXP2;
+        this.babylonSceneBG.fogMode    = BABYLON.Scene.FOGMODE_LINEAR;
         this.babylonSceneBG.fogColor   = color;
 
         // for exponential mode
         this.babylonSceneBG.fogDensity = density;
-/*
+
         // for linear mode
-        this.babylonScene.fogStart = 20.0;
-        this.babylonScene.fogEnd = 60.0;
-*/
+        this.babylonSceneBG.fogStart = 20.0;
+        this.babylonSceneBG.fogEnd = 60.0;
     }
 
     /** ****************************************************************************************************************

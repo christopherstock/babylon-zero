@@ -258,14 +258,6 @@ export class StageOffice extends bz.Stage
             return;
         }
 
-        // back yard
-        bz.AECFactory.addBackyard(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 1700.0, 0.0, 1700.0 ),
-            0.0
-        );
-
         // warehouse
         bz.AECFactory.addWarehouse(
             this,

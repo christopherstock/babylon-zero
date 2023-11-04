@@ -117,6 +117,12 @@ export class Game
                 this.stage = new bz.StagePark( this );
                 break;
             }
+
+            case bz.StageId.BACKYARD:
+            {
+                this.stage = new bz.StageBackYard( this );
+                break;
+            }
         }
 
         // reset and init GUI
