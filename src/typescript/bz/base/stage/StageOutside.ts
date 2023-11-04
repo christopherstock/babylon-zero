@@ -92,6 +92,14 @@ export class StageOutside extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLights2 );
+
+        // rain effect
+        bz.FXFactory.addRainEffect(
+            this,
+            3.0,
+            750,
+            new BABYLON.Vector3( 0.5, -1.5, 0.5 )
+        );
     }
 
     /** ****************************************************************************************************************
