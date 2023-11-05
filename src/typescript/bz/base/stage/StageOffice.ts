@@ -248,9 +248,6 @@ export class StageOffice extends bz.Stage
             0.0
         );
 
-        // add shadows for point light
-        this.addShadowGenerator( pointLights2[ 0 ] );
-
         // add test bots
         this.addTestBots();
     }

@@ -1008,7 +1008,7 @@ export class AECFactory
         bz.AECFactory.addCratesPile(
             stage,
             meshFactory,
-            position.add( new BABYLON.Vector3( 5.0, 0.0, 25.0 ) )
+            position.add( new BABYLON.Vector3( 30.0, 0.0, 30.0 ) )
         );
 
         // pillar from new concrete

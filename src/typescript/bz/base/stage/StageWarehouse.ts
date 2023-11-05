@@ -11,7 +11,7 @@ export class StageWarehouse extends bz.Stage
     public createDefaultConfig() : bz.StageConfig
     {
         return new bz.StageConfig(
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Color3( 0.25, 0.25, 0.25 ),
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
@@ -85,11 +85,14 @@ export class StageWarehouse extends bz.Stage
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 50.0, 5.0, 50.0 ),
-            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
+            new BABYLON.Vector3( 30.0, 9.5, 30.0 ),
+            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLights );
+
+        // add shadows for point light (costs lots of permormance)
+        this.addShadowGenerator( pointLights[ 0 ] );
     }
 
     /** ****************************************************************************************************************

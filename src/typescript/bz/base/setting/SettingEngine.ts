@@ -31,7 +31,7 @@ export abstract class SettingEngine
     public static readonly CAMERA_ANIMATION_FRAMES_PER_SECOND       :number             = 50;
 
     /** Specifies if shadow rendering shall be enabled. */
-    public static readonly ENABLE_SHADOWS                           :boolean            = false;
+    public static readonly ENABLE_SHADOWS                           :boolean            = true;
 
     /** Specifies if the custom loading screen shall be used. */
     public static readonly CUSTOM_LOADING_SCREEN                    :boolean            = true;
