@@ -5,6 +5,11 @@
 ===
 MVP
 ===
+TODO complete version SchnuffelBuffel!
+
+=====================
+More Features & Stuff
+=====================
 TODO animation fade in fade out for FIRE one time animation
 
 TODO Add Player energy and GUI energy (and GUI painkillers display??) (variable display with queue top left)

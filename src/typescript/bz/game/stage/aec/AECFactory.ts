@@ -22,7 +22,7 @@ export class AECFactory
             stage,
             meshFactory,
             position,
-            new BABYLON.Vector3( 80.0, 7.5, 40.0 ),
+            new BABYLON.Vector3( 140.0, 7.5, 140.0 ),
             rotY,
             bz.TextureFile.WALL_WOOD_VERT_1, [], [
             ], 0,
@@ -61,7 +61,7 @@ export class AECFactory
                 meshFactory.createImportedModel
                 (
                     bz.ModelFile.HOUSE_1,
-                    position.add( new BABYLON.Vector3( 45.0, 0.0, 35.0 ) ),
+                    position.add( new BABYLON.Vector3( 100.0, 0.0, 35.0 ) ),
                     bz.PhysicSet.STATIC,
                     90.0,
                     135.0
@@ -69,17 +69,37 @@ export class AECFactory
             )
         );
 
-        // 3d tree 1
+        // 3d trees
         const tree1:bz.Wall = new bz.Wall
         (
             stage,
             new bz.Model(
                 meshFactory.genrateTree(
-                    position.add( new BABYLON.Vector3( 10.0, 0.0, 30.0 ) )
+                    position.add( new BABYLON.Vector3( 15.0, 0.0, 30.0 ) )
                 )
             )
         );
         stage.addWall( tree1 );
+        const tree2:bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model(
+                meshFactory.genrateTree(
+                    position.add( new BABYLON.Vector3( 50.0, 0.0, 30.0 ) )
+                )
+            )
+        );
+        stage.addWall( tree2 );
+        const tree3:bz.Wall = new bz.Wall
+        (
+            stage,
+            new bz.Model(
+                meshFactory.genrateTree(
+                    position.add( new BABYLON.Vector3( 75.0, 0.0, 30.0 ) )
+                )
+            )
+        );
+        stage.addWall( tree3 );
     }
 
     /** ****************************************************************************************************************

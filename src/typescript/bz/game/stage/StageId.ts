@@ -17,4 +17,6 @@ export enum StageId
     BACKYARD,
     /** The 'warehouse' stage. */
     WAREHOUSE,
+    /** The 'residental street' stage. */
+    RESIDENTAL_STREET,
 }

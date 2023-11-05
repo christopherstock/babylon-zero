@@ -3,7 +3,7 @@ import * as bz from '../..';
 /** ********************************************************************************************************************
 *   Specifies the 'StageOutside' stage.
 ***********************************************************************************************************************/
-export class StageWarehouse extends bz.Stage
+export class StageResidentalStreet extends bz.Stage
 {
     /** ****************************************************************************************************************
     *   Creates the stage config that is applied on initializing this stage.
@@ -11,7 +11,7 @@ export class StageWarehouse extends bz.Stage
     public createDefaultConfig() : bz.StageConfig
     {
         return new bz.StageConfig(
-            new BABYLON.Color3( 0.25, 0.25, 0.25 ),
+            new BABYLON.Color3( 0.3, 0.3, 0.3 ),
             bz.SettingColor.COLOR_RGBA_BLACK_OPAQUE,
             bz.CameraType.FIRST_PERSON,
             new BABYLON.Vector3(
@@ -39,7 +39,7 @@ export class StageWarehouse extends bz.Stage
             new bz.Event(
                 bz.EventType.SWITCH_TO_STAGE,
                 new bz.EventDataStageSwitch(
-                    bz.StageId.RESIDENTAL_STREET,
+                    bz.StageId.OFFICE,
                     new BABYLON.Vector3(
                         0.0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                         ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
@@ -52,7 +52,7 @@ export class StageWarehouse extends bz.Stage
         bz.RoomFactory.addRoomWalls(
             this,
             this.getMeshFactory(),
-            new BABYLON.Vector3( 45.0, 0.0, 60.0 ),
+            new BABYLON.Vector3( 140.0 - 20.0, 0.0, 140.0 ),
             new BABYLON.Vector3( 5.0, 10.0, 5.0 ),
             90.0,
             null, null, null, null,
@@ -70,11 +70,12 @@ export class StageWarehouse extends bz.Stage
                     bz.SettingAEC.DOOR_WIDTH,
                     true
                 ),
-            ], [], 0
+            ], [],
+            0
         );
 
-        // warehouse
-        bz.AECFactory.addWarehouse(
+        // residental street
+        bz.AECFactory.addResidentalStreet(
             this,
             this.getMeshFactory(),
             new BABYLON.Vector3( 0.0, 0.0, 0.0 ),
@@ -85,14 +86,21 @@ export class StageWarehouse extends bz.Stage
         const pointLights :BABYLON.PointLight[] = bz.LightFactory.createPoint
         (
             [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
-            new BABYLON.Vector3( 30.0, 9.5, 30.0 ),
-            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
+            new BABYLON.Vector3( 80.0, 9.5, 20.0 ),
+            new BABYLON.Color3( 1.0, 1.0, 1.0 ),
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLights );
 
-        // add shadows for point light (costs lots of permormance)
-        this.addShadowGenerator( pointLights[ 0 ] );
+        // 2nd point light
+        const pointLights2 :BABYLON.PointLight[] = bz.LightFactory.createPoint
+        (
+            [ this.getScene().getNativeSceneBG(), this.getScene().getNativeSceneFG() ],
+            new BABYLON.Vector3( 135.0, 9.5, 135.0 ),
+            new BABYLON.Color3( 0.75, 0.75, 0.75 ),
+            new BABYLON.Color3( 0.0, 0.0, 0.0 )
+        );
+        this.addLight( pointLights2 );
     }
 
     /** ****************************************************************************************************************

@@ -129,6 +129,12 @@ export class Game
                 this.stage = new bz.StageWarehouse( this );
                 break;
             }
+
+            case bz.StageId.RESIDENTAL_STREET:
+            {
+                this.stage = new bz.StageResidentalStreet( this );
+                break;
+            }
         }
 
         // reset and init GUI

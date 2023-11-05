@@ -126,6 +126,7 @@ export * from './base/stage/StageOffice';
 export * from './base/stage/StageOutside';
 export * from './base/stage/StagePark';
 export * from './base/stage/StageParkingLot';
+export * from './base/stage/StageResidentalStreet';
 export * from './base/stage/StageWarehouse';
 
 export * from './util/DOMUtil';

@@ -240,14 +240,6 @@ export class StageOffice extends bz.Stage
             return;
         }
 
-        // residental street
-        bz.AECFactory.addResidentalStreet(
-            this,
-            this.getMeshFactory(),
-            new BABYLON.Vector3( 100.0, 0.0, 100.0 ),
-            0.0
-        );
-
         // add test bots
         this.addTestBots();
     }
