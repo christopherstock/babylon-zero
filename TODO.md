@@ -5,7 +5,7 @@
 ===
 MVP
 ===
-TODO complete version SchnuffelBuffel!
+complete!
 
 =====================
 More Features & Stuff

@@ -180,8 +180,8 @@ export class PlayerWearpon
                     0.0,
                     (
                         this.lowerWearpon
-                        ? -bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
-                        : bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
+                            ? -bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
+                            : bz.SettingWearpon.SHOTGUN_LOWER_SIZE_Y
                     ),
                     0.0
                 )

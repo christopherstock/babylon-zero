@@ -41,7 +41,7 @@ export class StageResidentalStreet extends bz.Stage
                 new bz.EventDataStageSwitch(
                     bz.StageId.OFFICE,
                     new BABYLON.Vector3(
-                        0.0 + ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
+                        ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 ),
                         ( bz.SettingPlayer.HEIGHT_Y_STANDING / 2 ) + bz.SettingAEC.FLOOR_OFFSET_Y,
                         ( bz.SettingAEC.WALL_DEPTH + bz.SettingPlayer.DIAMETER_BODY / 2 )
                     ),
@@ -101,6 +101,9 @@ export class StageResidentalStreet extends bz.Stage
             new BABYLON.Color3( 0.0, 0.0, 0.0 )
         );
         this.addLight( pointLights2 );
+
+        // add test bots
+        this.addTestBots();
     }
 
     /** ****************************************************************************************************************
@@ -109,5 +112,99 @@ export class StageResidentalStreet extends bz.Stage
     protected handleStageKeys() : void
     {
         // no specific keys to handle in this stage
+    }
+
+    /** ****************************************************************************************************************
+    *   Adds some test bots to this stage.
+    *******************************************************************************************************************/
+    private addTestBots() : void
+    {
+        // add bot - walking towards axis X
+        this.addBot(
+            new bz.Bot(
+                0,
+                this,
+                bz.BotType.TEST_WALK_X,
+                new BABYLON.Vector3( 10.0, bz.SettingAEC.FLOOR_OFFSET_Y, 20.0 )
+            )
+        );
+
+        // add bot 1 - dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
+
+        // add bot 2 - walking dude A
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 20.0, 0.0, 20.0 )
+            )
+        );
+        // add bot 2 - walking dude B
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 10.0, 0.0, 25.0 )
+            )
+        );
+
+        // add bot 2 - walking dude C
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 32.5, 0.0, 45.0 )
+            )
+        );
+        // add bot 2 - walking dude D
+        this.addBot(
+            new bz.Bot(
+                0.0,
+                this,
+                bz.BotType.TEST_WALKING_DUDE,
+                new BABYLON.Vector3( 40.5, 0.0, 55.0 )
+            )
+        );
+/*
+        // add bot 3 - one more dancing girl on 0,0,0
+        this.addBot(
+            new bz.Bot(
+                -90.0,
+                this,
+                bz.BotType.TEST_DANCING_GIRL,
+                new BABYLON.Vector3( 0.0, 0.0, 0.0 )
+            )
+        );
+*/
+/*
+        // add bot - walking towards player
+        this.addBot(
+            [
+                new bz.Bot(
+                    0,
+                    this,
+                    bz.BotType.TEST_WALKING_DUDE,
+                    new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
+                ),
+                new bz.Bot(
+                    0,
+                    this,
+                    bz.BotType.TEST_WALK_TOWARDS_PLAYER,
+                    new BABYLON.Vector3( 50.0, bz.SettingAEC.FLOOR_OFFSET_Y, 70.0 )
+                ),
+            ]
+        );
+*/
     }
 }
