@@ -1,6 +1,5 @@
 ![babylon-zero](https://github.com/christopherstock/babylon-zero/raw/master/_ASSET/promo/promoBadge8_960x512.gif)
-#### Discovering babylon.JS 4.0 - WebGL made simple and powerful!
-
+# Discovering babylon.JS 4.0 - WebGL made simple and powerful!
 Experience sheer development passion in our workshop from 15.-18. May 2019 at the Mayflower Barcamp in Bayreuth!
 
 ## Online Demo
