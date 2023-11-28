@@ -67,9 +67,9 @@ module.exports = ( env, argv ) => {
                     {
                         loader: 'less-loader',
                         options: {
-                            relativeUrls:      false,
                             sourceMap:         true,
-                            javascriptEnabled: true,
+                            // relativeUrls:      false,
+                            // javascriptEnabled: true,
                         },
                     },
                 ],
